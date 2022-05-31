@@ -1,0 +1,305 @@
+{
+
+  "types": [
+    {
+      "id" : 0,
+      "name" : "None"
+    },
+    {
+      "id" : 1,
+      "name" : "Grass"
+    },
+    {
+      "id" : 2,
+      "name" : "Fire"
+    },
+    {
+      "id" : 3,
+      "name" : "Water"
+    },
+    {
+      "id" : 4,
+      "name" : "Electric"
+    },
+    {
+      "id" : 5,
+      "name" : "Normal"
+    },{
+      "id" : 6,
+      "name" : "Flying"
+    },
+    {
+      "id" : 7,
+      "name" : "Bug"
+    },
+    {
+      "id" : 8,
+      "name" : "Poison"
+    },
+    {
+      "id" : 9,
+      "name" : "Rock"
+    },
+    {
+      "id" : 10,
+      "name" : "Ground"
+    },
+    {
+      "id" : 11,
+      "name" : "Fighting"
+    }
+  ],
+  "moves" : [
+    {
+      "basic_move" : {
+        "id" : 1,
+        "name" : "Scratch",
+        "power" : "40",
+        "pp": "35",
+        "type" : 5,
+        "description" : ""
+      },
+      "basic_move" : {
+        "id" : 2,
+        "name" : "Tackle",
+        "power" : "40",
+        "pp": "30",
+        "type" : 5,
+        "description" : ""
+      },
+      "priority_move" : {
+        "id" : 3,
+        "name" : "Quick Attack",
+        "power" : "40",
+        "pp": "30",
+        "type" : 5,
+        "description" : "",
+        "priority_level" : 1
+      },
+      "basic_move" : {
+        "id" : 4,
+        "name" : "Gust",
+        "power" : "40",
+        "pp": "35",
+        "type" : 6,
+        "description" : ""
+      },
+      "basic_move": {
+        "id" : 5,
+        "name" : "Vine Whip",
+        "power" : "45",
+        "pp": "25",
+        "type" : 1,
+        "description" : ""
+      },
+      "basic_move": {
+        "id" : 6,
+        "name" : "Water Gun",
+        "power" : "40",
+        "pp": "25",
+        "type" : 3,
+        "description" : ""
+      },
+      "status_move": {
+        "id" : 7,
+        "name" : "Ember",
+        "power" : "40",
+        "pp": "25",
+        "type" : 2,
+        "description" : "",
+        "status" : "BURN",
+        "probability" : 10
+      },
+      "status_move": {
+        "id" : 8,
+        "name" : "Thunder Shock",
+        "power" : "40",
+        "pp": "25",
+        "type" : 4,
+        "description" : "",
+        "status" : "PARALYSIS",
+        "probability" : 10
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "1",
+      "name" : "Potion"
+    },
+    {
+      "id": "2",
+      "name" : "Full Heal"
+    },
+    {
+      "id": "3",
+      "name" : "Rare Candy"
+    },
+    {
+      "id": "4",
+      "name" : "Berry"
+    },
+    {
+      "id": "5",
+      "name" : "AndroCoin"
+    },
+    {
+      "id": "6",
+      "name" : "Poké Ball"
+    },
+    {
+      "id": "7",
+      "name" : "Great Ball"
+    }
+  ],
+  "pokemons" : [
+    {
+      "id" : 1,
+      "name" : "Bulbasaur",
+      "type1" : "1",
+      "type2" : "8",
+      "possible_moves" : [
+        {
+          "move_id" : "2",
+          "learn_method": "level",
+          "level" : 1
+        }
+      ],
+      "catch_rate": 30
+    },
+    {
+      "id": 4,
+      "name" : "Charmander",
+      "type1" : "2",
+      "type2" : "0",
+      "possible_moves" : [
+        {
+          "move_id" : "1",
+          "learn_method": "level",
+          "level" : 1
+        }
+      ],
+      "catch_rate": 30
+    },
+    {
+      "id" : 7,
+      "name" : "Squirtle",
+      "type1" : "3",
+      "type2" : "0",
+      "possible_moves" : [
+        {
+          "move_id" : "2",
+          "learn_method": "level",
+          "level" : 1
+        }
+      ],
+      "catch_rate": 30
+    },
+    {
+      "id": 16,
+      "name" : "Pidgey",
+      "type1" : "5",
+      "type2" : "6",
+      "possible_moves" : [
+
+      ],
+      "catch_rate": 50
+    },
+    {
+      "id": 25,
+      "name" : "Pikachu",
+      "type1" : "4",
+      "type2" : "0",
+      "possible_moves" : [
+
+      ],
+      "catch_rate": 30
+    }
+  ],
+  "banners" : [
+    {
+      "id" : 1,
+      "pokemon" : 25,
+      "moves": [
+
+      ]
+    }
+  ],
+  "levels" : [
+    {
+      "id": 1,
+      "name" : "VS Rival",
+      "description" : "After receiving your first pokemon, your rival challenges you to show you how powerful he is",
+      "type" : "Trainer Battle",
+      "opponents" : [
+
+      ],
+      "rewards" :[
+        {
+          "item" : 1,
+          "quantity" : 1
+        },
+        {
+          "item" : 5,
+          "quantity" : 10
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name" : "Route 1",
+      "description" : "While walking along route 1, you come across wild pokemon",
+      "type" : "Wild Encounter",
+      "opponents" : [
+
+      ],
+      "rewards" :[
+        {
+          "item" : 4,
+          "quantity" : 5
+        },
+        {
+          "item" : 5,
+          "quantity" : 10
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Route 22",
+      "description" : "After arriving in Viridian City, you decide to go to route 22 to fight the pokemon league. However, some pokemon attack you",
+      "opponents" : [
+
+      ],
+      "rewards" :[
+      {
+        "item" : 4,
+        "quantity" : 5
+      },
+      {
+        "item" : 5,
+        "quantity" : 30
+      }
+    ]
+    },
+    {
+      "id" : 4,
+      "name" : "VS Rival 2",
+      "description" : "Having no badge, the guard does not let you enter the victory road. However, you come across your rival",
+      "type" : "Trainer Battle",
+      "opponents" : [
+
+      ],
+      "rewards" :[
+        {
+          "item" : 1,
+          "quantity" : 1
+        },
+        {
+          "item" : 5,
+          "quantity" : 10
+        }
+      ]
+    }
+  ]
+}
