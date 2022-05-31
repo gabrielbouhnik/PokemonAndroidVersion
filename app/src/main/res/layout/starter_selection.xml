@@ -9,10 +9,10 @@
             android:id="@+id/oakView"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.004"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.0"
             tools:srcCompat="@mipmap/oak_foreground"
             android:visibility="visible" app:srcCompat="@mipmap/oak_foreground"
-            app:layout_constraintHorizontal_bias="0.56"/>
+            app:layout_constraintHorizontal_bias="0.562"/>
     <TextView
             android:layout_width="406dp"
             android:layout_height="168dp"
@@ -21,9 +21,9 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" android:id="@+id/oakTextView"
-            app:layout_constraintHorizontal_bias="0.63" app:layout_constraintVertical_bias="0.713"
+            app:layout_constraintHorizontal_bias="0.63" app:layout_constraintVertical_bias="0.707"
             android:textSize="20sp" android:textAlignment="center" android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="4dp" android:backgroundTint="#DCDCDC"
+            app:layout_constraintEnd_toEndOf="parent" android:backgroundTint="#DCDCDC"
             android:background="#FFFFFF"/>
     <Button
             android:text="Next"
@@ -32,7 +32,7 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:textSize="24sp"
             android:backgroundTint="#3F51B5" app:layout_constraintHorizontal_bias="0.909" android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.915"/>
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.854"/>
     <ImageView
             android:layout_width="129dp"
             android:layout_height="127dp"
@@ -40,7 +40,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.508"
-            app:layout_constraintHorizontal_bias="0.161"/>
+            app:layout_constraintHorizontal_bias="0.161" android:visibility="visible"/>
     <ImageView
             android:layout_width="129dp"
             android:layout_height="127dp"
@@ -48,7 +48,8 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.535" app:layout_constraintVertical_bias="0.508"/>
+            app:layout_constraintHorizontal_bias="0.535" app:layout_constraintVertical_bias="0.508"
+            android:visibility="visible"/>
     <ImageView
             android:layout_width="129dp"
             android:layout_height="127dp"
@@ -56,5 +57,31 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.507"
-            app:layout_constraintHorizontal_bias="0.907"/>
+            app:layout_constraintHorizontal_bias="0.906" android:visibility="visible"/>
+    <EditText
+            android:layout_width="169dp"
+            android:layout_height="67dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/characterName"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="48dp"
+            app:layout_constraintHorizontal_bias="0.18" android:hint="Character Name" android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/submitButton"/>
+    <Button
+            android:text="Confirm"
+            android:layout_width="187dp"
+            android:layout_height="78dp" android:id="@+id/submitButton"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:textSize="24sp"
+            android:backgroundTint="#3F51B5" app:layout_constraintHorizontal_bias="0.814" android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.048"/>
+    <Switch
+            android:id="@+id/genderSwitch"
+            android:switchPadding="10dp"
+            android:text="Boy/Girl" android:layout_height="63dp" android:layout_width="150dp"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="112dp"
+            android:visibility="gone" app:layout_constraintHorizontal_bias="0.049"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
