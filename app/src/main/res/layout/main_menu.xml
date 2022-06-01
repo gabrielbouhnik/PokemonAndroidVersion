@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                                   android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="259dp"
+            android:layout_height="73dp" android:id="@+id/adventureDescriptionTextView"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:text="Face the trainers and wild pokemon that stand in your way" android:textSize="18sp"
+            android:textAlignment="center" app:layout_constraintTop_toBottomOf="@+id/adventureButton"
+            android:layout_marginTop="12dp"/>
+    <Button
+            android:text="Adventure"
+            android:layout_width="205dp"
+            android:layout_height="57dp" android:id="@+id/adventureButton"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="48dp" android:background="#4CAF50"
+            android:backgroundTint="#4CAF50" android:textAlignment="center" android:textSize="18sp"
+            android:textStyle="bold" android:textColor="#FFFFFF"/>
+    <Button
+            android:text="Pokemon"
+            android:layout_width="205dp"
+            android:layout_height="57dp" android:id="@+id/pokemonsButton"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="308dp" android:background="#4CAF50"
+            android:backgroundTint="#4CAF50" android:textAlignment="center" android:textSize="18sp"
+            android:textStyle="bold" android:textColor="#FFFFFF"/>
+    <Button
+            android:text="Banners"
+            android:layout_width="205dp"
+            android:layout_height="57dp" android:id="@+id/bannersButton"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="536dp" android:background="#4CAF50"
+            android:backgroundTint="#4CAF50" android:textAlignment="center" android:textSize="18sp"
+            android:textStyle="bold" android:textColor="#FFFFFF"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

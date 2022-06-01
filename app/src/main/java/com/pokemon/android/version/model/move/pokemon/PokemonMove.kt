@@ -1,6 +1,15 @@
 package com.pokemon.android.version.model.move.pokemon
 
-open class PokemonMove {
-    var move : PokemonMove? = null
-    var pp : Int = 0
+import com.pokemon.android.version.entity.pokemon.MoveLearnWithHMEntity
+import com.pokemon.android.version.model.move.Move
+
+open class PokemonMove (
+    var move : Move,
+    var pp : Int) {
+    companion object {
+        fun of(moveLearnWithHMEntity: MoveLearnWithHMEntity, moves: List<Move>): PokemonMove {
+            var move = moves.filter { it.id == moveLearnWithHMEntity.moveId }.first()
+            return PokemonMove(move, move.pp)
+        }
+    }
 }

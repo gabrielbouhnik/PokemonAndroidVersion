@@ -3,37 +3,51 @@ package com.pokemon.android.version
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.PokemonData
-import com.pokemon.android.version.model.item.Item
+import com.pokemon.android.version.model.item.ItemData
 import com.pokemon.android.version.model.move.Move
+import com.pokemon.android.version.model.move.MoveFactory
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.model.move.pokemon.PokemonMoveLearnedByLevel
-
+import com.pokemon.android.version.repository.ItemRepository
+import com.pokemon.android.version.repository.MovesRepository
+import com.pokemon.android.version.repository.PokemonRepository
 
 import kotlin.random.Random
 import kotlin.random.nextInt
 
 class GameDataService {
-    var items : List<Item> = ArrayList()
+    var items : List<ItemData> = ArrayList()
     var moves : List<Move> = ArrayList()
     var pokemons : List<PokemonData> = ArrayList()
 
-    fun loadGameData(){
+    companion object {
+        const val MOVES_DATA_PATH = "game_data/moves.json"
+        const val ITEMS_DATA_PATH = "game_data/items.json"
+        const val POKEMON_DATA_PATH = "game_data/pokemons.json"
+    }
 
+    fun loadGameData(activity: MainActivity){
+        var pokemonRepository = PokemonRepository()
+        var itemRepository = ItemRepository()
+        var movesRepository = MovesRepository()
+        this.items = itemRepository.loadData(activity).map{ItemData.of(it)}
+        this.moves = MoveFactory.createMove(movesRepository.loadData(activity))
+        this.pokemons = pokemonRepository.loadData(activity).map{PokemonData.of(it, moves)}
     }
 
     fun generatePokemon(id : Int, level : Int) :  Pokemon {
-        var pokemonData : PokemonData = pokemons.filter {it.id == id}.first()
-        var hp : Int = 10 + pokemonData.hp * (if (level/50 == 0) 1 else (level/50))
-        var attack : Int = 5 + pokemonData.attack * (if (level/50 == 0) 1 else (level/50))
-        var defense : Int = 5 + pokemonData.defense * (if (level/50 == 0) 1 else (level/50))
-        var spAtk : Int = 5 + pokemonData.spAtk * (if (level/50 == 0) 1 else (level/50))
-        var spDef : Int = 5 + pokemonData.spDef * (if (level/50 == 0) 1 else (level/50))
-        var speed : Int = 5 + pokemonData.speed * (if (level/50 == 0) 1 else (level/50))
-        var moves : List<PokemonMove> = pokemonData.possible_moves.filter { it is PokemonMoveLearnedByLevel && (it as PokemonMoveLearnedByLevel).level <= level }
-        var move1 : PokemonMove = moves.last()
-        var move2 : PokemonMove? = if (moves.size < 2) null else moves.get(moves.size - 2)
-        var move3 : PokemonMove? = if (moves.size < 3) null else moves.get(moves.size - 3)
-        var move4 : PokemonMove? = if (moves.size < 4) null else moves.get(moves.size - 4)
+        val pokemonData : PokemonData = pokemons.filter {it.id == id}.first()
+        val hp : Int = 10 + pokemonData.hp * (if (level/50 == 0) 1 else (level/50))
+        val attack : Int = 5 + pokemonData.attack * (if (level/50 == 0) 1 else (level/50))
+        val defense : Int = 5 + pokemonData.defense * (if (level/50 == 0) 1 else (level/50))
+        val spAtk : Int = 5 + pokemonData.spAtk * (if (level/50 == 0) 1 else (level/50))
+        val spDef : Int = 5 + pokemonData.spDef * (if (level/50 == 0) 1 else (level/50))
+        val speed : Int = 5 + pokemonData.speed * (if (level/50 == 0) 1 else (level/50))
+        val moves : List<PokemonMove> = pokemonData.possibleMoves.filter { it is PokemonMoveLearnedByLevel && (it as PokemonMoveLearnedByLevel).level <= level }
+        val move1 : PokemonMove = moves.last()
+        val move2 : PokemonMove? = if (moves.size < 2) null else moves[moves.size - 2]
+        val move3 : PokemonMove? = if (moves.size < 3) null else moves[moves.size - 3]
+        val move4 : PokemonMove? = if (moves.size < 4) null else moves[moves.size - 4]
         var gender : Gender = Gender.MALE
         if (Random.nextInt(1..10) > 5)
             gender = Gender.FEMALE

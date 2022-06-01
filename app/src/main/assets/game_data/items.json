@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "name": "Potion"
+  },
+  {
+    "id": "2",
+    "name": "Full Heal"
+  },
+  {
+    "id": "3",
+    "name": "Rare Candy"
+  },
+  {
+    "id": "4",
+    "name": "Berry"
+  },
+  {
+    "id": "5",
+    "name": "AndroCoin"
+  },
+  {
+    "id": "6",
+    "name": "Poké Ball"
+  },
+  {
+    "id": "7",
+    "name": "Great Ball"
+  }
+]
