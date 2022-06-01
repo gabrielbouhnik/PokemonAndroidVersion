@@ -7,6 +7,8 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.pokemon.android.version.model.Pokemon
+import com.pokemon.android.version.ui.MainMenu
+import com.pokemon.android.version.ui.StarterSelection
 import kotlin.random.Random
 import kotlin.random.nextInt
 
@@ -78,6 +80,7 @@ class MainActivity : AppCompatActivity() {
     fun updateMusic(id : Int){
         mediaPlayer?.stop()
         mediaPlayer = MediaPlayer.create(this,id)
+        mediaPlayer?.isLooping = true
         mediaPlayer?.start()
     }
 

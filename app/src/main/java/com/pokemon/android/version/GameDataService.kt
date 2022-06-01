@@ -11,6 +11,7 @@ import com.pokemon.android.version.model.move.pokemon.PokemonMoveLearnedByLevel
 import com.pokemon.android.version.repository.ItemRepository
 import com.pokemon.android.version.repository.MovesRepository
 import com.pokemon.android.version.repository.PokemonRepository
+import kotlin.math.roundToInt
 
 import kotlin.random.Random
 import kotlin.random.nextInt
@@ -37,12 +38,12 @@ class GameDataService {
 
     fun generatePokemon(id : Int, level : Int) :  Pokemon {
         val pokemonData : PokemonData = pokemons.filter {it.id == id}.first()
-        val hp : Int = 10 + pokemonData.hp * (if (level/50 == 0) 1 else (level/50))
-        val attack : Int = 5 + pokemonData.attack * (if (level/50 == 0) 1 else (level/50))
-        val defense : Int = 5 + pokemonData.defense * (if (level/50 == 0) 1 else (level/50))
-        val spAtk : Int = 5 + pokemonData.spAtk * (if (level/50 == 0) 1 else (level/50))
-        val spDef : Int = 5 + pokemonData.spDef * (if (level/50 == 0) 1 else (level/50))
-        val speed : Int = 5 + pokemonData.speed * (if (level/50 == 0) 1 else (level/50))
+        val hp : Int = 10 + (pokemonData.hp.toFloat() * (level/50f)).roundToInt()
+        val attack : Int = 5 + (pokemonData.attack.toFloat() * (level/50f)).roundToInt()
+        val defense : Int = 5 + (pokemonData.defense.toFloat() * (level/50f)).roundToInt()
+        val spAtk : Int = 5 + (pokemonData.spAtk.toFloat() * (level/50f)).roundToInt()
+        val spDef : Int = 5 + (pokemonData.spDef.toFloat() * (level/50f)).roundToInt()
+        val speed : Int = 5 + (pokemonData.speed.toFloat() * (level/50f)).roundToInt()
         val moves : List<PokemonMove> = pokemonData.possibleMoves.filter { it is PokemonMoveLearnedByLevel && (it as PokemonMoveLearnedByLevel).level <= level }
         val move1 : PokemonMove = moves.last()
         val move2 : PokemonMove? = if (moves.size < 2) null else moves[moves.size - 2]

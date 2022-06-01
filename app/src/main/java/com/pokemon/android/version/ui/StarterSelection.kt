@@ -1,11 +1,12 @@
-package com.pokemon.android.version
+package com.pokemon.android.version.ui
 
-import android.media.MediaPlayer
 import android.view.View.*
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Switch
 import android.widget.TextView
+import com.pokemon.android.version.MainActivity
+import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Trainer
 import com.pokemon.android.version.model.Gender
 
@@ -40,7 +41,7 @@ class StarterSelection {
     fun displayOakResponse(activity : MainActivity, starterName: String){
         val nextButton : Button = activity.findViewById(R.id.nextButton)
         val oakTextView : TextView = activity.findViewById(R.id.oakTextView)
-        oakTextView.text = "So you chose $starterName\nYou can now go on an adventure and become a great pokemon trainer."
+        oakTextView.text = "So you chose $starterName.\nYou can now go on an adventure and become a great pokemon trainer."
         nextButton.visibility = VISIBLE ;
         nextButton.setOnClickListener{
             activity.updateMusic(R.raw.main_menu)

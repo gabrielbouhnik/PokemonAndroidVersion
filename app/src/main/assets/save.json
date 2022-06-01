@@ -1,0 +1,31 @@
+{
+  "name": "Gabriel",
+  "gender" : "Male",
+  "pokemons" : [
+    {
+      "id" : 1,
+      "level": 5,
+      "moves" : [2,5],
+      "gender": "MALE",
+      "status": "OK",
+      "hp": 60,
+      "attack": 30,
+      "defense": 30,
+      "spAtk": 36,
+      "spDef": 56,
+      "speed": 50
+    }
+  ],
+  "team" : [
+    {
+      "id" : 1,
+      "level": 5,
+      "moves" : [2,5],
+      "gender": "MALE",
+      "status": "OK"
+    }
+  ],
+  "items": [],
+  "coin": 200,
+  "progression": 0
+}
