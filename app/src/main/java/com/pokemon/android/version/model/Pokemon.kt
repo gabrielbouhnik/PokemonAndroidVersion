@@ -2,10 +2,10 @@ package com.pokemon.android.version.model
 
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 
-class Pokemon (val data : PokemonData?,
+class Pokemon (val data : PokemonData,
                var trainer : Trainer?,
                var level : Int,
-               var move1 : PokemonMove?,
+               var move1 : PokemonMove,
                var move2 : PokemonMove?,
                var move3 : PokemonMove?,
                var move4 : PokemonMove?,
@@ -17,6 +17,7 @@ class Pokemon (val data : PokemonData?,
                var spAtk : Int = 0,
                var spDef : Int = 0,
                var speed : Int = 0,
+               var currentHP : Int  = 0,
                var attackMultiplicator : Float = 1F,
                var defenseMultiplicator : Float = 1F,
                var spAtkMultiplicator : Float = 1F,
@@ -27,10 +28,10 @@ class Pokemon (val data : PokemonData?,
 {
 
 
-    constructor(data: PokemonData?, trainer: Trainer?, level: Int,
-                move1: PokemonMove?, move2: PokemonMove?, move3: PokemonMove?, move4: PokemonMove?, gender : Gender?,
+    constructor(data: PokemonData, trainer: Trainer?, level: Int,
+                move1: PokemonMove, move2: PokemonMove?, move3: PokemonMove?, move4: PokemonMove?, gender : Gender?,
                 hp : Int, attack : Int, defense : Int, spAtk : Int, spDef : Int, speed : Int)
-            : this(data, trainer, level, move1, move2, move3, move4, Status.OK, gender, hp, attack,defense,spAtk, spDef, speed)
+            : this(data, trainer, level, move1, move2, move3, move4, Status.OK, gender, hp, attack,defense,spAtk, spDef, speed, hp)
 
     data class PokemonBuilder(
         var data : PokemonData? = null,
@@ -64,10 +65,10 @@ class Pokemon (val data : PokemonData?,
             fun spDef(spDef: Int) = apply { this.spDef = spDef }
             fun speed(speed: Int) = apply { this.speed = speed }
             fun build() = Pokemon(
-                data,
+                data!!,
                 trainer,
                 level,
-                move1,
+                move1!!,
                 move2,
                 move3,
                 move4,

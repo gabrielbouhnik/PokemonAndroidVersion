@@ -2,6 +2,7 @@ package com.pokemon.android.version
 
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.view.View.GONE
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -27,19 +28,25 @@ class MainActivity : AppCompatActivity() {
         val charmander : Pokemon = gameDataService.generatePokemon(4,5)
         val squirtle : Pokemon = gameDataService.generatePokemon(7,5)
         val sprite1 : ImageView = findViewById(R.id.Sprite1View)
+        val sprite2 : ImageView = findViewById(R.id.Sprite2View)
+        val sprite3 : ImageView = findViewById(R.id.Sprite3View)
         sprite1.setOnClickListener{
             trainer!!.pokemons.add(bulbasaur)
             starterSelection!!.displayOakResponse(this, bulbasaur.data!!.name)
+            sprite2.visibility = GONE
+            sprite3.visibility = GONE
         }
-        val sprite2 : ImageView = findViewById(R.id.Sprite2View)
         sprite2.setOnClickListener{
             trainer!!.pokemons.add(charmander)
             starterSelection!!.displayOakResponse(this, charmander.data!!.name)
+            sprite1.visibility = GONE
+            sprite3.visibility = GONE
         }
-        val sprite3 : ImageView = findViewById(R.id.Sprite3View)
         sprite3.setOnClickListener{
             trainer!!.pokemons.add(squirtle)
             starterSelection!!.displayOakResponse(this, squirtle.data!!.name)
+            sprite1.visibility = GONE
+            sprite2.visibility = GONE
         }
         Glide.with(this)
             .load(spritesUrl + "1.png")
@@ -52,6 +59,11 @@ class MainActivity : AppCompatActivity() {
             .into(sprite3)
     }
 
+    fun displayPokemon(id : Int, imageView: ImageView){
+        Glide.with(this)
+            .load("$spritesUrl$id.png")
+            .into(imageView)
+    }
 
     fun displayRandomPokemon(){
         val random = Random.nextInt(1..225)
