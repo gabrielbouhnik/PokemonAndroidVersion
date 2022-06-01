@@ -57,6 +57,7 @@
         "power" : "40",
         "pp": "35",
         "type" : 5,
+        "accuracy" : 100,
         "description" : ""
       },
       "basic_move" : {
@@ -65,6 +66,7 @@
         "power" : "40",
         "pp": "30",
         "type" : 5,
+        "accuracy" : 100,
         "description" : ""
       },
       "priority_move" : {
@@ -73,6 +75,7 @@
         "power" : "40",
         "pp": "30",
         "type" : 5,
+        "accuracy" : 100,
         "description" : "",
         "priority_level" : 1
       },
@@ -82,6 +85,7 @@
         "power" : "40",
         "pp": "35",
         "type" : 6,
+        "accuracy" : 100,
         "description" : ""
       },
       "basic_move": {
@@ -90,6 +94,7 @@
         "power" : "45",
         "pp": "25",
         "type" : 1,
+        "accuracy" : 100,
         "description" : ""
       },
       "basic_move": {
@@ -98,6 +103,7 @@
         "power" : "40",
         "pp": "25",
         "type" : 3,
+        "accuracy" : 100,
         "description" : ""
       },
       "status_move": {
@@ -106,6 +112,7 @@
         "power" : "40",
         "pp": "25",
         "type" : 2,
+        "accuracy" : 100,
         "description" : "",
         "status" : "BURN",
         "probability" : 10
@@ -116,9 +123,39 @@
         "power" : "40",
         "pp": "25",
         "type" : 4,
+        "accuracy" : 100,
         "description" : "",
         "status" : "PARALYSIS",
         "probability" : 10
+      },
+      "crit_move": {
+        "id" : 9,
+        "name" : "Karate Chop",
+        "power" : "50",
+        "pp": "25",
+        "type" : 11,
+        "accuracy" : 100,
+        "description" : ""
+      },
+      "variable_hit_move": {
+        "id" : 10,
+        "name" : "Fury Attack",
+        "power" : "15",
+        "pp": "20",
+        "type" : 5,
+        "accuracy" : 85,
+        "description" : "",
+        "min" : 2,
+        "max" : 5
+      },
+      "basic_move" : {
+        "id" : 11,
+        "name" : "Peck",
+        "power" : "35",
+        "pp": "35",
+        "type" : 6,
+        "accuracy" : 100,
+        "description" : ""
       }
     }
   ],
@@ -156,16 +193,22 @@
     {
       "id" : 1,
       "name" : "Bulbasaur",
-      "type1" : "1",
-      "type2" : "8",
+      "type1" : 1,
+      "type2" : 8,
       "possible_moves" : [
         {
-          "move_id" : "2",
-          "learn_method": "level",
+          "move_id" : 1,
+          "learn_method": "LEVEL",
           "level" : 1
         }
       ],
-      "catch_rate": 30
+      "hp": 45,
+      "attack": 49,
+      "defense": 49,
+      "spAtk": 65,
+      "spDef": 65,
+      "speed": 45,
+      "catchRate": 30
     },
     {
       "id": 4,
@@ -174,46 +217,228 @@
       "type2" : "0",
       "possible_moves" : [
         {
-          "move_id" : "1",
-          "learn_method": "level",
+          "move_id" : 1,
+          "learn_method": "LEVEL",
           "level" : 1
+        },
+        {
+          "move_id" : 7,
+          "learn_method": "LEVEL",
+          "level" : 4
         }
       ],
-      "catch_rate": 30
+      "hp": 39,
+      "attack": 52,
+      "defense": 43,
+      "spAtk": 60,
+      "spDef": 50,
+      "speed": 65,
+      "catchRate": 30
     },
     {
       "id" : 7,
       "name" : "Squirtle",
-      "type1" : "3",
-      "type2" : "0",
+      "type1" : 3,
+      "type2" : 0,
       "possible_moves" : [
         {
-          "move_id" : "2",
-          "learn_method": "level",
+          "move_id" :2,
+          "learn_method": "LEVEL",
           "level" : 1
+        },
+        {
+          "move_id" : 6,
+          "learn_method": "LEVEL",
+          "level" : 6
         }
       ],
-      "catch_rate": 30
+      "catchRate": 30,
+      "hp": 44,
+      "attack": 48,
+      "defense": 65,
+      "spAtk": 50,
+      "spDef": 64,
+      "speed": 43
     },
     {
       "id": 16,
       "name" : "Pidgey",
-      "type1" : "5",
-      "type2" : "6",
+      "type1" : 5,
+      "type2" : 6,
       "possible_moves" : [
-
+        {
+          "move_id" : 1,
+          "learn_method": "LEVEL",
+          "level" : 1
+        },
+        {
+          "move_id" : 4,
+          "learn_method": "LEVEL",
+          "level" : 9
+        },
+        {
+          "move_id" : 3,
+          "learn_method": "LEVEL",
+          "level" : 13
+        }
       ],
-      "catch_rate": 50
+      "hp": 40,
+      "attack": 45,
+      "defense": 40,
+      "spAtk": 35,
+      "spDef": 35,
+      "speed": 56,
+      "catchRate": 50
+    },
+    {
+      "id": 16,
+      "name" : "Rattata",
+      "type1" : 5,
+      "type2" : 0,
+      "possible_moves" : [
+        {
+          "move_id" : 2,
+          "learn_method": "LEVEL",
+          "level" : 1
+        },
+        {
+          "move_id" : 3,
+          "learn_method": "LEVEL",
+          "level" : 4
+        }
+      ],
+      "hp": 30,
+      "attack": 56,
+      "defense": 35,
+      "spAtk": 25,
+      "spDef": 35,
+      "speed": 72,
+      "catchRate": 50
+    },
+    {
+      "id": 21,
+      "name" : "Spearow",
+      "type1" : 5,
+      "type2" : 6,
+      "possible_moves" : [
+        {
+          "move_id" : 11,
+          "learn_method": "LEVEL",
+          "level" : 1
+        },
+        {
+          "move_id" : 11,
+          "learn_method": "LEVEL",
+          "level" : 11
+        }
+      ],
+      "hp": 40,
+      "attack": 60,
+      "defense": 30,
+      "spAtk": 31,
+      "spDef": 31,
+      "speed": 70,
+      "catchRate": 50
     },
     {
       "id": 25,
       "name" : "Pikachu",
-      "type1" : "4",
-      "type2" : "0",
+      "type1" : 4,
+      "type2" : 0,
       "possible_moves" : [
-
+        {
+          "move_id" : 8,
+          "learn_method": "LEVEL",
+          "level" : 1
+        },
+        {
+          "move_id" : 3,
+          "learn_method": "LEVEL",
+          "level" : 1
+        }
       ],
-      "catch_rate": 30
+      "hp": 35,
+      "attack": 55,
+      "defense": 40,
+      "spAtk": 50,
+      "spDef": 50,
+      "speed": 90,
+      "catchRate": 30
+    },
+    {
+      "id": 56,
+      "name" : "Mankey",
+      "type1" : 11,
+      "type2" : 0,
+      "possible_moves" : [
+        {
+          "move_id" : 11,
+          "learn_method": "LEVEL",
+          "level" : 1
+        },
+        {
+          "move_id" : 8,
+          "learn_method": "LEVEL",
+          "level" : 8
+        }
+      ],
+      "catchRate": 40,
+      "hp": 40,
+      "attack": 80,
+      "defense": 35,
+      "spAtk": 35,
+      "spDef": 45,
+      "speed": 70
+    },
+    {
+      "id": 161,
+      "name" : "Sentret",
+      "type1" : 5,
+      "type2" : 0,
+      "possible_moves" : [
+        {
+          "move_id" : 1,
+          "learn_method": "LEVEL",
+          "level" : 1
+        },
+        {
+          "move_id" : 3,
+          "learn_method": "LEVEL",
+          "level" : 7
+        }
+      ],
+      "hp": 35,
+      "attack": 46,
+      "defense": 34,
+      "spAtk": 35,
+      "spDef": 45,
+      "speed": 20,
+      "catchRate": 50
+    },
+    {
+      "id": 163,
+      "name" : "HootHoot",
+      "type1" : 5,
+      "type2" : 6,
+      "possible_moves" : [
+        {
+          "move_id" : 11,
+          "learn_method": "LEVEL",
+          "level" : 1
+        },
+        {
+          "move_id" : 2,
+          "learn_method": "LEVEL",
+          "level" : 3
+        }
+      ],
+      "hp": 60,
+      "attack": 30,
+      "defense": 30,
+      "spAtk": 36,
+      "spDef": 56,
+      "speed": 50,
+      "catchRate": 50
     }
   ],
   "banners" : [

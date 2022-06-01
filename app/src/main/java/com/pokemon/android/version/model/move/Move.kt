@@ -6,5 +6,6 @@ open class Move {
     val name : String = ""
     val power : Int = 0
     val pp : Int = 0
-    val type : Type? = null;
+    val type : Type? = null
+    val accuracy : Int? = 100
 }

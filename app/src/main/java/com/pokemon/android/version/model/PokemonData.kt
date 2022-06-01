@@ -1,13 +1,18 @@
 package com.pokemon.android.version.model
 
-import com.pokemon.android.version.model.move.Move
-import lombok.Getter
+import com.pokemon.android.version.model.move.pokemon.PokemonMove
 
-@Getter
-open class PokemonData {
+class PokemonData {
+    val id : Int = 0
     val name: String = ""
     val type1 : Type? = null
     val type2 : Type? = null
-    val possible_moves : List<Move> = ArrayList()
-    val catch_rate : Int = 0
+    val possible_moves : List<PokemonMove> = ArrayList()
+    val catchRate : Int = 0
+    var hp : Int  = 0
+    var attack : Int = 0
+    var defense : Int = 0
+    var spAtk : Int = 0
+    var spDef : Int = 0
+    var speed : Int = 0
 }

@@ -5,5 +5,5 @@ enum class Status {
     BURN,
     PARALYSIS,
     POISON,
-    ASLEEP,
+    ASLEEP
 }
