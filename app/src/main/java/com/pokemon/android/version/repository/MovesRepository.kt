@@ -9,7 +9,7 @@ import com.pokemon.android.version.utils.JsonFileToString
 
 class MovesRepository {
     fun loadData(activity: MainActivity): MovesEntity? {
-        val movesJsonString: String = JsonFileToString.loadJsonString(
+        val movesJsonString: String = JsonFileToString.loadJsonStringFromAssets(
             activity,
             GameDataService.MOVES_DATA_PATH
         ) ?: return null

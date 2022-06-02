@@ -10,7 +10,7 @@ import com.pokemon.android.version.utils.JsonFileToString
 
 class ItemRepository : Repository<ItemEntity> {
     override fun loadData(activity: MainActivity) : List<ItemEntity> {
-        val itemsJsonString: String = JsonFileToString.loadJsonString(
+        val itemsJsonString: String = JsonFileToString.loadJsonStringFromAssets(
             activity,
             GameDataService.ITEMS_DATA_PATH
         ) ?: return ArrayList()

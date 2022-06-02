@@ -11,7 +11,7 @@ class TrainerSave(var name: String,
                   var progression: Int) {
     companion object{
         fun of(trainer : Trainer)  : TrainerSave{
-            return TrainerSave(trainer.name, trainer.gender.toString(),
+            return TrainerSave(trainer.name, trainer.gender.toString().uppercase(),
                 trainer.team.map {PokemonSave.of(it)},
                 trainer.pokemons.filter{!trainer.team.contains(it)}.map { PokemonSave.of(it)},
                 listOf(ItemSave(1,10)),

@@ -1,7 +1,9 @@
 package com.pokemon.android.version
 
+import android.content.Context
 import android.util.Log
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.pokemon.android.version.entity.save.TrainerSave
 import com.pokemon.android.version.model.Gender
@@ -13,7 +15,7 @@ class SaveManager {
     companion object {
         private const val SAVE_FILE_PATH = "save.json"
         fun loadSave(activity : MainActivity) : Trainer?{
-            var jsonString = JsonFileToString.loadJsonString(activity,SAVE_FILE_PATH) ?: null
+            var jsonString = JsonFileToString.loadJsonStringFromInternalStorage(activity,SAVE_FILE_PATH) ?: return null
             val gson = Gson()
             val data = object : TypeToken<TrainerSave>() {}.type
             var trainerSave : TrainerSave = gson.fromJson(jsonString, data)
@@ -30,9 +32,13 @@ class SaveManager {
             return trainer
         }
 
-        fun save(trainer : Trainer){
-            var trainerSave : TrainerSave = TrainerSave.of(trainer)
-
+        fun save(activity : MainActivity){
+            var trainerSave : TrainerSave = TrainerSave.of(activity.trainer!!)
+            val gsonPretty = GsonBuilder().setPrettyPrinting().create()
+            val jsonSave: String = gsonPretty.toJson(trainerSave)
+            activity.openFileOutput(SAVE_FILE_PATH, Context.MODE_PRIVATE).use { output ->
+                output.write(jsonSave.toByteArray())
+            }
         }
     }
 }

@@ -45,7 +45,7 @@ class BannerRecyclerView (var activity : MainActivity) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = activity.gameDataService.banners[position]
         holder.descriptionTextView.text = currentItem.description
-        holder.costTextView.text = "${currentItem.cost} AndroCoins"
+        holder.costTextView.text = "COST: ${currentItem.cost} AndroCoins"
         holder.itemView.tag = position
         holder.summonButton.setOnClickListener{
             currentItem.summon(activity)

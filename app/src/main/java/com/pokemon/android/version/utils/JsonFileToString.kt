@@ -5,15 +5,29 @@ import java.io.IOException
 
 class JsonFileToString {
     companion object {
-        fun loadJsonString(activity: MainActivity, path: String): String? {
+        fun loadJsonStringFromAssets(activity: MainActivity, path: String): String? {
             val jsonString: String
             try {
                 jsonString = activity.assets.open(path).bufferedReader().use { it.readText() }
             } catch (ioException: IOException) {
-                ioException.printStackTrace()
                 return null
             }
             return jsonString
+        }
+
+        fun loadJsonStringFromInternalStorage(activity: MainActivity, path: String): String? {
+            val stringBuilder = StringBuilder()
+            try {
+                activity.openFileInput(path).use { stream ->
+                    val text = stream.bufferedReader().use {
+                        it.readText()
+                    }
+                    stringBuilder.append(text)
+                }
+            } catch (ioException: IOException) {
+                return null
+            }
+            return stringBuilder.toString()
         }
     }
 }

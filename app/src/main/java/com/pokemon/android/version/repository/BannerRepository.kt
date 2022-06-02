@@ -10,7 +10,7 @@ import com.pokemon.android.version.utils.JsonFileToString
 
 class BannerRepository : Repository<BannerEntity> {
     override fun loadData(activity: MainActivity) : List<BannerEntity> {
-        val BannersJsonString: String = JsonFileToString.loadJsonString(
+        val BannersJsonString: String = JsonFileToString.loadJsonStringFromAssets(
             activity,
             GameDataService.BANNER_DATA_PATH
         ) ?: return ArrayList()

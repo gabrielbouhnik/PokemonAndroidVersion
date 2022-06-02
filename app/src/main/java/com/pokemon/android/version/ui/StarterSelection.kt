@@ -7,6 +7,7 @@ import android.widget.Switch
 import android.widget.TextView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
+import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Trainer
 import com.pokemon.android.version.model.Gender
 
@@ -27,7 +28,7 @@ class StarterSelection {
             characterName.visibility = VISIBLE
         }
         submitButton.setOnClickListener{
-            val gender : Gender =  if (genderSwitch.isChecked()) Gender.FEMALE else Gender.MALE
+            val gender : Gender =  if (genderSwitch.isChecked) Gender.FEMALE else Gender.MALE
             activity.trainer = Trainer(characterName.text.toString(), gender)
             activity.trainer!!.save()
             submitButton.visibility = GONE
@@ -39,6 +40,7 @@ class StarterSelection {
     }
 
     fun displayOakResponse(activity : MainActivity, starterName: String){
+        SaveManager.save(activity)
         val nextButton : Button = activity.findViewById(R.id.nextButton)
         val oakTextView : TextView = activity.findViewById(R.id.oakTextView)
         oakTextView.text = "So you chose $starterName.\nYou can now go on an adventure and become a great pokemon trainer."
