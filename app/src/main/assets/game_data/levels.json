@@ -4,7 +4,7 @@
       "id": 1,
       "name": "\nVS Rival",
       "description": "After receiving your first pokemon, your rival challenges you to show you how powerful he is",
-      "opponent": [
+      "opponents": [
         {
           "sprite": "Spr_Rival.png",
           "name" : "Jackson",
@@ -80,7 +80,7 @@
       "name": "\nRoute 1",
       "description": "While walking along route 1, you come across wild pokemon",
       "encounter": 3,
-      "possibleEncounters": [
+      "possibleEncounters":
         {
           "minLevel": 2,
           "maxLevel": 4,
@@ -90,8 +90,7 @@
             161,
             163
           ]
-        }
-      ],
+        },
       "rewards": [
         {
           "id": 4,
@@ -110,7 +109,7 @@
       "name": "\nRoute 22",
       "description": "After arriving in Viridian City, you decide to go to route 22 to fight the pokemon league. However, some pokemon attack you",
       "encounter": 3,
-      "possibleEncounters": [
+      "possibleEncounters":
         {
           "minLevel": 2,
           "maxLevel": 5,
@@ -121,7 +120,7 @@
             56
           ]
         }
-      ],
+      ,
       "rewards": [
         {
           "id": 4,

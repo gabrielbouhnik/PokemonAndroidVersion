@@ -6,6 +6,8 @@ import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.banner.Banner
 import com.pokemon.android.version.model.banner.PokemonBanner
 import com.pokemon.android.version.model.item.ItemData
+import com.pokemon.android.version.model.level.Level
+import com.pokemon.android.version.model.level.LevelFactory
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveFactory
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
@@ -21,12 +23,14 @@ class GameDataService {
     var moves : List<Move> = ArrayList()
     var pokemons : List<PokemonData> = ArrayList()
     var banners : List<Banner> = ArrayList()
+    var levels : List<Level> = ArrayList()
 
     companion object {
         const val MOVES_DATA_PATH = "game_data/moves.json"
         const val ITEMS_DATA_PATH = "game_data/items.json"
         const val POKEMON_DATA_PATH = "game_data/pokemons.json"
         const val BANNER_DATA_PATH = "game_data/banners.json"
+        const val LEVELS_DATA_PATH = "game_data/levels.json"
     }
 
     fun loadGameData(activity: MainActivity){
@@ -34,10 +38,12 @@ class GameDataService {
         var itemRepository = ItemRepository()
         var bannerRepository = BannerRepository()
         var movesRepository = MovesRepository()
+        var levelsRepository = LevelsRepository()
         this.items = itemRepository.loadData(activity).map{ItemData.of(it)}
         this.moves = MoveFactory.createMove(movesRepository.loadData(activity))
         this.pokemons = pokemonRepository.loadData(activity).map{PokemonData.of(it, moves)}
         this.banners = bannerRepository.loadData(activity).map{Banner.of(it, this )}
+        this.levels = LevelFactory.createLevels(levelsRepository.loadData(activity), this)
     }
 
     fun getPokemonDataById(id : Int): PokemonData{
