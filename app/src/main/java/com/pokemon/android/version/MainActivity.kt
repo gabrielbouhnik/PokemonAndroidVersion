@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun displayRandomPokemon(){
-        val random = Random.nextInt(1..225)
+        val random = Random.nextInt(1..251)
         val imageView : ImageView = findViewById(R.id.randomPokemonSpriteView)
         Glide.with(this)
             .load("$spritesUrl$random.png")
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         val startButton : Button = findViewById(R.id.startButton)
         startButton.setOnClickListener{
             mediaPlayer?.stop()
-            trainer = LoadSaveFile.loadSave()
+            trainer = SaveManager.loadSave(this)
             if (trainer == null){
                 mediaPlayer = MediaPlayer.create(this,R.raw.oak)
                 mediaPlayer?.start()

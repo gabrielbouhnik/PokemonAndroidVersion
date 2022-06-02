@@ -36,6 +36,14 @@ class GameDataService {
         this.pokemons = pokemonRepository.loadData(activity).map{PokemonData.of(it, moves)}
     }
 
+    fun getPokemonDataById(id : Int): PokemonData{
+        return pokemons.filter {it.id == id}.first()
+    }
+
+    fun getMoveById(id : Int) : Move{
+        return moves.filter {it.id == id}.first()
+    }
+
     fun generatePokemon(id : Int, level : Int) :  Pokemon {
         val pokemonData : PokemonData = pokemons.filter {it.id == id}.first()
         val hp : Int = 10 + (pokemonData.hp.toFloat() * (level/50f)).roundToInt()
@@ -61,6 +69,7 @@ class GameDataService {
             .spAtk(spAtk)
             .spDef(spDef)
             .speed(speed)
+            .currentHP(hp)
             .gender(gender) //TODO gender lock
             .move1(move1)
             .move2(move2)

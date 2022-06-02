@@ -1,0 +1,38 @@
+package com.pokemon.android.version
+
+import android.util.Log
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.pokemon.android.version.entity.save.TrainerSave
+import com.pokemon.android.version.model.Gender
+import com.pokemon.android.version.model.Pokemon
+import com.pokemon.android.version.model.Trainer
+import com.pokemon.android.version.utils.JsonFileToString
+
+class SaveManager {
+    companion object {
+        private const val SAVE_FILE_PATH = "save.json"
+        fun loadSave(activity : MainActivity) : Trainer?{
+            var jsonString = JsonFileToString.loadJsonString(activity,SAVE_FILE_PATH) ?: null
+            val gson = Gson()
+            val data = object : TypeToken<TrainerSave>() {}.type
+            var trainerSave : TrainerSave = gson.fromJson(jsonString, data)
+            trainerSave.team.forEach{ pkmn -> Log.d("pokemon name:", pkmn.id.toString()) }
+            var trainer = Trainer(trainerSave.name, Gender.valueOf(trainerSave.gender))
+            trainer.coins = trainerSave.coins
+            trainer.progression = trainerSave.progression
+            trainerSave.items.forEach{ trainer.items[it.id] = it.quantity }
+            trainerSave.pokemons.forEach{
+                var pokemon : Pokemon = Pokemon.of(it, activity.gameDataService,trainer)
+                trainer.pokemons.add(pokemon)
+                trainer.team.add(pokemon)}
+            trainerSave.team.forEach{trainer.pokemons.add(Pokemon.of(it, activity.gameDataService,trainer))}
+            return trainer
+        }
+
+        fun save(trainer : Trainer){
+            var trainerSave : TrainerSave = TrainerSave.of(trainer)
+
+        }
+    }
+}

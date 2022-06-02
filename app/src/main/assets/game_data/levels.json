@@ -1,0 +1,87 @@
+{
+  "trainerBattles": [
+    {
+      "id": 1,
+      "name": "VS Rival",
+      "description": "After receiving your first pokemon, your rival challenges you to show you how powerful he is",
+      "opponent": [
+      ],
+      "rewards": [
+        {
+          "item": 1,
+          "quantity": 1
+        },
+        {
+          "item": 5,
+          "quantity": 10
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "VS Rival 2",
+      "description": "Having no badge, the guard does not let you enter the victory road. However, you come across your rival",
+      "type": "Trainer Battle",
+      "opponents": [
+      ],
+      "rewards": [
+        {
+          "item": 1,
+          "quantity": 1
+        },
+        {
+          "item": 5,
+          "quantity": 10
+        }
+      ]
+    }
+  ],
+  "RandomWildEncounter": [
+    {
+      "id": 2,
+      "name": "Route 1",
+      "description": "While walking along route 1, you come across wild pokemon",
+      "encounter": 3,
+      "possible_encounter": [
+        {
+          "minLevel": 2,
+          "maxLevel": 4,
+          "encounters": [16,19,161,163]
+        }
+      ],
+      "rewards": [
+        {
+          "item": 4,
+          "quantity": 5
+        },
+        {
+          "item": 5,
+          "quantity": 10
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Route 22",
+      "description": "After arriving in Viridian City, you decide to go to route 22 to fight the pokemon league. However, some pokemon attack you",
+      "encounter": 3,
+      "possible_encounter": [
+        {
+          "minLevel": 2,
+          "maxLevel": 5,
+          "encounters": [16,19,21,56]
+        }
+      ],
+      "rewards": [
+        {
+          "item": 4,
+          "quantity": 5
+        },
+        {
+          "item": 5,
+          "quantity": 30
+        }
+      ]
+    }
+  ]
+}

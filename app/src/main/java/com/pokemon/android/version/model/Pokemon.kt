@@ -1,5 +1,7 @@
 package com.pokemon.android.version.model
 
+import com.pokemon.android.version.GameDataService
+import com.pokemon.android.version.entity.save.PokemonSave
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 
 class Pokemon (val data : PokemonData,
@@ -30,8 +32,30 @@ class Pokemon (val data : PokemonData,
 
     constructor(data: PokemonData, trainer: Trainer?, level: Int,
                 move1: PokemonMove, move2: PokemonMove?, move3: PokemonMove?, move4: PokemonMove?, gender : Gender?,
-                hp : Int, attack : Int, defense : Int, spAtk : Int, spDef : Int, speed : Int)
-            : this(data, trainer, level, move1, move2, move3, move4, Status.OK, gender, hp, attack,defense,spAtk, spDef, speed, hp)
+                hp : Int, attack : Int, defense : Int, spAtk : Int, spDef : Int, speed : Int, currentHP: Int)
+            : this(data, trainer, level, move1, move2, move3, move4, Status.OK, gender, hp, attack,defense,spAtk, spDef, speed, currentHP)
+
+    companion object {
+        fun of(pokemonSave : PokemonSave, gameDataService: GameDataService, trainer : Trainer) : Pokemon{
+            return PokemonBuilder().data(gameDataService.getPokemonDataById(pokemonSave.id))
+                .level(pokemonSave.level)
+                .trainer(trainer)
+                .status(Status.valueOf(pokemonSave.status))
+                .hp(pokemonSave.hp)
+                .attack(pokemonSave.attack)
+                .defense(pokemonSave.defense)
+                .spAtk(pokemonSave.spAtk)
+                .spDef(pokemonSave.spDef)
+                .speed(pokemonSave.speed)
+                .currentHP(pokemonSave.currentHP)
+                .gender(Gender.valueOf(pokemonSave.gender))
+                .move1(PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[0].id), pokemonSave.moveids[0].pp))
+                .move2(if (pokemonSave.moveids.size > 1) PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[1].id), pokemonSave.moveids[1].pp) else null)
+                .move3(if (pokemonSave.moveids.size > 2) PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[2].id), pokemonSave.moveids[2].pp) else null)
+                .move4(if (pokemonSave.moveids.size > 3) PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[3].id), pokemonSave.moveids[3].pp) else null)
+                .build()
+        }
+    }
 
     data class PokemonBuilder(
         var data : PokemonData? = null,
@@ -48,11 +72,13 @@ class Pokemon (val data : PokemonData,
         var defense : Int = 0,
         var spAtk : Int = 0,
         var spDef : Int = 0,
-        var speed : Int = 0)
+        var speed : Int = 0,
+        var currentHP: Int = 0)
         {
             fun data(data: PokemonData) = apply { this.data = data }
             fun trainer(trainer: Trainer) = apply { this.trainer = trainer }
             fun level(level: Int) = apply { this.level = level }
+            fun status(status: Status) = apply { this.status = status }
             fun move1(move: PokemonMove) = apply { this.move1 = move }
             fun move2(move: PokemonMove?) = apply { this.move2 = move }
             fun move3(move: PokemonMove?) = apply { this.move3 = move }
@@ -64,6 +90,7 @@ class Pokemon (val data : PokemonData,
             fun spAtk(spAtk: Int) = apply { this.spAtk = spAtk }
             fun spDef(spDef: Int) = apply { this.spDef = spDef }
             fun speed(speed: Int) = apply { this.speed = speed }
+            fun currentHP(currentHP: Int) = apply { this.currentHP = currentHP }
             fun build() = Pokemon(
                 data!!,
                 trainer,
@@ -72,13 +99,15 @@ class Pokemon (val data : PokemonData,
                 move2,
                 move3,
                 move4,
+                status,
                 gender,
                 hp,
                 attack,
                 defense,
                 spAtk,
                 spDef,
-                speed
+                speed,
+                currentHP
             )
 
         }
