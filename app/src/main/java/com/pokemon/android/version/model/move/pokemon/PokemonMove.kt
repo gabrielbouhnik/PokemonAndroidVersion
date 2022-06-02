@@ -6,6 +6,9 @@ import com.pokemon.android.version.model.move.Move
 open class PokemonMove (
     var move : Move,
     var pp : Int) {
+
+    constructor(move : Move) : this(move, move.pp)
+
     companion object {
         fun of(moveLearnWithHMEntity: MoveLearnWithHMEntity, moves: List<Move>): PokemonMove {
             var move = moves.filter { it.id == moveLearnWithHMEntity.moveId }.first()

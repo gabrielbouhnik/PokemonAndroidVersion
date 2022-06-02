@@ -69,6 +69,16 @@
       "accuracy": 100,
       "description": "",
       "priority_level": 0
+    },
+    {
+      "id": 13,
+      "name": "Iron Tail",
+      "power": "100",
+      "pp": "15",
+      "type": 16,
+      "accuracy": 75,
+      "description": "",
+      "priority_level": 0
     }
   ],
   "statusMoves" : [
@@ -89,6 +99,18 @@
       "name": "Thunder Shock",
       "power": "40",
       "pp": "25",
+      "type": 4,
+      "accuracy": 100,
+      "description": "",
+      "priority_level": 0,
+      "status": "PARALYSIS",
+      "probability": 10
+    },
+    {
+      "id": 12,
+      "name": "Thunderbolt",
+      "power": "90",
+      "pp": "15",
       "type": 4,
       "accuracy": 100,
       "description": "",

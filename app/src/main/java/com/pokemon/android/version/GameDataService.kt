@@ -3,14 +3,14 @@ package com.pokemon.android.version
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.PokemonData
+import com.pokemon.android.version.model.banner.Banner
+import com.pokemon.android.version.model.banner.PokemonBanner
 import com.pokemon.android.version.model.item.ItemData
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveFactory
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.model.move.pokemon.PokemonMoveLearnedByLevel
-import com.pokemon.android.version.repository.ItemRepository
-import com.pokemon.android.version.repository.MovesRepository
-import com.pokemon.android.version.repository.PokemonRepository
+import com.pokemon.android.version.repository.*
 import kotlin.math.roundToInt
 
 import kotlin.random.Random
@@ -20,20 +20,24 @@ class GameDataService {
     var items : List<ItemData> = ArrayList()
     var moves : List<Move> = ArrayList()
     var pokemons : List<PokemonData> = ArrayList()
+    var banners : List<Banner> = ArrayList()
 
     companion object {
         const val MOVES_DATA_PATH = "game_data/moves.json"
         const val ITEMS_DATA_PATH = "game_data/items.json"
         const val POKEMON_DATA_PATH = "game_data/pokemons.json"
+        const val BANNER_DATA_PATH = "game_data/banners.json"
     }
 
     fun loadGameData(activity: MainActivity){
         var pokemonRepository = PokemonRepository()
         var itemRepository = ItemRepository()
+        var bannerRepository = BannerRepository()
         var movesRepository = MovesRepository()
         this.items = itemRepository.loadData(activity).map{ItemData.of(it)}
         this.moves = MoveFactory.createMove(movesRepository.loadData(activity))
         this.pokemons = pokemonRepository.loadData(activity).map{PokemonData.of(it, moves)}
+        this.banners = bannerRepository.loadData(activity).map{Banner.of(it, this )}
     }
 
     fun getPokemonDataById(id : Int): PokemonData{
@@ -63,6 +67,38 @@ class GameDataService {
         return Pokemon.PokemonBuilder()
             .data(pokemonData)
             .level(level)
+            .hp(hp)
+            .attack(attack)
+            .defense(defense)
+            .spAtk(spAtk)
+            .spDef(spDef)
+            .speed(speed)
+            .currentHP(hp)
+            .gender(gender) //TODO gender lock
+            .move1(move1)
+            .move2(move2)
+            .move3(move3)
+            .move4(move4)
+            .build()
+    }
+
+    fun generatePokemonFromBanner(pokemonBanner : PokemonBanner) :  Pokemon {
+        val hp : Int = 10 + (pokemonBanner.pokemonData.hp.toFloat() * 0.1).roundToInt()
+        val attack : Int = 5 + (pokemonBanner.pokemonData.attack.toFloat() * 0.1).roundToInt()
+        val defense : Int = 5 + (pokemonBanner.pokemonData.defense.toFloat() * 0.1).roundToInt()
+        val spAtk : Int = 5 + (pokemonBanner.pokemonData.spAtk.toFloat() * 0.1).roundToInt()
+        val spDef : Int = 5 + (pokemonBanner.pokemonData.spDef.toFloat() * 0.1).roundToInt()
+        val speed : Int = 5 + (pokemonBanner.pokemonData.speed.toFloat() * 0.1).roundToInt()
+        val move1 = PokemonMove(pokemonBanner.move1)
+        val move2 = if (pokemonBanner.move2 == null) null else PokemonMove(pokemonBanner.move2!!)
+        val move3 = if (pokemonBanner.move3 == null) null else PokemonMove(pokemonBanner.move3!!)
+        val move4 = if (pokemonBanner.move4 == null) null else PokemonMove(pokemonBanner.move4!!)
+        var gender : Gender = Gender.MALE
+        if (Random.nextInt(1..10) > 5)
+            gender = Gender.FEMALE
+        return Pokemon.PokemonBuilder()
+            .data(pokemonBanner.pokemonData)
+            .level(5)
             .hp(hp)
             .attack(attack)
             .defense(defense)

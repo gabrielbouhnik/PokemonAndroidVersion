@@ -15,8 +15,8 @@
             android:layout_height="73dp" android:id="@+id/MysteryGiftTextView"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:text="Use your AndroCoin to get gift like rare items and pokemons" android:textSize="18sp"
-            android:textAlignment="center" app:layout_constraintTop_toBottomOf="@+id/adventureButton"
-            android:layout_marginTop="504dp"/>
+            android:textAlignment="center" app:layout_constraintTop_toBottomOf="@+id/bannersButton"
+            android:layout_marginTop="16dp"/>
     <Button
             android:text="Adventure"
             android:layout_width="205dp"
@@ -30,14 +30,14 @@
             android:layout_width="205dp"
             android:layout_height="57dp" android:id="@+id/pokemonsButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="308dp" android:background="#4CAF50"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="308dp"
             android:backgroundTint="#4CAF50" android:textAlignment="center" android:textSize="18sp"
             android:textStyle="bold" android:textColor="#FFFFFF"/>
     <TextView
             android:layout_width="259dp"
             android:layout_height="73dp" android:id="@+id/pokemonTextView"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:text="Look at the characteristics of the pokemon you have caught" android:textSize="18sp"
+            android:text="Look at the characteristics of your pokemon" android:textSize="18sp"
             android:textAlignment="center" app:layout_constraintTop_toBottomOf="@+id/pokemonsButton"
     />
     <Button
@@ -45,7 +45,7 @@
             android:layout_width="205dp"
             android:layout_height="57dp" android:id="@+id/bannersButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="536dp" android:background="#4CAF50"
-            android:backgroundTint="#4CAF50" android:textAlignment="center" android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="536dp"
+            android:backgroundTint="#F44336" android:textAlignment="center" android:textSize="18sp"
             android:textStyle="bold" android:textColor="#FFFFFF"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,14 @@ enum class Type(val value: Int) {
     POISON(8),
     ROCK(9),
     GROUND(10),
-    FIGHTING(11);
+    FIGHTING(11),
+    PSYCHIC(12),
+    GHOST(13),
+    ICE(14),
+    DRAGON(15),
+    STEEL(16),
+    DARK(17),
+    FAIRY(18);
 
     companion object {
         fun of(value: Int) = Type.values().first { it.value == value }

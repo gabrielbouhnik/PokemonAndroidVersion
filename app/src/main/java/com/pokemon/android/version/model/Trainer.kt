@@ -18,6 +18,13 @@ class Trainer {
             team.add(pokemon)
     }
 
+    fun addItem(id : Int){
+        if (items.contains(id))
+            items[id] = items[id]!!.plus(1)
+        else
+            items[id] = 1
+    }
+
     fun save(){
 
     }

@@ -1,3 +1,61 @@
 [
-  
+  {
+    "image" : "images/pikachu_irontail_banner.JPG",
+    "description" : "Get a special Pikachu with the move Iron Tail",
+    "cost" : "100",
+    "pokemons": [
+      {
+        "id": 25,
+        "rate": 5,
+        "moveIds": [12,13]
+      }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "rate" : 30
+      },
+      {
+        "id": 2,
+        "rate" : 30
+      },
+      {
+        "id": 3,
+        "rate" : 10
+      },
+      {
+        "id": 6,
+        "rate" : 25
+      }
+    ]
+  },
+  {
+    "image" : "images/GreatBall.png",
+    "description" : "Get a Great Ball which is an improved version of the pokéball",
+    "cost" : "50",
+    "pokemons": [
+    ],
+    "items": [
+      {
+        "id": 1,
+        "rate" : 25
+      },
+      {
+        "id": 2,
+        "rate" : 25
+      },
+      {
+        "id": 3,
+        "rate" : 15
+      },
+      {
+        "id": 6,
+        "rate" : 25
+      },
+      {
+        "id": 7,
+        "rate" : 10
+      }
+    ]
+  }
 ]
