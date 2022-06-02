@@ -79,6 +79,16 @@
       "accuracy": 75,
       "description": "",
       "priority_level": 0
+    },
+    {
+      "id": 14,
+      "name": "Mach Punch",
+      "power": "40",
+      "pp": "30",
+      "type": 11,
+      "accuracy": 100,
+      "description": "",
+      "priority_level": 1
     }
   ],
   "statusMoves" : [

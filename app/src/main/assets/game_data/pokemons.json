@@ -272,5 +272,28 @@
     "spDef": 56,
     "speed": 50,
     "catchRate": 50
+  },
+  {
+    "id": 236,
+    "name": "Tyrogue",
+    "type1": 11,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 35,
+    "attack": 35,
+    "defense": 35,
+    "spAtk": 35,
+    "spDef": 35,
+    "speed": 35,
+    "catchRate": 50
   }
 ]
