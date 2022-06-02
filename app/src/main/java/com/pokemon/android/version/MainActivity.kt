@@ -16,6 +16,7 @@ import kotlin.random.nextInt
 class MainActivity : AppCompatActivity() {
     companion object {
         const val spritesUrl: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
+        const val backSpritesUrl: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/"
     }
     var trainer : com.pokemon.android.version.model.Trainer? = null
     var mediaPlayer: MediaPlayer? = null
