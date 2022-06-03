@@ -6,7 +6,7 @@
       "description": "After receiving your first pokemon, your rival challenges you to show you how powerful he is",
       "opponents": [
         {
-          "sprite": "Spr_Rival.png",
+          "sprite": "images/Spr_Rival.png",
           "name" : "Jackson",
           "pokemons": [
             {
@@ -34,7 +34,7 @@
       "endDialogWin": "It's beginner's luck. Next time, I'll crush you with my Tyrogue.",
       "endDialogLoose": "Don't even think about leaving Pallet Town...",
       "music": 1,
-      "background": "building_battle_background.jpg"
+      "background": "images/building_battle_background.jpg"
     },
     {
       "id": 4,
@@ -43,7 +43,7 @@
       "type": "Trainer Battle",
       "opponents": [
         {
-          "sprite": "Spr_Rival.png",
+          "sprite": "images/Spr_Rival.png",
           "name" : "Jackson",
           "pokemons": [
             {
@@ -71,7 +71,7 @@
       "endDialogWin": "You just got lucky.",
       "endDialogLoose": "Well done Tyrogue",
       "music": 1,
-      "background": "route_battle_background.png"
+      "background": "images/route_battle_background.png"
     }
   ],
   "randomWildEncounters": [
@@ -101,7 +101,7 @@
           "quantity": 10
         }
       ],
-      "background": "route_battle_background.png",
+      "background": "images/route_battle_background.png",
       "music": 2
     },
     {
@@ -131,7 +131,7 @@
           "quantity": 30
         }
       ],
-      "background": "route_battle_background.png",
+      "background": "images/route_battle_background.png",
       "music": 2
     }
   ]

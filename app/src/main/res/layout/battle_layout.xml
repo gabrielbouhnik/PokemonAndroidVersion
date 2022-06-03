@@ -85,8 +85,15 @@
             app:layout_constraintBottom_toBottomOf="@+id/battleBackgroundImageView"/>
     <TextView
             android:text="TextView"
+            android:layout_width="175dp"
+            android:layout_height="30dp" android:id="@+id/myPokemonHPLevelTextView"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="48dp" android:backgroundTint="#FFFFFF" android:textStyle="bold"
+            android:textSize="16sp"/>
+    <TextView
+            android:text="TextView"
             android:layout_width="139dp"
-            android:layout_height="29dp" android:id="@+id/MyPokemonNameTextView"
+            android:layout_height="29dp" android:id="@+id/myPokemonNameTextView"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="20dp" android:backgroundTint="#FFFFFF" android:textStyle="bold"
             android:textSize="18sp"/>
@@ -98,4 +105,12 @@
             android:textSize="18sp" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/battleBackgroundImageView" android:layout_marginTop="20dp"
             android:textAlignment="textEnd"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="175dp"
+            android:layout_height="20dp" android:id="@+id/opponentPokemonHPLevelTextView"
+            android:backgroundTint="#FFFFFF" android:textStyle="bold"
+            android:textSize="16sp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/battleBackgroundImageView" android:layout_marginTop="48dp"
+            android:textAlignment="textEnd" android:layout_marginEnd="4dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

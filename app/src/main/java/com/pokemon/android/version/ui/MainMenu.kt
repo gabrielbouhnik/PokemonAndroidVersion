@@ -15,6 +15,7 @@ import com.pokemon.android.version.model.Pokemon
 class MainMenu {
     var pokemonMenu : PokemonMenu = PokemonMenu()
     var bannerMenu : BannerMenu = BannerMenu()
+    var levelMenu : LevelMenu = LevelMenu()
 
     fun loadGameMenu(activity : MainActivity){
         activity.setContentView(R.layout.main_menu)
@@ -25,6 +26,10 @@ class MainMenu {
         var bannersButton : Button = activity.findViewById(R.id.bannersButton)
         bannersButton.setOnClickListener {
             bannerMenu.loadBannerMenu(activity)
+        }
+        var adventureButton : Button = activity.findViewById(R.id.adventureButton)
+        adventureButton.setOnClickListener {
+            levelMenu.loadBannerMenu(activity)
         }
     }
 
