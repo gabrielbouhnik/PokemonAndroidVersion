@@ -79,7 +79,7 @@
       "id": 2,
       "name": "\nRoute 1",
       "description": "While walking along route 1, you come across wild pokemon",
-      "encounter": 3,
+      "encounter": 1,
       "possibleEncounters":
         {
           "minLevel": 2,
@@ -93,12 +93,16 @@
         },
       "rewards": [
         {
-          "id": 4,
+          "id": 0,
+          "quantity": 30
+        },
+        {
+          "id": 1,
           "quantity": 5
         },
         {
           "id": 5,
-          "quantity": 10
+          "quantity": 2
         }
       ],
       "background": "images/route_battle_background.png",

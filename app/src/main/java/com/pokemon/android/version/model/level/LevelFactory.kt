@@ -5,12 +5,13 @@ import com.pokemon.android.version.entity.level.LevelsEntity
 
 class LevelFactory {
     companion object{
-        fun createLevels(levelsEntity: LevelsEntity?, gameDataService: GameDataService) : List<Level>{
-            var res : ArrayList<Level> = ArrayList()
+        fun createLevels(levelsEntity: LevelsEntity?, gameDataService: GameDataService) : List<LevelData>{
+            var res : ArrayList<LevelData> = ArrayList()
             if (levelsEntity != null) {
-                levelsEntity.trainerBattles.forEach { res.add(TrainerBattleLevel.of(it, gameDataService)) }
-                levelsEntity.randomWildEncounters.forEach { res.add(WildBattleLevel.of(it, gameDataService)) }
+                levelsEntity.trainerBattles.forEach { res.add(TrainerBattleLevelData.of(it, gameDataService)) }
+                levelsEntity.randomWildEncounters.forEach { res.add(WildBattleLevelData.of(it, gameDataService)) }
             }
+            res.sortBy{it.id}
             return res
         }
     }

@@ -11,8 +11,9 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import java.io.InputStream
 
-class LevelRecyclerView (var activity : MainActivity) :
-    RecyclerView.Adapter<LevelRecyclerView.ViewHolder>() {
+class LevelRecyclerAdapter (var activity : MainActivity,
+                            private val onItemClickListener: View.OnClickListener) :
+    RecyclerView.Adapter<LevelRecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var nameTextView: TextView
@@ -31,6 +32,7 @@ class LevelRecyclerView (var activity : MainActivity) :
         val rowView = LayoutInflater
             .from(activity)
             .inflate(R.layout.level_item, parent, false)
+        rowView.setOnClickListener(onItemClickListener)
         val viewHolder = ViewHolder(rowView)
         return viewHolder
     }

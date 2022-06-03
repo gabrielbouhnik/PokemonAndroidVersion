@@ -42,7 +42,7 @@ class Banner(var description : String, var image : String, var cost : Int,
         if (s is ItemBanner){
             var itemBanner = s as ItemBanner
             Toast.makeText(activity, activity.gameDataService.items[itemBanner.id.minus(1)].name, Toast.LENGTH_LONG)
-            activity.trainer!!.addItem(itemBanner.id)
+            activity.trainer!!.addItem(itemBanner.id, 1)
         } else{
             var pokemonBanner = s as PokemonBanner
             Toast.makeText(activity, pokemonBanner.pokemonData.name, Toast.LENGTH_LONG)

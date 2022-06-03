@@ -3,25 +3,25 @@ package com.pokemon.android.version.model.level
 import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.entity.level.TrainerBattleLevelEntity
 
-class TrainerBattleLevel(
+class TrainerBattleLevelData(
     id: Int,
     name: String,
     description: String,
-    rewards: List<Reward>,
+    rewards: ArrayList<Reward>,
     music: Int,
     background: String,
     var startDialog    : String,
     var endDialogWin   : String,
     var endDialogLoose : String,
     var opponentTrainers : List<OpponentTrainer>,
-    ) : Level(id,name,description,rewards,music,background) {
+    ) : LevelData(id,name,description,rewards,music,background) {
     companion object{
-        fun of(trainerBattleLevelEntity : TrainerBattleLevelEntity, gameDataService : GameDataService) : TrainerBattleLevel {
-            return TrainerBattleLevel(
+        fun of(trainerBattleLevelEntity : TrainerBattleLevelEntity, gameDataService : GameDataService) : TrainerBattleLevelData {
+            return TrainerBattleLevelData(
                 trainerBattleLevelEntity.id,
                 trainerBattleLevelEntity.name,
                 trainerBattleLevelEntity.description,
-                trainerBattleLevelEntity.rewards.map { Reward(it.id, it.quantity) },
+                trainerBattleLevelEntity.rewards.map { Reward(it.id, it.quantity) } as ArrayList<Reward>,
                 trainerBattleLevelEntity.music,
                 trainerBattleLevelEntity.background,
                 trainerBattleLevelEntity.startDialog,

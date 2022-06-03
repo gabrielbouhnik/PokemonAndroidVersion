@@ -1,27 +1,26 @@
 package com.pokemon.android.version.model.level
 
 import com.pokemon.android.version.GameDataService
-import com.pokemon.android.version.entity.level.PossibleEncountersEntity
 import com.pokemon.android.version.entity.level.WildBattleLevelEntity
 
-class WildBattleLevel(
+class WildBattleLevelData(
     id: Int,
     name: String,
     description: String,
-    rewards: List<Reward>,
+    rewards: ArrayList<Reward>,
     music: Int,
     background: String,
     var encounter: Int,
     var possibleEncounters: PossibleEncounters,
 
-    ) : Level(id, name, description, rewards, music, background) {
+    ) : LevelData(id, name, description, rewards, music, background) {
     companion object {
-        fun of(wildBattleLevelEntity: WildBattleLevelEntity, gameDataService: GameDataService): WildBattleLevel {
-            return WildBattleLevel(
+        fun of(wildBattleLevelEntity: WildBattleLevelEntity, gameDataService: GameDataService): WildBattleLevelData {
+            return WildBattleLevelData(
                 wildBattleLevelEntity.id,
                 wildBattleLevelEntity.name,
                 wildBattleLevelEntity.description,
-                wildBattleLevelEntity.rewards.map { Reward(it.id, it.quantity) },
+                wildBattleLevelEntity.rewards.map { Reward(it.id, it.quantity) } as ArrayList<Reward>,
                 wildBattleLevelEntity.music,
                 wildBattleLevelEntity.background,
                 wildBattleLevelEntity.encounter,

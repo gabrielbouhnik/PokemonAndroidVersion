@@ -23,7 +23,7 @@ class PokemonMenu {
             val position = it.tag as Int
             loadPokemonInfoLayout(activity, activity.trainer!!.pokemons[position])
         }
-        val adapter =  PokemonRecyclerView(activity, activity.trainer!!.pokemons, myItemClickListener)
+        val adapter =  PokemonRecyclerAdapter(activity, activity.trainer!!.pokemons, myItemClickListener)
         recyclerView.adapter = adapter
     }
 

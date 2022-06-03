@@ -1,4 +1,9 @@
 [
+
+  {
+    "id": "0",
+    "name": "AndroCoin"
+  },
   {
     "id": "1",
     "name": "Potion"
@@ -13,18 +18,14 @@
   },
   {
     "id": "4",
-    "name": "Berry"
+    "name": "Oran Berry"
   },
   {
     "id": "5",
-    "name": "AndroCoin"
+    "name": "Poke Ball"
   },
   {
     "id": "6",
-    "name": "Poké Ball"
-  },
-  {
-    "id": "7",
     "name": "Great Ball"
   }
 ]

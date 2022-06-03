@@ -24,11 +24,11 @@ class SaveManager {
             trainer.coins = trainerSave.coins
             trainer.progression = trainerSave.progression
             trainerSave.items.forEach{ trainer.items[it.id] = it.quantity }
-            trainerSave.pokemons.forEach{
+            trainerSave.team.forEach{
                 var pokemon : Pokemon = Pokemon.of(it, activity.gameDataService,trainer)
                 trainer.pokemons.add(pokemon)
                 trainer.team.add(pokemon)}
-            trainerSave.team.forEach{trainer.pokemons.add(Pokemon.of(it, activity.gameDataService,trainer))}
+            trainerSave.pokemons.forEach{trainer.pokemons.add(Pokemon.of(it, activity.gameDataService,trainer))}
             return trainer
         }
 

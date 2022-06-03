@@ -20,7 +20,7 @@ class BannerMenu {
         backButton.setOnClickListener{
             activity.mainMenu.loadGameMenu(activity)
         }
-        val adapter =  BannerRecyclerView(activity)
+        val adapter =  BannerRecyclerAdapter(activity)
         recyclerView.adapter = adapter
     }
 }

@@ -15,9 +15,12 @@ import kotlin.random.nextInt
 
 class MainActivity : AppCompatActivity() {
     companion object {
-        const val spritesUrl: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
-        const val backSpritesUrl: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/"
+        const val pokemonSpritesUrl: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
+        const val pokemonBackSpritesUrl: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/"
+        const val itemsSpritesUrl : String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/"
     }
+
+    private var currentMusicId: Int? = null
     var trainer : com.pokemon.android.version.model.Trainer? = null
     var mediaPlayer: MediaPlayer? = null
     var gameDataService : GameDataService = GameDataService()
@@ -32,37 +35,43 @@ class MainActivity : AppCompatActivity() {
         val sprite2 : ImageView = findViewById(R.id.Sprite2View)
         val sprite3 : ImageView = findViewById(R.id.Sprite3View)
         sprite1.setOnClickListener{
-            trainer!!.pokemons.add(bulbasaur)
+            trainer!!.catchPokemon(bulbasaur)
             starterSelection!!.displayOakResponse(this, bulbasaur.data!!.name)
             sprite2.visibility = GONE
             sprite3.visibility = GONE
         }
         sprite2.setOnClickListener{
-            trainer!!.pokemons.add(charmander)
+            trainer!!.catchPokemon(charmander)
             starterSelection!!.displayOakResponse(this, charmander.data!!.name)
             sprite1.visibility = GONE
             sprite3.visibility = GONE
         }
         sprite3.setOnClickListener{
-            trainer!!.pokemons.add(squirtle)
+            trainer!!.catchPokemon(squirtle)
             starterSelection!!.displayOakResponse(this, squirtle.data!!.name)
             sprite1.visibility = GONE
             sprite2.visibility = GONE
         }
         Glide.with(this)
-            .load(spritesUrl + "1.png")
+            .load(pokemonSpritesUrl + "1.png")
             .into(sprite1)
         Glide.with(this)
-            .load(spritesUrl + "4.png")
+            .load(pokemonSpritesUrl + "4.png")
             .into(sprite2)
         Glide.with(this)
-            .load(spritesUrl + "7.png")
+            .load(pokemonSpritesUrl + "7.png")
             .into(sprite3)
     }
 
     fun displayPokemon(id : Int, imageView: ImageView){
         Glide.with(this)
-            .load("$spritesUrl$id.png")
+            .load("$pokemonSpritesUrl$id.png")
+            .into(imageView)
+    }
+
+    fun displayPokemonBack(id : Int, imageView: ImageView){
+        Glide.with(this)
+            .load("$pokemonBackSpritesUrl$id.png")
             .into(imageView)
     }
 
@@ -70,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         val random = Random.nextInt(1..251)
         val imageView : ImageView = findViewById(R.id.randomPokemonSpriteView)
         Glide.with(this)
-            .load("$spritesUrl$random.png")
+            .load("$pokemonSpritesUrl$random.png")
             .into(imageView)
         val startButton : Button = findViewById(R.id.startButton)
         startButton.setOnClickListener{
@@ -83,14 +92,15 @@ class MainActivity : AppCompatActivity() {
                 starterSelection?.startNewGame(this)
             }
             else {
-                mediaPlayer = MediaPlayer.create(this,R.raw.main_menu)
-                mediaPlayer?.start()
                 mainMenu.loadGameMenu(this)
             }
         }
     }
 
     fun updateMusic(id : Int){
+        if (currentMusicId == id)
+            return
+        currentMusicId = id
         mediaPlayer?.stop()
         mediaPlayer = MediaPlayer.create(this,id)
         mediaPlayer?.isLooping = true

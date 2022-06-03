@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content">
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/ic_launcher_background"
+            android:id="@+id/rewardSpriteView"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.052" app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="188dp"
+            android:layout_height="52dp" android:id="@+id/rewardNameTextView"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/rewardSpriteView"
+            android:textSize="24sp" android:textAlignment="center" app:layout_constraintHorizontal_bias="0.111"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.507"/>
+    <TextView
+            android:text="x10"
+            android:layout_width="73dp"
+            android:layout_height="91dp" android:id="@+id/rewardQuantityTextView"
+            app:layout_constraintStart_toEndOf="@+id/rewardNameTextView" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"
+            android:textSize="36sp" android:textStyle="bold" android:textAlignment="center"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

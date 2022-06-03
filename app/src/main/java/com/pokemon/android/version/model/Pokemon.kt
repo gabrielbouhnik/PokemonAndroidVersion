@@ -2,7 +2,9 @@ package com.pokemon.android.version.model
 
 import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.entity.save.PokemonSave
+import com.pokemon.android.version.model.battle.DamageCalculator
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
+import kotlin.random.Random
 
 class Pokemon (val data : PokemonData,
                var trainer : Trainer?,
@@ -55,6 +57,50 @@ class Pokemon (val data : PokemonData,
                 .move4(if (pokemonSave.moveids.size > 3) PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[3].id), pokemonSave.moveids[3].pp) else null)
                 .build()
         }
+    }
+
+    fun IA(opponent : Pokemon) : PokemonMove{
+        var usableMoves : ArrayList<PokemonMove> = arrayListOf()
+        if (move1.pp > 0){
+            usableMoves.add(move1)
+        }
+        if (move2 != null && move2!!.pp > 0){
+            usableMoves.add(move2!!)
+        }
+        if (move3 != null && move3!!.pp > 0){
+            usableMoves.add(move4!!)
+        }
+        if (move4 != null && move4!!.pp > 0){
+            usableMoves.add(move4!!)
+        }
+        var maxDamage = 0
+        var maxDamageIdx = 0
+        var Idx = 0
+        for (move in usableMoves){
+            if (DamageCalculator.computeDamage(this,move.move, opponent) > maxDamage)
+                maxDamageIdx = Idx
+            Idx++
+        }
+        return usableMoves[maxDamageIdx]
+    }
+
+    fun attack(move : PokemonMove, opponent : Pokemon) : Boolean{
+        if (this.status == Status.PARALYSIS){
+            if (Random.nextInt(100) < 25)
+                return false
+        }
+        move.pp = move.pp - 1
+        if (move.move.accuracy < 100){
+            var random : Int = Random.nextInt(100)
+            if (random >= move.move.accuracy)
+                return false
+        }
+        var damage = DamageCalculator.computeDamage(this,move.move, opponent)
+        if (damage >= opponent.currentHP)
+            opponent.currentHP = 0
+        else
+            opponent.currentHP = opponent.currentHP - damage
+        return true
     }
 
     data class PokemonBuilder(

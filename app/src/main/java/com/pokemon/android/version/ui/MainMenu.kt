@@ -19,6 +19,7 @@ class MainMenu {
 
     fun loadGameMenu(activity : MainActivity){
         activity.setContentView(R.layout.main_menu)
+        activity.updateMusic(R.raw.main_menu)
         var pokemonsButton : Button = activity.findViewById(R.id.pokemonsButton)
         pokemonsButton.setOnClickListener {
             pokemonMenu.loadPokemonMenu(activity)
@@ -29,7 +30,7 @@ class MainMenu {
         }
         var adventureButton : Button = activity.findViewById(R.id.adventureButton)
         adventureButton.setOnClickListener {
-            levelMenu.loadBannerMenu(activity)
+            levelMenu.loadLevelMenu(activity)
         }
     }
 

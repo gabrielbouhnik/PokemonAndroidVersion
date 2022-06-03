@@ -6,7 +6,7 @@ import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.banner.Banner
 import com.pokemon.android.version.model.banner.PokemonBanner
 import com.pokemon.android.version.model.item.ItemData
-import com.pokemon.android.version.model.level.Level
+import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.level.LevelFactory
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveFactory
@@ -23,7 +23,7 @@ class GameDataService {
     var moves : List<Move> = ArrayList()
     var pokemons : List<PokemonData> = ArrayList()
     var banners : List<Banner> = ArrayList()
-    var levels : List<Level> = ArrayList()
+    var levels : List<LevelData> = ArrayList()
 
     companion object {
         const val MOVES_DATA_PATH = "game_data/moves.json"

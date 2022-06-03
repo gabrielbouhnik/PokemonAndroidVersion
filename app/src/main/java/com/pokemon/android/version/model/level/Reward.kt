@@ -1,4 +1,4 @@
 package com.pokemon.android.version.model.level
 
-class Reward(var item : Int,var quantity : Int)  {
+class Reward(var itemId : Int, var quantity : Int)  {
 }

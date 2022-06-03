@@ -12,6 +12,7 @@ class MoveFactory {
                 movesEntity.critMoves.forEach { res.add(CritMove.of(it)) }
                 movesEntity.variableHitMoves.forEach { res.add(VariableHitMove.of(it)) }
             }
+            res.sortBy{it.id}
             return res
         }
     }

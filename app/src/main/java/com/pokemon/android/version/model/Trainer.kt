@@ -21,15 +21,19 @@ class Trainer {
             team.add(pokemon)
     }
 
-    fun addItem(id : Int){
+    fun addItem(id : Int, quantity : Int){
         if (items.contains(id))
-            items[id] = items[id]!!.plus(1)
+            items[id] = items[id]!!.plus(quantity)
         else
-            items[id] = 1
+            items[id] = quantity
     }
 
-    fun save(){
-
+    fun canStillBattle() : Boolean{
+        for (pokemon in team){
+            if (pokemon.currentHP > 0)
+                return true
+        }
+        return false
     }
 
 

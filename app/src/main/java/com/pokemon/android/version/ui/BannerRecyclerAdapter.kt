@@ -1,6 +1,5 @@
 package com.pokemon.android.version.ui
 
-import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +10,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
-import com.pokemon.android.version.model.banner.Banner
 import java.io.InputStream
 
-class BannerRecyclerView (var activity : MainActivity) :
-    RecyclerView.Adapter<BannerRecyclerView.ViewHolder>() {
+class BannerRecyclerAdapter (var activity : MainActivity) :
+    RecyclerView.Adapter<BannerRecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var descriptionTextView: TextView

@@ -12,10 +12,10 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Pokemon
 
-class PokemonRecyclerView (val context: Context,
-                        val data: MutableList<Pokemon>,
-                        private val onItemClickListener: View.OnClickListener) :
-                        RecyclerView.Adapter<PokemonRecyclerView.ViewHolder>() {
+class PokemonRecyclerAdapter (val context: Context,
+                              val data: MutableList<Pokemon>,
+                              private val onItemClickListener: View.OnClickListener) :
+                        RecyclerView.Adapter<PokemonRecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var nameTextView: TextView
@@ -48,7 +48,7 @@ class PokemonRecyclerView (val context: Context,
         holder.hpLevelTextView.text = "Level  ${currentItem.level}  ${currentItem.currentHP}/${currentItem.hp}"
         holder.itemView.tag = position
         Glide.with(context)
-            .load(MainActivity.spritesUrl + currentItem.data.id + ".png")
+            .load(MainActivity.pokemonSpritesUrl + currentItem.data.id + ".png")
             .into(holder.spriteView)
     }
 }
