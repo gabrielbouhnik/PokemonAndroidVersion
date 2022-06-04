@@ -47,5 +47,13 @@
   {
     "id": "11",
     "name": "Great Ball"
+  },
+  {
+    "id": "12",
+    "name": "Hyper Ball"
+  },
+  {
+    "id": "13",
+    "name": "PP Heal"
   }
 ]

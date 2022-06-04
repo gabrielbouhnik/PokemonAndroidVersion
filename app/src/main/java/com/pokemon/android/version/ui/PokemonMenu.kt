@@ -49,6 +49,10 @@ class PokemonMenu {
         backButton.setOnClickListener{
             loadPokemonMenu(activity)
         }
+        val useItemButton : Button = activity.findViewById(R.id.useItemButton)
+        useItemButton.setOnClickListener{
+            activity.mainMenu.itemMenu.loadItemMenu(activity, pokemon)
+        }
         val move1Button : Button = activity.findViewById(R.id.move1InfoButton)
         move1Button.text = pokemon.move1.move.name
         val move2Button : Button = activity.findViewById(R.id.move2InfoButton)

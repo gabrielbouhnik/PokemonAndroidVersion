@@ -1,6 +1,5 @@
 package com.pokemon.android.version.ui
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,16 +9,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
+import com.pokemon.android.version.model.item.ItemQuantity
 import com.pokemon.android.version.model.level.Reward
 
-class RewardRecyclerAdapter (var activity : MainActivity,
-                             val data: MutableList<Reward>) :
-    RecyclerView.Adapter<RewardRecyclerAdapter.ViewHolder>() {
+class ItemRecyclerAdapter(var activity : MainActivity,
+                          val data: ArrayList<ItemQuantity>,
+                          private val onItemClickListener: View.OnClickListener) :
+    RecyclerView.Adapter<ItemRecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var nameTextView: TextView
         var quantityTextView: TextView
-       //var spriteView: ImageView
+        //var spriteView: ImageView
 
         init {
             nameTextView = itemView.findViewById(R.id.rewardNameTextView)
@@ -36,6 +37,7 @@ class RewardRecyclerAdapter (var activity : MainActivity,
         val rowView = LayoutInflater
             .from(activity)
             .inflate(R.layout.reward_item, parent, false)
+        rowView.setOnClickListener(onItemClickListener)
         val viewHolder = ViewHolder(rowView)
         return viewHolder
     }

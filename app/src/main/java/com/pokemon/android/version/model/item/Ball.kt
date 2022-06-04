@@ -13,12 +13,15 @@ class Ball(val successRate : Int) : Item{
         val HYPERBALL = Ball(30)
     }
 
+    override fun isUsable(pokemon: Pokemon): Boolean {
+        return false
+    }
+
     override fun apply(pokemon: Pokemon) {
         throw ItemCannotBeUsedException()
     }
 
     fun catch(pokemon: Pokemon, trainer : Trainer) : Boolean{
-        //TODO use catch rate formula
         if (pokemon.trainer != null){
             throw ItemCannotBeUsedException()
         }

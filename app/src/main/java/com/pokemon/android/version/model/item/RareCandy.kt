@@ -9,6 +9,10 @@ class RareCandy : Item {
         val RARE_CANDY = RareCandy()
     }
 
+    override fun isUsable(pokemon: Pokemon): Boolean {
+        return pokemon.level < 100
+    }
+
     override fun apply(pokemon: Pokemon) {
         pokemon.level += 1
     }

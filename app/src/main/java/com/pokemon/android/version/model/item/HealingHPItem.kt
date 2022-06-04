@@ -10,9 +10,11 @@ class HealingHPItem(val heal : Int) : Item {
         val HYPERPOTION = HealingHPItem(120)
     }
 
+    override fun isUsable(pokemon: Pokemon): Boolean {
+        return pokemon.currentHP == 0
+    }
+
     override fun apply(pokemon: Pokemon) {
-        if (pokemon.currentHP == 0)
-            throw ItemCannotBeUsedException()
         if (pokemon.currentHP + heal > pokemon.hp)
             pokemon.currentHP = pokemon.hp
         else

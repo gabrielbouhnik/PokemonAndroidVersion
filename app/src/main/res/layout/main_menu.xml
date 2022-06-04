@@ -30,7 +30,7 @@
             android:layout_width="205dp"
             android:layout_height="57dp" android:id="@+id/pokemonsButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="308dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="240dp"
             android:backgroundTint="#4CAF50" android:textAlignment="center" android:textSize="18sp"
             android:textStyle="bold" android:textColor="#FFFFFF"/>
     <TextView
@@ -40,6 +40,22 @@
             android:text="Look at the characteristics of your pokemon" android:textSize="18sp"
             android:textAlignment="center" app:layout_constraintTop_toBottomOf="@+id/pokemonsButton"
     />
+    <Button
+            android:text="INVENTORY"
+            android:layout_width="205dp"
+            android:layout_height="57dp" android:id="@+id/itemsButton"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:backgroundTint="#FFEB3B" android:textAlignment="center" android:textSize="18sp"
+            android:textStyle="bold" android:textColor="#FFFFFF" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.584"/>
+    <TextView
+            android:layout_width="252dp"
+            android:layout_height="47dp" android:id="@+id/itemsTextView"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:text="Check out your inventory" android:textSize="18sp"
+            android:textAlignment="center" app:layout_constraintTop_toBottomOf="@+id/itemsButton"
+            android:layout_marginTop="8dp" app:layout_constraintHorizontal_bias="0.522"/>
     <Button
             android:text="Mystery Gift"
             android:layout_width="205dp"

@@ -9,9 +9,11 @@ class Revive(var isMax: Boolean): Item {
         val MAX_REVIVE = Revive(true)
     }
 
+    override fun isUsable(pokemon: Pokemon): Boolean {
+        return pokemon.currentHP == 0
+    }
+
     override fun apply(pokemon: Pokemon) {
-        if (pokemon.currentHP != 0)
-            throw ItemCannotBeUsedException()
         if (isMax)
             pokemon.currentHP = pokemon.hp
         else

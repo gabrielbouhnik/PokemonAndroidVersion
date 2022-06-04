@@ -16,6 +16,7 @@ class MainMenu {
     var pokemonMenu : PokemonMenu = PokemonMenu()
     var bannerMenu : BannerMenu = BannerMenu()
     var levelMenu : LevelMenu = LevelMenu()
+    var itemMenu : ItemMenu = ItemMenu()
 
     fun loadGameMenu(activity : MainActivity){
         activity.setContentView(R.layout.main_menu)
@@ -31,6 +32,10 @@ class MainMenu {
         var adventureButton : Button = activity.findViewById(R.id.adventureButton)
         adventureButton.setOnClickListener {
             levelMenu.loadLevelMenu(activity)
+        }
+        var itemsButton : Button = activity.findViewById(R.id.itemsButton)
+        itemsButton.setOnClickListener {
+            itemMenu.loadItemMenu(activity, null)
         }
     }
 

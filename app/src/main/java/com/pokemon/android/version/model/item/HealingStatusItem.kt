@@ -11,10 +11,12 @@ class HealingStatusItem (val status : Status) : Item {
         val ANTIDOTE = HealingStatusItem(Status.POISON)
     }
 
+    override fun isUsable(pokemon: Pokemon): Boolean {
+        return pokemon.currentHP > 0 && pokemon.status != Status.OK
+    }
+
+
     override fun apply(pokemon: Pokemon) {
-        if (pokemon.status == status)
-            pokemon.status = Status.OK
-        else
-            throw ItemCannotBeUsedException()
+        pokemon.status = Status.OK
     }
 }

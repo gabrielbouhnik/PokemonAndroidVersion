@@ -9,10 +9,11 @@ class FullHeal () : Item {
         val FULL_HEAL = FullHeal()
     }
 
+    override fun isUsable(pokemon: Pokemon): Boolean {
+        return pokemon.status != Status.OK && pokemon.currentHP > 0
+    }
+
     override fun apply(pokemon: Pokemon) {
-        if (pokemon.status != Status.OK && pokemon.currentHP > 0)
             pokemon.status = Status.OK
-        else
-            throw ItemCannotBeUsedException()
     }
 }
