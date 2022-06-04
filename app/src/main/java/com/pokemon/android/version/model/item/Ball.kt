@@ -6,12 +6,19 @@ import com.pokemon.android.version.model.Trainer
 import kotlin.random.Random
 import kotlin.random.nextInt
 
-abstract class Ball(val successRate : Int) : Item{
+class Ball(val successRate : Int) : Item{
+    companion object{
+        val POKEBALL = Ball(30)
+        val SUPERBALL = Ball(30)
+        val HYPERBALL = Ball(30)
+    }
+
     override fun apply(pokemon: Pokemon) {
         throw ItemCannotBeUsedException()
     }
 
     fun catch(pokemon: Pokemon, trainer : Trainer) : Boolean{
+        //TODO use catch rate formula
         if (pokemon.trainer != null){
             throw ItemCannotBeUsedException()
         }

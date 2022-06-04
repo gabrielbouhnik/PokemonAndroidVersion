@@ -31,9 +31,9 @@ class DamageCalculator {
             var type : Float = move.type.isEffectiveAgainst(opponent.data.type2) * move.type.isEffectiveAgainst(opponent.data.type1)
             var crit = getCritMultiplicator(move)
             var random : Float = Random.nextInt(85,100).toFloat()/100f
-            var offensiveStat = if (move.category == MoveCategory.PHYSICAL) attacker.attack.toFloat() * attacker.attackMultiplicator else attacker.spAtk.toFloat() * attacker.spAtkMultiplicator
-            var defensiveStat = if (move.category == MoveCategory.PHYSICAL) attacker.defense.toFloat() * attacker.defenseMultiplicator else attacker.spDef.toFloat() * attacker.spDefMultiplicator
-            return ((((((attacker.level.toFloat() * 0.4f) + 2) * move.power.toFloat() * offensiveStat)/defensiveStat * 50) + 2f) * type * crit * stab * multiplicator* random).roundToInt().div(1000)
+            var offensiveStat : Int = if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * attacker.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * attacker.spAtkMultiplicator).roundToInt()
+            var defensiveStat : Int = if (move.category == MoveCategory.PHYSICAL) (attacker.defense.toFloat() * attacker.defenseMultiplicator).roundToInt() else (attacker.spDef.toFloat() * attacker.spDefMultiplicator).roundToInt()
+            return ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * move.power * offensiveStat)/defensiveStat * 50) + 2) * type * crit * stab * multiplicator* random).roundToInt()
         }
     }
 }

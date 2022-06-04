@@ -18,7 +18,7 @@ class WildBattle() {
         this.activity = activity
         this.wildBattleLevelData = wildBattleLevelData
         this.encountersLeft = wildBattleLevelData.encounter
-        this.pokemon = activity.trainer!!.pokemons[0]
+        this.pokemon = activity.trainer!!.getFirstTeamMember()!!
     }
 
     fun turn(trainerPokemonMove: PokemonMove) {
@@ -39,7 +39,7 @@ class WildBattle() {
     }
 
     fun getBattleState(): State {
-        if (encountersLeft <= 0)
+        if (encountersLeft == 0)
             return State.TRAINER_VICTORY
         if (!activity.trainer!!.canStillBattle())
             return State.TRAINER_LOSS

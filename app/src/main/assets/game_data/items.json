@@ -10,22 +10,42 @@
   },
   {
     "id": "2",
-    "name": "Full Heal"
+    "name": "Super Potion"
   },
   {
     "id": "3",
-    "name": "Rare Candy"
+    "name": "Hyper Potion"
   },
   {
     "id": "4",
-    "name": "Oran Berry"
+    "name": "Full Heal"
   },
   {
     "id": "5",
-    "name": "Poke Ball"
+    "name": "Paralyze Heal"
   },
   {
     "id": "6",
+    "name": "Burn Heal"
+  },
+  {
+    "id": "7",
+    "name": "Antidote"
+  },
+  {
+    "id": "8",
+    "name": "Rare Candy"
+  },
+  {
+    "id": "9",
+    "name": "Revive"
+  },
+  {
+    "id": "10",
+    "name": "Poke Ball"
+  },
+  {
+    "id": "11",
     "name": "Great Ball"
   }
 ]

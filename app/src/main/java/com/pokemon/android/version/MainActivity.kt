@@ -97,6 +97,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun playSoundEffect(id : Int){
+        MediaPlayer.create(this,id).start()
+    }
+
     fun updateMusic(id : Int){
         if (currentMusicId == id)
             return

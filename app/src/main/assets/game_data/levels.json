@@ -79,11 +79,11 @@
       "id": 2,
       "name": "\nRoute 1",
       "description": "While walking along route 1, you come across wild pokemon",
-      "encounter": 1,
+      "encounter": 2,
       "possibleEncounters":
         {
           "minLevel": 2,
-          "maxLevel": 4,
+          "maxLevel": 3,
           "encounters": [
             16,
             19,
@@ -112,11 +112,11 @@
       "id": 3,
       "name": "\nRoute 22",
       "description": "After arriving in Viridian City, you decide to go to route 22 to fight the pokemon league. However, some pokemon attack you",
-      "encounter": 3,
+      "encounter": 2,
       "possibleEncounters":
         {
           "minLevel": 2,
-          "maxLevel": 5,
+          "maxLevel": 4,
           "encounters": [
             16,
             19,

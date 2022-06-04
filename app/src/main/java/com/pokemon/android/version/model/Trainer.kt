@@ -7,11 +7,19 @@ class Trainer {
     var team : ArrayList<Pokemon> = ArrayList()
     var items : HashMap<Int, Int> = HashMap()
     var progression : Int = 0
-    var coins : Int = 0
+    var coins : Int = 50
 
     constructor(name: String, gender: Gender){
         this.name = name
         this.gender = gender
+    }
+
+    fun getFirstTeamMember() : Pokemon?{
+        for (pokemon in team){
+            if (pokemon.currentHP > 0)
+                return pokemon
+        }
+        return null
     }
 
     fun catchPokemon(pokemon : Pokemon){
@@ -35,6 +43,4 @@ class Trainer {
         }
         return false
     }
-
-
 }

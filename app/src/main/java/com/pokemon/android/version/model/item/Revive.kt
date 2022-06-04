@@ -3,19 +3,18 @@ package com.pokemon.android.version.model.item
 import com.pokemon.android.version.exception.ItemCannotBeUsedException
 import com.pokemon.android.version.model.Pokemon
 
-class HealingHPItem(val heal : Int) : Item {
+class Revive(var isMax: Boolean): Item {
     companion object{
-        val POTION = HealingHPItem(20)
-        val SUPERPOTION = HealingHPItem(60)
-        val HYPERPOTION = HealingHPItem(120)
+        val REVIVE = Revive(false)
+        val MAX_REVIVE = Revive(true)
     }
 
     override fun apply(pokemon: Pokemon) {
-        if (pokemon.currentHP == 0)
+        if (pokemon.currentHP != 0)
             throw ItemCannotBeUsedException()
-        if (pokemon.currentHP + heal > pokemon.hp)
+        if (isMax)
             pokemon.currentHP = pokemon.hp
         else
-            pokemon.currentHP += heal
+            pokemon.currentHP = pokemon.hp/2
     }
 }

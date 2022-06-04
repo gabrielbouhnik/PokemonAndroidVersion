@@ -96,8 +96,10 @@ class Pokemon (val data : PokemonData,
                 return false
         }
         var damage = DamageCalculator.computeDamage(this,move.move, opponent)
-        if (damage >= opponent.currentHP)
+        if (damage >= opponent.currentHP) {
             opponent.currentHP = 0
+            opponent.status = Status.OK
+        }
         else
             opponent.currentHP = opponent.currentHP - damage
         return true

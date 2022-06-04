@@ -110,7 +110,7 @@
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 1,
+      "priority_level": 0,
       "status": "BURN",
       "probability": 10
     },
