@@ -39,7 +39,7 @@ class Trainer  : ITrainer{
             items[id] = quantity
     }
 
-    fun useItem(id: Int, pokemon: Pokemon) {
+    fun useItem(id: Int, pokemon: Pokemon) : Boolean{
         if (items.contains(id)) {
             var item: Item = ItemUtils.getItemById(id)
             if (item.isUsable(pokemon)) {
@@ -48,8 +48,10 @@ class Trainer  : ITrainer{
                     items.remove(id)
                 }
                 item.apply(pokemon)
+                return true
             }
         }
+        return false
     }
 
     override fun canStillBattle(): Boolean {

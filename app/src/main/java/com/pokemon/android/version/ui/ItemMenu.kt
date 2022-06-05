@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
+import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.item.ItemQuantity
 import com.pokemon.android.version.utils.ItemUtils
@@ -25,7 +26,8 @@ class ItemMenu {
         val adapter =  ItemRecyclerAdapter(activity, items,
             if (pokemon == null) View.OnClickListener{} else View.OnClickListener{
                 val position = it.tag as Int
-                activity.trainer!!.useItem(items[position].itemId, pokemon!!)
+                activity.trainer!!.useItem(items[position].itemId, pokemon)
+                SaveManager.save(activity)
                 activity.mainMenu.pokemonMenu.loadPokemonMenu(activity)
             })
         recyclerView.adapter = adapter
