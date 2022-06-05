@@ -18,12 +18,12 @@ class SaveManager {
             var jsonString = JsonFileToString.loadJsonStringFromInternalStorage(activity,SAVE_FILE_PATH) ?: return null
             val gson = Gson()
             val data = object : TypeToken<TrainerSave>() {}.type
+            Log.d("save:", jsonString)
             var trainerSave : TrainerSave = gson.fromJson(jsonString, data)
-            trainerSave.team.forEach{ pkmn -> Log.d("pokemon name:", pkmn.id.toString()) }
             var trainer = Trainer(trainerSave.name, Gender.valueOf(trainerSave.gender))
             trainer.coins = trainerSave.coins
             trainer.progression = trainerSave.progression
-            trainerSave.items.forEach{ trainer.items[it.id] = it.quantity }
+            trainerSave.items.forEach{ trainer.items[it.itemId] = it.quantity }
             trainerSave.team.forEach{
                 var pokemon : Pokemon = Pokemon.of(it, activity.gameDataService,trainer)
                 trainer.pokemons.add(pokemon)

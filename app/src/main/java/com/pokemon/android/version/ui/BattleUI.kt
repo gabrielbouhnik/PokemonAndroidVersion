@@ -129,6 +129,7 @@ class BattleUI {
         var wildBattle = WildBattle(activity, level)
         buttonSetUp(activity,wildBattle)
         wildBattle.generateRandomEncounter()
+        BattleUI.dialogTextView!!.text = "You encountered a wild ${wildBattle.opponent.data.name}!"
         displayPokemonsInfos(activity, wildBattle)
     }
 
@@ -143,6 +144,7 @@ class BattleUI {
         opponentTrainerSprite.visibility = VISIBLE
         loadOpponentTrainerSprite(opponentTrainerSprite,activity,level.opponentTrainerData[0].sprite)
         var trainerBattle = TrainerBattle(activity, level)
+        BattleUI.dialogTextView!!.text = "${level.opponentTrainerData[0].name} wants to battle"
         buttonSetUp(activity,trainerBattle)
         displayPokemonsInfos(activity, trainerBattle)
     }

@@ -8,6 +8,7 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.item.ItemQuantity
+import com.pokemon.android.version.utils.ItemUtils
 
 class ItemMenu {
     lateinit var items : ArrayList<ItemQuantity>

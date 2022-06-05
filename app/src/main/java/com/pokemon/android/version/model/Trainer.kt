@@ -47,8 +47,8 @@ class Trainer  : ITrainer{
                 if (items[id] == 0) {
                     items.remove(id)
                 }
+                item.apply(pokemon)
             }
-            item.apply(pokemon)
         }
     }
 

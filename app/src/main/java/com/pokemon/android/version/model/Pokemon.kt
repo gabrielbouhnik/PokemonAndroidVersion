@@ -68,7 +68,7 @@ class Pokemon (val data : PokemonData,
             usableMoves.add(move2!!)
         }
         if (move3 != null && move3!!.pp > 0){
-            usableMoves.add(move4!!)
+            usableMoves.add(move3!!)
         }
         if (move4 != null && move4!!.pp > 0){
             usableMoves.add(move4!!)
