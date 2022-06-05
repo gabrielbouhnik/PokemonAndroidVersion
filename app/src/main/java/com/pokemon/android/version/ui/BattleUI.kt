@@ -17,7 +17,6 @@ import com.pokemon.android.version.model.battle.Battle
 import com.pokemon.android.version.model.battle.State
 import com.pokemon.android.version.model.battle.TrainerBattle
 import com.pokemon.android.version.model.battle.WildBattle
-import com.pokemon.android.version.model.item.Item
 import com.pokemon.android.version.model.item.ItemQuantity
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
@@ -133,8 +132,9 @@ class BattleUI {
                         if (clickedPokemon.currentHP > 0 && clickedPokemon != battle.pokemon) {
                             recyclerView.visibility = GONE
                             blackImageView.visibility = GONE
-                            displayPokemonsInfos(activity, battle)
                             battle.switchPokemon(clickedPokemon)
+                            setUpAttackButtons(activity, battle)
+                            displayPokemonsInfos(activity, battle)
                         }
                     }
                     val adapter =  PokemonRecyclerAdapter(activity, activity.trainer!!.team, myItemClickListener)
@@ -162,7 +162,7 @@ class BattleUI {
         }
     }
 
-    private fun buttonSetUp(activity : MainActivity, battle : Battle){
+    private fun setUpAttackButtons(activity : MainActivity, battle : Battle){
         val attack1Button : Button =  activity.findViewById(R.id.attack1Button)
         if (battle.pokemon.move1.pp > 0){
             attack1Button.visibility = VISIBLE
@@ -176,6 +176,10 @@ class BattleUI {
         setupAttackButton(activity, battle, battle.pokemon.move2,R.id.attack2Button)
         setupAttackButton(activity, battle, battle.pokemon.move3,R.id.attack3Button)
         setupAttackButton(activity, battle, battle.pokemon.move4,R.id.attack4Button)
+    }
+
+    private fun buttonSetUp(activity : MainActivity, battle : Battle){
+        setUpAttackButtons(activity, battle)
 
         var switchButton : Button = activity.findViewById(R.id.switchPokemonButton)
         var bagButton : Button = activity.findViewById(R.id.bagButton)
@@ -197,6 +201,7 @@ class BattleUI {
                     blackImageView.visibility = GONE
                     displayPokemonsInfos(activity, battle)
                     battle.turnWithSwitch(clickedPokemon)
+                    setUpAttackButtons(activity, battle)
                     closeButton.visibility = GONE
                     switchButton.visibility = VISIBLE
                     bagButton.visibility = VISIBLE
