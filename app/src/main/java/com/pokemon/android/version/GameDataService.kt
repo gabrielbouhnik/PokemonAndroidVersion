@@ -63,10 +63,10 @@ class GameDataService {
         val spDef : Int = 5 + (pokemonData.spDef.toFloat() * (level/50f)).roundToInt()
         val speed : Int = 5 + (pokemonData.speed.toFloat() * (level/50f)).roundToInt()
         val moves : List<PokemonMove> = pokemonData.possibleMoves.filter { it is PokemonMoveLearnedByLevel && (it as PokemonMoveLearnedByLevel).level <= level }
-        val move1 : PokemonMove = moves.last()
-        val move2 : PokemonMove? = if (moves.size < 2) null else moves[moves.size - 2]
-        val move3 : PokemonMove? = if (moves.size < 3) null else moves[moves.size - 3]
-        val move4 : PokemonMove? = if (moves.size < 4) null else moves[moves.size - 4]
+        val move1 : PokemonMove = moves.first()
+        val move2 : PokemonMove? = if (moves.size < 2) null else moves[1]
+        val move3 : PokemonMove? = if (moves.size < 3) null else moves[2]
+        val move4 : PokemonMove? = if (moves.size < 4) null else moves[3]
         var gender : Gender = Gender.MALE
         if (Random.nextInt(1..10) > 5)
             gender = Gender.FEMALE
@@ -105,6 +105,39 @@ class GameDataService {
         return Pokemon.PokemonBuilder()
             .data(pokemonBanner.pokemonData)
             .level(5)
+            .hp(hp)
+            .attack(attack)
+            .defense(defense)
+            .spAtk(spAtk)
+            .spDef(spDef)
+            .speed(speed)
+            .currentHP(hp)
+            .gender(gender) //TODO gender lock
+            .move1(move1)
+            .move2(move2)
+            .move3(move3)
+            .move4(move4)
+            .build()
+    }
+
+    fun generatePokemonWithMoves(id : Int, level : Int, moves : List<Move>) : Pokemon{
+        val pokemonData : PokemonData = pokemons.filter {it.id == id}.first()
+        val hp : Int = 10 + (pokemonData.hp.toFloat() * (level/50f)).roundToInt()
+        val attack : Int = 5 + (pokemonData.attack.toFloat() * (level/50f)).roundToInt()
+        val defense : Int = 5 + (pokemonData.defense.toFloat() * (level/50f)).roundToInt()
+        val spAtk : Int = 5 + (pokemonData.spAtk.toFloat() * (level/50f)).roundToInt()
+        val spDef : Int = 5 + (pokemonData.spDef.toFloat() * (level/50f)).roundToInt()
+        val speed : Int = 5 + (pokemonData.speed.toFloat() * (level/50f)).roundToInt()
+        val move1 : PokemonMove = PokemonMove(moves[0])
+        val move2 : PokemonMove? = if (moves.size < 2) null else PokemonMove(moves[1])
+        val move3 : PokemonMove? = if (moves.size < 3) null else PokemonMove(moves[2])
+        val move4 : PokemonMove? = if (moves.size < 4) null else PokemonMove(moves[3])
+        var gender : Gender = Gender.MALE
+        if (Random.nextInt(1..10) > 5)
+            gender = Gender.FEMALE
+        return Pokemon.PokemonBuilder()
+            .data(pokemonData)
+            .level(level)
             .hp(hp)
             .attack(attack)
             .defense(defense)

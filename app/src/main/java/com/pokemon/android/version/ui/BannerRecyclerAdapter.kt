@@ -46,8 +46,8 @@ class BannerRecyclerAdapter (var activity : MainActivity) :
         holder.costTextView.text = "COST: ${currentItem.cost} AndroCoins"
         holder.itemView.tag = position
         holder.summonButton.setOnClickListener{
-            currentItem.summon(activity)
-            activity.playSoundEffect(R.raw.item_sound_effect)
+            if (currentItem.summon(activity))
+                activity.playSoundEffect(R.raw.item_sound_effect)
             activity.mainMenu.bannerMenu.coinsTextView.text = "${activity.trainer!!.coins} AndroCoins"
         }
         var img : InputStream = activity.assets.open(currentItem.image)

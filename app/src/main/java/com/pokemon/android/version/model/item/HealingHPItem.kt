@@ -11,7 +11,7 @@ class HealingHPItem(val heal : Int) : Item {
     }
 
     override fun isUsable(pokemon: Pokemon): Boolean {
-        return pokemon.currentHP == 0
+        return pokemon.currentHP > 0
     }
 
     override fun apply(pokemon: Pokemon) {

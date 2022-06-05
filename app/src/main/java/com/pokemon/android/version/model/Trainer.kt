@@ -3,13 +3,13 @@ package com.pokemon.android.version.model
 import com.pokemon.android.version.model.item.Item
 import com.pokemon.android.version.utils.ItemUtils
 
-class Trainer {
+class Trainer  : ITrainer{
     var name: String = ""
     var pokemons: ArrayList<Pokemon> = ArrayList()
     var gender: Gender? = null
     var team: ArrayList<Pokemon> = ArrayList()
     var items: HashMap<Int, Int> = HashMap()
-    var progression: Int = 0
+    var progression: Int = 1
     var coins: Int = 50
 
     constructor(name: String, gender: Gender) {
@@ -17,7 +17,7 @@ class Trainer {
         this.gender = gender
     }
 
-    fun getFirstTeamMember(): Pokemon? {
+    override fun getFirstPokemonThatCanFight(): Pokemon? {
         for (pokemon in team) {
             if (pokemon.currentHP > 0)
                 return pokemon
@@ -52,7 +52,7 @@ class Trainer {
         }
     }
 
-    fun canStillBattle(): Boolean {
+    override fun canStillBattle(): Boolean {
         for (pokemon in team) {
             if (pokemon.currentHP > 0)
                 return true

@@ -7,21 +7,18 @@ import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.BattleUtils
 import kotlin.random.Random
 
-class WildBattle() {
+class WildBattle() : Battle() {
     lateinit var activity: MainActivity
-    lateinit var wildBattleLevelData: WildBattleLevelData
     var encountersLeft: Int = 0
-    lateinit var pokemon: Pokemon
-    lateinit var opponent: Pokemon
 
     constructor(activity: MainActivity, wildBattleLevelData: WildBattleLevelData) : this() {
         this.activity = activity
-        this.wildBattleLevelData = wildBattleLevelData
+        this.levelData = wildBattleLevelData
         this.encountersLeft = wildBattleLevelData.encounter
-        this.pokemon = activity.trainer!!.getFirstTeamMember()!!
+        this.pokemon = activity.trainer!!.getFirstPokemonThatCanFight()!!
     }
 
-    fun turn(trainerPokemonMove: PokemonMove) {
+    override fun turn(trainerPokemonMove: PokemonMove) {
         var trainerStarts = BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move)
         if (trainerStarts) {
             pokemon.attack(trainerPokemonMove, opponent)
@@ -38,21 +35,25 @@ class WildBattle() {
         }
     }
 
-    fun getBattleState(): State {
-        if (encountersLeft == 0)
+    override fun getBattleState(): State {
+        if (encountersLeft == 0){
+            this.pokemon.resetStatChanges()
             return State.TRAINER_VICTORY
-        if (!activity.trainer!!.canStillBattle())
+        }
+        if (!activity.trainer!!.canStillBattle()) {
+            this.pokemon.resetStatChanges()
             return State.TRAINER_LOSS
+        }
         return State.IN_PROGRESS
     }
 
     fun generateRandomEncounter(): Pokemon {
         var randomLevel = Random.nextInt(
-            wildBattleLevelData.possibleEncounters.minLevel,
-            wildBattleLevelData.possibleEncounters.maxLevel
+            (levelData as WildBattleLevelData).possibleEncounters.minLevel,
+            (levelData as WildBattleLevelData).possibleEncounters.maxLevel
         )
         opponent = activity.gameDataService.generatePokemon(
-            wildBattleLevelData.possibleEncounters.encounters.random().id,
+            (levelData as WildBattleLevelData).possibleEncounters.encounters.random().id,
             randomLevel
         )
         return opponent

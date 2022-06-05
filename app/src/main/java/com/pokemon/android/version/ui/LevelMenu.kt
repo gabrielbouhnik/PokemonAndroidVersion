@@ -8,43 +8,63 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.level.LevelData
+import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.level.WildBattleLevelData
 
 class LevelMenu {
-    var battleUI : BattleUI = BattleUI()
+    var battleUI: BattleUI = BattleUI()
 
-    fun loadLevelMenu(activity : MainActivity){
+    fun startBattle(activity: MainActivity, level: LevelData) {
+        if (level is WildBattleLevelData)
+            battleUI.startWildBattle(
+                activity,
+                level
+            )
+        else
+            battleUI.startTrainerBattle(
+                activity,
+                level as TrainerBattleLevelData
+            )
+    }
+
+
+    fun loadLevelMenu(activity: MainActivity) {
         activity.setContentView(R.layout.level_menu)
         val recyclerView = activity.findViewById<RecyclerView>(R.id.levelRecyclerView)
-        recyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        val backButton : Button = activity.findViewById(R.id.levelMenuBackButton)
-        backButton.setOnClickListener{
+        recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        val backButton: Button = activity.findViewById(R.id.levelMenuBackButton)
+        backButton.setOnClickListener {
             activity.mainMenu.loadGameMenu(activity)
         }
         val myItemClickListener = View.OnClickListener {
             val position = it.tag as Int
-            if (activity.trainer!!.canStillBattle() && activity.trainer!!.progression >= activity.gameDataService.levels[position].id){
-                if (activity.gameDataService.levels[position] is WildBattleLevelData)
-                    battleUI.startWildBattle(activity, activity.gameDataService.levels[position] as WildBattleLevelData)
-            }
+            var levelData : LevelData =  activity.gameDataService.levels[position]
+            if (activity.trainer!!.canStillBattle())
+                if (activity.trainer!!.progression == levelData.id) {
+                    loadLevelDescriptionMenu(activity, activity.gameDataService.levels[position])
+                } else if (activity.trainer!!.progression > levelData.id){
+                    startBattle(activity,activity.gameDataService.levels[position])
+                }
         }
-        val adapter =  LevelRecyclerAdapter(activity,myItemClickListener)
+        val adapter = LevelRecyclerAdapter(activity, myItemClickListener)
         recyclerView.adapter = adapter
     }
 
-    fun loadLevelDescriptionMenu(activity : MainActivity, level : LevelData){
+    fun loadLevelDescriptionMenu(activity: MainActivity, levelData: LevelData) {
+        activity.updateMusic(R.raw.level_descr)
         activity.setContentView(R.layout.level_description)
-        val backButton : Button = activity.findViewById(R.id.levelDescrBackButton)
-        backButton.setOnClickListener{
+        val backButton: Button = activity.findViewById(R.id.levelDescrBackButton)
+        backButton.setOnClickListener {
+            activity.updateMusic(R.raw.main_menu)
             loadLevelMenu(activity)
         }
-        val startButton : Button = activity.findViewById(R.id.levelDescrStartButton)
+        val startButton: Button = activity.findViewById(R.id.levelDescrStartButton)
         startButton.setOnClickListener {
-
+            startBattle(activity,levelData)
         }
-        var levelNameDescrTextView : TextView = activity.findViewById(R.id.levelNameDescrTextView)
-        levelNameDescrTextView.text = level.name
-        var levelDescrTextView : TextView = activity.findViewById(R.id.levelDescrTextView)
-        levelDescrTextView.text = level.description
+        var levelNameDescrTextView: TextView = activity.findViewById(R.id.levelNameDescrTextView)
+        levelNameDescrTextView.text = levelData.name
+        var levelDescrTextView: TextView = activity.findViewById(R.id.levelDescrTextView)
+        levelDescrTextView.text = levelData.description
     }
 }

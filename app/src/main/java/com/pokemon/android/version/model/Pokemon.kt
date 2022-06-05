@@ -105,6 +105,16 @@ class Pokemon (val data : PokemonData,
         return true
     }
 
+    fun resetStatChanges(){
+        attackMultiplicator = 1F
+        defenseMultiplicator  = 1F
+        spAtkMultiplicator = 1F
+        spDefMultiplicator = 1F
+        speedMultiplicator  = 1F
+        critRate = 1F
+        evasion = 1F
+    }
+
     data class PokemonBuilder(
         var data : PokemonData? = null,
         var trainer : Trainer? = null,

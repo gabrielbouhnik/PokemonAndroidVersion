@@ -33,7 +33,7 @@ class DamageCalculator {
             var random : Float = Random.nextInt(85,100).toFloat()/100f
             var offensiveStat : Int = if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * attacker.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * attacker.spAtkMultiplicator).roundToInt()
             var defensiveStat : Int = if (move.category == MoveCategory.PHYSICAL) (attacker.defense.toFloat() * attacker.defenseMultiplicator).roundToInt() else (attacker.spDef.toFloat() * attacker.spDefMultiplicator).roundToInt()
-            return ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * move.power * offensiveStat)/defensiveStat * 50) + 2) * type * crit * stab * multiplicator* random).roundToInt()
+            return ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * move.power * offensiveStat)/(defensiveStat * 50)) + 2) * type * crit * stab * multiplicator* random).roundToInt()
         }
     }
 }

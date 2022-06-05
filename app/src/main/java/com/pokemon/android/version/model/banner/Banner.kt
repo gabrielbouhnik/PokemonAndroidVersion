@@ -32,12 +32,12 @@ class Banner(var description : String, var image : String, var cost : Int,
     }
 
     @SuppressLint("ShowToast")
-    fun summon(activity: MainActivity){
+    fun summon(activity: MainActivity) : Boolean{
         if (activity.trainer!!.coins >= cost){
             activity.trainer!!.coins -= cost
         }
         else
-            return
+            return false
         var s : Summonable = summon()
         if (s is ItemBanner){
             var itemBanner = s as ItemBanner
@@ -49,5 +49,6 @@ class Banner(var description : String, var image : String, var cost : Int,
             activity.trainer!!.catchPokemon(activity.gameDataService.generatePokemonFromBanner(pokemonBanner))
         }
         SaveManager.save(activity)
+        return true
     }
 }
