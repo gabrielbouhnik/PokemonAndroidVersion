@@ -11,7 +11,6 @@ import com.pokemon.android.version.model.level.Reward
 
 class RewardMenu {
     fun loadRewardMenu(activity: MainActivity, rewards : ArrayList<Reward> ){
-        activity.updateMusic(R.raw.victory_theme)
         activity.setContentView(R.layout.reward_layout)
         val backButton : Button = activity.findViewById(R.id.rewardsBackButton)
         backButton.setOnClickListener{

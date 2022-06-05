@@ -22,21 +22,22 @@
             android:text="Button 1"
             android:layout_width="196dp"
             android:layout_height="44dp" android:id="@+id/attack1Button"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             app:layout_constraintTop_toBottomOf="@+id/battleBackgroundImageView"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="15dp" android:visibility="gone"/>
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="15dp"
+            android:visibility="gone"/>
     <Button
             android:text="Button 3"
             android:layout_width="196dp"
             android:layout_height="44dp" android:id="@+id/attack3Button"
-            android:layout_marginTop="12dp"
             app:layout_constraintTop_toBottomOf="@+id/attack1Button"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="15dp" android:visibility="gone"/>
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            android:visibility="gone"/>
     <Button
             android:text="Button 2"
             android:layout_width="196dp"
             android:layout_height="44dp" android:id="@+id/attack2Button"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             app:layout_constraintTop_toBottomOf="@+id/battleBackgroundImageView"
             app:layout_constraintStart_toStartOf="@+id/attack1Button" android:layout_marginStart="197dp"
             android:visibility="gone"/>
@@ -44,8 +45,7 @@
             android:text="Button 4"
             android:layout_width="196dp"
             android:layout_height="44dp" android:id="@+id/attack4Button"
-            android:layout_marginTop="72dp"
-            app:layout_constraintTop_toBottomOf="@+id/battleBackgroundImageView"
+            app:layout_constraintTop_toBottomOf="@+id/attack2Button"
             app:layout_constraintStart_toStartOf="@+id/attack3Button" android:layout_marginStart="196dp"
             android:visibility="gone"/>
     <ImageView
@@ -63,7 +63,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/battleBackgroundImageView"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="220dp"
-            app:layout_constraintHorizontal_bias="0.688"/>
+            app:layout_constraintHorizontal_bias="0.688" android:visibility="gone"/>
     <ImageView
             android:layout_width="95dp"
             android:layout_height="156dp" app:srcCompat="@drawable/ic_launcher_background"
@@ -79,7 +79,7 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.215"
             app:layout_constraintBottom_toTopOf="@+id/trainerBackSpriteView"
-            app:layout_constraintVertical_bias="1.0"/>
+            app:layout_constraintVertical_bias="1.0" android:visibility="gone"/>
     <Button
             android:text="Pokemon"
             android:layout_width="wrap_content"
@@ -87,21 +87,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/battleBackgroundImageView"/>
     <TextView
-            android:text="TextView"
             android:layout_width="175dp"
             android:layout_height="30dp" android:id="@+id/myPokemonHPLevelTextView"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="48dp" android:backgroundTint="#FFFFFF" android:textStyle="bold"
             android:textSize="16sp"/>
     <TextView
-            android:text="TextView"
             android:layout_width="139dp"
             android:layout_height="29dp" android:id="@+id/myPokemonNameTextView"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="20dp" android:backgroundTint="#FFFFFF" android:textStyle="bold"
             android:textSize="18sp"/>
     <TextView
-            android:text="TextView"
             android:layout_width="139dp"
             android:layout_height="29dp" android:id="@+id/opponentPokemonNameTextView"
             android:backgroundTint="#FFFFFF" android:textStyle="bold"
@@ -109,7 +106,6 @@
             app:layout_constraintTop_toTopOf="@+id/battleBackgroundImageView" android:layout_marginTop="20dp"
             android:textAlignment="textEnd"/>
     <TextView
-            android:text="TextView"
             android:layout_width="175dp"
             android:layout_height="20dp" android:id="@+id/opponentPokemonHPLevelTextView"
             android:backgroundTint="#FFFFFF" android:textStyle="bold"
@@ -117,10 +113,16 @@
             app:layout_constraintTop_toTopOf="@+id/battleBackgroundImageView" android:layout_marginTop="48dp"
             android:textAlignment="textEnd" android:layout_marginEnd="4dp"/>
     <TextView
-            android:text="TextView"
-            android:layout_width="381dp"
-            android:layout_height="94dp" android:id="@+id/dialogTextView"
+            android:layout_width="368dp"
+            android:layout_height="65dp" android:id="@+id/dialogTextView"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.466" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="4dp" android:textAlignment="center" android:textStyle="bold"/>
+            app:layout_constraintHorizontal_bias="0.533" app:layout_constraintBottom_toBottomOf="parent"
+            android:textAlignment="center" android:textStyle="bold" android:layout_marginBottom="45dp"/>
+    <Button
+            android:layout_width="120dp"
+            android:layout_height="35dp" android:id="@+id/getRewardsButton"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.985"
+            tools:text="Rewards" android:backgroundTint="#F44336"
+            android:layout_marginBottom="32dp" android:textSize="10sp" android:visibility="gone"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

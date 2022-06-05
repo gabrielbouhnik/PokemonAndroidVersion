@@ -1,5 +1,7 @@
 package com.pokemon.android.version.model
 
+import android.widget.Button
+
 enum class Type(val value: Int) {
     NONE(0),
     GRASS(1),

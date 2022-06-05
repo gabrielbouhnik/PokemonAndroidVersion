@@ -1,6 +1,7 @@
 package com.pokemon.android.version.ui
 
 import android.graphics.drawable.Drawable
+import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.ImageView
@@ -44,9 +45,11 @@ class BattleUI {
     }
 
     fun displayPokemonsInfos(activity : MainActivity, battle : Battle){
-        var wildPokemonSprite : ImageView = activity.findViewById(R.id.opponentPokemonImageView)
-        activity.displayPokemon(battle.opponent.data.id, wildPokemonSprite)
+        var opponentPokemonSprite : ImageView = activity.findViewById(R.id.opponentPokemonImageView)
+        opponentPokemonSprite.visibility = VISIBLE
+        activity.displayPokemon(battle.opponent.data.id, opponentPokemonSprite)
         var pokemonBackSprite : ImageView = activity.findViewById(R.id.pokemonBackSpriteView)
+        pokemonBackSprite.visibility = VISIBLE
         activity.displayPokemonBack(battle.pokemon.data.id, pokemonBackSprite)
 
         var trainerPokemonName : TextView =  activity.findViewById(R.id.myPokemonNameTextView)
@@ -60,17 +63,49 @@ class BattleUI {
         opponentPokemonHPLevel.text = "Lv . ${battle.opponent.level} ${battle.opponent.currentHP}/${battle.opponent.hp}"
     }
 
+    fun endBattle(activity : MainActivity){
+        var attack1Button : Button =  activity.findViewById(R.id.attack1Button)
+        attack1Button.visibility = GONE
+        var attack2Button : Button =  activity.findViewById(R.id.attack2Button)
+        attack2Button.visibility = GONE
+        var attack3Button : Button =  activity.findViewById(R.id.attack3Button)
+        attack3Button.visibility = GONE
+        var attack4Button : Button =  activity.findViewById(R.id.attack4Button)
+        attack4Button.visibility = GONE
+        var bagButton : Button =  activity.findViewById(R.id.bagButton)
+        bagButton.visibility = GONE
+        var switchPkmnButton : Button =  activity.findViewById(R.id.switchPokemonButton)
+        switchPkmnButton.visibility = GONE
+    }
+
     fun updateByBattleState(activity : MainActivity, battle : Battle){
         when(battle.getBattleState()){
             State.TRAINER_LOSS -> {
                 if (activity.trainer!!.coins > 0)
                     activity.trainer!!.coins -= 10
-                activity.mainMenu.loadGameMenu(activity)
+                endBattle(activity)
+                if (battle is TrainerBattle)
+                    dialogTextView!!.text = (battle.levelData as TrainerBattleLevelData).endDialogLoose
+                var rewardsButton : Button = activity.findViewById(R.id.getRewardsButton)
+                rewardsButton.visibility = VISIBLE
+                rewardsButton.text = "Exit"
+                rewardsButton.setOnClickListener{
+                    activity.mainMenu.loadGameMenu(activity)
+                }
             }
             State.TRAINER_VICTORY -> {
+                activity.updateMusic(R.raw.victory_theme)
                 if (activity.trainer!!.progression == battle.levelData.id)
                     activity.trainer!!.progression++
-                rewardMenu.loadRewardMenu(activity, battle.levelData.rewards)
+                endBattle(activity)
+                if (battle is TrainerBattle)
+                    dialogTextView!!.text = (battle.levelData as TrainerBattleLevelData).endDialogWin
+                var rewardsButton : Button = activity.findViewById(R.id.getRewardsButton)
+                rewardsButton.visibility = VISIBLE
+                rewardsButton.text = "See Rewards"
+                rewardsButton.setOnClickListener{
+                    rewardMenu.loadRewardMenu(activity, battle.levelData.rewards)
+                }
             }
         }
     }
@@ -85,6 +120,7 @@ class BattleUI {
         if (battle.pokemon.move1.pp > 0){
             attack1Button.visibility = VISIBLE
             attack1Button.text = battle.pokemon.move1.move.name
+            ColorUtils.setButtonColor(battle.pokemon.move1.move.type,attack1Button)
             attack1Button.setOnClickListener{
                 battle.turn(battle.pokemon.move1)
                 updateUI(activity, battle)
@@ -94,6 +130,7 @@ class BattleUI {
         if (battle.pokemon.move2 != null && battle.pokemon.move2!!.pp > 0){
             attack2Button.visibility = VISIBLE
             attack2Button.text = battle.pokemon.move2!!.move.name
+            ColorUtils.setButtonColor(battle.pokemon.move2!!.move.type,attack2Button)
             attack2Button.setOnClickListener{
                 battle.turn(battle.pokemon.move2!!)
                 updateUI(activity, battle)
@@ -103,6 +140,7 @@ class BattleUI {
         if (battle.pokemon.move3 != null && battle.pokemon.move3!!.pp > 0){
             attack3Button.visibility = VISIBLE
             attack3Button.text = battle.pokemon.move3!!.move.name
+            ColorUtils.setButtonColor(battle.pokemon.move3!!.move.type,attack3Button)
             attack3Button.setOnClickListener{
                 battle.turn(battle.pokemon.move3!!)
                 updateUI(activity, battle)
@@ -112,6 +150,7 @@ class BattleUI {
         if (battle.pokemon.move4 != null && battle.pokemon.move4!!.pp > 0){
             attack4Button.visibility = VISIBLE
             attack4Button.text = battle.pokemon.move4!!.move.name
+            ColorUtils.setButtonColor(battle.pokemon.move4!!.move.type,attack4Button)
             attack4Button.setOnClickListener{
                 battle.turn(battle.pokemon.move3!!)
                 updateUI(activity, battle)
@@ -137,6 +176,7 @@ class BattleUI {
         activity.updateMusic(R.raw.trainer_battle)
         activity.setContentView(R.layout.battle_layout)
         dialogTextView = activity.findViewById(R.id.dialogTextView)
+        BattleUI.dialogTextView!!.text = level.startDialog
         var trainerBackSprite : ImageView = activity.findViewById(R.id.trainerBackSpriteView)
         loadMainTrainerSprite(trainerBackSprite, activity)
         loadBackgroundImage(level,activity)
@@ -144,8 +184,14 @@ class BattleUI {
         opponentTrainerSprite.visibility = VISIBLE
         loadOpponentTrainerSprite(opponentTrainerSprite,activity,level.opponentTrainerData[0].sprite)
         var trainerBattle = TrainerBattle(activity, level)
-        BattleUI.dialogTextView!!.text = "${level.opponentTrainerData[0].name} wants to battle"
-        buttonSetUp(activity,trainerBattle)
-        displayPokemonsInfos(activity, trainerBattle)
+        var rewardsButton : Button = activity.findViewById(R.id.getRewardsButton)
+        rewardsButton.visibility = VISIBLE
+        rewardsButton.text = "BATTLE"
+        rewardsButton.setOnClickListener{
+            BattleUI.dialogTextView!!.text = "${level.opponentTrainerData[0].name} wants to battle"
+            buttonSetUp(activity,trainerBattle)
+            displayPokemonsInfos(activity, trainerBattle)
+            rewardsButton.visibility = GONE
+        }
     }
 }
