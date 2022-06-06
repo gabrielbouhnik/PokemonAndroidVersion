@@ -2,11 +2,16 @@ package com.pokemon.android.version.model
 
 import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.entity.save.PokemonSave
+import com.pokemon.android.version.model.battle.AttackResponse
 import com.pokemon.android.version.model.battle.DamageCalculator
 import com.pokemon.android.version.model.battle.PokemonBattleData
+import com.pokemon.android.version.model.move.CritMove
+import com.pokemon.android.version.model.move.StatusMove
+import com.pokemon.android.version.model.move.VariableHitMove
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import kotlin.math.roundToInt
 import kotlin.random.Random
+import kotlin.random.nextInt
 
 class Pokemon (var data : PokemonData,
                var trainer : Trainer?,
@@ -81,25 +86,46 @@ class Pokemon (var data : PokemonData,
         return usableMoves[maxDamageIdx]
     }
 
-    fun attack(move : PokemonMove, opponent : Pokemon) : Boolean{
+    fun attack(move : PokemonMove, opponent : Pokemon) : AttackResponse {
         if (this.status == Status.PARALYSIS){
             if (Random.nextInt(100) < 25)
-                return false
+                return AttackResponse(false,this.data.name + " can't move because it is paralysed!\n")
+        }
+        if (this.status == Status.ASLEEP){
+            if (battleData!!.sleepCounter == 2){
+                this.status = Status.OK
+            }
+            else
+                return AttackResponse(false,this.data.name + " is fast asleep!\n")
         }
         move.pp = move.pp - 1
         if (move.move.accuracy < 100){
             var random : Int = Random.nextInt(100)
-            if (random >= move.move.accuracy)
-                return false
+            if (random * battleData!!.accuracyMultiplicator >= move.move.accuracy)
+                return AttackResponse(false,this.data.name + "'s attack missed!\n")
         }
         var damage = DamageCalculator.computeDamage(this,move.move, opponent)
+        if (move.move is VariableHitMove){
+           var timesItHits = Random.nextInt(1..4)
+            while(timesItHits > 0){
+                damage += DamageCalculator.computeDamage(this,move.move, opponent)
+                timesItHits--
+            }
+        }
         if (damage >= opponent.currentHP) {
             opponent.currentHP = 0
             opponent.status = Status.OK
         }
-        else
+        else {
             opponent.currentHP = opponent.currentHP - damage
-        return true
+            if (move.move is StatusMove){
+                val statusMove : StatusMove = move.move as StatusMove
+                val randomForStatus : Int = Random.nextInt(100)
+                if (randomForStatus < statusMove.probability)
+                    opponent.status = statusMove.status
+            }
+        }
+        return AttackResponse(true,"")
     }
 
     private fun recomputeStat(){
@@ -114,6 +140,7 @@ class Pokemon (var data : PokemonData,
     fun gainLevel(){
         this.level += 1
         this.recomputeStat()
+        //TODO moves
     }
 
     fun gainExp(value : Int){

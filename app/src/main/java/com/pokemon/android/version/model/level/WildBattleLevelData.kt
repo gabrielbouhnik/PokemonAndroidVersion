@@ -24,8 +24,8 @@ class WildBattleLevelData(
                 wildBattleLevelEntity.rewards.map { Reward(it.id, it.quantity) } as ArrayList<Reward>,
                 wildBattleLevelEntity.music,
                 wildBattleLevelEntity.background,
-                wildBattleLevelEntity.encounter,
                 wildBattleLevelEntity.exp,
+                wildBattleLevelEntity.encounter,
                 PossibleEncounters.of(wildBattleLevelEntity.possibleEncounters, gameDataService))
         }
     }

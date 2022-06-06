@@ -28,9 +28,10 @@ class BattleUI {
     companion object {
         const val BOY_BACK_SPRITE = "images/HGSS_Ethan_Back.png"
         const val GIRL_BACK_SPRITE = "images/HGSS_Lyra_Back.png"
-        var dialogTextView : TextView? = null
     }
 
+
+    var dialogTextView : TextView? = null
     var rewardMenu : RewardMenu = RewardMenu()
 
     private fun loadBackgroundImage(level : LevelData, activity: MainActivity){
@@ -201,8 +202,8 @@ class BattleUI {
                 if (clickedPokemon.currentHP > 0 && clickedPokemon != battle.pokemon) {
                     recyclerView.visibility = GONE
                     blackImageView.visibility = GONE
-                    displayPokemonsInfos(activity, battle)
                     battle.turnWithSwitch(clickedPokemon)
+                    displayPokemonsInfos(activity, battle)
                     setUpAttackButtons(activity, battle)
                     closeButton.visibility = GONE
                     switchButton.visibility = VISIBLE
