@@ -24,7 +24,72 @@
     "spAtk": 65,
     "spDef": 65,
     "speed": 45,
-    "catchRate": 30
+    "catchRate": 30,
+    "evolutionId": 2,
+    "evolutionCondition": {
+      "level": 16
+    },
+    "expGaugeCoeff" : 1.0
+  },
+  {
+    "id": 2,
+    "name": "Ivysaur",
+    "type1": 1,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 5,
+          "level": 3
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 60,
+    "attack": 62,
+    "defense": 63,
+    "spAtk": 80,
+    "spDef": 80,
+    "speed": 80,
+    "catchRate": 0.25,
+    "evolutionId": 3,
+    "evolutionCondition": {
+      "level": 32
+    },
+    "expGaugeCoeff" : 1.25
+  },
+  {
+    "id": 3,
+    "name": "Venusaur",
+    "type1": 1,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 5,
+          "level": 3
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 80,
+    "attack": 82,
+    "defense": 83,
+    "spAtk": 100,
+    "spDef": 100,
+    "speed": 80,
+    "catchRate": 0.2,
+    "expGaugeCoeff" : 1.5
   },
   {
     "id": 4,
@@ -51,7 +116,72 @@
     "spAtk": 60,
     "spDef": 50,
     "speed": 65,
-    "catchRate": 30
+    "catchRate": 0.3,
+    "evolutionId": 5,
+    "evolutionCondition": {
+      "level": 16
+    },
+    "expGaugeCoeff" : 1.0
+  },
+  {
+    "id": 5,
+    "name": "Charmeleon",
+    "type1": "2",
+    "type2": "0",
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 7,
+          "level": 4
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 58,
+    "attack": 64,
+    "defense": 58,
+    "spAtk": 80,
+    "spDef": 65,
+    "speed": 80,
+    "catchRate": 0.25,
+    "evolutionId": 6,
+    "evolutionCondition": {
+      "level": 36
+    },
+    "expGaugeCoeff" : 1.25
+  },
+  {
+    "id": 6,
+    "name": "Charizard",
+    "type1": "2",
+    "type2": "6",
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 7,
+          "level": 4
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 78,
+    "attack": 84,
+    "defense": 78,
+    "spAtk": 109,
+    "spDef": 85,
+    "speed": 100,
+    "catchRate": 0.2,
+    "expGaugeCoeff" : 1.5
   },
   {
     "id": 7,
@@ -72,13 +202,78 @@
       "movesLearnWithHM": [
       ]
     },
-    "catchRate": 30,
     "hp": 44,
     "attack": 48,
     "defense": 65,
     "spAtk": 50,
     "spDef": 64,
-    "speed": 43
+    "speed": 43,
+    "catchRate": 0.3,
+    "evolutionId": 8,
+    "evolutionCondition": {
+      "level": 16
+    },
+    "expGaugeCoeff" : 1.0
+  },
+  {
+    "id": 8,
+    "name": "Wartortle",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 6
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 59,
+    "attack": 63,
+    "defense": 80,
+    "spAtk": 65,
+    "spDef": 80,
+    "speed": 58,
+    "catchRate": 0.3,
+    "evolutionId": 9,
+    "evolutionCondition": {
+      "level": 36
+    },
+    "expGaugeCoeff" : 1.25
+  },
+  {
+    "id": 9,
+    "name": "Blastoise",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 6
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 79,
+    "attack": 83,
+    "defense": 100,
+    "spAtk": 85,
+    "spDef": 105,
+    "speed": 78,
+    "catchRate": 0.3,
+    "expGaugeCoeff" : 1.5
   },
   {
     "id": 16,
@@ -88,7 +283,7 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
-          "moveId": 1,
+          "moveId": 2,
           "level": 1
         },
         {
@@ -109,7 +304,80 @@
     "spAtk": 35,
     "spDef": 35,
     "speed": 56,
-    "catchRate": 50
+    "catchRate": 0.5,
+    "evolutionId": 17,
+    "evolutionCondition": {
+      "level": 18
+    },
+    "expGaugeCoeff" : 1.0
+  },
+  {
+    "id": 17,
+    "name": "Pidgeotto",
+    "type1": 5,
+    "type2": 6,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 4,
+          "level": 9
+        },
+        {
+          "moveId": 3,
+          "level": 13
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 63,
+    "attack": 60,
+    "defense": 55,
+    "spAtk": 50,
+    "spDef": 50,
+    "speed": 71,
+    "catchRate": 0.5,
+    "evolutionId": 18,
+    "evolutionCondition": {
+      "level": 36
+    },
+    "expGaugeCoeff" : 1.25
+  },
+  {
+    "id": 18,
+    "name": "Pidgeot",
+    "type1": 5,
+    "type2": 6,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 4,
+          "level": 9
+        },
+        {
+          "moveId": 3,
+          "level": 13
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 83,
+    "attack": 80,
+    "defense": 75,
+    "spAtk": 70,
+    "spDef": 70,
+    "speed": 101,
+    "catchRate": 0.5,
+    "expGaugeCoeff" : 1.5
   },
   {
     "id": 19,
@@ -136,7 +404,8 @@
     "spAtk": 25,
     "spDef": 35,
     "speed": 72,
-    "catchRate": 50
+    "catchRate": 0.5,
+    "expGaugeCoeff" : 1.0
   },
   {
     "id": 21,
@@ -163,7 +432,8 @@
     "spAtk": 31,
     "spDef": 31,
     "speed": 70,
-    "catchRate": 50
+    "catchRate": 0.5,
+    "expGaugeCoeff" : 1.0
   },
   {
     "id": 25,
@@ -190,7 +460,8 @@
     "spAtk": 50,
     "spDef": 50,
     "speed": 90,
-    "catchRate": 30
+    "catchRate": 0.3,
+    "expGaugeCoeff" : 1.0
   },
   {
     "id": 56,
@@ -211,13 +482,14 @@
       "movesLearnWithHM": [
       ]
     },
-    "catchRate": 40,
+    "catchRate": 0.4,
     "hp": 40,
     "attack": 80,
     "defense": 35,
     "spAtk": 35,
     "spDef": 45,
-    "speed": 70
+    "speed": 70,
+    "expGaugeCoeff" : 1.0
   },
   {
     "id": 161,
@@ -244,7 +516,8 @@
     "spAtk": 35,
     "spDef": 45,
     "speed": 20,
-    "catchRate": 50
+    "catchRate": 0.5,
+    "expGaugeCoeff" : 1.0
   },
   {
     "id": 163,
@@ -271,7 +544,8 @@
     "spAtk": 36,
     "spDef": 56,
     "speed": 50,
-    "catchRate": 50
+    "catchRate": 0.5,
+    "expGaugeCoeff" : 1.0
   },
   {
     "id": 236,
@@ -294,6 +568,7 @@
     "spAtk": 35,
     "spDef": 35,
     "speed": 35,
-    "catchRate": 50
+    "catchRate": 0.5,
+    "expGaugeCoeff" : 1.0
   }
 ]

@@ -41,7 +41,8 @@
       "endDialogWin": "It's beginner's luck. Next time, I'll crush you with my Tyrogue.",
       "endDialogLoose": "Don't even think about leaving Pallet Town...",
       "music": 1,
-      "background": "images/building_battle_background.jpg"
+      "background": "images/building_battle_background.jpg",
+      "exp": 50
     },
     {
       "id": 4,
@@ -82,7 +83,8 @@
       "endDialogWin": "You just got lucky.",
       "endDialogLoose": "Well done Tyrogue",
       "music": 1,
-      "background": "images/route_battle_background.png"
+      "background": "images/route_battle_background.png",
+      "exp": 60
     }
   ],
   "randomWildEncounters": [
@@ -117,7 +119,8 @@
         }
       ],
       "background": "images/route_battle_background.png",
-      "music": 2
+      "music": 2,
+      "exp": 40
     },
     {
       "id": 3,
@@ -151,7 +154,8 @@
         }
       ],
       "background": "images/route_battle_background.png",
-      "music": 2
+      "music": 2,
+      "exp": 40
     }
   ]
 }

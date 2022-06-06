@@ -1,6 +1,7 @@
 package com.pokemon.android.version.ui
 
 import android.view.View
+import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -27,8 +28,7 @@ class PokemonMenu {
         recyclerView.adapter = adapter
     }
 
-    private fun loadPokemonInfoLayout(activity : MainActivity, pokemon: Pokemon) {
-        activity.setContentView(R.layout.pokemon_info)
+    private fun displayPokemonInfo(activity : MainActivity, pokemon: Pokemon){
         val nameTextView : TextView = activity.findViewById(R.id.nameDetailsTextView)
         nameTextView.text = pokemon.data.name
         val levelTextView : TextView = activity.findViewById(R.id.levelDetailsTextView)
@@ -45,6 +45,13 @@ class PokemonMenu {
         spDefTextView.text = "SpDef: ${pokemon.spDef}"
         val speedTextView : TextView = activity.findViewById(R.id.speedTextView)
         speedTextView.text = "Speed: ${pokemon.speed}"
+        val imageView: ImageView = activity.findViewById(R.id.pokemonSpriteDetailsView)
+        activity.displayPokemon(pokemon.data.id,imageView)
+    }
+
+    private fun loadPokemonInfoLayout(activity : MainActivity, pokemon: Pokemon) {
+        activity.setContentView(R.layout.pokemon_info)
+        displayPokemonInfo(activity, pokemon)
         val backButton : Button = activity.findViewById(R.id.pokemonInfoBackButton)
         backButton.setOnClickListener{
             loadPokemonMenu(activity)
@@ -52,6 +59,14 @@ class PokemonMenu {
         val useItemButton : Button = activity.findViewById(R.id.useItemButton)
         useItemButton.setOnClickListener{
             activity.mainMenu.itemMenu.loadItemMenu(activity, pokemon)
+        }
+        val evolveButton : Button = activity.findViewById(R.id.evolveButton)
+        if (pokemon.canEvolve()) {
+            evolveButton.visibility = VISIBLE
+            evolveButton.setOnClickListener {
+                pokemon.evolve(activity.gameDataService)
+                displayPokemonInfo(activity, pokemon)
+            }
         }
         val move1Button : Button = activity.findViewById(R.id.move1InfoButton)
         move1Button.text = pokemon.move1.move.name
@@ -73,7 +88,5 @@ class PokemonMenu {
         }
         else
             move4Button.text = pokemon.move4!!.move.name
-        val imageView: ImageView = activity.findViewById(R.id.pokemonSpriteDetailsView)
-        activity.displayPokemon(pokemon.data.id,imageView)
     }
 }

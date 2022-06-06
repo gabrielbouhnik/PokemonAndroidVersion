@@ -10,7 +10,6 @@ import java.lang.StringBuilder
 import kotlin.random.Random
 
 class WildBattle() : Battle() {
-    lateinit var activity: MainActivity
     var encountersLeft: Int = 0
 
     constructor(activity: MainActivity, wildBattleLevelData: WildBattleLevelData) : this() {
@@ -49,11 +48,9 @@ class WildBattle() : Battle() {
 
     override fun getBattleState(): State {
         if (encountersLeft == 0){
-            this.pokemon.resetStatChanges()
             return State.TRAINER_VICTORY
         }
         if (!activity.trainer!!.canStillBattle()) {
-            this.pokemon.resetStatChanges()
             return State.TRAINER_LOSS
         }
         return State.IN_PROGRESS

@@ -14,7 +14,8 @@ class PokemonSave(
     var spDef: Int = 0,
     var speed: Int = 0,
     var currentHP: Int,
-    var moveids: List<MoveSave>
+    var currentExp: Int,
+    var moveids: List<MoveSave>,
 ) {
     companion object {
         fun of(pokemon: Pokemon): PokemonSave {
@@ -38,6 +39,7 @@ class PokemonSave(
                 pokemon.spDef,
                 pokemon.speed,
                 pokemon.currentHP,
+                pokemon.currentExp,
                 moveids
             )
         }

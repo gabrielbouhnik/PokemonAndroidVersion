@@ -3,10 +3,12 @@ package com.pokemon.android.version.model
 import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.entity.save.PokemonSave
 import com.pokemon.android.version.model.battle.DamageCalculator
+import com.pokemon.android.version.model.battle.PokemonBattleData
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
+import kotlin.math.roundToInt
 import kotlin.random.Random
 
-class Pokemon (val data : PokemonData,
+class Pokemon (var data : PokemonData,
                var trainer : Trainer?,
                var level : Int,
                var move1 : PokemonMove,
@@ -22,20 +24,15 @@ class Pokemon (val data : PokemonData,
                var spDef : Int = 0,
                var speed : Int = 0,
                var currentHP : Int  = 0,
-               var attackMultiplicator : Float = 1F,
-               var defenseMultiplicator : Float = 1F,
-               var spAtkMultiplicator : Float = 1F,
-               var spDefMultiplicator : Float = 1F,
-               var speedMultiplicator : Float = 1F,
-               var critRate : Float = 1F,
-               var evasion : Float = 1F)
+               var currentExp : Int  = 0,
+               var battleData : PokemonBattleData?)
 {
 
 
     constructor(data: PokemonData, trainer: Trainer?, level: Int,
                 move1: PokemonMove, move2: PokemonMove?, move3: PokemonMove?, move4: PokemonMove?, gender : Gender?,
                 hp : Int, attack : Int, defense : Int, spAtk : Int, spDef : Int, speed : Int, currentHP: Int)
-            : this(data, trainer, level, move1, move2, move3, move4, Status.OK, gender, hp, attack,defense,spAtk, spDef, speed, currentHP)
+            : this(data, trainer, level, move1, move2, move3, move4, Status.OK, gender, hp, attack,defense,spAtk, spDef, speed, currentHP, 0, PokemonBattleData())
 
     companion object {
         fun of(pokemonSave : PokemonSave, gameDataService: GameDataService, trainer : Trainer) : Pokemon{
@@ -105,14 +102,45 @@ class Pokemon (val data : PokemonData,
         return true
     }
 
-    fun resetStatChanges(){
-        attackMultiplicator = 1F
-        defenseMultiplicator  = 1F
-        spAtkMultiplicator = 1F
-        spDefMultiplicator = 1F
-        speedMultiplicator  = 1F
-        critRate = 1F
-        evasion = 1F
+    private fun recomputeStat(){
+        this.hp = 10 + (data.hp.toFloat() * (level/50f)).roundToInt()
+        this.attack = 5 + (data.attack.toFloat() * (level/50f)).roundToInt()
+        this.defense = 5 + (data.defense.toFloat() * (level/50f)).roundToInt()
+        this.spAtk= 5 + (data.spAtk.toFloat() * (level/50f)).roundToInt()
+        this.spDef = 5 + (data.spDef.toFloat() * (level/50f)).roundToInt()
+        this.speed= 5 + (data.speed.toFloat() * (level/50f)).roundToInt()
+    }
+
+    fun gainLevel(){
+        this.level += 1
+        this.recomputeStat()
+    }
+
+    fun gainExp(value : Int){
+        var exp = value
+        while (this.currentExp + exp >= level * 15 * data.expGaugeCoeff ){
+            exp -= (level * 15 * data.expGaugeCoeff - this.currentExp).toInt()
+            this.currentExp = 0
+            gainLevel()
+        }
+        this.currentExp += exp
+    }
+
+    fun canEvolve() : Boolean{
+        if (data.evolutionId == null)
+            return false
+        var condition = data.evolutionCondition
+        if (condition!!.level != null && level >= condition.level!!){
+            return true
+        }
+        return false
+    }
+
+    fun evolve(gameDataService: GameDataService){
+        if (canEvolve()){
+            this.data = gameDataService.getPokemonDataById(data.evolutionId!!)
+            recomputeStat()
+        }
     }
 
     data class PokemonBuilder(
@@ -131,7 +159,8 @@ class Pokemon (val data : PokemonData,
         var spAtk : Int = 0,
         var spDef : Int = 0,
         var speed : Int = 0,
-        var currentHP: Int = 0)
+        var currentHP: Int = 0,
+        var currentExp : Int = 0)
         {
             fun data(data: PokemonData) = apply { this.data = data }
             fun trainer(trainer: Trainer) = apply { this.trainer = trainer }
@@ -165,7 +194,9 @@ class Pokemon (val data : PokemonData,
                 spAtk,
                 spDef,
                 speed,
-                currentHP
+                currentHP,
+                0,
+                PokemonBattleData()
             )
 
         }

@@ -61,4 +61,11 @@ class Trainer  : ITrainer{
         }
         return false
     }
+
+    fun receiveExp(exp : Int){
+        for (pokemon in team) {
+            if (pokemon.currentHP > 0)
+                pokemon.gainExp(exp)
+        }
+    }
 }

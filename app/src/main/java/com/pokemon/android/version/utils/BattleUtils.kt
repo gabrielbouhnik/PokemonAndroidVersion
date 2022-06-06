@@ -22,7 +22,7 @@ class BattleUtils {
                 return false
             }
             else{//TODO check paralysis
-                return pokemon.speed.toFloat() * pokemon.speedMultiplicator >= other.speed.toFloat() * other.speedMultiplicator
+                return pokemon.speed.toFloat() * pokemon.battleData!!.speedMultiplicator >= other.speed.toFloat() * other.battleData!!.speedMultiplicator
             }
         }
     }

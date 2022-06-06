@@ -6,6 +6,7 @@ abstract class LevelData(
     var description: String,
     var rewards: ArrayList<Reward>,
     var music: Int,
-    var background: String
+    var background: String,
+    var exp: Int
 ) {
 }

@@ -8,7 +8,6 @@ import com.pokemon.android.version.utils.BattleUtils
 import java.lang.StringBuilder
 
 class TrainerBattle() : Battle(){
-    lateinit var activity: MainActivity
     var trainersLeft: Int = 0
     lateinit var opponentTrainer : OpponentTrainer
 
@@ -52,11 +51,9 @@ class TrainerBattle() : Battle(){
 
     override fun getBattleState(): State {
         if (trainersLeft == 0) {
-            this.pokemon.resetStatChanges()
             return State.TRAINER_VICTORY
         }
         if (!activity.trainer!!.canStillBattle()) {
-            this.pokemon.resetStatChanges()
             return State.TRAINER_LOSS
         }
         return State.IN_PROGRESS

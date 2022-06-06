@@ -1,5 +1,6 @@
 package com.pokemon.android.version.model
 
+import com.pokemon.android.version.entity.pokemon.EvolutionConditionEntity
 import com.pokemon.android.version.entity.pokemon.PokemonDataEntity
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
@@ -10,13 +11,16 @@ class PokemonData (val id : Int,
                    val type1 : Type,
                    val type2 : Type,
                    val possibleMoves : List<PokemonMove>,
-                   val catchRate : Int,
+                   val catchRate : Float,
                    var hp : Int,
                    var attack : Int,
                    var defense : Int,
                    var spAtk : Int,
                    var spDef : Int,
-                   var speed : Int){
+                   var speed : Int,
+                   val evolutionId : Int?,
+                   val evolutionCondition : EvolutionCondition?,
+                   val expGaugeCoeff : Float){
     companion object {
         fun of(pokemonDataEntity : PokemonDataEntity, moves : List<Move>) : PokemonData{
             var possibleMoves : ArrayList<PokemonMove> = ArrayList()
@@ -35,6 +39,9 @@ class PokemonData (val id : Int,
                 .spAtk(pokemonDataEntity.spAtk)
                 .spDef(pokemonDataEntity.spDef)
                 .speed(pokemonDataEntity.speed)
+                .evolutionId(pokemonDataEntity.evolutionId)
+                .evolutionCondition(EvolutionCondition.of(pokemonDataEntity))
+                .expGaugeCoeff(pokemonDataEntity.expGaugeCoeff)
                 .build()
         }
     }
@@ -45,26 +52,32 @@ class PokemonData (val id : Int,
         var type1 : Type = Type.NONE,
         var type2 : Type = Type.NONE,
         var possibleMoves : List<PokemonMove> = ArrayList(),
-        var catchRate : Int =  0,
+        var catchRate : Float =  0F,
         var hp : Int  = 0,
         var attack : Int = 0,
         var defense : Int = 0,
         var spAtk : Int = 0,
         var spDef : Int = 0,
-        var speed : Int = 0
+        var speed : Int = 0,
+        var evolutionId: Int? = null,
+        var evolutionCondition: EvolutionCondition?= null,
+        var expGaugeCoeff : Float = 1F
     ){
         fun id(id : Int) = apply { this.id = id }
         fun name(name : String) = apply { this.name = name }
         fun type1(type: Type) = apply { this.type1 = type }
         fun type2(type: Type) = apply { this.type2 = type }
         fun possibleMoves(possibleMoves: List<PokemonMove>) = apply { this.possibleMoves = possibleMoves }
-        fun catchRate(catchRate: Int) = apply { this.catchRate = catchRate }
+        fun catchRate(catchRate: Float) = apply { this.catchRate = catchRate }
         fun hp(hp: Int) = apply { this.hp = hp }
         fun attack(attack: Int) = apply { this.attack = attack }
         fun defense(defense: Int) = apply { this.defense = defense }
         fun spAtk(spAtk: Int) = apply { this.spAtk = spAtk }
         fun spDef(spDef: Int) = apply { this.spDef = spDef }
         fun speed(speed: Int) = apply { this.speed = speed }
-        fun build() = PokemonData(id,name,type1,type2, possibleMoves, catchRate, hp, attack, defense, spAtk, spDef, speed)
+        fun evolutionId(evolutionId: Int?) = apply { this.evolutionId = evolutionId }
+        fun evolutionCondition(evolutionCondition: EvolutionCondition?) = apply { this.evolutionCondition = evolutionCondition }
+        fun expGaugeCoeff(expGaugeCoeff: Float) = apply { this.expGaugeCoeff = expGaugeCoeff }
+        fun build() = PokemonData(id,name,type1,type2, possibleMoves, catchRate, hp, attack, defense, spAtk, spDef, speed, evolutionId, evolutionCondition, expGaugeCoeff )
     }
 }

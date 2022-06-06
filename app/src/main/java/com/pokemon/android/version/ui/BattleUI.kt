@@ -116,6 +116,8 @@ class BattleUI {
                 rewardsButton.visibility = VISIBLE
                 rewardsButton.text = "See Rewards"
                 rewardsButton.setOnClickListener{
+                    //TODO remove androcoin and divide exp by 2 after first time
+                    activity.trainer!!.receiveExp(battle.levelData.exp)
                     rewardMenu.loadRewardMenu(activity, battle.levelData.rewards)
                 }
             }

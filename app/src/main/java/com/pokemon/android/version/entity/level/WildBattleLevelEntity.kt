@@ -8,6 +8,7 @@ class WildBattleLevelEntity(
     var possibleEncounters: PossibleEncountersEntity,
     var rewards: ArrayList<RewardEntity>,
     var music: Int,
-    var background: String
+    var background: String,
+    var exp : Int
 ) {
 }
