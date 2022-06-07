@@ -71,16 +71,20 @@ class BattleUI {
     }
 
     private fun disableButton(activity: MainActivity, id : Int){
-        val attackButton : Button =  activity.findViewById(id)
-        attackButton.visibility = GONE
+        val button : Button =  activity.findViewById(id)
+        button.visibility = GONE
     }
 
-    private fun endBattle(activity : MainActivity){
+    private fun disableAttackButtons(activity : MainActivity){
 
         disableButton(activity, R.id.attack1Button)
         disableButton(activity, R.id.attack2Button)
         disableButton(activity, R.id.attack3Button)
         disableButton(activity, R.id.attack4Button)
+    }
+
+    private fun disableBattleButtons(activity : MainActivity){
+        disableAttackButtons(activity)
         disableButton(activity, R.id.bagButton)
         disableButton(activity, R.id.switchPokemonButton)
     }
@@ -90,7 +94,7 @@ class BattleUI {
             State.TRAINER_LOSS -> {
                 if (activity.trainer!!.coins > 0)
                     activity.trainer!!.coins -= 10
-                endBattle(activity)
+                disableBattleButtons(activity)
                 if (battle is TrainerBattle)
                     dialogTextView!!.text = (battle.levelData as TrainerBattleLevelData).endDialogLoose
                 val rewardsButton : Button = activity.findViewById(R.id.getRewardsButton)
@@ -104,7 +108,7 @@ class BattleUI {
                 activity.updateMusic(R.raw.victory_theme)
                 if (activity.trainer!!.progression == battle.levelData.id)
                     activity.trainer!!.progression++
-                endBattle(activity)
+                disableBattleButtons(activity)
                 val opponentPokemonSprite : ImageView = activity.findViewById(R.id.opponentPokemonImageView)
                 opponentPokemonSprite.visibility = GONE
                 val opponentPokemonName : TextView =  activity.findViewById(R.id.opponentPokemonNameTextView)
@@ -183,7 +187,6 @@ class BattleUI {
 
     private fun buttonSetUp(activity : MainActivity, battle : Battle){
         setUpAttackButtons(activity, battle)
-
         var switchButton : Button = activity.findViewById(R.id.switchPokemonButton)
         var bagButton : Button = activity.findViewById(R.id.bagButton)
         switchButton.setOnClickListener {
@@ -191,6 +194,8 @@ class BattleUI {
             closeButton.visibility = VISIBLE
             switchButton.visibility = GONE
             bagButton.visibility = GONE
+            disableAttackButtons(activity)
+
             val recyclerView = activity.findViewById<RecyclerView>(R.id.battleRecyclerView)
             recyclerView.visibility = VISIBLE
             val blackImageView : ImageView = activity.findViewById(R.id.blackImageView)
@@ -218,6 +223,7 @@ class BattleUI {
                 closeButton.visibility = GONE
                 switchButton.visibility = VISIBLE
                 bagButton.visibility = VISIBLE
+                setUpAttackButtons(activity, battle)
             }
         }
 
@@ -226,6 +232,7 @@ class BattleUI {
             closeButton.visibility = VISIBLE
             switchButton.visibility = GONE
             bagButton.visibility = GONE
+            disableAttackButtons(activity)
             val blackImageView : ImageView = activity.findViewById(R.id.blackImageView)
             blackImageView.visibility = VISIBLE
             val recyclerView = activity.findViewById<RecyclerView>(R.id.battleRecyclerView)
@@ -235,16 +242,14 @@ class BattleUI {
             val myItemClickListener = View.OnClickListener {
                 val position = it.tag as Int
                 var clickedItem : ItemQuantity = items[position]
-                if (activity.trainer!!.useItem(clickedItem.itemId, battle.pokemon)) {
-                    recyclerView.visibility = GONE
-                    blackImageView.visibility = GONE
-                    closeButton.visibility = GONE
-                    battle.turnWithItemUsed(activity.gameDataService.items[clickedItem.itemId])
-                    displayPokemonsInfos(activity, battle)
-                    switchButton.visibility = VISIBLE
-                    bagButton.visibility = VISIBLE
-                }
-
+                recyclerView.visibility = GONE
+                blackImageView.visibility = GONE
+                closeButton.visibility = GONE
+                battle.turnWithItemUsed(clickedItem.itemId)
+                displayPokemonsInfos(activity, battle)
+                setUpAttackButtons(activity, battle)
+                switchButton.visibility = VISIBLE
+                bagButton.visibility = VISIBLE
             }
             val adapter = ItemRecyclerAdapter(activity, items, myItemClickListener)
             recyclerView.adapter = adapter
@@ -254,6 +259,7 @@ class BattleUI {
                 closeButton.visibility = GONE
                 switchButton.visibility = VISIBLE
                 bagButton.visibility = VISIBLE
+                setUpAttackButtons(activity, battle)
             }
         }
     }

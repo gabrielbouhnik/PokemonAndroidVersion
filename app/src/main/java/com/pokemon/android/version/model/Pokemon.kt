@@ -119,7 +119,9 @@ class Pokemon (var data : PokemonData,
         else {
             opponent.currentHP = opponent.currentHP - damage
             if (move.move is StatusMove){
+
                 val statusMove : StatusMove = move.move as StatusMove
+                //TODO check types for status
                 val randomForStatus : Int = Random.nextInt(100)
                 if (randomForStatus < statusMove.probability)
                     opponent.status = statusMove.status

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.widget.Toast
 import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.MainActivity
-import com.pokemon.android.version.R
 import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.entity.banner.BannerEntity
 import kotlin.random.Random
@@ -46,7 +45,7 @@ class Banner(var description : String, var image : String, var cost : Int,
         } else{
             var pokemonBanner = s as PokemonBanner
             Toast.makeText(activity, pokemonBanner.pokemonData.name, Toast.LENGTH_LONG)
-            activity.trainer!!.catchPokemon(activity.gameDataService.generatePokemonFromBanner(pokemonBanner))
+            activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemonFromBanner(pokemonBanner))
         }
         SaveManager.save(activity)
         return true

@@ -26,7 +26,7 @@ class Ball(val successRate : Int) : Item{
             throw ItemCannotBeUsedException()
         }
         if (Random.nextInt(0..100) < this.successRate){
-            trainer.catchPokemon(pokemon)
+            trainer.receivePokemon(pokemon)
             return true;
         }
         else

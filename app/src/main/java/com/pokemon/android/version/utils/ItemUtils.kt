@@ -4,6 +4,10 @@ import com.pokemon.android.version.model.item.*
 
 class ItemUtils {
     companion object {
+        fun isBall(itemId: Int) : Boolean{
+            return itemId > 9 && itemId < 13
+        }
+
         fun getItemById(itemId: Int) : Item {
             when(itemId){
                 1 -> return HealingHPItem.POTION

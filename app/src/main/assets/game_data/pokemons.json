@@ -419,7 +419,7 @@
           "level": 1
         },
         {
-          "moveId": 11,
+          "moveId": 10,
           "level": 11
         }
       ],
@@ -471,11 +471,11 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
-          "moveId": 11,
+          "moveId": 1,
           "level": 1
         },
         {
-          "moveId": 8,
+          "moveId": 9,
           "level": 8
         }
       ],

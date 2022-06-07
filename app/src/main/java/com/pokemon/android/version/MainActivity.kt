@@ -36,21 +36,21 @@ class MainActivity : AppCompatActivity() {
         val sprite3 : ImageView = findViewById(R.id.Sprite3View)
         sprite1.setOnClickListener{
             if (trainer!!.pokemons.size == 0)
-                trainer!!.catchPokemon(bulbasaur)
+                trainer!!.receivePokemon(bulbasaur)
             starterSelection!!.displayOakResponse(this, bulbasaur.data!!.name)
             sprite2.visibility = GONE
             sprite3.visibility = GONE
         }
         sprite2.setOnClickListener{
             if (trainer!!.pokemons.size == 0)
-                trainer!!.catchPokemon(charmander)
+                trainer!!.receivePokemon(charmander)
             starterSelection!!.displayOakResponse(this, charmander.data!!.name)
             sprite1.visibility = GONE
             sprite3.visibility = GONE
         }
         sprite3.setOnClickListener{
             if (trainer!!.pokemons.size == 0)
-                trainer!!.catchPokemon(squirtle)
+                trainer!!.receivePokemon(squirtle)
             starterSelection!!.displayOakResponse(this, squirtle.data!!.name)
             sprite1.visibility = GONE
             sprite2.visibility = GONE

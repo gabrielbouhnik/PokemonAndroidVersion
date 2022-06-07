@@ -33,22 +33,32 @@ abstract class Battle {
         switchPokemon(pokemonToBeSent)
         sb.append("${opponent.data.name} uses ${opponent.IA(pokemon).move.name}\n")
         var opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
-        if(!opponentResponse.success)
+        if (!opponentResponse.success)
             sb.append(opponentResponse.reason)
         dialogTextView.text = sb.toString()
     }
 
-    fun turnWithItemUsed(itemData: ItemData) {
-        //TODO
-        if (ItemUtils.getItemById(itemData.id) is Ball) {
-        } else {
-            var sb = StringBuilder()
-            sb.append("${opponent.data.name} uses ${opponent.IA(pokemon).move.name}\n")
-            var opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
-            if(!opponentResponse.success)
-                sb.append(opponentResponse.reason)
-            dialogTextView.text = sb.toString()
+    fun turnWithItemUsed(itemId: Int) {
+        var sb = StringBuilder()
+        if (ItemUtils.getItemById(itemId) is Ball) {
+            if (this is WildBattle) {
+                if (activity.trainer!!.catchPokemon(opponent, itemId)) {
+                    dialogTextView.text = activity.trainer!!.name + " caught ${opponent.data.name}!\n"
+                    this.generateRandomEncounter()
+                    return
+                } else {
+                    sb.append(opponent.data.name + " broke free!\n")
+                }
+            }
         }
+        else{
+            activity.trainer!!.useItem(itemId, pokemon)
+        }
+        sb.append("${opponent.data.name} uses ${opponent.IA(pokemon).move.name}\n")
+        var opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
+        if (!opponentResponse.success)
+            sb.append(opponentResponse.reason)
+        dialogTextView.text = sb.toString()
     }
 
     companion object {

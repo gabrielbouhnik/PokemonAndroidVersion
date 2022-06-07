@@ -31,13 +31,13 @@ class WildBattle() : Battle() {
             if (opponent.currentHP > 0) {
                 sb.append("${opponent.data.name} uses ${opponent.IA(pokemon).move.name}\n")
                 var opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
-                if(!opponentResponse.success)
+                if (!opponentResponse.success)
                     sb.append(opponentResponse.reason)
             }
         } else {
             sb.append("${opponent.data.name} uses ${opponent.IA(pokemon).move.name}\n")
             var opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
-            if(!opponentResponse.success)
+            if (!opponentResponse.success)
                 sb.append(opponentResponse.reason)
             if (pokemon.currentHP > 0) {
                 sb.append("${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n")
@@ -48,17 +48,17 @@ class WildBattle() : Battle() {
         }
         if (pokemon.currentHP > 0)
             sb.append(checkStatus(pokemon))
-        if (opponent.currentHP> 0)
-            sb.append(checkStatus(opponent))
-        if (opponent.currentHP == 0 && encountersLeft > 0) {
-            encountersLeft--
-            generateRandomEncounter()
+        if (opponent.currentHP > 0){
+                sb.append(checkStatus(opponent))
+            if (encountersLeft > 0) {
+                generateRandomEncounter()
+            }
         }
         dialogTextView.text = sb.toString()
     }
 
     override fun getBattleState(): State {
-        if (encountersLeft == 0){
+        if (encountersLeft == 0 && opponent.currentHP == 0){
             return State.TRAINER_VICTORY
         }
         if (!activity.trainer!!.canStillBattle()) {
@@ -68,6 +68,7 @@ class WildBattle() : Battle() {
     }
 
     fun generateRandomEncounter(): Pokemon {
+        encountersLeft--
         var randomLevel = Random.nextInt(
             (levelData as WildBattleLevelData).possibleEncounters.minLevel,
             (levelData as WildBattleLevelData).possibleEncounters.maxLevel
