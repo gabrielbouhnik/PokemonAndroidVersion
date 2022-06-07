@@ -28,6 +28,32 @@ class PokemonMenu {
         }
         val adapter =  PokemonRecyclerAdapter(activity, activity.trainer!!.pokemons, myItemClickListener)
         recyclerView.adapter = adapter
+        val teamButton : Button = activity.findViewById(R.id.buildTeamButton)
+        teamButton.setOnClickListener{
+            loadTeamMenu(activity)
+        }
+    }
+
+    fun loadTeamMenu(activity : MainActivity){
+        activity.setContentView(R.layout.team_layout)
+        val backButton : Button = activity.findViewById(R.id.teamMenuBackButton)
+        backButton.setOnClickListener{
+            if (activity.trainer!!.team.size > 0)
+                loadPokemonMenu(activity)
+        }
+        activity.trainer!!.team.clear()
+        val teamRecyclerView = activity.findViewById<RecyclerView>(R.id.teamRecyclerView)
+        teamRecyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        val pokemonsRecyclerView = activity.findViewById<RecyclerView>(R.id.pokemonsRecyclerView)
+        pokemonsRecyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        val myItemClickListener = View.OnClickListener {
+            val position = it.tag as Int
+            if (activity.trainer!!.team.size < 6 && !activity.trainer!!.team.contains(activity.trainer!!.pokemons[position])) {
+                activity.trainer!!.team.add(activity.trainer!!.pokemons[position])
+                teamRecyclerView.adapter = PokemonRecyclerAdapter(activity, activity.trainer!!.team, View.OnClickListener {})
+            }
+        }
+        pokemonsRecyclerView.adapter = PokemonRecyclerAdapter(activity, activity.trainer!!.pokemons, myItemClickListener)
     }
 
     private fun displayPokemonInfo(activity : MainActivity, pokemon: Pokemon){

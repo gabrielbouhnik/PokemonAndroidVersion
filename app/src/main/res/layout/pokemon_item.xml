@@ -26,4 +26,12 @@
             android:layout_height="105dp" tools:srcCompat="@color/purple_200" android:id="@+id/pokemonSpriteView"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="32dp" android:layout_marginStart="16dp"/>
+    <TextView
+            android:text="CAN EVOLVE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/canEvolveTextView"
+            app:layout_constraintTop_toBottomOf="@+id/levelItemTextView"
+            android:layout_marginTop="8dp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:textAlignment="center"
+            app:layout_constraintHorizontal_bias="0.701" android:textColor="#F44336" android:visibility="gone"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

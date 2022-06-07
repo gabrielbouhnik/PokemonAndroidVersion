@@ -58,6 +58,7 @@ class WildBattle() : Battle() {
                 sb.append(checkStatus(opponent!!))
         }
         else{
+            sb.append(opponent.data.name + " fainted\n")
             if (encountersLeft > 0) {
                 generateRandomEncounter()
             }

@@ -3,6 +3,7 @@ package com.pokemon.android.version.ui
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -21,11 +22,13 @@ class PokemonRecyclerAdapter (val context: Context,
         var nameTextView: TextView
         var hpLevelTextView: TextView
         var spriteView: ImageView
+        var canEvolveTextView : TextView
 
         init {
             nameTextView = itemView.findViewById(R.id.nameItemTextView)
             hpLevelTextView = itemView.findViewById(R.id.levelItemTextView)
             spriteView = itemView.findViewById(R.id.pokemonSpriteView)
+            canEvolveTextView = itemView.findViewById(R.id.canEvolveTextView)
         }
     }
 
@@ -50,5 +53,7 @@ class PokemonRecyclerAdapter (val context: Context,
         Glide.with(context)
             .load(MainActivity.pokemonSpritesUrl + currentItem.data.id + ".png")
             .into(holder.spriteView)
+        if (currentItem.canEvolve())
+            holder.canEvolveTextView.visibility = VISIBLE
     }
 }

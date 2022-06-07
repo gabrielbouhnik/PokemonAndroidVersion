@@ -505,7 +505,7 @@
     "spDef": 20,
     "speed": 50,
     "catchRate": 0.5,
-    "evolutionId": 11,
+    "evolutionId": 14,
     "evolutionCondition": {
       "level": 7
     },
@@ -541,7 +541,7 @@
     "spDef": 25,
     "speed": 35,
     "catchRate": 0.5,
-    "evolutionId": 12,
+    "evolutionId": 15,
     "evolutionCondition": {
       "level": 10
     },
