@@ -46,6 +46,6 @@ class CritMove(
         fun pp(pp: Int) = apply { this.pp = pp }
         fun accuracy(accuracy: Int) = apply { this.accuracy = accuracy }
         fun priorityLevel(priorityLevel: Int) = apply { this.priorityLevel = priorityLevel }
-        fun build() = CritMove(id, name, type, category, pp, power, accuracy, priorityLevel)
+        fun build() = CritMove(id, name, type, category, power, pp, accuracy, priorityLevel)
     }
 }

@@ -12,6 +12,8 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
+import com.pokemon.android.version.model.move.Move
+import com.pokemon.android.version.utils.MoveUtils
 
 class PokemonMenu {
     fun loadPokemonMenu(activity : MainActivity){
@@ -118,6 +120,26 @@ class PokemonMenu {
         }
     }
 
+    private fun loadMovesLayout(activity : MainActivity, pokemon: Pokemon){
+        activity.setContentView(R.layout.move_layout)
+        val backButton : Button = activity.findViewById(R.id.moveMenuBackButton)
+        backButton.setOnClickListener{
+            loadPokemonInfoLayout(activity, pokemon)
+        }
+        val currentMovesRecyclerView = activity.findViewById<RecyclerView>(R.id.currentMovesRecyclerView)
+        currentMovesRecyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        val movesRecyclerView = activity.findViewById<RecyclerView>(R.id.movesRecyclerView)
+        movesRecyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        currentMovesRecyclerView.adapter = MoveRecyclerAdapter(activity, MoveUtils.getMoveList(pokemon).map{it.move}.toMutableList() , View.OnClickListener {})
+        var possibleMoves : ArrayList<Move> = ArrayList(MoveUtils.getPossibleMoves(pokemon))
+        val movesItemClickListener = View.OnClickListener {
+            val position = it.tag as Int
+            pokemon.autoLearnMove(possibleMoves[position])
+            currentMovesRecyclerView.adapter = MoveRecyclerAdapter(activity, MoveUtils.getMoveList(pokemon).map{it.move}.toMutableList(), View.OnClickListener {})
+        }
+        movesRecyclerView.adapter = MoveRecyclerAdapter(activity, possibleMoves, movesItemClickListener)
+    }
+
     private fun loadPokemonInfoLayout(activity : MainActivity, pokemon: Pokemon) {
         activity.setContentView(R.layout.pokemon_info)
         displayPokemonInfo(activity, pokemon)
@@ -128,6 +150,10 @@ class PokemonMenu {
         val useItemButton : Button = activity.findViewById(R.id.useItemButton)
         useItemButton.setOnClickListener{
             activity.mainMenu.itemMenu.loadItemMenu(activity, pokemon)
+        }
+        val movesButton : Button = activity.findViewById(R.id.movesButton)
+        movesButton.setOnClickListener{
+            loadMovesLayout(activity, pokemon)
         }
         var statusTextView :  TextView = activity.findViewById(R.id.statusDetailsTextView)
         if (pokemon.status != Status.OK)

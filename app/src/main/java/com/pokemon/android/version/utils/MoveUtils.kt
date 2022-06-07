@@ -18,10 +18,9 @@ class MoveUtils {
         }
 
         fun getPossibleMoves(pokemon : Pokemon) : List<Move>{
-            var possibleMoves : List<Move> = pokemon.data.movesByLevel.map{it.move}
+            var possibleMoves : List<Move> = pokemon.data.movesByLevel.filter{it.level <= pokemon.level}.map{it.move}
             var currentMoves : List<Int> = getMoveList(pokemon).map{it.move.id}
-            possibleMoves.filter{!currentMoves.contains(it.id)}
-            return possibleMoves
+            return possibleMoves.filter{!currentMoves.contains(it.id)}
         }
     }
 }
