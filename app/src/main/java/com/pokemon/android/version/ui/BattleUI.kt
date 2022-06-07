@@ -128,6 +128,7 @@ class BattleUI {
             }
             else -> {
                 if (battle.pokemon.currentHP == 0){
+                    disableAttackButtons(activity)
                     val recyclerView = activity.findViewById<RecyclerView>(R.id.battleRecyclerView)
                     recyclerView.visibility = VISIBLE
                     val blackImageView : ImageView = activity.findViewById(R.id.blackImageView)
@@ -139,6 +140,7 @@ class BattleUI {
                         if (clickedPokemon.currentHP > 0 && clickedPokemon != battle.pokemon) {
                             recyclerView.visibility = GONE
                             blackImageView.visibility = GONE
+                            disableAttackButtons(activity)
                             battle.switchPokemon(clickedPokemon)
                             setUpAttackButtons(activity, battle)
                             displayPokemonsInfos(activity, battle)
@@ -247,7 +249,8 @@ class BattleUI {
                 closeButton.visibility = GONE
                 battle.turnWithItemUsed(clickedItem.itemId)
                 displayPokemonsInfos(activity, battle)
-                setUpAttackButtons(activity, battle)
+                if (battle.pokemon.currentHP > 0)
+                    setUpAttackButtons(activity, battle)
                 switchButton.visibility = VISIBLE
                 bagButton.visibility = VISIBLE
             }

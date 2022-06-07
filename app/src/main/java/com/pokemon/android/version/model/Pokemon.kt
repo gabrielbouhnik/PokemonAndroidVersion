@@ -139,12 +139,18 @@ class Pokemon (var data : PokemonData,
     }
 
     fun autoLearnMove(move : Move){
-        if (move2 == null)
-            this.move2 = PokemonMove(move,move.pp)
-        if (move3 == null)
-            this.move3 = PokemonMove(move,move.pp)
-        if (move4 == null)
-            this.move4 = PokemonMove(move,move.pp)
+        if (move2 == null) {
+            this.move2 = PokemonMove(move, move.pp)
+            return
+        }
+        if (move3 == null) {
+            this.move3 = PokemonMove(move, move.pp)
+            return
+        }
+        if (move4 == null) {
+            this.move4 = PokemonMove(move, move.pp)
+            return
+        }
     }
 
     fun gainLevel(){
