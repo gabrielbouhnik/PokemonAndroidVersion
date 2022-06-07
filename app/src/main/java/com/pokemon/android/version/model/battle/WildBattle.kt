@@ -3,6 +3,7 @@ package com.pokemon.android.version.model.battle
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Pokemon
+import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.level.WildBattleLevelData
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.ui.BattleUI
@@ -19,13 +20,14 @@ class WildBattle() : Battle() {
         this.levelData = wildBattleLevelData
         this.encountersLeft = wildBattleLevelData.encounter
         this.pokemon = activity.trainer!!.getFirstPokemonThatCanFight()!!
+        this.pokemon.battleData = PokemonBattleData()
     }
 
     override fun turn(trainerPokemonMove: PokemonMove) {
         var sb = StringBuilder()
-        if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move)) {
+        if (BattleUtils.trainerStarts(pokemon, opponent!!, trainerPokemonMove.move)) {
             sb.append("${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n")
-            var response = pokemon.attack(trainerPokemonMove, opponent)
+            var response = pokemon.attack(trainerPokemonMove, opponent!!)
             if (!response.success)
                 sb.append(response.reason)
             if (opponent.currentHP > 0) {
@@ -41,15 +43,19 @@ class WildBattle() : Battle() {
                 sb.append(opponentResponse.reason)
             if (pokemon.currentHP > 0) {
                 sb.append("${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n")
-                var response = pokemon.attack(trainerPokemonMove, opponent)
+                var response = pokemon.attack(trainerPokemonMove, opponent!!)
                 if (!response.success)
                     sb.append(response.reason)
             }
         }
         if (pokemon.currentHP > 0)
             sb.append(checkStatus(pokemon))
+        else{
+            pokemon.status = Status.OK
+            pokemon.battleData = null
+        }
         if (opponent.currentHP > 0){
-                sb.append(checkStatus(opponent))
+                sb.append(checkStatus(opponent!!))
         }
         else{
             if (encountersLeft > 0) {
@@ -60,7 +66,7 @@ class WildBattle() : Battle() {
     }
 
     override fun getBattleState(): State {
-        if (encountersLeft == 0 && opponent.currentHP == 0){
+        if (encountersLeft == 0 && (opponent.trainer != null || opponent.currentHP == 0)){
             return State.TRAINER_VICTORY
         }
         if (!activity.trainer!!.canStillBattle()) {
@@ -79,6 +85,6 @@ class WildBattle() : Battle() {
             (levelData as WildBattleLevelData).possibleEncounters.encounters.random().id,
             randomLevel
         )
-        return opponent
+        return opponent!!
     }
 }

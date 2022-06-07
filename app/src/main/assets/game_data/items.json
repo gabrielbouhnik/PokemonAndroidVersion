@@ -1,59 +1,90 @@
 [
-
   {
-    "id": "0",
+    "id": 0,
     "name": "AndroCoin"
   },
   {
-    "id": "1",
+    "id": 1,
     "name": "Potion"
   },
   {
-    "id": "2",
+    "id": 2,
     "name": "Super Potion"
   },
   {
-    "id": "3",
+    "id": 3,
     "name": "Hyper Potion"
   },
   {
-    "id": "4",
+    "id": 4,
     "name": "Full Heal"
   },
   {
-    "id": "5",
+    "id": 5,
     "name": "Paralyze Heal"
   },
   {
-    "id": "6",
+    "id": 6,
     "name": "Burn Heal"
   },
   {
-    "id": "7",
+    "id": 7,
     "name": "Antidote"
   },
   {
-    "id": "8",
+    "id": 8,
     "name": "Rare Candy"
   },
   {
-    "id": "9",
+    "id": 9,
     "name": "Revive"
   },
   {
-    "id": "10",
+    "id": 10,
     "name": "Poke Ball"
   },
   {
-    "id": "11",
+    "id": 11,
     "name": "Great Ball"
   },
   {
-    "id": "12",
+    "id": 12,
     "name": "Hyper Ball"
   },
   {
-    "id": "13",
+    "id": 13,
     "name": "PP Heal"
+  },
+  {
+    "id": 101,
+    "name": "Boulder Badge"
+  },
+  {
+    "id": 102,
+    "name": "Cascade Badge"
+  },
+  {
+    "id": 103,
+    "name": "Thunder Badge"
+  },
+  {
+    "id": 104,
+    "name": "Rainbow Badge"
+  },
+  {
+    "id": 105,
+    "name": "Soul Badge"
+  },
+  {
+    "id": 106,
+    "name": "Marsh Badge"
+  },
+  {
+    "id": 107,
+    "name": "Volcano Badge"
+  },
+  {
+    "id": 108,
+    "name": "Earth Badge"
   }
 ]

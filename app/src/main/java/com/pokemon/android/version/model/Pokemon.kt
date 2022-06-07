@@ -1,6 +1,7 @@
 package com.pokemon.android.version.model
 
 import com.pokemon.android.version.GameDataService
+import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.entity.save.PokemonSave
 import com.pokemon.android.version.model.battle.AttackResponse
 import com.pokemon.android.version.model.battle.DamageCalculator
@@ -76,7 +77,7 @@ class Pokemon (var data : PokemonData,
 
     fun attack(move : PokemonMove, opponent : Pokemon) : AttackResponse {
         if (this.battleData!!.battleStatus.contains(Status.FLINCHED))
-            return AttackResponse(false,this.data.name + " flinched and couldn't move\n")
+            return AttackResponse(false,"But ${this.data.name} flinched and couldn't move\n")
         if (this.status == Status.PARALYSIS){
             if (Random.nextInt(100) < 25)
                 return AttackResponse(false,this.data.name + " can't move because it is paralysed!\n")
@@ -90,11 +91,10 @@ class Pokemon (var data : PokemonData,
         }
         move.pp = move.pp - 1
         if (move.move.accuracy != null) {
-            if (move.move.accuracy!! < 100) {
-                val random: Int = Random.nextInt(100)
-                if (random * battleData!!.accuracyMultiplicator >= move.move.accuracy!!)
-                    return AttackResponse(false, this.data.name + "'s attack missed!\n")
-            }
+            val random: Int = Random.nextInt(100)
+            if (random > move.move.accuracy!! * battleData!!.accuracyMultiplicator)
+                return AttackResponse(false, this.data.name + "'s attack missed!\n")
+
         }
         var damage = 0
         if (move.move.power > 0) {
@@ -110,6 +110,7 @@ class Pokemon (var data : PokemonData,
         if (damage >= opponent.currentHP) {
             opponent.currentHP = 0
             opponent.status = Status.OK
+            opponent.battleData = null
         }
         else {
             opponent.currentHP = opponent.currentHP - damage
@@ -128,12 +129,15 @@ class Pokemon (var data : PokemonData,
     }
 
     private fun recomputeStat(){
+        var addHP : Boolean = hp == currentHP
         this.hp = 10 + (data.hp.toFloat() * (level/50f)).roundToInt()
         this.attack = 5 + (data.attack.toFloat() * (level/50f)).roundToInt()
         this.defense = 5 + (data.defense.toFloat() * (level/50f)).roundToInt()
         this.spAtk= 5 + (data.spAtk.toFloat() * (level/50f)).roundToInt()
         this.spDef = 5 + (data.spDef.toFloat() * (level/50f)).roundToInt()
         this.speed= 5 + (data.speed.toFloat() * (level/50f)).roundToInt()
+        if (addHP)
+            currentHP = hp
     }
 
     fun learnMove(moveToLearn : Move, moveToDeleteNumber : Int){
@@ -192,6 +196,11 @@ class Pokemon (var data : PokemonData,
         if (canEvolve()){
             this.data = gameDataService.getPokemonDataById(data.evolutionId!!)
             recomputeStat()
+            if (currentHP > hp)
+                currentHP = hp
+            val moveFiltered = data.movesByLevel.filter{it.level == this.level}
+            if (moveFiltered.size == 1)
+                autoLearnMove(data.movesByLevel.filter{it.level == this.level}.first().move)
         }
     }
 

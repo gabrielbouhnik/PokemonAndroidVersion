@@ -17,7 +17,7 @@ enum class Status {
     companion object{
         fun updateStatus(opponent : Pokemon, statusMove : StatusMove){
             val randomForStatus : Int = Random.nextInt(100)
-            if (randomForStatus < statusMove.probability) {
+            if (randomForStatus <= statusMove.probability) {
                 if (statusMove.status == FLINCHED || statusMove.status == CONFUSED || statusMove.status == TRAPPED)
                     opponent.battleData!!.battleStatus.add(statusMove.status)
                 else {

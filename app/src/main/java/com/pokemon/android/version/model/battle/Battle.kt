@@ -23,6 +23,7 @@ abstract class Battle {
     abstract fun turn(trainerPokemonMove: PokemonMove)
 
     fun switchPokemon(pokemonToBeSent: Pokemon) {
+        pokemonToBeSent.battleData = PokemonBattleData()
         this.pokemon.battleData = PokemonBattleData()
         this.pokemon = pokemonToBeSent
     }
@@ -42,9 +43,10 @@ abstract class Battle {
         var sb = StringBuilder()
         if (ItemUtils.getItemById(itemId) is Ball) {
             if (this is WildBattle) {
-                if (activity.trainer!!.catchPokemon(opponent, itemId)) {
+                if (activity.trainer!!.catchPokemon(opponent!!, itemId)) {
                     dialogTextView.text = activity.trainer!!.name + " caught ${opponent.data.name}!\n"
-                    this.generateRandomEncounter()
+                    if (this.encountersLeft > 0)
+                        this.generateRandomEncounter()
                     return
                 } else {
                     sb.append(opponent.data.name + " broke free!\n")
@@ -66,12 +68,22 @@ abstract class Battle {
             if (pokemon.status != Status.OK) {
                 when (pokemon.status) {
                     Status.POISON -> {
-                        pokemon.currentHP = pokemon.battleData!!.poisonCounter * (pokemon.hp / 16)
+                        pokemon.currentHP -= pokemon.battleData!!.poisonCounter * (pokemon.hp / 16)
                         pokemon.battleData!!.poisonCounter++
+                        if (pokemon.currentHP <= 0){
+                            pokemon.currentHP = 0
+                            pokemon.status = Status.OK
+                            pokemon.battleData = null
+                        }
                         return pokemon.data.name + " suffers from the poison\n"
                     }
                     Status.BURN -> {
                         pokemon.currentHP -= pokemon.hp / 16
+                        if (pokemon.currentHP <= 0){
+                            pokemon.currentHP = 0
+                            pokemon.status = Status.OK
+                            pokemon.battleData = null
+                        }
                         return pokemon.data.name + " suffers from its burn\n"
                     }
                     Status.ASLEEP -> {

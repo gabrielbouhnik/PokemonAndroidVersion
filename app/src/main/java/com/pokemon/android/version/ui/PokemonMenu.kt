@@ -1,6 +1,7 @@
 package com.pokemon.android.version.ui
 
 import android.view.View
+import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.ImageView
@@ -49,6 +50,35 @@ class PokemonMenu {
         activity.displayPokemon(pokemon.data.id,imageView)
     }
 
+    private fun displayMoveButtons(activity : MainActivity, pokemon: Pokemon) {
+        val move1Button : Button = activity.findViewById(R.id.move1InfoButton)
+        move1Button.text = pokemon.move1.move.name
+        val move2Button : Button = activity.findViewById(R.id.move2InfoButton)
+        val move3Button : Button = activity.findViewById(R.id.move3InfoButton)
+        val move4Button : Button = activity.findViewById(R.id.move4InfoButton)
+        if (pokemon.move2 == null){
+            move2Button.visibility = View.GONE
+        }
+        else {
+            move2Button.visibility = VISIBLE
+            move2Button.text = pokemon.move2!!.move.name
+        }
+        if (pokemon.move3 == null){
+            move3Button.visibility = View.GONE
+        }
+        else {
+            move3Button.visibility = VISIBLE
+            move3Button.text = pokemon.move3!!.move.name
+        }
+        if (pokemon.move4 == null){
+            move4Button.visibility = View.GONE
+        }
+        else {
+            move4Button.visibility = VISIBLE
+            move4Button.text = pokemon.move4!!.move.name
+        }
+    }
+
     private fun loadPokemonInfoLayout(activity : MainActivity, pokemon: Pokemon) {
         activity.setContentView(R.layout.pokemon_info)
         displayPokemonInfo(activity, pokemon)
@@ -66,27 +96,11 @@ class PokemonMenu {
             evolveButton.setOnClickListener {
                 pokemon.evolve(activity.gameDataService)
                 displayPokemonInfo(activity, pokemon)
+                displayMoveButtons(activity,pokemon)
+                evolveButton.visibility = GONE
+                //TODO save
             }
         }
-        val move1Button : Button = activity.findViewById(R.id.move1InfoButton)
-        move1Button.text = pokemon.move1.move.name
-        val move2Button : Button = activity.findViewById(R.id.move2InfoButton)
-        val move3Button : Button = activity.findViewById(R.id.move3InfoButton)
-        val move4Button : Button = activity.findViewById(R.id.move4InfoButton)
-        if (pokemon.move2 == null){
-            move2Button.visibility = View.GONE
-        }
-        else
-            move2Button.text = pokemon.move2!!.move.name
-        if (pokemon.move3 == null){
-            move3Button.visibility = View.GONE
-        }
-        else
-            move3Button.text = pokemon.move3!!.move.name
-        if (pokemon.move4 == null){
-            move4Button.visibility = View.GONE
-        }
-        else
-            move4Button.text = pokemon.move4!!.move.name
+        displayMoveButtons(activity,pokemon)
     }
 }

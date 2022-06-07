@@ -2,6 +2,7 @@ package com.pokemon.android.version.model.battle
 
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
+import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.ui.BattleUI
@@ -18,15 +19,16 @@ class TrainerBattle() : Battle(){
         this.levelData = trainerBattleLevelData
         this.trainersLeft = trainerBattleLevelData.opponentTrainerData.size
         this.pokemon = activity.trainer!!.getFirstPokemonThatCanFight()!!
+        this.pokemon.battleData = PokemonBattleData()
         this.opponentTrainer = OpponentTrainerFactory.createOpponentTrainer(trainerBattleLevelData.opponentTrainerData.first(), activity.gameDataService)
         this.opponent = this.opponentTrainer.getFirstPokemonThatCanFight()!!
     }
 
     override fun turn(trainerPokemonMove: PokemonMove) {
         val sb = StringBuilder()
-        if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move)) {
+        if (BattleUtils.trainerStarts(pokemon, opponent!!, trainerPokemonMove.move)) {
             sb.append("${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n")
-            var response = pokemon.attack(trainerPokemonMove, opponent)
+            var response = pokemon.attack(trainerPokemonMove, opponent!!)
             if (!response.success)
                 sb.append(response.reason)
             if (opponent.currentHP > 0) {
@@ -42,7 +44,7 @@ class TrainerBattle() : Battle(){
                 sb.append(opponentResponse.reason)
             if (pokemon.currentHP > 0) {
                 sb.append("${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n")
-                var response = pokemon.attack(trainerPokemonMove, opponent)
+                var response = pokemon.attack(trainerPokemonMove, opponent!!)
                 if (!response.success)
                     sb.append(response.reason)
             }
@@ -55,8 +57,12 @@ class TrainerBattle() : Battle(){
         }
         if (pokemon.currentHP > 0)
             sb.append(checkStatus(pokemon))
+        else{
+            pokemon.status = Status.OK
+            pokemon.battleData = null
+        }
         if (opponent.currentHP> 0)
-            sb.append(checkStatus(opponent))
+            sb.append(checkStatus(opponent!!))
         dialogTextView.text = sb.toString()
     }
 

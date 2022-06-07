@@ -85,6 +85,61 @@
       "music": 1,
       "background": "images/route_battle_background.png",
       "exp": 60
+    },
+    {
+      "id": 7,
+      "name": "\nVS Bug Catcher",
+      "description": "You finally find the exit of Viridian Forest but a trainer challenges you",
+      "type": "Trainer Battle",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Bug_Catcher.png",
+          "name" : "Bug Catcher",
+          "pokemons": [
+            {
+              "id": 10,
+              "level": 7,
+              "moveIds": [
+                2,26
+              ]
+            },
+            {
+              "id": 13,
+              "level": 7,
+              "moveIds": [
+                17
+              ]
+            },
+            {
+              "id": 14,
+              "level": 7,
+              "moveIds": [
+                32,17
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 4,
+          "quantity": 1
+        },
+        {
+          "id": 13,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "If you want to leave Viridian Forest, you'll have to fight me!",
+      "endDialogWin": "I'm going to catch stronger bug types Pokemon",
+      "endDialogLoose": "Bugs are the strongest",
+      "music": 1,
+      "background": "images/forest_battle_background.jpg",
+      "exp": 60
     }
   ],
   "randomWildEncounters": [
@@ -156,6 +211,64 @@
       "background": "images/route_battle_background.png",
       "music": 2,
       "exp": 40
+    },
+    {
+      "id": 5,
+      "name": "\nRoute 2",
+      "description": "To get your first badge, you head to Pewter City. Several wild Pokemon attack you on Route 2",
+      "encounter": 2,
+      "possibleEncounters":
+      {
+        "minLevel": 3,
+        "maxLevel": 5,
+        "encounters": [
+          10,13
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 30
+        },
+        {
+          "id": 7,
+          "quantity": 3
+        }
+      ],
+      "background": "images/route_battle_background.png",
+      "music": 2,
+      "exp": 40
+    },
+    {
+      "id": 6,
+      "name": "\nViridian Forest",
+      "description": "To reach Argenta, you pass through Viridian Forest. You are attacked by several bug types Pokemon.",
+      "encounter": 3,
+      "possibleEncounters":
+      {
+        "minLevel": 3,
+        "maxLevel": 6,
+        "encounters": [
+          10,11,13,14
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 30
+        },
+        {
+          "id": 1,
+          "quantity": 2
+        },
+        {
+          "id": 7,
+          "quantity": 1
+        }
+      ],
+      "background": "images/forest_battle_background.jpg",
+      "music": 2,
+      "exp": 50
     }
   ]
 }
