@@ -78,6 +78,12 @@ abstract class Battle {
                         pokemon.battleData!!.sleepCounter++
                         return pokemon.data.name + " is sleeping\n"
                     }
+                    Status.CONFUSED -> {
+                        pokemon.battleData!!.confusionCounter++
+                    }
+                    Status.FLINCHED -> {
+                        pokemon.battleData!!.battleStatus.remove(Status.FLINCHED)
+                    }
                 }
             }
             return ""

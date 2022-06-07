@@ -9,10 +9,10 @@ open class Move(var id : Int,
                 var category: MoveCategory,
                 var power : Int,
                 var pp : Int,
-                var accuracy : Int,
+                var accuracy : Int?,
                 var priorityLevel : Int = 0) {
     companion object {
-        fun of(moveEntity: MoveEntity) :Move{
+        fun of(moveEntity: MoveEntity) : Move{
             return MoveBuilder()
                 .id(moveEntity.id)
                 .name(moveEntity.name)
@@ -32,7 +32,7 @@ open class Move(var id : Int,
                            var pp : Int = 0,
                            var type : Type = Type.NONE,
                            var category: MoveCategory = MoveCategory.PHYSICAL,
-                           var accuracy : Int = 100,
+                           var accuracy : Int? = null,
                            var priorityLevel : Int = 0){
         fun id(id : Int) = apply { this.id = id }
         fun name(name : String) = apply { this.name = name }
@@ -40,7 +40,7 @@ open class Move(var id : Int,
         fun category(category: MoveCategory) = apply { this.category = category }
         fun power(power : Int) = apply { this.power = power }
         fun pp(pp : Int) = apply { this.pp = pp }
-        fun accuracy(accuracy : Int) = apply { this.accuracy = accuracy }
+        fun accuracy(accuracy : Int?) = apply { this.accuracy = accuracy }
         fun priorityLevel(priorityLevel : Int) = apply { this.priorityLevel = priorityLevel }
         fun build() = Move(id,name,type, category, pp, power, accuracy, priorityLevel)
     }
