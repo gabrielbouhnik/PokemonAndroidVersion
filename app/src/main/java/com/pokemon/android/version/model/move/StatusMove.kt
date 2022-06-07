@@ -55,6 +55,6 @@ class StatusMove(
         fun priorityLevel(priorityLevel: Int) = apply { this.priorityLevel = priorityLevel }
         fun status(status: Status) = apply { this.status = status }
         fun probability(probability: Int) = apply { this.probability = probability }
-        fun build() = StatusMove(id, name, type, category, pp, power, accuracy, priorityLevel, status, probability)
+        fun build() = StatusMove(id, name, type, category, power, pp, accuracy, priorityLevel, status, probability)
     }
 }

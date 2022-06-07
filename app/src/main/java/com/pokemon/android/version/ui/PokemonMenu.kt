@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Pokemon
+import com.pokemon.android.version.model.Status
 
 class PokemonMenu {
     fun loadPokemonMenu(activity : MainActivity){
@@ -53,29 +54,41 @@ class PokemonMenu {
     private fun displayMoveButtons(activity : MainActivity, pokemon: Pokemon) {
         val move1Button : Button = activity.findViewById(R.id.move1InfoButton)
         move1Button.text = pokemon.move1.move.name
+        val ppMove1TextView : TextView = activity.findViewById(R.id.ppMove1TextView)
+        ppMove1TextView.visibility = VISIBLE
+        ppMove1TextView.text = "${pokemon.move1.pp}/${pokemon.move1.move.pp}"
         val move2Button : Button = activity.findViewById(R.id.move2InfoButton)
         val move3Button : Button = activity.findViewById(R.id.move3InfoButton)
         val move4Button : Button = activity.findViewById(R.id.move4InfoButton)
         if (pokemon.move2 == null){
-            move2Button.visibility = View.GONE
+            move2Button.visibility = GONE
         }
         else {
             move2Button.visibility = VISIBLE
             move2Button.text = pokemon.move2!!.move.name
+            val ppMove2TextView : TextView = activity.findViewById(R.id.ppMove2TextView)
+            ppMove2TextView.visibility = VISIBLE
+            ppMove2TextView.text = "${pokemon.move2!!.pp}/${pokemon.move2!!.move.pp}"
         }
         if (pokemon.move3 == null){
-            move3Button.visibility = View.GONE
+            move3Button.visibility = GONE
         }
         else {
             move3Button.visibility = VISIBLE
             move3Button.text = pokemon.move3!!.move.name
+            val ppMove3TextView : TextView = activity.findViewById(R.id.ppMove3TextView)
+            ppMove3TextView.visibility = VISIBLE
+            ppMove3TextView.text = "${pokemon.move3!!.pp}/${pokemon.move3!!.move.pp}"
         }
         if (pokemon.move4 == null){
-            move4Button.visibility = View.GONE
+            move4Button.visibility = GONE
         }
         else {
             move4Button.visibility = VISIBLE
             move4Button.text = pokemon.move4!!.move.name
+            val ppMove4TextView : TextView = activity.findViewById(R.id.ppMove4TextView)
+            ppMove4TextView.visibility = VISIBLE
+            ppMove4TextView.text = "${pokemon.move4!!.pp}/${pokemon.move4!!.move.pp}"
         }
     }
 
@@ -90,6 +103,11 @@ class PokemonMenu {
         useItemButton.setOnClickListener{
             activity.mainMenu.itemMenu.loadItemMenu(activity, pokemon)
         }
+        var statusTextView :  TextView = activity.findViewById(R.id.statusDetailsTextView)
+        if (pokemon.status != Status.OK)
+            statusTextView.text = pokemon.status.toString()
+        else
+            statusTextView.visibility = GONE
         val evolveButton : Button = activity.findViewById(R.id.evolveButton)
         if (pokemon.canEvolve()) {
             evolveButton.visibility = VISIBLE
