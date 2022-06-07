@@ -6,9 +6,11 @@ import com.pokemon.android.version.model.battle.AttackResponse
 import com.pokemon.android.version.model.battle.DamageCalculator
 import com.pokemon.android.version.model.battle.PokemonBattleData
 import com.pokemon.android.version.model.move.CritMove
+import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.StatusMove
 import com.pokemon.android.version.model.move.VariableHitMove
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
+import com.pokemon.android.version.utils.MoveUtils
 import kotlin.math.roundToInt
 import kotlin.random.Random
 import kotlin.random.nextInt
@@ -62,20 +64,8 @@ class Pokemon (var data : PokemonData,
     }
 
     fun IA(opponent : Pokemon) : PokemonMove{
-        var usableMoves : ArrayList<PokemonMove> = arrayListOf()
-        if (move1.pp > 0){
-            usableMoves.add(move1)
-        }
-        if (move2 != null && move2!!.pp > 0){
-            usableMoves.add(move2!!)
-        }
-        if (move3 != null && move3!!.pp > 0){
-            usableMoves.add(move3!!)
-        }
-        if (move4 != null && move4!!.pp > 0){
-            usableMoves.add(move4!!)
-        }
-        var maxDamage = 0
+        val usableMoves = MoveUtils.getMoveList(this).filter{it.pp > 0}
+        val maxDamage = 0
         var maxDamageIdx = 0
         var Idx = 0
         for (move in usableMoves){
@@ -100,7 +90,7 @@ class Pokemon (var data : PokemonData,
         }
         move.pp = move.pp - 1
         if (move.move.accuracy < 100){
-            var random : Int = Random.nextInt(100)
+            val random : Int = Random.nextInt(100)
             if (random * battleData!!.accuracyMultiplicator >= move.move.accuracy)
                 return AttackResponse(false,this.data.name + "'s attack missed!\n")
         }
@@ -139,10 +129,30 @@ class Pokemon (var data : PokemonData,
         this.speed= 5 + (data.speed.toFloat() * (level/50f)).roundToInt()
     }
 
+    fun learnMove(moveToLearn : Move, moveToDeleteNumber : Int){
+        when(moveToDeleteNumber) {
+            1 -> move1 = PokemonMove(moveToLearn)
+            2 -> move2 = PokemonMove(moveToLearn)
+            3 -> move3 = PokemonMove(moveToLearn)
+            4 -> move4 = PokemonMove(moveToLearn)
+        }
+    }
+
+    fun autoLearnMove(move : Move){
+        if (move2 == null)
+            this.move2 = PokemonMove(move,move.pp)
+        if (move3 == null)
+            this.move3 = PokemonMove(move,move.pp)
+        if (move4 == null)
+            this.move4 = PokemonMove(move,move.pp)
+    }
+
     fun gainLevel(){
         this.level += 1
         this.recomputeStat()
-        //TODO moves
+        val moveFiltered = data.movesByLevel.filter{it.level == this.level}
+        if (moveFiltered.size == 1)
+            autoLearnMove(data.movesByLevel.filter{it.level == this.level}.first().move)
     }
 
     fun gainExp(value : Int){

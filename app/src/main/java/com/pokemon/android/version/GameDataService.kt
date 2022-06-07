@@ -11,7 +11,6 @@ import com.pokemon.android.version.model.level.LevelFactory
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveFactory
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
-import com.pokemon.android.version.model.move.pokemon.PokemonMoveLearnedByLevel
 import com.pokemon.android.version.repository.*
 import kotlin.math.roundToInt
 
@@ -62,7 +61,7 @@ class GameDataService {
         val spAtk : Int = 5 + (pokemonData.spAtk.toFloat() * (level/50f)).roundToInt()
         val spDef : Int = 5 + (pokemonData.spDef.toFloat() * (level/50f)).roundToInt()
         val speed : Int = 5 + (pokemonData.speed.toFloat() * (level/50f)).roundToInt()
-        val moves : List<PokemonMove> = pokemonData.possibleMoves.filter { it is PokemonMoveLearnedByLevel && (it as PokemonMoveLearnedByLevel).level <= level }
+        val moves : List<PokemonMove> = pokemonData.movesByLevel.filter {it.level <= level }.map{PokemonMove(it.move, it.move.pp)}
         val move1 : PokemonMove = moves.first()
         val move2 : PokemonMove? = if (moves.size < 2) null else moves[1]
         val move3 : PokemonMove? = if (moves.size < 3) null else moves[2]
@@ -128,7 +127,7 @@ class GameDataService {
         val spAtk : Int = 5 + (pokemonData.spAtk.toFloat() * (level/50f)).roundToInt()
         val spDef : Int = 5 + (pokemonData.spDef.toFloat() * (level/50f)).roundToInt()
         val speed : Int = 5 + (pokemonData.speed.toFloat() * (level/50f)).roundToInt()
-        val move1 : PokemonMove = PokemonMove(moves[0])
+        val move1 = PokemonMove(moves[0])
         val move2 : PokemonMove? = if (moves.size < 2) null else PokemonMove(moves[1])
         val move3 : PokemonMove? = if (moves.size < 3) null else PokemonMove(moves[2])
         val move4 : PokemonMove? = if (moves.size < 4) null else PokemonMove(moves[3])

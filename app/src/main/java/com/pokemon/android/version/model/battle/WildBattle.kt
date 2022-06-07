@@ -50,6 +50,8 @@ class WildBattle() : Battle() {
             sb.append(checkStatus(pokemon))
         if (opponent.currentHP > 0){
                 sb.append(checkStatus(opponent))
+        }
+        else{
             if (encountersLeft > 0) {
                 generateRandomEncounter()
             }

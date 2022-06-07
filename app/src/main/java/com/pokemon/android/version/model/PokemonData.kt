@@ -1,16 +1,16 @@
 package com.pokemon.android.version.model
 
-import com.pokemon.android.version.entity.pokemon.EvolutionConditionEntity
 import com.pokemon.android.version.entity.pokemon.PokemonDataEntity
 import com.pokemon.android.version.model.move.Move
-import com.pokemon.android.version.model.move.pokemon.PokemonMove
-import com.pokemon.android.version.model.move.pokemon.PokemonMoveLearnedByLevel
+import com.pokemon.android.version.model.move.pokemon.MoveLearned
+import com.pokemon.android.version.model.move.pokemon.MoveLearnedByLevel
 
 class PokemonData (val id : Int,
                    val name: String,
                    val type1 : Type,
                    val type2 : Type,
-                   val possibleMoves : List<PokemonMove>,
+                   val movesByLevel : List<MoveLearnedByLevel>,
+                   val movesByTM : List<MoveLearned>,
                    val catchRate : Float,
                    var hp : Int,
                    var attack : Int,
@@ -23,15 +23,17 @@ class PokemonData (val id : Int,
                    val expGaugeCoeff : Float){
     companion object {
         fun of(pokemonDataEntity : PokemonDataEntity, moves : List<Move>) : PokemonData{
-            var possibleMoves : ArrayList<PokemonMove> = ArrayList()
-            pokemonDataEntity.possibleMoves.movesLearnByLevel.forEach{possibleMoves.add(PokemonMoveLearnedByLevel.of(it,moves))}
-            pokemonDataEntity.possibleMoves.movesLearnWithHM.forEach{possibleMoves.add(PokemonMove.of(it,moves))}
+            val movesByLevel : ArrayList<MoveLearnedByLevel> = ArrayList()
+            val movesByTM : ArrayList<MoveLearned> = ArrayList()
+            pokemonDataEntity.possibleMoves.movesLearnByLevel.forEach{movesByLevel.add(MoveLearnedByLevel(moves[it.moveId - 1],it.level))}
+            pokemonDataEntity.possibleMoves.movesLearnWithHM.forEach{movesByTM.add(MoveLearned(moves[it.moveId - 1]))}
             return PokemonDataBuilder()
                 .id(pokemonDataEntity.id)
                 .name(pokemonDataEntity.name)
                 .type1(Type.of(pokemonDataEntity.type1))
                 .type2(Type.of(pokemonDataEntity.type2))
-                .possibleMoves(possibleMoves)
+                .movesByLevel(movesByLevel)
+                .movesByTM(movesByTM)
                 .catchRate(pokemonDataEntity.catchRate)
                 .hp(pokemonDataEntity.hp)
                 .attack(pokemonDataEntity.attack)
@@ -51,7 +53,8 @@ class PokemonData (val id : Int,
         var name : String = "",
         var type1 : Type = Type.NONE,
         var type2 : Type = Type.NONE,
-        var possibleMoves : List<PokemonMove> = ArrayList(),
+        var movesByLevel : List<MoveLearnedByLevel> = ArrayList(),
+        var movesByTM : List<MoveLearned> = ArrayList(),
         var catchRate : Float =  0F,
         var hp : Int  = 0,
         var attack : Int = 0,
@@ -67,7 +70,8 @@ class PokemonData (val id : Int,
         fun name(name : String) = apply { this.name = name }
         fun type1(type: Type) = apply { this.type1 = type }
         fun type2(type: Type) = apply { this.type2 = type }
-        fun possibleMoves(possibleMoves: List<PokemonMove>) = apply { this.possibleMoves = possibleMoves }
+        fun movesByLevel(movesByLevel: List<MoveLearnedByLevel>) = apply { this.movesByLevel = movesByLevel }
+        fun movesByTM(movesByTM: List<MoveLearned>) = apply { this.movesByTM = movesByTM }
         fun catchRate(catchRate: Float) = apply { this.catchRate = catchRate }
         fun hp(hp: Int) = apply { this.hp = hp }
         fun attack(attack: Int) = apply { this.attack = attack }
@@ -78,6 +82,6 @@ class PokemonData (val id : Int,
         fun evolutionId(evolutionId: Int?) = apply { this.evolutionId = evolutionId }
         fun evolutionCondition(evolutionCondition: EvolutionCondition?) = apply { this.evolutionCondition = evolutionCondition }
         fun expGaugeCoeff(expGaugeCoeff: Float) = apply { this.expGaugeCoeff = expGaugeCoeff }
-        fun build() = PokemonData(id,name,type1,type2, possibleMoves, catchRate, hp, attack, defense, spAtk, spDef, speed, evolutionId, evolutionCondition, expGaugeCoeff )
+        fun build() = PokemonData(id,name,type1,type2, movesByLevel,movesByTM, catchRate, hp, attack, defense, spAtk, spDef, speed, evolutionId, evolutionCondition, expGaugeCoeff )
     }
 }
