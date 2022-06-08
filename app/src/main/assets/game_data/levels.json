@@ -145,7 +145,7 @@
       "exp": 60
     },
     {
-      "id": 7,
+      "id": 8,
       "name": "\nPewter City Gym",
       "description": "You have arrived in Pewter City and are going straight to the arena. However, you can't face the gym leader yet.",
       "type": "Trainer Battle",
@@ -187,7 +187,7 @@
       "exp": 70
     },
     {
-      "id": 8,
+      "id": 9,
       "name": "\nVS Brock",
       "description": "After defeating the guard, you can finally face the gym leader!",
       "type": "Trainer Battle",
@@ -240,7 +240,7 @@
       "exp": 80
     },
     {
-      "id": 9,
+      "id": 10,
       "name": "\nRoute 3",
       "description": "After obtaining your first badge, you go to Route 3 where several trainers want to battle",
       "opponents": [
@@ -332,6 +332,157 @@
       "music": 2,
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
+      "exp": 60
+    },
+    {
+      "id": 11,
+      "name": "\nMt. Moon",
+      "description": "After crossing Route 3, you enter a cave to reach Cerulean City.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Youngster.png",
+          "name" : "Youngster Josh",
+          "pokemons": [
+            {
+              "id": 19,
+              "level": 12,
+              "moveIds": [
+                2,3,22,23
+              ]
+            },
+            {
+              "id": 41,
+              "level": 12,
+              "moveIds": [
+                47,16,23
+              ]
+            },
+            {
+              "id": 19,
+              "level": 12,
+              "moveIds": [
+                2,3,22,23
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Montagnard.png",
+          "name" : "Hiker Markos",
+          "pokemons": [
+            {
+              "id": 74,
+              "level": 12,
+              "moveIds": [
+                32,2,29
+              ]
+            },
+            {
+              "id": 74,
+              "level": 12,
+              "moveIds": [
+                2,32,29
+              ]
+            },
+            {
+              "id": 95,
+              "level": 12,
+              "moveIds": [
+                32,2,29
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 1,
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Did you come to explore too?",
+      "endDialogWin": "Kids like you shouldn't be here!",
+      "endDialogLoose": "Kids like you shouldn't be here!",
+      "music": 2,
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "exp": 60
+    },
+    {
+      "id": 13,
+      "name": "\nVS Team Rocket",
+      "description": "Suspicious men are in the cave. One of them is heading towards you.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 19,
+              "level": 12,
+              "moveIds": [
+                2,3,22,23
+              ]
+            },
+            {
+              "id": 41,
+              "level": 12,
+              "moveIds": [
+                47,16,23
+              ]
+            },
+            {
+              "id": 19,
+              "level": 12,
+              "moveIds": [
+                2,3,22,23
+              ]
+            },
+            {
+              "id": 41,
+              "level": 13,
+              "moveIds": [
+                47,16,23
+              ]
+            },
+            {
+              "id": 19,
+              "level": 13,
+              "moveIds": [
+                2,3,22,23
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "We, TEAM ROCKET, are POKEMON gangsters",
+      "endDialogWin": "I blew it!",
+      "endDialogLoose": "You can't beat Team Rocket!",
+      "music": 2,
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
       "exp": 60
     }
   ],
@@ -438,7 +589,7 @@
     {
       "id": 6,
       "name": "\nViridian Forest",
-      "description": "To reach Argenta, you pass through Viridian Forest. You are attacked by several bug types Pokemon.",
+      "description": "To reach Pewter City, you pass through Viridian Forest. You are attacked by several bug types Pokemon.",
       "encounter": 3,
       "possibleEncounters":
       {
@@ -464,6 +615,66 @@
       ],
       "icon": "images/forest_battle_background.jpg",
       "background": "images/forest_battle_background.jpg",
+      "music": 2,
+      "exp": 50
+    },
+    {
+      "id": 12,
+      "name": "\nMt. Moon 2",
+      "description": "You are still trying to get out of this cave but wild pokemon are attacking you",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 10,
+        "maxLevel": 12,
+        "encounters": [
+          41,74,27
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 30
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "music": 2,
+      "exp": 50
+    },
+    {
+      "id": 14,
+      "name": "\nRoute 4",
+      "description": "You are finally out of the cave and you see Cerulean City in the distance. You just have to cross some tall grass and hope you don't run into any wild pokemon.",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 10,
+        "maxLevel": 12,
+        "encounters": [
+          19,21,23
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 30
+        },
+        {
+          "id": 1,
+          "quantity": 2
+        },
+        {
+          "id": 4,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
       "music": 2,
       "exp": 50
     }
