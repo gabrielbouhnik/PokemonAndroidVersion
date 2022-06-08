@@ -1,8 +1,14 @@
 package com.pokemon.android.version.model
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.item.Item
 import com.pokemon.android.version.utils.ItemUtils
+import java.time.LocalDateTime
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 import kotlin.random.Random
 
 class Trainer  : ITrainer{
@@ -13,6 +19,7 @@ class Trainer  : ITrainer{
     var items: HashMap<Int, Int> = HashMap()
     var progression: Int = 1
     var coins: Int = 50
+    var lastTimeDailyHealUsed : Date? = null
 
     constructor(name: String, gender: Gender) {
         this.name = name

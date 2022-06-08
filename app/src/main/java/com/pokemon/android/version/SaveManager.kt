@@ -10,6 +10,7 @@ import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Trainer
 import com.pokemon.android.version.utils.JsonFileToString
+import java.text.SimpleDateFormat
 
 class SaveManager {
     companion object {
@@ -29,6 +30,8 @@ class SaveManager {
                 trainer.pokemons.add(pokemon)
                 trainer.team.add(pokemon)}
             trainerSave.pokemons.forEach{trainer.pokemons.add(Pokemon.of(it, activity.gameDataService,trainer))}
+            if (trainerSave.lastTimeDailyHealUsed != null)
+                trainer.lastTimeDailyHealUsed = SimpleDateFormat("yyyy-MM-dd").parse(trainerSave.lastTimeDailyHealUsed!!)
             return trainer
         }
 

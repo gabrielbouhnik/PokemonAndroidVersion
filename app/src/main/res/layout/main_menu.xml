@@ -22,8 +22,8 @@
             android:layout_width="205dp"
             android:layout_height="57dp" android:id="@+id/adventureButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="48dp" android:background="#4CAF50"
-            android:backgroundTint="#4CAF50" android:textAlignment="center" android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="80dp"
+            android:backgroundTint="#2196F3" android:textAlignment="center" android:textSize="18sp"
             android:textStyle="bold" android:textColor="#FFFFFF"/>
     <Button
             android:text="My Pokemon"
@@ -64,4 +64,17 @@
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="536dp"
             android:backgroundTint="#F44336" android:textAlignment="center" android:textSize="18sp"
             android:textStyle="bold" android:textColor="#FFFFFF"/>
+    <Button
+            android:text="Daily Heal"
+            android:layout_width="135dp"
+            android:layout_height="35dp" android:id="@+id/dailyHealButton"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp" android:layout_marginStart="16dp" android:textColor="#FFFFFF"
+            android:backgroundTint="#FF5722" android:visibility="gone"/>
+    <Button
+            android:text="Trainer Card"
+            android:layout_width="145dp"
+            android:layout_height="35dp" android:id="@+id/trainerCardButton"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp" android:layout_marginEnd="16dp" android:backgroundTint="#3F51B5"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

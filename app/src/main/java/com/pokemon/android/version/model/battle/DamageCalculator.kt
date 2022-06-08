@@ -32,7 +32,7 @@ class DamageCalculator {
             var crit = getCritMultiplicator(attacker, move)
             var random : Float = Random.nextInt(85,100).toFloat()/100f
             var offensiveStat : Int = if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * attacker.battleData!!.spAtkMultiplicator).roundToInt()
-            var defensiveStat : Int = if (move.category == MoveCategory.PHYSICAL) (attacker.defense.toFloat() * attacker.battleData!!.defenseMultiplicator).roundToInt() else (attacker.spDef.toFloat() * attacker.battleData!!.spDefMultiplicator).roundToInt()
+            var defensiveStat : Int = if (move.category == MoveCategory.PHYSICAL) (opponent.defense.toFloat() * opponent.battleData!!.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * opponent.battleData!!.spDefMultiplicator).roundToInt()
             return ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * move.power * offensiveStat)/(defensiveStat * 50)) + 2) * type * crit * stab * multiplicator* random).roundToInt()
         }
     }
