@@ -232,8 +232,8 @@
         }
       ],
       "startDialog": "I am Brock, the gym leader of Pewter City ! I believe in the great power of rock! That's why my Pokémon are of the Rock type! Do you still want to fight with me?  All right!",
-      "endDialogWin": "The best offense is a good defense! That's my way of doing things!",
-      "endDialogLoose": "I took you for granted, and so I lost. As proof of your victory, I confer on you this...the official Pokémon League Boulder Badge.",
+      "endDialogWin": "I took you for granted, and so I lost. As proof of your victory, I confer on you this...the official Pokémon League Boulder Badge.",
+      "endDialogLoose": "The best offense is a good defense! That's my way of doing things!",
       "music": 3,
       "icon": "images/VS_Brock.png",
       "background": "images/building_battle_background.jpg",
