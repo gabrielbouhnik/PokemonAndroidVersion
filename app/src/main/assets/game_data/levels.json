@@ -140,6 +140,47 @@
       "music": 1,
       "background": "images/forest_battle_background.jpg",
       "exp": 60
+    },
+    {
+      "id": 7,
+      "name": "\nPewter City Gym",
+      "description": "You have arrived in Pewter City and are going straight to the arena. However, you can't face the champion yet.",
+      "type": "Trainer Battle",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Campeur.png",
+          "name" : "Jerry",
+          "pokemons": [
+            {
+              "id": 27,
+              "level": 11,
+              "moveIds": [
+                17,19,1
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 13,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Stop right there, kid! It's way too early for you to take on Brock",
+      "endDialogWin": "You're pretty good, but not as good as Brock!",
+      "endDialogLoose": "I warned you",
+      "music": 1,
+      "background": "images/building_battle_background.jpg",
+      "exp": 70
     }
   ],
   "randomWildEncounters": [

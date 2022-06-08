@@ -28,101 +28,101 @@ enum class Type(val value: Int) {
             return 1f
         when(this){
             GRASS -> when(other){
-                WATER, GROUND, ROCK -> 2f
-                GRASS, FIRE, FLYING, BUG, POISON, DRAGON, STEEL -> 0.5f
-                else -> 1f
+                WATER, GROUND, ROCK -> return 2f
+                GRASS, FIRE, FLYING, BUG, POISON, DRAGON, STEEL -> return 0.5f
+                else -> return 1f
             }
             FIRE -> when(other){
-                GRASS, BUG, ICE, STEEL -> 2f
-                FIRE,WATER,ROCK,DRAGON -> 0.5f
-                else -> 1f
+                GRASS, BUG, ICE, STEEL -> return 2f
+                FIRE,WATER,ROCK,DRAGON -> return 0.5f
+                else -> return 1f
             }
             WATER -> when(other){
-                FIRE, GROUND, ROCK -> 2f
-                GRASS, WATER, DRAGON -> 0.5f
-                else -> 1f
+                FIRE, GROUND, ROCK -> return 2f
+                GRASS, WATER, DRAGON -> return 0.5f
+                else -> return 1f
             }
             ELECTRIC -> when(other){
-                WATER, FLYING -> 2f
-                ELECTRIC, DRAGON-> 0.5f
-                GROUND -> 0f
-                else -> 1f
+                WATER, FLYING -> return 2f
+                ELECTRIC, DRAGON-> return 0.5f
+                GROUND -> return 0f
+                else -> return 1f
             }
             NORMAL -> when(other){
-                ROCK, STEEL-> 0.5f
-                GHOST -> 0f
-                else -> 1f
+                ROCK, STEEL-> return 0.5f
+                GHOST -> return 0f
+                else -> return 1f
             }
             FLYING -> when(other){
-                GRASS, BUG, FIGHTING-> 2f
-                ROCK, STEEL -> 0.5f
-                else -> 1f
+                GRASS, BUG, FIGHTING-> return 2f
+                ROCK, STEEL -> return 0.5f
+                else -> return 1f
             }
             BUG -> when(other){
-                GRASS,PSYCHIC,DARK -> 2f
-                FIRE,FLYING,BUG,POISON, FIGHTING,STEEL,FAIRY -> 0.5f
-                else -> 1f
+                GRASS,PSYCHIC,DARK -> return 2f
+                FIRE,FLYING,BUG,POISON, FIGHTING,STEEL,FAIRY -> return 0.5f
+                else -> return 1f
             }
             POISON -> when(other) {
-                GRASS, FAIRY -> 2f
-                POISON, ROCK, GROUND, GHOST -> 0.5f
-                STEEL -> 0f
-                else -> 1f
+                GRASS, FAIRY -> return 2f
+                POISON, ROCK, GROUND, GHOST -> return 0.5f
+                STEEL -> return 0f
+                else -> return 1f
             }
             ROCK -> when(other){
-                GRASS,PSYCHIC,DARK -> 2f
-                FIRE,FLYING,BUG,POISON, FIGHTING,STEEL,FAIRY -> 0.5f
-                else -> 1f
+                GRASS,PSYCHIC,DARK -> return 2f
+                FIRE,FLYING,BUG,POISON, FIGHTING,STEEL,FAIRY -> return 0.5f
+                else -> return 1f
             }
             GROUND -> when(other) {
-                GRASS, FAIRY -> 2f
-                POISON, ROCK, GROUND, GHOST -> 0.5f
-                STEEL -> 0f
-                else -> 1f
+                GRASS, FAIRY -> return 2f
+                POISON, ROCK, GROUND, GHOST -> return 0.5f
+                STEEL -> return 0f
+                else -> return 1f
             }
             FIGHTING -> when(other) {
-                NORMAL, ROCK, ICE, STEEL, DARK -> 2f
-                FLYING, BUG, POISON, PSYCHIC, FAIRY -> 0.5f
-                GHOST -> 0f
-                else -> 1f
+                NORMAL, ROCK, ICE, STEEL, DARK -> return 2f
+                FLYING, BUG, POISON, PSYCHIC, FAIRY -> return 0.5f
+                GHOST -> return 0f
+                else -> return 1f
             }
             PSYCHIC -> when(other){
-                POISON, FIGHTING-> 2f
-                PSYCHIC, STEEL -> 0.5f
-                DARK -> 0f
-                else -> 1f
+                POISON, FIGHTING-> return 2f
+                PSYCHIC, STEEL -> return 0.5f
+                DARK -> return 0f
+                else -> return 1f
             }
             GHOST -> when(other){
-                PSYCHIC,GHOST -> 2f
-                DARK -> 0.5f
-                NORMAL -> 0f
-                else -> 1f
+                PSYCHIC,GHOST -> return 2f
+                DARK -> return 0.5f
+                NORMAL -> return 0f
+                else -> return 1f
             }
             ICE -> when(other){
-                GRASS,FLYING,GROUND, DRAGON -> 2f
-                FIRE,WATER,ICE,STEEL -> 0.5f
-                else -> 1f
+                GRASS,FLYING,GROUND, DRAGON -> return 2f
+                FIRE,WATER,ICE,STEEL -> return 0.5f
+                else -> return 1f
             }
             DRAGON -> when(other){
-                DRAGON -> 2f
-                STEEL -> 0.5f
-                FAIRY -> 0f
-                else -> 1f
+                DRAGON -> return 2f
+                STEEL -> return 0.5f
+                FAIRY -> return 0f
+                else -> return 1f
             }
             STEEL -> when(other){
-                ROCK,ICE,FAIRY -> 2f
-                FIRE,WATER,ELECTRIC,FIGHTING,STEEL -> 0.5f
-                else -> 1f
+                ROCK,ICE,FAIRY -> return 2f
+                FIRE,WATER,ELECTRIC,FIGHTING,STEEL -> return 0.5f
+                else -> return 1f
             }
             DARK -> when(other){
-                PSYCHIC,GHOST -> 2f
-                FIGHTING,DARK,FAIRY -> 0.5f
-                else -> 1f
+                PSYCHIC,GHOST -> return 2f
+                FIGHTING,DARK,FAIRY -> return 0.5f
+                else -> return 1f
             }
             FAIRY -> when(other){
-                FIGHTING,DARK,DRAGON -> 2f
-                FIRE,POISON,STEEL -> 0.5f
-                else -> 1f
+                FIGHTING,DARK,DRAGON -> return 2f
+                FIRE,POISON,STEEL -> return 0.5f
+                else -> return 1f
             }
         }
         return 1f
