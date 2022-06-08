@@ -82,6 +82,7 @@ class PokemonMenu {
     private fun displayMoveButtons(activity : MainActivity, pokemon: Pokemon) {
         val move1Button : Button = activity.findViewById(R.id.move1InfoButton)
         move1Button.text = pokemon.move1.move.name
+        ColorUtils.setButtonColor(pokemon.move1.move.type, move1Button)
         val ppMove1TextView : TextView = activity.findViewById(R.id.ppMove1TextView)
         ppMove1TextView.visibility = VISIBLE
         ppMove1TextView.text = "${pokemon.move1.pp}/${pokemon.move1.move.pp}"
@@ -94,6 +95,7 @@ class PokemonMenu {
         else {
             move2Button.visibility = VISIBLE
             move2Button.text = pokemon.move2!!.move.name
+            ColorUtils.setButtonColor(pokemon.move2!!.move.type, move2Button)
             val ppMove2TextView : TextView = activity.findViewById(R.id.ppMove2TextView)
             ppMove2TextView.visibility = VISIBLE
             ppMove2TextView.text = "${pokemon.move2!!.pp}/${pokemon.move2!!.move.pp}"
@@ -104,6 +106,7 @@ class PokemonMenu {
         else {
             move3Button.visibility = VISIBLE
             move3Button.text = pokemon.move3!!.move.name
+            ColorUtils.setButtonColor(pokemon.move3!!.move.type, move3Button)
             val ppMove3TextView : TextView = activity.findViewById(R.id.ppMove3TextView)
             ppMove3TextView.visibility = VISIBLE
             ppMove3TextView.text = "${pokemon.move3!!.pp}/${pokemon.move3!!.move.pp}"
@@ -114,6 +117,7 @@ class PokemonMenu {
         else {
             move4Button.visibility = VISIBLE
             move4Button.text = pokemon.move4!!.move.name
+            ColorUtils.setButtonColor(pokemon.move4!!.move.type, move4Button)
             val ppMove4TextView : TextView = activity.findViewById(R.id.ppMove4TextView)
             ppMove4TextView.visibility = VISIBLE
             ppMove4TextView.text = "${pokemon.move4!!.pp}/${pokemon.move4!!.move.pp}"

@@ -25,34 +25,34 @@ class ColorUtils {
                     button.setTextColor(Color.BLACK);
                 }
                 Type.FLYING -> {
-
+                    button.setBackgroundColor(Color.parseColor("#87CEFA"))
                 }
                 Type.BUG -> {
                     button.setBackgroundColor(Color.GREEN)
                 }
                 Type.POISON -> {
-
+                    button.setBackgroundColor(Color.parseColor("#8B008B"))
                 }
                 Type.ROCK -> {
-
+                    button.setBackgroundColor(Color.parseColor("#B6A136"))
                 }
                 Type.GROUND -> {
-
+                    button.setBackgroundColor(Color.parseColor("#D2B48C"))
                 }
                 Type.FIGHTING -> {
-
+                    button.setBackgroundColor(Color.parseColor("#B22222"))
                 }
                 Type.PSYCHIC -> {
-
+                    button.setBackgroundColor(Color.parseColor("#F95587"))
                 }
                 Type.GHOST -> {
-
+                    button.setBackgroundColor(Color.parseColor("#9932CC"))
                 }
                 Type.ICE -> {
-
+                    button.setBackgroundColor(Color.parseColor("#E0FFFF"))
                 }
                 Type.DRAGON -> {
-
+                    button.setBackgroundColor(Color.parseColor("#00008B"))
                 }
                 Type.STEEL -> {
                     button.setBackgroundColor(Color.GRAY)
@@ -61,7 +61,7 @@ class ColorUtils {
                     button.setBackgroundColor(Color.BLACK)
                 }
                 Type.FAIRY -> {
-
+                    button.setBackgroundColor(Color.parseColor("#FFB6C1"))
                 }
             }
         }
