@@ -131,6 +131,39 @@
       "accuracy": 100,
       "description": "",
       "priority_level": 0
+    },
+    {
+      "id": 43,
+      "name": "Surf",
+      "power": 90,
+      "pp": 15,
+      "type": 3,
+      "category" :"SPECIAL",
+      "accuracy": 100,
+      "description": "",
+      "priority_level": 0
+    },
+    {
+      "id": 44,
+      "name": "Dazzling Gleam",
+      "power": 80,
+      "pp": 10,
+      "type": 18,
+      "category" :"SPECIAL",
+      "accuracy": 100,
+      "description": "",
+      "priority_level": 0
+    },
+    {
+      "id": 51,
+      "name": "Power Gem",
+      "power": 80,
+      "pp": 20,
+      "type": 9,
+      "category" :"SPECIAL",
+      "accuracy": 100,
+      "description": "",
+      "priority_level": 0
     }
   ],
   "statusMoves" : [
@@ -315,6 +348,71 @@
       "priority_level": 0,
       "status": "CONFUSED",
       "probability": 30
+    },
+    {
+      "id": 47,
+      "name": "Astonish",
+      "power": 30,
+      "pp": 15,
+      "type": 13,
+      "category" :"PHYSICAL",
+      "accuracy": 100,
+      "description": "",
+      "priority_level": 0,
+      "status": "FLINCHED",
+      "probability": 30
+    },
+    {
+      "id": 48,
+      "name": "Confuse Ray",
+      "power": 0,
+      "pp": 10,
+      "type": 13,
+      "category" :"OTHER",
+      "accuracy": 100,
+      "description": "",
+      "priority_level": 0,
+      "status": "CONFUSED",
+      "probability": 100
+    },
+    {
+      "id": 50,
+      "name": "Air Slash",
+      "power": 75,
+      "pp": 15,
+      "type": 6,
+      "category" :"SPECIAL",
+      "accuracy": "95",
+      "description": "",
+      "priority_level": 0,
+      "status": "FLINCHED",
+      "probability": 30
+    },
+    {
+      "id": 52,
+      "name": "Spark",
+      "power": 65,
+      "pp": 20,
+      "type": 4,
+      "category" :"PHYSICAL",
+      "accuracy": 100,
+      "description": "",
+      "priority_level": 0,
+      "status": "PARALYSIS",
+      "probability": 30
+    },
+    {
+      "id": 53,
+      "name": "Discharge",
+      "power": 80,
+      "pp": 15,
+      "type": 4,
+      "category" :"SPECIAL",
+      "accuracy": 100,
+      "description": "",
+      "priority_level": 0,
+      "status": "PARALYSIS",
+      "probability": 30
     }
   ],
   "critMoves" : [
@@ -359,6 +457,17 @@
       "type": 5,
       "category" :"PHYSICAL",
       "accuracy": 100,
+      "description": "",
+      "priority_level": 0
+    },
+    {
+      "id": 49,
+      "name": "Air Cutter",
+      "power": 60,
+      "pp": 25,
+      "type": 6,
+      "category" :"SPECIAL",
+      "accuracy": 95,
       "description": "",
       "priority_level": 0
     }
@@ -490,8 +599,7 @@
       "description": "",
       "statsAffected" : ["DEFENSE", "SPDEF"],
       "target": "SELF",
-      "multiplicator": 0.75,
-      "probabilty": 20
+      "multiplicator": 0.75
     },
     {
       "id": 41,
@@ -518,6 +626,34 @@
       "statsAffected" : ["ACCURACY"],
       "target": "OPPONENT",
       "multiplicator": 0.75
+    },
+    {
+      "id": 45,
+      "name": "Psychic",
+      "power": 90,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 12,
+      "accuracy": 100,
+      "description": "",
+      "statsAffected" : ["SPDEF"],
+      "target": "OPPONENT",
+      "multiplicator": 0.5,
+      "probabilty": 10
+    },
+    {
+      "id": 46,
+      "name": "Shadow Ball",
+      "power": 80,
+      "category": "SPECIAL",
+      "pp": 15,
+      "type": 13,
+      "accuracy": 100,
+      "description": "",
+      "statsAffected" : ["SPDEF"],
+      "target": "OPPONENT",
+      "multiplicator": 0.5,
+      "probabilty": 20
     }
   ]
 }

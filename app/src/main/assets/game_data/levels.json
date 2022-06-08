@@ -238,6 +238,101 @@
       "icon": "images/VS_Brock.png",
       "background": "images/building_battle_background.jpg",
       "exp": 80
+    },
+    {
+      "id": 9,
+      "name": "\nRoute 3",
+      "description": "After obtaining your first badge, you go to Route 3 where several trainers want to battle",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Youngster.png",
+          "name" : "Youngster Ben",
+          "pokemons": [
+            {
+              "id": 19,
+              "level": 11,
+              "moveIds": [
+                2,3,22,23
+              ]
+            },
+            {
+              "id": 23,
+              "level": 11,
+              "moveIds": [
+                17,23
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Bug_Catcher.png",
+          "name" : "Bug Catcher Greg",
+          "pokemons": [
+            {
+              "id": 10,
+              "level": 9,
+              "moveIds": [
+                2,26
+              ]
+            },
+            {
+              "id": 11,
+              "level": 9,
+              "moveIds": [
+                32,2,26
+              ]
+            },
+            {
+              "id": 13,
+              "level": 9,
+              "moveIds": [
+                17
+              ]
+            },
+            {
+              "id": 14,
+              "level": 9,
+              "moveIds": [
+                32,17
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Youngster.png",
+          "name" : "Youngster Calvin",
+          "pokemons": [
+            {
+              "id": 21,
+              "level": 14,
+              "moveIds": [
+                11,10
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 1,
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hi! I like shorts! They're comfy and easy to wear!",
+      "endDialogWin": "",
+      "endDialogLoose": "",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 60
     }
   ],
   "randomWildEncounters": [

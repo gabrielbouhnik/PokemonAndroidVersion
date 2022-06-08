@@ -13,7 +13,6 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Pokemon
-import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.battle.Battle
 import com.pokemon.android.version.model.battle.State
 import com.pokemon.android.version.model.battle.TrainerBattle
@@ -48,9 +47,9 @@ class BattleUI {
         trainerBackSprite.setImageDrawable(Drawable.createFromStream(img, backSprite))
     }
 
-    fun loadOpponentTrainerSprite(trainerBackSprite : ImageView, activity: MainActivity, filename : String){
+    fun loadOpponentTrainerSprite(opponentTrainerSprite : ImageView, activity: MainActivity, filename : String){
         val img : InputStream = activity.assets.open(filename)
-        trainerBackSprite.setImageDrawable(Drawable.createFromStream(img, filename))
+        opponentTrainerSprite.setImageDrawable(Drawable.createFromStream(img, filename))
     }
 
     private fun displayPokemonsInfos(activity : MainActivity, battle : Battle){
@@ -299,7 +298,7 @@ class BattleUI {
         rewardsButton.visibility = VISIBLE
         rewardsButton.text = "BATTLE"
         rewardsButton.setOnClickListener{
-            dialogTextView!!.text = "Trainer ${level.opponentTrainerData[0].name} wants to battle"
+            dialogTextView!!.text = "${level.opponentTrainerData[0].name} wants to battle"
             buttonSetUp(activity,trainerBattle)
             displayPokemonsInfos(activity, trainerBattle)
             rewardsButton.visibility = GONE

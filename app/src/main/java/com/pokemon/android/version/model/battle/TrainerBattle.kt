@@ -1,23 +1,28 @@
 package com.pokemon.android.version.model.battle
 
+import android.graphics.drawable.Drawable
+import android.widget.ImageView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
-import com.pokemon.android.version.ui.BattleUI
 import com.pokemon.android.version.utils.BattleUtils
+import java.io.InputStream
 import java.lang.StringBuilder
 
 class TrainerBattle() : Battle(){
-    var trainersLeft: Int = 0
+    var numberOfTrainers: Int = 0
+    var trainersIdx : Int = 0
     lateinit var opponentTrainer : OpponentTrainer
+    lateinit var opponentTrainerSprite : ImageView
 
     constructor(activity: MainActivity, trainerBattleLevelData: TrainerBattleLevelData) : this() {
         this.activity = activity
         this.dialogTextView = activity.findViewById(R.id.dialogTextView)
+        this.opponentTrainerSprite = activity.findViewById(R.id.opponentTrainerSpriteView)
         this.levelData = trainerBattleLevelData
-        this.trainersLeft = trainerBattleLevelData.opponentTrainerData.size
+        this.numberOfTrainers = trainerBattleLevelData.opponentTrainerData.size
         this.pokemon = activity.trainer!!.getFirstPokemonThatCanFight()!!
         this.pokemon.battleData = PokemonBattleData()
         this.opponentTrainer = OpponentTrainerFactory.createOpponentTrainer(trainerBattleLevelData.opponentTrainerData.first(), activity.gameDataService)
@@ -67,7 +72,7 @@ class TrainerBattle() : Battle(){
     }
 
     override fun getBattleState(): State {
-        if (trainersLeft == 0) {
+        if (numberOfTrainers == trainersIdx) {
             return State.TRAINER_VICTORY
         }
         if (!activity.trainer!!.canStillBattle()) {
@@ -77,10 +82,12 @@ class TrainerBattle() : Battle(){
     }
 
     fun nextTrainer(){
-        if (trainersLeft > 0){
-            trainersLeft --
-            opponentTrainer = OpponentTrainerFactory.createOpponentTrainer((levelData as TrainerBattleLevelData).opponentTrainerData.reversed()[trainersLeft], activity.gameDataService)
+        trainersIdx ++
+        if (numberOfTrainers > trainersIdx){
+            opponentTrainer = OpponentTrainerFactory.createOpponentTrainer((levelData as TrainerBattleLevelData).opponentTrainerData[trainersIdx], activity.gameDataService)
             opponent = opponentTrainer.getFirstPokemonThatCanFight()!!
+            val img : InputStream = activity.assets.open(opponentTrainer.sprite)
+            opponentTrainerSprite.setImageDrawable(Drawable.createFromStream(img,opponentTrainer.sprite))
         }
     }
 }

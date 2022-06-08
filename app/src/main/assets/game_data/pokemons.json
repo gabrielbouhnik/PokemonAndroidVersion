@@ -836,6 +836,78 @@
     "expGaugeCoeff": 1.5
   },
   {
+    "id": 23,
+    "name": "Ekans",
+    "type1": 8,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 17,
+          "level": 1
+        },
+        {
+          "moveId": 23,
+          "level": 9
+        },
+        {
+          "moveId": 37,
+          "level": 33
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 35,
+    "attack": 60,
+    "defense": 44,
+    "spAtk": 40,
+    "spDef": 54,
+    "speed": 55,
+    "catchRate": 0.5,
+    "evolutionId": 24,
+    "evolutionCondition": {
+      "level": 22
+    },
+    "expGaugeCoeff": 1.0
+  },
+  {
+    "id": 24,
+    "name": "Arbok",
+    "type1": 8,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 17,
+          "level": 1
+        },
+        {
+          "moveId": 23,
+          "level": 9
+        },
+        {
+          "moveId": 27,
+          "level": 22
+        },
+        {
+          "moveId": 37,
+          "level": 39
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 60,
+    "attack": 95,
+    "defense": 69,
+    "spAtk": 65,
+    "spDef": 79,
+    "speed": 80,
+    "catchRate": 0.4,
+    "expGaugeCoeff": 1.5
+  },
+  {
     "id": 25,
     "name": "Pikachu",
     "type1": 4,
@@ -849,6 +921,18 @@
         {
           "moveId": 3,
           "level": 1
+        },
+        {
+          "moveId": 52,
+          "level": 20
+        },
+        {
+          "moveId": 53,
+          "level": 32
+        },
+        {
+          "moveId": 12,
+          "level": 36
         }
       ],
       "movesLearnWithHM": [
@@ -861,6 +945,46 @@
     "spDef": 50,
     "speed": 90,
     "catchRate": 0.3,
+    "expGaugeCoeff": 1.0
+  },
+  {
+    "id": 26,
+    "name": "Raichu",
+    "type1": 4,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 8,
+          "level": 1
+        },
+        {
+          "moveId": 3,
+          "level": 1
+        },
+        {
+          "moveId": 52,
+          "level": 20
+        },
+        {
+          "moveId": 53,
+          "level": 32
+        },
+        {
+          "moveId": 12,
+          "level": 36
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 60,
+    "attack": 90,
+    "defense": 55,
+    "spAtk": 90,
+    "spDef": 80,
+    "speed": 110,
+    "catchRate": 0.25,
     "expGaugeCoeff": 1.0
   },
   {
@@ -893,6 +1017,10 @@
     "spDef": 30,
     "speed": 40,
     "catchRate": 0.45,
+    "evolutionId": 28,
+    "evolutionCondition": {
+      "level": 22
+    },
     "expGaugeCoeff": 1.0
   },
   {
@@ -925,6 +1053,170 @@
     "spDef": 55,
     "speed": 65,
     "catchRate": 0.4,
+    "expGaugeCoeff": 1.5
+  },
+  {
+    "id": 41,
+    "name": "Zubat",
+    "type1": 6,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 47,
+          "level": 1
+        },
+        {
+          "moveId": 16,
+          "level": 4
+        },
+        {
+          "moveId": 23,
+          "level": 9
+        },
+        {
+          "moveId": 48,
+          "level": 17
+        },
+        {
+          "moveId": 49,
+          "level": 25
+        },
+        {
+          "moveId": 50,
+          "level": 33
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 40,
+    "attack": 45,
+    "defense": 35,
+    "spAtk": 30,
+    "spDef": 40,
+    "speed": 55,
+    "catchRate": 0.5,
+    "expGaugeCoeff": 1.0
+  },
+  {
+    "id": 42,
+    "name": "Golbat",
+    "type1": 6,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 47,
+          "level": 1
+        },
+        {
+          "moveId": 16,
+          "level": 4
+        },
+        {
+          "moveId": 23,
+          "level": 9
+        },
+        {
+          "moveId": 48,
+          "level": 17
+        },
+        {
+          "moveId": 49,
+          "level": 25
+        },
+        {
+          "moveId": 50,
+          "level": 34
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 75,
+    "attack": 80,
+    "defense": 70,
+    "spAtk": 65,
+    "spDef": 75,
+    "speed": 90,
+    "catchRate": 0.4,
+    "expGaugeCoeff": 1.25
+  },
+  {
+    "id": 54,
+    "name": "Psyduck",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 3
+        },
+        {
+          "moveId": 39,
+          "level": 6
+        },
+        {
+          "moveId": 24,
+          "level": 12
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "catchRate": 0.45,
+    "hp": 50,
+    "attack": 52,
+    "defense": 48,
+    "spAtk": 65,
+    "spDef": 50,
+    "speed": 55,
+    "evolutionId": 55,
+    "evolutionCondition": {
+      "level": 33
+    },
+    "expGaugeCoeff": 1.0
+  },
+  {
+    "id": 55,
+    "name": "Golduck",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 3
+        },
+        {
+          "moveId": 39,
+          "level": 6
+        },
+        {
+          "moveId": 24,
+          "level": 12
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "catchRate": 0.4,
+    "hp": 80,
+    "attack": 82,
+    "defense": 78,
+    "spAtk": 95,
+    "spDef": 80,
+    "speed": 85,
     "expGaugeCoeff": 1.5
   },
   {
@@ -1080,6 +1372,193 @@
     "expGaugeCoeff": 1.5
   },
   {
+    "id": 116,
+    "name": "Horsea",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 6,
+          "level": 1
+        },
+        {
+          "moveId": 42,
+          "level": 5
+        },
+        {
+          "moveId": 22,
+          "level": 15
+        },
+        {
+          "moveId": 15,
+          "level": 20
+        },
+        {
+          "moveId": 21,
+          "level": 30
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "catchRate": 0.4,
+    "hp": 30,
+    "attack": 40,
+    "defense": 70,
+    "spAtk": 70,
+    "spDef": 25,
+    "speed": 60,
+    "evolutionId": 117,
+    "evolutionCondition": {
+      "level": 32
+    },
+    "expGaugeCoeff": 1.0
+  },
+  {
+    "id": 117,
+    "name": "Seadra",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 6,
+          "level": 1
+        },
+        {
+          "moveId": 42,
+          "level": 5
+        },
+        {
+          "moveId": 22,
+          "level": 15
+        },
+        {
+          "moveId": 15,
+          "level": 20
+        },
+        {
+          "moveId": 21,
+          "level": 30
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "catchRate": 0.3,
+    "hp": 55,
+    "attack": 65,
+    "defense": 95,
+    "spAtk": 95,
+    "spDef": 45,
+    "speed": 85,
+    "evolutionId": 230,
+    "evolutionCondition": {
+
+    },
+    "expGaugeCoeff": 1.5
+  },
+  {
+    "id": 120,
+    "name": "Staryu",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 32,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 4
+        },
+        {
+          "moveId": 48,
+          "level": 8
+        },
+        {
+          "moveId": 51,
+          "level": 36
+        },
+        {
+          "moveId": 45,
+          "level": 40
+        },
+        {
+          "moveId": 43,
+          "level": 44
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "catchRate": 0.45,
+    "hp": 30,
+    "attack": 45,
+    "defense": 55,
+    "spAtk": 70,
+    "spDef": 55,
+    "speed": 85,
+    "evolutionId": 121,
+    "evolutionCondition": {
+    },
+    "expGaugeCoeff": 1.0
+  },
+  {
+    "id": 121,
+    "name": "Starmie",
+    "type1": 3,
+    "type2": 12,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 32,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 4
+        },
+        {
+          "moveId": 48,
+          "level": 8
+        },
+        {
+          "moveId": 51,
+          "level": 36
+        },
+        {
+          "moveId": 45,
+          "level": 40
+        },
+        {
+          "moveId": 43,
+          "level": 44
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "catchRate": 0.3,
+    "hp": 60,
+    "attack": 75,
+    "defense": 85,
+    "spAtk": 100,
+    "spDef": 85,
+    "speed": 115,
+    "expGaugeCoeff": 1.5
+  },
+  {
     "id": 161,
     "name": "Sentret",
     "type1": 5,
@@ -1206,6 +1685,46 @@
     "speed": 70,
     "catchRate": 0.4,
     "expGaugeCoeff": 1.5
+  },
+  {
+    "id": 230,
+    "name": "Kingdra",
+    "type1": 3,
+    "type2": 15,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 6,
+          "level": 1
+        },
+        {
+          "moveId": 42,
+          "level": 5
+        },
+        {
+          "moveId": 22,
+          "level": 15
+        },
+        {
+          "moveId": 15,
+          "level": 20
+        },
+        {
+          "moveId": 21,
+          "level": 30
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "catchRate": 0.25,
+    "hp": 75,
+    "attack": 95,
+    "defense": 95,
+    "spAtk": 95,
+    "spDef": 95,
+    "speed": 85,
+    "expGaugeCoeff": 1.6
   },
   {
     "id": 236,
