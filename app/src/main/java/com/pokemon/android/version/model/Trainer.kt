@@ -58,6 +58,8 @@ class Trainer  : ITrainer{
 
     fun addItem(id: Int, quantity: Int) {
         if (items.contains(id)) {
+            if (id > 13)
+                return
             if ( items[id]!! + quantity < 99)
                 items[id] = items[id]!! + quantity
             else

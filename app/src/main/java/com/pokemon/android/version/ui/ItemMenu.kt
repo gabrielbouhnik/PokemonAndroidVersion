@@ -20,7 +20,7 @@ class ItemMenu {
         backButton.setOnClickListener{
             activity.mainMenu.loadGameMenu(activity)
         }
-        items = ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items)
+        items = ArrayList(ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items).filter{it.itemId < 14})
         val recyclerView = activity.findViewById<RecyclerView>(R.id.itemRecyclerView)
         recyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         val adapter =  ItemRecyclerAdapter(activity, items,

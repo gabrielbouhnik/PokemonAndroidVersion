@@ -41,7 +41,7 @@ class LevelRecyclerAdapter (var activity : MainActivity,
         val currentItem = activity.gameDataService.levels[position]
         holder.nameTextView.text = currentItem.name
         holder.itemView.tag = position
-        var img : InputStream = activity.assets.open(currentItem.background)
+        var img : InputStream = activity.assets.open(currentItem.icon)
         holder.levelImageView.setImageDrawable(Drawable.createFromStream(img, currentItem.background))
     }
 }

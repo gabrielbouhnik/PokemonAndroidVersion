@@ -23,6 +23,7 @@ import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.level.WildBattleLevelData
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
+import com.pokemon.android.version.utils.MusicUtils
 import java.io.InputStream
 
 class BattleUI {
@@ -241,7 +242,7 @@ class BattleUI {
             val recyclerView = activity.findViewById<RecyclerView>(R.id.battleRecyclerView)
             recyclerView.visibility = VISIBLE
             recyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-            val items : ArrayList<ItemQuantity> = ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items)
+            val items : ArrayList<ItemQuantity> = ArrayList(ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items).filter{it.itemId < 14})
             val myItemClickListener = View.OnClickListener {
                 val position = it.tag as Int
                 val clickedItem : ItemQuantity = items[position]
@@ -283,7 +284,7 @@ class BattleUI {
     }
 
     fun startTrainerBattle(activity : MainActivity, level : TrainerBattleLevelData){
-        activity.updateMusic(R.raw.trainer_battle)
+        MusicUtils.playMusic(activity, level.music)
         activity.setContentView(R.layout.battle_layout)
         dialogTextView = activity.findViewById(R.id.dialogTextView)
         dialogTextView!!.text = level.startDialog

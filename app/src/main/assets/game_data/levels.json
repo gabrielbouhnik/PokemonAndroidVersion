@@ -40,7 +40,8 @@
       "startDialog": "Hey you, you want to be a pokemon trainer, so show me what you got!",
       "endDialogWin": "It's beginner's luck. Next time, I'll crush you with my Tyrogue.",
       "endDialogLoose": "Don't even think about leaving Pallet Town...",
-      "music": 1,
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
       "background": "images/building_battle_background.jpg",
       "exp": 50
     },
@@ -82,7 +83,8 @@
       "startDialog": "Hey, you got kicked out of the Victory Road too.  I was ready to blow them away with my Tyrogue. For that matter, I'm going to blow you away.",
       "endDialogWin": "You just got lucky.",
       "endDialogLoose": "Well done Tyrogue",
-      "music": 1,
+      "music": 2,
+      "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
       "exp": 60
     },
@@ -137,14 +139,15 @@
       "startDialog": "If you want to leave Viridian Forest, you'll have to fight me!",
       "endDialogWin": "I'm going to catch stronger bug types Pokemon",
       "endDialogLoose": "Bugs are the strongest",
-      "music": 1,
+      "music": 2,
+      "icon": "images/forest_battle_background.jpg",
       "background": "images/forest_battle_background.jpg",
       "exp": 60
     },
     {
       "id": 7,
       "name": "\nPewter City Gym",
-      "description": "You have arrived in Pewter City and are going straight to the arena. However, you can't face the champion yet.",
+      "description": "You have arrived in Pewter City and are going straight to the arena. However, you can't face the gym leader yet.",
       "type": "Trainer Battle",
       "opponents": [
         {
@@ -178,9 +181,63 @@
       "startDialog": "Stop right there, kid! It's way too early for you to take on Brock",
       "endDialogWin": "You're pretty good, but not as good as Brock!",
       "endDialogLoose": "I warned you",
-      "music": 1,
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
       "background": "images/building_battle_background.jpg",
       "exp": 70
+    },
+    {
+      "id": 8,
+      "name": "\nVS Brock",
+      "description": "After defeating the guard, you can finally face the gym leader!",
+      "type": "Trainer Battle",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Brock.png",
+          "name" : "Gym Leader Brock",
+          "pokemons": [
+            {
+              "id": 74,
+              "level": 12,
+              "moveIds": [
+                32,2,29
+              ]
+            },
+            {
+              "id": 95,
+              "level": 14,
+              "moveIds": [
+                32,2,15,29
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 13,
+          "quantity": 1
+        },
+        {
+          "id": 14,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "I am Brock, the gym leader of Pewter City ! I believe in the great power of rock! That's why my Pokémon are of the Rock type! Do you still want to fight with me?  All right!",
+      "endDialogWin": "The best offense is a good defense! That's my way of doing things!",
+      "endDialogLoose": "I took you for granted, and so I lost. As proof of your victory, I confer on you this...the official Pokémon League Boulder Badge.",
+      "music": 3,
+      "icon": "images/VS_Brock.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 80
     }
   ],
   "randomWildEncounters": [
@@ -214,6 +271,7 @@
           "quantity": 2
         }
       ],
+      "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
       "music": 2,
       "exp": 40
@@ -249,6 +307,7 @@
           "quantity": 2
         }
       ],
+      "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
       "music": 2,
       "exp": 40
@@ -276,6 +335,7 @@
           "quantity": 3
         }
       ],
+      "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
       "music": 2,
       "exp": 40
@@ -307,6 +367,7 @@
           "quantity": 1
         }
       ],
+      "icon": "images/forest_battle_background.jpg",
       "background": "images/forest_battle_background.jpg",
       "music": 2,
       "exp": 50

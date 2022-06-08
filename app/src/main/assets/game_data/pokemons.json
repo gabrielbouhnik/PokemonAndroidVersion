@@ -961,6 +961,10 @@
     "spAtk": 35,
     "spDef": 45,
     "speed": 70,
+    "evolutionId": 57,
+    "evolutionCondition": {
+      "level": 28
+    },
     "expGaugeCoeff": 1.0
   },
   {
@@ -997,6 +1001,82 @@
     "spAtk": 60,
     "spDef": 70,
     "speed": 95,
+    "expGaugeCoeff": 1.5
+  },
+  {
+    "id": 74,
+    "name": "Geodude",
+    "type1": 9,
+    "type2": 10,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 32,
+          "level": 12
+        },
+        {
+          "moveId": 29,
+          "level": 16
+        },
+        {
+          "moveId": 27,
+          "level": 22
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "catchRate": 0.4,
+    "hp": 40,
+    "attack": 80,
+    "defense": 100,
+    "spAtk": 30,
+    "spDef": 30,
+    "speed": 20,
+    "evolutionId": 75,
+    "evolutionCondition": {
+      "level": 25
+    },
+    "expGaugeCoeff": 1.0
+  },
+  {
+    "id": 95,
+    "name": "Onix",
+    "type1": 9,
+    "type2": 10,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 32,
+          "level": 1
+        },
+        {
+          "moveId": 29,
+          "level": 1
+        },
+        {
+          "moveId": 15,
+          "level": 12
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "catchRate": 0.4,
+    "hp": 35,
+    "attack": 45,
+    "defense": 160,
+    "spAtk": 30,
+    "spDef": 45,
+    "speed": 70,
     "expGaugeCoeff": 1.5
   },
   {

@@ -10,6 +10,7 @@ data class TrainerBattleLevelEntity(
     var endDialogWin: String,
     var endDialogLoose: String,
     var music: Int,
+    var icon: String,
     var background: String,
     var exp: Int
 ) {
