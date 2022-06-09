@@ -94,8 +94,6 @@ class BattleUI {
     private fun updateByBattleState(activity : MainActivity, battle : Battle){
         when(battle.getBattleState()){
             State.TRAINER_LOSS -> {
-                if (activity.trainer!!.coins > 10)
-                    activity.trainer!!.coins -= 10
                 disableBattleButtons(activity)
                 if (battle is TrainerBattle)
                     dialogTextView!!.text = (battle.levelData as TrainerBattleLevelData).endDialogLoose

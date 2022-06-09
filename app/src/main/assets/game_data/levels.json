@@ -125,7 +125,7 @@
       "rewards": [
         {
           "id": 0,
-          "quantity": 50
+          "quantity": 40
         },
         {
           "id": 4,
@@ -237,7 +237,7 @@
       "music": 3,
       "icon": "images/VS_Brock.png",
       "background": "images/building_battle_background.jpg",
-      "exp": 80
+      "exp": 100
     },
     {
       "id": 10,
@@ -315,7 +315,7 @@
       "rewards": [
         {
           "id": 0,
-          "quantity": 50
+          "quantity": 60
         },
         {
           "id": 1,
@@ -332,7 +332,7 @@
       "music": 2,
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
-      "exp": 60
+      "exp": 80
     },
     {
       "id": 11,
@@ -414,7 +414,7 @@
       "music": 2,
       "icon": "images/cave_battle_background.png",
       "background": "images/cave_battle_background.png",
-      "exp": 60
+      "exp": 90
     },
     {
       "id": 13,
@@ -466,7 +466,7 @@
       "rewards": [
         {
           "id": 0,
-          "quantity": 50
+          "quantity": 80
         },
         {
           "id": 2,
@@ -483,7 +483,7 @@
       "music": 2,
       "icon": "images/cave_battle_background.png",
       "background": "images/cave_battle_background.png",
-      "exp": 60
+      "exp": 90
     },
     {
       "id": 15,
@@ -523,7 +523,7 @@
       "rewards": [
         {
           "id": 0,
-          "quantity": 50
+          "quantity": 90
         },
         {
           "id": 2,
@@ -544,7 +544,7 @@
       "music": 2,
       "icon": "images/city_battle_background.png",
       "background": "images/city_battle_background.png",
-      "exp": 70
+      "exp": 110
     }
   ],
   "randomWildEncounters": [
@@ -567,7 +567,7 @@
       "rewards": [
         {
           "id": 0,
-          "quantity": 30
+          "quantity": 20
         },
         {
           "id": 1,
@@ -603,7 +603,7 @@
       "rewards": [
         {
           "id": 0,
-          "quantity": 30
+          "quantity": 20
         },
         {
           "id": 1,
@@ -635,7 +635,7 @@
       "rewards": [
         {
           "id": 0,
-          "quantity": 30
+          "quantity": 20
         },
         {
           "id": 7,
@@ -695,7 +695,7 @@
       "rewards": [
         {
           "id": 0,
-          "quantity": 30
+          "quantity": 40
         },
         {
           "id": 2,
@@ -723,7 +723,7 @@
       "rewards": [
         {
           "id": 0,
-          "quantity": 30
+          "quantity": 40
         },
         {
           "id": 1,
@@ -737,7 +737,7 @@
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
       "music": 2,
-      "exp": 50
+      "exp": 70
     }
   ]
 }

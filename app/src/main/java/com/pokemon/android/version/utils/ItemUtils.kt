@@ -5,7 +5,7 @@ import com.pokemon.android.version.model.item.*
 class ItemUtils {
     companion object {
         fun isBall(itemId: Int) : Boolean{
-            return itemId > 9 && itemId < 13
+            return itemId > 10 && itemId < 16
         }
 
         fun getItemById(itemId: Int) : Item {
