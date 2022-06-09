@@ -545,6 +545,257 @@
       "icon": "images/city_battle_background.png",
       "background": "images/city_battle_background.png",
       "exp": 110
+    },
+    {
+      "id": 16,
+      "name": "\nRoute 24",
+      "description": "You have finally arrived in Cerulean City but you come across Jackson.",
+      "type": "Trainer Battle",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Bug_Catcher.png",
+          "name" : "Bug Catcher Cale",
+          "pokemons": [
+            {
+              "id": 10,
+              "level": 18,
+              "moveIds": [
+                2,26
+              ]
+            },
+            {
+              "id": 11,
+              "level": 18,
+              "moveIds": [
+                32,2,26
+              ]
+            },
+            {
+              "id": 13,
+              "level": 18,
+              "moveIds": [
+                17
+              ]
+            },
+            {
+              "id": 14,
+              "level": 18,
+              "moveIds": [
+                32,17
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Fillette.png",
+          "name" : "Lass Ali",
+          "pokemons": [
+            {
+              "id": 16,
+              "level": 18,
+              "moveIds": [
+                2,3,4,19
+              ]
+            },
+            {
+              "id": 69,
+              "level": 18,
+              "moveIds": [
+                5,34,35
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Youngster.png",
+          "name" : "Youngster Timmy",
+          "pokemons": [
+            {
+              "id": 27,
+              "level": 18,
+              "moveIds": [
+                1,17,19
+              ]
+            },
+            {
+              "id": 23,
+              "level": 18,
+              "moveIds": [
+                17,23
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Fillette.png",
+          "name" : "Lass Reli",
+          "pokemons": [
+            {
+              "id": 17,
+              "level": 18,
+              "moveIds": [
+                2,3,4,19
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Campeur.png",
+          "name" : "Camper Ethan",
+          "pokemons": [
+            {
+              "id": 56,
+              "level": 18,
+              "moveIds": [
+                1,9,22
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 23,
+              "level": 18,
+              "moveIds": [
+                17,23
+              ]
+            },
+            {
+              "id": 41,
+              "level": 18,
+              "moveIds": [
+                16,23,47,48
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 90
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        },
+        {
+          "id": 10,
+          "quantity": 2
+        }
+      ],
+      "startDialog": "This is NUGGET BRIDGE! Do you have what it takes to beat us 5 trainers?",
+      "endDialogWin": "With your ability, you could become a top leader in TEAM ROCKET!",
+      "endDialogLoose": "Try again",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 200
+    },
+    {
+      "id": 17,
+      "name": "\nCerulean City Gym",
+      "description": "After facing the trainers on the bridge, you finally feel ready to take on the Cerulean City gym.",
+      "type": "Trainer Battle",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Swimmer.png",
+          "name" : "Swimmer Luis",
+          "pokemons": [
+            {
+              "id": 116,
+              "level": 19,
+              "moveIds": [
+                6,22,42,54
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "You want to fight Misty, you'll have to beat me first.",
+      "endDialogWin": "Misty won't lose to someone like you!",
+      "endDialogLoose": "Guess you'll never beat Misty",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 180
+    },
+    {
+      "id": 18,
+      "name": "\nVS Misty",
+      "description": "As you have defeated the guard, you can finally face Misty, the gym leader of Cerulean City.",
+      "type": "Trainer Battle",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Ondine.png",
+          "name" : "Gym Leader Misty",
+          "pokemons": [
+            {
+              "id": 120,
+              "level": 20,
+              "moveIds": [
+                2,6,32,48
+              ]
+            },
+            {
+              "id": 54,
+              "level": 20,
+              "moveIds": [
+                1,6,24,39
+              ]
+            },
+            {
+              "id": 121,
+              "level": 22,
+              "moveIds": [
+                43,12,45,44
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        },
+        {
+          "id": 32,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hi, you're a new face! Only those Trainers who have a policy about Pokémon can turn pro. What is your approach when you catch and train Pokémon? My policy is an all out offensive with Water-type Pokémon!",
+      "endDialogWin": "You really are good... I'll admit that you are skilled... Here you go. It's the Cascade Badge.",
+      "endDialogLoose": "See! This is the Water-type toughness I was talking about!",
+      "music": 3,
+      "icon": "images/VS_Misty.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 250
     }
   ],
   "randomWildEncounters": [

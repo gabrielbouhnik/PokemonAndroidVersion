@@ -614,19 +614,6 @@
       "probabilty": 20
     },
     {
-      "id": 27,
-      "name": "Bulldoze",
-      "power": 60,
-      "pp": 20,
-      "type": 10,
-      "category" :"PHYSICAL",
-      "accuracy": 100,
-      "description": "",
-      "statsAffected" : ["SPEED"],
-      "target": "OPPONENT",
-      "multiplicator": 0.75
-    },
-    {
       "id": 32,
       "name": "Harden",
       "power": 0,
@@ -704,6 +691,19 @@
       "target": "OPPONENT",
       "multiplicator": 0.5,
       "probabilty": 20
+    },
+    {
+      "id": 30,
+      "name": "Bulldoze",
+      "power": 60,
+      "pp": 20,
+      "type": 10,
+      "category" :"PHYSICAL",
+      "accuracy": 100,
+      "description": "",
+      "statsAffected" : ["SPEED"],
+      "target": "OPPONENT",
+      "multiplicator": 0.75
     }
   ]
 }

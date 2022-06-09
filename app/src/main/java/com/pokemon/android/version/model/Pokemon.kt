@@ -101,12 +101,15 @@ class Pokemon(
 
     fun IA(opponent: Pokemon): PokemonMove {
         val usableMoves = MoveUtils.getMoveList(this).filter { it.pp > 0 }
-        val maxDamage = 0
+        var maxDamage = 0
         var maxDamageIdx = 0
         var Idx = 0
         for (move in usableMoves) {
-            if (DamageCalculator.computeDamage(this, move.move, opponent) > maxDamage)
+            var damage : Int = DamageCalculator.computeDamage(this, move.move, opponent)
+            if (damage > maxDamage) {
                 maxDamageIdx = Idx
+                maxDamage = damage
+            }
             Idx++
         }
         return usableMoves[maxDamageIdx]
