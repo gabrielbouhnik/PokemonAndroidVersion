@@ -217,6 +217,7 @@ class Pokemon(
 
     fun gainLevel() {
         this.level += 1
+        this.trainer!!.coins += 10
         this.recomputeStat()
         val moveFiltered = data.movesByLevel.filter { it.level == this.level }
         if (moveFiltered.size == 1)

@@ -484,6 +484,67 @@
       "icon": "images/cave_battle_background.png",
       "background": "images/cave_battle_background.png",
       "exp": 60
+    },
+    {
+      "id": 15,
+      "name": "\nVS Rival 3",
+      "description": "You have finally arrived in Cerulean City but you come across Jackson.",
+      "type": "Trainer Battle",
+      "opponents": [
+        {
+          "sprite": "images/Spr_Rival.png",
+          "name" : "Jackson",
+          "pokemons": [
+            {
+              "id": 236,
+              "level": 19,
+              "moveIds": [
+                2,
+                14
+              ]
+            },
+            {
+              "id": 17,
+              "level": 18,
+              "moveIds": [
+                4,3,19,2
+              ]
+            },
+            {
+              "id": 19,
+              "level": 18,
+              "moveIds": [
+                3,22,23,28
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hey, you only got one badge. I've already beaten the gym here. Come on, show me what you got",
+      "endDialogWin": "Hey! Take it easy! You won already!",
+      "endDialogLoose": "I am the strongest!",
+      "music": 2,
+      "icon": "images/city_battle_background.png",
+      "background": "images/city_battle_background.png",
+      "exp": 70
     }
   ],
   "randomWildEncounters": [

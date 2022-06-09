@@ -94,7 +94,7 @@ class BattleUI {
     private fun updateByBattleState(activity : MainActivity, battle : Battle){
         when(battle.getBattleState()){
             State.TRAINER_LOSS -> {
-                if (activity.trainer!!.coins > 0)
+                if (activity.trainer!!.coins > 10)
                     activity.trainer!!.coins -= 10
                 disableBattleButtons(activity)
                 if (battle is TrainerBattle)
@@ -107,8 +107,9 @@ class BattleUI {
                 }
             }
             State.TRAINER_VICTORY -> {
+                var firstTime : Boolean = activity.trainer!!.progression == battle.levelData.id
                 activity.updateMusic(R.raw.victory_theme)
-                if (activity.trainer!!.progression == battle.levelData.id)
+                if (firstTime)
                     activity.trainer!!.progression++
                 disableBattleButtons(activity)
                 val opponentPokemonSprite : ImageView = activity.findViewById(R.id.opponentPokemonImageView)
@@ -123,9 +124,8 @@ class BattleUI {
                 rewardsButton.visibility = VISIBLE
                 rewardsButton.text = "See Rewards"
                 rewardsButton.setOnClickListener{
-                    //TODO remove androcoin and divide exp by 2 after first time
-                    activity.trainer!!.receiveExp(battle.levelData.exp)
-                    rewardMenu.loadRewardMenu(activity, battle.levelData.rewards)
+                    activity.trainer!!.receiveExp(if (firstTime) battle.levelData.exp else battle.levelData.exp/2)
+                    rewardMenu.loadRewardMenu(activity, battle.levelData, firstTime)
                 }
             }
             else -> {
