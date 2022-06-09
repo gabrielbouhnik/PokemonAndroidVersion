@@ -9,7 +9,7 @@
       "category" :"PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "category" :"PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
       "category" :"PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 1
+      "priorityLevel": 1
     },
     {
       "id": 4,
@@ -42,7 +42,7 @@
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 5,
@@ -53,7 +53,7 @@
       "category" :"PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 6,
@@ -64,7 +64,7 @@
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 11,
@@ -75,7 +75,7 @@
       "category" :"PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 13,
@@ -86,7 +86,7 @@
       "category" :"PHYSICAL",
       "accuracy": 75,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 14,
@@ -97,7 +97,7 @@
       "category" :"PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 1
+      "priorityLevel": 1
     },
     {
       "id": 16,
@@ -108,7 +108,7 @@
       "category" :"PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 29,
@@ -119,7 +119,7 @@
       "category" :"PHYSICAL",
       "accuracy": 90,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 36,
@@ -130,7 +130,7 @@
       "category" :"PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 43,
@@ -141,7 +141,7 @@
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 44,
@@ -152,7 +152,7 @@
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 51,
@@ -163,7 +163,7 @@
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 56,
@@ -174,7 +174,7 @@
       "category" :"PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     }
   ],
   "statusMoves" : [
@@ -187,7 +187,7 @@
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "BURN",
       "probability": 10
     },
@@ -200,7 +200,7 @@
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "PARALYSIS",
       "probability": 10
     },
@@ -213,7 +213,7 @@
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "PARALYSIS",
       "probability": 10
     },
@@ -226,7 +226,7 @@
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "PARALYSIS",
       "probability": 30
     },
@@ -239,7 +239,7 @@
       "category" :"PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "POISON",
       "probability": 30
     },
@@ -252,7 +252,7 @@
       "category" :"PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "FLINCHED",
       "probability": 30
     },
@@ -265,7 +265,7 @@
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "CONFUSED",
       "probability": 20
     },
@@ -278,7 +278,7 @@
       "category" :"PHYSICAL",
       "accuracy": 90,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "FLINCHED",
       "probability": 30
     },
@@ -291,7 +291,7 @@
       "category" :"PHYSICAL",
       "accuracy": 90,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "FLINCHED",
       "probability": 10
     },
@@ -304,7 +304,7 @@
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "BURN",
       "probability": 10
     },
@@ -317,7 +317,7 @@
       "category" :"OTHER",
       "accuracy": 75,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "POISON",
       "probability": 100
     },
@@ -330,7 +330,7 @@
       "category" :"OTHER",
       "accuracy": 75,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "ASLEEP",
       "probability": 100
     },
@@ -343,7 +343,7 @@
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "POISON",
       "probability": 30
     },
@@ -356,7 +356,7 @@
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "CONFUSED",
       "probability": 30
     },
@@ -369,7 +369,7 @@
       "category" :"PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "FLINCHED",
       "probability": 30
     },
@@ -382,7 +382,7 @@
       "category" :"OTHER",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "CONFUSED",
       "probability": 100
     },
@@ -395,7 +395,7 @@
       "category" :"SPECIAL",
       "accuracy": "95",
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "FLINCHED",
       "probability": 30
     },
@@ -408,7 +408,7 @@
       "category" :"PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "PARALYSIS",
       "probability": 30
     },
@@ -421,7 +421,7 @@
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "PARALYSIS",
       "probability": 30
     },
@@ -434,7 +434,7 @@
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "FLINCHED",
       "probability": 20
     },
@@ -447,7 +447,7 @@
       "category" :"OTHER",
       "accuracy": 90,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "PARALYSIS",
       "probability": 100
     },
@@ -460,7 +460,7 @@
       "category" :"PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0,
+      "priorityLevel": 0,
       "status": "FLINCHED",
       "probability": 30
     }
@@ -475,7 +475,7 @@
       "category" :"PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 18,
@@ -486,7 +486,7 @@
       "category" :"PHYSICAL",
       "accuracy": 95,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 33,
@@ -497,7 +497,7 @@
       "category" :"PHYSICAL",
       "accuracy": 80,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 38,
@@ -508,7 +508,7 @@
       "category" :"PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     },
     {
       "id": 49,
@@ -519,7 +519,7 @@
       "category" :"SPECIAL",
       "accuracy": 95,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     }
   ],
   "variableHitMoves" : [
@@ -532,7 +532,7 @@
       "category" :"PHYSICAL",
       "accuracy": 85,
       "description": "",
-      "priority_level": 0
+      "priorityLevel": 0
     }
   ],
   "statsChangesMoves": [
