@@ -13,6 +13,7 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Pokemon
+import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.battle.Battle
 import com.pokemon.android.version.model.battle.State
 import com.pokemon.android.version.model.battle.TrainerBattle
@@ -193,40 +194,42 @@ class BattleUI {
         val switchButton : Button = activity.findViewById(R.id.switchPokemonButton)
         val bagButton : Button = activity.findViewById(R.id.bagButton)
         switchButton.setOnClickListener {
-            val closeButton : Button = activity.findViewById(R.id.closeTeamButton)
-            closeButton.visibility = VISIBLE
-            switchButton.visibility = GONE
-            bagButton.visibility = GONE
-            disableAttackButtons(activity)
+            if (battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED)) {
+                val closeButton: Button = activity.findViewById(R.id.closeTeamButton)
+                closeButton.visibility = VISIBLE
+                switchButton.visibility = GONE
+                bagButton.visibility = GONE
+                disableAttackButtons(activity)
 
-            val recyclerView = activity.findViewById<RecyclerView>(R.id.battleRecyclerView)
-            recyclerView.visibility = VISIBLE
-            val blackImageView : ImageView = activity.findViewById(R.id.blackImageView)
-            blackImageView.visibility = VISIBLE
-            recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-            val myItemClickListener = View.OnClickListener {
-                val position = it.tag as Int
-                val clickedPokemon : Pokemon = activity.trainer!!.team[position]
-                if (clickedPokemon.currentHP > 0 && clickedPokemon != battle.pokemon) {
+                val recyclerView = activity.findViewById<RecyclerView>(R.id.battleRecyclerView)
+                recyclerView.visibility = VISIBLE
+                val blackImageView: ImageView = activity.findViewById(R.id.blackImageView)
+                blackImageView.visibility = VISIBLE
+                recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+                val myItemClickListener = View.OnClickListener {
+                    val position = it.tag as Int
+                    val clickedPokemon: Pokemon = activity.trainer!!.team[position]
+                    if (clickedPokemon.currentHP > 0 && clickedPokemon != battle.pokemon) {
+                        recyclerView.visibility = GONE
+                        blackImageView.visibility = GONE
+                        battle.turnWithSwitch(clickedPokemon)
+                        updateBattleUI(activity, battle)
+                        setUpAttackButtons(activity, battle)
+                        closeButton.visibility = GONE
+                        switchButton.visibility = VISIBLE
+                        bagButton.visibility = VISIBLE
+                    }
+                }
+                val adapter = PokemonRecyclerAdapter(activity, activity.trainer!!.team, myItemClickListener)
+                recyclerView.adapter = adapter
+                closeButton.setOnClickListener {
                     recyclerView.visibility = GONE
                     blackImageView.visibility = GONE
-                    battle.turnWithSwitch(clickedPokemon)
-                    updateBattleUI(activity, battle)
-                    setUpAttackButtons(activity, battle)
                     closeButton.visibility = GONE
                     switchButton.visibility = VISIBLE
                     bagButton.visibility = VISIBLE
+                    setUpAttackButtons(activity, battle)
                 }
-            }
-            val adapter = PokemonRecyclerAdapter(activity, activity.trainer!!.team, myItemClickListener)
-            recyclerView.adapter = adapter
-            closeButton.setOnClickListener {
-                recyclerView.visibility = GONE
-                blackImageView.visibility = GONE
-                closeButton.visibility = GONE
-                switchButton.visibility = VISIBLE
-                bagButton.visibility = VISIBLE
-                setUpAttackButtons(activity, battle)
             }
         }
 

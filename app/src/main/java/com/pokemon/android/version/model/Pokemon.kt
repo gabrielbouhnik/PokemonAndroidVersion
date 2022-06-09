@@ -14,34 +14,56 @@ import kotlin.math.roundToInt
 import kotlin.random.Random
 import kotlin.random.nextInt
 
-class Pokemon (var data : PokemonData,
-               var trainer : Trainer?,
-               var level : Int,
-               var move1 : PokemonMove,
-               var move2 : PokemonMove?,
-               var move3 : PokemonMove?,
-               var move4 : PokemonMove?,
-               var status : Status = Status.OK,
-               val gender : Gender?,
-               var hp : Int  = 0,
-               var attack : Int = 0,
-               var defense : Int = 0,
-               var spAtk : Int = 0,
-               var spDef : Int = 0,
-               var speed : Int = 0,
-               var currentHP : Int  = 0,
-               var currentExp : Int  = 0,
-               var battleData : PokemonBattleData?)
-{
+class Pokemon(
+    var data: PokemonData,
+    var trainer: Trainer?,
+    var level: Int,
+    var move1: PokemonMove,
+    var move2: PokemonMove?,
+    var move3: PokemonMove?,
+    var move4: PokemonMove?,
+    var status: Status = Status.OK,
+    val gender: Gender?,
+    var hp: Int = 0,
+    var attack: Int = 0,
+    var defense: Int = 0,
+    var spAtk: Int = 0,
+    var spDef: Int = 0,
+    var speed: Int = 0,
+    var currentHP: Int = 0,
+    var currentExp: Int = 0,
+    var battleData: PokemonBattleData?
+) {
 
 
-    constructor(data: PokemonData, trainer: Trainer?, level: Int,
-                move1: PokemonMove, move2: PokemonMove?, move3: PokemonMove?, move4: PokemonMove?, gender : Gender?,
-                hp : Int, attack : Int, defense : Int, spAtk : Int, spDef : Int, speed : Int, currentHP: Int)
-            : this(data, trainer, level, move1, move2, move3, move4, Status.OK, gender, hp, attack,defense,spAtk, spDef, speed, currentHP, 0, PokemonBattleData())
+    constructor(
+        data: PokemonData, trainer: Trainer?, level: Int,
+        move1: PokemonMove, move2: PokemonMove?, move3: PokemonMove?, move4: PokemonMove?, gender: Gender?,
+        hp: Int, attack: Int, defense: Int, spAtk: Int, spDef: Int, speed: Int, currentHP: Int
+    )
+            : this(
+        data,
+        trainer,
+        level,
+        move1,
+        move2,
+        move3,
+        move4,
+        Status.OK,
+        gender,
+        hp,
+        attack,
+        defense,
+        spAtk,
+        spDef,
+        speed,
+        currentHP,
+        0,
+        PokemonBattleData()
+    )
 
     companion object {
-        fun of(pokemonSave : PokemonSave, gameDataService: GameDataService, trainer : Trainer) : Pokemon{
+        fun of(pokemonSave: PokemonSave, gameDataService: GameDataService, trainer: Trainer): Pokemon {
             return PokemonBuilder().data(gameDataService.getPokemonDataById(pokemonSave.id))
                 .level(pokemonSave.level)
                 .trainer(trainer)
@@ -55,39 +77,66 @@ class Pokemon (var data : PokemonData,
                 .currentHP(pokemonSave.currentHP)
                 .gender(Gender.valueOf(pokemonSave.gender))
                 .move1(PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[0].id), pokemonSave.moveids[0].pp))
-                .move2(if (pokemonSave.moveids.size > 1) PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[1].id), pokemonSave.moveids[1].pp) else null)
-                .move3(if (pokemonSave.moveids.size > 2) PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[2].id), pokemonSave.moveids[2].pp) else null)
-                .move4(if (pokemonSave.moveids.size > 3) PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[3].id), pokemonSave.moveids[3].pp) else null)
+                .move2(
+                    if (pokemonSave.moveids.size > 1) PokemonMove(
+                        gameDataService.getMoveById(pokemonSave.moveids[1].id),
+                        pokemonSave.moveids[1].pp
+                    ) else null
+                )
+                .move3(
+                    if (pokemonSave.moveids.size > 2) PokemonMove(
+                        gameDataService.getMoveById(pokemonSave.moveids[2].id),
+                        pokemonSave.moveids[2].pp
+                    ) else null
+                )
+                .move4(
+                    if (pokemonSave.moveids.size > 3) PokemonMove(
+                        gameDataService.getMoveById(pokemonSave.moveids[3].id),
+                        pokemonSave.moveids[3].pp
+                    ) else null
+                )
                 .build()
         }
     }
 
-    fun IA(opponent : Pokemon) : PokemonMove{
-        val usableMoves = MoveUtils.getMoveList(this).filter{it.pp > 0}
+    fun IA(opponent: Pokemon): PokemonMove {
+        val usableMoves = MoveUtils.getMoveList(this).filter { it.pp > 0 }
         val maxDamage = 0
         var maxDamageIdx = 0
         var Idx = 0
-        for (move in usableMoves){
-            if (DamageCalculator.computeDamage(this,move.move, opponent) > maxDamage)
+        for (move in usableMoves) {
+            if (DamageCalculator.computeDamage(this, move.move, opponent) > maxDamage)
                 maxDamageIdx = Idx
             Idx++
         }
         return usableMoves[maxDamageIdx]
     }
 
-    fun attack(move : PokemonMove, opponent : Pokemon) : AttackResponse {
+    fun attack(move: PokemonMove, opponent: Pokemon): AttackResponse {
         if (this.battleData!!.battleStatus.contains(Status.FLINCHED))
-            return AttackResponse(false,"But ${this.data.name} flinched and couldn't move\n")
-        if (this.status == Status.PARALYSIS){
-            if (Random.nextInt(100) < 25)
-                return AttackResponse(false,this.data.name + " can't move because it is paralysed!\n")
-        }
-        if (this.status == Status.ASLEEP){
-            if (battleData!!.sleepCounter == 2){
-                this.status = Status.OK
+            return AttackResponse(false, "But ${this.data.name} flinched and couldn't move\n")
+        if (this.battleData!!.battleStatus.contains(Status.CONFUSED)) {
+            if (Random.nextInt(100) < 33) {
+                var confusionDamage = DamageCalculator.computeConfusionDamage(this)
+                if (confusionDamage >= opponent.currentHP) {
+                    opponent.currentHP = 0
+                    opponent.status = Status.OK
+                    opponent.battleData = null
+                } else {
+                    opponent.currentHP = opponent.currentHP - confusionDamage
+                }
+                return AttackResponse(false, "But ${this.data.name} hits hurt itself in its confusion\n")
             }
-            else
-                return AttackResponse(false,this.data.name + " is fast asleep!\n")
+        }
+        if (this.status == Status.PARALYSIS) {
+            if (Random.nextInt(100) < 25)
+                return AttackResponse(false, this.data.name + " can't move because it is paralysed!\n")
+        }
+        if (this.status == Status.ASLEEP) {
+            if (battleData!!.sleepCounter == 2) {
+                this.status = Status.OK
+            } else
+                return AttackResponse(false, this.data.name + " is fast asleep!\n")
         }
         move.pp = move.pp - 1
         if (move.move.accuracy != null) {
@@ -111,13 +160,12 @@ class Pokemon (var data : PokemonData,
             opponent.currentHP = 0
             opponent.status = Status.OK
             opponent.battleData = null
-        }
-        else {
+        } else {
             opponent.currentHP = opponent.currentHP - damage
-            if (move.move is StatusMove){
+            if (move.move is StatusMove) {
                 Status.updateStatus(opponent, move.move as StatusMove)
             }
-            if (move.move is StatChangeMove){
+            if (move.move is StatChangeMove) {
                 var statChangeMove = move.move as StatChangeMove
                 if (statChangeMove.target == Target.SELF)
                     Stats.updateStat(this, move.move as StatChangeMove)
@@ -125,23 +173,23 @@ class Pokemon (var data : PokemonData,
                     Stats.updateStat(opponent, move.move as StatChangeMove)
             }
         }
-        return AttackResponse(true,"")
+        return AttackResponse(true, "")
     }
 
-    private fun recomputeStat(){
-        var addHP : Boolean = hp == currentHP
-        this.hp = 10 + (data.hp.toFloat() * (level/50f)).roundToInt()
-        this.attack = 5 + (data.attack.toFloat() * (level/50f)).roundToInt()
-        this.defense = 5 + (data.defense.toFloat() * (level/50f)).roundToInt()
-        this.spAtk= 5 + (data.spAtk.toFloat() * (level/50f)).roundToInt()
-        this.spDef = 5 + (data.spDef.toFloat() * (level/50f)).roundToInt()
-        this.speed= 5 + (data.speed.toFloat() * (level/50f)).roundToInt()
+    private fun recomputeStat() {
+        var addHP: Boolean = hp == currentHP
+        this.hp = 10 + (data.hp.toFloat() * (level / 50f)).roundToInt()
+        this.attack = 5 + (data.attack.toFloat() * (level / 50f)).roundToInt()
+        this.defense = 5 + (data.defense.toFloat() * (level / 50f)).roundToInt()
+        this.spAtk = 5 + (data.spAtk.toFloat() * (level / 50f)).roundToInt()
+        this.spDef = 5 + (data.spDef.toFloat() * (level / 50f)).roundToInt()
+        this.speed = 5 + (data.speed.toFloat() * (level / 50f)).roundToInt()
         if (addHP)
             currentHP = hp
     }
 
-    fun learnMove(moveToLearn : Move, moveToDeleteNumber : Int){
-        when(moveToDeleteNumber) {
+    fun learnMove(moveToLearn: Move, moveToDeleteNumber: Int) {
+        when (moveToDeleteNumber) {
             1 -> move1 = PokemonMove(moveToLearn)
             2 -> move2 = PokemonMove(moveToLearn)
             3 -> move3 = PokemonMove(moveToLearn)
@@ -149,8 +197,8 @@ class Pokemon (var data : PokemonData,
         }
     }
 
-    fun autoLearnMove(move : Move) :  Boolean{
-        if (MoveUtils.getMoveList(this).map{it.move}.contains(move))
+    fun autoLearnMove(move: Move): Boolean {
+        if (MoveUtils.getMoveList(this).map { it.move }.contains(move))
             return false
         if (move2 == null) {
             this.move2 = PokemonMove(move, move.pp)
@@ -167,17 +215,17 @@ class Pokemon (var data : PokemonData,
         return false
     }
 
-    fun gainLevel(){
+    fun gainLevel() {
         this.level += 1
         this.recomputeStat()
-        val moveFiltered = data.movesByLevel.filter{it.level == this.level}
+        val moveFiltered = data.movesByLevel.filter { it.level == this.level }
         if (moveFiltered.size == 1)
-            autoLearnMove(data.movesByLevel.filter{it.level == this.level}.first().move)
+            autoLearnMove(data.movesByLevel.filter { it.level == this.level }.first().move)
     }
 
-    fun gainExp(value : Int){
+    fun gainExp(value: Int) {
         var exp = value
-        while (this.currentExp + exp >= level * 15 * data.expGaugeCoeff ){
+        while (this.currentExp + exp >= level * 15 * data.expGaugeCoeff) {
             exp -= (level * 15 * data.expGaugeCoeff - this.currentExp).toInt()
             this.currentExp = 0
             gainLevel()
@@ -185,83 +233,83 @@ class Pokemon (var data : PokemonData,
         this.currentExp += exp
     }
 
-    fun canEvolve() : Boolean{
+    fun canEvolve(): Boolean {
         if (data.evolutionId == null)
             return false
         var condition = data.evolutionCondition
-        if (condition!!.level != null && level >= condition.level!!){
+        if (condition!!.level != null && level >= condition.level!!) {
             return true
         }
         return false
     }
 
-    fun evolve(gameDataService: GameDataService){
-        if (canEvolve()){
+    fun evolve(gameDataService: GameDataService) {
+        if (canEvolve()) {
             this.data = gameDataService.getPokemonDataById(data.evolutionId!!)
             recomputeStat()
             if (currentHP > hp)
                 currentHP = hp
-            val moveFiltered = data.movesByLevel.filter{it.level == this.level}
+            val moveFiltered = data.movesByLevel.filter { it.level == this.level }
             if (moveFiltered.size == 1)
-                autoLearnMove(data.movesByLevel.filter{it.level == this.level}.first().move)
+                autoLearnMove(data.movesByLevel.filter { it.level == this.level }.first().move)
         }
     }
 
     data class PokemonBuilder(
-        var data : PokemonData? = null,
-        var trainer : Trainer? = null,
-        var level : Int = 1,
-        var move1 : PokemonMove? = null,
-        var move2 : PokemonMove? = null,
-        var move3 : PokemonMove? = null,
-        var move4 : PokemonMove? = null,
-        var status : Status = Status.OK,
-        var gender : Gender? = null,
-        var hp : Int  = 0,
-        var attack : Int = 0,
-        var defense : Int = 0,
-        var spAtk : Int = 0,
-        var spDef : Int = 0,
-        var speed : Int = 0,
+        var data: PokemonData? = null,
+        var trainer: Trainer? = null,
+        var level: Int = 1,
+        var move1: PokemonMove? = null,
+        var move2: PokemonMove? = null,
+        var move3: PokemonMove? = null,
+        var move4: PokemonMove? = null,
+        var status: Status = Status.OK,
+        var gender: Gender? = null,
+        var hp: Int = 0,
+        var attack: Int = 0,
+        var defense: Int = 0,
+        var spAtk: Int = 0,
+        var spDef: Int = 0,
+        var speed: Int = 0,
         var currentHP: Int = 0,
-        var currentExp : Int = 0)
-        {
-            fun data(data: PokemonData) = apply { this.data = data }
-            fun trainer(trainer: Trainer) = apply { this.trainer = trainer }
-            fun level(level: Int) = apply { this.level = level }
-            fun status(status: Status) = apply { this.status = status }
-            fun move1(move: PokemonMove) = apply { this.move1 = move }
-            fun move2(move: PokemonMove?) = apply { this.move2 = move }
-            fun move3(move: PokemonMove?) = apply { this.move3 = move }
-            fun move4(move: PokemonMove?) = apply { this.move4 = move }
-            fun gender(gender: Gender) = apply { this.gender = gender }
-            fun hp(hp: Int) = apply { this.hp = hp }
-            fun attack(attack: Int) = apply { this.attack = attack }
-            fun defense(defense: Int) = apply { this.defense = defense }
-            fun spAtk(spAtk: Int) = apply { this.spAtk = spAtk }
-            fun spDef(spDef: Int) = apply { this.spDef = spDef }
-            fun speed(speed: Int) = apply { this.speed = speed }
-            fun currentHP(currentHP: Int) = apply { this.currentHP = currentHP }
-            fun build() = Pokemon(
-                data!!,
-                trainer,
-                level,
-                move1!!,
-                move2,
-                move3,
-                move4,
-                status,
-                gender,
-                hp,
-                attack,
-                defense,
-                spAtk,
-                spDef,
-                speed,
-                currentHP,
-                0,
-                PokemonBattleData()
-            )
+        var currentExp: Int = 0
+    ) {
+        fun data(data: PokemonData) = apply { this.data = data }
+        fun trainer(trainer: Trainer) = apply { this.trainer = trainer }
+        fun level(level: Int) = apply { this.level = level }
+        fun status(status: Status) = apply { this.status = status }
+        fun move1(move: PokemonMove) = apply { this.move1 = move }
+        fun move2(move: PokemonMove?) = apply { this.move2 = move }
+        fun move3(move: PokemonMove?) = apply { this.move3 = move }
+        fun move4(move: PokemonMove?) = apply { this.move4 = move }
+        fun gender(gender: Gender) = apply { this.gender = gender }
+        fun hp(hp: Int) = apply { this.hp = hp }
+        fun attack(attack: Int) = apply { this.attack = attack }
+        fun defense(defense: Int) = apply { this.defense = defense }
+        fun spAtk(spAtk: Int) = apply { this.spAtk = spAtk }
+        fun spDef(spDef: Int) = apply { this.spDef = spDef }
+        fun speed(speed: Int) = apply { this.speed = speed }
+        fun currentHP(currentHP: Int) = apply { this.currentHP = currentHP }
+        fun build() = Pokemon(
+            data!!,
+            trainer,
+            level,
+            move1!!,
+            move2,
+            move3,
+            move4,
+            status,
+            gender,
+            hp,
+            attack,
+            defense,
+            spAtk,
+            spDef,
+            speed,
+            currentHP,
+            0,
+            PokemonBattleData()
+        )
 
-        }
+    }
 }
