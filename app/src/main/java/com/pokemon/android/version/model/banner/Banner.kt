@@ -6,15 +6,17 @@ import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.entity.banner.BannerEntity
+import java.time.DayOfWeek
 import kotlin.random.Random
 
 
 class Banner(var description : String, var image : String, var cost : Int,
-             var pokemons : List<PokemonBanner>, var items :List<ItemBanner>) {
+             var pokemons : List<PokemonBanner>, var items :List<ItemBanner>, var days : List<DayOfWeek>) {
     companion object{
         fun of(bannerEntity: BannerEntity, gameDataService: GameDataService) : Banner{
             return Banner(bannerEntity.description, bannerEntity.image, bannerEntity.cost,
-            bannerEntity.pokemons.map{PokemonBanner.of(it, gameDataService)}, bannerEntity.items.map{ItemBanner(it.id, it.rate)})
+            bannerEntity.pokemons.map{PokemonBanner.of(it, gameDataService)}, bannerEntity.items.map{ItemBanner(it.id, it.rate)},
+            bannerEntity.days.map{DayOfWeek.valueOf(it)})
         }
     }
 

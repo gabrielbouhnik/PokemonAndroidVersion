@@ -19,11 +19,17 @@ class ItemUtils {
                 7 -> return HealingStatusItem.ANTIDOTE
                 8 -> return RareCandy.RARE_CANDY
                 9 -> return Revive.REVIVE
-                10 -> return Ball.POKEBALL
-                11 -> return Ball.SUPERBALL
-                12  -> return Ball.HYPERBALL
-                else  -> return PPHealItem.PP_HEAL
+                10  -> return PPHealItem.PP_HEAL
+                11 -> return Ball.POKEBALL
+                12 -> return Ball.SUPERBALL
+                13  -> return Ball.HYPERBALL
+                14 -> return Ball.NETBALL
+                15 -> return Ball.HEALBALL
+                28 -> return ExpItem.EXP_CANDY_S
+                29 -> return ExpItem.EXP_CANDY_M
+                30 -> return ExpItem.EXP_CANDY_L
             }
+            return Ball(0)
         }
     }
 }

@@ -591,12 +591,32 @@
           "level": 1
         },
         {
+          "moveId": 19,
+          "level": 5
+        },
+        {
           "moveId": 4,
           "level": 9
         },
         {
           "moveId": 3,
           "level": 13
+        },
+        {
+          "moveId": 54,
+          "level": 21
+        },
+        {
+          "moveId": 21,
+          "level": 29
+        },
+        {
+          "moveId": 16,
+          "level": 33
+        },
+        {
+          "moveId": 50,
+          "level": 49
         }
       ],
       "movesLearnWithHM": [
@@ -627,12 +647,32 @@
           "level": 1
         },
         {
+          "moveId": 19,
+          "level": 5
+        },
+        {
           "moveId": 4,
           "level": 9
         },
         {
           "moveId": 3,
           "level": 13
+        },
+        {
+          "moveId": 54,
+          "level": 22
+        },
+        {
+          "moveId": 21,
+          "level": 32
+        },
+        {
+          "moveId": 16,
+          "level": 37
+        },
+        {
+          "moveId": 50,
+          "level": 57
         }
       ],
       "movesLearnWithHM": [
@@ -663,12 +703,32 @@
           "level": 1
         },
         {
+          "moveId": 19,
+          "level": 5
+        },
+        {
           "moveId": 4,
           "level": 9
         },
         {
           "moveId": 3,
           "level": 13
+        },
+        {
+          "moveId": 54,
+          "level": 22
+        },
+        {
+          "moveId": 21,
+          "level": 32
+        },
+        {
+          "moveId": 16,
+          "level": 38
+        },
+        {
+          "moveId": 50,
+          "level": 62
         }
       ],
       "movesLearnWithHM": [
@@ -1387,6 +1447,10 @@
           "level": 5
         },
         {
+          "moveId": 54,
+          "level": 10
+        },
+        {
           "moveId": 22,
           "level": 15
         },
@@ -1429,6 +1493,10 @@
         {
           "moveId": 42,
           "level": 5
+        },
+        {
+          "moveId": 54,
+          "level": 10
         },
         {
           "moveId": 22,
@@ -1559,6 +1627,144 @@
     "expGaugeCoeff": 1.5
   },
   {
+    "id": 123,
+    "name": "Scyther",
+    "type1": 7,
+    "type2": 6,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 3,
+          "level": 1
+        },
+        {
+          "moveId": 16,
+          "level": 12
+        },
+        {
+          "moveId": 38,
+          "level": 24
+        },
+        {
+          "moveId": 21,
+          "level": 32
+        },
+        {
+          "moveId": 40,
+          "level": 56
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 70,
+    "attack": 110,
+    "defense": 80,
+    "spAtk": 55,
+    "spDef": 80,
+    "speed": 105,
+    "catchRate": 0.3,
+    "evolutionId": 212,
+    "evolutionCondition": {
+    },
+    "expGaugeCoeff": 1.3
+  },
+  {
+    "id": 147,
+    "name": "Dratini",
+    "type1": "15",
+    "type2": "0",
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 54,
+          "level": 1
+        },
+        {
+          "moveId": 55,
+          "level": 10
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 41,
+    "attack": 64,
+    "defense": 45,
+    "spAtk": 50,
+    "spDef": 50,
+    "speed": 50,
+    "evolutionId": 148,
+    "evolutionCondition": {
+      "level": 30
+    },
+    "expGaugeCoeff": 1.0
+  },
+  {
+    "id": 148,
+    "name": "Dragonair",
+    "type1": "15",
+    "type2": "0",
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 54,
+          "level": 1
+        },
+        {
+          "moveId": 55,
+          "level": 10
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 61,
+    "attack": 84,
+    "defense": 65,
+    "spAtk": 70,
+    "spDef": 70,
+    "speed": 70,
+    "catchRate": 0.2,
+    "evolutionId": 149,
+    "evolutionCondition": {
+      "level": 55
+    },
+    "expGaugeCoeff": 1.4
+  },
+  {
+    "id": 149,
+    "name": "Dragonite",
+    "type1": "15",
+    "type2": "6",
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 54,
+          "level": 1
+        },
+        {
+          "moveId": 55,
+          "level": 10
+        },
+        {
+          "moveId": 16,
+          "level": 55
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 91,
+    "attack": 134,
+    "defense": 95,
+    "spAtk": 100,
+    "spDef": 100,
+    "speed": 80,
+    "catchRate": 0.2,
+    "expGaugeCoeff": 1.6
+  },
+  {
     "id": 161,
     "name": "Sentret",
     "type1": 5,
@@ -1687,6 +1893,50 @@
     "expGaugeCoeff": 1.5
   },
   {
+    "id": 212,
+    "name": "Scizor",
+    "type1": 7,
+    "type2": 16,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 3,
+          "level": 1
+        },
+        {
+          "moveId": 16,
+          "level": 12
+        },
+        {
+          "moveId": 38,
+          "level": 24
+        },
+        {
+          "moveId": 21,
+          "level": 32
+        },
+        {
+          "moveId": 57,
+          "level": 36
+        },
+        {
+          "moveId": 56,
+          "level": 40
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 70,
+    "attack": 130,
+    "defense": 100,
+    "spAtk": 55,
+    "spDef": 80,
+    "speed": 65,
+    "catchRate": 0.2,
+    "expGaugeCoeff": 1.5
+  },
+  {
     "id": 230,
     "name": "Kingdra",
     "type1": 3,
@@ -1700,6 +1950,10 @@
         {
           "moveId": 42,
           "level": 5
+        },
+        {
+          "moveId": 54,
+          "level": 10
         },
         {
           "moveId": 22,
@@ -1717,7 +1971,7 @@
       "movesLearnWithHM": [
       ]
     },
-    "catchRate": 0.25,
+    "catchRate": 0.2,
     "hp": 75,
     "attack": 95,
     "defense": 95,
@@ -1749,5 +2003,133 @@
     "speed": 35,
     "catchRate": 0.5,
     "expGaugeCoeff": 1.0
+  },
+  {
+    "id": 246,
+    "name": "Larvitar",
+    "type1": 9,
+    "type2": 10,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 29,
+          "level": 3
+        },
+        {
+          "moveId": 23,
+          "level": 9
+        },
+        {
+          "moveId": 25,
+          "level": 15
+        },
+        {
+          "moveId": 27,
+          "level": 27
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "catchRate": 0.3,
+    "hp": 50,
+    "attack": 64,
+    "defense": 50,
+    "spAtk": 45,
+    "spDef": 50,
+    "speed": 41,
+    "evolutionId": 247,
+    "evolutionCondition": {
+      "level": 30
+    },
+    "expGaugeCoeff": 1.1
+  },
+  {
+    "id": 246,
+    "name": "Larvitar",
+    "type1": 9,
+    "type2": 10,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 29,
+          "level": 3
+        },
+        {
+          "moveId": 23,
+          "level": 9
+        },
+        {
+          "moveId": 25,
+          "level": 15
+        },
+        {
+          "moveId": 27,
+          "level": 27
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "catchRate": 0.25,
+    "hp": 70,
+    "attack": 84,
+    "defense": 70,
+    "spAtk": 65,
+    "spDef": 70,
+    "speed": 51,
+    "evolutionId": 248,
+    "evolutionCondition": {
+      "level": 55
+    },
+    "expGaugeCoeff": 1.3
+  },
+  {
+    "id": 248,
+    "name": "Tyranitar",
+    "type1": 9,
+    "type2": 16,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 29,
+          "level": 3
+        },
+        {
+          "moveId": 23,
+          "level": 9
+        },
+        {
+          "moveId": 25,
+          "level": 15
+        },
+        {
+          "moveId": 27,
+          "level": 27
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "catchRate": 0.2,
+    "hp": 100,
+    "attack": 134,
+    "defense": 110,
+    "spAtk": 95,
+    "spDef": 100,
+    "speed": 61,
+    "expGaugeCoeff": 1.6
   }
 ]

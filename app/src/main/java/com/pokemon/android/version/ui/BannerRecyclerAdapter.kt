@@ -10,9 +10,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
+import com.pokemon.android.version.model.banner.Banner
 import java.io.InputStream
 
-class BannerRecyclerAdapter (var activity : MainActivity) :
+class BannerRecyclerAdapter (var activity : MainActivity,
+                            var data : MutableList<Banner>) :
     RecyclerView.Adapter<BannerRecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -29,7 +31,7 @@ class BannerRecyclerAdapter (var activity : MainActivity) :
     }
 
     override fun getItemCount(): Int {
-        return activity.gameDataService.banners.size
+        return data.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -41,7 +43,7 @@ class BannerRecyclerAdapter (var activity : MainActivity) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentItem = activity.gameDataService.banners[position]
+        val currentItem = data[position]
         holder.descriptionTextView.text = currentItem.description
         holder.costTextView.text = "COST: ${currentItem.cost} AndroCoins"
         holder.itemView.tag = position

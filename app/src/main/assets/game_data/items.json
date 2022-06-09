@@ -41,50 +41,118 @@
   },
   {
     "id": 10,
-    "name": "Poke Ball"
-  },
-  {
-    "id": 11,
-    "name": "Great Ball"
-  },
-  {
-    "id": 12,
-    "name": "Hyper Ball"
-  },
-  {
-    "id": 13,
     "name": "PP Heal"
   },
   {
+    "id": 11,
+    "name": "Poke Ball"
+  },
+  {
+    "id": 12,
+    "name": "Great Ball"
+  },
+  {
+    "id": 13,
+    "name": "Hyper Ball"
+  },
+  {
     "id": 14,
-    "name": "Boulder Badge"
+    "name": "Net Ball"
   },
   {
     "id": 15,
-    "name": "Cascade Badge"
+    "name": "Heal Ball"
   },
   {
     "id": 16,
-    "name": "Thunder Badge"
+    "name": "Fire Stone"
   },
   {
     "id": 17,
-    "name": "Rainbow Badge"
+    "name": "Thunder Stone"
   },
   {
     "id": 18,
-    "name": "Soul Badge"
+    "name": "Water Stone"
   },
   {
     "id": 19,
-    "name": "Marsh Badge"
+    "name": "Leaf Stone"
   },
   {
     "id": 20,
-    "name": "Volcano Badge"
+    "name": "Sun Stone"
   },
   {
     "id": 21,
+    "name": "King's Rock"
+  },
+  {
+    "id": 22,
+    "name": "Dragon Scale"
+  },
+  {
+    "id": 23,
+    "name": "Metal Coat"
+  },
+  {
+    "id": 24,
+    "name": "Upgrade"
+  },
+  {
+    "id": 25,
+    "name": "Magmarizer"
+  },
+  {
+    "id": 26,
+    "name": "Electirizer"
+  },
+  {
+    "id": 27,
+    "name": "Protector"
+  },
+  {
+    "id": 28,
+    "name": "Exp. Candy S"
+  },
+  {
+    "id": 29,
+    "name": "Exp. Candy M"
+  },
+  {
+    "id": 30,
+    "name": "Exp. Candy L"
+  },
+  {
+    "id": 31,
+    "name": "Boulder Badge"
+  },
+  {
+    "id": 32,
+    "name": "Cascade Badge"
+  },
+  {
+    "id": 33,
+    "name": "Thunder Badge"
+  },
+  {
+    "id": 34,
+    "name": "Rainbow Badge"
+  },
+  {
+    "id": 35,
+    "name": "Soul Badge"
+  },
+  {
+    "id": 36,
+    "name": "Marsh Badge"
+  },
+  {
+    "id": 37,
+    "name": "Volcano Badge"
+  },
+  {
+    "id": 38,
     "name": "Earth Badge"
   }
 ]
