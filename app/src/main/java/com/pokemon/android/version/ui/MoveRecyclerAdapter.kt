@@ -43,9 +43,10 @@ class MoveRecyclerAdapter (val context: Context,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = data[position]
+        holder.itemView.tag = position
         holder.moveNameTextView.text = currentItem.name
-        holder.movePowerTextView.text = currentItem.power.toString()
-        holder.movePPTextView.text = currentItem.pp.toString()
+        holder.movePowerTextView.text = "power: " + currentItem.power.toString()
+        holder.movePPTextView.text = "pp: " + currentItem.pp.toString()
         holder.moveCategoryTextView.text = currentItem.category.toString()
     }
 }

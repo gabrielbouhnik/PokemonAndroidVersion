@@ -13,6 +13,7 @@ import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.move.Move
+import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.MoveUtils
 
 class PokemonMenu {
@@ -125,6 +126,7 @@ class PokemonMenu {
     }
 
     private fun loadMovesLayout(activity : MainActivity, pokemon: Pokemon){
+        var selectedMoveNumber : Int? = null
         activity.setContentView(R.layout.move_layout)
         val backButton : Button = activity.findViewById(R.id.moveMenuBackButton)
         backButton.setOnClickListener{
@@ -134,12 +136,29 @@ class PokemonMenu {
         currentMovesRecyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         val movesRecyclerView = activity.findViewById<RecyclerView>(R.id.movesRecyclerView)
         movesRecyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        currentMovesRecyclerView.adapter = MoveRecyclerAdapter(activity, MoveUtils.getMoveList(pokemon).map{it.move}.toMutableList() , View.OnClickListener {})
-        var possibleMoves : ArrayList<Move> = ArrayList(MoveUtils.getPossibleMoves(pokemon))
+        val currentMoves : ArrayList<Move> = ArrayList(MoveUtils.getMoveList(pokemon).map{it.move})
+        val possibleMoves : ArrayList<Move> = ArrayList(MoveUtils.getPossibleMoves(pokemon))
+        val currentMovesItemClickListener = View.OnClickListener {
+            selectedMoveNumber = it.tag as Int
+        }
+        currentMovesRecyclerView.adapter = MoveRecyclerAdapter(activity,currentMoves , currentMovesItemClickListener)
+
         val movesItemClickListener = View.OnClickListener {
             val position = it.tag as Int
-            pokemon.autoLearnMove(possibleMoves[position])
-            currentMovesRecyclerView.adapter = MoveRecyclerAdapter(activity, MoveUtils.getMoveList(pokemon).map{it.move}.toMutableList(), View.OnClickListener {})
+            if (currentMoves.size < 4) {
+                pokemon.autoLearnMove(possibleMoves[position])
+                loadPokemonInfoLayout(activity, pokemon)
+            }
+            else if (selectedMoveNumber != null){
+                var pkmnMove = PokemonMove(possibleMoves[position],possibleMoves[position].pp)
+                when(selectedMoveNumber){
+                    0 -> pokemon.move1 = pkmnMove
+                    1 -> pokemon.move2 = pkmnMove
+                    2 -> pokemon.move3 = pkmnMove
+                    3 -> pokemon.move4 = pkmnMove
+                }
+                loadPokemonInfoLayout(activity, pokemon)
+            }
         }
         movesRecyclerView.adapter = MoveRecyclerAdapter(activity, possibleMoves, movesItemClickListener)
     }
