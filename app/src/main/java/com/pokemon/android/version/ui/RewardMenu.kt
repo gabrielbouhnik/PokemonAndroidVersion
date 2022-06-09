@@ -19,9 +19,13 @@ class RewardMenu {
         recyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         val adapter =  RewardRecyclerAdapter(activity, if (firstTime) levelData.rewards else ArrayList(levelData.rewards.filter{it.itemId != 0}))
         recyclerView.adapter = adapter
-        levelData.rewards.filter{it.itemId != 0}.forEach{
-            if (it.itemId == 0) {
-                activity.trainer!!.coins += it.quantity
+        levelData.rewards.forEach{
+            if (it.itemId > 30){
+                if (firstTime)
+                    activity.trainer!!.addItem(it.itemId, it.quantity)
+            }
+            else if (it.itemId == 0) {
+                activity.trainer!!.coins += if (firstTime) it.quantity else it.quantity/10
             }
             else
                 activity.trainer!!.addItem(it.itemId, it.quantity)

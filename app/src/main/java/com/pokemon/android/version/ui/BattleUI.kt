@@ -122,7 +122,7 @@ class BattleUI {
                 rewardsButton.visibility = VISIBLE
                 rewardsButton.text = "See Rewards"
                 rewardsButton.setOnClickListener{
-                    activity.trainer!!.receiveExp(if (firstTime) battle.levelData.exp else battle.levelData.exp/2)
+                    activity.trainer!!.receiveExp(battle.levelData.exp)
                     rewardMenu.loadRewardMenu(activity, battle.levelData, firstTime)
                 }
             }
@@ -242,7 +242,7 @@ class BattleUI {
             val recyclerView = activity.findViewById<RecyclerView>(R.id.battleRecyclerView)
             recyclerView.visibility = VISIBLE
             recyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-            val items : ArrayList<ItemQuantity> = ArrayList(ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items).filter{it.itemId < 14})
+            val items : ArrayList<ItemQuantity> = ArrayList(ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items).filter{it.itemId < 16})
             val myItemClickListener = View.OnClickListener {
                 val position = it.tag as Int
                 val clickedItem : ItemQuantity = items[position]

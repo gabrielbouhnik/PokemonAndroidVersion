@@ -14,8 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
+import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Pokemon
+import com.pokemon.android.version.model.item.ItemQuantity
 import com.pokemon.android.version.utils.DailyHeal
 import java.io.InputStream
 
@@ -60,6 +62,7 @@ class MainMenu {
         var trainerCardButton : Button = activity.findViewById(R.id.trainerCardButton)
         trainerCardButton.setOnClickListener {
             loadTrainerCardMenu(activity)
+            SaveManager.save(activity)
         }
     }
 
@@ -77,5 +80,9 @@ class MainMenu {
         nameTextView.text = activity.trainer!!.name
         var androCoinTextView : TextView = activity.findViewById(R.id.androCoinTextView)
         androCoinTextView.text = activity.trainer!!.coins.toString() + " AndroCoins"
+        val recyclerView = activity.findViewById<RecyclerView>(R.id.badgesRecyclerView)
+        recyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        val adapter =  ItemRecyclerAdapter(activity, ArrayList(ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items).filter{it.itemId > 30}),View.OnClickListener{})
+        recyclerView.adapter = adapter
     }
 }

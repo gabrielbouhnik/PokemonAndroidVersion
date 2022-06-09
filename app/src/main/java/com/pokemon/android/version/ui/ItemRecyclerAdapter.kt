@@ -46,8 +46,10 @@ class ItemRecyclerAdapter(var activity : MainActivity,
         val currentItem = data[position]
         var name = activity.gameDataService.items[currentItem.itemId].name
         holder.nameTextView.text = name
-        holder.quantityTextView.text = "x ${currentItem.quantity}"
-        holder.itemView.tag = position
+        if (currentItem.itemId < 31) {
+            holder.quantityTextView.text = "x ${currentItem.quantity}"
+            holder.itemView.tag = position
+        }
         /*Glide.with(activity)
             .load(MainActivity.itemsSpritesUrl + name.lowercase().replace(" ", "-") + ".png")
             .into(holder.spriteView)*/
