@@ -194,7 +194,7 @@ class BattleUI {
         val switchButton : Button = activity.findViewById(R.id.switchPokemonButton)
         val bagButton : Button = activity.findViewById(R.id.bagButton)
         switchButton.setOnClickListener {
-            if (battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED)) {
+            if (!battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED)) {
                 val closeButton: Button = activity.findViewById(R.id.closeTeamButton)
                 closeButton.visibility = VISIBLE
                 switchButton.visibility = GONE
