@@ -171,7 +171,7 @@ class PokemonMenu {
         movesRecyclerView.adapter = MoveRecyclerAdapter(activity, possibleMoves, movesItemClickListener)
     }
 
-    private fun loadPokemonInfoLayout(activity : MainActivity, pokemon: Pokemon) {
+    fun loadPokemonInfoLayout(activity : MainActivity, pokemon: Pokemon) {
         activity.setContentView(R.layout.pokemon_info)
         displayPokemonInfo(activity, pokemon)
         val backButton : Button = activity.findViewById(R.id.pokemonInfoBackButton)

@@ -796,6 +796,212 @@
       "icon": "images/VS_Misty.png",
       "background": "images/building_battle_background.jpg",
       "exp": 250
+    },
+    {
+      "id":20,
+      "name": "\nRoute 6",
+      "description": "Guards are blocking your access to Saffron City. You decide to go through an underground and challenge the gym in the city south of Saffron City.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Campeur.png",
+          "name" : "Camper Jeff",
+          "pokemons": [
+            {
+              "id": 20,
+              "level": 20,
+              "moveIds": [
+                2,3,23,28
+              ]
+            },
+            {
+              "id": 21,
+              "level": 20,
+              "moveIds": [
+                10,11
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Bug_Catcher.png",
+          "name" : "Bug Catcher Elijah",
+          "pokemons": [
+            {
+              "id": 12,
+              "level": 19,
+              "moveIds": [
+                2,4,35,39
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 60
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 5,
+          "quantity": 2
+        }
+      ],
+      "startDialog": "I've never seen you around! Are you good?",
+      "endDialogWin": "I like bugs, so I'm going back to VIRIDIAN FOREST",
+      "endDialogLoose": "I'm surprised, you look pretty tough",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 180
+    },
+    {
+      "id": 21,
+      "name": "\nVermilion City Gym",
+      "description": "You have arrived in Vermilion City and you are going to challenge the gym immediately. As usual, you will have to defeat the guard before challenging the gym leader.",
+      "type": "Trainer Battle",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Rocker.png",
+          "name" : "Rocker Vicent",
+          "pokemons": [
+            {
+              "id": 100,
+              "level": 21,
+              "moveIds": [
+                2,8,41
+              ]
+            },
+            {
+              "id": 100,
+              "level": 21,
+              "moveIds": [
+                2,8,41
+              ]
+            },
+            {
+              "id": 100,
+              "level": 21,
+              "moveIds": [
+                2,8,41
+              ]
+            },
+            {
+              "id": 100,
+              "level": 21,
+              "moveIds": [
+                2,8,41
+              ]
+            },
+            {
+              "id": 100,
+              "level": 21,
+              "moveIds": [
+                2,8,41
+              ]
+            },
+            {
+              "id": 100,
+              "level": 21,
+              "moveIds": [
+                12,8,41
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 5,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "This is no place for kids!",
+      "endDialogWin": "Watch out for Lt. Surge's electric pokemon",
+      "endDialogLoose": "I told you...",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 280
+    },
+    {
+      "id": 22,
+      "name": "\nVS Lt. Surge",
+      "description": "As you have defeated the guard, you can finally face Lt. Surge, the gym leader of Vermilion City.",
+      "type": "Trainer Battle",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Surge.png",
+          "name" : "Gym Leader Lt. Surge",
+          "pokemons": [
+            {
+              "id": 25,
+              "level": 22,
+              "moveIds": [
+                3,13,52
+              ]
+            },
+            {
+              "id": 100,
+              "level": 22,
+              "moveIds": [
+                2,12,52
+              ]
+            },
+            {
+              "id": 26,
+              "level": 28,
+              "moveIds": [
+                43,12,13,52
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        },
+        {
+          "id": 33,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hey, kid! What do you think you're doing here? You won't live long in combat! That's for sure!",
+      "endDialogWin": "Whoa! You're the real deal, kid! Fine then, take the Thunder Badge.",
+      "endDialogLoose": "Oh yeah! I'm strong!",
+      "music": 3,
+      "icon": "images/VS_Surge.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 350
     }
   ],
   "randomWildEncounters": [
@@ -831,7 +1037,7 @@
       ],
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
-      "music": 2,
+      "music": 1,
       "exp": 40
     },
     {
@@ -867,7 +1073,7 @@
       ],
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
-      "music": 2,
+      "music": 1,
       "exp": 40
     },
     {
@@ -895,7 +1101,7 @@
       ],
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
-      "music": 2,
+      "music": 1,
       "exp": 40
     },
     {
@@ -927,7 +1133,7 @@
       ],
       "icon": "images/forest_battle_background.jpg",
       "background": "images/forest_battle_background.jpg",
-      "music": 2,
+      "music": 1,
       "exp": 50
     },
     {
@@ -955,7 +1161,7 @@
       ],
       "icon": "images/cave_battle_background.png",
       "background": "images/cave_battle_background.png",
-      "music": 2,
+      "music": 1,
       "exp": 50
     },
     {
@@ -987,8 +1193,40 @@
       ],
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
-      "music": 2,
+      "music": 1,
       "exp": 70
+    },
+    {
+      "id": 19,
+      "name": "\nRoute 5",
+      "description": "After getting your second badge, you head to the nearest gym: the one in Saffron City",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 18,
+        "maxLevel": 21,
+        "encounters": [
+          16,17,69,163
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 40
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 90
     }
   ]
 }

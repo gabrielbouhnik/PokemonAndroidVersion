@@ -18,7 +18,10 @@ class ItemMenu {
         activity.setContentView(R.layout.item_menu)
         val backButton : Button = activity.findViewById(R.id.itemMenuBackButton)
         backButton.setOnClickListener{
-            activity.mainMenu.loadGameMenu(activity)
+            if (pokemon != null)
+                activity.mainMenu.pokemonMenu.loadPokemonInfoLayout(activity, pokemon)
+            else
+                activity.mainMenu.loadGameMenu(activity)
         }
         items = ArrayList(ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items).filter{it.itemId < 31})
         val recyclerView = activity.findViewById<RecyclerView>(R.id.itemRecyclerView)

@@ -10,6 +10,7 @@ import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.MoveUtils
+import kotlin.math.max
 import kotlin.math.roundToInt
 import kotlin.random.Random
 import kotlin.random.nextInt
@@ -228,11 +229,16 @@ class Pokemon(
     }
 
     fun gainExp(value: Int) {
+        val maxLevel = trainer!!.getMaxLevel()
+        if (this.level >= maxLevel)
+            return
         var exp = value
         while (this.currentExp + exp >= level * 15 * data.expGaugeCoeff) {
             exp -= (level * 15 * data.expGaugeCoeff - this.currentExp).toInt()
             this.currentExp = 0
             gainLevel()
+            if (level == maxLevel)
+                return
         }
         this.currentExp += exp
     }
@@ -244,6 +250,8 @@ class Pokemon(
         if (condition!!.level != null && level >= condition.level!!) {
             return true
         }
+        if (condition.itemId != null && this.trainer!!.items.containsKey(condition!!.itemId))
+            return true
         return false
     }
 

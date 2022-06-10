@@ -326,7 +326,7 @@
       "name": "Sleep Powder",
       "power": 0,
       "pp": 15,
-      "type": 4,
+      "type": 1,
       "category" :"OTHER",
       "accuracy": 75,
       "description": "",

@@ -107,4 +107,24 @@ class Trainer  : ITrainer{
                 pokemon.gainExp(exp)
         }
     }
+
+    fun getMaxLevel(): Int{
+        if (items.contains(38))
+            return 100
+        if (items.contains(37))
+            return 60
+        if (items.contains(36))
+            return 55
+        if (items.contains(35))
+            return 50
+        if (items.contains(34))
+            return 45
+        if (items.contains(33))
+            return 40
+        if (items.contains(32))
+            return 35
+        if (items.contains(31))
+            return 30
+        return 20
+    }
 }

@@ -10,7 +10,7 @@ class RareCandy : Item {
     }
 
     override fun isUsable(pokemon: Pokemon): Boolean {
-        return pokemon.level < 100
+        return pokemon.level < pokemon.trainer!!.getMaxLevel()
     }
 
     override fun apply(pokemon: Pokemon) {

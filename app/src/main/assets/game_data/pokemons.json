@@ -485,6 +485,14 @@
         {
           "moveId": 4,
           "level": 10
+        },
+        {
+          "moveId": 35,
+          "level": 12
+        },
+        {
+          "moveId": 39,
+          "level": 16
         }
       ],
       "movesLearnWithHM": [
@@ -1957,6 +1965,7 @@
     "catchRate": 0.3,
     "evolutionId": 212,
     "evolutionCondition": {
+      "itemId" : 23
     },
     "expGaugeCoeff": 1.3
   },
