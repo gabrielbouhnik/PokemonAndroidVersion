@@ -7,6 +7,7 @@ class ItemQuantity(var itemId : Int, var quantity : Int) {
             for ((key, value) in items) {
                 res.add(ItemQuantity(key,value))
             }
+            res.sortBy { it.itemId }
             return res
         }
     }
