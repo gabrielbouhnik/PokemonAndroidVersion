@@ -31,7 +31,7 @@ class ItemMenu {
                 val position = it.tag as Int
                 activity.trainer!!.useItem(items[position].itemId, pokemon)
                 SaveManager.save(activity)
-                activity.mainMenu.pokemonMenu.loadPokemonMenu(activity)
+                activity.mainMenu.pokemonMenu.loadPokemonInfoLayout(activity, pokemon)
             })
         recyclerView.adapter = adapter
     }

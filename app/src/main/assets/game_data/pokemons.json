@@ -939,6 +939,10 @@
           "level": 9
         },
         {
+          "moveId": 58,
+          "level": 20
+        },
+        {
           "moveId": 37,
           "level": 33
         }
@@ -973,6 +977,10 @@
         {
           "moveId": 23,
           "level": 9
+        },
+        {
+          "moveId": 58,
+          "level": 20
         },
         {
           "moveId": 27,
@@ -1189,6 +1197,10 @@
     "spDef": 40,
     "speed": 55,
     "catchRate": 0.5,
+    "evolutionId": 42,
+    "evolutionCondition": {
+      "level": 22
+    },
     "expGaugeCoeff": 1.0
   },
   {
@@ -1233,6 +1245,10 @@
     "spDef": 75,
     "speed": 90,
     "catchRate": 0.4,
+    "evolutionId": 169,
+    "evolutionCondition": {
+      "level": 36
+    },
     "expGaugeCoeff": 1.25
   },
   {
@@ -1407,6 +1423,10 @@
           "level": 15
         },
         {
+          "moveId": 58,
+          "level": 23
+        },
+        {
           "moveId": 18,
           "level": 39
         }
@@ -1447,6 +1467,10 @@
           "level": 15
         },
         {
+          "moveId": 58,
+          "level": 24
+        },
+        {
           "moveId": 18,
           "level": 39
         }
@@ -1485,6 +1509,10 @@
         {
           "moveId": 34,
           "level": 15
+        },
+        {
+          "moveId": 58,
+          "level": 24
         },
         {
           "moveId": 18,
@@ -1823,6 +1851,7 @@
     "speed": 85,
     "evolutionId": 230,
     "evolutionCondition": {
+      "itemId": 22
     },
     "expGaugeCoeff": 1.5
   },
@@ -1965,7 +1994,7 @@
     "catchRate": 0.3,
     "evolutionId": 212,
     "evolutionCondition": {
-      "itemId" : 23
+      "itemId": 23
     },
     "expGaugeCoeff": 1.3
   },
@@ -2142,6 +2171,10 @@
         {
           "moveId": 39,
           "level": 9
+        },
+        {
+          "moveId": 50,
+          "level": 18
         }
       ],
       "movesLearnWithHM": [
@@ -2178,6 +2211,10 @@
         {
           "moveId": 39,
           "level": 9
+        },
+        {
+          "moveId": 50,
+          "level": 18
         }
       ],
       "movesLearnWithHM": [
@@ -2190,6 +2227,50 @@
     "spDef": 96,
     "speed": 70,
     "catchRate": 0.4,
+    "expGaugeCoeff": 1.5
+  },
+  {
+    "id": 169,
+    "name": "Crobat",
+    "type1": 6,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 47,
+          "level": 1
+        },
+        {
+          "moveId": 16,
+          "level": 4
+        },
+        {
+          "moveId": 23,
+          "level": 9
+        },
+        {
+          "moveId": 48,
+          "level": 17
+        },
+        {
+          "moveId": 49,
+          "level": 25
+        },
+        {
+          "moveId": 50,
+          "level": 34
+        }
+      ],
+      "movesLearnWithHM": [
+      ]
+    },
+    "hp": 85,
+    "attack": 90,
+    "defense": 80,
+    "spAtk": 70,
+    "spDef": 80,
+    "speed": 130,
+    "catchRate": 0.3,
     "expGaugeCoeff": 1.5
   },
   {

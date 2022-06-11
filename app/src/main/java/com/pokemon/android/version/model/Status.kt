@@ -14,6 +14,17 @@ enum class Status {
     FLINCHED,
     TRAPPED;
 
+    fun toBattleIcon() : String {
+        when(this){
+            BURN -> return "BRN"
+            PARALYSIS -> return "PAR"
+            POISON -> return "PSN"
+            ASLEEP -> return "SLP"
+            else -> "OK"
+        }
+        return ""
+    }
+
     companion object{
         fun updateStatus(opponent : Pokemon, statusMove : StatusMove){
             val randomForStatus : Int = Random.nextInt(100)
@@ -27,6 +38,8 @@ enum class Status {
                         if (statusMove.status == PARALYSIS && (opponent.data.type1 != Type.ELECTRIC && opponent.data.type2 != Type.ELECTRIC))
                             opponent.status = statusMove.status
                         if (statusMove.status == POISON && (opponent.data.type1 != Type.POISON && opponent.data.type2 != Type.POISON))
+                            opponent.status = statusMove.status
+                        if (statusMove.status == ASLEEP)
                             opponent.status = statusMove.status
                     }
                 }

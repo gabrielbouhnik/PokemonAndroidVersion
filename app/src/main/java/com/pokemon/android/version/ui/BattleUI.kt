@@ -66,10 +66,28 @@ class BattleUI {
         val trainerPokemonHPLevel : TextView =  activity.findViewById(R.id.myPokemonHPLevelTextView)
         trainerPokemonHPLevel.text = "Lv . ${battle.pokemon.level} ${battle.pokemon.currentHP}/${battle.pokemon.hp}"
 
+        val pokemonStatusTextView : TextView = activity.findViewById(R.id.pokemonBattleStatusTextView)
+        if (battle.pokemon.status != Status.OK){
+            pokemonStatusTextView.visibility = VISIBLE
+            pokemonStatusTextView.text = battle.pokemon.status.toBattleIcon()
+        }
+        else{
+            pokemonStatusTextView.visibility = GONE
+        }
+
         val opponentPokemonName : TextView =  activity.findViewById(R.id.opponentPokemonNameTextView)
         opponentPokemonName.text = battle.opponent.data.name
         val opponentPokemonHPLevel : TextView =  activity.findViewById(R.id.opponentPokemonHPLevelTextView)
         opponentPokemonHPLevel.text = "Lv . ${battle.opponent.level} ${battle.opponent.currentHP}/${battle.opponent.hp}"
+
+        val opponentStatusTextView : TextView = activity.findViewById(R.id.opponentStatusTextView)
+        if (battle.opponent.status != Status.OK){
+            opponentStatusTextView.visibility = VISIBLE
+            opponentStatusTextView.text = battle.opponent.status.toBattleIcon()
+        }
+        else{
+            opponentStatusTextView.visibility = GONE
+        }
     }
 
     private fun disableButton(activity: MainActivity, id : Int){
@@ -158,33 +176,49 @@ class BattleUI {
         updateByBattleState(activity, battle)
     }
 
-    private fun setupAttackButton(activity : MainActivity, battle : Battle, move : PokemonMove?, id : Int){
+    private fun setupAttackButton(activity : MainActivity, battle : Battle, move : PokemonMove?, id : Int, ppId : Int){
         val attackButton : Button =  activity.findViewById(id)
+        val ppTextView : TextView =  activity.findViewById(ppId)
         if (move != null && move.pp > 0){
             attackButton.visibility = VISIBLE
             attackButton.text = move.move.name
             ColorUtils.setButtonColor(move.move.type,attackButton)
+            ppTextView.visibility = VISIBLE
+            ppTextView.text = "${move.pp}/${move.move.pp}"
             attackButton.setOnClickListener{
                 battle.turn(move)
+                ppTextView.text = "${move.pp}/${move.move.pp}"
                 updateBattleUI(activity, battle)
             }
+        }
+        else {
+            attackButton.visibility = GONE
+            ppTextView.visibility = GONE
         }
     }
 
     private fun setUpAttackButtons(activity : MainActivity, battle : Battle){
         val attack1Button : Button =  activity.findViewById(R.id.attack1Button)
+        val ppTextView : TextView =  activity.findViewById(R.id.attack1PPTextView)
         if (battle.pokemon.move1.pp > 0){
             attack1Button.visibility = VISIBLE
             attack1Button.text = battle.pokemon.move1.move.name
             ColorUtils.setButtonColor(battle.pokemon.move1.move.type,attack1Button)
+            ppTextView.visibility = VISIBLE
+            ppTextView.text = "${battle.pokemon.move1.pp}/${battle.pokemon.move1.move.pp}"
             attack1Button.setOnClickListener{
                 battle.turn(battle.pokemon.move1)
+                ppTextView.text = "${battle.pokemon.move1.pp}/${battle.pokemon.move1.move.pp}"
                 updateBattleUI(activity, battle)
             }
         }
-        setupAttackButton(activity, battle, battle.pokemon.move2,R.id.attack2Button)
-        setupAttackButton(activity, battle, battle.pokemon.move3,R.id.attack3Button)
-        setupAttackButton(activity, battle, battle.pokemon.move4,R.id.attack4Button)
+        else {
+            attack1Button.visibility = GONE
+            ppTextView.visibility = GONE
+        }
+        setupAttackButton(activity, battle, battle.pokemon.move2,R.id.attack2Button, R.id.attack2PPTextView)
+        setupAttackButton(activity, battle, battle.pokemon.move3,R.id.attack3Button, R.id.attack3PPTextView)
+        setupAttackButton(activity, battle, battle.pokemon.move4,R.id.attack4Button, R.id.attack4PPTextView)
     }
 
     private fun buttonSetUp(activity : MainActivity, battle : Battle){

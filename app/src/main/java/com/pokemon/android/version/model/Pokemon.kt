@@ -138,6 +138,7 @@ class Pokemon(
         }
         if (this.status == Status.ASLEEP) {
             if (battleData!!.sleepCounter == 2) {
+                battleData!!.sleepCounter = 0
                 this.status = Status.OK
             } else
                 return AttackResponse(false, this.data.name + " is fast asleep!\n")
@@ -147,7 +148,6 @@ class Pokemon(
             val random: Int = Random.nextInt(100)
             if (random > move.move.accuracy!! * battleData!!.accuracyMultiplicator)
                 return AttackResponse(false, this.data.name + "'s attack missed!\n")
-
         }
         var damage = 0
         if (move.move.power > 0) {

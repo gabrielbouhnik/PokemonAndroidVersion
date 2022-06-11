@@ -80,6 +80,8 @@ class MainMenu {
         nameTextView.text = activity.trainer!!.name
         var androCoinTextView : TextView = activity.findViewById(R.id.androCoinTextView)
         androCoinTextView.text = activity.trainer!!.coins.toString() + " AndroCoins"
+        var maxLevelTextView : TextView = activity.findViewById(R.id.maxLevelTextView)
+        maxLevelTextView.text = "Your Pokemon will gain experience up to level " + activity.trainer!!.getMaxLevel()
         val recyclerView = activity.findViewById<RecyclerView>(R.id.badgesRecyclerView)
         recyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         val adapter =  ItemRecyclerAdapter(activity, ArrayList(ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items).filter{it.itemId > 30}),View.OnClickListener{})

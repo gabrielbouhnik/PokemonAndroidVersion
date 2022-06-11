@@ -74,7 +74,7 @@
         "rate" : 10
       }
     ],
-    "days" : ["THURSDAY","FRIDAY"]
+    "days" : ["TUESDAY","THURSDAY","SATURDAY"]
   },
   {
     "image" : "images/scyther_banner.JPG",
@@ -112,11 +112,11 @@
         "rate" : 10
       }
     ],
-    "days" : ["WEDNESDAY","FRIDAY"]
+    "days" : ["TUESDAY","THURSDAY","SUNDAY"]
   },
   {
     "image" : "images/dratini_banner.JPG",
-    "description" : "Get a special Dratini",
+    "description" : "Get a Dratini",
     "cost" : 120,
     "pokemons": [
       {
@@ -151,7 +151,7 @@
         "rate" : 10
       }
     ],
-    "days" : ["MONDAY","SATURDAY"]
+    "days" : ["FRIDAY","SUNDAY"]
   },
   {
     "image" : "images/HyperBall.png",
@@ -188,7 +188,7 @@
         "rate" : 5
       }
     ],
-    "days" : ["TUESDAY","SATURDAY"]
+    "days" : ["MONDAY","FRIDAY"]
   },
   {
     "image" : "images/evolution_stones_banner.JPG",
@@ -230,6 +230,52 @@
         "rate" : 5
       }
     ],
-    "days" : ["THURSDAY","SUNDAY"]
+    "days" : ["WEDNESDAY","SATURDAY"]
+  },
+  {
+    "image" : "images/evolution_items_banner.png",
+    "description" : "Get items with the ability to make certain species of Pokémon evolve like Seadra and Scyther",
+    "cost" : 50,
+    "pokemons": [
+    ],
+    "items": [
+      {
+        "id": 2,
+        "rate" : 15
+      },
+      {
+        "id": 4,
+        "rate" : 15
+      },
+      {
+        "id": 9,
+        "rate" : 15
+      },
+      {
+        "id": 11,
+        "rate" : 30
+      },
+      {
+        "id": 20,
+        "rate" : 5
+      },
+      {
+        "id": 21,
+        "rate" : 5
+      },
+      {
+        "id": 22,
+        "rate" : 5
+      },
+      {
+        "id": 23,
+        "rate" : 5
+      },
+      {
+        "id": 24,
+        "rate" : 5
+      }
+    ],
+    "days" : ["MONDAY","WEDNESDAY"]
   }
 ]

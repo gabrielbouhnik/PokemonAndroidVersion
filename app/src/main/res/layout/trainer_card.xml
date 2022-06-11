@@ -24,6 +24,13 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="100dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="80dp"
             android:textSize="18sp" android:textAlignment="viewStart"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="175dp"
+            android:layout_height="66dp" android:id="@+id/maxLevelTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="140dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="44dp"
+            android:textSize="18sp" android:textAlignment="viewStart"/>
     <Button
             android:text="Back"
             android:layout_width="wrap_content"

@@ -704,6 +704,20 @@
       "statsAffected" : ["SPEED"],
       "target": "OPPONENT",
       "multiplicator": 0.75
+    },
+    {
+      "id": 58,
+      "name": "Acid",
+      "power": 40,
+      "pp": 30,
+      "type": 8,
+      "category" :"SPECIAL",
+      "accuracy": 100,
+      "description": "",
+      "statsAffected" : ["SPDEF"],
+      "target": "OPPONENT",
+      "multiplicator": 0.75,
+      "probabilty": 10
     }
   ]
 }
