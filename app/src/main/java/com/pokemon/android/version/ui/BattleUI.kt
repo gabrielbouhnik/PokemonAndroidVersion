@@ -32,7 +32,6 @@ class BattleUI {
         const val GIRL_BACK_SPRITE = "images/HGSS_Lyra_Back.png"
     }
 
-
     var dialogTextView : TextView? = null
     var rewardMenu : RewardMenu = RewardMenu()
 
@@ -90,6 +89,13 @@ class BattleUI {
         }
     }
 
+    private fun disableAttackButton(activity: MainActivity, id : Int, ppId: Int){
+        val button : Button =  activity.findViewById(id)
+        button.visibility = GONE
+        val ppTextView : TextView =  activity.findViewById(ppId)
+        ppTextView.visibility = GONE
+    }
+
     private fun disableButton(activity: MainActivity, id : Int){
         val button : Button =  activity.findViewById(id)
         button.visibility = GONE
@@ -97,10 +103,10 @@ class BattleUI {
 
     private fun disableAttackButtons(activity : MainActivity){
 
-        disableButton(activity, R.id.attack1Button)
-        disableButton(activity, R.id.attack2Button)
-        disableButton(activity, R.id.attack3Button)
-        disableButton(activity, R.id.attack4Button)
+        disableAttackButton(activity, R.id.attack1Button, R.id.attack1PPTextView)
+        disableAttackButton(activity, R.id.attack2Button, R.id.attack2PPTextView)
+        disableAttackButton(activity, R.id.attack3Button, R.id.attack3PPTextView)
+        disableAttackButton(activity, R.id.attack4Button, R.id.attack4PPTextView)
     }
 
     private fun disableBattleButtons(activity : MainActivity){

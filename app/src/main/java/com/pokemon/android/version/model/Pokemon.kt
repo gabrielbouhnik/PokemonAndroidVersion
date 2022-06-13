@@ -121,7 +121,7 @@ class Pokemon(
             return AttackResponse(false, "But ${this.data.name} flinched and couldn't move\n")
         if (this.battleData!!.battleStatus.contains(Status.CONFUSED)) {
             if (Random.nextInt(100) < 33) {
-                var confusionDamage = DamageCalculator.computeConfusionDamage(this)
+                val confusionDamage = DamageCalculator.computeConfusionDamage(this)
                 if (confusionDamage >= opponent.currentHP) {
                     opponent.currentHP = 0
                     opponent.status = Status.OK
@@ -170,7 +170,7 @@ class Pokemon(
                 Status.updateStatus(opponent, move.move as StatusMove)
             }
             if (move.move is StatChangeMove) {
-                var statChangeMove = move.move as StatChangeMove
+                val statChangeMove = move.move as StatChangeMove
                 if (statChangeMove.target == Target.SELF)
                     Stats.updateStat(this, move.move as StatChangeMove)
                 else
@@ -181,7 +181,7 @@ class Pokemon(
     }
 
     private fun recomputeStat() {
-        var addHP: Boolean = hp == currentHP
+        val addHP: Boolean = hp == currentHP
         this.hp = 10 + (data.hp.toFloat() * (level / 50f)).roundToInt()
         this.attack = 5 + (data.attack.toFloat() * (level / 50f)).roundToInt()
         this.defense = 5 + (data.defense.toFloat() * (level / 50f)).roundToInt()
@@ -246,7 +246,7 @@ class Pokemon(
     fun canEvolve(): Boolean {
         if (data.evolutionId == null)
             return false
-        var condition = data.evolutionCondition
+        val condition = data.evolutionCondition
         if (condition!!.level != null && level >= condition.level!!) {
             return true
         }

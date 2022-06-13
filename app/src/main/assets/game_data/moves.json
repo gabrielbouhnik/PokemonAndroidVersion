@@ -300,7 +300,7 @@
       "name": "Flamethrower",
       "power": 90,
       "pp": 15,
-      "type": 4,
+      "type": 2,
       "category" :"SPECIAL",
       "accuracy": 100,
       "description": "",
