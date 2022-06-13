@@ -28,7 +28,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 45,
     "attack": 49,
@@ -72,7 +73,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 60,
     "attack": 62,
@@ -116,7 +118,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 80,
     "attack": 82,
@@ -160,7 +163,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 39,
     "attack": 52,
@@ -208,7 +212,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 58,
     "attack": 64,
@@ -260,7 +265,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 78,
     "attack": 84,
@@ -300,7 +306,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 44,
     "attack": 48,
@@ -344,7 +351,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 59,
     "attack": 63,
@@ -388,7 +396,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 79,
     "attack": 83,
@@ -416,7 +425,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 45,
     "attack": 30,
@@ -452,7 +462,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 50,
     "attack": 20,
@@ -496,7 +507,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 60,
     "attack": 45,
@@ -524,7 +536,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 40,
     "attack": 35,
@@ -560,7 +573,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 45,
     "attack": 25,
@@ -596,7 +610,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 65,
     "attack": 90,
@@ -648,7 +663,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 40,
     "attack": 45,
@@ -704,7 +720,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 63,
     "attack": 60,
@@ -760,7 +777,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 83,
     "attack": 80,
@@ -804,7 +822,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 30,
     "attack": 56,
@@ -852,7 +871,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 55,
     "attack": 81,
@@ -880,7 +900,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 40,
     "attack": 60,
@@ -912,7 +933,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 65,
     "attack": 90,
@@ -948,7 +970,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 35,
     "attack": 60,
@@ -992,7 +1015,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 60,
     "attack": 95,
@@ -1032,7 +1056,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": [13]
     },
     "hp": 35,
     "attack": 55,
@@ -1076,7 +1101,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 60,
     "attack": 90,
@@ -1108,7 +1134,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 50,
     "attack": 75,
@@ -1144,7 +1171,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 75,
     "attack": 100,
@@ -1188,7 +1216,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 40,
     "attack": 45,
@@ -1236,7 +1265,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 75,
     "attack": 80,
@@ -1250,6 +1280,92 @@
       "level": 36
     },
     "expGaugeCoeff": 1.25
+  },
+  {
+    "id": 50,
+    "name": "Diglett",
+    "type1": 10,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 19,
+          "level": 1
+        },
+        {
+          "moveId": 47,
+          "level": 8
+        },
+        {
+          "moveId": 30,
+          "level": 16
+        },
+        {
+          "moveId": 38,
+          "level": 24
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "catchRate": 0.4,
+    "hp": 10,
+    "attack": 55,
+    "defense": 25,
+    "spAtk": 35,
+    "spDef": 45,
+    "speed": 95,
+    "evolutionId": 51,
+    "evolutionCondition": {
+      "level": 26
+    },
+    "expGaugeCoeff": 1.0
+  },
+  {
+    "id": 51,
+    "name": "Dugtrio",
+    "type1": 10,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 19,
+          "level": 1
+        },
+        {
+          "moveId": 47,
+          "level": 8
+        },
+        {
+          "moveId": 30,
+          "level": 16
+        },
+        {
+          "moveId": 38,
+          "level": 24
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "catchRate": 0.3,
+    "hp": 35,
+    "attack": 100,
+    "defense": 50,
+    "spAtk": 50,
+    "spDef": 70,
+    "speed": 120,
+    "expGaugeCoeff": 1.5
   },
   {
     "id": 54,
@@ -1276,7 +1392,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "catchRate": 0.45,
     "hp": 50,
@@ -1316,7 +1433,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "catchRate": 0.4,
     "hp": 80,
@@ -1352,7 +1470,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "catchRate": 0.4,
     "hp": 40,
@@ -1392,7 +1511,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "catchRate": 0.4,
     "hp": 65,
@@ -1432,7 +1552,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 50,
     "attack": 75,
@@ -1476,7 +1597,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 50,
     "attack": 75,
@@ -1520,7 +1642,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 80,
     "attack": 105,
@@ -1556,7 +1679,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "catchRate": 0.4,
     "hp": 40,
@@ -1596,7 +1720,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "catchRate": 0.35,
     "hp": 55,
@@ -1636,7 +1761,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "catchRate": 0.3,
     "hp": 80,
@@ -1672,7 +1798,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "catchRate": 0.4,
     "hp": 35,
@@ -1708,7 +1835,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 40,
     "attack": 30,
@@ -1748,7 +1876,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 60,
     "attack": 50,
@@ -1792,7 +1921,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "catchRate": 0.4,
     "hp": 30,
@@ -1840,7 +1970,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "catchRate": 0.3,
     "hp": 55,
@@ -1892,7 +2023,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "catchRate": 0.45,
     "hp": 30,
@@ -1943,7 +2075,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "catchRate": 0.3,
     "hp": 60,
@@ -1983,7 +2116,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 70,
     "attack": 110,
@@ -2015,7 +2149,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": [15,24]
     },
     "hp": 41,
     "attack": 64,
@@ -2046,7 +2181,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 61,
     "attack": 84,
@@ -2082,7 +2218,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 91,
     "attack": 134,
@@ -2110,7 +2247,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 35,
     "attack": 46,
@@ -2142,7 +2280,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 85,
     "attack": 76,
@@ -2178,7 +2317,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 60,
     "attack": 30,
@@ -2218,7 +2358,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 100,
     "attack": 50,
@@ -2262,7 +2403,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 85,
     "attack": 90,
@@ -2306,7 +2448,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 70,
     "attack": 130,
@@ -2350,7 +2493,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "catchRate": 0.2,
     "hp": 75,
@@ -2374,7 +2518,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "hp": 35,
     "attack": 35,
@@ -2414,7 +2559,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": [57]
     },
     "catchRate": 0.3,
     "hp": 50,
@@ -2430,8 +2576,8 @@
     "expGaugeCoeff": 1.1
   },
   {
-    "id": 246,
-    "name": "Larvitar",
+    "id": 247,
+    "name": "Pupitar",
     "type1": 9,
     "type2": 10,
     "possibleMoves": {
@@ -2458,7 +2604,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "catchRate": 0.25,
     "hp": 70,
@@ -2502,7 +2649,8 @@
         }
       ],
       "movesLearnWithHM": [
-      ]
+      ],
+      "bannerMoves": []
     },
     "catchRate": 0.2,
     "hp": 100,

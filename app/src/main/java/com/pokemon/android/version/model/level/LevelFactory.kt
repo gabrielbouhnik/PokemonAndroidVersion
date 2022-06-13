@@ -10,6 +10,7 @@ class LevelFactory {
             if (levelsEntity != null) {
                 levelsEntity.trainerBattles.forEach { res.add(TrainerBattleLevelData.of(it, gameDataService)) }
                 levelsEntity.randomWildEncounters.forEach { res.add(WildBattleLevelData.of(it, gameDataService)) }
+                levelsEntity.bossBattles.forEach { res.add(BossBattleLevelData.of(it, gameDataService))}
             }
             res.sortBy{it.id}
             return res

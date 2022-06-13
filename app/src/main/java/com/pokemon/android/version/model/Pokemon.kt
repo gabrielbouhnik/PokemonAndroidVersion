@@ -33,7 +33,8 @@ class Pokemon(
     var speed: Int = 0,
     var currentHP: Int = 0,
     var currentExp: Int = 0,
-    var battleData: PokemonBattleData?
+    var battleData: PokemonBattleData?,
+    var isFromBanner : Boolean = false
 ) {
 
 
@@ -76,6 +77,7 @@ class Pokemon(
                 .spDef(pokemonSave.spDef)
                 .speed(pokemonSave.speed)
                 .currentHP(pokemonSave.currentHP)
+                .currentExp(pokemonSave.currentExp)
                 .gender(Gender.valueOf(pokemonSave.gender))
                 .move1(PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[0].id), pokemonSave.moveids[0].pp))
                 .move2(
@@ -106,7 +108,21 @@ class Pokemon(
         var maxDamageIdx = 0
         var Idx = 0
         for (move in usableMoves) {
-            var damage : Int = DamageCalculator.computeDamage(this, move.move, opponent)
+            val damage : Int = DamageCalculator.computeDamage(this, move.move, opponent)
+            if (damage > opponent.currentHP)
+                return move
+            if (damage > 0 && hp/currentHP < 10 && move.move.priorityLevel > 0)
+                return move
+            if (opponent.status == Status.OK && opponent.battleData!!.battleStatus.isEmpty() && move.move is StatusMove)
+                return move
+            if (move.move is StatChangeMove)
+            {
+                val statChangeMove : StatChangeMove = move.move as StatChangeMove
+                if (statChangeMove.statsAffected.contains(Stats.SPEED) && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
+                    return move
+                if (statChangeMove.statsAffected.contains(Stats.ACCURACY) && opponent.battleData!!.accuracyMultiplicator == 1f)
+                    return move
+            }
             if (damage > maxDamage) {
                 maxDamageIdx = Idx
                 maxDamage = damage
@@ -284,7 +300,8 @@ class Pokemon(
         var spDef: Int = 0,
         var speed: Int = 0,
         var currentHP: Int = 0,
-        var currentExp: Int = 0
+        var currentExp: Int = 0,
+        var isFromBanner : Boolean = false
     ) {
         fun data(data: PokemonData) = apply { this.data = data }
         fun trainer(trainer: Trainer) = apply { this.trainer = trainer }
@@ -302,6 +319,8 @@ class Pokemon(
         fun spDef(spDef: Int) = apply { this.spDef = spDef }
         fun speed(speed: Int) = apply { this.speed = speed }
         fun currentHP(currentHP: Int) = apply { this.currentHP = currentHP }
+        fun currentExp(currentExp: Int) = apply { this.currentExp = currentExp }
+        fun isFromBanner(isFromBanner: Boolean) = apply { this.isFromBanner = isFromBanner }
         fun build() = Pokemon(
             data!!,
             trainer,
@@ -319,8 +338,9 @@ class Pokemon(
             spDef,
             speed,
             currentHP,
-            0,
-            PokemonBattleData()
+            currentExp,
+            PokemonBattleData(),
+            isFromBanner
         )
 
     }

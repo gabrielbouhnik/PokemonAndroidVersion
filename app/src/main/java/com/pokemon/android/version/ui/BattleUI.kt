@@ -14,11 +14,9 @@ import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
-import com.pokemon.android.version.model.battle.Battle
-import com.pokemon.android.version.model.battle.State
-import com.pokemon.android.version.model.battle.TrainerBattle
-import com.pokemon.android.version.model.battle.WildBattle
+import com.pokemon.android.version.model.battle.*
 import com.pokemon.android.version.model.item.ItemQuantity
+import com.pokemon.android.version.model.level.BossBattleLevelData
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.level.WildBattleLevelData
@@ -129,7 +127,7 @@ class BattleUI {
                 }
             }
             State.TRAINER_VICTORY -> {
-                var firstTime : Boolean = activity.trainer!!.progression == battle.levelData.id
+                val firstTime : Boolean = activity.trainer!!.progression == battle.levelData.id
                 activity.updateMusic(R.raw.victory_theme)
                 if (firstTime)
                     activity.trainer!!.progression++
@@ -147,6 +145,7 @@ class BattleUI {
                 rewardsButton.text = "See Rewards"
                 rewardsButton.setOnClickListener{
                     activity.trainer!!.receiveExp(battle.levelData.exp)
+                    battle.pokemon.gainExp((battle.levelData.exp * 0.25).toInt())
                     rewardMenu.loadRewardMenu(activity, battle.levelData, firstTime)
                 }
             }
@@ -344,5 +343,18 @@ class BattleUI {
             displayPokemonsInfos(activity, trainerBattle)
             rewardsButton.visibility = GONE
         }
+    }
+
+    fun startBossBattle(activity : MainActivity, level: BossBattleLevelData){
+        activity.updateMusic(R.raw.boss_battle)
+        activity.setContentView(R.layout.battle_layout)
+        dialogTextView = activity.findViewById(R.id.dialogTextView)
+        val trainerBackSprite : ImageView = activity.findViewById(R.id.trainerBackSpriteView)
+        loadMainTrainerSprite(trainerBackSprite, activity)
+        loadBackgroundImage(level,activity)
+        val bossBattle = BossBattle(activity, level)
+        buttonSetUp(activity,bossBattle)
+        dialogTextView!!.text = "${bossBattle.opponent.data.name} appeared!\nIt looks very powerful and is not the kind to be caught."
+        displayPokemonsInfos(activity, bossBattle)
     }
 }

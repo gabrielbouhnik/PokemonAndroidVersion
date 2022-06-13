@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
+import com.pokemon.android.version.model.level.BossBattleLevelData
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.level.WildBattleLevelData
@@ -20,6 +21,9 @@ class LevelMenu {
                 activity,
                 level
             )
+        else if (level is BossBattleLevelData) {
+            battleUI.startBossBattle(activity, level)
+        }
         else
             battleUI.startTrainerBattle(
                 activity,
@@ -46,7 +50,7 @@ class LevelMenu {
                     startBattle(activity,activity.gameDataService.levels[position])
                 }
         }
-        val adapter = LevelRecyclerAdapter(activity, myItemClickListener)
+        val adapter = LevelRecyclerAdapter(activity, activity.gameDataService.levels.filter{it.id <= activity.trainer!!.progression}, myItemClickListener)
         recyclerView.adapter = adapter
     }
 

@@ -9,9 +9,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
+import com.pokemon.android.version.model.level.LevelData
 import java.io.InputStream
 
 class LevelRecyclerAdapter (var activity : MainActivity,
+                            var data : List<LevelData>,
                             private val onItemClickListener: View.OnClickListener) :
     RecyclerView.Adapter<LevelRecyclerAdapter.ViewHolder>() {
 
@@ -25,7 +27,7 @@ class LevelRecyclerAdapter (var activity : MainActivity,
     }
 
     override fun getItemCount(): Int {
-        return activity.gameDataService.levels.size
+        return data.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -38,7 +40,7 @@ class LevelRecyclerAdapter (var activity : MainActivity,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentItem = activity.gameDataService.levels[position]
+        val currentItem = data[position]
         holder.nameTextView.text = currentItem.name
         holder.itemView.tag = position
         var img : InputStream = activity.assets.open(currentItem.icon)

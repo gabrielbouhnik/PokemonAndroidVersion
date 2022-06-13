@@ -116,7 +116,7 @@
   },
   {
     "image" : "images/dratini_banner.JPG",
-    "description" : "Get a Dratini",
+    "description" : "Get a Dratini with the move Dragon Breath",
     "cost" : 120,
     "pokemons": [
       {

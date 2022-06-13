@@ -11,6 +11,7 @@ class PokemonData (val id : Int,
                    val type2 : Type,
                    val movesByLevel : List<MoveLearnedByLevel>,
                    val movesByTM : List<MoveLearned>,
+                   val bannerMoves : List<MoveLearned>,
                    val catchRate : Float,
                    var hp : Int,
                    var attack : Int,
@@ -25,8 +26,10 @@ class PokemonData (val id : Int,
         fun of(pokemonDataEntity : PokemonDataEntity, moves : List<Move>) : PokemonData{
             val movesByLevel : ArrayList<MoveLearnedByLevel> = ArrayList()
             val movesByTM : ArrayList<MoveLearned> = ArrayList()
+            val bannerMoves : ArrayList<MoveLearned> = ArrayList()
             pokemonDataEntity.possibleMoves.movesLearnByLevel.forEach{movesByLevel.add(MoveLearnedByLevel(moves[it.moveId - 1],it.level))}
-            pokemonDataEntity.possibleMoves.movesLearnWithHM.forEach{movesByTM.add(MoveLearned(moves[it.moveId - 1]))}
+            pokemonDataEntity.possibleMoves.movesLearnWithHM.forEach{movesByTM.add(MoveLearned(moves[it - 1]))}
+            pokemonDataEntity.possibleMoves.bannerMoves.forEach{bannerMoves.add(MoveLearned(moves[it - 1]))}
             return PokemonDataBuilder()
                 .id(pokemonDataEntity.id)
                 .name(pokemonDataEntity.name)
@@ -34,6 +37,7 @@ class PokemonData (val id : Int,
                 .type2(Type.of(pokemonDataEntity.type2))
                 .movesByLevel(movesByLevel)
                 .movesByTM(movesByTM)
+                .bannerMoves(bannerMoves)
                 .catchRate(pokemonDataEntity.catchRate)
                 .hp(pokemonDataEntity.hp)
                 .attack(pokemonDataEntity.attack)
@@ -55,6 +59,7 @@ class PokemonData (val id : Int,
         var type2 : Type = Type.NONE,
         var movesByLevel : List<MoveLearnedByLevel> = ArrayList(),
         var movesByTM : List<MoveLearned> = ArrayList(),
+        var bannerMoves : List<MoveLearned> = ArrayList(),
         var catchRate : Float =  0F,
         var hp : Int  = 0,
         var attack : Int = 0,
@@ -72,6 +77,7 @@ class PokemonData (val id : Int,
         fun type2(type: Type) = apply { this.type2 = type }
         fun movesByLevel(movesByLevel: List<MoveLearnedByLevel>) = apply { this.movesByLevel = movesByLevel }
         fun movesByTM(movesByTM: List<MoveLearned>) = apply { this.movesByTM = movesByTM }
+        fun bannerMoves(bannerMoves: List<MoveLearned>) = apply { this.bannerMoves = bannerMoves }
         fun catchRate(catchRate: Float) = apply { this.catchRate = catchRate }
         fun hp(hp: Int) = apply { this.hp = hp }
         fun attack(attack: Int) = apply { this.attack = attack }
@@ -82,6 +88,6 @@ class PokemonData (val id : Int,
         fun evolutionId(evolutionId: Int?) = apply { this.evolutionId = evolutionId }
         fun evolutionCondition(evolutionCondition: EvolutionCondition?) = apply { this.evolutionCondition = evolutionCondition }
         fun expGaugeCoeff(expGaugeCoeff: Float) = apply { this.expGaugeCoeff = expGaugeCoeff }
-        fun build() = PokemonData(id,name,type1,type2, movesByLevel,movesByTM, catchRate, hp, attack, defense, spAtk, spDef, speed, evolutionId, evolutionCondition, expGaugeCoeff )
+        fun build() = PokemonData(id,name,type1,type2, movesByLevel,movesByTM, bannerMoves,catchRate, hp, attack, defense, spAtk, spDef, speed, evolutionId, evolutionCondition, expGaugeCoeff )
     }
 }

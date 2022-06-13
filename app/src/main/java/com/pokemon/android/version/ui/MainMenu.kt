@@ -53,9 +53,9 @@ class MainMenu {
         }
         if (DailyHeal.canUseDailyHeal(activity.trainer!!)) {
             var dailyHealButton: Button = activity.findViewById(R.id.dailyHealButton)
-            activity.playSoundEffect(R.raw.daily_heal_sound_effect)
             dailyHealButton.visibility = VISIBLE
             dailyHealButton.setOnClickListener {
+                activity.playSoundEffect(R.raw.daily_heal_sound_effect)
                 DailyHeal.heal(activity.trainer!!)
                 dailyHealButton.visibility = GONE
             }

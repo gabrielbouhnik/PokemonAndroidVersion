@@ -1227,6 +1227,62 @@
       "background": "images/route_battle_background.png",
       "music": 1,
       "exp": 90
+    },
+    {
+      "id": 23,
+      "name": "\nDiglett’s Cave",
+      "description": "You receive a call from Professor Oak that a powerful pokemon has appeared in Diglett's cave. You go there to find out more.",
+      "encounter": 3,
+      "possibleEncounters":
+      {
+        "minLevel": 25,
+        "maxLevel": 27,
+        "encounters": [
+          50
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "music": 1,
+      "exp": 120
+    }
+  ],
+  "bossBattles": [
+    {
+      "id": 24,
+      "name": "\nVs Dugtrio",
+      "description": "You finally find the powerful pokemon that Professor Oak tells you about. It is a wild Dugtrio. It attacks you by shaking the ground. Stop it before it's too late.",
+      "boss":
+      {
+        "id": 51,
+        "level": 42,
+        "moveIds": [30,38,25,37],
+        "boostedStats": ["SPATK"]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/dugtrio_boss_icon.JPG",
+      "background": "images/cave_battle_background.png",
+      "music": 1,
+      "exp": 400
     }
   ]
 }

@@ -8,6 +8,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.pokemon.android.version.model.Pokemon
+import com.pokemon.android.version.model.Trainer
 import com.pokemon.android.version.ui.MainMenu
 import com.pokemon.android.version.ui.StarterSelection
 import kotlin.random.Random
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private var currentMusicId: Int? = null
-    var trainer : com.pokemon.android.version.model.Trainer? = null
+    var trainer : Trainer? = null
     var mediaPlayer: MediaPlayer? = null
     var gameDataService : GameDataService = GameDataService()
     var starterSelection : StarterSelection? = null

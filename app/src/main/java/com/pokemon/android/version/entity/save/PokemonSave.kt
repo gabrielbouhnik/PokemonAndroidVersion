@@ -8,14 +8,15 @@ class PokemonSave(
     var status: String,
     var level: Int,
     var hp: Int,
-    var attack: Int = 0,
-    var defense: Int = 0,
-    var spAtk: Int = 0,
-    var spDef: Int = 0,
-    var speed: Int = 0,
+    var attack: Int,
+    var defense: Int,
+    var spAtk: Int,
+    var spDef: Int,
+    var speed: Int,
     var currentHP: Int,
     var currentExp: Int,
     var moveids: List<MoveSave>,
+    var isFromBanner : Boolean,
 ) {
     companion object {
         fun of(pokemon: Pokemon): PokemonSave {
@@ -40,7 +41,8 @@ class PokemonSave(
                 pokemon.speed,
                 pokemon.currentHP,
                 pokemon.currentExp,
-                moveIds
+                moveIds,
+                pokemon.isFromBanner
             )
         }
     }

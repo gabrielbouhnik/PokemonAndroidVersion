@@ -25,5 +25,19 @@ enum class Stats {
                 }
             }
         }
+
+        fun increaseStat(pokemon : Pokemon, stats : List<Stats>){
+            stats.forEach {
+                when(it){
+                    ATTACK ->{pokemon.battleData!!.attackMultiplicator *= 1.5f}
+                    DEFENSE -> {pokemon.battleData!!.defenseMultiplicator *= 1.5f}
+                    SPATK -> {pokemon.battleData!!.spAtkMultiplicator *= 1.5f}
+                    SPDEF -> {pokemon.battleData!!.spDefMultiplicator *= 1.5f}
+                    SPEED -> {pokemon.battleData!!.speedMultiplicator *= 1.5f}
+                    ACCURACY -> {pokemon.battleData!!.accuracyMultiplicator *= 1.5f}
+                    CRITICAL_RATE -> {pokemon.battleData!!.critRate *= 1.5f}
+                }
+            }
+        }
     }
 }

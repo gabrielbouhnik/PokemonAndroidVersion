@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.SaveManager
+import com.pokemon.android.version.model.level.BossBattleLevelData
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.level.WildBattleLevelData
@@ -19,6 +20,8 @@ class RewardMenu {
                 activity.mainMenu.levelMenu.battleUI.startWildBattle(activity, levelData)
             else if (levelData is TrainerBattleLevelData)
                 activity.mainMenu.levelMenu.battleUI.startTrainerBattle(activity, levelData)
+            else
+                activity.mainMenu.levelMenu.battleUI.startBossBattle(activity, levelData as BossBattleLevelData)
         }
         val backButton : Button = activity.findViewById(R.id.rewardsBackButton)
         backButton.setOnClickListener{

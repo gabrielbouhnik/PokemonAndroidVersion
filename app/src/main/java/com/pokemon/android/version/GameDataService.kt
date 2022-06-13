@@ -79,7 +79,7 @@ class GameDataService {
             .spDef(spDef)
             .speed(speed)
             .currentHP(hp)
-            .gender(gender) //TODO gender lock
+            .gender(gender)
             .move1(move1)
             .move2(move2)
             .move3(move3)
@@ -111,11 +111,12 @@ class GameDataService {
             .spDef(spDef)
             .speed(speed)
             .currentHP(hp)
-            .gender(gender) //TODO gender lock
+            .gender(gender)
             .move1(move1)
             .move2(move2)
             .move3(move3)
             .move4(move4)
+            .isFromBanner(true)
             .build()
     }
 
@@ -144,7 +145,7 @@ class GameDataService {
             .spDef(spDef)
             .speed(speed)
             .currentHP(hp)
-            .gender(gender) //TODO gender lock
+            .gender(gender)
             .move1(move1)
             .move2(move2)
             .move3(move3)
