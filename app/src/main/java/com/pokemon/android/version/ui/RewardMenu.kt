@@ -7,10 +7,19 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.level.LevelData
+import com.pokemon.android.version.model.level.TrainerBattleLevelData
+import com.pokemon.android.version.model.level.WildBattleLevelData
 
 class RewardMenu {
     fun loadRewardMenu(activity: MainActivity, levelData : LevelData, firstTime : Boolean){
         activity.setContentView(R.layout.reward_layout)
+        val battleAgainButton : Button = activity.findViewById(R.id.battleAgainButton)
+        battleAgainButton.setOnClickListener{
+            if (levelData is WildBattleLevelData)
+                activity.mainMenu.levelMenu.battleUI.startWildBattle(activity, levelData)
+            else if (levelData is TrainerBattleLevelData)
+                activity.mainMenu.levelMenu.battleUI.startTrainerBattle(activity, levelData)
+        }
         val backButton : Button = activity.findViewById(R.id.rewardsBackButton)
         backButton.setOnClickListener{
             activity.mainMenu.loadGameMenu(activity)

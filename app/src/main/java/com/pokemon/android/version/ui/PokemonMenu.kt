@@ -198,6 +198,7 @@ class PokemonMenu {
                 pokemon.evolve(activity.gameDataService)
                 displayPokemonInfo(activity, pokemon)
                 displayMoveButtons(activity,pokemon)
+                activity.playSoundEffect(R.raw.evolve_sound_effect)
                 evolveButton.visibility = GONE
             }
         }

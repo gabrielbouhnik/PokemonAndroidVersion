@@ -35,7 +35,7 @@ class MainMenu {
     fun loadGameMenu(activity : MainActivity){
         activity.setContentView(R.layout.main_menu)
         activity.updateMusic(R.raw.main_menu)
-        var pokemonsButton : Button = activity.findViewById(R.id.pokemonsButton)
+        val pokemonsButton : Button = activity.findViewById(R.id.pokemonsButton)
         pokemonsButton.setOnClickListener {
             pokemonMenu.loadPokemonMenu(activity)
         }
@@ -53,6 +53,7 @@ class MainMenu {
         }
         if (DailyHeal.canUseDailyHeal(activity.trainer!!)) {
             var dailyHealButton: Button = activity.findViewById(R.id.dailyHealButton)
+            activity.playSoundEffect(R.raw.daily_heal_sound_effect)
             dailyHealButton.visibility = VISIBLE
             dailyHealButton.setOnClickListener {
                 DailyHeal.heal(activity.trainer!!)
@@ -72,15 +73,15 @@ class MainMenu {
         backButton.setOnClickListener{
             loadGameMenu(activity)
         }
-        var trainerSpriteTextView : ImageView = activity.findViewById(R.id.trainerSpriteTextView)
-        var filename = if (activity.trainer!!.gender == Gender.MALE) BOY_SPRITE else GIRL_SPRITE
+        val trainerSpriteTextView : ImageView = activity.findViewById(R.id.trainerSpriteTextView)
+        val filename = if (activity.trainer!!.gender == Gender.MALE) BOY_SPRITE else GIRL_SPRITE
         val img : InputStream = activity.assets.open(filename)
         trainerSpriteTextView.setImageDrawable(Drawable.createFromStream(img, filename))
-        var nameTextView : TextView = activity.findViewById(R.id.trainerNameTextView)
+        val nameTextView : TextView = activity.findViewById(R.id.trainerNameTextView)
         nameTextView.text = activity.trainer!!.name
-        var androCoinTextView : TextView = activity.findViewById(R.id.androCoinTextView)
+        val androCoinTextView : TextView = activity.findViewById(R.id.androCoinTextView)
         androCoinTextView.text = activity.trainer!!.coins.toString() + " AndroCoins"
-        var maxLevelTextView : TextView = activity.findViewById(R.id.maxLevelTextView)
+        val maxLevelTextView : TextView = activity.findViewById(R.id.maxLevelTextView)
         maxLevelTextView.text = "Your Pokemon will gain experience up to level " + activity.trainer!!.getMaxLevel()
         val recyclerView = activity.findViewById<RecyclerView>(R.id.badgesRecyclerView)
         recyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
