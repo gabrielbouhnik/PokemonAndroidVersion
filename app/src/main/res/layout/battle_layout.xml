@@ -141,7 +141,8 @@
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent" tools:layout_editor_absoluteY="57dp"
-            tools:layout_editor_absoluteX="57dp" android:id="@+id/battleRecyclerView" tools:visibility="gone">
+            tools:layout_editor_absoluteX="57dp" android:id="@+id/battleRecyclerView" tools:visibility="gone"
+            android:translationZ="90dp">
     </androidx.recyclerview.widget.RecyclerView>
     <Button
             android:text="close"

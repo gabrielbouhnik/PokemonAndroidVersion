@@ -1002,6 +1002,106 @@
       "icon": "images/VS_Surge.png",
       "background": "images/building_battle_background.jpg",
       "exp": 350
+    },
+    {
+      "id":25,
+      "name": "\nRoute 9&10",
+      "description": "After defeating Dugtrio, Professor Oak advises you to go to Lavender Town to catch some ghost types Pokemon. So you go to Route 9 to the east of Cerulean City",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Montagnard.png",
+          "name" : "Hiker Markos",
+          "pokemons": [
+            {
+              "id": 75,
+              "level": 34,
+              "moveIds": [
+                2,32,29,30
+              ]
+            },
+            {
+              "id": 95,
+              "level": 34,
+              "moveIds": [
+                25,2,15,32
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Campeur.png",
+          "name" : "Camper Chris",
+          "pokemons": [
+            {
+              "id": 5,
+              "level": 32,
+              "moveIds": [
+                15,28,31,42
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Bug_Catcher.png",
+          "name" : "Bug Catcher Conner",
+          "pokemons": [
+            {
+              "id": 15,
+              "level": 29,
+              "moveIds": [
+                17,26,10,56
+              ]
+            },
+            {
+              "id": 14,
+              "level": 29,
+              "moveIds": [
+                17,26,10,56
+              ]
+            }
+          ]
+        },{
+          "sprite": "images/Sprite_Campeur.png",
+          "name" : "Camper Drew",
+          "pokemons": [
+            {
+              "id": 20,
+              "level": 32,
+              "moveIds": [
+                22,23,27,28
+              ]
+            },
+            {
+              "id": 28,
+              "level": 32,
+              "moveIds": [
+                30,38,19,17
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 60
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 2
+        }
+      ],
+      "startDialog": "Hahahaha! Come on, dude!",
+      "endDialogWin": "Use a flashlight to cross the Rock Tunnel",
+      "endDialogLoose": "You're not strong enough to get through the Rock Tunnel",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 295
     }
   ],
   "randomWildEncounters": [
