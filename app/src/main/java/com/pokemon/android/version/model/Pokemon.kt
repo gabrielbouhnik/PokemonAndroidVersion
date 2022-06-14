@@ -177,6 +177,9 @@ class Pokemon(
             }
         }
         if (damage >= opponent.currentHP) {
+            if (move.move is DrainMove) {
+                currentHP = if (opponent.currentHP / 2 + currentHP > hp) hp else opponent.currentHP / 2 + currentHP
+            }
             opponent.currentHP = 0
             opponent.status = Status.OK
             opponent.battleData = null
@@ -191,6 +194,9 @@ class Pokemon(
                     Stats.updateStat(this, move.move as StatChangeMove)
                 else
                     Stats.updateStat(opponent, move.move as StatChangeMove)
+            }
+            if (move.move is DrainMove) {
+                currentHP = if (damage / 2 + currentHP > hp) hp else damage / 2 + currentHP
             }
         }
         return AttackResponse(true, "")

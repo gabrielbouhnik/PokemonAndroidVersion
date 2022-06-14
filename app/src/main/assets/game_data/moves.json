@@ -838,5 +838,18 @@
       "multiplicator": 0.5,
       "probabilty": 10
     }
+  ],
+  "drainMoves": [
+    {
+      "id": 66,
+      "name": "Giga Drain",
+      "power": 75,
+      "pp": 10,
+      "type": 1,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0
+    }
   ]
 }
