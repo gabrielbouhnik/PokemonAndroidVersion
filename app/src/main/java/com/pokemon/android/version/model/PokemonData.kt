@@ -21,7 +21,7 @@ class PokemonData (val id : Int,
                    var speed : Int,
                    val evolutionId : Int?,
                    val evolutionCondition : EvolutionCondition?,
-                   val expGaugeCoeff : Float){
+                   val expGaugeType : ExpGaugeType){
     companion object {
         fun of(pokemonDataEntity : PokemonDataEntity, moves : List<Move>) : PokemonData{
             val movesByLevel : ArrayList<MoveLearnedByLevel> = ArrayList()
@@ -47,7 +47,7 @@ class PokemonData (val id : Int,
                 .speed(pokemonDataEntity.speed)
                 .evolutionId(pokemonDataEntity.evolutionId)
                 .evolutionCondition(EvolutionCondition.of(pokemonDataEntity))
-                .expGaugeCoeff(pokemonDataEntity.expGaugeCoeff)
+                .expGaugeType(ExpGaugeType.valueOf(pokemonDataEntity.expGaugeType))
                 .build()
         }
     }
@@ -69,7 +69,7 @@ class PokemonData (val id : Int,
         var speed : Int = 0,
         var evolutionId: Int? = null,
         var evolutionCondition: EvolutionCondition?= null,
-        var expGaugeCoeff : Float = 1F
+        var expGaugeType : ExpGaugeType = ExpGaugeType.FAST
     ){
         fun id(id : Int) = apply { this.id = id }
         fun name(name : String) = apply { this.name = name }
@@ -87,7 +87,7 @@ class PokemonData (val id : Int,
         fun speed(speed: Int) = apply { this.speed = speed }
         fun evolutionId(evolutionId: Int?) = apply { this.evolutionId = evolutionId }
         fun evolutionCondition(evolutionCondition: EvolutionCondition?) = apply { this.evolutionCondition = evolutionCondition }
-        fun expGaugeCoeff(expGaugeCoeff: Float) = apply { this.expGaugeCoeff = expGaugeCoeff }
-        fun build() = PokemonData(id,name,type1,type2, movesByLevel,movesByTM, bannerMoves,catchRate, hp, attack, defense, spAtk, spDef, speed, evolutionId, evolutionCondition, expGaugeCoeff )
+        fun expGaugeType(expGaugeType: ExpGaugeType) = apply { this.expGaugeType = expGaugeType }
+        fun build() = PokemonData(id,name,type1,type2, movesByLevel,movesByTM, bannerMoves,catchRate, hp, attack, defense, spAtk, spDef, speed, evolutionId, evolutionCondition, expGaugeType )
     }
 }

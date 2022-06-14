@@ -1,7 +1,6 @@
 package com.pokemon.android.version.model
 
 import com.pokemon.android.version.GameDataService
-import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.entity.save.PokemonSave
 import com.pokemon.android.version.model.battle.AttackResponse
 import com.pokemon.android.version.model.battle.DamageCalculator
@@ -10,7 +9,6 @@ import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.MoveUtils
-import kotlin.math.max
 import kotlin.math.roundToInt
 import kotlin.random.Random
 import kotlin.random.nextInt
@@ -255,8 +253,9 @@ class Pokemon(
         if (this.level >= maxLevel)
             return
         var exp = value
-        while (this.currentExp + exp >= level * 15 * data.expGaugeCoeff) {
-            exp -= (level * 15 * data.expGaugeCoeff - this.currentExp).toInt()
+
+        while (this.currentExp + exp >= ExpGaugeType.getExpGauge(this)) {
+                exp -= (ExpGaugeType.getExpGauge(this) - this.currentExp).toInt()
             this.currentExp = 0
             gainLevel()
             if (level == maxLevel)
