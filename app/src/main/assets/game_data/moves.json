@@ -850,6 +850,17 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0
+    },
+    {
+      "id": 67,
+      "name": "Absorb",
+      "power": 30,
+      "pp": 25,
+      "type": 1,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0
     }
   ]
 }

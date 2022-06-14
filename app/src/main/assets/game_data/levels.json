@@ -1246,7 +1246,7 @@
         "minLevel": 10,
         "maxLevel": 12,
         "encounters": [
-          41,74,27
+          41,74,27,46
         ]
       },
       "rewards": [
