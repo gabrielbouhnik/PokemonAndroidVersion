@@ -3,7 +3,8 @@
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
-                                                   android:layout_height="wrap_content">
+                                                   android:layout_height="wrap_content"
+                                                   android:backgroundTint="#FFFFFF">
 
     <TextView
             android:text="TextView"
@@ -12,7 +13,8 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="80dp"
             app:layout_constraintHorizontal_bias="0.413" app:layout_constraintStart_toEndOf="@+id/pokemonSpriteView"
-            android:textSize="24sp" android:textStyle="bold" android:textAlignment="center"/>
+            android:textSize="24sp" android:textStyle="bold" android:textAlignment="center"
+            android:textColor="#9C27B0"/>
     <TextView
             android:text="TextView"
             android:layout_width="220dp"
@@ -20,7 +22,8 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="32dp"
             app:layout_constraintHorizontal_bias="0.413" app:layout_constraintStart_toEndOf="@+id/pokemonSpriteView"
-            android:textSize="24sp" android:textStyle="bold" android:textAlignment="center"/>
+            android:textSize="24sp" android:textStyle="bold" android:textAlignment="center"
+            android:textColor="#9C27B0"/>
     <ImageView
             android:layout_width="129dp"
             android:layout_height="105dp" tools:srcCompat="@color/purple_200" android:id="@+id/pokemonSpriteView"

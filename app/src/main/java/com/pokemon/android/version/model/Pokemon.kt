@@ -111,9 +111,9 @@ class Pokemon(
             val damage : Int = DamageCalculator.computeDamage(this, move.move, opponent)
             if (damage > opponent.currentHP)
                 return move
-            if (damage > 0 && hp/currentHP < 10 && move.move.priorityLevel > 0)
+            if (damage > 0 && hp/currentHP < 10 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
                 return move
-            if (opponent.status == Status.OK && opponent.battleData!!.battleStatus.isEmpty() && move.move is StatusMove)
+            if (opponent.status == Status.OK && opponent.battleData!!.battleStatus.isEmpty() && move.move is StatusMove && (move.move as StatusMove).probability == 100)
                 return move
             if (move.move is StatChangeMove)
             {
@@ -273,6 +273,9 @@ class Pokemon(
 
     fun evolve(gameDataService: GameDataService) {
         if (canEvolve()) {
+            if (this.data.evolutionCondition!!.itemId != null){
+                this.trainer!!.useItem(this.data.evolutionCondition!!.itemId!!, this)
+            }
             this.data = gameDataService.getPokemonDataById(data.evolutionId!!)
             recomputeStat()
             if (currentHP > hp)

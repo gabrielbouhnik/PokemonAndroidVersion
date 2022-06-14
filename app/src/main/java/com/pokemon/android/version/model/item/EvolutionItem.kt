@@ -14,6 +14,5 @@ class EvolutionItem(var itemId : Int, var gameDataService: GameDataService) : It
     }
 
     override fun apply(pokemon: Pokemon) {
-        pokemon.evolve(gameDataService)
     }
 }
