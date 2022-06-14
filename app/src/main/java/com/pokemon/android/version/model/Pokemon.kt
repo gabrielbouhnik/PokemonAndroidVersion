@@ -253,8 +253,9 @@ class Pokemon(
         if (this.level >= maxLevel)
             return
         var exp = value
-        while (this.currentExp + exp >= level * 15 * data.expGaugeCoeff) {
-            exp -= (level * 15 * data.expGaugeCoeff - this.currentExp).toInt()
+
+        while (this.currentExp + exp >= ExpGaugeType.getExpGauge(this)) {
+                exp -= (ExpGaugeType.getExpGauge(this) - this.currentExp).toInt()
             this.currentExp = 0
             gainLevel()
             if (level == maxLevel)

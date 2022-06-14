@@ -5,5 +5,5 @@ data class PokemonDataEntity(
     val possibleMoves: PossibleMovesEntity, val hp: Int, val attack: Int,
     val defense: Int, val spAtk: Int, val spDef: Int, val speed: Int,
     val catchRate: Float, val evolutionId : Int?, val evolutionCondition : EvolutionConditionEntity?,
-    val expGaugeCoeff : Float) {
+    val expGaugeType : String) {
 }
