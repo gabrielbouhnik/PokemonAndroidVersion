@@ -113,7 +113,7 @@ class Pokemon(
                 return move
             if (damage > 0 && hp/currentHP < 10 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
                 return move
-            if (opponent.status == Status.OK && opponent.battleData!!.battleStatus.isEmpty() && move.move is StatusMove && (move.move as StatusMove).probability == 100)
+            if (move.move is StatusMove && Status.isAffectedByStatus((move.move as StatusMove).status, opponent) && (move.move as StatusMove).probability == 100)
                 return move
             if (move.move is StatChangeMove)
             {
