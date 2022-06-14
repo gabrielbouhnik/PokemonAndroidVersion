@@ -500,7 +500,7 @@
     "evolutionCondition": {
       "level": 10
     },
-    "expGaugeType": "FAST".15
+    "expGaugeType": "FAST"
   },
   {
     "id": 12,
@@ -623,7 +623,7 @@
     "evolutionCondition": {
       "level": 10
     },
-    "expGaugeType": "FAST".15
+    "expGaugeType": "FAST"
   },
   {
     "id": 15,
@@ -2469,7 +2469,7 @@
     "evolutionCondition": {
       "itemId": 23
     },
-    "expGaugeType": "FAST".3
+    "expGaugeType": "FAST"
   },
   {
     "id": 147,
@@ -2534,7 +2534,7 @@
     "evolutionCondition": {
       "level": 55
     },
-    "expGaugeType": "FAST".4
+    "expGaugeType": "FAST"
   },
   {
     "id": 149,
@@ -2567,7 +2567,7 @@
     "spDef": 100,
     "speed": 80,
     "catchRate": 0.2,
-    "expGaugeType": "FAST".6
+    "expGaugeType": "FAST"
   },
   {
     "id": 161,
@@ -2891,7 +2891,7 @@
     "spAtk": 95,
     "spDef": 95,
     "speed": 85,
-    "expGaugeType": "FAST".6
+    "expGaugeType": "FAST"
   },
   {
     "id": 236,
@@ -2961,7 +2961,7 @@
     "evolutionCondition": {
       "level": 30
     },
-    "expGaugeType": "FAST".1
+    "expGaugeType": "FAST"
   },
   {
     "id": 247,
@@ -3006,7 +3006,7 @@
     "evolutionCondition": {
       "level": 55
     },
-    "expGaugeType": "FAST".3
+    "expGaugeType": "FAST"
   },
   {
     "id": 248,
@@ -3047,6 +3047,6 @@
     "spAtk": 95,
     "spDef": 100,
     "speed": 61,
-    "expGaugeType": "FAST".6
+    "expGaugeType": "FAST"
   }
 ]

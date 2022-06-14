@@ -1,7 +1,6 @@
 package com.pokemon.android.version.model
 
 import com.pokemon.android.version.GameDataService
-import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.entity.save.PokemonSave
 import com.pokemon.android.version.model.battle.AttackResponse
 import com.pokemon.android.version.model.battle.DamageCalculator
@@ -10,7 +9,6 @@ import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.MoveUtils
-import kotlin.math.max
 import kotlin.math.roundToInt
 import kotlin.random.Random
 import kotlin.random.nextInt
@@ -176,14 +174,14 @@ class Pokemon(
                 }
             }
         }
-        var drained = 0
+        var damageDone = 0
         if (damage >= opponent.currentHP) {
-            drained = opponent.currentHP / 2
+            damageDone = opponent.currentHP
             opponent.currentHP = 0
             opponent.status = Status.OK
             opponent.battleData = null
         } else {
-            drained = damage / 2
+            damageDone = damage
             opponent.currentHP = opponent.currentHP - damage
             if (move.move is StatusMove) {
                 Status.updateStatus(opponent, move.move as StatusMove)
@@ -197,7 +195,7 @@ class Pokemon(
             }
         }
         if (move.move is DrainMove) {
-            currentHP = if (currentHP + drained > hp) hp else currentHP + drained
+            currentHP = if (currentHP + damageDone/2 > hp) hp else currentHP + damageDone/2
         }
         return AttackResponse(true, "")
     }
