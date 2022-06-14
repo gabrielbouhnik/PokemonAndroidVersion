@@ -144,8 +144,8 @@ class BattleUI {
                 rewardsButton.visibility = VISIBLE
                 rewardsButton.text = "See Rewards"
                 rewardsButton.setOnClickListener{
-                    activity.trainer!!.receiveExp(battle.levelData.exp)
-                    battle.pokemon.gainExp((battle.levelData.exp * 0.25).toInt())
+                    activity.trainer!!.receiveExp((battle.levelData.exp * 0.5).toInt())
+                    battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
                     rewardMenu.loadRewardMenu(activity, battle.levelData, firstTime)
                 }
             }

@@ -41,14 +41,14 @@ class Trainer  : ITrainer{
         if (items[ballId] == 0) {
             items.remove(ballId)
         }
-        var random : Int = Random.nextInt(3)
+        val random : Int = Random.nextInt(3)
         var status = 1f
         if (pokemon.status == Status.BURN || pokemon.status == Status.POISON || pokemon.status == Status.PARALYSIS)
             status = 1.5f
         if (pokemon.status ==  Status.ASLEEP)
             status = 2.5f
-        var ball : Ball = ItemUtils.getItemById(ballId) as Ball
-        var catch : Int = ((1 - ((2/3)*(pokemon.currentHP/pokemon.hp))).toFloat() * status).toInt() * (pokemon.data.catchRate*100f).toInt()*ball.successRate
+        val ball : Ball = ItemUtils.getItemById(ballId) as Ball
+        val catch : Int = ((1 - ((2/3)*(pokemon.currentHP/pokemon.hp))).toFloat() * status).toInt() * (pokemon.data.catchRate*100f).toInt()*ball.successRate
         if (catch * random > 300){
             receivePokemon(pokemon)
             return true
@@ -58,6 +58,7 @@ class Trainer  : ITrainer{
 
     fun receivePokemon(pokemon: Pokemon) {
         pokemon.trainer = this
+        pokemon.currentExp = ExpGaugeType.getExpGauge(pokemon)
         pokemons.add(pokemon)
         if (this.team.size < 6)
             team.add(pokemon)
@@ -80,7 +81,7 @@ class Trainer  : ITrainer{
         if (ItemUtils.isBall(id))
             return false
         if (items.contains(id)) {
-            var item: Item = ItemUtils.getItemById(id)
+            val item: Item = ItemUtils.getItemById(id)
             if (item.isUsable(pokemon)) {
                 items[id] = items[id]!! - 1
                 if (items[id] == 0) {

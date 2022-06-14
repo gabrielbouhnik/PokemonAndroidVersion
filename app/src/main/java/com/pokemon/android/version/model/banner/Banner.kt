@@ -39,13 +39,13 @@ class Banner(var description : String, var image : String, var cost : Int,
         }
         else
             return null
-        var s : Summonable = summon()
+        val s : Summonable = summon()
         if (s is ItemBanner){
-            var itemBanner = s as ItemBanner
+            val itemBanner = s as ItemBanner
             Toast.makeText(activity, activity.gameDataService.items[itemBanner.id.minus(1)].name, Toast.LENGTH_LONG)
             activity.trainer!!.addItem(itemBanner.id, 1)
         } else{
-            var pokemonBanner = s as PokemonBanner
+            val pokemonBanner = s as PokemonBanner
             Toast.makeText(activity, pokemonBanner.pokemonData.name, Toast.LENGTH_LONG)
             activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemonFromBanner(pokemonBanner))
         }

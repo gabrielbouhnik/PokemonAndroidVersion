@@ -96,6 +96,7 @@ class Pokemon(
                         pokemonSave.moveids[3].pp
                     ) else null
                 )
+                .isFromBanner(pokemonSave.isFromBanner)
                 .build()
         }
     }
@@ -254,9 +255,8 @@ class Pokemon(
             return
         var exp = value
 
-        while (this.currentExp + exp >= ExpGaugeType.getExpGauge(this)) {
-                exp -= (ExpGaugeType.getExpGauge(this) - this.currentExp).toInt()
-            this.currentExp = 0
+        while (this.currentExp + exp >= ExpGaugeType.getExpToNextLevel(this)) {
+            exp -= ExpGaugeType.getExpToNextLevel(this) - this.currentExp
             gainLevel()
             if (level == maxLevel)
                 return

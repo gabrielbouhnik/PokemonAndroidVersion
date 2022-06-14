@@ -50,7 +50,7 @@
     "evolutionCondition": {
       "level": 16
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 2,
@@ -103,7 +103,7 @@
     "evolutionCondition": {
       "level": 32
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 3,
@@ -152,7 +152,7 @@
     "spDef": 100,
     "speed": 80,
     "catchRate": 0.2,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 4,
@@ -201,7 +201,7 @@
     "evolutionCondition": {
       "level": 16
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 5,
@@ -250,7 +250,7 @@
     "evolutionCondition": {
       "level": 36
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 6,
@@ -299,7 +299,7 @@
     "spDef": 85,
     "speed": 100,
     "catchRate": 0.2,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 7,
@@ -344,7 +344,7 @@
     "evolutionCondition": {
       "level": 16
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 8,
@@ -389,7 +389,7 @@
     "evolutionCondition": {
       "level": 36
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 9,
@@ -430,7 +430,7 @@
     "spDef": 105,
     "speed": 78,
     "catchRate": 0.3,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 10,
@@ -463,7 +463,7 @@
     "evolutionCondition": {
       "level": 7
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 11,
@@ -500,7 +500,7 @@
     "evolutionCondition": {
       "level": 10
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 12,
@@ -553,7 +553,7 @@
     "spDef": 80,
     "speed": 70,
     "catchRate": 0.4,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 13,
@@ -586,7 +586,7 @@
     "evolutionCondition": {
       "level": 7
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 14,
@@ -623,7 +623,7 @@
     "evolutionCondition": {
       "level": 10
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 15,
@@ -664,7 +664,7 @@
     "spDef": 80,
     "speed": 75,
     "catchRate": 0.4,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 16,
@@ -721,7 +721,7 @@
     "evolutionCondition": {
       "level": 18
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 17,
@@ -778,7 +778,7 @@
     "evolutionCondition": {
       "level": 36
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 18,
@@ -831,7 +831,7 @@
     "spDef": 70,
     "speed": 101,
     "catchRate": 0.4,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 19,
@@ -880,7 +880,7 @@
     "evolutionCondition": {
       "level": 20
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 20,
@@ -925,7 +925,7 @@
     "spDef": 70,
     "speed": 97,
     "catchRate": 0.5,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 21,
@@ -966,7 +966,7 @@
     "evolutionCondition": {
       "level": 20
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 22,
@@ -1003,7 +1003,7 @@
     "spDef": 61,
     "speed": 100,
     "catchRate": 0.4,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 23,
@@ -1044,7 +1044,7 @@
     "evolutionCondition": {
       "level": 22
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 24,
@@ -1085,7 +1085,7 @@
     "spDef": 79,
     "speed": 80,
     "catchRate": 0.4,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 25,
@@ -1130,7 +1130,7 @@
     "evolutionCondition": {
       "itemId": 17
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 26,
@@ -1171,7 +1171,7 @@
     "spDef": 80,
     "speed": 110,
     "catchRate": 0.25,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 27,
@@ -1216,7 +1216,7 @@
     "evolutionCondition": {
       "level": 22
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 28,
@@ -1257,7 +1257,7 @@
     "spDef": 55,
     "speed": 65,
     "catchRate": 0.4,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 41,
@@ -1306,7 +1306,7 @@
     "evolutionCondition": {
       "level": 22
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 42,
@@ -1355,7 +1355,7 @@
     "evolutionCondition": {
       "level": 36
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 46,
@@ -1404,7 +1404,7 @@
     "evolutionCondition": {
       "level": 24
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 47,
@@ -1449,7 +1449,7 @@
     "spDef": 80,
     "speed": 30,
     "catchRate": 0.4,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 50,
@@ -1494,7 +1494,7 @@
     "evolutionCondition": {
       "level": 26
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 51,
@@ -1535,7 +1535,7 @@
     "spAtk": 50,
     "spDef": 70,
     "speed": 120,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 54,
@@ -1576,7 +1576,7 @@
     "evolutionCondition": {
       "level": 33
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 55,
@@ -1613,7 +1613,7 @@
     "spAtk": 95,
     "spDef": 80,
     "speed": 85,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 56,
@@ -1654,7 +1654,7 @@
     "evolutionCondition": {
       "level": 28
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 57,
@@ -1691,7 +1691,7 @@
     "spAtk": 60,
     "spDef": 70,
     "speed": 95,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 69,
@@ -1736,7 +1736,7 @@
     "evolutionCondition": {
       "level": 21
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 70,
@@ -1781,7 +1781,7 @@
     "evolutionCondition": {
       "itemId": 19
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 71,
@@ -1822,7 +1822,7 @@
     "spDef": 70,
     "speed": 70,
     "catchRate": 0.3,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 74,
@@ -1852,18 +1852,18 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.4,
     "hp": 40,
     "attack": 80,
     "defense": 100,
     "spAtk": 30,
     "spDef": 30,
     "speed": 20,
+    "catchRate": 0.4,
     "evolutionId": 75,
     "evolutionCondition": {
       "level": 25
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 75,
@@ -1893,18 +1893,18 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.35,
     "hp": 55,
     "attack": 95,
     "defense": 115,
     "spAtk": 45,
     "spDef": 45,
     "speed": 35,
+    "catchRate": 0.35,
     "evolutionId": 76,
     "evolutionCondition": {
       "level": 36
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 76,
@@ -1934,14 +1934,14 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.3,
     "hp": 80,
     "attack": 120,
     "defense": 130,
     "spAtk": 55,
     "spDef": 65,
     "speed": 45,
-    "expGaugeType": "FAST"
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 92,
@@ -1971,18 +1971,18 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.4,
     "hp": 30,
     "attack": 35,
     "defense": 30,
     "spAtk": 100,
     "spDef": 35,
     "speed": 80,
+    "catchRate": 0.4,
     "evolutionId": 93,
     "evolutionCondition": {
       "level": 25
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 93,
@@ -2012,18 +2012,18 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.3,
     "hp": 45,
     "attack": 50,
     "defense": 45,
     "spAtk": 115,
     "spDef": 55,
     "speed": 95,
+    "catchRate": 0.3,
     "evolutionId": 94,
     "evolutionCondition": {
       "level": 36
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 94,
@@ -2053,15 +2053,15 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.25,
     "hp": 60,
     "attack": 65,
     "defense": 60,
     "spAtk": 130,
     "spDef": 75,
     "speed": 110,
+    "catchRate": 0.25,
     "evolutionId": 94,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 95,
@@ -2099,18 +2099,18 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.4,
     "hp": 35,
     "attack": 45,
     "defense": 160,
     "spAtk": 30,
     "spDef": 45,
     "speed": 70,
+    "catchRate": 0.4,
     "evolutionId": 208,
     "evolutionCondition": {
       "itemId": 23
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 100,
@@ -2151,7 +2151,7 @@
     "evolutionCondition": {
       "level": 30
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 101,
@@ -2188,7 +2188,7 @@
     "spDef": 80,
     "speed": 150,
     "catchRate": 0.3,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 115,
@@ -2225,7 +2225,7 @@
     "spDef":80,
     "speed": 90,
     "catchRate": 0.3,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 116,
@@ -2263,18 +2263,18 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.4,
     "hp": 30,
     "attack": 40,
     "defense": 70,
     "spAtk": 70,
     "spDef": 25,
     "speed": 60,
+    "catchRate": 0.4,
     "evolutionId": 117,
     "evolutionCondition": {
       "level": 32
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 117,
@@ -2312,18 +2312,18 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.3,
     "hp": 55,
     "attack": 65,
     "defense": 95,
     "spAtk": 95,
     "spDef": 45,
     "speed": 85,
+    "catchRate": 0.3,
     "evolutionId": 230,
     "evolutionCondition": {
       "itemId": 22
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 120,
@@ -2365,17 +2365,17 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.45,
     "hp": 30,
     "attack": 45,
     "defense": 55,
     "spAtk": 70,
     "spDef": 55,
     "speed": 85,
+    "catchRate": 0.45,
     "evolutionId": 121,
     "evolutionCondition": {
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "SLOW"
   },
   {
     "id": 121,
@@ -2417,14 +2417,14 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.3,
     "hp": 60,
     "attack": 75,
     "defense": 85,
     "spAtk": 100,
     "spDef": 85,
     "speed": 115,
-    "expGaugeType": "FAST"
+    "catchRate": 0.3,
+    "expGaugeType": "SLOW"
   },
   {
     "id": 123,
@@ -2469,7 +2469,7 @@
     "evolutionCondition": {
       "itemId": 23
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 147,
@@ -2501,7 +2501,7 @@
     "evolutionCondition": {
       "level": 30
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "SLOW"
   },
   {
     "id": 148,
@@ -2534,7 +2534,7 @@
     "evolutionCondition": {
       "level": 55
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "SLOW"
   },
   {
     "id": 149,
@@ -2567,7 +2567,7 @@
     "spDef": 100,
     "speed": 80,
     "catchRate": 0.2,
-    "expGaugeType": "FAST"
+    "expGaugeType": "SLOW"
   },
   {
     "id": 161,
@@ -2600,7 +2600,7 @@
     "evolutionCondition": {
       "level": 15
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 162,
@@ -2629,7 +2629,7 @@
     "spDef": 55,
     "speed": 90,
     "catchRate": 0.4,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 163,
@@ -2670,7 +2670,7 @@
     "evolutionCondition": {
       "level": 20
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 164,
@@ -2707,7 +2707,7 @@
     "spDef": 96,
     "speed": 70,
     "catchRate": 0.4,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 169,
@@ -2752,7 +2752,7 @@
     "spDef": 80,
     "speed": 130,
     "catchRate": 0.3,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 208,
@@ -2801,7 +2801,7 @@
     "spDef": 65,
     "speed": 30,
     "catchRate": 0.25,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 212,
@@ -2846,7 +2846,7 @@
     "spDef": 80,
     "speed": 65,
     "catchRate": 0.2,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 230,
@@ -2884,14 +2884,14 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.2,
     "hp": 75,
     "attack": 95,
     "defense": 95,
     "spAtk": 95,
     "spDef": 95,
     "speed": 85,
-    "expGaugeType": "FAST"
+    "catchRate": 0.2,
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 236,
@@ -2916,7 +2916,7 @@
     "spDef": 35,
     "speed": 35,
     "catchRate": 0.5,
-    "expGaugeType": "FAST"
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 246,
@@ -2950,18 +2950,18 @@
       ],
       "bannerMoves": [57]
     },
-    "catchRate": 0.3,
     "hp": 50,
     "attack": 64,
     "defense": 50,
     "spAtk": 45,
     "spDef": 50,
     "speed": 41,
+    "catchRate": 0.3,
     "evolutionId": 247,
     "evolutionCondition": {
       "level": 30
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "SLOW"
   },
   {
     "id": 247,
@@ -2995,7 +2995,6 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.25,
     "hp": 70,
     "attack": 84,
     "defense": 70,
@@ -3003,10 +3002,11 @@
     "spDef": 70,
     "speed": 51,
     "evolutionId": 248,
+    "catchRate": 0.25,
     "evolutionCondition": {
       "level": 55
     },
-    "expGaugeType": "FAST"
+    "expGaugeType": "SLOW"
   },
   {
     "id": 248,
@@ -3040,13 +3040,13 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.2,
     "hp": 100,
     "attack": 134,
     "defense": 110,
     "spAtk": 95,
     "spDef": 100,
     "speed": 61,
-    "expGaugeType": "FAST"
+    "catchRate": 0.2,
+    "expGaugeType": "SLOW"
   }
 ]

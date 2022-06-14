@@ -33,11 +33,11 @@ class GameDataService {
     }
 
     fun loadGameData(activity: MainActivity){
-        var pokemonRepository = PokemonRepository()
-        var itemRepository = ItemRepository()
-        var bannerRepository = BannerRepository()
-        var movesRepository = MovesRepository()
-        var levelsRepository = LevelsRepository()
+        val pokemonRepository = PokemonRepository()
+        val itemRepository = ItemRepository()
+        val bannerRepository = BannerRepository()
+        val movesRepository = MovesRepository()
+        val levelsRepository = LevelsRepository()
         this.items = itemRepository.loadData(activity).map{ItemData.of(it)}
         this.moves = MoveFactory.createMove(movesRepository.loadData(activity))
         this.pokemons = pokemonRepository.loadData(activity).map{PokemonData.of(it, moves)}

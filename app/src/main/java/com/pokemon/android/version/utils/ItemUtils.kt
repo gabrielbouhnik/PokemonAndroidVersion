@@ -29,7 +29,7 @@ class ItemUtils {
                 29 -> return ExpItem.EXP_CANDY_M
                 30 -> return ExpItem.EXP_CANDY_L
             }
-            return Ball(0)
+            return EvolutionItem(itemId)
         }
     }
 }

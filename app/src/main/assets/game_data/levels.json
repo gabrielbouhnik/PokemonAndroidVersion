@@ -43,7 +43,7 @@
       "music": 2,
       "icon": "images/building_battle_background.jpg",
       "background": "images/building_battle_background.jpg",
-      "exp": 50
+      "exp": 60
     },
     {
       "id": 4,
@@ -86,7 +86,7 @@
       "music": 2,
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
-      "exp": 60
+      "exp": 100
     },
     {
       "id": 7,
@@ -142,7 +142,7 @@
       "music": 2,
       "icon": "images/forest_battle_background.jpg",
       "background": "images/forest_battle_background.jpg",
-      "exp": 60
+      "exp": 120
     },
     {
       "id": 8,
@@ -184,7 +184,7 @@
       "music": 2,
       "icon": "images/building_battle_background.jpg",
       "background": "images/building_battle_background.jpg",
-      "exp": 70
+      "exp": 140
     },
     {
       "id": 9,
@@ -237,7 +237,7 @@
       "music": 3,
       "icon": "images/VS_Brock.png",
       "background": "images/building_battle_background.jpg",
-      "exp": 100
+      "exp": 350
     },
     {
       "id": 10,
@@ -332,7 +332,7 @@
       "music": 2,
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
-      "exp": 80
+      "exp": 420
     },
     {
       "id": 11,
@@ -414,7 +414,7 @@
       "music": 2,
       "icon": "images/cave_battle_background.png",
       "background": "images/cave_battle_background.png",
-      "exp": 90
+      "exp": 570
     },
     {
       "id": 13,
@@ -483,7 +483,7 @@
       "music": 2,
       "icon": "images/cave_battle_background.png",
       "background": "images/cave_battle_background.png",
-      "exp": 90
+      "exp": 580
     },
     {
       "id": 15,
@@ -544,7 +544,7 @@
       "music": 2,
       "icon": "images/city_battle_background.png",
       "background": "images/city_battle_background.png",
-      "exp": 110
+      "exp": 800
     },
     {
       "id": 16,
@@ -693,7 +693,7 @@
       "music": 2,
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
-      "exp": 200
+      "exp": 1100
     },
     {
       "id": 17,
@@ -735,7 +735,7 @@
       "music": 2,
       "icon": "images/building_battle_background.jpg",
       "background": "images/building_battle_background.jpg",
-      "exp": 180
+      "exp": 800
     },
     {
       "id": 18,
@@ -795,7 +795,7 @@
       "music": 3,
       "icon": "images/VS_Misty.png",
       "background": "images/building_battle_background.jpg",
-      "exp": 250
+      "exp": 1240
     },
     {
       "id":20,
@@ -856,7 +856,7 @@
       "music": 2,
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
-      "exp": 180
+      "exp": 1000
     },
     {
       "id": 21,
@@ -941,7 +941,7 @@
       "music": 2,
       "icon": "images/building_battle_background.jpg",
       "background": "images/building_battle_background.jpg",
-      "exp": 280
+      "exp": 1110
     },
     {
       "id": 22,
@@ -1001,7 +1001,7 @@
       "music": 3,
       "icon": "images/VS_Surge.png",
       "background": "images/building_battle_background.jpg",
-      "exp": 350
+      "exp": 1520
     },
     {
       "id":25,
@@ -1101,7 +1101,7 @@
       "music": 2,
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
-      "exp": 295
+      "exp": 2100
     }
   ],
   "randomWildEncounters": [
@@ -1138,7 +1138,7 @@
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
       "music": 1,
-      "exp": 40
+      "exp": 60
     },
     {
       "id": 3,
@@ -1202,7 +1202,7 @@
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
       "music": 1,
-      "exp": 40
+      "exp": 60
     },
     {
       "id": 6,
@@ -1234,7 +1234,7 @@
       "icon": "images/forest_battle_background.jpg",
       "background": "images/forest_battle_background.jpg",
       "music": 1,
-      "exp": 50
+      "exp": 70
     },
     {
       "id": 12,
@@ -1262,7 +1262,7 @@
       "icon": "images/cave_battle_background.png",
       "background": "images/cave_battle_background.png",
       "music": 1,
-      "exp": 50
+      "exp": 300
     },
     {
       "id": 14,
@@ -1294,7 +1294,7 @@
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
       "music": 1,
-      "exp": 70
+      "exp": 420
     },
     {
       "id": 19,
@@ -1326,7 +1326,7 @@
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
       "music": 1,
-      "exp": 90
+      "exp": 990
     },
     {
       "id": 23,
@@ -1354,7 +1354,7 @@
       "icon": "images/cave_battle_background.png",
       "background": "images/cave_battle_background.png",
       "music": 1,
-      "exp": 120
+      "exp": 1200
     }
   ],
   "bossBattles": [
@@ -1382,7 +1382,7 @@
       "icon": "images/dugtrio_boss_icon.JPG",
       "background": "images/cave_battle_background.png",
       "music": 1,
-      "exp": 400
+      "exp": 4000
     }
   ]
 }
