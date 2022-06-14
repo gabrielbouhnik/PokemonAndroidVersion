@@ -176,14 +176,14 @@ class Pokemon(
                 }
             }
         }
+        var drained = 0
         if (damage >= opponent.currentHP) {
-            if (move.move is DrainMove) {
-                currentHP = if (opponent.currentHP / 2 + currentHP > hp) hp else opponent.currentHP / 2 + currentHP
-            }
+            drained = opponent.currentHP / 2
             opponent.currentHP = 0
             opponent.status = Status.OK
             opponent.battleData = null
         } else {
+            drained = damage / 2
             opponent.currentHP = opponent.currentHP - damage
             if (move.move is StatusMove) {
                 Status.updateStatus(opponent, move.move as StatusMove)
@@ -195,9 +195,9 @@ class Pokemon(
                 else
                     Stats.updateStat(opponent, move.move as StatChangeMove)
             }
-            if (move.move is DrainMove) {
-                currentHP = if (damage / 2 + currentHP > hp) hp else damage / 2 + currentHP
-            }
+        }
+        if (move.move is DrainMove) {
+            currentHP = if (currentHP + drained > hp) hp else currentHP + drained
         }
         return AttackResponse(true, "")
     }
