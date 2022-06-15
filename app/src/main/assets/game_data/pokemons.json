@@ -1260,6 +1260,84 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+  "id": 37,
+  "name": "Vulpix",
+  "type1": 2,
+  "type2": 0,
+  "possibleMoves": {
+    "movesLearnByLevel": [
+      {
+        "moveId": 7,
+        "level": 1
+      },
+      {
+        "moveId": 3,
+        "level": 8
+      },
+      {
+        "moveId": 48,
+        "level": 20
+      },
+      {
+        "moveId": 31,
+        "level": 32
+      }
+    ],
+    "movesLearnWithHM": [
+    ],
+    "bannerMoves": []
+  },
+  "catchRate": 0.35,
+  "hp": 38,
+  "attack": 41,
+  "defense": 40,
+  "spAtk": 50,
+  "spDef": 65,
+  "speed": 60,
+  "evolutionId": 59,
+  "evolutionCondition": {
+    "itemId": 16
+  },
+  "expGaugeType": "MEDIUM_FAST"
+},
+  {
+    "id": 38,
+    "name": "Ninetales",
+    "type1": 2,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 7,
+          "level": 1
+        },
+        {
+          "moveId": 3,
+          "level": 1
+        },
+        {
+          "moveId": 48,
+          "level": 1
+        },
+        {
+          "moveId": 31,
+          "level": 1
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "catchRate": 0.25,
+    "hp": 73,
+    "attack": 67,
+    "defense": 75,
+    "spAtk": 81,
+    "spDef": 100,
+    "speed": 109,
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 41,
     "name": "Zubat",
     "type1": 6,
@@ -1692,6 +1770,104 @@
     "spDef": 70,
     "speed": 95,
     "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 58,
+    "name": "Growlithe",
+    "type1": 2,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 23,
+          "level": 1
+        },
+        {
+          "moveId": 7,
+          "level": 3
+        },
+        {
+          "moveId": 74,
+          "level": 12
+        },
+        {
+          "moveId": 27,
+          "level": 32
+        },
+        {
+          "moveId": 31,
+          "level": 40
+        },
+        {
+          "moveId": 73,
+          "level": 48
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "catchRate": 0.35,
+    "hp": 55,
+    "attack": 70,
+    "defense": 45,
+    "spAtk": 70,
+    "spDef": 50,
+    "speed": 60,
+    "evolutionId": 59,
+    "evolutionCondition": {
+      "itemId": 16
+    },
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 59,
+    "name": "Arcanine",
+    "type1": 2,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 23,
+          "level": 1
+        },
+        {
+          "moveId": 7,
+          "level": 1
+        },
+        {
+          "moveId": 74,
+          "level": 1
+        },
+        {
+          "moveId": 27,
+          "level": 1
+        },
+        {
+          "moveId": 31,
+          "level": 1
+        },
+        {
+          "moveId": 73,
+          "level": 1
+        },
+        {
+          "moveId": 75,
+          "level": 1
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "catchRate": 0.25,
+    "hp": 90,
+    "attack": 110,
+    "defense": 80,
+    "spAtk": 100,
+    "spDef": 80,
+    "speed": 95,
+    "expGaugeType": "SLOW"
   },
   {
     "id": 69,
@@ -2187,6 +2363,117 @@
     "spAtk": 80,
     "spDef": 80,
     "speed": 150,
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 104,
+    "name": "Cubone",
+    "type1": 10,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 72,
+          "level": 1
+        },
+        {
+          "moveId": 70,
+          "level": 21
+        },
+        {
+          "moveId": 71,
+          "level": 29
+        },
+        {
+          "moveId": 22,
+          "level": 36
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 50,
+    "attack": 90,
+    "defense": 95,
+    "spAtk": 40,
+    "spDef": 50,
+    "speed": 35,
+    "catchRate": 0.4,
+    "evolutionId": 105,
+    "evolutionCondition": {
+      "level": 28
+    },
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 105,
+    "name": "Marowak",
+    "type1": 10,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 72,
+          "level": 1
+        },
+        {
+          "moveId": 70,
+          "level": 21
+        },
+        {
+          "moveId": 71,
+          "level": 31
+        },
+        {
+          "moveId": 22,
+          "level": 36
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 60,
+    "attack": 120,
+    "defense": 110,
+    "spAtk": 50,
+    "spDef": 80,
+    "speed": 45,
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 106,
+    "name": "Hitmonlee",
+    "type1": 5,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 69,
+          "level": 1
+        },
+        {
+          "moveId": 68,
+          "level": 24
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 50,
+    "attack": 120,
+    "defense": 53,
+    "spAtk": 35,
+    "spDef":110,
+    "speed": 87,
     "catchRate": 0.3,
     "expGaugeType": "MEDIUM_FAST"
   },

@@ -830,7 +830,7 @@
               "id": 12,
               "level": 19,
               "moveIds": [
-                2,4,35,39
+                59,4,35,39
               ]
             }
           ]
@@ -1005,23 +1005,23 @@
     },
     {
       "id":25,
-      "name": "\nRoute 9&10",
+      "name": "\nRoute 9",
       "description": "After defeating Dugtrio, Professor Oak advises you to go to Lavender Town to catch some ghost types Pokemon. So you go to Route 9 to the east of Cerulean City",
       "opponents": [
         {
           "sprite": "images/Sprite_Montagnard.png",
-          "name" : "Hiker Markos",
+          "name" : "Hiker Alan",
           "pokemons": [
             {
               "id": 75,
-              "level": 34,
+              "level": 31,
               "moveIds": [
                 2,32,29,30
               ]
             },
             {
               "id": 95,
-              "level": 34,
+              "level": 31,
               "moveIds": [
                 25,2,15,32
               ]
@@ -1102,6 +1102,235 @@
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
       "exp": 2100
+    },
+    {
+      "id":26,
+      "name": "\nRock Tunner 1F",
+      "description": "You enter Rock Tunnel but it is so dark that you can't  see anything. So you use a flashlight and see several trainers ready to battle you.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Montagnard.png",
+          "name" : "Hiker Alan",
+          "pokemons": [
+            {
+              "id": 75,
+              "level": 34,
+              "moveIds": [
+                2,32,29,30
+              ]
+            },
+            {
+              "id": 75,
+              "level": 34,
+              "moveIds": [
+                2,32,29,30
+              ]
+            },
+            {
+              "id": 95,
+              "level": 34,
+              "moveIds": [
+                25,2,15,32
+              ]
+            },
+            {
+              "id": 95,
+              "level": 34,
+              "moveIds": [
+                25,2,15,32
+              ]
+            }
+          ]
+        },{
+          "sprite": "images/Sprite_Campeur.png",
+          "name" : "Camper Dean",
+          "pokemons": [
+            {
+              "id": 17,
+              "level": 32,
+              "moveIds": [
+                3,4,21,54
+              ]
+            },
+            {
+              "id": 20,
+              "level": 32,
+              "moveIds": [
+                22,4,27,28
+              ]
+            },
+            {
+              "id": 20,
+              "level": 32,
+              "moveIds": [
+                22,4,27,28
+              ]
+            },
+            {
+              "id": 20,
+              "level": 32,
+              "moveIds": [
+                22,4,27,28
+              ]
+            },
+            {
+              "id": 20,
+              "level": 32,
+              "moveIds": [
+                22,4,27,28
+              ]
+            },
+            {
+              "id": 70,
+              "level": 31,
+              "moveIds": [
+                5,34,35,58
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 60
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 2
+        }
+      ],
+      "startDialog": "This tunnel goes a long way, kid!",
+      "endDialogWin": "Whew! I'm all sweaty now!",
+      "endDialogLoose": "I play hard!",
+      "music": 2,
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "exp": 2200
+    },
+    {
+      "id": 29,
+      "name": "\nVS Rival 4",
+      "description": "You have arrived in Lavender Town and you are going to the Pokemon Tower. Once inside, you come across Jackson.",
+      "type": "Trainer Battle",
+      "opponents": [
+        {
+          "sprite": "images/Spr_Rival.png",
+          "name" : "Jackson",
+          "pokemons": [
+            {
+              "id": 106,
+              "level": 40,
+              "moveIds": [
+                68,69,25,14
+              ]
+            },
+            {
+              "id": 18,
+              "level": 35,
+              "moveIds": [
+                3,16,54,19
+              ]
+            },
+            {
+              "id": 117,
+              "level": 35,
+              "moveIds": [
+                15,43,42
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 90
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "You again! I've gotten much stronger since our last fight let me show you.",
+      "endDialogWin": "I can't believe it!",
+      "endDialogLoose": "I knew I would win this time",
+      "music": 2,
+      "icon": "images/tower_battle_background.png",
+      "background": "images/tower_battle_background.png",
+      "exp": 4000
+    },
+    {
+      "id": 32,
+      "name": "\nVS Team Rocket",
+      "description": "On the top floor of the Pokemon Tower, you come across Team Rocket brutalizing an old man.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 42,
+              "level": 37,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },
+            {
+              "id": 42,
+              "level": 37,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },{
+              "id": 42,
+              "level": 37,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },{
+              "id": 42,
+              "level": 37,
+              "moveIds": [
+                50,23,48,16
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 80
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "What do you want? Why are you here?",
+      "endDialogWin": "I give up!",
+      "endDialogLoose": "You're not saving anyone, kid!",
+      "music": 2,
+      "icon": "images/tower_battle_background.png",
+      "background": "images/tower_battle_background.png",
+      "exp": 3570
     }
   ],
   "randomWildEncounters": [
@@ -1335,8 +1564,8 @@
       "encounter": 3,
       "possibleEncounters":
       {
-        "minLevel": 25,
-        "maxLevel": 27,
+        "minLevel": 23,
+        "maxLevel": 25,
         "encounters": [
           50
         ]
@@ -1355,6 +1584,146 @@
       "background": "images/cave_battle_background.png",
       "music": 1,
       "exp": 1200
+    },
+    {
+      "id": 27,
+      "name": "\nRock Tunnel B1F",
+      "description": "You enter the B1F and you come across several wild Pokemon.",
+      "encounter": 5,
+      "possibleEncounters":
+      {
+        "minLevel": 24,
+        "maxLevel": 26,
+        "encounters": [
+          41,41,41,74,74,74,95,95,95,115
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "music": 1,
+      "exp": 2130
+    },
+    {
+      "id": 28,
+      "name": "\nRoute 10",
+      "description": "You come out of the Rock Tunnel and see the Pokemon Tower of Lavanville on the horizon.",
+      "encounter": 3,
+      "possibleEncounters":
+      {
+        "minLevel": 21,
+        "maxLevel": 23,
+        "encounters": [
+          20,21,27,100
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 2160
+    },
+    {
+      "id": 30,
+      "name": "\nPokemon Tower",
+      "description": "After beating Jackson, you can finally catch some ghost types Pokemon.",
+      "encounter": 3,
+      "possibleEncounters":
+      {
+        "minLevel": 24,
+        "maxLevel": 27,
+        "encounters": [
+          104,92,104,92,104,92,104,92,93
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/tower_battle_background.png",
+      "background": "images/tower_battle_background.png",
+      "music": 1,
+      "exp": 2170
+    },
+    {
+      "id": 33,
+      "name": "\nRoute 8",
+      "description": "After saving the old man, he gives you a flute to wake up the sleeping pokemon on Route 16. Therefore, you're going there.",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 28,
+        "maxLevel": 31,
+        "encounters": [
+          23,27,37,58
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 3000
+    },
+    {
+      "id": 34,
+      "name": "\nRoute 7",
+      "description": "A guard blocks your access to Saffron City, so you take an underground passage that leads you to Route 7.",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 28,
+        "maxLevel": 31,
+        "encounters": [
+          21,37,58
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 3300
     }
   ],
   "bossBattles": [
@@ -1365,7 +1734,7 @@
       "boss":
       {
         "id": 51,
-        "level": 42,
+        "level": 40,
         "moveIds": [30,38,25,37],
         "boostedStats": ["SPATK"]
       },
@@ -1383,6 +1752,32 @@
       "background": "images/cave_battle_background.png",
       "music": 1,
       "exp": 4000
+    },
+    {
+      "id": 31,
+      "name": "\nVs Marowak",
+      "description": "As you advance through the Pokemon Tower, you come across a Marowak that looks extremely powerful. Watch out, it's attacking you!",
+      "boss":
+      {
+        "id": 105,
+        "level": 45,
+        "moveIds": [25,71,69,70],
+        "boostedStats": ["SPEED"]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/marowak_boss_icon.JPG",
+      "background": "images/tower_battle_background.png",
+      "music": 1,
+      "exp": 4400
     }
   ]
 }

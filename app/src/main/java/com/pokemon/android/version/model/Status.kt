@@ -20,7 +20,6 @@ enum class Status {
             PARALYSIS -> return "PAR"
             POISON -> return "PSN"
             ASLEEP -> return "SLP"
-            else -> "OK"
         }
         return ""
     }
@@ -42,6 +41,8 @@ enum class Status {
                 return true
             if (opponent.status != OK)
                 return false
+            if (status == ASLEEP)
+                return true
             if (status == BURN && (opponent.data.type1 != Type.FIRE && opponent.data.type2 != Type.FIRE))
                 return true
             if (status == PARALYSIS && (opponent.data.type1 != Type.ELECTRIC && opponent.data.type2 != Type.ELECTRIC))
