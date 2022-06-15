@@ -152,7 +152,7 @@ class Pokemon(
                 return AttackResponse(false, this.data.name + " can't move because it is paralysed!\n")
         }
         if (this.status == Status.ASLEEP) {
-            if (battleData!!.sleepCounter == 2) {
+            if (battleData!!.sleepCounter == 3) {
                 battleData!!.sleepCounter = 0
                 this.status = Status.OK
             } else

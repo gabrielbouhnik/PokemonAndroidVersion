@@ -1331,6 +1331,118 @@
       "icon": "images/tower_battle_background.png",
       "background": "images/tower_battle_background.png",
       "exp": 3570
+    },
+    {
+      "id": 35,
+      "name": "\nCeladon City Gym",
+      "description": "You have arrived in Celadon City and are about to face the gym.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Fillette.png",
+          "name" : "Lass Kay",
+          "pokemons": [
+            {
+              "id": 69,
+              "level": 39,
+              "moveIds": [18,34,35,58
+              ]
+            },
+            {
+              "id": 70,
+              "level": 39,
+              "moveIds": [18,34,35,58
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hey! You are not allowed in here!",
+      "endDialogWin": "Bleaah! I hope ERIKA wipes you out!",
+      "endDialogLoose": "Oh! Splendid!",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 3900
+    },
+    {
+      "id": 36,
+      "name": "\nVS Erika",
+      "description": "After beating the guard, you go to the gym leader to challenge her.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Erika.png",
+          "name" : "Gym Leader Erika",
+          "pokemons": [
+            {
+              "id": 189,
+              "level": 40,
+              "moveIds": [
+                66,44,35
+              ]
+            },
+            {
+              "id": 114,
+              "level": 40,
+              "moveIds": [
+                66,35
+              ]
+            },
+            {
+              "id": 71,
+              "level": 40,
+              "moveIds": [
+                66,62,18
+              ]
+            },
+            {
+              "id": 45,
+              "level": 40,
+              "moveIds": [
+                66,44,37,76
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 34,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Welcome. My name is Erika. I am the Gym Leader of the Celadon City Gym. I am a student of the art of flower arranging. My Pokémon are all of the Grass type. Did you perhaps wish to challenge me? Very well but I shall not lose",
+      "endDialogWin": "Oh! I concede defeat. You are remarkably strong. I must confer on you the Rainbow Badge",
+      "endDialogLoose": "I thank you for your demonstration",
+      "music": 3,
+      "icon": "images/VS_Erika.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 4900
     }
   ],
   "randomWildEncounters": [
@@ -1673,7 +1785,7 @@
       "id": 33,
       "name": "\nRoute 8",
       "description": "After saving the old man, he gives you a flute to wake up the sleeping pokemon on Route 16. Therefore, you're going there.",
-      "encounter": 4,
+      "encounter": 3,
       "possibleEncounters":
       {
         "minLevel": 28,
@@ -1707,7 +1819,7 @@
         "minLevel": 28,
         "maxLevel": 31,
         "encounters": [
-          21,37,58
+          21,37,58,198,209,228
         ]
       },
       "rewards": [
@@ -1778,6 +1890,32 @@
       "background": "images/tower_battle_background.png",
       "music": 1,
       "exp": 4400
+    },
+    {
+      "id": 37,
+      "name": "\nVs Snorlax",
+      "description": "After getting your fourth badge, you go to Route 16 and come across the sleeping pokemon. You wake him up with the flute that the old man gave you and it gets really angry!",
+      "boss":
+      {
+        "id": 143,
+        "level": 50,
+        "moveIds": [72,30,25,27],
+        "boostedStats": ["DEFENSE"]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/snorlax_boss_icon.JPG",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 5300
     }
   ]
 }

@@ -960,6 +960,17 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0
+    },
+    {
+      "id": 76,
+      "name": "Drain Punch",
+      "power": 75,
+      "category": "PHYSICAL",
+      "pp": 10,
+      "type": 11,
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0
     }
   ]
 }

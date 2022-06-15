@@ -1294,7 +1294,7 @@
   "spAtk": 50,
   "spDef": 65,
   "speed": 60,
-  "evolutionId": 59,
+  "evolutionId": 38,
   "evolutionCondition": {
     "itemId": 16
   },
@@ -1434,6 +1434,43 @@
       "level": 36
     },
     "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 45,
+    "name": "Vileplume",
+    "type1": 1,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 66,
+          "level": 1
+        },
+        {
+          "moveId": 35,
+          "level": 1
+        },
+        {
+          "moveId": 34,
+          "level": 1
+        },
+        {
+          "moveId": 58,
+          "level": 1
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 75,
+    "attack": 80,
+    "defense": 85,
+    "spAtk": 110,
+    "spDef": 90,
+    "speed": 50,
+    "catchRate": 0.2,
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 46,
@@ -2478,6 +2515,47 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 114,
+    "name": "Tangela",
+    "type1": 1,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 67,
+          "level": 1
+        },
+        {
+          "moveId": 5,
+          "level": 16
+        },
+        {
+          "moveId": 34,
+          "level": 20
+        },
+        {
+          "moveId": 66,
+          "level": 32
+        },
+        {
+          "moveId": 35,
+          "level": 36
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 55,
+    "defense": 115,
+    "spAtk": 100,
+    "spDef":40,
+    "speed": 60,
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 115,
     "name": "Kangaskhan",
     "type1": 5,
@@ -2757,6 +2835,39 @@
       "itemId": 23
     },
     "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 143,
+    "name": "Snorlax",
+    "type1": 5,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 65,
+          "level": 1
+        },
+        {
+          "moveId": 27,
+          "level": 24
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 160,
+    "attack": 110,
+    "defense": 65,
+    "spAtk": 65,
+    "spDef":110,
+    "speed": 30,
+    "catchRate": 0.2,
+    "expGaugeType": "SLOW"
   },
   {
     "id": 147,
@@ -3042,6 +3153,64 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 189,
+    "name": "Jumpluff",
+    "type1": 1,
+    "type2": 6,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 75,
+    "attack": 55,
+    "defense": 70,
+    "spAtk": 55,
+    "spDef": 95,
+    "speed": 110,
+    "catchRate": 0.2,
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 198,
+    "name": "Murkrow",
+    "type1": 6,
+    "type2": 17,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 11,
+          "level": 1
+        },
+        {
+          "moveId": 47,
+          "level": 1
+        },
+        {
+          "moveId": 4,
+          "level": 5
+        },
+        {
+          "moveId": 16,
+          "level": 15
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 60,
+    "attack": 85,
+    "defense": 42,
+    "spAtk": 85,
+    "spDef": 42,
+    "speed": 91,
+    "catchRate": 0.4,
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
     "id": 208,
     "name": "Steelix",
     "type1": 10,
@@ -3091,6 +3260,104 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 209,
+    "name": "Snubull",
+    "type1": 18,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 23,
+          "level": 7
+        },
+        {
+          "moveId": 65,
+          "level": 13
+        },
+        {
+          "moveId": 72,
+          "level": 19
+        },
+        {
+          "moveId": 73,
+          "level": 37
+        },
+        {
+          "moveId": 27,
+          "level": 49
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 60,
+    "attack": 80,
+    "defense": 50,
+    "spAtk": 40,
+    "spDef": 40,
+    "speed": 30,
+    "catchRate": 0.4,
+    "evolutionId": 210,
+    "evolutionCondition": {
+      "level": 23
+    },
+    "expGaugeType": "FAST"
+  },
+  {
+    "id": 210,
+    "name": "Granbull",
+    "type1": 18,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 23,
+          "level": 7
+        },
+        {
+          "moveId": 65,
+          "level": 13
+        },
+        {
+          "moveId": 72,
+          "level": 19
+        },
+        {
+          "moveId": 73,
+          "level": 43
+        },
+        {
+          "moveId": 27,
+          "level": 59
+        },
+        {
+          "moveId": 40,
+          "level": 67
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 90,
+    "attack": 120,
+    "defense": 75,
+    "spAtk": 60,
+    "spDef": 60,
+    "speed": 45,
+    "catchRate": 0.3,
+    "expGaugeType": "FAST"
+  },
+  {
     "id": 212,
     "name": "Scizor",
     "type1": 7,
@@ -3134,6 +3401,84 @@
     "speed": 65,
     "catchRate": 0.2,
     "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 228,
+    "name": "Houndour",
+    "type1": 2,
+    "type2": 17,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 7,
+          "level": 1
+        },
+        {
+          "moveId": 23,
+          "level": 16
+        },
+        {
+          "moveId": 31,
+          "level": 44
+        },
+        {
+          "moveId": 27,
+          "level": 49
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 45,
+    "attack": 60,
+    "defense": 30,
+    "spAtk": 80,
+    "spDef": 50,
+    "speed": 65,
+    "catchRate": 0.4,
+    "evolutionId": 229,
+    "evolutionCondition": {
+      "level": 24
+    },
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 229,
+    "name": "Houndoom",
+    "type1": 2,
+    "type2": 17,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 7,
+          "level": 1
+        },
+        {
+          "moveId": 23,
+          "level": 16
+        },
+        {
+          "moveId": 31,
+          "level": 50
+        },
+        {
+          "moveId": 27,
+          "level": 56
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 75,
+    "attack": 90,
+    "defense": 50,
+    "spAtk": 110,
+    "spDef": 80,
+    "speed": 95,
+    "catchRate": 0.25,
+    "expGaugeType": "SLOW"
   },
   {
     "id": 230,

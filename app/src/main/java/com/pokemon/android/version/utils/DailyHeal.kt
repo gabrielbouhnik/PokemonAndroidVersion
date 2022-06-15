@@ -10,7 +10,7 @@ import java.util.*
 class DailyHeal {
     companion object{
         fun canUseDailyHeal(trainer : Trainer) :Boolean{
-            return trainer.lastTimeDailyHealUsed == null || trainer.lastTimeDailyHealUsed!!.compareTo(Calendar.getInstance().time) > 0
+            return trainer.lastTimeDailyHealUsed == null || trainer.lastTimeDailyHealUsed!!.compareTo(Calendar.getInstance().time) < 0
         }
 
         fun heal(trainer : Trainer){
