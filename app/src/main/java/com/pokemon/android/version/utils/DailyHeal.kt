@@ -2,12 +2,21 @@ package com.pokemon.android.version.utils
 
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Trainer
+import java.time.LocalDate
 import java.util.*
 
 class DailyHeal {
     companion object{
         fun canUseDailyHeal(trainer : Trainer) :Boolean{
-            return trainer.lastTimeDailyHealUsed == null || trainer.lastTimeDailyHealUsed!!.compareTo(Calendar.getInstance().time) < 0
+            if (trainer.lastTimeDailyHealUsed == null)
+                return true
+            return trainer.lastTimeDailyHealUsed == null || compareDates(trainer.lastTimeDailyHealUsed!!)
+        }
+
+        fun compareDates(last: Date): Boolean {
+            var lastUsed = last.toString().split(" ")
+            var currentDate = Calendar.getInstance().time.toString().split(" ")
+            return !lastUsed[0].equals(currentDate[0]) || !lastUsed[2].equals(currentDate[2]) ||  !lastUsed[5].equals(currentDate[5])
         }
 
         fun heal(trainer : Trainer){
