@@ -9,6 +9,7 @@ import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.MoveUtils
+import java.util.*
 import kotlin.math.roundToInt
 import kotlin.random.Random
 import kotlin.random.nextInt
@@ -34,7 +35,6 @@ class Pokemon(
     var battleData: PokemonBattleData?,
     var isFromBanner : Boolean = false
 ) {
-
 
     constructor(
         data: PokemonData, trainer: Trainer?, level: Int,
@@ -271,7 +271,7 @@ class Pokemon(
         if (condition!!.level != null && level >= condition.level!!) {
             return true
         }
-        if (condition.itemId != null && this.trainer!!.items.containsKey(condition!!.itemId))
+        if (condition.itemId != null && this.trainer!!.items.containsKey(condition.itemId))
             return true
         return false
     }

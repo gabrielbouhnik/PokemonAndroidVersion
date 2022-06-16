@@ -1,9 +1,8 @@
 package com.pokemon.android.version.ui
 
-import android.graphics.Color
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -13,22 +12,20 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Pokemon
 
-class PokemonRecyclerAdapter (val activity: MainActivity,
-                              val data: MutableList<Pokemon>,
-                              private val onItemClickListener: View.OnClickListener) :
-                        RecyclerView.Adapter<PokemonRecyclerAdapter.ViewHolder>() {
+class TeamMemberRecyclerAdapter (val context: Context,
+                                 val data: MutableList<Pokemon>,
+                                 private val onItemClickListener: View.OnClickListener) :
+    RecyclerView.Adapter<TeamMemberRecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var nameTextView: TextView
         var hpLevelTextView: TextView
         var spriteView: ImageView
-        var canEvolveTextView : TextView
 
         init {
-            nameTextView = itemView.findViewById(R.id.nameItemTextView)
-            hpLevelTextView = itemView.findViewById(R.id.levelItemTextView)
-            spriteView = itemView.findViewById(R.id.pokemonSpriteView)
-            canEvolveTextView = itemView.findViewById(R.id.canEvolveTextView)
+            nameTextView = itemView.findViewById(R.id.teamMemberNameTextView)
+            hpLevelTextView = itemView.findViewById(R.id.teamMemberLevelItemTextView)
+            spriteView = itemView.findViewById(R.id.teamMemberSpriteView)
         }
     }
 
@@ -38,8 +35,8 @@ class PokemonRecyclerAdapter (val activity: MainActivity,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val rowView = LayoutInflater
-            .from(activity)
-            .inflate(R.layout.pokemon_item, parent, false)
+            .from(context)
+            .inflate(R.layout.team_item, parent, false)
         rowView.setOnClickListener(onItemClickListener)
         val viewHolder = ViewHolder(rowView)
         return viewHolder
@@ -50,10 +47,8 @@ class PokemonRecyclerAdapter (val activity: MainActivity,
         holder.nameTextView.text = currentItem.data.name
         holder.hpLevelTextView.text = "Level  ${currentItem.level}  ${currentItem.currentHP}/${currentItem.hp}"
         holder.itemView.tag = position
-        Glide.with(activity)
+        Glide.with(context)
             .load(MainActivity.pokemonSpritesUrl + currentItem.data.id + ".png")
             .into(holder.spriteView)
-        if (currentItem.canEvolve())
-            holder.canEvolveTextView.visibility = VISIBLE
     }
 }

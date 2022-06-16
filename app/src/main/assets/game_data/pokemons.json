@@ -327,6 +327,14 @@
         {
           "moveId": 24,
           "level": 15
+        },
+        {
+          "moveId": 79,
+          "level": 24
+        },
+        {
+          "moveId": 80,
+          "level": 33
         }
       ],
       "movesLearnWithHM": [
@@ -372,6 +380,14 @@
         {
           "moveId": 24,
           "level": 15
+        },
+        {
+          "moveId": 79,
+          "level": 30
+        },
+        {
+          "moveId": 80,
+          "level": 45
         }
       ],
       "movesLearnWithHM": [
@@ -417,6 +433,14 @@
         {
           "moveId": 24,
           "level": 15
+        },
+        {
+          "moveId": 79,
+          "level": 30
+        },
+        {
+          "moveId": 80,
+          "level": 49
         }
       ],
       "movesLearnWithHM": [
@@ -1279,8 +1303,16 @@
         "level": 20
       },
       {
+        "moveId": 81,
+        "level": 28
+      },
+      {
         "moveId": 31,
         "level": 32
+      },
+      {
+        "moveId": 82,
+        "level": 56
       }
     ],
     "movesLearnWithHM": [
@@ -1321,6 +1353,14 @@
         },
         {
           "moveId": 31,
+          "level": 1
+        },
+        {
+          "moveId": 81,
+          "level": 1
+        },
+        {
+          "moveId": 82,
           "level": 1
         }
       ],
@@ -1674,6 +1714,14 @@
         {
           "moveId": 24,
           "level": 12
+        },
+        {
+          "moveId": 79,
+          "level": 24
+        },
+        {
+          "moveId": 80,
+          "level": 36
         }
       ],
       "movesLearnWithHM": [
@@ -1715,6 +1763,14 @@
         {
           "moveId": 24,
           "level": 12
+        },
+        {
+          "moveId": 79,
+          "level": 24
+        },
+        {
+          "moveId": 80,
+          "level": 40
         }
       ],
       "movesLearnWithHM": [
@@ -2059,6 +2115,14 @@
         {
           "moveId": 30,
           "level": 22
+        },
+        {
+          "moveId": 77,
+          "level": 34
+        },
+        {
+          "moveId": 78,
+          "level": 54
         }
       ],
       "movesLearnWithHM": [
@@ -2100,6 +2164,14 @@
         {
           "moveId": 30,
           "level": 22
+        },
+        {
+          "moveId": 77,
+          "level": 34
+        },
+        {
+          "moveId": 78,
+          "level": 54
         }
       ],
       "movesLearnWithHM": [
@@ -2141,6 +2213,14 @@
         {
           "moveId": 30,
           "level": 22
+        },
+        {
+          "moveId": 77,
+          "level": 34
+        },
+        {
+          "moveId": 78,
+          "level": 54
         }
       ],
       "movesLearnWithHM": [
@@ -2305,6 +2385,10 @@
         {
           "moveId": 13,
           "level": 48
+        },
+        {
+          "moveId": 78,
+          "level": 52
         }
       ],
       "movesLearnWithHM": [
@@ -2836,6 +2920,51 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 137,
+    "name": "Porygon",
+    "type1": 5,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 8,
+          "level": 15
+        },
+        {
+          "moveId": 59,
+          "level": 20
+        },
+        {
+          "moveId": 21,
+          "level": 30
+        },
+        {
+          "moveId": 53,
+          "level": 40
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 60,
+    "defense": 70,
+    "spAtk": 85,
+    "spDef": 75,
+    "speed": 40,
+    "catchRate": 0.2,
+    "evolutionId": 233,
+    "evolutionCondition": {
+      "itemId": 24
+    },
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 143,
     "name": "Snorlax",
     "type1": 5,
@@ -3050,6 +3179,14 @@
         {
           "moveId": 50,
           "level": 18
+        },
+        {
+          "moveId": 81,
+          "level": 21
+        },
+        {
+          "moveId": 83,
+          "level": 33
         }
       ],
       "movesLearnWithHM": [
@@ -3091,6 +3228,14 @@
         {
           "moveId": 50,
           "level": 18
+        },
+        {
+          "moveId": 81,
+          "level": 23
+        },
+        {
+          "moveId": 83,
+          "level": 43
         }
       ],
       "movesLearnWithHM": [
@@ -3217,8 +3362,8 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
-          "moveId": 3,
-          "level": 27
+          "moveId": 27,
+          "level": 1
         },
         {
           "moveId": 2,
@@ -3243,6 +3388,10 @@
         {
           "moveId": 13,
           "level": 48
+        },
+        {
+          "moveId": 78,
+          "level": 52
         }
       ],
       "movesLearnWithHM": [
@@ -3521,6 +3670,47 @@
     "spAtk": 95,
     "spDef": 95,
     "speed": 85,
+    "catchRate": 0.2,
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 233,
+    "name": "Porygon 2",
+    "type1": 5,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 8,
+          "level": 15
+        },
+        {
+          "moveId": 59,
+          "level": 20
+        },
+        {
+          "moveId": 21,
+          "level": 30
+        },
+        {
+          "moveId": 53,
+          "level": 40
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 85,
+    "attack": 80,
+    "defense": 90,
+    "spAtk": 105,
+    "spDef": 95,
+    "speed": 60,
     "catchRate": 0.2,
     "expGaugeType": "MEDIUM_FAST"
   },

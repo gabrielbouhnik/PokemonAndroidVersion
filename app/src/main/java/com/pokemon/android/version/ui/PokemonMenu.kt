@@ -29,7 +29,9 @@ class PokemonMenu {
             val position = it.tag as Int
             loadPokemonInfoLayout(activity, activity.trainer!!.pokemons[position])
         }
-        val adapter =  PokemonRecyclerAdapter(activity, activity.trainer!!.pokemons, myItemClickListener)
+        val pokemons : MutableList<Pokemon> = (activity.trainer!!.team + activity.trainer!!.pokemons.filter{
+            !activity.trainer!!.team.contains(it)}).toMutableList()
+        val adapter =  PokemonRecyclerAdapter(activity, pokemons, myItemClickListener)
         recyclerView.adapter = adapter
         val teamButton : Button = activity.findViewById(R.id.buildTeamButton)
         teamButton.setOnClickListener{
@@ -49,14 +51,16 @@ class PokemonMenu {
         teamRecyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         val pokemonsRecyclerView = activity.findViewById<RecyclerView>(R.id.pokemonsRecyclerView)
         pokemonsRecyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        val pokemons : MutableList<Pokemon> = (activity.trainer!!.team + activity.trainer!!.pokemons.filter{
+            !activity.trainer!!.team.contains(it)}).toMutableList()
         val myItemClickListener = View.OnClickListener {
             val position = it.tag as Int
-            if (activity.trainer!!.team.size < 6 && !activity.trainer!!.team.contains(activity.trainer!!.pokemons[position])) {
-                activity.trainer!!.team.add(activity.trainer!!.pokemons[position])
-                teamRecyclerView.adapter = PokemonRecyclerAdapter(activity, activity.trainer!!.team, View.OnClickListener {})
+            if (activity.trainer!!.team.size < 6 && !activity.trainer!!.team.contains(pokemons[position])) {
+                activity.trainer!!.team.add(pokemons[position])
+                teamRecyclerView.adapter = TeamMemberRecyclerAdapter(activity, activity.trainer!!.team, View.OnClickListener {})
             }
         }
-        pokemonsRecyclerView.adapter = PokemonRecyclerAdapter(activity, activity.trainer!!.pokemons, myItemClickListener)
+        pokemonsRecyclerView.adapter = TeamMemberRecyclerAdapter(activity, pokemons, myItemClickListener)
     }
 
     private fun displayPokemonInfo(activity : MainActivity, pokemon: Pokemon){

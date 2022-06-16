@@ -208,6 +208,28 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 2
+    },
+    {
+      "id": 79,
+      "name": "Aqua Tail",
+      "power": 90,
+      "pp": 10,
+      "type": 3,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "",
+      "priorityLevel": 0
+    },
+    {
+      "id": 80,
+      "name": "Hydro Pump",
+      "power": 110,
+      "pp": 5,
+      "type": 3,
+      "category": "SPECIAL",
+      "accuracy": 80,
+      "description": "",
+      "priorityLevel": 0
     }
   ],
   "statusMoves": [
@@ -587,6 +609,32 @@
       "priorityLevel": 0,
       "status": "BURN",
       "probability": 10
+    },
+    {
+      "id": 81,
+      "name": "Extrasensory",
+      "power": 80,
+      "pp": 20,
+      "type": 12,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0,
+      "status": "FLINCHED",
+      "probability": 10
+    },
+    {
+      "id": 82,
+      "name": "Fire Blast",
+      "power": 110,
+      "pp": 5,
+      "type": 2,
+      "category": "SPECIAL",
+      "accuracy": 85,
+      "description": "",
+      "priorityLevel": 0,
+      "status": "BURN",
+      "probability": 10
     }
   ],
   "critMoves": [
@@ -651,8 +699,19 @@
       "power": 85,
       "pp": 10,
       "type": 2,
-      "category": "SPECIAL",
+      "category": "PHYSICAL",
       "accuracy": 90,
+      "description": "",
+      "priorityLevel": 0
+    },
+    {
+      "id": 78,
+      "name": "Stone Edge",
+      "power": 100,
+      "pp": 5,
+      "type": 9,
+      "category": "PHYSICAL",
+      "accuracy": 80,
       "description": "",
       "priorityLevel": 0
     }
@@ -686,6 +745,17 @@
       "power": 25,
       "pp": 10,
       "type": 10,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "",
+      "priorityLevel": 0
+    },
+    {
+      "id": 77,
+      "name": "Rock Blast",
+      "power": 25,
+      "pp": 10,
+      "type": 9,
       "category": "PHYSICAL",
       "accuracy": 90,
       "description": "",
@@ -932,6 +1002,22 @@
       "description": "",
       "statsAffected": [
         "ATTACK"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.5,
+      "probabilty": 10
+    },
+    {
+      "id": 83,
+      "name": "Moonblast",
+      "power": 95,
+      "category": "SPECIAL",
+      "pp": 15,
+      "type": 18,
+      "accuracy": 100,
+      "description": "",
+      "statsAffected": [
+        "SPATK"
       ],
       "target": "OPPONENT",
       "multiplicator": 0.5,

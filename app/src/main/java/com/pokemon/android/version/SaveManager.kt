@@ -26,7 +26,7 @@ class SaveManager {
             trainer.progression = trainerSave.progression
             trainerSave.items.forEach{trainer.items[it.itemId] = it.quantity }
             trainerSave.team.forEach{
-                var pokemon : Pokemon = Pokemon.of(it, activity.gameDataService,trainer)
+                val pokemon : Pokemon = Pokemon.of(it, activity.gameDataService,trainer)
                 trainer.pokemons.add(pokemon)
                 trainer.team.add(pokemon)}
             trainerSave.pokemons.forEach{trainer.pokemons.add(Pokemon.of(it, activity.gameDataService,trainer))}
@@ -36,7 +36,7 @@ class SaveManager {
         }
 
         fun save(activity : MainActivity){
-            var trainerSave : TrainerSave = TrainerSave.of(activity.trainer!!)
+            val trainerSave : TrainerSave = TrainerSave.of(activity.trainer!!)
             val gsonPretty = GsonBuilder().setPrettyPrinting().create()
             val jsonSave: String = gsonPretty.toJson(trainerSave)
             activity.openFileOutput(SAVE_FILE_PATH, Context.MODE_PRIVATE).use { output ->
