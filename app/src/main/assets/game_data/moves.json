@@ -635,6 +635,18 @@
       "priorityLevel": 0,
       "status": "BURN",
       "probability": 10
+    },{
+      "id": 83,
+      "name": "Toxic",
+      "power": 0,
+      "pp": 11,
+      "type": 8,
+      "category": "OTHER",
+      "accuracy": 90,
+      "description": "",
+      "priorityLevel": 0,
+      "status": "POISON",
+      "probability": 100
     }
   ],
   "critMoves": [

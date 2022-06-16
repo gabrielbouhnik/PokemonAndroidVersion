@@ -2598,6 +2598,84 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 109,
+    "name": "Koffing",
+    "type1": 8,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 83,
+          "level": 1
+        },
+        {
+          "moveId": 42,
+          "level": 8
+        },
+        {
+          "moveId": 37,
+          "level": 32
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 40,
+    "attack": 65,
+    "defense": 95,
+    "spAtk": 60,
+    "spDef": 45,
+    "speed": 35,
+    "catchRate": 0.4,
+    "evolutionId": 110,
+    "evolutionCondition": {
+      "level": 35
+    },
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 110,
+    "name": "Weezing",
+    "type1": 8,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 83,
+          "level": 1
+        },
+        {
+          "moveId": 42,
+          "level": 8
+        },
+        {
+          "moveId": 37,
+          "level": 32
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 90,
+    "defense": 120,
+    "spAtk": 85,
+    "spDef": 70,
+    "speed": 60,
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 114,
     "name": "Tangela",
     "type1": 1,
