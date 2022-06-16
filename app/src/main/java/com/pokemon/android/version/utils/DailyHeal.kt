@@ -1,10 +1,7 @@
 package com.pokemon.android.version.utils
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Trainer
-import java.time.LocalDateTime
 import java.util.*
 
 class DailyHeal {
