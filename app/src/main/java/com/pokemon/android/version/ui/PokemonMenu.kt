@@ -58,6 +58,8 @@ class PokemonMenu {
             if (activity.trainer!!.team.size < 6 && !activity.trainer!!.team.contains(pokemons[position])) {
                 activity.trainer!!.team.add(pokemons[position])
                 teamRecyclerView.adapter = TeamMemberRecyclerAdapter(activity, activity.trainer!!.team, View.OnClickListener {})
+                activity.trainer!!.pokemons = ArrayList(activity.trainer!!.team + activity.trainer!!.pokemons.filter{
+                    !activity.trainer!!.team.contains(it)})
             }
         }
         pokemonsRecyclerView.adapter = TeamMemberRecyclerAdapter(activity, pokemons, myItemClickListener)

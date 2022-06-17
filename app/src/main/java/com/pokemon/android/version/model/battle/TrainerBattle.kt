@@ -33,41 +33,43 @@ class TrainerBattle() : Battle(){
         val sb = StringBuilder()
         if (BattleUtils.trainerStarts(pokemon, opponent!!, trainerPokemonMove.move)) {
             sb.append("${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n")
-            var response = pokemon.attack(trainerPokemonMove, opponent!!)
+            val response = pokemon.attack(trainerPokemonMove, opponent!!)
             if (!response.success)
                 sb.append(response.reason)
             if (opponent.currentHP > 0) {
                 sb.append("${opponent.data.name} uses ${opponent.IA(pokemon).move.name}\n")
-                var opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
+                val opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
                 if(!opponentResponse.success)
                     sb.append(opponentResponse.reason)
             }
         } else {
             sb.append("${opponent.data.name} uses ${opponent.IA(pokemon).move.name}\n")
-            var opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
+            val opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
             if(!opponentResponse.success)
                 sb.append(opponentResponse.reason)
             if (pokemon.currentHP > 0) {
                 sb.append("${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n")
-                var response = pokemon.attack(trainerPokemonMove, opponent!!)
+                val response = pokemon.attack(trainerPokemonMove, opponent)
                 if (!response.success)
                     sb.append(response.reason)
             }
         }
+        if (opponent.currentHP > 0)
+            sb.append(checkStatus(opponent))
+        if (pokemon.currentHP > 0)
+            sb.append(checkStatus(pokemon))
+        if (pokemon.currentHP == 0){
+            sb.append(pokemon.data.name + " fainted\n")
+            pokemon.status = Status.OK
+            pokemon.battleData = null
+        }
         if (opponent.currentHP == 0) {
+            sb.append(opponent.data.name + " fainted\n")
             if (opponentTrainer.canStillBattle())
                 opponent = opponentTrainer.getFirstPokemonThatCanFight()!!
             else
                 nextTrainer()
         }
-        if (pokemon.currentHP > 0)
-            sb.append(checkStatus(pokemon))
-        else{
-            pokemon.status = Status.OK
-            pokemon.battleData = null
-        }
-        if (opponent.currentHP> 0)
-            sb.append(checkStatus(opponent!!))
         dialogTextView.text = sb.toString()
     }
 

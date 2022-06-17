@@ -40,7 +40,7 @@ abstract class Battle {
     }
 
     fun turnWithItemUsed(itemId: Int) {
-        var sb = StringBuilder()
+        val sb = StringBuilder()
         if (ItemUtils.getItemById(itemId) is Ball) {
             if (this is WildBattle) {
                 if (activity.trainer!!.catchPokemon(opponent!!, itemId)) {

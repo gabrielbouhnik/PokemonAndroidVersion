@@ -1443,6 +1443,183 @@
       "icon": "images/VS_Erika.png",
       "background": "images/building_battle_background.jpg",
       "exp": 4900
+    },
+    {
+      "id": 38,
+      "name": "\nRoute 17",
+      "description": "You are walking on Route 17 and a biker comes to challenge you.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Motard.png",
+          "name" : "Biker Virgil",
+          "pokemons": [
+            {
+              "id": 109,
+              "level": 45,
+              "moveIds": [
+                37,83
+              ]
+            },
+            {
+              "id": 110,
+              "level": 45,
+              "moveIds": [
+                37,83
+              ]
+            },{
+              "id": 109,
+              "level": 45,
+              "moveIds": [
+                37,83
+              ]
+            },
+            {
+              "id": 110,
+              "level": 45,
+              "moveIds": [
+                37,83,31
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity":50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "What do you want, kiddo?",
+      "endDialogWin": "I could belly-bump you outta here!",
+      "endDialogLoose": "Whew! Good workout!",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 4700
+    },
+    {
+      "id": 40,
+      "name": "\nFuschia City Gym",
+      "description": "You have arrived in Fuschia City and are about to face the gym.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Jongleur.png",
+          "name" : "Juggler Kirk",
+          "pokemons": [
+            {
+              "id": 24,
+              "level": 44,
+              "moveIds": [83,37,27]
+            },
+            {
+              "id": 24,
+              "level": 44,
+              "moveIds": [83,37,27]
+            },
+            {
+              "id": 24,
+              "level": 44,
+              "moveIds": [83,37,27]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Let's see you beat my special techniques!",
+      "endDialogWin": "I will keep on training under Koga, my ninja master!",
+      "endDialogLoose": "I like poison and sleep techniques, as they linger after battle!",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 5000
+    },
+    {
+      "id": 41,
+      "name": "\nVS Koga",
+      "description": "After beating the guard, you go to the gym leader to challenge him.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Koga.png",
+          "name" : "Gym Leader Koga",
+          "pokemons": [
+            {
+              "id": 109,
+              "level": 47,
+              "moveIds": [83,37]
+            },{
+              "id": 109,
+              "level": 47,
+              "moveIds": [83,37]
+            },
+            {
+              "id": 110,
+              "level": 50,
+              "moveIds": [37,12,31]
+            },
+            {
+              "id": 89,
+              "level": 50,
+              "moveIds": [37,62,69]
+            },
+            {
+              "id": 49,
+              "level": 50,
+              "moveIds": [45,37,60]
+            },
+            {
+              "id": 169,
+              "level": 51,
+              "moveIds": [37,50,66,46]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 35,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "A mere child like you dares to challenge me? Very well, I shall show you true terror as a ninja master!",
+      "endDialogWin": "You have proven your worth! Take a Soul Badge!",
+      "endDialogLoose": "Have you learned to fear the techniques of the ninja?",
+      "music": 3,
+      "icon": "images/VS_Koga.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 5600
     }
   ],
   "randomWildEncounters": [
@@ -1836,6 +2013,34 @@
       "background": "images/route_battle_background.png",
       "music": 1,
       "exp": 3300
+    },
+    {
+      "id": 39,
+      "name": "\nRoute 18",
+      "description": "You are almost in Fuchsia City, there are some wild Pokemon on your way",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 29,
+        "maxLevel": 32,
+        "encounters": [
+          218,88,22
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 4500
     }
   ],
   "bossBattles": [

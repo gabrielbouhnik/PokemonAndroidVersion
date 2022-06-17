@@ -1141,7 +1141,9 @@
       ],
       "movesLearnWithHM": [
       ],
-      "bannerMoves": [13]
+      "bannerMoves": [
+        13
+      ]
     },
     "hp": 35,
     "attack": 55,
@@ -1284,54 +1286,54 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
-  "id": 37,
-  "name": "Vulpix",
-  "type1": 2,
-  "type2": 0,
-  "possibleMoves": {
-    "movesLearnByLevel": [
-      {
-        "moveId": 7,
-        "level": 1
-      },
-      {
-        "moveId": 3,
-        "level": 8
-      },
-      {
-        "moveId": 48,
-        "level": 20
-      },
-      {
-        "moveId": 81,
-        "level": 28
-      },
-      {
-        "moveId": 31,
-        "level": 32
-      },
-      {
-        "moveId": 82,
-        "level": 56
-      }
-    ],
-    "movesLearnWithHM": [
-    ],
-    "bannerMoves": []
+    "id": 37,
+    "name": "Vulpix",
+    "type1": 2,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 7,
+          "level": 1
+        },
+        {
+          "moveId": 3,
+          "level": 8
+        },
+        {
+          "moveId": 48,
+          "level": 20
+        },
+        {
+          "moveId": 81,
+          "level": 28
+        },
+        {
+          "moveId": 31,
+          "level": 32
+        },
+        {
+          "moveId": 82,
+          "level": 56
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "catchRate": 0.35,
+    "hp": 38,
+    "attack": 41,
+    "defense": 40,
+    "spAtk": 50,
+    "spDef": 65,
+    "speed": 60,
+    "evolutionId": 38,
+    "evolutionCondition": {
+      "itemId": 16
+    },
+    "expGaugeType": "MEDIUM_FAST"
   },
-  "catchRate": 0.35,
-  "hp": 38,
-  "attack": 41,
-  "defense": 40,
-  "spAtk": 50,
-  "spDef": 65,
-  "speed": 60,
-  "evolutionId": 38,
-  "evolutionCondition": {
-    "itemId": 16
-  },
-  "expGaugeType": "MEDIUM_FAST"
-},
   {
     "id": 38,
     "name": "Ninetales",
@@ -1603,7 +1605,56 @@
     "spAtk": 60,
     "spDef": 80,
     "speed": 30,
-    "catchRate": 0.4,
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 49,
+    "name": "Venomoth",
+    "type1": 7,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 4,
+          "level": 1
+        },
+        {
+          "moveId": 60,
+          "level": 1
+        },
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 39,
+          "level": 11
+        },
+        {
+          "moveId": 34,
+          "level": 13
+        },
+        {
+          "moveId": 59,
+          "level": 17
+        },
+        {
+          "moveId": 35,
+          "level": 29
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 70,
+    "attack": 65,
+    "defense": 60,
+    "spAtk": 90,
+    "spDef": 75,
+    "speed": 90,
+    "catchRate": 0.3,
     "expGaugeType": "MEDIUM_FAST"
   },
   {
@@ -2237,6 +2288,80 @@
     "expGaugeType": "MEDIUM_SLOW"
   },
   {
+    "id": 88,
+    "name": "Grimer",
+    "type1": 8,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 64,
+          "level": 1
+        },
+        {
+          "moveId": 83,
+          "level": 1
+        },
+        {
+          "moveId": 86,
+          "level": 15
+        },
+        {
+          "moveId": 37,
+          "level": 29
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 80,
+    "attack": 80,
+    "defense": 50,
+    "spAtk": 40,
+    "spDef": 50,
+    "speed": 25,
+    "catchRate": 0.4,
+    "evolutionId": 89,
+    "evolutionCondition": {
+      "level": 38
+    },
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 89,
+    "name": "Muk",
+    "type1": 8,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 64,
+          "level": 1
+        },
+        {
+          "moveId": 83,
+          "level": 1
+        },
+        {
+          "moveId": 37,
+          "level": 29
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 105,
+    "attack": 105,
+    "defense": 75,
+    "spAtk": 65,
+    "spDef": 100,
+    "speed": 50,
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 92,
     "name": "Gastly",
     "type1": 13,
@@ -2592,7 +2717,7 @@
     "attack": 120,
     "defense": 53,
     "spAtk": 35,
-    "spDef":110,
+    "spDef": 110,
     "speed": 87,
     "catchRate": 0.3,
     "expGaugeType": "MEDIUM_FAST"
@@ -2613,8 +2738,16 @@
           "level": 1
         },
         {
+          "moveId": 85,
+          "level": 4
+        },
+        {
           "moveId": 42,
           "level": 8
+        },
+        {
+          "moveId": 86,
+          "level": 18
         },
         {
           "moveId": 37,
@@ -2654,8 +2787,16 @@
           "level": 1
         },
         {
+          "moveId": 85,
+          "level": 4
+        },
+        {
           "moveId": 42,
           "level": 8
+        },
+        {
+          "moveId": 86,
+          "level": 18
         },
         {
           "moveId": 37,
@@ -2711,7 +2852,7 @@
     "attack": 55,
     "defense": 115,
     "spAtk": 100,
-    "spDef":40,
+    "spDef": 40,
     "speed": 60,
     "catchRate": 0.3,
     "expGaugeType": "MEDIUM_FAST"
@@ -2748,7 +2889,7 @@
     "attack": 95,
     "defense": 80,
     "spAtk": 40,
-    "spDef":80,
+    "spDef": 80,
     "speed": 90,
     "catchRate": 0.3,
     "expGaugeType": "MEDIUM_FAST"
@@ -3070,7 +3211,7 @@
     "attack": 110,
     "defense": 65,
     "spAtk": 65,
-    "spDef":110,
+    "spDef": 110,
     "speed": 30,
     "catchRate": 0.2,
     "expGaugeType": "SLOW"
@@ -3093,7 +3234,10 @@
       ],
       "movesLearnWithHM": [
       ],
-      "bannerMoves": [15,24]
+      "bannerMoves": [
+        15,
+        24
+      ]
     },
     "hp": 41,
     "attack": 64,
@@ -3263,7 +3407,7 @@
           "level": 21
         },
         {
-          "moveId": 83,
+          "moveId": 84,
           "level": 33
         }
       ],
@@ -3312,7 +3456,7 @@
           "level": 23
         },
         {
-          "moveId": 83,
+          "moveId": 84,
           "level": 43
         }
       ],
@@ -3629,6 +3773,100 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 218,
+    "name": "Slugma",
+    "type1": 2,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 85,
+          "level": 1
+        },
+        {
+          "moveId": 7,
+          "level": 6
+        },
+        {
+          "moveId": 29,
+          "level": 8
+        },
+        {
+          "moveId": 32,
+          "level": 13
+        },
+        {
+          "moveId": 25,
+          "level": 29
+        },
+        {
+          "moveId": 31,
+          "level": 48
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 40,
+    "attack": 40,
+    "defense": 40,
+    "spAtk": 70,
+    "spDef": 40,
+    "speed": 20,
+    "catchRate": 0.4,
+    "evolutionId": 219,
+    "evolutionCondition": {
+      "level": 38
+    },
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 219,
+    "name": "Magcargo",
+    "type1": 2,
+    "type2": 9,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 85,
+          "level": 1
+        },
+        {
+          "moveId": 7,
+          "level": 6
+        },
+        {
+          "moveId": 29,
+          "level": 8
+        },
+        {
+          "moveId": 32,
+          "level": 13
+        },
+        {
+          "moveId": 25,
+          "level": 29
+        },
+        {
+          "moveId": 31,
+          "level": 54
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 60,
+    "attack": 50,
+    "defense": 120,
+    "spAtk": 90,
+    "spDef": 80,
+    "speed": 30,
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 228,
     "name": "Houndour",
     "type1": 2,
@@ -3847,7 +4085,9 @@
       ],
       "movesLearnWithHM": [
       ],
-      "bannerMoves": [57]
+      "bannerMoves": [
+        57
+      ]
     },
     "hp": 50,
     "attack": 64,

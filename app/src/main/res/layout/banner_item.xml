@@ -23,7 +23,7 @@
     <TextView
             android:text="TextView"
             android:layout_width="275dp"
-            android:layout_height="94dp" android:id="@+id/bannerDescriptionTextView"
+            android:layout_height="80dp" android:id="@+id/bannerDescriptionTextView"
             app:layout_constraintBottom_toTopOf="@+id/summonButton"
             app:layout_constraintTop_toBottomOf="@+id/bannerImageView" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:textAlignment="center" android:textStyle="bold"
