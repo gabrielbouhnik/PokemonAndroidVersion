@@ -230,6 +230,17 @@
       "accuracy": 80,
       "description": "",
       "priorityLevel": 0
+    },
+    {
+      "id": 90,
+      "name": "Drill Peck",
+      "power": 80,
+      "pp": 20,
+      "type": 6,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0
     }
   ],
   "statusMoves": [
@@ -673,6 +684,19 @@
       "priorityLevel": 0,
       "status": "POISON",
       "probability": 30
+    },
+    {
+      "id": 88,
+      "name": "Body Slam",
+      "power": 85,
+      "pp": 15,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0,
+      "status": "PARALYSIS",
+      "probability": 30
     }
   ],
   "critMoves": [
@@ -750,6 +774,17 @@
       "type": 9,
       "category": "PHYSICAL",
       "accuracy": 80,
+      "description": "",
+      "priorityLevel": 0
+    },
+    {
+      "id": 91,
+      "name": "Drill Run",
+      "power": 80,
+      "pp": 10,
+      "type": 6,
+      "category": "PHYSICAL",
+      "accuracy": 95,
       "description": "",
       "priorityLevel": 0
     }
@@ -1060,6 +1095,38 @@
       "target": "OPPONENT",
       "multiplicator": 0.5,
       "probabilty": 10
+    },
+    {
+      "id": 87,
+      "name": "Earth Power",
+      "power": 90,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 10,
+      "accuracy": 100,
+      "description": "",
+      "statsAffected": [
+        "SPDEF"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.5,
+      "probabilty": 10
+    },
+    {
+      "id": 89,
+      "name": "Superpower",
+      "power": 120,
+      "pp": 5,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "",
+      "statsAffected": [
+        "ATTACK",
+        "DEFENSE"
+      ],
+      "target": "SELF",
+      "multiplicator": 0.75
     }
   ],
   "drainMoves": [

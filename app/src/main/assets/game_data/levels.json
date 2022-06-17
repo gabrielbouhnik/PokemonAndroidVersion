@@ -1620,6 +1620,177 @@
       "icon": "images/VS_Koga.png",
       "background": "images/building_battle_background.jpg",
       "exp": 5600
+    },
+    {
+      "id": 43,
+      "name": "\nRoute 14",
+      "description": "You continue your way to Saffron City and several trainers stand in your way.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Ornithologue.png",
+          "name" : "Bird Keeper Benny",
+          "pokemons": [
+            {
+              "id": 22,
+              "level": 49,
+              "moveIds": [
+                10,90,91
+              ]
+            },
+            {
+              "id": 85,
+              "level": 49,
+              "moveIds": [
+                10,90,91
+              ]
+            },
+            {
+              "id": 22,
+              "level": 49,
+              "moveIds": [
+                10,90,91
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Motard.png",
+          "name" : "Biker Lukas",
+          "pokemons": [
+            {
+              "id": 109,
+              "level": 47,
+              "moveIds": [
+                37,83
+              ]
+            },
+            {
+              "id": 109,
+              "level": 47,
+              "moveIds": [
+                37,83
+              ]
+            },
+            {
+              "id": 110,
+              "level": 47,
+              "moveIds": [
+                37,83,31
+              ]
+            },
+            {
+              "id": 89,
+              "level": 47,
+              "moveIds": [
+                37,83
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity":50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "My bird POKEMON should be ready for battle",
+      "endDialogWin": "It's cool you made your POKEMON so strong! Might is right!",
+      "endDialogLoose": "Get lost!",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 5000
+    },
+    {
+      "id": 44,
+      "name": "\nRoute 13",
+      "description": "You continue your way to Saffron City and several trainers stand in your way.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Ornithologue.png",
+          "name" : "Bird Keeper Robert",
+          "pokemons": [
+            {
+              "id": 22,
+              "level": 49,
+              "moveIds": [
+                10,90,91
+              ]
+            },
+            {
+              "id": 18,
+              "level": 49,
+              "moveIds": [
+                3,16,49,54
+              ]
+            },
+            {
+              "id": 22,
+              "level": 49,
+              "moveIds": [
+                10,90,91
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Montagnard.png",
+          "name" : "Hiker Kenny",
+          "pokemons": [
+            {
+              "id": 75,
+              "level": 49,
+              "moveIds": [
+                25,30
+              ]
+            },
+            {
+              "id": 28,
+              "level": 47,
+              "moveIds": [
+                30,38
+              ]
+            },
+            {
+              "id": 76,
+              "level": 53,
+              "moveIds": [
+                25,30
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity":50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "I always go with bird POKEMON!",
+      "endDialogWin": "Wow! You totally won!",
+      "endDialogLoose": "It's over already?",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 5160
     }
   ],
   "randomWildEncounters": [
@@ -2041,6 +2212,62 @@
       "background": "images/route_battle_background.png",
       "music": 1,
       "exp": 4500
+    },
+    {
+      "id": 42,
+      "name": "\nRoute 15",
+      "description": "After obtaining your fifth badge, you head to the next gym which is located in Saffron City.",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 30,
+        "maxLevel": 33,
+        "encounters": [
+          48,69,17
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 4700
+    },
+    {
+      "id": 45,
+      "name": "\nRoute 12",
+      "description": "On Route 12, a fisherman offers you a fishing rod to find Pokemon water types. Therefore, you decide to use it.",
+      "encounter": 1,
+      "possibleEncounters":
+      {
+        "minLevel": 15,
+        "maxLevel": 17,
+        "encounters": [
+          118,129
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/sea_battle_background.png",
+      "background": "images/sea_battle_background.png",
+      "music": 1,
+      "exp": 900
     }
   ],
   "bossBattles": [
@@ -2104,7 +2331,7 @@
       {
         "id": 143,
         "level": 50,
-        "moveIds": [72,30,25,27],
+        "moveIds": [88,30,25,27],
         "boostedStats": ["DEFENSE"]
       },
       "rewards": [
