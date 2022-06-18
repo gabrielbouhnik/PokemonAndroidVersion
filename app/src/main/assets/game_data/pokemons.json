@@ -2194,7 +2194,7 @@
     "speed": 105,
     "evolutionId": 65,
     "evolutionCondition": {
-      "itemId": 36
+      "level": 36
     },
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -2361,6 +2361,108 @@
     "speed": 70,
     "catchRate": 0.3,
     "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 72,
+    "name": "Tentacool",
+    "type1": 3,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 17,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 1
+        },
+        {
+          "moveId": 58,
+          "level": 4
+        },
+        {
+          "moveId": 24,
+          "level": 16
+        },
+        {
+          "moveId": 62,
+          "level": 36
+        },
+        {
+          "moveId": 43,
+          "level": 40
+        },
+        {
+          "moveId": 80,
+          "level": 48
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 40,
+    "attack": 40,
+    "defense": 35,
+    "spAtk": 50,
+    "spDef": 100,
+    "speed": 70,
+    "catchRate": 0.4,
+    "evolutionId": 73,
+    "evolutionCondition": {
+      "level": 30
+    },
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 73,
+    "name": "Tentacruel",
+    "type1": 3,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 17,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 1
+        },
+        {
+          "moveId": 58,
+          "level": 4
+        },
+        {
+          "moveId": 24,
+          "level": 16
+        },
+        {
+          "moveId": 62,
+          "level": 36
+        },
+        {
+          "moveId": 43,
+          "level": 40
+        },
+        {
+          "moveId": 80,
+          "level": 48
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 80,
+    "attack": 70,
+    "defense": 65,
+    "spAtk": 80,
+    "spDef": 120,
+    "speed": 100,
+    "catchRate": 0.3,
+    "expGaugeType": "SLOW"
   },
   {
     "id": 74,
@@ -2843,6 +2945,108 @@
     "evolutionCondition": {
       "itemId": 23
     },
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 96,
+    "name": "Drowzee",
+    "type1": 12,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 64,
+          "level": 1
+        },
+        {
+          "moveId": 39,
+          "level": 9
+        },
+        {
+          "moveId": 72,
+          "level": 13
+        },
+        {
+          "moveId": 83,
+          "level": 17
+        },
+        {
+          "moveId": 94,
+          "level": 21
+        },
+        {
+          "moveId": 59,
+          "level": 25
+        },
+        {
+          "moveId": 45,
+          "level": 49
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "catchRate": 0.35,
+    "hp": 60,
+    "attack": 48,
+    "defense": 45,
+    "spAtk": 43,
+    "spDef": 90,
+    "speed": 42,
+    "evolutionId": 65,
+    "evolutionCondition": {
+      "level": 26
+    },
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 97,
+    "name": "Hypno",
+    "type1": 12,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 64,
+          "level": 1
+        },
+        {
+          "moveId": 39,
+          "level": 9
+        },
+        {
+          "moveId": 72,
+          "level": 13
+        },
+        {
+          "moveId": 83,
+          "level": 17
+        },
+        {
+          "moveId": 94,
+          "level": 21
+        },
+        {
+          "moveId": 59,
+          "level": 25
+        },
+        {
+          "moveId": 45,
+          "level": 49
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "catchRate": 0.25,
+    "hp": 85,
+    "attack": 73,
+    "defense": 70,
+    "spAtk": 73,
+    "spDef": 115,
+    "speed": 67,
     "expGaugeType": "MEDIUM_FAST"
   },
   {
@@ -3529,6 +3733,7 @@
     "catchRate": 0.45,
     "evolutionId": 121,
     "evolutionCondition": {
+      "itemId": 18
     },
     "expGaugeType": "SLOW"
   },
@@ -3580,6 +3785,47 @@
     "speed": 115,
     "catchRate": 0.3,
     "expGaugeType": "SLOW"
+  },
+  {
+    "id": 122,
+    "name": "Mr. Mime",
+    "type1": 12,
+    "type2": 18,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 64,
+          "level": 1
+        },
+        {
+          "moveId": 39,
+          "level": 12
+        },
+        {
+          "moveId": 59,
+          "level": 28
+        },
+        {
+          "moveId": 45,
+          "level": 44
+        },
+        {
+          "moveId": 44,
+          "level": 48
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 40,
+    "attack": 45,
+    "defense": 65,
+    "spAtk": 100,
+    "spDef": 120,
+    "speed": 90,
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 123,
@@ -3694,6 +3940,47 @@
     "spDef": 100,
     "speed": 81,
     "catchRate": 0.3,
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 131,
+    "name": "Lapras",
+    "type1": 3,
+    "type2": 14,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 6,
+          "level": 1
+        },
+        {
+          "moveId": 95,
+          "level": 20
+        },
+        {
+          "moveId": 48,
+          "level": 25
+        },
+        {
+          "moveId": 24,
+          "level": 30
+        },
+        {
+          "moveId": 88,
+          "level": 40
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 130,
+    "attack": 85,
+    "defense": 80,
+    "spAtk": 85,
+    "spDef": 95,
+    "speed": 60,
+    "catchRate": 0.25,
     "expGaugeType": "SLOW"
   },
   {
@@ -3971,6 +4258,10 @@
         {
           "moveId": 84,
           "level": 33
+        },
+        {
+          "moveId": 94,
+          "level": 36
         }
       ],
       "movesLearnWithHM": [
@@ -4020,6 +4311,10 @@
         {
           "moveId": 84,
           "level": 43
+        },
+        {
+          "moveId": 94,
+          "level": 48
         }
       ],
       "movesLearnWithHM": [

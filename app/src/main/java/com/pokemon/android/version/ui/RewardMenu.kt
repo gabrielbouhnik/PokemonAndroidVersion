@@ -14,6 +14,9 @@ import com.pokemon.android.version.model.level.WildBattleLevelData
 class RewardMenu {
     fun loadRewardMenu(activity: MainActivity, levelData : LevelData, firstTime : Boolean){
         activity.setContentView(R.layout.reward_layout)
+        if (firstTime && levelData.id == 51){
+            activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(131,25))
+        }
         val battleAgainButton : Button = activity.findViewById(R.id.battleAgainButton)
         battleAgainButton.setOnClickListener{
             if (levelData is WildBattleLevelData)

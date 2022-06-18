@@ -252,6 +252,17 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0
+    },
+    {
+      "id": 95,
+      "name": "Ice Shard",
+      "power": 100,
+      "pp": 30,
+      "type": 14,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 1
     }
   ],
   "statusMoves": [
@@ -721,6 +732,19 @@
       "priorityLevel": 0,
       "status": "FLINCHED",
       "probability": 20
+    },
+    {
+      "id": 94,
+      "name": "Hypnosis",
+      "power": 0,
+      "pp": 20,
+      "type": 12,
+      "category": "OTHER",
+      "accuracy": 70,
+      "description": "",
+      "priorityLevel": 0,
+      "status": "ASLEEP",
+      "probability": 100
     }
   ],
   "critMoves": [

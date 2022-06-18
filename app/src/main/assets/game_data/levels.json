@@ -2220,6 +2220,209 @@
       "icon": "images/VS_Giovanni.png",
       "background": "images/building_battle_background.jpg",
       "exp": 6800
+    },
+    {
+      "id": "50",
+      "name": "\nSaffron City Gym",
+      "description": "After defeating Giovanni, you go to the gym to battle the gym leader.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Kinesiste.png",
+          "name" : "Psychic Franklin",
+          "pokemons": [
+            {
+              "id": 64,
+              "level": 55,
+              "moveIds": [45,44,46]
+            },
+            {
+              "id": 64,
+              "level": 55,
+              "moveIds": [45,44,46]
+            },
+            {
+              "id": 64,
+              "level": 55,
+              "moveIds": [45,44,46]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Medium.png",
+          "name" : "Medium Rebecca",
+          "pokemons": [
+            {
+              "id": 93,
+              "level": 55,
+              "moveIds": [45,44,46,37]
+            },
+            {
+              "id": 93,
+              "level": 55,
+              "moveIds": [45,44,46,37]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Sabrina is young, but she's also our LEADER! You won't reach her easily!",
+      "endDialogWin": "I never foresaw this!",
+      "endDialogLoose": "That's right! I used telepathy to read your mind!",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 6900
+    },
+    {
+      "id": 51,
+      "name": "\nVS Sabrina",
+      "description": "After defeating the guards, you go to the gym leader.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Morgane.png",
+          "name" : "Gym Leader Sabrina",
+          "pokemons": [
+            {
+              "id": 122,
+              "level": 55,
+              "moveIds": [45,44,46]
+            },
+            {
+              "id": 64,
+              "level": 55,
+              "moveIds": [45,44,46]
+            },
+            {
+              "id": 97,
+              "level": 55,
+              "moveIds": [45,44,76,83]
+            },
+            {
+              "id": 49,
+              "level": 55,
+              "moveIds": [35,37,45,60]
+            },
+            {
+              "id": 65,
+              "level": 57,
+              "moveIds": [45,44,46]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 36,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "I had a vision of your arrival! I have had psychic powers since I was a child. I dislike battling, but if you wish, I will show you my powers!",
+      "endDialogWin": "Your power... It far exceeds what I foresaw... Maybe it isn't possible to fully predict what the future holds. OK, you win. You earned yourself the Marsh Badge.",
+      "endDialogLoose": "Just as I foresaw...",
+      "music": 3,
+      "icon": "images/VS_Morgane.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 7000
+    },
+    {
+      "id": 53,
+      "name": "\nSea Route 20",
+      "description": "You are now heading to Cinnabar Island but there are pokemon trainers in the water.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Swimmer.png",
+          "name" : "Swimmer Barry",
+          "pokemons": [
+            {
+              "id": 116,
+              "level": 54,
+              "moveIds": [
+                43,15
+              ]
+            },
+            {
+              "id": 117,
+              "level": 54,
+              "moveIds": [
+                43,15
+              ]
+            },
+            {
+              "id": 117,
+              "level": 54,
+              "moveIds": [
+                43,15
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Nageuse.png",
+          "name" : "Swimmer Melissa",
+          "pokemons": [
+            {
+              "id": 118,
+              "level": 54,
+              "moveIds": [
+                43,79,11
+              ]
+            },
+            {
+              "id": 119,
+              "level": 54,
+              "moveIds": [
+                43,79,11
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity":50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Why are you riding a POKEMON? Can't you swim?",
+      "endDialogWin": "There's a huge cavern underneath this island.",
+      "endDialogLoose": "Now I'm ready for a swim!",
+      "music": 2,
+      "icon": "images/sea_battle_background.png",
+      "background": "images/sea_battle_background.png",
+      "exp": 6400
     }
   ],
   "randomWildEncounters": [
@@ -2697,6 +2900,34 @@
       "background": "images/sea_battle_background.png",
       "music": 1,
       "exp": 900
+    },
+    {
+      "id": 52,
+      "name": "\nSea Route 19",
+      "description": "Before leaving Safrania, one of the Silph Co scientists will give you a Lapras to cross Sea Route 19 at the south of Fuschia City.",
+      "encounter": 6,
+      "possibleEncounters":
+      {
+        "minLevel": 35,
+        "maxLevel": 37,
+        "encounters": [
+          72,120,129
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/sea_battle_background.png",
+      "background": "images/sea_battle_background.png",
+      "music": 1,
+      "exp": 5000
     }
   ],
   "bossBattles": [
