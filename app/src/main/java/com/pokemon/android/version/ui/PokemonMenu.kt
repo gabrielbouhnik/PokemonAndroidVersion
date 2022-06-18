@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
+import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.move.Move
@@ -43,8 +44,10 @@ class PokemonMenu {
         activity.setContentView(R.layout.team_layout)
         val backButton : Button = activity.findViewById(R.id.teamMenuBackButton)
         backButton.setOnClickListener{
-            if (activity.trainer!!.team.size > 0)
+            if (activity.trainer!!.team.size > 0) {
                 loadPokemonMenu(activity)
+                SaveManager.save(activity)
+            }
         }
         activity.trainer!!.team.clear()
         val teamRecyclerView = activity.findViewById<RecyclerView>(R.id.teamRecyclerView)
@@ -164,7 +167,7 @@ class PokemonMenu {
                 loadPokemonInfoLayout(activity, pokemon)
             }
             else if (selectedMoveNumber != null){
-                var pkmnMove = PokemonMove(possibleMoves[position],possibleMoves[position].pp)
+                val pkmnMove = PokemonMove(possibleMoves[position],possibleMoves[position].pp)
                 when(selectedMoveNumber){
                     0 -> pokemon.move1 = pkmnMove
                     1 -> pokemon.move2 = pkmnMove
@@ -192,7 +195,7 @@ class PokemonMenu {
         movesButton.setOnClickListener{
             loadMovesLayout(activity, pokemon)
         }
-        var statusTextView :  TextView = activity.findViewById(R.id.statusDetailsTextView)
+        val statusTextView :  TextView = activity.findViewById(R.id.statusDetailsTextView)
         if (pokemon.status != Status.OK)
             statusTextView.text = pokemon.status.toString()
         else

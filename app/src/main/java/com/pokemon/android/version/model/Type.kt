@@ -71,7 +71,7 @@ enum class Type(val value: Int) {
             }
             ROCK -> when (other) {
                 FIRE, BUG, DARK, FLYING, ICE -> return 2f
-                FIGHTING, STEEL -> return 0.5f
+                GROUND, FIGHTING, STEEL -> return 0.5f
                 else -> return 1f
             }
             GROUND -> when (other) {

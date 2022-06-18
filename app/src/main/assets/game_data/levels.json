@@ -1791,6 +1791,435 @@
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
       "exp": 5160
+    },
+    {
+      "id": 46,
+      "name": "\nSilph Co",
+      "description": "You arrive in Saffron City and Team Rocket has invaded the city. You learn that the boss of the organization is on the top floor of the Silph Co. building. You go there to stop him.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 42,
+              "level": 51,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },
+            {
+              "id": 20,
+              "level": 51,
+              "moveIds": [
+                3,23,28,27
+              ]
+            },
+            {
+              "id": 109,
+              "level": 51,
+              "moveIds": [
+                83,37,2
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 42,
+              "level": 51,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },
+            {
+              "id": 20,
+              "level": 51,
+              "moveIds": [
+                3,23,28,27
+              ]
+            },
+            {
+              "id": 109,
+              "level": 51,
+              "moveIds": [
+                83,37,2
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 42,
+              "level": 51,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },
+            {
+              "id": 20,
+              "level": 51,
+              "moveIds": [
+                3,23,28,27
+              ]
+            },
+            {
+              "id": 109,
+              "level": 51,
+              "moveIds": [
+                83,37,2
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 42,
+              "level": 51,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },
+            {
+              "id": 20,
+              "level": 51,
+              "moveIds": [
+                3,23,28,27
+              ]
+            },
+            {
+              "id": 24,
+              "level": 52,
+              "moveIds": [
+                83,37,27
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 42,
+              "level": 51,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },
+            {
+              "id": 20,
+              "level": 51,
+              "moveIds": [
+                3,23,28,27
+              ]
+            },
+            {
+              "id": 110,
+              "level": 51,
+              "moveIds": [
+                83,37,2
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 27,
+              "level": 53,
+              "moveIds": [
+                30,38,19
+              ]
+            },
+            {
+              "id": 42,
+              "level": 51,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },
+            {
+              "id": 20,
+              "level": 51,
+              "moveIds": [
+                3,23,28,27
+              ]
+            },
+            {
+              "id": 27,
+              "level": 53,
+              "moveIds": [
+                30,38,19
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 42,
+              "level": 51,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },
+            {
+              "id": 20,
+              "level": 51,
+              "moveIds": [
+                3,23,28,27
+              ]
+            },
+            {
+              "id": 24,
+              "level": 52,
+              "moveIds": [
+                83,37,27
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 80
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "You broke into our operation?",
+      "endDialogWin": "You're not going to get away with this, brat!",
+      "endDialogLoose": "It's not smart to pick a fight with TEAM ROCKET",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 6000
+    },
+    {
+      "id": 47,
+      "name": "\nVS Rival 5",
+      "description": "Still in the Silph Co building, you come across Jackson.",
+      "type": "Trainer Battle",
+      "opponents": [
+        {
+          "sprite": "images/Spr_Rival.png",
+          "name" : "Jackson",
+          "pokemons": [
+            {
+              "id": 106,
+              "level": 57,
+              "moveIds": [
+                68,69,25,14
+              ]
+            },
+            {
+              "id": 18,
+              "level": 54,
+              "moveIds": [
+                3,16,54,19
+              ]
+            },
+            {
+              "id": 117,
+              "level": 54,
+              "moveIds": [
+                15,43,42
+              ]
+            },
+            {
+              "id": 64,
+              "level": 54,
+              "moveIds": [
+                44,45,46
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 90
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "I thought you would show up again if I waited here! I guess TEAM ROCKET slowed you down! I want to see what you're made of.",
+      "endDialogWin": "You're ready to beat the boss of Team Rocket!",
+      "endDialogLoose": "I knew I would win this time",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 6300
+    },
+    {
+      "id": 48,
+      "name": "\nVS Archer",
+      "description": "You finally reach the top floor and a Team Rocket Executive is standing in front of the door of the room where the boss is.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Amos.png",
+          "name" : "Team Rocket Executive Archer",
+          "pokemons": [
+            {
+              "id": 42,
+              "level": 56,
+              "moveIds": [
+                50,37,23,48
+              ]
+            },
+            {
+              "id": 101,
+              "level": 56,
+              "moveIds": [
+                53,2
+              ]
+            },
+            {
+              "id": 110,
+              "level": 56,
+              "moveIds": [
+                37,31,12,92
+              ]
+            },
+            {
+              "id": 229,
+              "level": 57,
+              "moveIds": [
+                37,31,92,27
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 80
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "So you're fool enough to get in our way, is that it?",
+      "endDialogWin": "Forgive me, Giovanni... For me to be defeated by a simple child...",
+      "endDialogLoose": "I won't allow you to interfere with our plans!",
+      "music": 2,
+      "icon": "images/VS_Amos.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 6800
+    },
+    {
+      "id": 49,
+      "name": "\nVS Giovanni",
+      "description": "You enter the room where the boss is and you see him pressuring the chief of the Silph Co. to work for him.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Giovanni.png",
+          "name" : "Team Rocket Boss Giovanni",
+          "pokemons": [
+            {
+              "id": 53,
+              "level": 60,
+              "moveIds": [
+                38,73,51,12
+              ]
+            },
+            {
+              "id": 115,
+              "level": 57,
+              "moveIds": [
+                63,25,27,76
+              ]
+            },
+            {
+              "id": 51,
+              "level": 57,
+              "moveIds": [
+                30,25,38
+              ]
+            },
+            {
+              "id": 31,
+              "level": 57,
+              "moveIds": [
+                62,93,27,89
+              ]
+            },
+            {
+              "id": 34,
+              "level": 57,
+              "moveIds": [
+                62,93,12,31
+              ]
+            },
+            {
+              "id": 112,
+              "level": 59,
+              "moveIds": [
+                93,78,69,62
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "So, you defeated Archer. I must say, I am impressed you got here!",
+      "endDialogWin": "You ruined our plans for Silph! But, Team Rocket will never fall!! Never forget that all Pokémon exist for Team Rocket! I must go, but I shall return!",
+      "endDialogLoose": "You failed as soon as you challenged me, Trainer.",
+      "music": 4,
+      "icon": "images/VS_Giovanni.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 6800
     }
   ],
   "randomWildEncounters": [

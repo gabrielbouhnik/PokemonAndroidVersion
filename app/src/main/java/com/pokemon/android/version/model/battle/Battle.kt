@@ -29,11 +29,11 @@ abstract class Battle {
     }
 
     fun turnWithSwitch(pokemonToBeSent: Pokemon) {
-        var sb = StringBuilder()
+        val sb = StringBuilder()
         sb.append("${pokemonToBeSent.trainer!!.name} send ${pokemonToBeSent.data.name}\n")
         switchPokemon(pokemonToBeSent)
         sb.append("${opponent.data.name} uses ${opponent.IA(pokemon).move.name}\n")
-        var opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
+        val opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
         if (!opponentResponse.success)
             sb.append(opponentResponse.reason)
         dialogTextView.text = sb.toString()

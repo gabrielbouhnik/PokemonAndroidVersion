@@ -9,6 +9,7 @@ class MusicUtils {
             when(id){
                 2 -> activity.updateMusic(R.raw.trainer_battle)
                 3 -> activity.updateMusic(R.raw.gym_leader)
+                4 -> activity.updateMusic(R.raw.giovanni_theme)
             }
         }
     }

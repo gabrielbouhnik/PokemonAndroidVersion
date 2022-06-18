@@ -138,11 +138,11 @@ class Pokemon(
             if (Random.nextInt(100) < 33) {
                 val confusionDamage = DamageCalculator.computeConfusionDamage(this)
                 if (confusionDamage >= opponent.currentHP) {
-                    opponent.currentHP = 0
-                    opponent.status = Status.OK
-                    opponent.battleData = null
+                    currentHP = 1
+                    /*status = Status.OK
+                    battleData = null*/
                 } else {
-                    opponent.currentHP = opponent.currentHP - confusionDamage
+                    currentHP -= confusionDamage
                 }
                 return AttackResponse(false, "But ${this.data.name} hits hurt itself in its confusion\n")
             }

@@ -241,6 +241,17 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0
+    },
+    {
+      "id": 93,
+      "name": "Earthquake",
+      "power": 100,
+      "pp": 10,
+      "type": 10,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0
     }
   ],
   "statusMoves": [
@@ -697,6 +708,19 @@
       "priorityLevel": 0,
       "status": "PARALYSIS",
       "probability": 30
+    },
+    {
+      "id": 92,
+      "name": "Dark Pulse",
+      "power": 80,
+      "pp": 15,
+      "type": 17,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0,
+      "status": "FLINCHED",
+      "probability": 20
     }
   ],
   "critMoves": [
@@ -782,7 +806,7 @@
       "name": "Drill Run",
       "power": 80,
       "pp": 10,
-      "type": 6,
+      "type": 11,
       "category": "PHYSICAL",
       "accuracy": 95,
       "description": "",

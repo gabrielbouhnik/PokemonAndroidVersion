@@ -14,6 +14,8 @@ class FullHeal () : Item {
     }
 
     override fun apply(pokemon: Pokemon) {
-            pokemon.status = Status.OK
+        pokemon.status = Status.OK
+        if (pokemon.battleData != null && pokemon.battleData!!.battleStatus.contains(Status.CONFUSED))
+            pokemon.battleData!!.battleStatus.remove(Status.CONFUSED)
     }
 }

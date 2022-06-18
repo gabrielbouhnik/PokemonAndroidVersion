@@ -23,7 +23,7 @@ class DamageCalculator {
 
         fun computeDamage(attacker : Pokemon, move : Move, opponent : Pokemon) : Int{
             var multiplicator = 1f
-            var stab = if (attacker.data.type1 == move.type || attacker.data.type2 == move.type) 1.5f else 1f
+            val stab = if (attacker.data.type1 == move.type || attacker.data.type2 == move.type) 1.5f else 1f
             if (move.category == MoveCategory.PHYSICAL) {
                 if (attacker.status == Status.BURN)
                     multiplicator *= 0.5f
