@@ -2044,7 +2044,7 @@
               "id": 117,
               "level": 54,
               "moveIds": [
-                15,43,42
+                15,43,100
               ]
             },
             {
@@ -2928,6 +2928,34 @@
       "background": "images/sea_battle_background.png",
       "music": 1,
       "exp": 5000
+    },
+    {
+      "id": 54,
+      "name": "\nSeafoam Islands",
+      "description": "To reach Cinnabar Islands, you have to cross Seafoam Islands. Once in the cave, you feel the presence of a powerful pokemon.",
+      "encounter": 6,
+      "possibleEncounters":
+      {
+        "minLevel": 36,
+        "maxLevel": 38,
+        "encounters": [
+          41,41,42,54,54,55,86,86,86,87,90
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/seafoam_islands_icon.JPG",
+      "background": "images/seafoam_island_battle_background.png",
+      "music": 1,
+      "exp": 5300
     }
   ],
   "bossBattles": [
@@ -3008,6 +3036,32 @@
       "background": "images/route_battle_background.png",
       "music": 1,
       "exp": 5300
+    },
+    {
+      "id": 55,
+      "name": "\nVs Articuno",
+      "description": "In the depths of Seafoam Island, you come across a powerful looking bird. Upon closer inspection, you notice that it is the legendary bird Articuno!",
+      "boss":
+      {
+        "id": 144,
+        "level": 60,
+        "moveIds": [100,102,50,24],
+        "boostedStats": ["DEFENSE","SPDEF"]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/articuno_boss_icon.PNG",
+      "background": "images/seafoam_island_battle_background.png",
+      "music": 1,
+      "exp": 7000
     }
   ]
 }

@@ -263,6 +263,17 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 1
+    },
+    {
+      "id": 96,
+      "name": "Aqua Jet",
+      "power": 40,
+      "pp": 30,
+      "type": 3,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 1
     }
   ],
   "statusMoves": [
@@ -745,6 +756,45 @@
       "priorityLevel": 0,
       "status": "ASLEEP",
       "probability": 100
+    },
+    {
+      "id": 98,
+      "name": "Icicle Crash",
+      "power": 85,
+      "pp": 10,
+      "type": 14,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "",
+      "priorityLevel": 0,
+      "status": "FLINCHED",
+      "probability": 30
+    },
+    {
+      "id": 100,
+      "name": "Ice Beam",
+      "power": 90,
+      "pp": 10,
+      "type": 14,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0,
+      "status": "FROZEN",
+      "probability": 10
+    },
+    {
+      "id": 101,
+      "name": "Hurricane",
+      "power": 110,
+      "pp": 10,
+      "type": 6,
+      "category": "SPECIAL",
+      "accuracy": 70,
+      "description": "",
+      "priorityLevel": 0,
+      "status": "CONFUSED",
+      "probability": 30
     }
   ],
   "critMoves": [
@@ -879,6 +929,17 @@
       "type": 9,
       "category": "PHYSICAL",
       "accuracy": 90,
+      "description": "",
+      "priorityLevel": 0
+    },
+    {
+      "id": 99,
+      "name": "Icicle Spear",
+      "power": 25,
+      "pp": 30,
+      "type": 14,
+      "category": "PHYSICAL",
+      "accuracy": 100,
       "description": "",
       "priorityLevel": 0
     }
@@ -1175,6 +1236,38 @@
       ],
       "target": "SELF",
       "multiplicator": 0.75
+    },
+    {
+      "id": 97,
+      "name": "Icy Wind",
+      "power": 55,
+      "category": "SPECIAL",
+      "pp": 20,
+      "type": 14,
+      "accuracy": 95,
+      "description": "",
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.5,
+      "probabilty": 100
+    },
+    {
+      "id": 102,
+      "name": "Ancient Power",
+      "power": 60,
+      "category": "SPECIAL",
+      "pp": 5,
+      "type": 9,
+      "accuracy": 100,
+      "description": "",
+      "statsAffected": [
+        "ATTACK","DEFENSE","SPATK","SPDEF","SPEED"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "probabilty": 10
     }
   ],
   "drainMoves": [

@@ -134,6 +134,24 @@ class Pokemon(
     fun attack(move: PokemonMove, opponent: Pokemon): AttackResponse {
         if (this.battleData!!.battleStatus.contains(Status.FLINCHED))
             return AttackResponse(false, "But ${this.data.name} flinched and couldn't move\n")
+
+        if (this.status == Status.PARALYSIS) {
+            if (Random.nextInt(100) < 25)
+                return AttackResponse(false, "But ${this.data.name} can't move because it is paralysed!\n")
+        }
+        if (this.status == Status.FROZEN) {
+            if (Random.nextInt(100) > 20)
+                return AttackResponse(false, "But ${this.data.name} is frozen solid!\n")
+            else
+                status = Status.OK;
+        }
+        if (this.status == Status.ASLEEP) {
+            if (battleData!!.sleepCounter == 3) {
+                battleData!!.sleepCounter = 0
+                this.status = Status.OK
+            } else
+                return AttackResponse(false, this.data.name + " is fast asleep!\n")
+        }
         if (this.battleData!!.battleStatus.contains(Status.CONFUSED)) {
             if (Random.nextInt(100) < 33) {
                 val confusionDamage = DamageCalculator.computeConfusionDamage(this)
@@ -146,17 +164,6 @@ class Pokemon(
                 }
                 return AttackResponse(false, "But ${this.data.name} hits hurt itself in its confusion\n")
             }
-        }
-        if (this.status == Status.PARALYSIS) {
-            if (Random.nextInt(100) < 25)
-                return AttackResponse(false, this.data.name + " can't move because it is paralysed!\n")
-        }
-        if (this.status == Status.ASLEEP) {
-            if (battleData!!.sleepCounter == 3) {
-                battleData!!.sleepCounter = 0
-                this.status = Status.OK
-            } else
-                return AttackResponse(false, this.data.name + " is fast asleep!\n")
         }
         move.pp = move.pp - 1
         if (move.move.accuracy != null) {
@@ -184,6 +191,8 @@ class Pokemon(
         } else {
             damageDone = damage
             opponent.currentHP = opponent.currentHP - damage
+            if (move.move.type == Type.FIRE && opponent.status == Status.FROZEN)
+                opponent.status = Status.OK
             if (move.move is StatusMove) {
                 Status.updateStatus(opponent, move.move as StatusMove)
             }

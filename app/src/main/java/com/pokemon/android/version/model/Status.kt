@@ -9,39 +9,46 @@ enum class Status {
     PARALYSIS,
     POISON,
     ASLEEP,
-    //Only for pokemon battle data
+    FROZEN,
+    //Only for pokemon battle data:
     CONFUSED,
     FLINCHED,
     TRAPPED;
 
-    fun toBattleIcon() : String {
-        when(this){
+    fun toBattleIcon(): String {
+        when (this) {
             BURN -> return "BRN"
             PARALYSIS -> return "PAR"
             POISON -> return "PSN"
             ASLEEP -> return "SLP"
+            FROZEN -> return "FRZ"
         }
         return ""
     }
 
-    companion object{
-        fun updateStatus(opponent : Pokemon, statusMove : StatusMove){
-            val randomForStatus : Int = Random.nextInt(100)
+    companion object {
+        fun updateStatus(opponent: Pokemon, statusMove: StatusMove) {
+            val randomForStatus: Int = Random.nextInt(100)
             if (randomForStatus <= statusMove.probability) {
-                if ((statusMove.status == FLINCHED || statusMove.status == CONFUSED || statusMove.status == TRAPPED) && !opponent.battleData!!.battleStatus.contains(statusMove.status))
+                if ((statusMove.status == FLINCHED || statusMove.status == CONFUSED || statusMove.status == TRAPPED) && !opponent.battleData!!.battleStatus.contains(
+                        statusMove.status
+                    )
+                )
                     opponent.battleData!!.battleStatus.add(statusMove.status)
-                else if (isAffectedByStatus(statusMove.status, opponent)){
+                else if (isAffectedByStatus(statusMove.status, opponent)) {
                     opponent.status = statusMove.status
                 }
             }
         }
 
-        fun isAffectedByStatus(status: Status, opponent : Pokemon) : Boolean{
-            if ((status == FLINCHED || status == CONFUSED || status == TRAPPED) && !opponent.battleData!!.battleStatus.contains(status))
+        fun isAffectedByStatus(status: Status, opponent: Pokemon): Boolean {
+            if ((status == FLINCHED || status == CONFUSED || status == TRAPPED) && !opponent.battleData!!.battleStatus.contains( status))
                 return true
             if (opponent.status != OK)
                 return false
             if (status == ASLEEP)
+                return true
+            if (status == FROZEN && (opponent.data.type1 != Type.ICE && opponent.data.type2 != Type.ICE))
                 return true
             if (status == BURN && (opponent.data.type1 != Type.FIRE && opponent.data.type2 != Type.FIRE))
                 return true

@@ -2702,6 +2702,108 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 86,
+    "name": "Seel",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 72,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 7
+        },
+        {
+          "moveId": 97,
+          "level": 11
+        },
+        {
+          "moveId": 95,
+          "level": 17
+        },
+        {
+          "moveId": 96,
+          "level": 31
+        },
+        {
+          "moveId": 79,
+          "level": 43
+        },
+        {
+          "moveId": 100,
+          "level": 47
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 45,
+    "defense": 55,
+    "spAtk": 45,
+    "spDef": 70,
+    "speed": 45,
+    "catchRate": 0.4,
+    "evolutionId": 87,
+    "evolutionCondition": {
+      "level": 34
+    },
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 87,
+    "name": "Dewgong",
+    "type1": 3,
+    "type2": 14,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 72,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 7
+        },
+        {
+          "moveId": 97,
+          "level": 11
+        },
+        {
+          "moveId": 95,
+          "level": 17
+        },
+        {
+          "moveId": 96,
+          "level": 31
+        },
+        {
+          "moveId": 79,
+          "level": 49
+        },
+        {
+          "moveId": 100,
+          "level": 55
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 90,
+    "attack": 70,
+    "defense": 80,
+    "spAtk": 70,
+    "spDef": 95,
+    "speed": 70,
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 88,
     "name": "Grimer",
     "type1": 8,
@@ -2774,6 +2876,100 @@
     "speed": 50,
     "catchRate": 0.3,
     "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 90,
+    "name": "Shellder",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 1
+        },
+        {
+          "moveId": 20,
+          "level": 4
+        },
+        {
+          "moveId": 8,
+          "level": 95
+        },
+        {
+          "moveId": 80,
+          "level": 48
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 30,
+    "attack": 65,
+    "defense": 100,
+    "spAtk": 45,
+    "spDef": 25,
+    "speed": 40,
+    "catchRate": 0.4,
+    "evolutionId": 89,
+    "evolutionCondition": {
+      "itemId": 18
+    },
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 91,
+    "name": "Cloyster",
+    "type1": 3,
+    "type2": 14,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 1
+        },
+        {
+          "moveId": 20,
+          "level": 1
+        },
+        {
+          "moveId": 8,
+          "level": 1
+        },
+        {
+          "moveId": 80,
+          "level": 1
+        },
+        {
+          "moveId": 98,
+          "level": 1
+        },
+        {
+          "moveId": 99,
+          "level": 1
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 90,
+    "attack": 70,
+    "defense": 80,
+    "spAtk": 70,
+    "spDef": 95,
+    "speed": 70,
+    "catchRate": 0.3,
+    "expGaugeType": "SLOW"
   },
   {
     "id": 92,
@@ -3754,23 +3950,23 @@
         },
         {
           "moveId": 6,
-          "level": 4
+          "level": 1
         },
         {
           "moveId": 48,
-          "level": 8
+          "level": 1
         },
         {
           "moveId": 51,
-          "level": 36
+          "level": 1
         },
         {
           "moveId": 45,
-          "level": 40
+          "level": 1
         },
         {
           "moveId": 43,
-          "level": 44
+          "level": 1
         }
       ],
       "movesLearnWithHM": [
@@ -3968,6 +4164,14 @@
         {
           "moveId": 88,
           "level": 40
+        },
+        {
+          "moveId": 100,
+          "level": 45
+        },
+        {
+          "moveId": 80,
+          "level": 55
         }
       ],
       "movesLearnWithHM": [
@@ -4066,10 +4270,35 @@
     "expGaugeType": "SLOW"
   },
   {
+    "id": 144,
+    "name": "Articuno",
+    "type1": 14,
+    "type2": 6,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 4,
+          "level": 1
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 90,
+    "attack": 85,
+    "defense": 85,
+    "spAtk": 125,
+    "spDef": 100,
+    "speed": 95,
+    "catchRate": 0.15,
+    "expGaugeType": "SLOW"
+  },
+  {
     "id": 147,
     "name": "Dratini",
-    "type1": "15",
-    "type2": "0",
+    "type1": 15,
+    "type2": 0,
     "possibleMoves": {
       "movesLearnByLevel": [
         {
@@ -4103,8 +4332,8 @@
   {
     "id": 148,
     "name": "Dragonair",
-    "type1": "15",
-    "type2": "0",
+    "type1": 15,
+    "type2": 0,
     "possibleMoves": {
       "movesLearnByLevel": [
         {
@@ -4136,8 +4365,8 @@
   {
     "id": 149,
     "name": "Dragonite",
-    "type1": "15",
-    "type2": "6",
+    "type1": 15,
+    "type2": 6,
     "possibleMoves": {
       "movesLearnByLevel": [
         {
