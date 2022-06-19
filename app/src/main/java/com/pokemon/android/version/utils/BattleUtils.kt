@@ -6,16 +6,17 @@ import com.pokemon.android.version.model.move.Move
 
 class BattleUtils {
     companion object {
-        fun trainerStarts(pokemon: Pokemon, other: Pokemon, move: Move): Boolean {
-            if (move.priorityLevel > other.IA(other).move.priorityLevel){
+        fun trainerStarts(pokemon: Pokemon, other: Pokemon, move: Move, opponentMove : Move): Boolean {
+            if (move.priorityLevel > opponentMove.priorityLevel){
                 return true
             }
-            else if (move.priorityLevel < other.IA(other).move.priorityLevel){
+            else if (move.priorityLevel < opponentMove.priorityLevel){
                 return false
             }
             else{
-                val paralysisMultiplicator : Float = if (pokemon.status == Status.PARALYSIS) 2f else 1f
-                return pokemon.speed.toFloat() * pokemon.battleData!!.speedMultiplicator * paralysisMultiplicator >= other.speed.toFloat() * other.battleData!!.speedMultiplicator
+                val paralysisMultiplicator : Float = if (pokemon.status == Status.PARALYSIS) 0.5f else 1f
+                val opponentParalysisMultiplicator : Float = if (other.status == Status.PARALYSIS) 0.5f else 1f
+                return pokemon.speed.toFloat() * pokemon.battleData!!.speedMultiplicator * paralysisMultiplicator >= other.speed.toFloat() * other.battleData!!.speedMultiplicator * opponentParalysisMultiplicator
             }
         }
     }

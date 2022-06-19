@@ -107,7 +107,7 @@ class Pokemon(
         var maxDamageIdx = 0
         var Idx = 0
         for (move in usableMoves) {
-            val damage : Int = DamageCalculator.computeDamage(this, move.move, opponent)
+            val damage : Int = DamageCalculator.computeDamageIA(this, move.move, opponent)
             if (damage > opponent.currentHP)
                 return move
             if (damage > 0 && hp/currentHP < 10 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
@@ -117,7 +117,8 @@ class Pokemon(
             if (move.move is StatChangeMove)
             {
                 val statChangeMove : StatChangeMove = move.move as StatChangeMove
-                if (statChangeMove.statsAffected.contains(Stats.SPEED) && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
+                if (move.move.power == 0 &&
+                    statChangeMove.statsAffected.contains(Stats.SPEED) && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
                     return move
                 if (statChangeMove.statsAffected.contains(Stats.ACCURACY) && opponent.battleData!!.accuracyMultiplicator == 1f)
                     return move

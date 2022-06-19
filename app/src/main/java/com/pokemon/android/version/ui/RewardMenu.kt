@@ -10,6 +10,7 @@ import com.pokemon.android.version.model.level.BossBattleLevelData
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.level.WildBattleLevelData
+import com.pokemon.android.version.utils.ItemUtils
 
 class RewardMenu {
     fun loadRewardMenu(activity: MainActivity, levelData : LevelData, firstTime : Boolean){
@@ -35,7 +36,7 @@ class RewardMenu {
         val adapter =  RewardRecyclerAdapter(activity, if (firstTime) levelData.rewards else ArrayList(levelData.rewards.filter{it.itemId != 0}))
         recyclerView.adapter = adapter
         levelData.rewards.forEach{
-            if (it.itemId > 30){
+            if (ItemUtils.isBadge(it.itemId)){
                 if (firstTime)
                     activity.trainer!!.addItem(it.itemId, it.quantity)
             }

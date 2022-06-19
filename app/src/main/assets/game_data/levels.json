@@ -2222,7 +2222,7 @@
       "exp": 6800
     },
     {
-      "id": "50",
+      "id": 50,
       "name": "\nSaffron City Gym",
       "description": "After defeating Giovanni, you go to the gym to battle the gym leader.",
       "opponents": [
@@ -2423,6 +2423,118 @@
       "icon": "images/sea_battle_background.png",
       "background": "images/sea_battle_background.png",
       "exp": 6400
+    },
+    {
+      "id": 56,
+      "name": "\nCinnabar Gym",
+      "description": "When you arrive at Cinnabar Island, you head straight for the gym.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Scientifique.png",
+          "name" : "Scientist Daniel",
+          "pokemons": [
+            {
+              "id": 37,
+              "level": 58,
+              "moveIds": [82,81]
+            },
+            {
+              "id": 218,
+              "level": 58,
+              "moveIds": [82,25]
+            },
+            {
+              "id": 58,
+              "level": 58,
+              "moveIds": [82,27,73]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "You can't win! I have studied Pokemon totally!",
+      "endDialogWin": "My theories are too complicated for you!",
+      "endDialogLoose": "I will continue my studies...",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 7400
+    },
+    {
+      "id": 57,
+      "name": "\nVS Blaine",
+      "description": "After defeating the guard, you go to the gym leader.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Auguste.png",
+          "name" : "Gym Leader Blaine",
+          "pokemons": [
+            {
+              "id": 38,
+              "level": 59,
+              "moveIds": [82,81,48]
+            },
+            {
+              "id": 59,
+              "level": 59,
+              "moveIds": [82,27,73,75]
+            },
+            {
+              "id": 219,
+              "level": 59,
+              "moveIds": [31,25,87,88]
+            },
+            {
+              "id": 126,
+              "level": 60,
+              "moveIds": [82,103,69]
+            },
+            {
+              "id": 78,
+              "level": 62,
+              "moveIds": [82,3,63,62]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 37,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hi! I'm Blaine! I am the Leader of Cinnabar Gym! My fiery Pokémon will incinerate all challengers!",
+      "endDialogWin": "I have burned down to nothing! Not even ashes remain! You have earned the Volcano Badge.",
+      "endDialogLoose": "I'm a raging inferno!",
+      "music": 3,
+      "icon": "images/VS_Auguste.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 8000
     }
   ],
   "randomWildEncounters": [
@@ -3044,9 +3156,9 @@
       "boss":
       {
         "id": 144,
-        "level": 60,
+        "level": 58,
         "moveIds": [100,102,50,24],
-        "boostedStats": ["DEFENSE","SPDEF"]
+        "boostedStats": ["DEFENSE"]
       },
       "rewards": [
         {

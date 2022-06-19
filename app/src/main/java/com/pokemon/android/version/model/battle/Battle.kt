@@ -5,10 +5,9 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.item.Ball
-import com.pokemon.android.version.model.item.ItemData
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
-import com.pokemon.android.version.ui.BattleUI
+import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.ItemUtils
 
 abstract class Battle {
@@ -20,7 +19,62 @@ abstract class Battle {
 
     abstract fun getBattleState(): State
 
-    abstract fun turn(trainerPokemonMove: PokemonMove)
+    abstract fun updateOpponent()
+
+    private fun opponentTurn(opponentPokemonMove: PokemonMove) : String{
+        val opponentResponse = opponent.attack(opponentPokemonMove, pokemon)
+        if(!opponentResponse.success)
+            return opponentResponse.reason
+        else
+            return "${opponent.data.name} uses ${opponentPokemonMove.move.name}\n"
+    }
+
+    private fun trainerTurn(trainerPokemonMove: PokemonMove) : String{
+        val response = pokemon.attack(trainerPokemonMove, opponent)
+        if (!response.success)
+            return response.reason
+        else
+            return "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n"
+    }
+
+    fun turn(trainerPokemonMove: PokemonMove){
+        val sb = StringBuilder()
+        val opponentMove : PokemonMove = opponent.IA(pokemon)
+        if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move, opponentMove.move)) {
+            sb.append(trainerTurn(trainerPokemonMove))
+            if (opponent.currentHP > 0) {
+                sb.append(opponentTurn(opponentMove))
+            }
+        } else {
+            sb.append(opponentTurn(opponentMove))
+            if (pokemon.currentHP > 0) {
+                sb.append(trainerTurn(trainerPokemonMove))
+            }
+        }
+        if (opponent.currentHP > 0)
+            sb.append(checkStatus(opponent))
+        if (pokemon.currentHP > 0)
+            sb.append(checkStatus(pokemon))
+        if (pokemon.currentHP == 0){
+            sb.append(pokemon.data.name + " fainted\n")
+            pokemon.status = Status.OK
+            pokemon.battleData = null
+        }
+        if (opponent.currentHP == 0) {
+            sb.append(opponent.data.name + " fainted\n")
+            updateOpponent()
+        }
+        dialogTextView.text = sb.toString()
+    }
+
+    fun itemIsUsable(itemId: Int) : Boolean{
+        if (itemId < 15 && itemId != 8 && itemId != 9){
+            if (itemId > 10)
+                return this is WildBattle
+            return true
+        }
+        return false
+    }
 
     fun switchPokemon(pokemonToBeSent: Pokemon) {
         pokemonToBeSent.battleData = PokemonBattleData()
@@ -30,12 +84,9 @@ abstract class Battle {
 
     fun turnWithSwitch(pokemonToBeSent: Pokemon) {
         val sb = StringBuilder()
-        sb.append("${pokemonToBeSent.trainer!!.name} send ${pokemonToBeSent.data.name}\n")
+        sb.append("${pokemonToBeSent.trainer!!.name} sends ${pokemonToBeSent.data.name}\n")
         switchPokemon(pokemonToBeSent)
-        sb.append("${opponent.data.name} uses ${opponent.IA(pokemon).move.name}\n")
-        val opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
-        if (!opponentResponse.success)
-            sb.append(opponentResponse.reason)
+        sb.append(opponentTurn(opponent.IA(pokemon)))
         dialogTextView.text = sb.toString()
     }
 
@@ -56,10 +107,7 @@ abstract class Battle {
         else{
             activity.trainer!!.useItem(itemId, pokemon)
         }
-        sb.append("${opponent.data.name} uses ${opponent.IA(pokemon).move.name}\n")
-        var opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
-        if (!opponentResponse.success)
-            sb.append(opponentResponse.reason)
+        sb.append(opponentTurn(opponent.IA(pokemon)))
         dialogTextView.text = sb.toString()
     }
 

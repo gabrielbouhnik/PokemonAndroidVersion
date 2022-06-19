@@ -14,8 +14,8 @@ class DailyHeal {
         }
 
         fun compareDates(last: Date): Boolean {
-            var lastUsed = last.toString().split(" ")
-            var currentDate = Calendar.getInstance().time.toString().split(" ")
+            val lastUsed = last.toString().split(" ")
+            val currentDate = Calendar.getInstance().time.toString().split(" ")
             return !lastUsed[0].equals(currentDate[0]) || !lastUsed[2].equals(currentDate[2]) ||  !lastUsed[5].equals(currentDate[5])
         }
 

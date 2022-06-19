@@ -8,6 +8,10 @@ class ItemUtils {
             return itemId > 10 && itemId < 16
         }
 
+        fun isBadge(itemId: Int) : Boolean{
+            return itemId > 30 && itemId < 39
+        }
+
         fun getItemById(itemId: Int) : Item {
             when(itemId){
                 1 -> return HealingHPItem.POTION

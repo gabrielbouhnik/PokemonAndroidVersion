@@ -1200,7 +1200,9 @@
       ],
       "movesLearnWithHM": [
       ],
-      "bannerMoves": []
+      "bannerMoves": [
+        13
+      ]
     },
     "hp": 60,
     "attack": 90,
@@ -2606,6 +2608,51 @@
     "speed": 45,
     "catchRate": 0.3,
     "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 78,
+    "name": "Rapidash",
+    "type1": 2,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 3,
+          "level": 1
+        },
+        {
+          "moveId": 62,
+          "level": 1
+        },
+        {
+          "moveId": 7,
+          "level": 1
+        },
+        {
+          "moveId": 74,
+          "level": 25
+        },
+        {
+          "moveId": 63,
+          "level": 30
+        },
+        {
+          "moveId": 82,
+          "level": 56
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 100,
+    "defense": 70,
+    "spAtk": 80,
+    "spDef": 80,
+    "speed": 105,
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 84,
@@ -4069,6 +4116,54 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 126,
+    "name": "Magmar",
+    "type1": 2,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 85,
+          "level": 1
+        },
+        {
+          "moveId": 7,
+          "level": 1
+        },
+        {
+          "moveId": 42,
+          "level": 1
+        },
+        {
+          "moveId": 48,
+          "level": 20
+        },
+        {
+          "moveId": 31,
+          "level": 46
+        },
+        {
+          "moveId": 82,
+          "level": 58
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 95,
+    "defense": 57,
+    "spAtk": 100,
+    "spDef": 85,
+    "speed": 93,
+    "catchRate": 0.3,
+    "evolutionCondition": {
+      "itemId": 25
+    },
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 129,
     "name": "Magikarp",
     "type1": 3,
@@ -4347,7 +4442,10 @@
       ],
       "movesLearnWithHM": [
       ],
-      "bannerMoves": []
+      "bannerMoves": [
+        15,
+        24
+      ]
     },
     "hp": 61,
     "attack": 84,
@@ -4384,7 +4482,10 @@
       ],
       "movesLearnWithHM": [
       ],
-      "bannerMoves": []
+      "bannerMoves": [
+        15,
+        24
+      ]
     },
     "hp": 91,
     "attack": 134,
@@ -4935,6 +5036,10 @@
           "level": 29
         },
         {
+          "moveId": 88,
+          "level": 43
+        },
+        {
           "moveId": 31,
           "level": 54
         }
@@ -4962,6 +5067,10 @@
         {
           "moveId": 7,
           "level": 1
+        },
+        {
+          "moveId": 85,
+          "level": 8
         },
         {
           "moveId": 23,
@@ -5015,6 +5124,10 @@
         {
           "moveId": 27,
           "level": 56
+        },
+        {
+          "moveId": 85,
+          "level": 8
         }
       ],
       "movesLearnWithHM": [
@@ -5218,7 +5331,9 @@
       ],
       "movesLearnWithHM": [
       ],
-      "bannerMoves": []
+      "bannerMoves": [
+        57
+      ]
     },
     "hp": 70,
     "attack": 84,
@@ -5263,7 +5378,9 @@
       ],
       "movesLearnWithHM": [
       ],
-      "bannerMoves": []
+      "bannerMoves": [
+        57
+      ]
     },
     "hp": 100,
     "attack": 134,

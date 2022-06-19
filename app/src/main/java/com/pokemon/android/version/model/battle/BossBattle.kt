@@ -35,43 +35,7 @@ class BossBattle() : Battle() {
         return State.IN_PROGRESS
     }
 
-    override fun turn(trainerPokemonMove: PokemonMove) {
-        var sb = StringBuilder()
-        if (BattleUtils.trainerStarts(pokemon, opponent!!, trainerPokemonMove.move)) {
-            sb.append("${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n")
-            var response = pokemon.attack(trainerPokemonMove, opponent!!)
-            if (!response.success)
-                sb.append(response.reason)
-            if (opponent.currentHP > 0) {
-                sb.append("${opponent.data.name} uses ${opponent.IA(pokemon).move.name}\n")
-                var opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
-                if (!opponentResponse.success)
-                    sb.append(opponentResponse.reason)
-            }
-        } else {
-            sb.append("${opponent.data.name} uses ${opponent.IA(pokemon).move.name}\n")
-            var opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
-            if (!opponentResponse.success)
-                sb.append(opponentResponse.reason)
-            if (pokemon.currentHP > 0) {
-                sb.append("${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n")
-                var response = pokemon.attack(trainerPokemonMove, opponent!!)
-                if (!response.success)
-                    sb.append(response.reason)
-            }
-        }
-        if (pokemon.currentHP > 0)
-            sb.append(checkStatus(pokemon))
-        else{
-            pokemon.status = Status.OK
-            pokemon.battleData = null
-        }
-        if (opponent.currentHP > 0){
-            sb.append(checkStatus(opponent!!))
-        }
-        else{
-            sb.append(opponent.data.name + " fainted\n")
-        }
-        dialogTextView.text = sb.toString()
+    override fun updateOpponent(){
+
     }
 }

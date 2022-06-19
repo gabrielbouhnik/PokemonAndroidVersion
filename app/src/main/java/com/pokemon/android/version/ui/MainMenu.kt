@@ -19,6 +19,7 @@ import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.item.ItemQuantity
 import com.pokemon.android.version.utils.DailyHeal
+import com.pokemon.android.version.utils.ItemUtils
 import java.io.InputStream
 
 class MainMenu {
@@ -39,20 +40,20 @@ class MainMenu {
         pokemonsButton.setOnClickListener {
             pokemonMenu.loadPokemonMenu(activity)
         }
-        var bannersButton : Button = activity.findViewById(R.id.bannersButton)
+        val bannersButton : Button = activity.findViewById(R.id.bannersButton)
         bannersButton.setOnClickListener {
             bannerMenu.loadBannerMenu(activity)
         }
-        var adventureButton : Button = activity.findViewById(R.id.adventureButton)
+        val adventureButton : Button = activity.findViewById(R.id.adventureButton)
         adventureButton.setOnClickListener {
             levelMenu.loadLevelMenu(activity)
         }
-        var itemsButton : Button = activity.findViewById(R.id.itemsButton)
+        val itemsButton : Button = activity.findViewById(R.id.itemsButton)
         itemsButton.setOnClickListener {
             itemMenu.loadItemMenu(activity, null)
         }
         if (DailyHeal.canUseDailyHeal(activity.trainer!!)) {
-            var dailyHealButton: Button = activity.findViewById(R.id.dailyHealButton)
+            val dailyHealButton: Button = activity.findViewById(R.id.dailyHealButton)
             dailyHealButton.visibility = VISIBLE
             dailyHealButton.setOnClickListener {
                 activity.playSoundEffect(R.raw.daily_heal_sound_effect)
@@ -60,7 +61,7 @@ class MainMenu {
                 dailyHealButton.visibility = GONE
             }
         }
-        var trainerCardButton : Button = activity.findViewById(R.id.trainerCardButton)
+        val trainerCardButton : Button = activity.findViewById(R.id.trainerCardButton)
         trainerCardButton.setOnClickListener {
             loadTrainerCardMenu(activity)
             SaveManager.save(activity)
@@ -85,7 +86,7 @@ class MainMenu {
         maxLevelTextView.text = "Your Pokemon will gain experience up to level " + activity.trainer!!.getMaxLevel()
         val recyclerView = activity.findViewById<RecyclerView>(R.id.badgesRecyclerView)
         recyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        val adapter =  ItemRecyclerAdapter(activity, ArrayList(ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items).filter{it.itemId > 30}),View.OnClickListener{})
+        val adapter =  ItemRecyclerAdapter(activity, ArrayList(ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items).filter{ItemUtils.isBadge(it.itemId)}),View.OnClickListener{})
         recyclerView.adapter = adapter
     }
 }

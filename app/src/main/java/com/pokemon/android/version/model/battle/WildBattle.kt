@@ -24,48 +24,10 @@ class WildBattle() : Battle() {
         this.pokemon.battleData = PokemonBattleData()
     }
 
-    override fun turn(trainerPokemonMove: PokemonMove) {
-        val sb = StringBuilder()
-        if (BattleUtils.trainerStarts(pokemon, opponent!!, trainerPokemonMove.move)) {
-            sb.append("${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n")
-            val response = pokemon.attack(trainerPokemonMove, opponent!!)
-            if (!response.success)
-                sb.append(response.reason)
-            if (opponent.currentHP > 0) {
-                sb.append("${opponent.data.name} uses ${opponent.IA(pokemon).move.name}\n")
-                val opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
-                if (!opponentResponse.success)
-                    sb.append(opponentResponse.reason)
-            }
-        } else {
-            sb.append("${opponent.data.name} uses ${opponent.IA(pokemon).move.name}\n")
-            val opponentResponse = opponent.attack(opponent.IA(pokemon), pokemon)
-            if (!opponentResponse.success)
-                sb.append(opponentResponse.reason)
-            if (pokemon.currentHP > 0) {
-                sb.append("${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n")
-                val response = pokemon.attack(trainerPokemonMove, opponent)
-                if (!response.success)
-                    sb.append(response.reason)
-            }
+    override fun updateOpponent(){
+        if (encountersLeft > 0) {
+            generateRandomEncounter()
         }
-        if (pokemon.currentHP > 0)
-            sb.append(checkStatus(pokemon))
-        if (pokemon.currentHP == 0){
-            sb.append(pokemon.data.name + " fainted\n")
-            pokemon.status = Status.OK
-            pokemon.battleData = null
-        }
-        if (opponent.currentHP > 0){
-                sb.append(checkStatus(opponent))
-        }
-        if (opponent.currentHP == 0){
-            sb.append(opponent.data.name + " fainted\n")
-            if (encountersLeft > 0) {
-                generateRandomEncounter()
-            }
-        }
-        dialogTextView.text = sb.toString()
     }
 
     override fun getBattleState(): State {

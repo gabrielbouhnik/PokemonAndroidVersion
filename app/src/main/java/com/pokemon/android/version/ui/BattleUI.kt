@@ -21,6 +21,7 @@ import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.level.WildBattleLevelData
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
+import com.pokemon.android.version.utils.ItemUtils
 import com.pokemon.android.version.utils.MusicUtils
 import java.io.InputStream
 
@@ -178,6 +179,7 @@ class BattleUI {
 
     private fun updateBattleUI(activity : MainActivity, battle : Battle){
         displayPokemonsInfos(activity, battle)
+        setUpAttackButtons(activity, battle)
         updateByBattleState(activity, battle)
     }
 
@@ -269,7 +271,6 @@ class BattleUI {
                 }
             }
         }
-
         bagButton.setOnClickListener {
             val closeButton : Button = activity.findViewById(R.id.closeBagButton)
             closeButton.visibility = VISIBLE
@@ -281,16 +282,20 @@ class BattleUI {
             val recyclerView = activity.findViewById<RecyclerView>(R.id.battleRecyclerView)
             recyclerView.visibility = VISIBLE
             recyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-            val items : ArrayList<ItemQuantity> = ArrayList(ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items).filter{it.itemId < 16})
+            val items : ArrayList<ItemQuantity> = ArrayList(ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items).filter{battle.itemIsUsable(it.itemId)})
             val myItemClickListener = View.OnClickListener {
                 val position = it.tag as Int
                 val clickedItem : ItemQuantity = items[position]
                 recyclerView.visibility = GONE
                 blackImageView.visibility = GONE
                 closeButton.visibility = GONE
-                battle.turnWithItemUsed(clickedItem.itemId)
-                updateBattleUI(activity, battle)
-                if (battle.pokemon.currentHP > 0)
+                if (ItemUtils.getItemById(clickedItem.itemId).isUsable(battle.pokemon)) {
+                    battle.turnWithItemUsed(clickedItem.itemId)
+                    updateBattleUI(activity, battle)
+                    if (battle.pokemon.currentHP > 0)
+                        setUpAttackButtons(activity, battle)
+                }
+                else
                     setUpAttackButtons(activity, battle)
                 switchButton.visibility = VISIBLE
                 bagButton.visibility = VISIBLE

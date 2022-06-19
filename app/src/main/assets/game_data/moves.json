@@ -795,6 +795,19 @@
       "priorityLevel": 0,
       "status": "CONFUSED",
       "probability": 30
+    },
+    {
+      "id": 103,
+      "name": "Thunder Punch",
+      "power": 75,
+      "pp": 15,
+      "type": 6,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0,
+      "status": "PARALYSIS",
+      "probability": 10
     }
   ],
   "critMoves": [
