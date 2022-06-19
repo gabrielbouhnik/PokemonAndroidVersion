@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
+import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
@@ -114,9 +115,28 @@ class BattleUI {
         disableButton(activity, R.id.switchPokemonButton)
     }
 
+    fun endEliteBattle(activity : MainActivity, battle : Battle){
+        activity.trainer!!.eliteProgression++
+        val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
+        rewardsButton.visibility = VISIBLE
+        if (activity.trainer!!.eliteProgression == 5) {
+            rewardsButton.text = "Hall of Fame"
+        }
+        else
+            rewardsButton.text = "Go forward"
+        rewardsButton.setOnClickListener {
+            SaveManager.save(activity)
+            activity.trainer!!.receiveExp((battle.levelData.exp * 0.5).toInt())
+            battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
+            activity.mainMenu.levelMenu.loadEliteLevels(activity)
+        }
+    }
+
     private fun updateByBattleState(activity : MainActivity, battle : Battle){
         when(battle.getBattleState()){
             State.TRAINER_LOSS -> {
+                if (activity.eliteMode)
+                    activity.eliteMode = false
                 disableBattleButtons(activity)
                 if (battle is TrainerBattle)
                     dialogTextView!!.text = (battle.levelData as TrainerBattleLevelData).endDialogLoose
@@ -129,9 +149,16 @@ class BattleUI {
             }
             State.TRAINER_VICTORY -> {
                 val firstTime : Boolean = activity.trainer!!.progression == battle.levelData.id
-                activity.updateMusic(R.raw.victory_theme)
-                if (firstTime)
-                    activity.trainer!!.progression++
+                if (activity.trainer!!.eliteProgression == 4)
+                    activity.updateMusic(R.raw.hall_of_fame)
+                else
+                    activity.updateMusic(R.raw.victory_theme)
+                if (firstTime) {
+                    if (activity.eliteMode)
+                        activity.trainer!!.eliteProgression++
+                    else
+                        activity.trainer!!.progression++
+                }
                 disableBattleButtons(activity)
                 val opponentPokemonSprite : ImageView = activity.findViewById(R.id.opponentPokemonImageView)
                 opponentPokemonSprite.visibility = GONE
@@ -141,13 +168,17 @@ class BattleUI {
                 opponentPokemonHPLevel.visibility = GONE
                 if (battle is TrainerBattle)
                     dialogTextView!!.text = (battle.levelData as TrainerBattleLevelData).endDialogWin
-                val rewardsButton : Button = activity.findViewById(R.id.getRewardsButton)
-                rewardsButton.visibility = VISIBLE
-                rewardsButton.text = "See Rewards"
-                rewardsButton.setOnClickListener{
-                    activity.trainer!!.receiveExp((battle.levelData.exp * 0.5).toInt())
-                    battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
-                    rewardMenu.loadRewardMenu(activity, battle.levelData, firstTime)
+                if (activity.eliteMode)
+                    endEliteBattle(activity, battle)
+                else {
+                    val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
+                    rewardsButton.visibility = VISIBLE
+                    rewardsButton.text = "See Rewards"
+                    rewardsButton.setOnClickListener {
+                        activity.trainer!!.receiveExp((battle.levelData.exp * 0.5).toInt())
+                        battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
+                        rewardMenu.loadRewardMenu(activity, battle.levelData, firstTime)
+                    }
                 }
             }
             else -> {
@@ -289,7 +320,7 @@ class BattleUI {
                 recyclerView.visibility = GONE
                 blackImageView.visibility = GONE
                 closeButton.visibility = GONE
-                if (ItemUtils.getItemById(clickedItem.itemId).isUsable(battle.pokemon)) {
+                if (ItemUtils.getItemById(clickedItem.itemId).isUsable(battle.pokemon) || (battle is WildBattle && ItemUtils.isBall(clickedItem.itemId))) {
                     battle.turnWithItemUsed(clickedItem.itemId)
                     updateBattleUI(activity, battle)
                     if (battle.pokemon.currentHP > 0)

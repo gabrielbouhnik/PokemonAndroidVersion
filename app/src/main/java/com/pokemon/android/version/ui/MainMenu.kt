@@ -35,24 +35,46 @@ class MainMenu {
 
     fun loadGameMenu(activity : MainActivity){
         activity.setContentView(R.layout.main_menu)
-        activity.updateMusic(R.raw.main_menu)
+        if (activity.eliteMode) {
+            activity.updateMusic(R.raw.elite4_music)
+            val bannerTextView : TextView = activity.findViewById(R.id.MysteryGiftTextView)
+            bannerTextView.visibility = GONE
+        }
+        else
+            activity.updateMusic(R.raw.main_menu)
         val pokemonsButton : Button = activity.findViewById(R.id.pokemonsButton)
         pokemonsButton.setOnClickListener {
-            pokemonMenu.loadPokemonMenu(activity)
+            if (activity.eliteMode)
+                pokemonMenu.loadPokemonMenuElite(activity)
+            else
+                pokemonMenu.loadPokemonMenu(activity)
         }
         val bannersButton : Button = activity.findViewById(R.id.bannersButton)
-        bannersButton.setOnClickListener {
-            bannerMenu.loadBannerMenu(activity)
+        if (activity.eliteMode) {
+            bannersButton.visibility = GONE
+        }
+        else {
+            bannersButton.setOnClickListener {
+                bannerMenu.loadBannerMenu(activity)
+            }
         }
         val adventureButton : Button = activity.findViewById(R.id.adventureButton)
+        if (activity.eliteMode) {
+            adventureButton.text = "POKEMON LEAGUE"
+            val adventureDescrTextView : TextView = activity.findViewById(R.id.adventureDescriptionTextView)
+            adventureDescrTextView.text = "Face the elite 4 to become the champion."
+        }
         adventureButton.setOnClickListener {
-            levelMenu.loadLevelMenu(activity)
+            if (activity.eliteMode)
+                levelMenu.loadEliteLevels(activity)
+            else
+                levelMenu.loadLevelMenu(activity)
         }
         val itemsButton : Button = activity.findViewById(R.id.itemsButton)
         itemsButton.setOnClickListener {
             itemMenu.loadItemMenu(activity, null)
         }
-        if (DailyHeal.canUseDailyHeal(activity.trainer!!)) {
+        if (!!activity.eliteMode && DailyHeal.canUseDailyHeal(activity.trainer!!)) {
             val dailyHealButton: Button = activity.findViewById(R.id.dailyHealButton)
             dailyHealButton.visibility = VISIBLE
             dailyHealButton.setOnClickListener {
@@ -65,6 +87,14 @@ class MainMenu {
         trainerCardButton.setOnClickListener {
             loadTrainerCardMenu(activity)
             SaveManager.save(activity)
+        }
+        val eliteButton : Button = activity.findViewById(R.id.eliteButton)
+        if (!activity.eliteMode && activity.trainer!!.progression >= 63) {
+            eliteButton.visibility = VISIBLE
+            eliteButton.setOnClickListener {
+                activity.eliteMode = true
+                loadGameMenu(activity)
+            }
         }
     }
 

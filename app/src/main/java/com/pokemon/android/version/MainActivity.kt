@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     var gameDataService : GameDataService = GameDataService()
     var starterSelection : StarterSelection? = null
     var mainMenu : MainMenu = MainMenu()
+    var eliteMode : Boolean = false
 
     fun displayStarters(){
         val bulbasaur : Pokemon = gameDataService.generatePokemon(1,5)

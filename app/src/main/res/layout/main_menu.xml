@@ -22,9 +22,9 @@
     <Button
             android:text="Adventure"
             android:layout_width="205dp"
-            android:layout_height="57dp" android:id="@+id/adventureButton"
+            android:layout_height="67dp" android:id="@+id/adventureButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="80dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="90dp"
             android:backgroundTint="#2196F3" android:textAlignment="center" android:textSize="18sp"
             android:textStyle="bold" android:textColor="#FFFFFF"/>
     <Button
@@ -109,4 +109,13 @@
             app:layout_constraintBottom_toBottomOf="@+id/itemsButton"
             app:layout_constraintTop_toBottomOf="@+id/pokemonsButton" app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintVertical_bias="1.0" android:translationZ="90dp"/>
+    <Button
+            android:text="Fight the pokemon league"
+            android:layout_width="250dp"
+            android:layout_height="35dp" android:id="@+id/eliteButton"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="10dp"
+            app:layout_constraintHorizontal_bias="0.497" app:layout_constraintBottom_toTopOf="@+id/adventureButton"
+            app:layout_constraintVertical_bias="1.0" android:backgroundTint="#009688" android:textSize="10sp"
+            android:visibility="gone"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

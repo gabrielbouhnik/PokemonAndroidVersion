@@ -21,6 +21,7 @@ class Trainer  : ITrainer{
     var progression: Int = 1
     var coins: Int = 50
     var lastTimeDailyHealUsed : Date? = null
+    var eliteProgression : Int =  0
 
     constructor(name: String, gender: Gender) {
         this.name = name

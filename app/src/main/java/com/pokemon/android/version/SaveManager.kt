@@ -16,14 +16,15 @@ class SaveManager {
     companion object {
         private const val SAVE_FILE_PATH = "save.json"
         fun loadSave(activity : MainActivity) : Trainer?{
-            var jsonString = JsonFileToString.loadJsonStringFromInternalStorage(activity,SAVE_FILE_PATH) ?: return null
+            val jsonString = JsonFileToString.loadJsonStringFromInternalStorage(activity,SAVE_FILE_PATH) ?: return null
             val gson = Gson()
             val data = object : TypeToken<TrainerSave>() {}.type
             Log.d("save:", jsonString)
-            var trainerSave : TrainerSave = gson.fromJson(jsonString, data)
-            var trainer = Trainer(trainerSave.name, Gender.valueOf(trainerSave.gender))
+            val trainerSave : TrainerSave = gson.fromJson(jsonString, data)
+            val trainer = Trainer(trainerSave.name, Gender.valueOf(trainerSave.gender))
             trainer.coins = trainerSave.coins
             trainer.progression = trainerSave.progression
+            trainer.eliteProgression = trainerSave.eliteProgression
             trainerSave.items.forEach{trainer.items[it.itemId] = it.quantity }
             trainerSave.team.forEach{
                 val pokemon : Pokemon = Pokemon.of(it, activity.gameDataService,trainer)
@@ -32,11 +33,13 @@ class SaveManager {
             trainerSave.pokemons.forEach{trainer.pokemons.add(Pokemon.of(it, activity.gameDataService,trainer))}
             if (trainerSave.lastTimeDailyHealUsed != null)
                 trainer.lastTimeDailyHealUsed = SimpleDateFormat("yyyy-MM-dd").parse(trainerSave.lastTimeDailyHealUsed!!)
+            if (trainerSave.eliteMode != null)
+                activity.eliteMode = trainerSave.eliteMode!!
             return trainer
         }
 
         fun save(activity : MainActivity){
-            val trainerSave : TrainerSave = TrainerSave.of(activity.trainer!!)
+            val trainerSave : TrainerSave = TrainerSave.of(activity.trainer!!, activity.eliteMode)
             val gsonPretty = GsonBuilder().setPrettyPrinting().create()
             val jsonSave: String = gsonPretty.toJson(trainerSave)
             activity.openFileOutput(SAVE_FILE_PATH, Context.MODE_PRIVATE).use { output ->

@@ -31,6 +31,24 @@ class LevelMenu {
             )
     }
 
+    fun loadEliteLevels(activity: MainActivity) {
+        activity.setContentView(R.layout.level_menu)
+        val recyclerView = activity.findViewById<RecyclerView>(R.id.levelRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        val backButton: Button = activity.findViewById(R.id.levelMenuBackButton)
+        backButton.setOnClickListener {
+            activity.mainMenu.loadGameMenu(activity)
+        }
+        val levels = activity.gameDataService.levels.filter{it.id > 62 && it.id - 63 == activity.trainer!!.eliteProgression }
+        val myItemClickListener = View.OnClickListener {
+            val position = it.tag as Int
+            val levelData : LevelData = levels[position]
+            if (activity.trainer!!.canStillBattle())
+                startBattle(activity,levelData)
+        }
+        val adapter = LevelRecyclerAdapter(activity, levels, myItemClickListener)
+        recyclerView.adapter = adapter
+    }
 
     fun loadLevelMenu(activity: MainActivity) {
         activity.setContentView(R.layout.level_menu)
@@ -42,15 +60,15 @@ class LevelMenu {
         }
         val myItemClickListener = View.OnClickListener {
             val position = it.tag as Int
-            var levelData : LevelData =  activity.gameDataService.levels[position]
+            val levelData : LevelData =  activity.gameDataService.levels[position]
             if (activity.trainer!!.canStillBattle())
                 if (activity.trainer!!.progression == levelData.id) {
-                    loadLevelDescriptionMenu(activity, activity.gameDataService.levels[position])
+                    loadLevelDescriptionMenu(activity, levelData)
                 } else if (activity.trainer!!.progression > levelData.id){
                     startBattle(activity,activity.gameDataService.levels[position])
                 }
         }
-        val adapter = LevelRecyclerAdapter(activity, activity.gameDataService.levels.filter{it.id <= activity.trainer!!.progression}, myItemClickListener)
+        val adapter = LevelRecyclerAdapter(activity, activity.gameDataService.levels.filter{it.id <= activity.trainer!!.progression && it.id < 63}, myItemClickListener)
         recyclerView.adapter = adapter
     }
 
@@ -66,9 +84,9 @@ class LevelMenu {
         startButton.setOnClickListener {
             startBattle(activity,levelData)
         }
-        var levelNameDescrTextView: TextView = activity.findViewById(R.id.levelNameDescrTextView)
+        val levelNameDescrTextView: TextView = activity.findViewById(R.id.levelNameDescrTextView)
         levelNameDescrTextView.text = levelData.name
-        var levelDescrTextView: TextView = activity.findViewById(R.id.levelDescrTextView)
+        val levelDescrTextView: TextView = activity.findViewById(R.id.levelDescrTextView)
         levelDescrTextView.text = levelData.description
     }
 }

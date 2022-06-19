@@ -2717,6 +2717,31 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 80,
+    "name": "Slowbro",
+    "type1": 3,
+    "type2": 12,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 95,
+    "attack": 75,
+    "defense": 110,
+    "spAtk": 100,
+    "spDef": 80,
+    "speed": 30,
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 84,
     "name": "Doduo",
     "type1": 5,
@@ -4178,6 +4203,31 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 124,
+    "name": "Jynx",
+    "type1": 14,
+    "type2": 12,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 65,
+          "level": 1
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 50,
+    "defense": 35,
+    "spAtk": 115,
+    "spDef": 95,
+    "speed": 95,
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 126,
     "name": "Magmar",
     "type1": 2,
@@ -5452,5 +5502,30 @@
     "speed": 61,
     "catchRate": 0.2,
     "expGaugeType": "SLOW"
+  },
+  {
+    "id": 473,
+    "name": "Mamoswine",
+    "type1": 14,
+    "type2": 11,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 110,
+    "attack": 130,
+    "defense": 80,
+    "spAtk": 70,
+    "spDef": 60,
+    "speed": 80,
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
   }
 ]

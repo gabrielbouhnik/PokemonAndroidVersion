@@ -2685,7 +2685,7 @@
     {
       "id": 60,
       "name": "\nVS Rival 6",
-      "description": "Now that you have 8 badges, you head for the victory road. However, on Route 22, you run into Jackson.",
+      "description": "Now that you have 8 badges, you head for the Victory Road. However, on Route 22, you run into Jackson.",
       "type": "Trainer Battle",
       "opponents": [
         {
@@ -2739,8 +2739,8 @@
           "quantity": 90
         },
         {
-          "id": 2,
-          "quantity": 2
+          "id": 3,
+          "quantity": 1
         },
         {
           "id": 9,
@@ -2757,6 +2757,151 @@
       "music": 2,
       "icon": "images/route_battle_background.png",
       "background": "images/route_battle_background.png",
+      "exp": 10000
+    },
+    {
+      "id": 62,
+      "name": "\nVictory Road 2",
+      "description": "Still in Victory Road, there are several trainers in your path. Take them down to get to the Pokemon League",
+      "type": "Trainer Battle",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Topdresseur.png",
+          "name" : "CoolTrainer Rolando",
+          "pokemons": [
+            {
+              "id": 3,
+              "level": 72,
+              "moveIds": [
+                66,37,93,36
+              ]
+            },
+            {
+              "id": 6,
+              "level": 72,
+              "moveIds": [
+                31,50,104,93
+              ]
+            },
+            {
+              "id": 9,
+              "level": 72,
+              "moveIds": [
+                43,100,69,93
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Topdresseuse.png",
+          "name" : "CoolTrainer Alexa",
+          "pokemons": [
+            {
+              "id": 78,
+              "level": 72,
+              "moveIds": [82,3,63,62]
+            },
+            {
+              "id": 71,
+              "level": 72,
+              "moveIds": [62,18,66,35]
+            },
+            {
+              "id": 87,
+              "level": 72,
+              "moveIds": [100,95,43,72]
+            },
+            {
+              "id": 28,
+              "level": 72,
+              "moveIds": [30,93,69,38]
+            },
+            {
+              "id": 101,
+              "level": 72,
+              "moveIds": [12,2]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 60
+        },
+        {
+          "id": 3,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Only the chosen can pass here!",
+      "endDialogWin": "By fighting tough battles, you get stronger!",
+      "endDialogLoose": "You showed me just how good I was!",
+      "music": 2,
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "exp": 10000
+    },
+    {
+      "id": 63,
+      "name": "\nVS Lorelei",
+      "description": "",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Olga.png",
+          "name" : "Elite 4 Lorelei",
+          "pokemons": [
+            {
+              "id": 87,
+              "level": 73,
+              "moveIds": [100,95,43,72]
+            },
+            {
+              "id": 80,
+              "level": 73,
+              "moveIds": [43,45,100,31]
+            },
+            {
+              "id": 124,
+              "level": 73,
+              "moveIds": [100,45,24,105]
+            },
+            {
+              "id": 473,
+              "level": 73,
+              "moveIds": [25,93,98,95]
+            },
+            {
+              "id": 91,
+              "level": 73,
+              "moveIds": [43,98,77,95]
+            },
+            {
+              "id": 131,
+              "level": 75,
+              "moveIds": [
+                100,12,43,45
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+      ],
+      "startDialog": "Welcome to the Pokemon League! I am Lorelei of the Elite Four! No one can best me when it comes to icy Pokemon. Are you ready?",
+      "endDialogWin": "You're better than I thought! Go on ahead! You only got a taste of Pokemon League power!",
+      "endDialogLoose": "You're no match against my icy Pokemon!",
+      "music": 3,
+      "icon": "images/VS_Olga.PNG",
+      "background": "images/building_battle_background.jpg",
       "exp": 10000
     }
   ],
@@ -3291,6 +3436,28 @@
       "background": "images/seafoam_island_battle_background.png",
       "music": 1,
       "exp": 5300
+    },
+    {
+      "id": 61,
+      "name": "\nVictory Road",
+      "description": "Having shown your 8 badges to the guard, you enter the Victory Road, the last step before the Pokemon League",
+      "encounter": 15,
+      "possibleEncounters":
+      {
+        "minLevel": 65,
+        "maxLevel": 70,
+        "encounters": [28,42,75,95,111]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 30
+        }
+      ],
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "music": 1,
+      "exp": 9000
     }
   ],
   "bossBattles": [
