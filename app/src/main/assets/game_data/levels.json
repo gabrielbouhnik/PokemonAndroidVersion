@@ -146,7 +146,7 @@
     },
     {
       "id": 8,
-      "name": "\nPewter City Gym",
+      "name": "\nPewter Gym",
       "description": "You have arrived in Pewter City and are going straight to the arena. However, you can't face the gym leader yet.",
       "type": "Trainer Battle",
       "opponents": [
@@ -697,8 +697,8 @@
     },
     {
       "id": 17,
-      "name": "\nCerulean City Gym",
-      "description": "After facing the trainers on the bridge, you finally feel ready to take on the Cerulean City gym.",
+      "name": "\nCerulean Gym",
+      "description": "After facing the trainers on the bridge, you finally feel ready to take on the Cerulean gym.",
       "type": "Trainer Battle",
       "opponents": [
         {
@@ -860,7 +860,7 @@
     },
     {
       "id": 21,
-      "name": "\nVermilion City Gym",
+      "name": "\nVermilion Gym",
       "description": "You have arrived in Vermilion City and you are going to challenge the gym immediately. As usual, you will have to defeat the guard before challenging the gym leader.",
       "type": "Trainer Battle",
       "opponents": [
@@ -1334,7 +1334,7 @@
     },
     {
       "id": 35,
-      "name": "\nCeladon City Gym",
+      "name": "\nCeladon Gym",
       "description": "You have arrived in Celadon City and are about to face the gym.",
       "opponents": [
         {
@@ -1436,7 +1436,7 @@
           "quantity": 1
         }
       ],
-      "startDialog": "Welcome. My name is Erika. I am the Gym Leader of the Celadon City Gym. I am a student of the art of flower arranging. My Pokémon are all of the Grass type. Did you perhaps wish to challenge me? Very well but I shall not lose",
+      "startDialog": "Welcome. My name is Erika. I am the Gym Leader of the Celadon Gym. I am a student of the art of flower arranging. My Pokémon are all of the Grass type. Did you perhaps wish to challenge me? Very well but I shall not lose",
       "endDialogWin": "Oh! I concede defeat. You are remarkably strong. I must confer on you the Rainbow Badge",
       "endDialogLoose": "I thank you for your demonstration",
       "music": 3,
@@ -1507,7 +1507,7 @@
     },
     {
       "id": 40,
-      "name": "\nFuschia City Gym",
+      "name": "\nFuschia Gym",
       "description": "You have arrived in Fuschia City and are about to face the gym.",
       "opponents": [
         {
@@ -2223,7 +2223,7 @@
     },
     {
       "id": 50,
-      "name": "\nSaffron City Gym",
+      "name": "\nSaffron Gym",
       "description": "After defeating Giovanni, you go to the gym to battle the gym leader.",
       "opponents": [
         {
@@ -2318,7 +2318,7 @@
             {
               "id": 65,
               "level": 57,
-              "moveIds": [45,44,46]
+              "moveIds": [45,44,46,105]
             }
           ]
         }
@@ -2535,6 +2535,229 @@
       "icon": "images/VS_Auguste.png",
       "background": "images/building_battle_background.jpg",
       "exp": 8000
+    },
+    {
+      "id": 58,
+      "name": "\nViridian Gym",
+      "description": "After obtaining your seventh badge, you return to Viridian City to face the gym.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Topdresseur.png",
+          "name" : "CoolTrainer Yuji",
+          "pokemons": [
+            {
+              "id": 105,
+              "level": 62,
+              "moveIds": [93,25,72,69]
+            },
+            {
+              "id": 105,
+              "level": 62,
+              "moveIds": [93,25,72,69]
+            },
+            {
+              "id": 76,
+              "level": 62,
+              "moveIds": [93,25,69]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Karateka.png",
+          "name" : "Blackbelt Takashi",
+          "pokemons": [
+            {
+              "id": 67,
+              "level": 62,
+              "moveIds": [30,25,69]
+            },
+            {
+              "id": 67,
+              "level": 62,
+              "moveIds": [30,25,69]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "This gym was closed for a long time, but now our leader is back!",
+      "endDialogWin": "Do you know the identity of our gym leader?",
+      "endDialogLoose": "Pokemon League? You? Don't get cocky!",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 7900
+    },
+    {
+      "id": 59,
+      "name": "\nVS Giovanni 2",
+      "description": "After defeating the guards, you go to the gym leader and you notice that it's Giovanni, the boss of Team Rocket!",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Giovanni.png",
+          "name" : "Gym Leader Giovanni",
+          "pokemons": [
+            {
+              "id": 53,
+              "level": 70,
+              "moveIds": [
+                38,73,51,12
+              ]
+            },
+            {
+              "id": 111,
+              "level": 67,
+              "moveIds": [
+                93,78,62,77
+              ]
+            },
+            {
+              "id": 51,
+              "level": 67,
+              "moveIds": [
+                30,25,38
+              ]
+            },
+            {
+              "id": 31,
+              "level": 67,
+              "moveIds": [
+                62,93,27,89
+              ]
+            },
+            {
+              "id": 34,
+              "level": 67,
+              "moveIds": [
+                62,93,12,31
+              ]
+            },
+            {
+              "id": 112,
+              "level": 69,
+              "moveIds": [
+                93,78,69,62
+              ]
+            }
+
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 38,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "This is my hideout! I planned to resurrect TEAM ROCKET here! But, you have caught me again! So be it! This time, I'm not holding back!",
+      "endDialogWin": "That was a truly intense fight! You have won! As proof, here is the Earth Badge. Having lost, I cannot face my underlings! TEAM ROCKET is finished forever!",
+      "endDialogLoose": "Fwahahaha! You got defeated by me, Giovanni, the greatest trainer!",
+      "music": 3,
+      "icon": "images/VS_Giovanni.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 10000
+    },
+    {
+      "id": 60,
+      "name": "\nVS Rival 6",
+      "description": "Now that you have 8 badges, you head for the victory road. However, on Route 22, you run into Jackson.",
+      "type": "Trainer Battle",
+      "opponents": [
+        {
+          "sprite": "images/Spr_Rival.png",
+          "name" : "Jackson",
+          "pokemons": [
+            {
+              "id": 18,
+              "level": 70,
+              "moveIds": [
+                3,16,54,19
+              ]
+            },
+            {
+              "id": 230,
+              "level": 70,
+              "moveIds": [
+                104,43,100,101
+              ]
+            },
+            {
+              "id": 65,
+              "level": 70,
+              "moveIds": [
+                44,45,46,105
+              ]
+            },
+            {
+              "id": 126,
+              "level": 70,
+              "moveIds": [82,103,69,45]
+            },
+            {
+              "id": 247,
+              "level": 70,
+              "moveIds": [25,93,27]
+            },
+            {
+              "id": 106,
+              "level": 73,
+              "moveIds": [
+                68,40,25,14
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 90
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "What a surprise to see you here! So you're going to the Pokemon League? You collected all the badges too? That's cool! Then I'll whip you as a warm up for Pokemon League!",
+      "endDialogWin": "I don't believe it! Well, I'm off to the Pokemon League.",
+      "endDialogLoose": "You need more practice!",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 10000
     }
   ],
   "randomWildEncounters": [

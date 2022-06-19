@@ -2234,6 +2234,68 @@
     "expGaugeType": "MEDIUM_SLOW"
   },
   {
+    "id": 67,
+    "name": "Machoke",
+    "type1": 11,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 22,
+          "level": 1
+        },
+        {
+          "moveId": 33,
+          "level": 60
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 80,
+    "attack": 100,
+    "defense": 70,
+    "spAtk": 50,
+    "spDef": 60,
+    "speed": 45,
+    "catchRate": 0.35,
+    "evolutionId": 68,
+    "evolutionCondition": {
+      "level": 36
+    },
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 68,
+    "name": "Machamp",
+    "type1": 11,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 22,
+          "level": 1
+        },
+        {
+          "moveId": 33,
+          "level": 60
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 90,
+    "attack": 130,
+    "defense": 80,
+    "spAtk": 65,
+    "spDef": 85,
+    "speed": 55,
+    "catchRate": 0.25,
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
     "id": 69,
     "name": "Bellsprout",
     "type1": 1,
