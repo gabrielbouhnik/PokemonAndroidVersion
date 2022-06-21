@@ -74,7 +74,7 @@ class MainMenu {
         itemsButton.setOnClickListener {
             itemMenu.loadItemMenu(activity, null)
         }
-        if (!!activity.eliteMode && DailyHeal.canUseDailyHeal(activity.trainer!!)) {
+        if (!activity.eliteMode && DailyHeal.canUseDailyHeal(activity.trainer!!)) {
             val dailyHealButton: Button = activity.findViewById(R.id.dailyHealButton)
             dailyHealButton.visibility = VISIBLE
             dailyHealButton.setOnClickListener {

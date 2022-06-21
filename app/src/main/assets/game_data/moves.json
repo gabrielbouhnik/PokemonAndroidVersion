@@ -285,6 +285,17 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0
+    },
+    {
+      "id": 108,
+      "name": "Dragon Claw",
+      "power": 80,
+      "pp": 15,
+      "type": 15,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0
     }
   ],
   "statusMoves": [
@@ -641,7 +652,7 @@
     },
     {
       "id": 72,
-      "name": "HeadButt",
+      "name": "Headbutt",
       "power": 70,
       "pp": 15,
       "type": 5,
@@ -812,12 +823,64 @@
       "name": "Thunder Punch",
       "power": 75,
       "pp": 15,
-      "type": 6,
+      "type": 4,
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
       "status": "PARALYSIS",
+      "probability": 10
+    },
+    {
+      "id": 106,
+      "name": "Dynamic Punch",
+      "power": 100,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 50,
+      "description": "",
+      "priorityLevel": 0,
+      "status": "CONFUSED",
+      "probability": 100
+    },
+    {
+      "id": 107,
+      "name": "Ice Punch",
+      "power": 75,
+      "pp": 15,
+      "type": 14,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0,
+      "status": "FROZEN",
+      "probability": 10
+    },
+    {
+      "id": 109,
+      "name": "Dark Pulse",
+      "power": 80,
+      "pp": 15,
+      "type": 17,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0,
+      "status": "FLINCHED",
+      "probability": 30
+    },
+    {
+      "id": 110,
+      "name": "Fire Punch",
+      "power": 75,
+      "pp": 15,
+      "type": 2,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0,
+      "status": "BURN",
       "probability": 10
     }
   ],
@@ -904,7 +967,7 @@
       "name": "Drill Run",
       "power": 80,
       "pp": 10,
-      "type": 11,
+      "type": 10,
       "category": "PHYSICAL",
       "accuracy": 95,
       "description": "",

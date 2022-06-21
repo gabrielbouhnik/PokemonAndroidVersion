@@ -54,7 +54,7 @@ enum class Status {
                 return true
             if (status == PARALYSIS && (opponent.data.type1 != Type.ELECTRIC && opponent.data.type2 != Type.ELECTRIC))
                 return true
-            if (status == POISON && (opponent.data.type1 != Type.POISON && opponent.data.type2 != Type.POISON))
+            if (status == POISON && (opponent.data.type1 != Type.POISON && opponent.data.type2 != Type.POISON) && (opponent.data.type1 != Type.STEEL && opponent.data.type2 != Type.STEEL))
                 return true
             return false
         }

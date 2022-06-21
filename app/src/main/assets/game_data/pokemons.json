@@ -1804,6 +1804,10 @@
         {
           "moveId": 38,
           "level": 24
+        },
+        {
+          "moveId": 93,
+          "level": 40
         }
       ],
       "movesLearnWithHM": [
@@ -1849,6 +1853,10 @@
         {
           "moveId": 38,
           "level": 24
+        },
+        {
+          "moveId": 93,
+          "level": 48
         }
       ],
       "movesLearnWithHM": [
@@ -2009,6 +2017,10 @@
         {
           "moveId": 33,
           "level": 22
+        },
+        {
+          "moveId": 40,
+          "level": 36
         }
       ],
       "movesLearnWithHM": [
@@ -2050,6 +2062,10 @@
         {
           "moveId": 33,
           "level": 22
+        },
+        {
+          "moveId": 40,
+          "level": 39
         }
       ],
       "movesLearnWithHM": [
@@ -2162,6 +2178,35 @@
     "spDef": 80,
     "speed": 95,
     "expGaugeType": "SLOW"
+  },
+  {
+    "id": 62,
+    "name": "Poliwrath",
+    "type1": 3,
+    "type2": 11,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 6,
+          "level": 1
+        },
+        {
+          "moveId": 80,
+          "level": 1
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "catchRate": 0.4,
+    "hp": 90,
+    "attack": 95,
+    "defense": 95,
+    "spAtk": 70,
+    "spDef": 90,
+    "speed": 70,
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 64,
@@ -2553,11 +2598,15 @@
         },
         {
           "moveId": 77,
+          "level": 30
+        },
+        {
+          "moveId": 93,
           "level": 34
         },
         {
           "moveId": 78,
-          "level": 54
+          "level": 42
         }
       ],
       "movesLearnWithHM": [
@@ -2603,6 +2652,10 @@
         {
           "moveId": 77,
           "level": 34
+        },
+        {
+          "moveId": 93,
+          "level": 40
         },
         {
           "moveId": 78,
@@ -2652,6 +2705,10 @@
         {
           "moveId": 77,
           "level": 34
+        },
+        {
+          "moveId": 93,
+          "level": 40
         },
         {
           "moveId": 78,
@@ -3050,7 +3107,7 @@
     "spDef": 25,
     "speed": 40,
     "catchRate": 0.4,
-    "evolutionId": 89,
+    "evolutionId": 91,
     "evolutionCondition": {
       "itemId": 18
     },
@@ -3073,10 +3130,6 @@
         },
         {
           "moveId": 20,
-          "level": 1
-        },
-        {
-          "moveId": 8,
           "level": 1
         },
         {
@@ -3125,6 +3178,10 @@
           "level": 28
         },
         {
+          "moveId": 109,
+          "level": 36
+        },
+        {
           "moveId": 46,
           "level": 40
         }
@@ -3166,6 +3223,10 @@
           "level": 28
         },
         {
+          "moveId": 109,
+          "level": 42
+        },
+        {
           "moveId": 46,
           "level": 48
         }
@@ -3205,6 +3266,10 @@
         {
           "moveId": 37,
           "level": 28
+        },
+        {
+          "moveId": 109,
+          "level": 42
         },
         {
           "moveId": 46,
@@ -3538,7 +3603,7 @@
   {
     "id": 106,
     "name": "Hitmonlee",
-    "type1": 5,
+    "type1": 11,
     "type2": 0,
     "possibleMoves": {
       "movesLearnByLevel": [
@@ -3565,6 +3630,35 @@
     "spAtk": 35,
     "spDef": 110,
     "speed": 87,
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 107,
+    "name": "Hitmonchan",
+    "type1": 11,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 76,
+          "level": 1
+        },
+        {
+          "moveId": 40,
+          "level": 36
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 50,
+    "attack": 105,
+    "defense": 79,
+    "spAtk": 35,
+    "spDef": 110,
+    "speed": 76,
     "catchRate": 0.3,
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -4048,6 +4142,10 @@
         {
           "moveId": 43,
           "level": 44
+        },
+        {
+          "moveId": 80,
+          "level": 56
         }
       ],
       "movesLearnWithHM": [
@@ -4100,6 +4198,10 @@
         },
         {
           "moveId": 43,
+          "level": 1
+        },
+        {
+          "moveId": 80,
           "level": 1
         }
       ],
@@ -4330,6 +4432,10 @@
         {
           "moveId": 80,
           "level": 42
+        },
+        {
+          "moveId": 101,
+          "level": 44
         }
       ],
       "movesLearnWithHM": [
@@ -4440,6 +4546,39 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 142,
+    "name": "Aerodactyl",
+    "type1": 9,
+    "type2": 6,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 23,
+          "level": 1
+        },
+        {
+          "moveId": 102,
+          "level": 1
+        },
+        {
+          "moveId": 16,
+          "level": 10
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 80,
+    "attack": 105,
+    "defense": 65,
+    "spAtk": 60,
+    "spDef": 75,
+    "speed": 130,
+    "catchRate": 0.2,
+    "expGaugeType": "SLOW"
+  },
+  {
     "id": 143,
     "name": "Snorlax",
     "type1": 5,
@@ -4515,6 +4654,14 @@
         {
           "moveId": 55,
           "level": 10
+        },
+        {
+          "moveId": 21,
+          "level": 20
+        },
+        {
+          "moveId": 79,
+          "level": 31
         }
       ],
       "movesLearnWithHM": [
@@ -4550,6 +4697,14 @@
         {
           "moveId": 55,
           "level": 10
+        },
+        {
+          "moveId": 21,
+          "level": 20
+        },
+        {
+          "moveId": 79,
+          "level": 33
         }
       ],
       "movesLearnWithHM": [
@@ -4580,12 +4735,32 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
+          "moveId": 75,
+          "level": 1
+        },
+        {
+          "moveId": 103,
+          "level": 1
+        },
+        {
+          "moveId": 110,
+          "level": 1
+        },
+        {
           "moveId": 54,
           "level": 1
         },
         {
           "moveId": 55,
           "level": 10
+        },
+        {
+          "moveId": 21,
+          "level": 20
+        },
+        {
+          "moveId": 79,
+          "level": 31
         },
         {
           "moveId": 16,
@@ -5195,6 +5370,10 @@
         {
           "moveId": 27,
           "level": 49
+        },
+        {
+          "moveId": 109,
+          "level": 52
         }
       ],
       "movesLearnWithHM": [
@@ -5226,6 +5405,10 @@
           "level": 1
         },
         {
+          "moveId": 85,
+          "level": 8
+        },
+        {
           "moveId": 23,
           "level": 16
         },
@@ -5238,8 +5421,8 @@
           "level": 56
         },
         {
-          "moveId": 85,
-          "level": 8
+          "moveId": 109,
+          "level": 60
         }
       ],
       "movesLearnWithHM": [
@@ -5367,6 +5550,31 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 237,
+    "name": "Hitmontop",
+    "type1": 11,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 50,
+    "attack": 95,
+    "defense": 95,
+    "spAtk": 95,
+    "spDef": 110,
+    "speed": 70,
+    "catchRate": 0.5,
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 246,
     "name": "Larvitar",
     "type1": 9,
@@ -5392,6 +5600,10 @@
         {
           "moveId": 27,
           "level": 27
+        },
+        {
+          "moveId": 78,
+          "level": 33
         }
       ],
       "movesLearnWithHM": [
@@ -5439,6 +5651,10 @@
         {
           "moveId": 27,
           "level": 27
+        },
+        {
+          "moveId": 78,
+          "level": 37
         }
       ],
       "movesLearnWithHM": [
@@ -5486,6 +5702,10 @@
         {
           "moveId": 27,
           "level": 27
+        },
+        {
+          "moveId": 78,
+          "level": 37
         }
       ],
       "movesLearnWithHM": [
@@ -5502,6 +5722,76 @@
     "speed": 61,
     "catchRate": 0.2,
     "expGaugeType": "SLOW"
+  },
+  {
+    "id": 429,
+    "name": "Mismagius",
+    "type1": 13,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 60,
+    "attack": 60,
+    "defense": 60,
+    "spAtk": 105,
+    "spDef": 105,
+    "speed": 105,
+    "catchRate": 0.3,
+    "expGaugeType": "FAST"
+  },
+  {
+    "id": 467,
+    "name": "Magmortar",
+    "type1": 2,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 85,
+          "level": 1
+        },
+        {
+          "moveId": 7,
+          "level": 1
+        },
+        {
+          "moveId": 42,
+          "level": 1
+        },
+        {
+          "moveId": 48,
+          "level": 20
+        },
+        {
+          "moveId": 31,
+          "level": 46
+        },
+        {
+          "moveId": 82,
+          "level": 58
+        }
+      ],
+      "movesLearnWithHM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 75,
+    "attack": 95,
+    "defense": 67,
+    "spAtk": 125,
+    "spDef": 95,
+    "speed": 83,
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 473,

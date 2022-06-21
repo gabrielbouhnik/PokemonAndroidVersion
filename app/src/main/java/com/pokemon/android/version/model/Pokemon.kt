@@ -9,7 +9,6 @@ import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.MoveUtils
-import java.util.*
 import kotlin.math.roundToInt
 import kotlin.random.Random
 import kotlin.random.nextInt

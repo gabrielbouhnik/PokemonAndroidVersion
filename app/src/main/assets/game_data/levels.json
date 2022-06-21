@@ -2903,6 +2903,222 @@
       "icon": "images/VS_Olga.PNG",
       "background": "images/building_battle_background.jpg",
       "exp": 10000
+    },
+    {
+      "id": 64,
+      "name": "\nVS Bruno",
+      "description": "",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Aldo.png",
+          "name" : "Elite 4 Bruno",
+          "pokemons": [
+            {
+              "id": 107,
+              "level": 73,
+              "moveIds": [103,76,14,107]
+            },
+            {
+              "id": 62,
+              "level": 73,
+              "moveIds": [106,80,25,30]
+            },
+            {
+              "id": 208,
+              "level": 73,
+              "moveIds": [25,93,27,13]
+            },
+            {
+              "id": 237,
+              "level": 73,
+              "moveIds": [14,78,40,91]
+            },
+            {
+              "id": 57,
+              "level": 73,
+              "moveIds": [25,40,62,30]
+            },
+            {
+              "id": 68,
+              "level": 75,
+              "moveIds": [33,25,107,93]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+      ],
+      "startDialog": "I am Bruno of the Elite Four! Through rigorous training, people and Pokémon can become stronger without limit. I've lived and trained with my fighting Pokémon!",
+      "endDialogWin": "My job is done! Go face your next challenge!",
+      "endDialogLoose": "Our training has paid off!",
+      "music": 3,
+      "icon": "images/VS_Aldo.PNG",
+      "background": "images/building_battle_background.jpg",
+      "exp": 10000
+    },
+    {
+      "id": 65,
+      "name": "\nVS Agatha",
+      "description": "",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Agatha.png",
+          "name" : "Elite 4 Agatha",
+          "pokemons": [
+            {
+              "id": 93,
+              "level": 73,
+              "moveIds": [46,44,37,48]
+            },
+            {
+              "id": 94,
+              "level": 73,
+              "moveIds": [46,44,37,48]
+            },
+            {
+              "id": 24,
+              "level": 73,
+              "moveIds": [37,27,83,25]
+            },
+            {
+              "id": 169,
+              "level": 73,
+              "moveIds": [37,50,48,46]
+            },
+            {
+              "id": 429,
+              "level": 73,
+              "moveIds": [46,44,48,12]
+            },
+            {
+              "id": 94,
+              "level": 75,
+              "moveIds": [46,44,37,12]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+      ],
+      "startDialog": "I am Agatha of the Elite Four. Let me show you how a real trainer battles!",
+      "endDialogWin": "You win! I have nothing else to say. Run along now, child!",
+      "endDialogLoose": "That's how a proper battle's done!",
+      "music": 3,
+      "icon": "images/VS_Agatha.PNG",
+      "background": "images/building_battle_background.jpg",
+      "exp": 10000
+    },
+    {
+      "id": 66,
+      "name": "\nVS Lance",
+      "description": "",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Peter.png",
+          "name" : "Elite 4 Lance",
+          "pokemons": [
+            {
+              "id": 148,
+              "level": 73,
+              "moveIds": [79,104,12,31]
+            },
+            {
+              "id": 149,
+              "level": 73,
+              "moveIds": [104,12,31,101]
+            },
+            {
+              "id": 142,
+              "level": 73,
+              "moveIds": [57,27,25,16]
+            },
+            {
+              "id": 6,
+              "level": 73,
+              "moveIds": [50,31,104,103]
+            },
+            {
+              "id": 130,
+              "level": 73,
+              "moveIds": [79,27,93,78]
+            },
+            {
+              "id": 149,
+              "level": 75,
+              "moveIds": [108,16,103,93]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+      ],
+      "startDialog": "Ah! I heard about you! I lead the Elite Four! You can call me Lance the dragon trainer! Well, are you ready to lose? Your League challenge ends with me",
+      "endDialogWin": "That's it! I hate to admit it, but you are a Pokémon master!",
+      "endDialogLoose": "I never give up, no matter what",
+      "music": 3,
+      "icon": "images/VS_Peter.PNG",
+      "background": "images/building_battle_background.jpg",
+      "exp": 10000
+    },
+    {
+      "id": 67,
+      "name": "\nVS Champion",
+      "description": "",
+      "type": "Trainer Battle",
+      "opponents": [
+        {
+          "sprite": "images/Spr_Rival.png",
+          "name" : "Jackson",
+          "pokemons": [
+            {
+              "id": 18,
+              "level": 73,
+              "moveIds": [
+                3,16,54,19
+              ]
+            },
+            {
+              "id": 230,
+              "level": 73,
+              "moveIds": [
+                104,43,100,101
+              ]
+            },
+            {
+              "id": 65,
+              "level": 73,
+              "moveIds": [
+                44,45,46,105
+              ]
+            },
+            {
+              "id": 467,
+              "level": 73,
+              "moveIds": [82,12,69,45]
+            },
+            {
+              "id": 248,
+              "level": 73,
+              "moveIds": [25,93,27,31]
+            },
+            {
+              "id": 106,
+              "level": 80,
+              "moveIds": [
+                68,40,25,14
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [],
+      "startDialog": "Hey! I was looking forward to seeing you! My rival should be strong to keep me sharp! I looked all over for powerful Pokemon and I assembled a team that would beat any Pokemon type! And now! I'm the Pokemon League Champion! Do you know what that means? I'll tell you! I am the most powerful trainer in the world!",
+      "endDialogWin": "NO! That can't be! You beat my best! After all that work to become the champion? My reign is over already? It's not fair!",
+      "endDialogLoose": "Sorry to say it, but this is it for you",
+      "music": 5,
+      "icon": "building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 10000
     }
   ],
   "randomWildEncounters": [

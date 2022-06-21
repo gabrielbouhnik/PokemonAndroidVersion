@@ -121,6 +121,7 @@ class BattleUI {
         rewardsButton.visibility = VISIBLE
         if (activity.trainer!!.eliteProgression == 5) {
             rewardsButton.text = "Hall of Fame"
+            activity.trainer!!.coins += 10000
         }
         else
             rewardsButton.text = "Go forward"
