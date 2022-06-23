@@ -8,6 +8,7 @@ import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.BattleUtils
+import com.pokemon.android.version.utils.MoveUtils
 import java.io.InputStream
 import java.lang.StringBuilder
 
@@ -40,7 +41,7 @@ class TrainerBattle() : Battle(){
         if (numberOfTrainers == trainersIdx) {
             return State.TRAINER_VICTORY
         }
-        if (!activity.trainer!!.canStillBattle()) {
+        if (!activity.trainer!!.canStillBattle() || MoveUtils.getMoveList(opponent).none { it.pp > 0 }) {
             return State.TRAINER_LOSS
         }
         return State.IN_PROGRESS

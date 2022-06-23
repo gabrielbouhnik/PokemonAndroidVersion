@@ -7,6 +7,7 @@ import com.pokemon.android.version.model.level.BossBattleLevelData
 import com.pokemon.android.version.model.move.Stats
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.BattleUtils
+import com.pokemon.android.version.utils.MoveUtils
 import java.lang.StringBuilder
 
 class BossBattle() : Battle() {
@@ -29,7 +30,7 @@ class BossBattle() : Battle() {
         if (opponent.currentHP == 0){
             return State.TRAINER_VICTORY
         }
-        if (!activity.trainer!!.canStillBattle()) {
+        if (!activity.trainer!!.canStillBattle() || MoveUtils.getMoveList(opponent).none { it.pp > 0 }) {
             return State.TRAINER_LOSS
         }
         return State.IN_PROGRESS

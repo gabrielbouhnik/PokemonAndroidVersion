@@ -9,6 +9,7 @@ import com.pokemon.android.version.model.level.WildBattleLevelData
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.ui.BattleUI
 import com.pokemon.android.version.utils.BattleUtils
+import com.pokemon.android.version.utils.MoveUtils
 import java.lang.StringBuilder
 import kotlin.random.Random
 
@@ -34,7 +35,7 @@ class WildBattle() : Battle() {
         if (encountersLeft == 0 && (opponent.trainer != null || opponent.currentHP == 0)){
             return State.TRAINER_VICTORY
         }
-        if (!activity.trainer!!.canStillBattle()) {
+        if (!activity.trainer!!.canStillBattle()  || MoveUtils.getMoveList(opponent).none { it.pp > 0 }) {
             return State.TRAINER_LOSS
         }
         return State.IN_PROGRESS
@@ -42,7 +43,7 @@ class WildBattle() : Battle() {
 
     fun generateRandomEncounter(): Pokemon {
         encountersLeft--
-        var randomLevel = Random.nextInt(
+        val randomLevel = Random.nextInt(
             (levelData as WildBattleLevelData).possibleEncounters.minLevel,
             (levelData as WildBattleLevelData).possibleEncounters.maxLevel
         )
@@ -50,6 +51,6 @@ class WildBattle() : Battle() {
             (levelData as WildBattleLevelData).possibleEncounters.encounters.random().id,
             randomLevel
         )
-        return opponent!!
+        return opponent
     }
 }

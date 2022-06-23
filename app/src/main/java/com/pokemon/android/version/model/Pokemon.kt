@@ -7,7 +7,6 @@ import com.pokemon.android.version.model.battle.DamageCalculator
 import com.pokemon.android.version.model.battle.PokemonBattleData
 import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
-import com.pokemon.android.version.model.move.pokemon.MoveLearned
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.MoveUtils
 import kotlin.math.roundToInt
@@ -107,8 +106,7 @@ class Pokemon(
         val usableMoves = MoveUtils.getMoveList(this).filter { it.pp > 0 }
         var maxDamage = 0
         var maxDamageIdx = 0
-        var Idx = 0
-        for (move in usableMoves) {
+        for ((Idx, move) in usableMoves.withIndex()) {
             val damage : Int = DamageCalculator.computeDamageIA(this, move.move, opponent)
             if (damage > opponent.currentHP)
                 return move
@@ -129,12 +127,11 @@ class Pokemon(
                 maxDamageIdx = Idx
                 maxDamage = damage
             }
-            Idx++
         }
         return usableMoves[maxDamageIdx]
     }
 
-    fun attack(move: PokemonMove, opponent: Pokemon): AttackResponse {
+    private fun canAttack(move: PokemonMove, opponent: Pokemon): AttackResponse{
         if (this.battleData!!.battleStatus.contains(Status.FLINCHED))
             return AttackResponse(false, "But ${this.data.name} flinched and couldn't move\n")
 
@@ -168,6 +165,13 @@ class Pokemon(
                 return AttackResponse(false, "But ${this.data.name} hits hurt itself in its confusion\n")
             }
         }
+        return AttackResponse(true,"")
+    }
+
+    fun attack(move: PokemonMove, opponent: Pokemon): AttackResponse {
+        val attackResponse = canAttack(move,opponent)
+        if (!attackResponse.success)
+            return attackResponse
         move.pp = move.pp - 1
         if (move.move.accuracy != null) {
             val random: Int = Random.nextInt(100)
@@ -196,7 +200,7 @@ class Pokemon(
             opponent.currentHP = opponent.currentHP - damage
             if (move.move.type == Type.FIRE && opponent.status == Status.FROZEN)
                 opponent.status = Status.OK
-            if (move.move is StatusMove) {
+            if (move.move is StatusMove && (move.move.power == 0 || damage > 0)) {
                 Status.updateStatus(opponent, move.move as StatusMove)
             }
             if (move.move is StatChangeMove) {
