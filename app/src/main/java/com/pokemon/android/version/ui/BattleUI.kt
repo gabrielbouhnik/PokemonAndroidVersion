@@ -22,6 +22,7 @@ import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.level.WildBattleLevelData
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
+import com.pokemon.android.version.utils.DailyHeal
 import com.pokemon.android.version.utils.ItemUtils
 import com.pokemon.android.version.utils.MusicUtils
 import java.io.InputStream
@@ -116,17 +117,26 @@ class BattleUI {
     }
 
     fun endEliteBattle(activity : MainActivity, battle : Battle){
-        activity.trainer!!.eliteProgression++
         val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
         rewardsButton.visibility = VISIBLE
         if (activity.trainer!!.eliteProgression == 5) {
             rewardsButton.text = "Hall of Fame"
             activity.trainer!!.coins += 10000
+            activity.trainer!!.eliteProgression = 0
+            activity.eliteMode = false
+            DailyHeal.heal(activity.trainer!!)
+            rewardsButton.setOnClickListener {
+                SaveManager.save(activity)
+                activity.trainer!!.receiveExp((battle.levelData.exp * 0.5).toInt())
+                battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
+                activity.mainMenu.loadGameMenu(activity)
+            }
         }
         else
             rewardsButton.text = "Go forward"
         rewardsButton.setOnClickListener {
             SaveManager.save(activity)
+            activity.trainer!!.coins += 150
             activity.trainer!!.receiveExp((battle.levelData.exp * 0.5).toInt())
             battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
             activity.mainMenu.levelMenu.loadEliteLevels(activity)
@@ -136,8 +146,11 @@ class BattleUI {
     private fun updateByBattleState(activity : MainActivity, battle : Battle){
         when(battle.getBattleState()){
             State.TRAINER_LOSS -> {
-                if (activity.eliteMode)
+                if (activity.eliteMode) {
                     activity.eliteMode = false
+                    DailyHeal.heal(activity.trainer!!)
+                    activity.trainer!!.eliteProgression = 0
+                }
                 disableBattleButtons(activity)
                 if (battle is TrainerBattle)
                     dialogTextView!!.text = (battle.levelData as TrainerBattleLevelData).endDialogLoose
@@ -154,11 +167,12 @@ class BattleUI {
                     activity.updateMusic(R.raw.hall_of_fame)
                 else
                     activity.updateMusic(R.raw.victory_theme)
-                if (firstTime) {
-                    if (activity.eliteMode)
-                        activity.trainer!!.eliteProgression++
-                    else
+                if (activity.eliteMode)
+                    activity.trainer!!.eliteProgression++
+                else {
+                    if (firstTime) {
                         activity.trainer!!.progression++
+                    }
                 }
                 disableBattleButtons(activity)
                 val opponentPokemonSprite : ImageView = activity.findViewById(R.id.opponentPokemonImageView)

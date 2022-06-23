@@ -256,7 +256,7 @@
     {
       "id": 95,
       "name": "Ice Shard",
-      "power": 100,
+      "power": 40,
       "pp": 30,
       "type": 14,
       "category": "PHYSICAL",

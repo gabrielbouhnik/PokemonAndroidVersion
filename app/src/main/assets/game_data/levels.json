@@ -3079,7 +3079,7 @@
             },
             {
               "id": 230,
-              "level": 73,
+              "level": 75,
               "moveIds": [
                 104,43,100,101
               ]
@@ -3093,12 +3093,12 @@
             },
             {
               "id": 467,
-              "level": 73,
+              "level": 75,
               "moveIds": [82,12,69,45]
             },
             {
               "id": 248,
-              "level": 73,
+              "level": 75,
               "moveIds": [25,93,27,31]
             },
             {
@@ -3116,7 +3116,7 @@
       "endDialogWin": "NO! That can't be! You beat my best! After all that work to become the champion? My reign is over already? It's not fair!",
       "endDialogLoose": "Sorry to say it, but this is it for you",
       "music": 5,
-      "icon": "building_battle_background.jpg",
+      "icon": "images/building_battle_background.jpg",
       "background": "images/building_battle_background.jpg",
       "exp": 10000
     }

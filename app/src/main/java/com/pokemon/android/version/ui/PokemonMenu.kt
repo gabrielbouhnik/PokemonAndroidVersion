@@ -43,9 +43,8 @@ class PokemonMenu {
         activity.setContentView(R.layout.team_layout)
         val backButton : Button = activity.findViewById(R.id.teamMenuBackButton)
         backButton.setOnClickListener{
-            if (activity.trainer!!.team.size > 0) {
+            if (activity.trainer!!.team.size == 6) {
                 loadPokemonMenuElite(activity)
-                //SaveManager.save(activity)
             }
         }
         val teamRecyclerView = activity.findViewById<RecyclerView>(R.id.teamRecyclerView)
@@ -232,7 +231,10 @@ class PokemonMenu {
         displayPokemonInfo(activity, pokemon)
         val backButton : Button = activity.findViewById(R.id.pokemonInfoBackButton)
         backButton.setOnClickListener{
-            loadPokemonMenu(activity)
+            if (activity.eliteMode)
+                loadPokemonMenuElite(activity)
+            else
+                loadPokemonMenu(activity)
         }
         val useItemButton : Button = activity.findViewById(R.id.useItemButton)
         useItemButton.setOnClickListener{

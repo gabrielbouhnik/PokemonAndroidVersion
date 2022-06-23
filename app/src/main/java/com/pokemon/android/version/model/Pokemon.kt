@@ -203,7 +203,7 @@ class Pokemon(
             if (move.move is StatusMove && (move.move.power == 0 || damage > 0)) {
                 Status.updateStatus(opponent, move.move as StatusMove)
             }
-            if (move.move is StatChangeMove) {
+            if (move.move is StatChangeMove && (move.move.power == 0 || damage > 0)) {
                 val statChangeMove = move.move as StatChangeMove
                 if (statChangeMove.target == Target.SELF)
                     Stats.updateStat(this, move.move as StatChangeMove)

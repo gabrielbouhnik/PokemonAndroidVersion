@@ -2973,8 +2973,7 @@
           "level": 29
         }
       ],
-      "movesLearnWithTM": [
-      ],
+      "movesLearnWithTM": [37,62],
       "bannerMoves": []
     },
     "hp": 80,
@@ -3010,8 +3009,7 @@
           "level": 29
         }
       ],
-      "movesLearnWithTM": [
-      ],
+      "movesLearnWithTM": [37,25,62,69,103,107,110],
       "bannerMoves": []
     },
     "hp": 105,
@@ -3102,11 +3100,11 @@
       "movesLearnWithTM": [43,100],
       "bannerMoves": []
     },
-    "hp": 90,
-    "attack": 70,
-    "defense": 80,
-    "spAtk": 70,
-    "spDef": 95,
+    "hp": 50,
+    "attack": 95,
+    "defense": 180,
+    "spAtk": 85,
+    "spDef": 45,
     "speed": 70,
     "catchRate": 0.3,
     "expGaugeType": "SLOW"
