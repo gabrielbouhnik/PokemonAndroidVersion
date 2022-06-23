@@ -7,6 +7,7 @@ import com.pokemon.android.version.model.battle.DamageCalculator
 import com.pokemon.android.version.model.battle.PokemonBattleData
 import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
+import com.pokemon.android.version.model.move.pokemon.MoveLearned
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.MoveUtils
 import kotlin.math.roundToInt
@@ -32,7 +33,8 @@ class Pokemon(
     var currentHP: Int = 0,
     var currentExp: Int = 0,
     var battleData: PokemonBattleData?,
-    var isFromBanner : Boolean = false
+    var isFromBanner : Boolean = false,
+    var movesLearnedByTM : ArrayList<Move> = arrayListOf()
 ) {
 
     constructor(
@@ -96,6 +98,7 @@ class Pokemon(
                     ) else null
                 )
                 .isFromBanner(pokemonSave.isFromBanner)
+                .movesLearnedByTM(arrayListOf())
                 .build()
         }
     }
@@ -318,7 +321,8 @@ class Pokemon(
         var speed: Int = 0,
         var currentHP: Int = 0,
         var currentExp: Int = 0,
-        var isFromBanner : Boolean = false
+        var isFromBanner : Boolean = false,
+        var movesLearnedByTM: ArrayList<Move> = arrayListOf()
     ) {
         fun data(data: PokemonData) = apply { this.data = data }
         fun trainer(trainer: Trainer) = apply { this.trainer = trainer }
@@ -338,6 +342,7 @@ class Pokemon(
         fun currentHP(currentHP: Int) = apply { this.currentHP = currentHP }
         fun currentExp(currentExp: Int) = apply { this.currentExp = currentExp }
         fun isFromBanner(isFromBanner: Boolean) = apply { this.isFromBanner = isFromBanner }
+        fun movesLearnedByTM(movesLearnedByTM: ArrayList<Move>) = apply { this.movesLearnedByTM = movesLearnedByTM }
         fun build() = Pokemon(
             data!!,
             trainer,
@@ -357,7 +362,8 @@ class Pokemon(
             currentHP,
             currentExp,
             PokemonBattleData(),
-            isFromBanner
+            isFromBanner,
+            movesLearnedByTM
         )
 
     }

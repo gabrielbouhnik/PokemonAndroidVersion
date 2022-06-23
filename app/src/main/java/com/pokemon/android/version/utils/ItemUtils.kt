@@ -32,6 +32,26 @@ class ItemUtils {
                 28 -> return ExpItem.EXP_CANDY_S
                 29 -> return ExpItem.EXP_CANDY_M
                 30 -> return ExpItem.EXP_CANDY_L
+                39 -> return TMItem(72)
+                40 -> return TMItem(69)
+                41 -> return TMItem(13)
+                42 -> return TMItem(25)
+                43 -> return TMItem(103)
+                44 -> return TMItem(62)
+                45 -> return TMItem(110)
+                46 -> return TMItem(44)
+                47 -> return TMItem(104)
+                48 -> return TMItem(107)
+                49 -> return TMItem(12)
+                50 -> return TMItem(31)
+                51 -> return TMItem(45)
+                52 -> return TMItem(93)
+                53 -> return TMItem(46)
+                54 -> return TMItem(82)
+                55 -> return TMItem(43)
+                56 -> return TMItem(37)
+                57 -> return TMItem(100)
+                58 -> return TMItem(105)
             }
             return EvolutionItem(itemId)
         }

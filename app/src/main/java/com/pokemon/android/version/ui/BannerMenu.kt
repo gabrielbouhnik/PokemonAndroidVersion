@@ -30,8 +30,11 @@ class BannerMenu {
         }
         val calendar: Calendar = Calendar.getInstance()
         val day: DayOfWeek = DateUtils.getDayOfWeek(calendar.get(Calendar.DAY_OF_WEEK))
-        val adapter =  BannerRecyclerAdapter(activity, ArrayList(activity.gameDataService.banners.filter{it.days.contains(day)}))
-        recyclerView.adapter = adapter
+        val banners = ArrayList(activity.gameDataService.banners.filter{it.days.contains(day)})
+        if (activity.trainer!!.progression < 62)
+            recyclerView.adapter = BannerRecyclerAdapter(activity, (banners.filter{!it.image.contains("tm_banner")}).toMutableList())
+        else
+            recyclerView.adapter = BannerRecyclerAdapter(activity, banners)
     }
 
     fun loadSummonResultScreen(activity : MainActivity, s : Summonable){

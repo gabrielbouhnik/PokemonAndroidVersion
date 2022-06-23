@@ -6,6 +6,7 @@ import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.banner.Banner
 import com.pokemon.android.version.model.banner.PokemonBanner
 import com.pokemon.android.version.model.item.ItemData
+import com.pokemon.android.version.model.item.ItemFactory
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.level.LevelFactory
 import com.pokemon.android.version.model.move.Move
@@ -34,12 +35,12 @@ class GameDataService {
 
     fun loadGameData(activity: MainActivity){
         val pokemonRepository = PokemonRepository()
-        val itemRepository = ItemRepository()
+        val itemRepository = ItemsRepository()
         val bannerRepository = BannerRepository()
         val movesRepository = MovesRepository()
         val levelsRepository = LevelsRepository()
-        this.items = itemRepository.loadData(activity).map{ItemData.of(it)}
         this.moves = MoveFactory.createMove(movesRepository.loadData(activity))
+        this.items = ItemFactory.createItems(itemRepository.loadData(activity), this.moves)
         this.pokemons = pokemonRepository.loadData(activity).map{PokemonData.of(it, moves)}
         this.banners = bannerRepository.loadData(activity).map{Banner.of(it, this )}
         this.levels = LevelFactory.createLevels(levelsRepository.loadData(activity), this)

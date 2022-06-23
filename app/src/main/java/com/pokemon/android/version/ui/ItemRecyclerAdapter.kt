@@ -11,6 +11,7 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.item.ItemQuantity
 import com.pokemon.android.version.model.level.Reward
+import com.pokemon.android.version.utils.ItemUtils
 
 class ItemRecyclerAdapter(var activity : MainActivity,
                           val data: ArrayList<ItemQuantity>,
@@ -46,7 +47,7 @@ class ItemRecyclerAdapter(var activity : MainActivity,
         val currentItem = data[position]
         var name = activity.gameDataService.items[currentItem.itemId].name
         holder.nameTextView.text = name
-        if (currentItem.itemId < 31) {
+        if (!ItemUtils.isBadge(currentItem.itemId)) {
             holder.quantityTextView.text = "x ${currentItem.quantity}"
             holder.itemView.tag = position
         }

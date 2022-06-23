@@ -35,8 +35,7 @@
           "level": 35
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,105,37],
       "bannerMoves": []
     },
     "hp": 45,
@@ -88,8 +87,7 @@
           "level": 37
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,105,37],
       "bannerMoves": []
     },
     "hp": 60,
@@ -141,8 +139,7 @@
           "level": 39
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,105,37,93],
       "bannerMoves": []
     },
     "hp": 80,
@@ -186,8 +183,7 @@
           "level": 24
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [104,82,72,110,31],
       "bannerMoves": []
     },
     "hp": 39,
@@ -235,8 +231,7 @@
           "level": 30
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [104,82,72,110,31],
       "bannerMoves": []
     },
     "hp": 58,
@@ -288,8 +283,7 @@
           "level": 36
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [104,82,72,110,31,93,103,25],
       "bannerMoves": []
     },
     "hp": 78,
@@ -337,8 +331,7 @@
           "level": 33
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,43,100,107],
       "bannerMoves": []
     },
     "hp": 44,
@@ -390,8 +383,7 @@
           "level": 45
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,43,100,107],
       "bannerMoves": []
     },
     "hp": 59,
@@ -443,8 +435,7 @@
           "level": 49
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,43,100,107,25,93],
       "bannerMoves": []
     },
     "hp": 79,
@@ -472,7 +463,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -509,7 +500,7 @@
           "level": 7
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -566,8 +557,7 @@
           "level": 32
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [45,46,105],
       "bannerMoves": []
     },
     "hp": 60,
@@ -595,7 +585,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -632,7 +622,7 @@
           "level": 7
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -677,8 +667,7 @@
           "level": 35
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [62,37,69],
       "bannerMoves": []
     },
     "hp": 65,
@@ -730,7 +719,7 @@
           "level": 49
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -787,7 +776,7 @@
           "level": 57
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -844,7 +833,7 @@
           "level": 62
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -889,8 +878,7 @@
           "level": 22
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72],
       "bannerMoves": []
     },
     "hp": 30,
@@ -938,8 +926,7 @@
           "level": 24
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72],
       "bannerMoves": []
     },
     "hp": 55,
@@ -979,7 +966,7 @@
           "level": 36
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -1028,7 +1015,7 @@
           "level": 45
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -1065,8 +1052,7 @@
           "level": 33
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,37,62],
       "bannerMoves": []
     },
     "hp": 35,
@@ -1110,8 +1096,7 @@
           "level": 39
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,37,62,25],
       "bannerMoves": []
     },
     "hp": 60,
@@ -1151,8 +1136,7 @@
           "level": 36
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [12,13,103,69],
       "bannerMoves": [
         13
       ]
@@ -1198,8 +1182,7 @@
           "level": 36
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [12,13,103,69],
       "bannerMoves": [
         13
       ]
@@ -1241,8 +1224,7 @@
           "level": 30
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,93,25,69,62],
       "bannerMoves": []
     },
     "hp": 50,
@@ -1286,8 +1268,7 @@
           "level": 36
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,93,25,69,62],
       "bannerMoves": []
     },
     "hp": 75,
@@ -1315,7 +1296,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -1340,7 +1321,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -1385,8 +1366,7 @@
           "level": 56
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [31,82,72,105],
       "bannerMoves": []
     },
     "catchRate": 0.35,
@@ -1434,8 +1414,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [31,82,72,105,46],
       "bannerMoves": []
     },
     "catchRate": 0.25,
@@ -1479,8 +1458,7 @@
           "level": 33
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [37,46],
       "bannerMoves": []
     },
     "hp": 40,
@@ -1528,8 +1506,7 @@
           "level": 34
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [37,46],
       "bannerMoves": []
     },
     "hp": 75,
@@ -1569,7 +1546,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -1614,8 +1591,7 @@
           "level": 54
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [105,69,37],
       "bannerMoves": []
     },
     "hp": 35,
@@ -1663,8 +1639,7 @@
           "level": 54
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [105,69,37],
       "bannerMoves": []
     },
     "hp": 60,
@@ -1708,8 +1683,7 @@
           "level": 47
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [45,37],
       "bannerMoves": []
     },
     "hp": 60,
@@ -1765,8 +1739,7 @@
           "level": 55
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [45,37,105],
       "bannerMoves": []
     },
     "hp": 70,
@@ -1810,8 +1783,7 @@
           "level": 40
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [25,37,93],
       "bannerMoves": []
     },
     "catchRate": 0.4,
@@ -1859,8 +1831,7 @@
           "level": 48
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [25,37,93],
       "bannerMoves": []
     },
     "catchRate": 0.3,
@@ -1888,7 +1859,7 @@
           "level": 16
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -1933,8 +1904,7 @@
           "level": 36
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,69,13,107,45,43,100],
       "bannerMoves": []
     },
     "catchRate": 0.45,
@@ -1982,8 +1952,7 @@
           "level": 40
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,69,13,107,45,43,100],
       "bannerMoves": []
     },
     "catchRate": 0.4,
@@ -2023,8 +1992,7 @@
           "level": 36
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [25,69,62],
       "bannerMoves": []
     },
     "catchRate": 0.4,
@@ -2068,8 +2036,7 @@
           "level": 39
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [25,69,62,93],
       "bannerMoves": []
     },
     "catchRate": 0.4,
@@ -2113,8 +2080,7 @@
           "level": 48
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [31,82,72],
       "bannerMoves": []
     },
     "catchRate": 0.35,
@@ -2166,8 +2132,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [31,82,72],
       "bannerMoves": []
     },
     "catchRate": 0.25,
@@ -2195,7 +2160,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -2228,7 +2193,7 @@
           "level": 38
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -2265,7 +2230,7 @@
           "level": 38
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -2294,7 +2259,7 @@
           "level": 60
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -2327,7 +2292,7 @@
           "level": 60
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -2368,8 +2333,7 @@
           "level": 39
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [105,37],
       "bannerMoves": []
     },
     "hp": 50,
@@ -2413,8 +2377,7 @@
           "level": 39
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [105,37],
       "bannerMoves": []
     },
     "hp": 50,
@@ -2458,8 +2421,7 @@
           "level": 39
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [105,37],
       "bannerMoves": []
     },
     "hp": 80,
@@ -2507,8 +2469,7 @@
           "level": 48
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [37,43,44,62,100],
       "bannerMoves": []
     },
     "hp": 40,
@@ -2560,8 +2521,7 @@
           "level": 48
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [37,43,44,62,100],
       "bannerMoves": []
     },
     "hp": 80,
@@ -2609,8 +2569,7 @@
           "level": 42
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [25,69,72,93],
       "bannerMoves": []
     },
     "hp": 40,
@@ -2662,8 +2621,7 @@
           "level": 54
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [25,69,72,93],
       "bannerMoves": []
     },
     "hp": 55,
@@ -2715,8 +2673,7 @@
           "level": 54
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [25,69,72,93],
       "bannerMoves": []
     },
     "hp": 80,
@@ -2760,7 +2717,7 @@
           "level": 56
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -2785,7 +2742,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -2830,7 +2787,7 @@
           "level": 43
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -2879,7 +2836,7 @@
           "level": 47
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -2928,8 +2885,7 @@
           "level": 47
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,43,100],
       "bannerMoves": []
     },
     "hp": 65,
@@ -2981,8 +2937,7 @@
           "level": 55
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,43,100],
       "bannerMoves": []
     },
     "hp": 90,
@@ -3018,7 +2973,7 @@
           "level": 29
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -3055,7 +3010,7 @@
           "level": 29
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -3096,8 +3051,7 @@
           "level": 48
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [43,100],
       "bannerMoves": []
     },
     "hp": 30,
@@ -3145,8 +3099,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [43,100],
       "bannerMoves": []
     },
     "hp": 90,
@@ -3186,8 +3139,7 @@
           "level": 40
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [12,37,44,45,46],
       "bannerMoves": []
     },
     "hp": 30,
@@ -3231,8 +3183,7 @@
           "level": 48
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [12,37,44,45,46],
       "bannerMoves": []
     },
     "hp": 45,
@@ -3276,8 +3227,7 @@
           "level": 48
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [12,37,44,45,46],
       "bannerMoves": []
     },
     "hp": 60,
@@ -3325,8 +3275,7 @@
           "level": 52
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,13,25,93],
       "bannerMoves": []
     },
     "hp": 35,
@@ -3378,7 +3327,7 @@
           "level": 49
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -3431,7 +3380,7 @@
           "level": 49
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -3468,8 +3417,7 @@
           "level": 13
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [12],
       "bannerMoves": []
     },
     "hp": 40,
@@ -3509,8 +3457,7 @@
           "level": 13
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [12],
       "bannerMoves": []
     },
     "hp": 60,
@@ -3546,8 +3493,7 @@
           "level": 36
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,69,25,93],
       "bannerMoves": []
     },
     "hp": 50,
@@ -3587,8 +3533,7 @@
           "level": 36
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,69,25,93],
       "bannerMoves": []
     },
     "hp": 60,
@@ -3620,7 +3565,7 @@
           "level": 24
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -3649,7 +3594,7 @@
           "level": 36
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -3694,7 +3639,7 @@
           "level": 32
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -3743,7 +3688,7 @@
           "level": 32
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -3788,8 +3733,7 @@
           "level": 45
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,62,25,93],
       "bannerMoves": []
     },
     "hp": 80,
@@ -3837,8 +3781,7 @@
           "level": 47
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,62,25,93,69,103,107,110],
       "bannerMoves": []
     },
     "hp": 105,
@@ -3878,7 +3821,7 @@
           "level": 36
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -3915,9 +3858,9 @@
           "level": 36
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
-      "bannerMoves": []
+      "bannerMoves": [72,13,25,93,69,103,107,110]
     },
     "hp": 105,
     "attack": 95,
@@ -3960,7 +3903,7 @@
           "level": 30
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -4009,7 +3952,7 @@
           "level": 30
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -4050,8 +3993,7 @@
           "level": 29
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [43,100],
       "bannerMoves": []
     },
     "hp": 45,
@@ -4095,8 +4037,7 @@
           "level": 29
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [43,100],
       "bannerMoves": []
     },
     "hp": 80,
@@ -4148,8 +4089,7 @@
           "level": 56
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [12,43,44,45,100],
       "bannerMoves": []
     },
     "hp": 30,
@@ -4205,8 +4145,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [12,43,44,45,100],
       "bannerMoves": []
     },
     "hp": 60,
@@ -4246,7 +4185,7 @@
           "level": 48
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -4287,7 +4226,7 @@
           "level": 56
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -4316,7 +4255,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -4361,7 +4300,7 @@
           "level": 58
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -4389,7 +4328,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -4438,8 +4377,7 @@
           "level": 44
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,25,93,43,100,104],
       "bannerMoves": []
     },
     "hp": 95,
@@ -4487,8 +4425,7 @@
           "level": 55
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [12,43,45,100,104],
       "bannerMoves": []
     },
     "hp": 130,
@@ -4528,8 +4465,7 @@
           "level": 40
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [12,45,100],
       "bannerMoves": []
     },
     "hp": 65,
@@ -4565,7 +4501,7 @@
           "level": 10
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -4602,7 +4538,7 @@
           "level": 49
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -4627,7 +4563,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -4664,8 +4600,7 @@
           "level": 31
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [12,13,31,43,82,100,104],
       "bannerMoves": [
         15,
         24
@@ -4707,8 +4642,7 @@
           "level": 33
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [12,13,31,43,82,100,104],
       "bannerMoves": [
         15,
         24
@@ -4767,8 +4701,7 @@
           "level": 55
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [12,13,31,43,69,72,81,93,104,100,103,107,110],
       "bannerMoves": [
         15,
         24
@@ -4799,8 +4732,7 @@
           "level": 7
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,69,13],
       "bannerMoves": []
     },
     "hp": 35,
@@ -4832,8 +4764,7 @@
           "level": 7
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,69,13],
       "bannerMoves": []
     },
     "hp": 85,
@@ -4881,8 +4812,7 @@
           "level": 36
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [45,46],
       "bannerMoves": []
     },
     "hp": 60,
@@ -4934,8 +4864,7 @@
           "level": 48
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [45,46],
       "bannerMoves": []
     },
     "hp": 100,
@@ -4979,8 +4908,7 @@
           "level": 34
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [37,46],
       "bannerMoves": []
     },
     "hp": 85,
@@ -5000,7 +4928,7 @@
     "possibleMoves": {
       "movesLearnByLevel": [
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -5037,8 +4965,7 @@
           "level": 15
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [46],
       "bannerMoves": []
     },
     "hp": 60,
@@ -5090,8 +5017,7 @@
           "level": 52
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [13,72,25,93],
       "bannerMoves": []
     },
     "hp": 75,
@@ -5135,8 +5061,7 @@
           "level": 49
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [69],
       "bannerMoves": []
     },
     "hp": 60,
@@ -5188,8 +5113,7 @@
           "level": 67
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [69],
       "bannerMoves": []
     },
     "hp": 90,
@@ -5233,7 +5157,7 @@
           "level": 40
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -5278,8 +5202,7 @@
           "level": 48
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [25,31,82],
       "bannerMoves": []
     },
     "hp": 40,
@@ -5331,8 +5254,7 @@
           "level": 54
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [25,31,82],
       "bannerMoves": []
     },
     "hp": 60,
@@ -5376,8 +5298,7 @@
           "level": 52
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [31,37,82],
       "bannerMoves": []
     },
     "hp": 45,
@@ -5425,8 +5346,7 @@
           "level": 60
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [31,37,82],
       "bannerMoves": []
     },
     "hp": 75,
@@ -5470,7 +5390,7 @@
           "level": 30
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -5511,8 +5431,7 @@
           "level": 40
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [12,45,46,100],
       "bannerMoves": []
     },
     "hp": 85,
@@ -5536,7 +5455,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -5561,7 +5480,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -5606,8 +5525,7 @@
           "level": 33
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,25,93],
       "bannerMoves": [
         57
       ]
@@ -5657,8 +5575,7 @@
           "level": 37
         }
       ],
-      "movesLearnWithHM": [
-      ],
+      "movesLearnWithTM": [72,25,93],
       "bannerMoves": [
         57
       ]
@@ -5708,7 +5625,7 @@
           "level": 37
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [72,25,93,69,13
       ],
       "bannerMoves": [
         57
@@ -5735,7 +5652,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -5780,7 +5697,7 @@
           "level": 58
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },
@@ -5805,7 +5722,7 @@
           "level": 1
         }
       ],
-      "movesLearnWithHM": [
+      "movesLearnWithTM": [
       ],
       "bannerMoves": []
     },

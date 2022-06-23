@@ -1,324 +1,466 @@
 [
   {
-    "image" : "images/pikachu_irontail_banner.JPG",
-    "description" : "Get a special Pikachu with the move Iron Tail",
-    "cost" : 100,
+    "image": "images/pikachu_irontail_banner.JPG",
+    "description": "Get a special Pikachu with the move Iron Tail",
+    "cost": 100,
     "pokemons": [
       {
         "id": 25,
         "rate": 5,
-        "moveIds": [12,13]
+        "moveIds": [
+          12,
+          13
+        ]
       }
     ],
     "items": [
       {
         "id": 2,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 4,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 8,
-        "rate" : 10
+        "rate": 10
       },
       {
         "id": 9,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 11,
-        "rate" : 30
-      },{
+        "rate": 30
+      },
+      {
         "id": 12,
-        "rate" : 10
+        "rate": 10
       }
     ],
-    "days" : ["MONDAY","WEDNESDAY"]
+    "days": [
+      "MONDAY",
+      "WEDNESDAY"
+    ]
   },
   {
-    "image" : "images/porygon_banner.JPG",
-    "description" : "Get a Porygon",
-    "cost" : 100,
+    "image": "images/porygon_banner.JPG",
+    "description": "Get a Porygon",
+    "cost": 100,
     "pokemons": [
       {
         "id": 137,
         "rate": 5,
-        "moveIds": [2]
+        "moveIds": [
+          2
+        ]
       }
     ],
     "items": [
       {
         "id": 2,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 4,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 8,
-        "rate" : 10
+        "rate": 10
       },
       {
         "id": 9,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 11,
-        "rate" : 30
-      },{
+        "rate": 30
+      },
+      {
         "id": 12,
-        "rate" : 10
+        "rate": 10
       }
     ],
-    "days" : ["MONDAY","FRIDAY"]
+    "days": [
+      "MONDAY",
+      "FRIDAY"
+    ]
   },
   {
-    "image" : "images/larvitar_banner.JPG",
-    "description" : "Get a special Larvitar with the move Iron Head",
-    "cost" : 120,
+    "image": "images/larvitar_banner.JPG",
+    "description": "Get a special Larvitar with the move Iron Head",
+    "cost": 120,
     "pokemons": [
       {
         "id": 246,
         "rate": 5,
-        "moveIds": [2,29,57]
+        "moveIds": [
+          2,
+          29,
+          57
+        ]
       }
     ],
     "items": [
       {
         "id": 2,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 4,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 8,
-        "rate" : 10
+        "rate": 10
       },
       {
         "id": 9,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 11,
-        "rate" : 30
+        "rate": 30
       },
       {
         "id": 12,
-        "rate" : 10
+        "rate": 10
       }
     ],
-    "days" : ["TUESDAY","THURSDAY","SATURDAY"]
+    "days": [
+      "TUESDAY",
+      "THURSDAY",
+      "SATURDAY"
+    ]
   },
   {
-    "image" : "images/scyther_banner.JPG",
-    "description" : "Get a Scyther",
-    "cost" : 100,
+    "image": "images/scyther_banner.JPG",
+    "description": "Get a Scyther",
+    "cost": 100,
     "pokemons": [
       {
         "id": 123,
         "rate": 5,
-        "moveIds": [3,56]
+        "moveIds": [
+          3,
+          56
+        ]
       }
     ],
     "items": [
       {
         "id": 2,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 4,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 8,
-        "rate" : 10
+        "rate": 10
       },
       {
         "id": 9,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 11,
-        "rate" : 30
-      },{
+        "rate": 30
+      },
+      {
         "id": 12,
-        "rate" : 10
+        "rate": 10
       }
     ],
-    "days" : ["TUESDAY","THURSDAY","SUNDAY"]
+    "days": [
+      "TUESDAY",
+      "THURSDAY",
+      "SUNDAY"
+    ]
   },
   {
-    "image" : "images/dratini_banner.JPG",
-    "description" : "Get a Dratini with the move Dragon Breath",
-    "cost" : 120,
+    "image": "images/dratini_banner.JPG",
+    "description": "Get a Dratini with the move Dragon Breath",
+    "cost": 120,
     "pokemons": [
       {
         "id": 147,
         "rate": 5,
-        "moveIds": [15,24]
+        "moveIds": [
+          15,
+          24
+        ]
       }
     ],
     "items": [
       {
         "id": 2,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 4,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 8,
-        "rate" : 10
+        "rate": 10
       },
       {
         "id": 9,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 11,
-        "rate" : 30
+        "rate": 30
       },
       {
         "id": 12,
-        "rate" : 10
+        "rate": 10
       }
     ],
-    "days" : ["FRIDAY","SUNDAY"]
+    "days": [
+      "FRIDAY",
+      "SUNDAY"
+    ]
   },
   {
-    "image" : "images/HyperBall.png",
-    "description" : "Get a Hyper Ball which is an improved version of the Great Ball",
-    "cost" : 50,
+    "image": "images/HyperBall.png",
+    "description": "Get a Hyper Ball which is an improved version of the Great Ball",
+    "cost": 50,
     "pokemons": [
     ],
     "items": [
       {
         "id": 2,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 4,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 11,
-        "rate" : 30
+        "rate": 30
       },
       {
         "id": 12,
-        "rate" : 10
+        "rate": 10
       },
       {
         "id": 14,
-        "rate" : 10
+        "rate": 10
       },
       {
         "id": 15,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 13,
-        "rate" : 5
+        "rate": 5
       }
     ],
-    "days" : ["MONDAY","FRIDAY"]
+    "days": [
+      "MONDAY",
+      "FRIDAY"
+    ]
   },
   {
-    "image" : "images/evolution_stones_banner.JPG",
-    "description" : "Get stones with the ability to make certain species of Pokémon evolve upon contact",
-    "cost" : 50,
+    "image": "images/evolution_stones_banner.JPG",
+    "description": "Get stones with the ability to make certain species of Pokémon evolve upon contact",
+    "cost": 50,
     "pokemons": [
     ],
     "items": [
       {
         "id": 2,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 4,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 8,
-        "rate" : 10
+        "rate": 10
       },
       {
         "id": 9,
-        "rate" : 10
+        "rate": 10
       },
       {
         "id": 11,
-        "rate" : 30
+        "rate": 30
       },
       {
         "id": 16,
-        "rate" : 5
+        "rate": 5
       },
       {
         "id": 17,
-        "rate" : 5
+        "rate": 5
       },
       {
         "id": 18,
-        "rate" : 5
+        "rate": 5
       },
       {
         "id": 19,
-        "rate" : 5
+        "rate": 5
       }
     ],
-    "days" : ["WEDNESDAY","SATURDAY"]
+    "days": [
+      "WEDNESDAY",
+      "SATURDAY"
+    ]
   },
   {
-    "image" : "images/evolution_items_banner.png",
-    "description" : "Get items with the ability to make certain species of Pokémon evolve like Seadra and Scyther",
-    "cost" : 50,
+    "image": "images/evolution_items_banner.png",
+    "description": "Get items with the ability to make certain species of Pokémon evolve like Seadra and Scyther",
+    "cost": 50,
     "pokemons": [
     ],
     "items": [
       {
         "id": 2,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 4,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 9,
-        "rate" : 15
+        "rate": 15
       },
       {
         "id": 11,
-        "rate" : 30
+        "rate": 30
       },
       {
         "id": 20,
-        "rate" : 5
+        "rate": 5
       },
       {
         "id": 21,
-        "rate" : 5
+        "rate": 5
       },
       {
         "id": 22,
-        "rate" : 5
+        "rate": 5
       },
       {
         "id": 23,
-        "rate" : 5
+        "rate": 5
       },
       {
         "id": 24,
-        "rate" : 5
+        "rate": 5
       }
     ],
-    "days" : ["MONDAY","WEDNESDAY"]
+    "days": [
+      "MONDAY",
+      "WEDNESDAY"
+    ]
+  },
+  {
+    "image": "images/tm_banner.png",
+    "description": "Get a single-use TM that can teach a move to some Pokemon.",
+    "cost": 100,
+    "pokemons": [
+    ],
+    "items": [
+      {
+        "id": 39,
+        "rate": 62
+      },
+      {
+        "id": 40,
+        "rate": 2
+      },
+      {
+        "id": 41,
+        "rate": 2
+      },
+      {
+        "id": 42,
+        "rate": 2
+      },
+      {
+        "id": 43,
+        "rate": 2
+      },
+      {
+        "id": 44,
+        "rate": 2
+      },
+      {
+        "id": 45,
+        "rate": 2
+      },
+      {
+        "id": 46,
+        "rate": 2
+      },
+      {
+        "id": 47,
+        "rate": 2
+      },
+      {
+        "id": 48,
+        "rate": 2
+      },
+      {
+        "id": 49,
+        "rate": 2
+      },
+      {
+        "id": 50,
+        "rate": 2
+      },
+      {
+        "id": 51,
+        "rate": 2
+      },
+      {
+        "id": 52,
+        "rate": 2
+      },
+      {
+        "id": 53,
+        "rate": 2
+      },
+      {
+        "id": 54,
+        "rate": 2
+      },
+      {
+        "id": 55,
+        "rate": 2
+      },
+      {
+        "id": 56,
+        "rate": 2
+      },
+      {
+        "id": 57,
+        "rate": 2
+      },
+      {
+        "id": 58,
+        "rate": 2
+      }
+    ],
+    "days": [
+      "MONDAY",
+      "TUESDAY",
+      "WEDNESDAY",
+      "THURSDAY",
+      "FRIDAY",
+      "SATURDAY",
+      "SUNDAY"
+    ]
   }
 ]

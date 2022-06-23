@@ -28,7 +28,7 @@ class PokemonData (val id : Int,
             val movesByTM : ArrayList<MoveLearned> = ArrayList()
             val bannerMoves : ArrayList<MoveLearned> = ArrayList()
             pokemonDataEntity.possibleMoves.movesLearnByLevel.forEach{movesByLevel.add(MoveLearnedByLevel(moves[it.moveId - 1],it.level))}
-            pokemonDataEntity.possibleMoves.movesLearnWithHM.forEach{movesByTM.add(MoveLearned(moves[it - 1]))}
+            pokemonDataEntity.possibleMoves.movesLearnWithTM.forEach{movesByTM.add(MoveLearned(moves[it - 1]))}
             pokemonDataEntity.possibleMoves.bannerMoves.forEach{bannerMoves.add(MoveLearned(moves[it - 1]))}
             return PokemonDataBuilder()
                 .id(pokemonDataEntity.id)
