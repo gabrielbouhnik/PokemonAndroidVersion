@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
             .into(imageView)
     }
 
-    fun displayRandomPokemon(){
+    fun titleScreen(){
         val random = Random.nextInt(1..251)
         val imageView : ImageView = findViewById(R.id.randomPokemonSpriteView)
         Glide.with(this)
@@ -97,6 +97,8 @@ class MainActivity : AppCompatActivity() {
                 starterSelection?.startNewGame(this)
             }
             else {
+                if (trainer!!.progression >= 67)
+                    gameDataService.updateEliteMode()
                 mainMenu.loadGameMenu(this)
             }
         }
@@ -117,7 +119,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initGame(){
-        mediaPlayer = MediaPlayer.create(this,R.raw.title_theme)
+        currentMusicId = R.raw.title_theme
+        mediaPlayer = MediaPlayer.create(this,currentMusicId!!)
         mediaPlayer?.start()
         gameDataService.loadGameData(this)
     }
@@ -126,6 +129,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         initGame()
         setContentView(R.layout.title_screen)
-        displayRandomPokemon()
+        titleScreen()
+    }
+
+    override fun onPause() : Unit{
+        super.onPause()
+        mediaPlayer?.stop()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        mediaPlayer = MediaPlayer.create(this,currentMusicId!!)
+        mediaPlayer?.start()
     }
 }

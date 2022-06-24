@@ -110,6 +110,8 @@ class Trainer  : ITrainer{
     }
 
     fun getMaxLevel(): Int{
+        if (progression >= 67)
+            return 80
         if (items.contains(38))
             return 70
         if (items.contains(37))

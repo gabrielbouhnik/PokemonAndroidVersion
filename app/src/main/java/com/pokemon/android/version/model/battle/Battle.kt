@@ -94,7 +94,7 @@ abstract class Battle {
         val sb = StringBuilder()
         if (ItemUtils.getItemById(itemId) is Ball) {
             if (this is WildBattle) {
-                if (activity.trainer!!.catchPokemon(opponent!!, itemId)) {
+                if (activity.trainer!!.getMaxLevel() > opponent.level && activity.trainer!!.catchPokemon(opponent!!, itemId)) {
                     dialogTextView.text = activity.trainer!!.name + " caught ${opponent.data.name}!\n"
                     if (this.encountersLeft > 0)
                         this.generateRandomEncounter()

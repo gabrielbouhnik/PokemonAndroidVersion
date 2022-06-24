@@ -1777,10 +1777,6 @@
         {
           "moveId": 38,
           "level": 24
-        },
-        {
-          "moveId": 93,
-          "level": 40
         }
       ],
       "movesLearnWithTM": [25,37,93],
@@ -1825,10 +1821,6 @@
         {
           "moveId": 38,
           "level": 24
-        },
-        {
-          "moveId": 93,
-          "level": 48
         }
       ],
       "movesLearnWithTM": [25,37,93],
@@ -2753,6 +2745,102 @@
     "spDef": 80,
     "speed": 30,
     "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 81,
+    "name": "Magnemite",
+    "type1": 4,
+    "type2": 16,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 8,
+          "level": 1
+        },
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 55,
+          "level": 8
+        },
+        {
+          "moveId": 52,
+          "level": 20
+        },
+        {
+          "moveId": 111,
+          "level": 32
+        },
+        {
+          "moveId": 53,
+          "level": 36
+        }
+      ],
+      "movesLearnWithTM": [12],
+      "bannerMoves": []
+    },
+    "hp": 25,
+    "attack": 35,
+    "defense": 70,
+    "spAtk": 95,
+    "spDef": 55,
+    "speed": 45,
+    "catchRate": 0.4,
+    "evolutionId": 82,
+    "evolutionCondition": {
+      "level": 30
+    },
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 82,
+    "name": "Magneton",
+    "type1": 4,
+    "type2": 16,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 8,
+          "level": 1
+        },
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 55,
+          "level": 8
+        },
+        {
+          "moveId": 52,
+          "level": 20
+        },
+        {
+          "moveId": 111,
+          "level": 34
+        },
+        {
+          "moveId": 53,
+          "level": 40
+        }
+      ],
+      "movesLearnWithTM": [12],
+      "bannerMoves": []
+    },
+    "hp": 50,
+    "attack": 60,
+    "defense": 95,
+    "spAtk": 120,
+    "spDef": 70,
+    "speed": 70,
+    "catchRate": 0.25,
+    "evolutionId": 462,
+    "evolutionCondition": {
+      "itemId": 17
+    },
     "expGaugeType": "MEDIUM_FAST"
   },
   {
@@ -4267,6 +4355,50 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 125,
+    "name": "Electabuzz",
+    "type1": 4,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 3,
+          "level": 1
+        },
+        {
+          "moveId": 8,
+          "level": 1
+        },
+        {
+          "moveId": 55,
+          "level": 20
+        },
+        {
+          "moveId": 103,
+          "level": 28
+        },
+        {
+          "moveId": 53,
+          "level": 34
+        },
+        {
+          "moveId": 12,
+          "level": 46
+        }
+      ],
+      "movesLearnWithTM": [12,13,45,69,72,103,107,110],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 83,
+    "defense": 57,
+    "spAtk": 95,
+    "spDef": 85,
+    "speed": 105,
+    "catchRate": 0.3,
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 126,
     "name": "Magmar",
     "type1": 2,
@@ -4309,9 +4441,6 @@
     "spDef": 85,
     "speed": 93,
     "catchRate": 0.3,
-    "evolutionCondition": {
-      "itemId": 25
-    },
     "expGaugeType": "MEDIUM_FAST"
   },
   {
@@ -4571,6 +4700,31 @@
     "spAtk": 125,
     "spDef": 100,
     "speed": 95,
+    "catchRate": 0.15,
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 145,
+    "name": "Zapdos",
+    "type1": 4,
+    "type2": 6,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 4,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 90,
+    "attack": 90,
+    "defense": 85,
+    "spAtk": 125,
+    "spDef": 90,
+    "speed": 100,
     "catchRate": 0.15,
     "expGaugeType": "SLOW"
   },
@@ -5662,6 +5816,50 @@
     "speed": 105,
     "catchRate": 0.3,
     "expGaugeType": "FAST"
+  },
+  {
+    "id": 462,
+    "name": "Magnezone",
+    "type1": 4,
+    "type2": 16,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 8,
+          "level": 1
+        },
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 55,
+          "level": 8
+        },
+        {
+          "moveId": 52,
+          "level": 20
+        },
+        {
+          "moveId": 111,
+          "level": 34
+        },
+        {
+          "moveId": 53,
+          "level": 40
+        }
+      ],
+      "movesLearnWithTM": [12],
+      "bannerMoves": []
+    },
+    "hp": 70,
+    "attack": 70,
+    "defense": 115,
+    "spAtk": 130,
+    "spDef": 90,
+    "speed": 70,
+    "catchRate": 0.25,
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 467,

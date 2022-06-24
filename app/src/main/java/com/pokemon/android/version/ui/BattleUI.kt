@@ -124,6 +124,8 @@ class BattleUI {
             activity.trainer!!.coins += 10000
             activity.trainer!!.eliteProgression = 0
             activity.eliteMode = false
+            if (activity.trainer!!.progression == 63)
+                activity.trainer!!.progression += 5
             DailyHeal.heal(activity.trainer!!)
             rewardsButton.setOnClickListener {
                 SaveManager.save(activity)

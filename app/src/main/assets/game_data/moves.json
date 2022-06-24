@@ -1371,6 +1371,22 @@
       "target": "OPPONENT",
       "multiplicator": 0.5,
       "probabilty": 10
+    },
+    {
+      "id": 111,
+      "name": "Flash Canon",
+      "power": 80,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 16,
+      "accuracy": 100,
+      "description": "",
+      "statsAffected": [
+        "SPDEF"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.5,
+      "probabilty": 10
     }
   ],
   "drainMoves": [

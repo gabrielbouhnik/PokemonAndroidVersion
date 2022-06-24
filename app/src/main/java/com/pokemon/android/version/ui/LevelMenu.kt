@@ -58,17 +58,18 @@ class LevelMenu {
         backButton.setOnClickListener {
             activity.mainMenu.loadGameMenu(activity)
         }
+        val levels = activity.gameDataService.levels.filter{it.id <= activity.trainer!!.progression && it.id !in 63..67}
         val myItemClickListener = View.OnClickListener {
             val position = it.tag as Int
-            val levelData : LevelData =  activity.gameDataService.levels[position]
+            val levelData : LevelData =  levels[position]
             if (activity.trainer!!.canStillBattle())
                 if (activity.trainer!!.progression == levelData.id) {
                     loadLevelDescriptionMenu(activity, levelData)
                 } else if (activity.trainer!!.progression > levelData.id){
-                    startBattle(activity,activity.gameDataService.levels[position])
+                    startBattle(activity,levels[position])
                 }
         }
-        val adapter = LevelRecyclerAdapter(activity, activity.gameDataService.levels.filter{it.id <= activity.trainer!!.progression && it.id < 63}, myItemClickListener)
+        val adapter = LevelRecyclerAdapter(activity, levels, myItemClickListener)
         recyclerView.adapter = adapter
     }
 

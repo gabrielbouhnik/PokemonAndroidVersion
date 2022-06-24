@@ -9,6 +9,7 @@ import com.pokemon.android.version.model.item.ItemData
 import com.pokemon.android.version.model.item.ItemFactory
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.level.LevelFactory
+import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveFactory
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
@@ -152,5 +153,11 @@ class GameDataService {
             .move3(move3)
             .move4(move4)
             .build()
+    }
+
+    fun updateEliteMode(){
+        levels.filter { it.id in 63..67 }.map{it as TrainerBattleLevelData }.forEach{
+            it.opponentTrainerData.forEach { it.pokemons.forEach{it.level += 10 } }
+        }
     }
 }

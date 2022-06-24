@@ -104,6 +104,9 @@ class MainMenu {
         backButton.setOnClickListener{
             loadGameMenu(activity)
         }
+        val championTextView : TextView = activity.findViewById(R.id.championTextView)
+        if (activity.trainer!!.progression < 63)
+            championTextView.visibility = GONE
         val trainerSpriteTextView : ImageView = activity.findViewById(R.id.trainerSpriteTextView)
         val filename = if (activity.trainer!!.gender == Gender.MALE) BOY_SPRITE else GIRL_SPRITE
         val img : InputStream = activity.assets.open(filename)
