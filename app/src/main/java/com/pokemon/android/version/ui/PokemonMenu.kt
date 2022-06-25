@@ -253,13 +253,42 @@ class PokemonMenu {
         if (pokemon.canEvolve()) {
             evolveButton.visibility = VISIBLE
             evolveButton.setOnClickListener {
-                pokemon.evolve(activity.gameDataService)
-                displayPokemonInfo(activity, pokemon)
-                displayMoveButtons(activity,pokemon)
-                activity.playSoundEffect(R.raw.evolve_sound_effect)
-                evolveButton.visibility = GONE
+                if (pokemon.data.evolutions.size == 1) {
+                    pokemon.evolve(activity.gameDataService, pokemon.data.evolutions[0].evolutionId)
+                    displayPokemonInfo(activity, pokemon)
+                    displayMoveButtons(activity,pokemon)
+                    activity.playSoundEffect(R.raw.evolve_sound_effect)
+                    evolveButton.visibility = GONE
+                }
+                else{
+                    chooseEvolution(activity, pokemon)
+                }
             }
         }
         displayMoveButtons(activity,pokemon)
+    }
+
+    private fun chooseEvolution(activity : MainActivity, pokemon: Pokemon){
+        val evolutions : ArrayList<Pokemon> = arrayListOf()
+        pokemon.getPossibleEvolutions().forEach {
+            evolutions.add(activity.gameDataService.generatePokemon(it,pokemon.level))
+        }
+        activity.setContentView(R.layout.pokemons_menu)
+        val backButton : Button = activity.findViewById(R.id.pokemonMenuBackButton)
+        backButton.setOnClickListener{
+            activity.mainMenu.pokemonMenu.loadPokemonInfoLayout(activity, pokemon)
+        }
+        val teamButton : Button = activity.findViewById(R.id.buildTeamButton)
+        teamButton.visibility = GONE
+        val recyclerView = activity.findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        val myItemClickListener = View.OnClickListener {
+            val position = it.tag as Int
+            pokemon.evolve(activity.gameDataService, evolutions[position].data.id)
+            loadPokemonInfoLayout(activity, pokemon)
+            activity.playSoundEffect(R.raw.evolve_sound_effect)
+        }
+        val adapter =  PokemonRecyclerAdapter(activity, evolutions, myItemClickListener)
+        recyclerView.adapter = adapter
     }
 }

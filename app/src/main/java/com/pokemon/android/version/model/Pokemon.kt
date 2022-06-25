@@ -280,11 +280,9 @@ class Pokemon(
         this.currentExp += exp
     }
 
-    fun canEvolve(): Boolean {
-        if (data.evolutionId == null)
-            return false
-        val condition = data.evolutionCondition
-        if (condition!!.level != null && level >= condition.level!!) {
+    private fun meetsEvolutionCondition(evolution : Evolution) : Boolean{
+        val condition = evolution.evolutionCondition
+        if (condition.level != null && level >= condition.level!!) {
             return true
         }
         if (condition.itemId != null && this.trainer!!.items.containsKey(condition.itemId))
@@ -292,12 +290,27 @@ class Pokemon(
         return false
     }
 
-    fun evolve(gameDataService: GameDataService) {
+    fun canEvolve(): Boolean {
+        if (data.evolutions.size == 0)
+            return false
+        return if (data.evolutions.size == 1) {
+            meetsEvolutionCondition(data.evolutions[0])
+        } else{
+            data.evolutions.any { meetsEvolutionCondition(it)}
+        }
+    }
+
+    fun getPossibleEvolutions() : List<Int>{
+        return data.evolutions.filter { meetsEvolutionCondition(it) }.map{it.evolutionId}
+    }
+
+    fun evolve(gameDataService: GameDataService, evolutionId : Int) {
         if (canEvolve()) {
-            if (this.data.evolutionCondition!!.itemId != null){
-                this.trainer!!.useItem(this.data.evolutionCondition!!.itemId!!, this)
+            val evolution = data.evolutions.first { it.evolutionId == evolutionId }
+            if (evolution.evolutionCondition.itemId != null){
+                this.trainer!!.useItem(evolution.evolutionCondition.itemId!!, this)
             }
-            this.data = gameDataService.getPokemonDataById(data.evolutionId!!)
+            this.data = gameDataService.getPokemonDataById(evolutionId)
             recomputeStat()
             if (currentHP > hp)
                 currentHP = hp

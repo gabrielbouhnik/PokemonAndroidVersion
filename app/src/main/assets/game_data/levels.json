@@ -3635,7 +3635,7 @@
         "minLevel": 36,
         "maxLevel": 38,
         "encounters": [
-          41,41,42,54,54,55,86,86,86,87,90
+          41,41,42,54,54,54,55,79,79,79,86,86,86,87,90
         ]
       },
       "rewards": [
@@ -3690,6 +3690,10 @@
         {
           "id": 0,
           "quantity": 40
+        },
+        {
+          "id": 5,
+          "quantity": 1
         }
       ],
       "icon": "images/power_plant_icon.jpg",
@@ -3712,10 +3716,14 @@
         {
           "id": 0,
           "quantity": 60
+        },
+        {
+          "id": 5,
+          "quantity": 1
         }
       ],
       "icon": "images/electrode_level.PNG",
-      "background": "images/building_battle_background.jpg",
+      "background": "images/electric_terrain_background.png",
       "music": 1,
       "exp": 9000
     }
@@ -3842,12 +3850,12 @@
           "quantity": 100
         },
         {
-          "id": 2,
-          "quantity": 2
+          "id": 3,
+          "quantity": 3
         }
       ],
       "icon": "images/zapdos_boss_icon.PNG",
-      "background": "images/building_battle_background.jpg",
+      "background": "images/electric_terrain_background.png",
       "music": 1,
       "exp": 12000
     }

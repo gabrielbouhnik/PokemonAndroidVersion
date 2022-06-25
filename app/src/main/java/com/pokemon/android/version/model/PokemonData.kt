@@ -19,8 +19,7 @@ class PokemonData (val id : Int,
                    var spAtk : Int,
                    var spDef : Int,
                    var speed : Int,
-                   val evolutionId : Int?,
-                   val evolutionCondition : EvolutionCondition?,
+                   var evolutions : List<Evolution>,
                    val expGaugeType : ExpGaugeType){
     companion object {
         fun of(pokemonDataEntity : PokemonDataEntity, moves : List<Move>) : PokemonData{
@@ -45,8 +44,7 @@ class PokemonData (val id : Int,
                 .spAtk(pokemonDataEntity.spAtk)
                 .spDef(pokemonDataEntity.spDef)
                 .speed(pokemonDataEntity.speed)
-                .evolutionId(pokemonDataEntity.evolutionId)
-                .evolutionCondition(EvolutionCondition.of(pokemonDataEntity))
+                .evolutions(pokemonDataEntity.evolutions.map { Evolution(it.evolutionId, EvolutionCondition.of(it.evolutionCondition)) })
                 .expGaugeType(ExpGaugeType.valueOf(pokemonDataEntity.expGaugeType))
                 .build()
         }
@@ -67,8 +65,7 @@ class PokemonData (val id : Int,
         var spAtk : Int = 0,
         var spDef : Int = 0,
         var speed : Int = 0,
-        var evolutionId: Int? = null,
-        var evolutionCondition: EvolutionCondition?= null,
+        var evolutions : List<Evolution> = arrayListOf(),
         var expGaugeType : ExpGaugeType = ExpGaugeType.FAST
     ){
         fun id(id : Int) = apply { this.id = id }
@@ -85,9 +82,8 @@ class PokemonData (val id : Int,
         fun spAtk(spAtk: Int) = apply { this.spAtk = spAtk }
         fun spDef(spDef: Int) = apply { this.spDef = spDef }
         fun speed(speed: Int) = apply { this.speed = speed }
-        fun evolutionId(evolutionId: Int?) = apply { this.evolutionId = evolutionId }
-        fun evolutionCondition(evolutionCondition: EvolutionCondition?) = apply { this.evolutionCondition = evolutionCondition }
+        fun evolutions(evolutions : List<Evolution>) = apply { this.evolutions = evolutions }
         fun expGaugeType(expGaugeType: ExpGaugeType) = apply { this.expGaugeType = expGaugeType }
-        fun build() = PokemonData(id,name,type1,type2, movesByLevel,movesByTM, bannerMoves,catchRate, hp, attack, defense, spAtk, spDef, speed, evolutionId, evolutionCondition, expGaugeType )
+        fun build() = PokemonData(id,name,type1,type2, movesByLevel,movesByTM, bannerMoves,catchRate, hp, attack, defense, spAtk, spDef, speed, evolutions, expGaugeType )
     }
 }
