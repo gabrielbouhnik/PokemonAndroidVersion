@@ -89,7 +89,7 @@ class MainMenu {
             SaveManager.save(activity)
         }
         val eliteButton : Button = activity.findViewById(R.id.eliteButton)
-        if (!activity.eliteMode && activity.trainer!!.progression >= 63) {
+        if (!activity.eliteMode && activity.trainer!!.progression >= LevelMenu.ELITE_4_FIRST_LEVEL_ID) {
             eliteButton.visibility = VISIBLE
             eliteButton.setOnClickListener {
                 activity.eliteMode = true
@@ -105,7 +105,7 @@ class MainMenu {
             loadGameMenu(activity)
         }
         val championTextView : TextView = activity.findViewById(R.id.championTextView)
-        if (activity.trainer!!.progression < 63)
+        if (activity.trainer!!.progression < LevelMenu.ELITE_4_LAST_LEVEL_ID)
             championTextView.visibility = GONE
         val trainerSpriteTextView : ImageView = activity.findViewById(R.id.trainerSpriteTextView)
         val filename = if (activity.trainer!!.gender == Gender.MALE) BOY_SPRITE else GIRL_SPRITE

@@ -5472,6 +5472,32 @@
     "expGaugeType": "SLOW"
   },
   {
+    "id": 146,
+    "name": "Moltres",
+    "type1": 3,
+    "type2": 6,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 4,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 90,
+    "attack": 85,
+    "defense": 90,
+    "spAtk": 100,
+    "spDef": 125,
+    "speed": 90,
+    "catchRate": 0.15,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
     "id": 147,
     "name": "Dratini",
     "type1": 15,

@@ -124,7 +124,7 @@ class BattleUI {
             activity.trainer!!.coins += 10000
             activity.trainer!!.eliteProgression = 0
             activity.eliteMode = false
-            if (activity.trainer!!.progression == 63)
+            if (activity.trainer!!.progression == LevelMenu.ELITE_4_FIRST_LEVEL_ID)
                 activity.trainer!!.progression += 5
             DailyHeal.heal(activity.trainer!!)
             rewardsButton.setOnClickListener {

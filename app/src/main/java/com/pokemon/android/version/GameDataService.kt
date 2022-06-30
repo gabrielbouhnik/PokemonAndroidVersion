@@ -14,6 +14,7 @@ import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveFactory
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.repository.*
+import com.pokemon.android.version.ui.LevelMenu
 import kotlin.math.roundToInt
 
 import kotlin.random.Random
@@ -156,7 +157,7 @@ class GameDataService {
     }
 
     fun updateEliteMode(){
-        levels.filter { it.id in 63..67 }.map{it as TrainerBattleLevelData }.forEach{
+        levels.filter { it.id in LevelMenu.ELITE_4_FIRST_LEVEL_ID..LevelMenu.ELITE_4_LAST_LEVEL_ID }.map{it as TrainerBattleLevelData }.forEach{
             it.opponentTrainerData.forEach { it.pokemons.forEach{it.level += 10 } }
         }
     }

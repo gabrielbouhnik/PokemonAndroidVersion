@@ -55,7 +55,7 @@ enum class Type(val value: Int) {
             }
             FLYING -> when (other) {
                 GRASS, BUG, FIGHTING -> return 2f
-                ROCK, STEEL -> return 0.5f
+                ROCK, ELECTRIC, STEEL -> return 0.5f
                 else -> return 1f
             }
             BUG -> when (other) {

@@ -2618,7 +2618,7 @@
               ]
             },
             {
-              "id": 111,
+              "id": 112,
               "level": 67,
               "moveIds": [
                 93,78,62,77
@@ -2646,7 +2646,7 @@
               ]
             },
             {
-              "id": 112,
+              "id": 464,
               "level": 69,
               "moveIds": [
                 93,78,69,62
@@ -2851,7 +2851,7 @@
       "exp": 10000
     },
     {
-      "id": 63,
+      "id": 64,
       "name": "\nVS Lorelei",
       "description": "",
       "opponents": [
@@ -2905,7 +2905,7 @@
       "exp": 10000
     },
     {
-      "id": 64,
+      "id": 65,
       "name": "\nVS Bruno",
       "description": "",
       "opponents": [
@@ -2957,7 +2957,7 @@
       "exp": 10000
     },
     {
-      "id": 65,
+      "id": 66,
       "name": "\nVS Agatha",
       "description": "",
       "opponents": [
@@ -3009,7 +3009,7 @@
       "exp": 10000
     },
     {
-      "id": 66,
+      "id": 67,
       "name": "\nVS Lance",
       "description": "",
       "opponents": [
@@ -3061,7 +3061,7 @@
       "exp": 10000
     },
     {
-      "id": 67,
+      "id": 68,
       "name": "\nVS Champion",
       "description": "",
       "type": "Trainer Battle",
@@ -3676,7 +3676,7 @@
       "exp": 9000
     },
     {
-      "id": 68,
+      "id": 69,
       "name": "\nPower Plant",
       "description": "After defeating the league, Professor Oak sends you to the abandoned Power Plant on Route 10 because something strange is happening with the wild Pokemon there.",
       "encounter": 5,
@@ -3702,7 +3702,7 @@
       "exp": 9000
     },
     {
-      "id": 69,
+      "id": 70,
       "name": "\nVS Electrodes",
       "description": "You advance in the Power Plant and several powerful Electrodes attack you.",
       "encounter": 5,
@@ -3834,7 +3834,33 @@
       "exp": 7000
     },
     {
-      "id": 70,
+      "id": 63,
+      "name": "\nVs Moltres",
+      "description": "You finally see the exit of Victory Road but you feel the presence of a powerful pokemon near you. You head into a room near the exit and come across the legendary bird Moltres.",
+      "boss":
+      {
+        "id": 146,
+        "level": 77,
+        "moveIds": [31,102,50,21],
+        "boostedStats": ["DEFENSE"]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 3,
+          "quantity": 4
+        }
+      ],
+      "icon": "images/moltres_boss_icon.JPG",
+      "background": "images/cave_battle_background.png",
+      "music": 1,
+      "exp": 10200
+    },
+    {
+      "id": 71,
       "name": "\nVs Zapdos",
       "description": "At the very bottom of the Power Plant, you come across the legendary bird Zapdos and he attacks you!",
       "boss":
@@ -3851,7 +3877,7 @@
         },
         {
           "id": 3,
-          "quantity": 3
+          "quantity": 4
         }
       ],
       "icon": "images/zapdos_boss_icon.PNG",

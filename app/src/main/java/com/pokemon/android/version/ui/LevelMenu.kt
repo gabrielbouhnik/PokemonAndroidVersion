@@ -13,6 +13,10 @@ import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.level.WildBattleLevelData
 
 class LevelMenu {
+    companion object{
+        const val ELITE_4_FIRST_LEVEL_ID = 64
+        const val ELITE_4_LAST_LEVEL_ID = 68
+    }
     var battleUI: BattleUI = BattleUI()
 
     fun startBattle(activity: MainActivity, level: LevelData) {
@@ -39,7 +43,7 @@ class LevelMenu {
         backButton.setOnClickListener {
             activity.mainMenu.loadGameMenu(activity)
         }
-        val levels = activity.gameDataService.levels.filter{it.id > 62 && it.id - 63 == activity.trainer!!.eliteProgression }
+        val levels = activity.gameDataService.levels.filter{it.id >= ELITE_4_FIRST_LEVEL_ID && it.id - ELITE_4_FIRST_LEVEL_ID == activity.trainer!!.eliteProgression }
         val myItemClickListener = View.OnClickListener {
             val position = it.tag as Int
             val levelData : LevelData = levels[position]
@@ -58,7 +62,7 @@ class LevelMenu {
         backButton.setOnClickListener {
             activity.mainMenu.loadGameMenu(activity)
         }
-        val levels = activity.gameDataService.levels.filter{it.id <= activity.trainer!!.progression && it.id !in 63..67}
+        val levels = activity.gameDataService.levels.filter{it.id <= activity.trainer!!.progression && it.id !in ELITE_4_FIRST_LEVEL_ID..ELITE_4_LAST_LEVEL_ID}
         val myItemClickListener = View.OnClickListener {
             val position = it.tag as Int
             val levelData : LevelData =  levels[position]
