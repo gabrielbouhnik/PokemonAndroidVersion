@@ -45,6 +45,7 @@ class MoveRecyclerAdapter (val context: Context,
         val currentItem = data[position]
         holder.itemView.tag = position
         holder.moveNameTextView.text = currentItem.name
+        holder.moveNameTextView.setTextColor(ColorUtils.getColorByType(currentItem.type))
         holder.movePowerTextView.text = "power: " + currentItem.power.toString()
         holder.movePPTextView.text = "pp: " + currentItem.pp.toString()
         holder.moveCategoryTextView.text = currentItem.category.toString()

@@ -6,64 +6,64 @@ import com.pokemon.android.version.model.Type
 
 class ColorUtils {
     companion object{
-        fun setButtonColor(type : Type, button : Button){
+        fun getColorByType(type : Type) : Int{
             when(type){
                 Type.GRASS -> {
-                    button.setBackgroundColor(Color.GREEN)
+                    return Color.parseColor("#7AC74C")
                 }
                 Type.FIRE -> {
-                    button.setBackgroundColor(Color.RED)
+                    return Color.parseColor("#EE8130")
                 }
                 Type.WATER -> {
-                    button.setBackgroundColor(Color.BLUE)
+                    return Color.parseColor("#6390F0")
                 }
                 Type.ELECTRIC -> {
-                    button.setBackgroundColor(Color.YELLOW)
+                    return Color.parseColor("#F7D02C")
                 }
                 Type.NORMAL -> {
-                    button.setBackgroundColor(Color.WHITE)
-                    button.setTextColor(Color.BLACK);
+                    return Color.parseColor("#A8A77A")
                 }
                 Type.FLYING -> {
-                    button.setBackgroundColor(Color.parseColor("#87CEFA"))
+                    return Color.parseColor("#A98FF3")
                 }
                 Type.BUG -> {
-                    button.setBackgroundColor(Color.GREEN)
+                    return Color.parseColor("#A6B91A")
                 }
                 Type.POISON -> {
-                    button.setBackgroundColor(Color.parseColor("#8B008B"))
+                    return Color.parseColor("#8B008B")
                 }
                 Type.ROCK -> {
-                    button.setBackgroundColor(Color.parseColor("#B6A136"))
+                    return Color.parseColor("#B6A136")
                 }
                 Type.GROUND -> {
-                    button.setBackgroundColor(Color.parseColor("#D2B48C"))
+                    return Color.parseColor("#D2B48C")
                 }
                 Type.FIGHTING -> {
-                    button.setBackgroundColor(Color.parseColor("#B22222"))
+                    return Color.parseColor("#B22222")
                 }
                 Type.PSYCHIC -> {
-                    button.setBackgroundColor(Color.parseColor("#F95587"))
+                    return Color.parseColor("#F95587")
                 }
                 Type.GHOST -> {
-                    button.setBackgroundColor(Color.parseColor("#9932CC"))
+                    return Color.parseColor("#9932CC")
                 }
                 Type.ICE -> {
-                    button.setBackgroundColor(Color.parseColor("#E0FFFF"))
+                    return Color.parseColor("#E0FFFF")
                 }
                 Type.DRAGON -> {
-                    button.setBackgroundColor(Color.parseColor("#00008B"))
+                    return Color.parseColor("#00008B")
                 }
                 Type.STEEL -> {
-                    button.setBackgroundColor(Color.GRAY)
+                    return Color.parseColor("#B7B7CE")
                 }
                 Type.DARK -> {
-                    button.setBackgroundColor(Color.BLACK)
+                    return Color.parseColor("#705746")
                 }
                 Type.FAIRY -> {
-                    button.setBackgroundColor(Color.parseColor("#FFB6C1"))
+                    return Color.parseColor("#FFB6C1")
                 }
             }
+            return Color.BLACK
         }
     }
 }

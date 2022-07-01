@@ -237,7 +237,7 @@ class BattleUI {
         if (move != null && move.pp > 0){
             attackButton.visibility = VISIBLE
             attackButton.text = move.move.name
-            ColorUtils.setButtonColor(move.move.type,attackButton)
+            attackButton.setBackgroundColor(ColorUtils.getColorByType(move.move.type))
             ppTextView.visibility = VISIBLE
             ppTextView.text = "${move.pp}/${move.move.pp}"
             attackButton.setOnClickListener{
@@ -258,7 +258,7 @@ class BattleUI {
         if (battle.pokemon.move1.pp > 0){
             attack1Button.visibility = VISIBLE
             attack1Button.text = battle.pokemon.move1.move.name
-            ColorUtils.setButtonColor(battle.pokemon.move1.move.type,attack1Button)
+            attack1Button.setBackgroundColor(ColorUtils.getColorByType(battle.pokemon.move1.move.type))
             ppTextView.visibility = VISIBLE
             ppTextView.text = "${battle.pokemon.move1.pp}/${battle.pokemon.move1.move.pp}"
             attack1Button.setOnClickListener{

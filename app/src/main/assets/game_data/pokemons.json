@@ -7305,6 +7305,10 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
+          "moveId": 117,
+          "level": 1
+        },
+        {
           "moveId": 8,
           "level": 1
         },
