@@ -11,8 +11,10 @@ class VariableHitMove(
     power: Int,
     pp: Int,
     accuracy: Int,
-    priorityLevel: Int
-) : Move(id, name, type, category, power, pp, accuracy, priorityLevel) {
+    priorityLevel: Int,
+    status: List<StatusMove>,
+    highCritRate: Boolean = false,
+) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate) {
 
     companion object {
         fun of(variableHitMoveEntity: VariableHitMoveEntity): VariableHitMove {
@@ -25,6 +27,8 @@ class VariableHitMove(
                 .pp(variableHitMoveEntity.pp)
                 .accuracy(variableHitMoveEntity.accuracy)
                 .priorityLevel(variableHitMoveEntity.priorityLevel)
+                .highCritRate(variableHitMoveEntity.highCritRate)
+                .status(variableHitMoveEntity.status.map(StatusMove::of))
                 .build()
         }
     }
@@ -37,7 +41,9 @@ class VariableHitMove(
         var type: Type = Type.NONE,
         var category: MoveCategory = MoveCategory.PHYSICAL,
         var accuracy: Int = 100,
-        var priorityLevel: Int = 0
+        var priorityLevel: Int = 0,
+        var status: List<StatusMove> = arrayListOf(),
+        var highCritRate: Boolean = false
     ) {
         fun id(id: Int) = apply { this.id = id }
         fun name(name: String) = apply { this.name = name }
@@ -47,6 +53,9 @@ class VariableHitMove(
         fun pp(pp: Int) = apply { this.pp = pp }
         fun accuracy(accuracy: Int) = apply { this.accuracy = accuracy }
         fun priorityLevel(priorityLevel: Int) = apply { this.priorityLevel = priorityLevel }
-        fun build() = VariableHitMove(id, name, type, category, power, pp, accuracy, priorityLevel)
+        fun highCritRate(highCritRate: Boolean) = apply { this.highCritRate = highCritRate }
+        fun status(status: List<StatusMove>) = apply { this.status = status }
+
+        fun build() = VariableHitMove(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate)
     }
 }

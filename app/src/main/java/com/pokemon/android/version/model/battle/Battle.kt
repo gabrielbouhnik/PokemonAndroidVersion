@@ -26,7 +26,7 @@ abstract class Battle {
         if(!opponentResponse.success)
             return opponentResponse.reason
         else
-            return "${opponent.data.name} uses ${opponentPokemonMove.move.name}\n"
+            return "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}\n"
     }
 
     private fun trainerTurn(trainerPokemonMove: PokemonMove) : String{
@@ -42,12 +42,12 @@ abstract class Battle {
         val opponentMove : PokemonMove = opponent.IA(pokemon)
         if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move, opponentMove.move)) {
             sb.append(trainerTurn(trainerPokemonMove))
-            if (opponent.currentHP > 0) {
+            if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
                 sb.append(opponentTurn(opponentMove))
             }
         } else {
             sb.append(opponentTurn(opponentMove))
-            if (pokemon.currentHP > 0) {
+            if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
                 sb.append(trainerTurn(trainerPokemonMove))
             }
         }
@@ -61,7 +61,7 @@ abstract class Battle {
             pokemon.battleData = null
         }
         if (opponent.currentHP == 0) {
-            sb.append(opponent.data.name + " fainted\n")
+            sb.append("The opposing " + opponent.data.name + " fainted\n")
             updateOpponent()
         }
         dialogTextView.text = sb.toString()

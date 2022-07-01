@@ -2,13 +2,9 @@ package com.pokemon.android.version.model.battle
 
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
-import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.level.BossBattleLevelData
 import com.pokemon.android.version.model.move.Stats
-import com.pokemon.android.version.model.move.pokemon.PokemonMove
-import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.MoveUtils
-import java.lang.StringBuilder
 
 class BossBattle() : Battle() {
 
@@ -23,7 +19,7 @@ class BossBattle() : Battle() {
             bossBattleLevelData.boss.moves)
         this.opponent.hp *= 4
         this.opponent.currentHP *= 4
-        Stats.increaseStat(opponent, bossBattleLevelData.boss.boostedStats)
+        Stats.increaseBossStats(opponent, bossBattleLevelData.boss.boostedStats)
     }
 
     override fun getBattleState(): State {

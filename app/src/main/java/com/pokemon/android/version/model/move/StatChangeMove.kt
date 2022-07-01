@@ -13,23 +13,27 @@ class StatChangeMove(
     accuracy: Int?,
     priorityLevel: Int,
     var statsAffected: List<Stats>, var target: Target,
-    var multiplicator: Float, var probability: Int?
-) : Move(id, name, type, category, power, pp, accuracy, priorityLevel) {
+    var multiplicator: Float, var probability: Int?,
+    status: List<StatusMove>,
+    highCritRate: Boolean = false,
+) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate) {
     companion object {
-        fun of(statusMoveEntity: StatChangeMoveEntity): StatChangeMove {
+        fun of(StatChangeMoveEntity: StatChangeMoveEntity): StatChangeMove {
             return StatChangeMove(
-                statusMoveEntity.id,
-                statusMoveEntity.name,
-                Type.of(statusMoveEntity.type),
-                MoveCategory.valueOf(statusMoveEntity.category),
-                statusMoveEntity.power,
-                statusMoveEntity.pp,
-                statusMoveEntity.accuracy,
-                statusMoveEntity.priorityLevel,
-                statusMoveEntity.statsAffected.map{Stats.valueOf(it)},
-                Target.valueOf(statusMoveEntity.target),
-                statusMoveEntity.multiplicator,
-                statusMoveEntity.probability)
+                StatChangeMoveEntity.id,
+                StatChangeMoveEntity.name,
+                Type.of(StatChangeMoveEntity.type),
+                MoveCategory.valueOf(StatChangeMoveEntity.category),
+                StatChangeMoveEntity.power,
+                StatChangeMoveEntity.pp,
+                StatChangeMoveEntity.accuracy,
+                StatChangeMoveEntity.priorityLevel,
+                StatChangeMoveEntity.statsAffected.map{Stats.valueOf(it)},
+                Target.valueOf(StatChangeMoveEntity.target),
+                StatChangeMoveEntity.multiplicator,
+                StatChangeMoveEntity.probability,
+                StatChangeMoveEntity.status.map(StatusMove::of),
+                StatChangeMoveEntity.highCritRate)
         }
     }
 }

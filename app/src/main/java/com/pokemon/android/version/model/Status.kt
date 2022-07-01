@@ -1,5 +1,6 @@
 package com.pokemon.android.version.model
 
+import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.StatusMove
 import kotlin.random.Random
 
@@ -27,16 +28,18 @@ enum class Status {
     }
 
     companion object {
-        fun updateStatus(opponent: Pokemon, statusMove: StatusMove) {
-            val randomForStatus: Int = Random.nextInt(100)
-            if (randomForStatus <= statusMove.probability) {
-                if ((statusMove.status == FLINCHED || statusMove.status == CONFUSED || statusMove.status == TRAPPED) && !opponent.battleData!!.battleStatus.contains(
-                        statusMove.status
+        fun updateStatus(opponent: Pokemon, move: Move) {
+            move.status.forEach {
+                val randomForStatus: Int = Random.nextInt(100)
+                if (randomForStatus <= it.probability) {
+                    if ((it.status == FLINCHED || it.status == CONFUSED || it.status == TRAPPED) && !opponent.battleData!!.battleStatus.contains(
+                            it.status
+                        )
                     )
-                )
-                    opponent.battleData!!.battleStatus.add(statusMove.status)
-                else if (isAffectedByStatus(statusMove.status, opponent)) {
-                    opponent.status = statusMove.status
+                        opponent.battleData!!.battleStatus.add(it.status)
+                    else if (isAffectedByStatus(it.status, opponent) && opponent.status == OK) {
+                        opponent.status = it.status
+                    }
                 }
             }
         }

@@ -9,7 +9,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 2,
@@ -20,7 +22,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 3,
@@ -31,7 +35,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 1
+      "priorityLevel": 1,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 4,
@@ -42,7 +48,9 @@
       "category": "SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 5,
@@ -53,7 +61,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 6,
@@ -64,7 +74,9 @@
       "category": "SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 11,
@@ -75,7 +87,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 13,
@@ -86,7 +100,9 @@
       "category": "PHYSICAL",
       "accuracy": 75,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 14,
@@ -97,7 +113,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 1
+      "priorityLevel": 1,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 16,
@@ -108,7 +126,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 29,
@@ -119,7 +139,9 @@
       "category": "PHYSICAL",
       "accuracy": 90,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 36,
@@ -130,7 +152,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 43,
@@ -141,7 +165,9 @@
       "category": "SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 44,
@@ -152,7 +178,9 @@
       "category": "SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 51,
@@ -163,7 +191,9 @@
       "category": "SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 56,
@@ -174,7 +204,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 64,
@@ -185,7 +217,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 69,
@@ -196,7 +230,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 75,
@@ -207,7 +243,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 2
+      "priorityLevel": 2,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 79,
@@ -218,7 +256,9 @@
       "category": "PHYSICAL",
       "accuracy": 90,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 80,
@@ -229,7 +269,9 @@
       "category": "SPECIAL",
       "accuracy": 80,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 90,
@@ -240,7 +282,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 93,
@@ -251,7 +295,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 95,
@@ -262,7 +308,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 1
+      "priorityLevel": 1,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 96,
@@ -273,7 +321,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 1
+      "priorityLevel": 1,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 104,
@@ -284,7 +334,9 @@
       "category": "SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 108,
@@ -295,10 +347,10 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
-    }
-  ],
-  "statusMoves": [
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
+    },
     {
       "id": 7,
       "name": "Ember",
@@ -309,8 +361,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "BURN",
-      "probability": 10
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 8,
@@ -322,8 +379,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "PARALYSIS",
-      "probability": 10
+      "status": [
+        {
+          "status": "PARALYSIS",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 12,
@@ -335,8 +397,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "PARALYSIS",
-      "probability": 10
+      "status": [
+        {
+          "status": "PARALYSIS",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 15,
@@ -348,8 +415,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "PARALYSIS",
-      "probability": 30
+      "status": [
+        {
+          "status": "PARALYSIS",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 17,
@@ -361,8 +433,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "POISON",
-      "probability": 30
+      "status": [
+        {
+          "status": "POISON",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 23,
@@ -374,8 +451,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "FLINCHED",
-      "probability": 30
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 24,
@@ -387,8 +469,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "CONFUSED",
-      "probability": 20
+      "status": [
+        {
+          "status": "CONFUSED",
+          "probability": 20
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 25,
@@ -400,8 +487,13 @@
       "accuracy": 90,
       "description": "",
       "priorityLevel": 0,
-      "status": "FLINCHED",
-      "probability": 30
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 28,
@@ -413,8 +505,13 @@
       "accuracy": 90,
       "description": "",
       "priorityLevel": 0,
-      "status": "FLINCHED",
-      "probability": 10
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 31,
@@ -426,8 +523,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "BURN",
-      "probability": 10
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 34,
@@ -439,8 +541,13 @@
       "accuracy": 75,
       "description": "",
       "priorityLevel": 0,
-      "status": "POISON",
-      "probability": 100
+      "status": [
+        {
+          "status": "POISON",
+          "probability": 100
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 35,
@@ -452,8 +559,13 @@
       "accuracy": 75,
       "description": "",
       "priorityLevel": 0,
-      "status": "ASLEEP",
-      "probability": 100
+      "status": [
+        {
+          "status": "ASLEEP",
+          "probability": 100
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 37,
@@ -465,8 +577,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "POISON",
-      "probability": 30
+      "status": [
+        {
+          "status": "POISON",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 39,
@@ -478,8 +595,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "CONFUSED",
-      "probability": 30
+      "status": [
+        {
+          "status": "CONFUSED",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 47,
@@ -491,8 +613,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "FLINCHED",
-      "probability": 30
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 48,
@@ -504,8 +631,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "CONFUSED",
-      "probability": 100
+      "status": [
+        {
+          "status": "CONFUSED",
+          "probability": 100
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 50,
@@ -517,8 +649,13 @@
       "accuracy": "95",
       "description": "",
       "priorityLevel": 0,
-      "status": "FLINCHED",
-      "probability": 30
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 52,
@@ -530,8 +667,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "PARALYSIS",
-      "probability": 30
+      "status": [
+        {
+          "status": "PARALYSIS",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 53,
@@ -543,8 +685,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "PARALYSIS",
-      "probability": 30
+      "status": [
+        {
+          "status": "PARALYSIS",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 54,
@@ -556,8 +703,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "FLINCHED",
-      "probability": 20
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 20
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 55,
@@ -569,8 +721,13 @@
       "accuracy": 90,
       "description": "",
       "priorityLevel": 0,
-      "status": "PARALYSIS",
-      "probability": 100
+      "status": [
+        {
+          "status": "PARALYSIS",
+          "probability": 100
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 57,
@@ -582,8 +739,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "FLINCHED",
-      "probability": 30
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 59,
@@ -595,8 +757,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "CONFUSED",
-      "probability": 10
+      "status": [
+        {
+          "status": "CONFUSED",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 62,
@@ -608,8 +775,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "POISON",
-      "probability": 30
+      "status": [
+        {
+          "status": "POISON",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 63,
@@ -621,8 +793,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "FLINCHED",
-      "probability": 30
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 65,
@@ -634,8 +811,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "PARALYSIS",
-      "probability": 30
+      "status": [
+        {
+          "status": "PARALYSIS",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 70,
@@ -647,8 +829,13 @@
       "accuracy": 85,
       "description": "",
       "priorityLevel": 0,
-      "status": "FLINCHED",
-      "probability": 10
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 72,
@@ -660,8 +847,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "FLINCHED",
-      "probability": 30
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 74,
@@ -673,8 +865,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "BURN",
-      "probability": 10
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 81,
@@ -686,8 +883,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "FLINCHED",
-      "probability": 10
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 82,
@@ -699,9 +901,15 @@
       "accuracy": 85,
       "description": "",
       "priorityLevel": 0,
-      "status": "BURN",
-      "probability": 10
-    },{
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
+    },
+    {
       "id": 83,
       "name": "Toxic",
       "power": 0,
@@ -711,8 +919,13 @@
       "accuracy": 90,
       "description": "",
       "priorityLevel": 0,
-      "status": "POISON",
-      "probability": 100
+      "status": [
+        {
+          "status": "POISON",
+          "probability": 100
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 85,
@@ -724,8 +937,13 @@
       "accuracy": 70,
       "description": "",
       "priorityLevel": 0,
-      "status": "POISON",
-      "probability": 40
+      "status": [
+        {
+          "status": "POISON",
+          "probability": 40
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 86,
@@ -737,8 +955,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "POISON",
-      "probability": 30
+      "status": [
+        {
+          "status": "POISON",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 88,
@@ -750,8 +973,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "PARALYSIS",
-      "probability": 30
+      "status": [
+        {
+          "status": "PARALYSIS",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 92,
@@ -763,8 +991,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "FLINCHED",
-      "probability": 20
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 20
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 94,
@@ -776,8 +1009,13 @@
       "accuracy": 70,
       "description": "",
       "priorityLevel": 0,
-      "status": "ASLEEP",
-      "probability": 100
+      "status": [
+        {
+          "status": "ASLEEP",
+          "probability": 100
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 98,
@@ -789,8 +1027,13 @@
       "accuracy": 90,
       "description": "",
       "priorityLevel": 0,
-      "status": "FLINCHED",
-      "probability": 30
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 100,
@@ -802,8 +1045,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "FROZEN",
-      "probability": 10
+      "status": [
+        {
+          "status": "FROZEN",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 101,
@@ -815,8 +1063,13 @@
       "accuracy": 70,
       "description": "",
       "priorityLevel": 0,
-      "status": "CONFUSED",
-      "probability": 30
+      "status": [
+        {
+          "status": "CONFUSED",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 103,
@@ -828,8 +1081,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "PARALYSIS",
-      "probability": 10
+      "status": [
+        {
+          "status": "PARALYSIS",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 106,
@@ -841,8 +1099,13 @@
       "accuracy": 50,
       "description": "",
       "priorityLevel": 0,
-      "status": "CONFUSED",
-      "probability": 100
+      "status": [
+        {
+          "status": "CONFUSED",
+          "probability": 100
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 107,
@@ -854,8 +1117,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "FROZEN",
-      "probability": 10
+      "status": [
+        {
+          "status": "FROZEN",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 109,
@@ -867,8 +1135,13 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "FLINCHED",
-      "probability": 30
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     },
     {
       "id": 110,
@@ -880,11 +1153,14 @@
       "accuracy": 100,
       "description": "",
       "priorityLevel": 0,
-      "status": "BURN",
-      "probability": 10
-    }
-  ],
-  "critMoves": [
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
+    },
     {
       "id": 9,
       "name": "Karate Chop",
@@ -894,7 +1170,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true
     },
     {
       "id": 18,
@@ -905,7 +1183,9 @@
       "category": "PHYSICAL",
       "accuracy": 95,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true
     },
     {
       "id": 33,
@@ -916,7 +1196,9 @@
       "category": "PHYSICAL",
       "accuracy": 80,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true
     },
     {
       "id": 38,
@@ -927,7 +1209,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true
     },
     {
       "id": 49,
@@ -938,7 +1222,9 @@
       "category": "SPECIAL",
       "accuracy": 95,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true
     },
     {
       "id": 68,
@@ -949,7 +1235,9 @@
       "category": "PHYSICAL",
       "accuracy": 90,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true
     },
     {
       "id": 78,
@@ -960,7 +1248,9 @@
       "category": "PHYSICAL",
       "accuracy": 80,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true
     },
     {
       "id": 91,
@@ -971,7 +1261,125 @@
       "category": "PHYSICAL",
       "accuracy": 95,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true
+    },
+    {
+      "id": 112,
+      "name": "Swift",
+      "power": 60,
+      "pp": 20,
+      "type": 5,
+      "category": "SPECIAL",
+      "description": "",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 113,
+      "name": "Aerial Ace",
+      "power": 60,
+      "pp": 20,
+      "type": 6,
+      "category": "PHYSICAL",
+      "description": "",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 117,
+      "name": "Tri Attack",
+      "power": 80,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 5,
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 7
+        },
+        {
+          "status": "PARALYSIS",
+          "probability": 7
+        },
+        {
+          "status": "FROZEN",
+          "probability": 7
+        }
+      ],
+      "highCritRate": false
+    },
+    {
+      "id": 118,
+      "name": "Fire Fang",
+      "power": 65,
+      "category": "SPECIAL",
+      "pp": 15,
+      "type": 2,
+      "accuracy": 95,
+      "description": "",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 10
+        },
+        {
+          "status": "FLINCHED",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
+    },
+    {
+      "id": 119,
+      "name": "Ice Fang",
+      "power": 65,
+      "category": "SPECIAL",
+      "pp": 15,
+      "type": 14,
+      "accuracy": 95,
+      "description": "",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "FROZEN",
+          "probability": 10
+        },
+        {
+          "status": "FLINCHED",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
+    },
+    {
+      "id": 120,
+      "name": "Thunder Fang",
+      "power": 65,
+      "category": "SPECIAL",
+      "pp": 15,
+      "type": 4,
+      "accuracy": 95,
+      "description": "",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "PARALYSIS",
+          "probability": 10
+        },
+        {
+          "status": "FLINCHED",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
     }
   ],
   "variableHitMoves": [
@@ -984,7 +1392,9 @@
       "category": "PHYSICAL",
       "accuracy": 85,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 61,
@@ -995,7 +1405,9 @@
       "category": "PHYSICAL",
       "accuracy": 95,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 71,
@@ -1006,7 +1418,9 @@
       "category": "PHYSICAL",
       "accuracy": 90,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 77,
@@ -1017,7 +1431,9 @@
       "category": "PHYSICAL",
       "accuracy": 90,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 99,
@@ -1028,7 +1444,9 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     }
   ],
   "statsChangesMoves": [
@@ -1041,11 +1459,14 @@
       "type": 10,
       "accuracy": 100,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "ACCURACY"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.75
+      "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 20,
@@ -1054,13 +1475,15 @@
       "category": "OTHER",
       "pp": 40,
       "type": 3,
-      "accuracy": 100,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "DEFENSE"
       ],
       "target": "SELF",
-      "multiplicator": 1.5
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 21,
@@ -1070,11 +1493,14 @@
       "pp": 30,
       "type": 12,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "SPEED"
       ],
       "target": "SELF",
-      "multiplicator": 2
+      "multiplicator": 2,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 22,
@@ -1084,11 +1510,14 @@
       "pp": 30,
       "type": 5,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "CRITICAL_RATE"
       ],
       "target": "SELF",
-      "multiplicator": 2
+      "multiplicator": 2,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 26,
@@ -1099,11 +1528,14 @@
       "type": 7,
       "accuracy": 95,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "SPEED"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5
+      "multiplicator": 0.5,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 27,
@@ -1114,12 +1546,15 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "DEFENSE"
       ],
       "target": "OPPONENT",
       "multiplicator": 0.75,
-      "probabilty": 20
+      "probabilty": 20,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 32,
@@ -1129,11 +1564,14 @@
       "pp": 30,
       "type": 5,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "DEFENSE"
       ],
       "target": "SELF",
-      "multiplicator": 1.5
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 40,
@@ -1144,12 +1582,15 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "DEFENSE",
         "SPDEF"
       ],
       "target": "SELF",
-      "multiplicator": 0.75
+      "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 41,
@@ -1160,11 +1601,14 @@
       "type": 5,
       "accuracy": 85,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "DEFENSE"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5
+      "multiplicator": 0.5,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 42,
@@ -1175,11 +1619,14 @@
       "type": 5,
       "accuracy": 100,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "ACCURACY"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.75
+      "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 45,
@@ -1190,12 +1637,15 @@
       "type": 12,
       "accuracy": 100,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
       ],
       "target": "OPPONENT",
       "multiplicator": 0.5,
-      "probabilty": 10
+      "probabilty": 10,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 46,
@@ -1206,12 +1656,15 @@
       "type": 13,
       "accuracy": 100,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
       ],
       "target": "OPPONENT",
       "multiplicator": 0.5,
-      "probabilty": 20
+      "probabilty": 20,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 30,
@@ -1222,11 +1675,14 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "SPEED"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.75
+      "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 58,
@@ -1237,12 +1693,15 @@
       "category": "SPECIAL",
       "accuracy": 100,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
       ],
       "target": "OPPONENT",
       "multiplicator": 0.75,
-      "probabilty": 10
+      "probabilty": 10,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 60,
@@ -1253,12 +1712,15 @@
       "type": 7,
       "accuracy": 100,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
       ],
       "target": "OPPONENT",
       "multiplicator": 0.5,
-      "probabilty": 10
+      "probabilty": 10,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 73,
@@ -1269,12 +1731,15 @@
       "type": 18,
       "accuracy": 90,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "ATTACK"
       ],
       "target": "OPPONENT",
       "multiplicator": 0.5,
-      "probabilty": 10
+      "probabilty": 10,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 84,
@@ -1285,12 +1750,15 @@
       "type": 18,
       "accuracy": 100,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "SPATK"
       ],
       "target": "OPPONENT",
       "multiplicator": 0.5,
-      "probabilty": 10
+      "probabilty": 10,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 87,
@@ -1301,12 +1769,15 @@
       "type": 10,
       "accuracy": 100,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
       ],
       "target": "OPPONENT",
       "multiplicator": 0.5,
-      "probabilty": 10
+      "probabilty": 10,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 89,
@@ -1317,12 +1788,15 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "ATTACK",
         "DEFENSE"
       ],
       "target": "SELF",
-      "multiplicator": 0.75
+      "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 97,
@@ -1333,12 +1807,15 @@
       "type": 14,
       "accuracy": 95,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "SPEED"
       ],
       "target": "OPPONENT",
       "multiplicator": 0.5,
-      "probabilty": 100
+      "probabilty": 100,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 102,
@@ -1349,12 +1826,19 @@
       "type": 9,
       "accuracy": 100,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
-        "ATTACK","DEFENSE","SPATK","SPDEF","SPEED"
+        "ATTACK",
+        "DEFENSE",
+        "SPATK",
+        "SPDEF",
+        "SPEED"
       ],
       "target": "SELF",
       "multiplicator": 1.5,
-      "probabilty": 10
+      "probabilty": 10,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 105,
@@ -1365,12 +1849,15 @@
       "type": 1,
       "accuracy": 100,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
       ],
       "target": "OPPONENT",
       "multiplicator": 0.5,
-      "probabilty": 10
+      "probabilty": 10,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 111,
@@ -1381,12 +1868,32 @@
       "type": 16,
       "accuracy": 100,
       "description": "",
+      "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
       ],
       "target": "OPPONENT",
       "multiplicator": 0.5,
-      "probabilty": 10
+      "probabilty": 10,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 114,
+      "name": "Sword Dance",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 5,
+      "description": "",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "SELF",
+      "multiplicator": 2,
+      "status": [],
+      "highCritRate": false
     }
   ],
   "drainMoves": [
@@ -1399,7 +1906,9 @@
       "category": "SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 67,
@@ -1410,7 +1919,9 @@
       "category": "SPECIAL",
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     },
     {
       "id": 76,
@@ -1421,7 +1932,44 @@
       "type": 11,
       "accuracy": 100,
       "description": "",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
+    }
+  ],
+  "recoilMoves": [
+    {
+      "id": 115,
+      "name": "Take Down",
+      "power": 90,
+      "category": "PHYSICAL",
+      "pp": 20,
+      "type": 5,
+      "accuracy": 90,
+      "description": "",
+      "priorityLevel": 0,
+      "recoil": "QUARTER",
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 116,
+      "name": "Flare Blitz",
+      "power": 120,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 2,
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0,
+      "recoil": "THIRD",
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
     }
   ]
 }

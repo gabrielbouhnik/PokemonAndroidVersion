@@ -11,7 +11,9 @@ open class Move(
     var power: Int,
     var pp: Int,
     var accuracy: Int?,
-    var priorityLevel: Int = 0
+    var priorityLevel: Int = 0,
+    var status: List<StatusMove>,
+    var highCritRate: Boolean = false,
 ) {
     companion object {
         fun of(moveEntity: MoveEntity): Move {
@@ -24,6 +26,8 @@ open class Move(
                 .pp(moveEntity.pp)
                 .accuracy(moveEntity.accuracy)
                 .priorityLevel(moveEntity.priorityLevel)
+                .highCritRate(moveEntity.highCritRate)
+                .status(moveEntity.status.map(StatusMove::of))
                 .build()
         }
     }
@@ -36,7 +40,9 @@ open class Move(
         var type: Type = Type.NONE,
         var category: MoveCategory = MoveCategory.PHYSICAL,
         var accuracy: Int? = null,
-        var priorityLevel: Int = 0
+        var priorityLevel: Int = 0,
+        var status: List<StatusMove> = arrayListOf(),
+        var highCritRate: Boolean = false
     ) {
         fun id(id: Int) = apply { this.id = id }
         fun name(name: String) = apply { this.name = name }
@@ -46,6 +52,8 @@ open class Move(
         fun pp(pp: Int) = apply { this.pp = pp }
         fun accuracy(accuracy: Int?) = apply { this.accuracy = accuracy }
         fun priorityLevel(priorityLevel: Int) = apply { this.priorityLevel = priorityLevel }
-        fun build() = Move(id, name, type, category, power, pp, accuracy, priorityLevel)
+        fun highCritRate(highCritRate: Boolean) = apply { this.highCritRate = highCritRate }
+        fun status(status: List<StatusMove>) = apply { this.status = status }
+        fun build() = Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate)
     }
 }

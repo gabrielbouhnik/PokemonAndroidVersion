@@ -15,18 +15,39 @@ enum class Stats {
         fun updateStat(pokemon : Pokemon, statChangeMove: StatChangeMove){
             statChangeMove.statsAffected.forEach {
                 when(it){
-                    ATTACK ->{pokemon.battleData!!.attackMultiplicator *= statChangeMove.multiplicator}
-                    DEFENSE -> {pokemon.battleData!!.defenseMultiplicator *= statChangeMove.multiplicator}
-                    SPATK -> {pokemon.battleData!!.spAtkMultiplicator *= statChangeMove.multiplicator}
-                    SPDEF -> {pokemon.battleData!!.spDefMultiplicator *= statChangeMove.multiplicator}
-                    SPEED -> {pokemon.battleData!!.speedMultiplicator *= statChangeMove.multiplicator}
-                    ACCURACY -> {pokemon.battleData!!.accuracyMultiplicator *= statChangeMove.multiplicator}
-                    CRITICAL_RATE -> {pokemon.battleData!!.critRate *= statChangeMove.multiplicator}
+                    ATTACK ->{
+                        if (pokemon.battleData!!.attackMultiplicator < 4 && pokemon.battleData!!.attackMultiplicator > 0.1)
+                            pokemon.battleData!!.attackMultiplicator *= statChangeMove.multiplicator
+                    }
+                    DEFENSE -> {
+                        if (pokemon.battleData!!.defenseMultiplicator < 4 && pokemon.battleData!!.defenseMultiplicator > 0.1)
+                        pokemon.battleData!!.defenseMultiplicator *= statChangeMove.multiplicator
+                    }
+                    SPATK -> {
+                        if (pokemon.battleData!!.spAtkMultiplicator < 4 && pokemon.battleData!!.spAtkMultiplicator > 0.1)
+                            pokemon.battleData!!.spAtkMultiplicator *= statChangeMove.multiplicator
+                    }
+                    SPDEF -> {
+                        if (pokemon.battleData!!.spDefMultiplicator < 4 && pokemon.battleData!!.spDefMultiplicator > 0.1)
+                            pokemon.battleData!!.spDefMultiplicator *= statChangeMove.multiplicator
+                    }
+                    SPEED -> {
+                        if (pokemon.battleData!!.speedMultiplicator < 4 && pokemon.battleData!!.speedMultiplicator > 0.1)
+                            pokemon.battleData!!.speedMultiplicator *= statChangeMove.multiplicator
+                    }
+                    ACCURACY -> {
+                        if (pokemon.battleData!!.accuracyMultiplicator < 4 && pokemon.battleData!!.accuracyMultiplicator > 0.1)
+                        pokemon.battleData!!.accuracyMultiplicator *= statChangeMove.multiplicator
+                    }
+                    CRITICAL_RATE -> {
+                        if (pokemon.battleData!!.critRate < 4)
+                        pokemon.battleData!!.critRate *= statChangeMove.multiplicator
+                    }
                 }
             }
         }
 
-        fun increaseStat(pokemon : Pokemon, stats : List<Stats>){
+        fun increaseBossStats(pokemon : Pokemon, stats : List<Stats>){
             stats.forEach {
                 when(it){
                     ATTACK ->{pokemon.battleData!!.attackMultiplicator *= 1.5f}

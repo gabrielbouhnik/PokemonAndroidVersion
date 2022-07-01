@@ -2,7 +2,6 @@ package com.pokemon.android.version.model.battle
 
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
-import com.pokemon.android.version.model.move.CritMove
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveCategory
 import kotlin.math.roundToInt
@@ -12,7 +11,7 @@ class DamageCalculator {
     companion object {
         fun getCritMultiplicator(attacker : Pokemon, move : Move) : Float{
             val random = Random.nextInt(100)
-            if (move is CritMove){
+            if (move.highCritRate){
                 if (random < 13)
                     return 1.5f
             }

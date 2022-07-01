@@ -1,10 +1,9 @@
 package com.pokemon.android.version.model.move
 
-
-import com.pokemon.android.version.entity.move.DrainMoveEntity
+import com.pokemon.android.version.entity.move.RecoilMoveEntity
 import com.pokemon.android.version.model.Type
 
-class DrainMove(
+class RecoilMove(
     id: Int = 0,
     name: String,
     type: Type = Type.NONE,
@@ -15,25 +14,27 @@ class DrainMove(
     priorityLevel: Int = 0,
     status: ArrayList<StatusMove>,
     highCritRate: Boolean = false,
+    var recoil : Recoil
 ) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate) {
     companion object {
-        fun of(drainMoveEntity: DrainMoveEntity): DrainMove {
-            return DrainMoveBuilder()
-                .id(drainMoveEntity.id)
-                .name(drainMoveEntity.name)
-                .type(Type.of(drainMoveEntity.type))
-                .category(MoveCategory.valueOf(drainMoveEntity.category))
-                .power(drainMoveEntity.power)
-                .pp(drainMoveEntity.pp)
-                .accuracy(drainMoveEntity.accuracy)
-                .priorityLevel(drainMoveEntity.priorityLevel)
-                .highCritRate(drainMoveEntity.highCritRate)
-                .status(ArrayList(drainMoveEntity.status.map(StatusMove::of)))
+        fun of(recoilMoveEntity: RecoilMoveEntity): RecoilMove {
+            return RecoilMoveBuilder()
+                .id(recoilMoveEntity.id)
+                .name(recoilMoveEntity.name)
+                .type(Type.of(recoilMoveEntity.type))
+                .category(MoveCategory.valueOf(recoilMoveEntity.category))
+                .power(recoilMoveEntity.power)
+                .pp(recoilMoveEntity.pp)
+                .accuracy(recoilMoveEntity.accuracy)
+                .priorityLevel(recoilMoveEntity.priorityLevel)
+                .highCritRate(recoilMoveEntity.highCritRate)
+                .status(ArrayList(recoilMoveEntity.status.map(StatusMove::of)))
+                .recoil(Recoil.valueOf(recoilMoveEntity.recoil))
                 .build()
         }
     }
 
-    data class DrainMoveBuilder(
+    data class RecoilMoveBuilder(
         var id: Int = 0,
         var name: String = "",
         var power: Int = 0,
@@ -43,7 +44,8 @@ class DrainMove(
         var accuracy: Int = 100,
         var priorityLevel: Int = 0,
         var status: ArrayList<StatusMove> = arrayListOf(),
-        var highCritRate: Boolean = false
+        var highCritRate: Boolean = false,
+        var recoil: Recoil = Recoil.ALL
     ) {
         fun id(id: Int) = apply { this.id = id }
         fun name(name: String) = apply { this.name = name }
@@ -55,7 +57,9 @@ class DrainMove(
         fun priorityLevel(priorityLevel: Int) = apply { this.priorityLevel = priorityLevel }
         fun highCritRate(highCritRate: Boolean) = apply { this.highCritRate = highCritRate }
         fun status(status: ArrayList<StatusMove>) = apply { this.status = status }
+        fun recoil(recoil: Recoil) = apply { this.recoil = recoil }
 
-        fun build() = DrainMove(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate)
+        fun build() =
+            RecoilMove(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, recoil)
     }
 }

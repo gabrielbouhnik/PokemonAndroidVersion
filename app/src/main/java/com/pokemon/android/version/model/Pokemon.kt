@@ -112,8 +112,10 @@ class Pokemon(
                 return move
             if (damage > 0 && hp/currentHP < 10 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
                 return move
-            if (move.move is StatusMove && Status.isAffectedByStatus((move.move as StatusMove).status, opponent) && (move.move as StatusMove).probability == 100)
-                return move
+            move.move.status.forEach{
+                if (Status.isAffectedByStatus(it.status, opponent) && it.probability == 100)
+                    return move
+            }
             if (move.move is StatChangeMove)
             {
                 val statChangeMove : StatChangeMove = move.move as StatChangeMove
@@ -132,13 +134,6 @@ class Pokemon(
     }
 
     private fun canAttack(move: PokemonMove, opponent: Pokemon): AttackResponse{
-        if (this.battleData!!.battleStatus.contains(Status.FLINCHED))
-            return AttackResponse(false, "But ${this.data.name} flinched and couldn't move\n")
-
-        if (this.status == Status.PARALYSIS) {
-            if (Random.nextInt(100) < 25)
-                return AttackResponse(false, "But ${this.data.name} can't move because it is paralysed!\n")
-        }
         if (this.status == Status.FROZEN) {
             if (Random.nextInt(100) > 20)
                 return AttackResponse(false, "But ${this.data.name} is frozen solid!\n")
@@ -152,15 +147,22 @@ class Pokemon(
             } else
                 return AttackResponse(false, this.data.name + " is fast asleep!\n")
         }
+        if (this.battleData!!.battleStatus.contains(Status.FLINCHED))
+            return AttackResponse(false, "But ${this.data.name} flinched and couldn't move\n")
+
+        if (this.status == Status.PARALYSIS) {
+            if (Random.nextInt(100) < 25)
+                return AttackResponse(false, "But ${this.data.name} can't move because it is paralysed!\n")
+        }
         if (this.battleData!!.battleStatus.contains(Status.CONFUSED)) {
             if (Random.nextInt(100) < 33) {
                 val confusionDamage = DamageCalculator.computeConfusionDamage(this)
-                if (confusionDamage >= opponent.currentHP) {
-                    currentHP = 1
-                    /*status = Status.OK
-                    battleData = null*/
-                } else {
+                if (currentHP > confusionDamage) {
                     currentHP -= confusionDamage
+                } else {
+                    currentHP = 0
+                    status = Status.OK
+                    battleData = null
                 }
                 return AttackResponse(false, "But ${this.data.name} hits hurt itself in its confusion\n")
             }
@@ -200,8 +202,8 @@ class Pokemon(
             opponent.currentHP = opponent.currentHP - damage
             if (move.move.type == Type.FIRE && opponent.status == Status.FROZEN)
                 opponent.status = Status.OK
-            if (move.move is StatusMove && (move.move.power == 0 || damage > 0)) {
-                Status.updateStatus(opponent, move.move as StatusMove)
+            if (move.move.power == 0 || damage > 0) {
+                Status.updateStatus(opponent, move.move)
             }
             if (move.move is StatChangeMove && (move.move.power == 0 || damage > 0)) {
                 val statChangeMove = move.move as StatChangeMove
@@ -213,6 +215,18 @@ class Pokemon(
         }
         if (move.move is DrainMove) {
             currentHP = if (currentHP + damageDone/2 > hp) hp else currentHP + damageDone/2
+        }
+        if (move.move is RecoilMove) {
+            val recoil = (move.move as RecoilMove).recoil
+            if (currentHP > (damageDone * recoil.damage).toInt()) {
+                currentHP -= (damageDone * recoil.damage).toInt()
+            }
+            else{
+                currentHP = 0
+                status = Status.OK
+                battleData = null
+            }
+
         }
         return AttackResponse(true, "")
     }

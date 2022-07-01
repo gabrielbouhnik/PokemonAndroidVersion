@@ -199,7 +199,7 @@ class BattleUI {
                 }
             }
             else -> {
-                if (battle.pokemon.currentHP == 0){
+                if (battle.pokemon.currentHP <= 0){
                     disableAttackButtons(activity)
                     val recyclerView = activity.findViewById<RecyclerView>(R.id.battleRecyclerView)
                     recyclerView.visibility = VISIBLE
