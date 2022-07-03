@@ -549,7 +549,7 @@
     {
       "id": 16,
       "name": "\nRoute 24",
-      "description": "You have finally arrived in Cerulean City but you come across Jackson.",
+      "description": "You have decide to train before challenging the Cerulean Gym so you go to Route 24",
       "type": "Trainer Battle",
       "opponents": [
         {
@@ -1036,7 +1036,7 @@
               "id": 5,
               "level": 32,
               "moveIds": [
-                15,28,31,42
+                15,118,31,42
               ]
             }
           ]

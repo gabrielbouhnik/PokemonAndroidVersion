@@ -2,15 +2,9 @@ package com.pokemon.android.version.model.battle
 
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
-import com.pokemon.android.version.model.ExpGaugeType
 import com.pokemon.android.version.model.Pokemon
-import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.level.WildBattleLevelData
-import com.pokemon.android.version.model.move.pokemon.PokemonMove
-import com.pokemon.android.version.ui.BattleUI
-import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.MoveUtils
-import java.lang.StringBuilder
 import kotlin.random.Random
 
 class WildBattle() : Battle() {

@@ -1,22 +1,18 @@
 package com.pokemon.android.version.ui
 
 import android.graphics.drawable.Drawable
-import android.os.Build
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Gender
-import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.item.ItemQuantity
 import com.pokemon.android.version.utils.DailyHeal
 import com.pokemon.android.version.utils.ItemUtils

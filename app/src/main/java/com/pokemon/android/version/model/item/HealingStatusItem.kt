@@ -1,6 +1,5 @@
 package com.pokemon.android.version.model.item
 
-import com.pokemon.android.version.exception.ItemCannotBeUsedException
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 
@@ -12,11 +11,12 @@ class HealingStatusItem (val status : Status) : Item {
     }
 
     override fun isUsable(pokemon: Pokemon): Boolean {
-        return pokemon.currentHP > 0 && pokemon.status != Status.OK
+        return pokemon.currentHP > 0 && pokemon.status == status
     }
 
 
     override fun apply(pokemon: Pokemon) {
-        pokemon.status = Status.OK
+        if (pokemon.status == status)
+            pokemon.status = Status.OK
     }
 }

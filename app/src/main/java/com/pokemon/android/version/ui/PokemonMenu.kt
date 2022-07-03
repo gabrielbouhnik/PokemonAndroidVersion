@@ -41,9 +41,10 @@ class PokemonMenu {
 
     fun loadTeamMenuElite(activity : MainActivity){
         activity.setContentView(R.layout.team_layout)
+        val teamSize = activity.trainer!!.team.size
         val backButton : Button = activity.findViewById(R.id.teamMenuBackButton)
         backButton.setOnClickListener{
-            if (activity.trainer!!.team.size == 6) {
+            if (activity.trainer!!.team.size == teamSize) {
                 loadPokemonMenuElite(activity)
             }
         }
@@ -54,7 +55,7 @@ class PokemonMenu {
         val pokemons : MutableList<Pokemon> = (activity.trainer!!.team).toMutableList()
         val myItemClickListener = View.OnClickListener {
             val position = it.tag as Int
-            if (activity.trainer!!.team.size < 6 && !activity.trainer!!.team.contains(pokemons[position])) {
+            if (activity.trainer!!.team.size < teamSize && !activity.trainer!!.team.contains(pokemons[position])) {
                 activity.trainer!!.team.add(pokemons[position])
                 teamRecyclerView.adapter = TeamMemberRecyclerAdapter(activity, activity.trainer!!.team, View.OnClickListener {})
             }

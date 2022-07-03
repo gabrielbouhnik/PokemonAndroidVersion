@@ -1,7 +1,6 @@
 package com.pokemon.android.version.ui
 
 import android.graphics.Color
-import android.widget.Button
 import com.pokemon.android.version.model.Type
 
 class ColorUtils {

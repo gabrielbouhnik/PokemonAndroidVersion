@@ -2,6 +2,7 @@ package com.pokemon.android.version.ui
 
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
@@ -29,8 +30,13 @@ class ItemMenu {
         val adapter =  ItemRecyclerAdapter(activity, items,
             if (pokemon == null) View.OnClickListener{} else View.OnClickListener{
                 val position = it.tag as Int
-                activity.trainer!!.useItem(items[position].itemId, pokemon)
-                SaveManager.save(activity)
+                if (ItemUtils.getItemById(items[position].itemId).isUsable(pokemon)){
+                    activity.trainer!!.useItem(items[position].itemId, pokemon)
+                    SaveManager.save(activity)
+                }
+                else{
+                    Toast.makeText(activity,"Item cannot be used on this pokemon", Toast.LENGTH_SHORT)
+                }
                 activity.mainMenu.pokemonMenu.loadPokemonInfoLayout(activity, pokemon)
             })
         recyclerView.adapter = adapter

@@ -1,32 +1,23 @@
 package com.pokemon.android.version.model
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.item.Item
+import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.ItemUtils
-import java.time.LocalDate
-import java.time.LocalDateTime
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 import kotlin.random.Random
 
-class Trainer  : ITrainer{
-    var name: String = ""
+class Trainer(var name: String, gender: Gender) : ITrainer{
     var pokemons: ArrayList<Pokemon> = ArrayList()
-    var gender: Gender? = null
+    var gender: Gender? = gender
     var team: ArrayList<Pokemon> = ArrayList()
     var items: HashMap<Int, Int> = HashMap()
     var progression: Int = 1
     var coins: Int = 50
     var lastTimeDailyHealUsed : Date? = null
     var eliteProgression : Int =  0
-
-    constructor(name: String, gender: Gender) {
-        this.name = name
-        this.gender = gender
-    }
 
     override fun getFirstPokemonThatCanFight(): Pokemon? {
         for (pokemon in team) {
@@ -110,7 +101,7 @@ class Trainer  : ITrainer{
     }
 
     fun getMaxLevel(): Int{
-        if (progression >= 67)
+        if (progression >= LevelMenu.ELITE_4_LAST_LEVEL_ID)
             return 80
         if (items.contains(38))
             return 70

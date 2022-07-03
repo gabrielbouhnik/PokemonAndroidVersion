@@ -2,7 +2,6 @@ package com.pokemon.android.version.model.move
 
 import com.pokemon.android.version.entity.move.StatusEntity
 import com.pokemon.android.version.model.Status
-import com.pokemon.android.version.model.Type
 
 class StatusMove(
     var status: Status,

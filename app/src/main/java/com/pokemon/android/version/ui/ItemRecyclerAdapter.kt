@@ -3,14 +3,11 @@ package com.pokemon.android.version.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.item.ItemQuantity
-import com.pokemon.android.version.model.level.Reward
 import com.pokemon.android.version.utils.ItemUtils
 
 class ItemRecyclerAdapter(var activity : MainActivity,

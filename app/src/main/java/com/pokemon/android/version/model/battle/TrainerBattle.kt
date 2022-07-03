@@ -4,13 +4,9 @@ import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
-import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
-import com.pokemon.android.version.model.move.pokemon.PokemonMove
-import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.MoveUtils
 import java.io.InputStream
-import java.lang.StringBuilder
 
 class TrainerBattle() : Battle(){
     var numberOfTrainers: Int = 0

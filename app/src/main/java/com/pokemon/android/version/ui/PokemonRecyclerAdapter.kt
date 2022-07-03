@@ -1,6 +1,5 @@
 package com.pokemon.android.version.ui
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE

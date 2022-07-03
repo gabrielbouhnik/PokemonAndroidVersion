@@ -1,8 +1,6 @@
 package com.pokemon.android.version.model.item
 
-import com.pokemon.android.version.exception.ItemCannotBeUsedException
 import com.pokemon.android.version.model.Pokemon
-import com.pokemon.android.version.model.Status
 
 class RareCandy : Item {
     companion object{

@@ -6,6 +6,8 @@ import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.level.LevelData
+import com.pokemon.android.version.model.move.DrainMove
+import com.pokemon.android.version.model.move.RecoilMove
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.ItemUtils
@@ -23,18 +25,30 @@ abstract class Battle {
 
     private fun opponentTurn(opponentPokemonMove: PokemonMove) : String{
         val opponentResponse = opponent.attack(opponentPokemonMove, pokemon)
-        if(!opponentResponse.success)
-            return opponentResponse.reason
-        else
-            return "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}\n"
+        return if (!opponentResponse.success)
+            opponentResponse.reason
+        else{
+            var action = "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}\n"
+            if (opponentPokemonMove.move is DrainMove)
+                action += "${pokemon.data.name} had its energy drained!\n"
+            else if (opponentPokemonMove.move is RecoilMove)
+                action += "The opposing ${opponent.data.name} is damaged by recoil!\n"
+            action
+        }
     }
 
     private fun trainerTurn(trainerPokemonMove: PokemonMove) : String{
         val response = pokemon.attack(trainerPokemonMove, opponent)
-        if (!response.success)
-            return response.reason
-        else
-            return "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n"
+        return if (!response.success)
+            response.reason
+        else {
+            var action = "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n"
+            if (trainerPokemonMove.move is DrainMove)
+                action += "The opposing ${opponent.data.name} had its energy drained!\n"
+            else if (trainerPokemonMove.move is RecoilMove)
+                action += "${pokemon.data.name} is damaged by recoil!\n"
+            action
+        }
     }
 
     fun turn(trainerPokemonMove: PokemonMove){
@@ -51,19 +65,7 @@ abstract class Battle {
                 sb.append(trainerTurn(trainerPokemonMove))
             }
         }
-        if (opponent.currentHP > 0)
-            sb.append(checkStatus(opponent))
-        if (pokemon.currentHP > 0)
-            sb.append(checkStatus(pokemon))
-        if (pokemon.currentHP == 0){
-            sb.append(pokemon.data.name + " fainted\n")
-            pokemon.status = Status.OK
-            pokemon.battleData = null
-        }
-        if (opponent.currentHP == 0) {
-            sb.append("The opposing " + opponent.data.name + " fainted\n")
-            updateOpponent()
-        }
+        endTurn(sb)
         dialogTextView.text = sb.toString()
     }
 
@@ -87,6 +89,7 @@ abstract class Battle {
         sb.append("${pokemonToBeSent.trainer!!.name} sends ${pokemonToBeSent.data.name}\n")
         switchPokemon(pokemonToBeSent)
         sb.append(opponentTurn(opponent.IA(pokemon)))
+        endTurn(sb)
         dialogTextView.text = sb.toString()
     }
 
@@ -94,7 +97,7 @@ abstract class Battle {
         val sb = StringBuilder()
         if (ItemUtils.getItemById(itemId) is Ball) {
             if (this is WildBattle) {
-                if (activity.trainer!!.getMaxLevel() > opponent.level && activity.trainer!!.catchPokemon(opponent!!, itemId)) {
+                if (activity.trainer!!.getMaxLevel() > opponent.level && activity.trainer!!.catchPokemon(opponent, itemId)) {
                     dialogTextView.text = activity.trainer!!.name + " caught ${opponent.data.name}!\n"
                     if (this.encountersLeft > 0)
                         this.generateRandomEncounter()
@@ -107,8 +110,24 @@ abstract class Battle {
         else{
             activity.trainer!!.useItem(itemId, pokemon)
         }
-        sb.append(opponentTurn(opponent.IA(pokemon)))
+        endTurn(sb)
         dialogTextView.text = sb.toString()
+    }
+
+    private fun endTurn(sb : StringBuilder){
+        if (opponent.currentHP > 0)
+            sb.append(checkStatus(opponent))
+        if (pokemon.currentHP > 0)
+            sb.append(checkStatus(pokemon))
+        if (pokemon.currentHP == 0){
+            sb.append(pokemon.data.name + " fainted\n")
+            pokemon.status = Status.OK
+            pokemon.battleData = null
+        }
+        if (opponent.currentHP == 0) {
+            sb.append("The opposing " + opponent.data.name + " fainted\n")
+            updateOpponent()
+        }
     }
 
     companion object {

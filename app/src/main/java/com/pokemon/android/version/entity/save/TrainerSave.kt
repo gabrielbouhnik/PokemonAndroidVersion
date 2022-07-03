@@ -1,7 +1,5 @@
 package com.pokemon.android.version.entity.save
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.pokemon.android.version.model.Trainer
 import com.pokemon.android.version.model.item.ItemQuantity
 import java.text.SimpleDateFormat

@@ -1,11 +1,9 @@
 package com.pokemon.android.version.repository
 
-import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.MainActivity
-import com.pokemon.android.version.entity.item.ItemEntity
 import com.pokemon.android.version.entity.item.ItemsEntity
 import com.pokemon.android.version.utils.JsonFileToString
 
