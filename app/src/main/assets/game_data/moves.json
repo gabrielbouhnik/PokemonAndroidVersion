@@ -1406,6 +1406,18 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": true
+    },
+    {
+      "id": 124,
+      "name": "Aura Sphere",
+      "power": 90,
+      "pp": 10,
+      "type": 11,
+      "category": "SPECIAL",
+      "description": "",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     }
   ],
   "variableHitMoves": [

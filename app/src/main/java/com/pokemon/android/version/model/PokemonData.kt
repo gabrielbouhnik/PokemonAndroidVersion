@@ -12,7 +12,7 @@ class PokemonData (val id : Int,
                    val movesByLevel : List<MoveLearnedByLevel>,
                    val movesByTM : List<MoveLearned>,
                    val bannerMoves : List<MoveLearned>,
-                   val catchRate : Float,
+                   val catchRate : Int,
                    var hp : Int,
                    var attack : Int,
                    var defense : Int,
@@ -58,7 +58,7 @@ class PokemonData (val id : Int,
         var movesByLevel : List<MoveLearnedByLevel> = ArrayList(),
         var movesByTM : List<MoveLearned> = ArrayList(),
         var bannerMoves : List<MoveLearned> = ArrayList(),
-        var catchRate : Float =  0F,
+        var catchRate : Int =  255,
         var hp : Int  = 0,
         var attack : Int = 0,
         var defense : Int = 0,
@@ -75,7 +75,7 @@ class PokemonData (val id : Int,
         fun movesByLevel(movesByLevel: List<MoveLearnedByLevel>) = apply { this.movesByLevel = movesByLevel }
         fun movesByTM(movesByTM: List<MoveLearned>) = apply { this.movesByTM = movesByTM }
         fun bannerMoves(bannerMoves: List<MoveLearned>) = apply { this.bannerMoves = bannerMoves }
-        fun catchRate(catchRate: Float) = apply { this.catchRate = catchRate }
+        fun catchRate(catchRate: Int) = apply { this.catchRate = catchRate }
         fun hp(hp: Int) = apply { this.hp = hp }
         fun attack(attack: Int) = apply { this.attack = attack }
         fun defense(defense: Int) = apply { this.defense = defense }

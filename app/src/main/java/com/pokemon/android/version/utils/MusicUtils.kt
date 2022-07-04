@@ -13,6 +13,7 @@ class MusicUtils {
                 4 -> activity.updateMusic(R.raw.giovanni_theme)
                 5 -> activity.updateMusic(R.raw.champion_theme)
                 6 -> activity.updateMusic(R.raw.mewtwo_theme)
+                7 -> activity.updateMusic(R.raw.cynthia_theme)
             }
         }
     }

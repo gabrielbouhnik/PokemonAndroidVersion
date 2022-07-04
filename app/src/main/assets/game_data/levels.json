@@ -49,7 +49,6 @@
       "id": 4,
       "name": "\nVS Rival 2",
       "description": "Having no badge, the guard does not let you enter the Victory Road. However, you come across your rival",
-      "type": "Trainer Battle",
       "opponents": [
         {
           "sprite": "images/Spr_Rival.png",
@@ -92,7 +91,6 @@
       "id": 7,
       "name": "\nVS Bug Catcher",
       "description": "You finally find the exit of Viridian Forest but a trainer challenges you",
-      "type": "Trainer Battle",
       "opponents": [
         {
           "sprite": "images/Sprite_Bug_Catcher.png",
@@ -148,7 +146,6 @@
       "id": 8,
       "name": "\nPewter Gym",
       "description": "You have arrived in Pewter City and are going straight to the arena. However, you can't face the gym leader yet.",
-      "type": "Trainer Battle",
       "opponents": [
         {
           "sprite": "images/Sprite_Campeur.png",
@@ -190,7 +187,6 @@
       "id": 9,
       "name": "\nVS Brock",
       "description": "After defeating the guard, you can finally face the gym leader!",
-      "type": "Trainer Battle",
       "opponents": [
         {
           "sprite": "images/Sprite_Brock.png",
@@ -489,7 +485,6 @@
       "id": 15,
       "name": "\nVS Rival 3",
       "description": "You have finally arrived in Cerulean City but you come across Jackson.",
-      "type": "Trainer Battle",
       "opponents": [
         {
           "sprite": "images/Spr_Rival.png",
@@ -550,7 +545,6 @@
       "id": 16,
       "name": "\nRoute 24",
       "description": "You have decide to train before challenging the Cerulean Gym so you go to Route 24",
-      "type": "Trainer Battle",
       "opponents": [
         {
           "sprite": "images/Sprite_Bug_Catcher.png",
@@ -699,7 +693,6 @@
       "id": 17,
       "name": "\nCerulean Gym",
       "description": "After facing the trainers on the bridge, you finally feel ready to take on the Cerulean gym.",
-      "type": "Trainer Battle",
       "opponents": [
         {
           "sprite": "images/Sprite_Swimmer.png",
@@ -741,7 +734,6 @@
       "id": 18,
       "name": "\nVS Misty",
       "description": "As you have defeated the guard, you can finally face Misty, the gym leader of Cerulean City.",
-      "type": "Trainer Battle",
       "opponents": [
         {
           "sprite": "images/Sprite_Ondine.png",
@@ -862,7 +854,6 @@
       "id": 21,
       "name": "\nVermilion Gym",
       "description": "You have arrived in Vermilion City and you are going to challenge the gym immediately. As usual, you will have to defeat the guard before challenging the gym leader.",
-      "type": "Trainer Battle",
       "opponents": [
         {
           "sprite": "images/Sprite_Rocker.png",
@@ -947,7 +938,6 @@
       "id": 22,
       "name": "\nVS Lt. Surge",
       "description": "As you have defeated the guard, you can finally face Lt. Surge, the gym leader of Vermilion City.",
-      "type": "Trainer Battle",
       "opponents": [
         {
           "sprite": "images/Sprite_Surge.png",
@@ -1216,7 +1206,6 @@
       "id": 29,
       "name": "\nVS Rival 4",
       "description": "You have arrived in Lavender Town and you are going to the Pokemon Tower. Once inside, you come across Jackson.",
-      "type": "Trainer Battle",
       "opponents": [
         {
           "sprite": "images/Spr_Rival.png",
@@ -2020,7 +2009,6 @@
       "id": 47,
       "name": "\nVS Rival 5",
       "description": "Still in the Silph Co building, you come across Jackson.",
-      "type": "Trainer Battle",
       "opponents": [
         {
           "sprite": "images/Spr_Rival.png",
@@ -2686,7 +2674,6 @@
       "id": 60,
       "name": "\nVS Rival 6",
       "description": "Now that you have 8 badges, you head for the Victory Road. However, on Route 22, you run into Jackson.",
-      "type": "Trainer Battle",
       "opponents": [
         {
           "sprite": "images/Spr_Rival.png",
@@ -2763,7 +2750,6 @@
       "id": 62,
       "name": "\nVictory Road 2",
       "description": "Still in Victory Road, there are several trainers in your path. Take them down to get to the Pokemon League",
-      "type": "Trainer Battle",
       "opponents": [
         {
           "sprite": "images/Sprite_Topdresseur.png",
@@ -3119,6 +3105,70 @@
       "icon": "images/building_battle_background.jpg",
       "background": "images/building_battle_background.jpg",
       "exp": 10000
+    },
+    {
+      "id": 75,
+      "name": "\nVS Cynthia",
+      "description": "At the top of Mt. Silver, you come across the champion of the Sinnoh region.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Cynthia.png",
+          "name" : "Champion Cynthia",
+          "pokemons": [
+            {
+              "id": 442,
+              "level": 83,
+              "moveIds": [46,48,92,94]
+            },
+            {
+              "id": 448,
+              "level": 83,
+              "moveIds": [124,75,111,104]
+            },
+            {
+              "id": 474,
+              "level": 83,
+              "moveIds": [117,12,46,100]
+            },
+            {
+              "id": 350,
+              "level": 83,
+              "moveIds": [43,100,104,13]
+            },
+            {
+              "id": 468,
+              "level": 83,
+              "moveIds": [50,44,31,124]
+            },
+            {
+              "id": 445,
+              "level": 85,
+              "moveIds": [108,93,82,25]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 3,
+          "quantity": 2
+        },
+        {
+          "id": 9,
+          "quantity": 2
+        }
+      ],
+      "startDialog": "When you are facing a Trainer in battle, you can learn everything about them. What Pokémon they have. What moves they've taught. What items they make their Pokémon hold. There's no need for words then.",
+      "endDialogWin": "That was excellent. Truly, an outstanding battle. You gave the support your Pokémon needed to maximize their power. And you guided them with certainty to secure victory.",
+      "endDialogLoose": "What's necessary to become stronger? I think it's important to never lose your love of Pokémon.",
+      "music": 7,
+      "icon": "images/VS_Cynthia.png",
+      "background": "images/mt_silver_background.png",
+      "exp": 15000
     }
   ],
   "randomWildEncounters": [
@@ -3729,8 +3779,60 @@
     },
     {
       "id": 72,
+      "name": "\nRoute 28",
+      "description": "You receive a letter from the Sinnoh region's champion who wants to battle you on the top of Mt Silver. You decide to go there to face her.",
+      "encounter": 8,
+      "possibleEncounters":
+      {
+        "minLevel": 60,
+        "maxLevel": 63,
+        "encounters": [61,61,77,77,77,78,84,84,84,85,114,114,114,232]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 3,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 9000
+    },
+    {
+      "id": 73,
+      "name": "\nMt Silver",
+      "description": "You finally reach Mt. Silver and you come across several wild Pokemon.",
+      "encounter": 10,
+      "possibleEncounters":
+      {
+        "minLevel": 70,
+        "maxLevel": 73,
+        "encounters": [42,42,42,42,55,55,75,75,75,95,95,95,200,232]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 30
+        },
+        {
+          "id": 3,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "music": 1,
+      "exp": 9000
+    },
+    {
+      "id": 76,
       "name": "\nCerulean Cave",
-      "description": "After defeating Zapdos, you visit Professor Oak and he informs you that your rival Jackson has gone to Cerulean Cave and encountered the most powerful Pokemon he has ever seen. He ran away because his Pokemon were defeated by this creature. Be careful!",
+      "description": "After defeating Cynthia, you visit Professor Oak and he informs you that your rival Jackson has gone to Cerulean Cave and encountered the most powerful Pokemon he has ever seen. He ran away because his Pokemon were defeated by this creature. Be careful!",
       "encounter": 10,
       "possibleEncounters":
       {
@@ -3756,7 +3858,7 @@
       "exp": 12000
     },
     {
-      "id": 73,
+      "id": 77,
       "name": "\nCerulean Cave 1F",
       "description": "Pokemon in this cave are very powerful. Keep it up!",
       "encounter": 10,
@@ -3784,7 +3886,7 @@
       "exp": 12000
     },
     {
-      "id": 74,
+      "id": 78,
       "name": "\nCerulean Cave B1F",
       "description": "You find a ladder that takes you into the depths of the cave. You feel the presence of the powerful Pokemon.",
       "encounter": 10,
@@ -3970,14 +4072,44 @@
       "exp": 12000
     },
     {
-      "id": 75,
+      "id": 74,
+      "name": "\nVs Tyranitar",
+      "description": "You can see the exit to the top of Mt Silver. However, a very powerful looking Tyranitar attacks you!",
+      "boss":
+      {
+        "id": 248,
+        "level": 85,
+        "moveIds": [25,27,82,93],
+        "boostedStats": ["SPEED"]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 200
+        },
+        {
+          "id": 3,
+          "quantity": 3
+        },
+        {
+          "id": 9,
+          "quantity": 3
+        }
+      ],
+      "icon": "images/tyranitar_boss_icon.PNG",
+      "background": "images/cave_battle_background.png",
+      "music": 1,
+      "exp": 15000
+    },
+    {
+      "id": 79,
       "name": "\nVs Mewtwo",
       "description": "You finally come across the powerful Pokemon. It seems to want to fight you! Show him what you can do!",
       "boss":
       {
         "id": 150,
-        "level": 85,
-        "moveIds": [45,46,12,100],
+        "level": 80,
+        "moveIds": [112,45,46,124],
         "boostedStats": []
       },
       "rewards": [

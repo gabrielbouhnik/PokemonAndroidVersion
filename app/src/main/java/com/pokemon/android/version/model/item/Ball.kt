@@ -7,13 +7,13 @@ import com.pokemon.android.version.model.Type
 import kotlin.random.Random
 import kotlin.random.nextInt
 
-open class Ball(val successRate : Int) : Item{
+open class Ball(val successRate : Float) : Item{
     companion object{
-        val POKEBALL = Ball(20)
+        val POKEBALL = Ball(1f)
         val HEALBALL = HealBall()
         val NETBALL = NetBall()
-        val SUPERBALL = Ball(40)
-        val HYPERBALL = Ball(60)
+        val SUPERBALL = Ball(1.5f)
+        val HYPERBALL = Ball(2f)
     }
 
     override fun isUsable(pokemon: Pokemon): Boolean {
@@ -24,9 +24,9 @@ open class Ball(val successRate : Int) : Item{
         throw ItemCannotBeUsedException()
     }
 
-    class HealBall : Ball(20){
+    class HealBall : Ball(1f){
     }
 
-    class NetBall : Ball(20){
+    class NetBall : Ball(1f){
     }
 }

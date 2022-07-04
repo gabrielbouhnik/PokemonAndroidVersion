@@ -48,7 +48,7 @@
     "spAtk": 65,
     "spDef": 65,
     "speed": 45,
-    "catchRate": 30,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 2,
@@ -108,7 +108,7 @@
     "spAtk": 80,
     "spDef": 80,
     "speed": 60,
-    "catchRate": 0.25,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 3,
@@ -169,7 +169,7 @@
     "spAtk": 100,
     "spDef": 100,
     "speed": 80,
-    "catchRate": 0.2,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -228,7 +228,7 @@
     "spAtk": 60,
     "spDef": 50,
     "speed": 65,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 5,
@@ -294,7 +294,7 @@
     "spAtk": 80,
     "spDef": 65,
     "speed": 80,
-    "catchRate": 0.25,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 6,
@@ -367,7 +367,7 @@
     "spAtk": 109,
     "spDef": 85,
     "speed": 100,
-    "catchRate": 0.2,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -421,7 +421,7 @@
     "spAtk": 50,
     "spDef": 64,
     "speed": 43,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 8,
@@ -482,7 +482,7 @@
     "spAtk": 65,
     "spDef": 80,
     "speed": 58,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 9,
@@ -549,7 +549,7 @@
     "spAtk": 85,
     "spDef": 105,
     "speed": 78,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -579,7 +579,7 @@
     "spAtk": 20,
     "spDef": 20,
     "speed": 45,
-    "catchRate": 0.5,
+    "catchRate": 255,
     "evolutions": [
       {
         "evolutionId": 11,
@@ -620,7 +620,7 @@
     "spAtk": 25,
     "spDef": 25,
     "speed": 30,
-    "catchRate": 0.5,
+    "catchRate": 120,
     "evolutions": [
       {
         "evolutionId": 12,
@@ -688,7 +688,7 @@
     "spAtk": 90,
     "spDef": 80,
     "speed": 70,
-    "catchRate": 0.4,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -718,7 +718,7 @@
     "spAtk": 20,
     "spDef": 20,
     "speed": 50,
-    "catchRate": 0.5,
+    "catchRate": 255,
     "evolutions": [
       {
         "evolutionId": 14,
@@ -759,7 +759,7 @@
     "spAtk": 25,
     "spDef": 25,
     "speed": 35,
-    "catchRate": 0.5,
+    "catchRate": 120,
     "evolutions": [
       {
         "evolutionId": 15,
@@ -811,7 +811,7 @@
     "spAtk": 45,
     "spDef": 80,
     "speed": 75,
-    "catchRate": 0.4,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -873,7 +873,7 @@
     "spAtk": 35,
     "spDef": 35,
     "speed": 56,
-    "catchRate": 0.6,
+    "catchRate": 255,
     "evolutions": [
       {
         "evolutionId": 17,
@@ -942,7 +942,7 @@
     "spAtk": 50,
     "spDef": 50,
     "speed": 71,
-    "catchRate": 0.5,
+    "catchRate": 125,
     "evolutions": [
       {
         "evolutionId": 18,
@@ -1011,7 +1011,7 @@
     "spAtk": 70,
     "spDef": 70,
     "speed": 101,
-    "catchRate": 0.4,
+    "catchRate": 40,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -1058,7 +1058,7 @@
     "spAtk": 25,
     "spDef": 35,
     "speed": 72,
-    "catchRate": 0.6,
+    "catchRate": 255,
     "evolutions": [
       {
         "evolutionId": 20,
@@ -1112,7 +1112,7 @@
     "spAtk": 50,
     "spDef": 70,
     "speed": 97,
-    "catchRate": 0.5,
+    "catchRate": 125,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -1158,7 +1158,7 @@
     "spAtk": 31,
     "spDef": 31,
     "speed": 70,
-    "catchRate": 0.5,
+    "catchRate": 255,
     "evolutions": [
       {
         "evolutionId": 22,
@@ -1215,7 +1215,7 @@
     "spAtk": 61,
     "spDef": 61,
     "speed": 100,
-    "catchRate": 0.4,
+    "catchRate": 90,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -1256,7 +1256,7 @@
     "spAtk": 40,
     "spDef": 54,
     "speed": 55,
-    "catchRate": 0.5,
+    "catchRate": 255,
     "evolutions": [
       {
         "evolutionId": 24,
@@ -1321,7 +1321,7 @@
     "spAtk": 65,
     "spDef": 79,
     "speed": 80,
-    "catchRate": 0.4,
+    "catchRate": 90,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -1373,7 +1373,7 @@
     "spAtk": 50,
     "spDef": 50,
     "speed": 90,
-    "catchRate": 0.3,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 26,
@@ -1432,7 +1432,7 @@
     "spAtk": 90,
     "spDef": 80,
     "speed": 110,
-    "catchRate": 0.25,
+    "catchRate": 55,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -1491,7 +1491,7 @@
     "spAtk": 20,
     "spDef": 30,
     "speed": 40,
-    "catchRate": 0.45,
+    "catchRate": 255,
     "evolutions": [
       {
         "evolutionId": 28,
@@ -1557,7 +1557,7 @@
     "spAtk": 45,
     "spDef": 55,
     "speed": 65,
-    "catchRate": 0.4,
+    "catchRate": 90,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -1587,7 +1587,7 @@
     "spAtk": 75,
     "spDef": 85,
     "speed": 76,
-    "catchRate": 0.25,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -1613,7 +1613,7 @@
     "spAtk": 95,
     "spDef": 75,
     "speed": 85,
-    "catchRate": 0.25,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -1657,7 +1657,7 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.35,
+    "catchRate": 190,
     "hp": 38,
     "attack": 41,
     "defense": 40,
@@ -1715,7 +1715,7 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.25,
+    "catchRate": 75,
     "hp": 73,
     "attack": 67,
     "defense": 75,
@@ -1769,7 +1769,7 @@
     "spAtk": 30,
     "spDef": 40,
     "speed": 55,
-    "catchRate": 0.5,
+    "catchRate": 255,
     "evolutions": [
       {
         "evolutionId": 42,
@@ -1824,7 +1824,7 @@
     "spAtk": 65,
     "spDef": 75,
     "speed": 90,
-    "catchRate": 0.4,
+    "catchRate": 90,
     "evolutions": [
       {
         "evolutionId": 169,
@@ -1884,7 +1884,7 @@
     "spAtk": 75,
     "spDef": 65,
     "speed": 30,
-    "catchRate": 0.4,
+    "catchRate": 255,
     "evolutions": [
       {
         "evolutionId": 44,
@@ -1944,7 +1944,7 @@
     "spAtk": 85,
     "spDef": 75,
     "speed": 40,
-    "catchRate": 0.3,
+    "catchRate": 120,
     "evolutions": [
       {
         "evolutionId": 45,
@@ -2010,7 +2010,7 @@
     "spAtk": 110,
     "spDef": 90,
     "speed": 50,
-    "catchRate": 0.2,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -2059,7 +2059,7 @@
     "spAtk": 45,
     "spDef": 55,
     "speed": 25,
-    "catchRate": 0.5,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 47,
@@ -2115,7 +2115,7 @@
     "spAtk": 60,
     "spDef": 80,
     "speed": 30,
-    "catchRate": 0.3,
+    "catchRate": 75,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -2163,7 +2163,7 @@
     "spAtk": 40,
     "spDef": 55,
     "speed": 45,
-    "catchRate": 0.4,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 49,
@@ -2231,7 +2231,7 @@
     "spAtk": 90,
     "spDef": 75,
     "speed": 90,
-    "catchRate": 0.3,
+    "catchRate": 75,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -2276,7 +2276,7 @@
     "spAtk": 35,
     "spDef": 45,
     "speed": 95,
-    "catchRate": 0.4,
+    "catchRate": 255,
     "evolutions": [
       {
         "evolutionId": 51,
@@ -2328,7 +2328,7 @@
     "spAtk": 50,
     "spDef": 70,
     "speed": 120,
-    "catchRate": 0.3,
+    "catchRate": 50,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -2358,7 +2358,7 @@
     "spAtk": 65,
     "spDef": 65,
     "speed": 115,
-    "catchRate": 0.3,
+    "catchRate": 90,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -2411,7 +2411,7 @@
     "spAtk": 65,
     "spDef": 50,
     "speed": 55,
-    "catchRate": 0.45,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 55,
@@ -2471,7 +2471,7 @@
     "spAtk": 95,
     "spDef": 80,
     "speed": 85,
-    "catchRate": 0.3,
+    "catchRate": 75,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -2516,7 +2516,7 @@
     "spAtk": 35,
     "spDef": 45,
     "speed": 70,
-    "catchRate": 0.4,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 57,
@@ -2569,7 +2569,7 @@
     "spAtk": 60,
     "spDef": 70,
     "speed": 95,
-    "catchRate": 0.3,
+    "catchRate": 75,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -2630,7 +2630,7 @@
     "spAtk": 70,
     "spDef": 50,
     "speed": 60,
-    "catchRate": 0.35,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 59,
@@ -2706,7 +2706,7 @@
     "spAtk": 100,
     "spDef": 80,
     "speed": 95,
-    "catchRate": 0.25,
+    "catchRate": 75,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -2755,7 +2755,7 @@
     "spAtk": 40,
     "spDef": 40,
     "speed": 90,
-    "catchRate": 0.35,
+    "catchRate": 255,
     "evolutions": [
       {
         "evolutionId": 61,
@@ -2812,7 +2812,7 @@
     "spAtk": 50,
     "spDef": 50,
     "speed": 90,
-    "catchRate": 0.3,
+    "catchRate": 120,
     "evolutions": [
       {
         "evolutionId": 62,
@@ -2884,7 +2884,7 @@
     "spAtk": 70,
     "spDef": 90,
     "speed": 70,
-    "catchRate": 0.25,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -2918,7 +2918,7 @@
     "spAtk": 120,
     "spDef": 70,
     "speed": 105,
-    "catchRate": 0.35,
+    "catchRate": 100,
     "evolutions": [
       {
         "evolutionId": 65,
@@ -2959,7 +2959,7 @@
     "spAtk": 135,
     "spDef": 95,
     "speed": 120,
-    "catchRate": 0.25,
+    "catchRate": 50,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -2989,7 +2989,7 @@
     "spAtk": 50,
     "spDef": 60,
     "speed": 45,
-    "catchRate": 0.35,
+    "catchRate": 90,
     "evolutions": [
       {
         "evolutionId": 68,
@@ -3026,7 +3026,7 @@
     "spAtk": 65,
     "spDef": 85,
     "speed": 55,
-    "catchRate": 0.25,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -3070,7 +3070,7 @@
     "spAtk": 70,
     "spDef": 30,
     "speed": 40,
-    "catchRate": 40,
+    "catchRate": 255,
     "evolutions": [
       {
         "evolutionId": 70,
@@ -3121,7 +3121,7 @@
     "spAtk": 70,
     "spDef": 30,
     "speed": 40,
-    "catchRate": 0.35,
+    "catchRate": 120,
     "evolutions": [
       {
         "evolutionId": 71,
@@ -3176,7 +3176,7 @@
     "spAtk": 100,
     "spDef": 70,
     "speed": 70,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -3231,7 +3231,7 @@
     "spAtk": 50,
     "spDef": 100,
     "speed": 70,
-    "catchRate": 0.4,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 73,
@@ -3293,7 +3293,7 @@
     "spAtk": 80,
     "spDef": 120,
     "speed": 100,
-    "catchRate": 0.3,
+    "catchRate": 60,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -3347,7 +3347,7 @@
     "spAtk": 30,
     "spDef": 30,
     "speed": 20,
-    "catchRate": 0.4,
+    "catchRate": 255,
     "evolutions": [
       {
         "evolutionId": 75,
@@ -3408,7 +3408,7 @@
     "spAtk": 45,
     "spDef": 45,
     "speed": 35,
-    "catchRate": 0.35,
+    "catchRate": 120,
     "evolutions": [
       {
         "evolutionId": 76,
@@ -3469,9 +3469,66 @@
     "spAtk": 55,
     "spDef": 65,
     "speed": 45,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 77,
+    "name": "Ponyta",
+    "type1": 2,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 3,
+          "level": 1
+        },
+        {
+          "moveId": 7,
+          "level": 1
+        },
+        {
+          "moveId": 74,
+          "level": 25
+        },
+        {
+          "moveId": 63,
+          "level": 30
+        },
+        {
+          "moveId": 115,
+          "level": 43
+        },
+        {
+          "moveId": 82,
+          "level": 56
+        },
+        {
+          "moveId": 116,
+          "level": 63
+        }
+      ],
+      "movesLearnWithTM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 50,
+    "attack": 85,
+    "defense": 55,
+    "spAtk": 65,
+    "spDef": 65,
+    "speed": 90,
+    "catchRate": 190,
+    "evolutions": [
+      {
+        "evolutionId": 78,
+        "evolutionCondition": {
+          "level": 40
+        }
+      }
+    ],
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 78,
@@ -3501,6 +3558,10 @@
           "level": 30
         },
         {
+          "moveId": 115,
+          "level": 43
+        },
+        {
           "moveId": 82,
           "level": 56
         },
@@ -3519,7 +3580,7 @@
     "spAtk": 80,
     "spDef": 80,
     "speed": 105,
-    "catchRate": 0.3,
+    "catchRate": 60,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -3573,7 +3634,7 @@
     "spAtk": 40,
     "spDef": 40,
     "speed": 15,
-    "catchRate": 0.4,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 80,
@@ -3641,7 +3702,7 @@
     "spAtk": 100,
     "spDef": 80,
     "speed": 30,
-    "catchRate": 0.3,
+    "catchRate": 75,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -3688,7 +3749,7 @@
     "spAtk": 95,
     "spDef": 55,
     "speed": 45,
-    "catchRate": 0.4,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 82,
@@ -3746,7 +3807,7 @@
     "spAtk": 120,
     "spDef": 70,
     "speed": 70,
-    "catchRate": 0.25,
+    "catchRate": 60,
     "evolutions": [
       {
         "evolutionId": 462,
@@ -3799,7 +3860,7 @@
     "spAtk": 35,
     "spDef": 35,
     "speed": 75,
-    "catchRate": 0.5,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 85,
@@ -3852,7 +3913,7 @@
     "spAtk": 60,
     "spDef": 60,
     "speed": 110,
-    "catchRate": 0.4,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -3905,7 +3966,7 @@
     "spAtk": 45,
     "spDef": 70,
     "speed": 45,
-    "catchRate": 0.4,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 87,
@@ -3965,7 +4026,7 @@
     "spAtk": 70,
     "spDef": 95,
     "speed": 70,
-    "catchRate": 0.3,
+    "catchRate":75,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -4005,7 +4066,7 @@
     "spAtk": 40,
     "spDef": 50,
     "speed": 25,
-    "catchRate": 0.4,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 89,
@@ -4053,7 +4114,7 @@
     "spAtk": 65,
     "spDef": 100,
     "speed": 50,
-    "catchRate": 0.3,
+    "catchRate": 75,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -4097,7 +4158,7 @@
     "spAtk": 45,
     "spDef": 25,
     "speed": 40,
-    "catchRate": 0.4,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 91,
@@ -4152,7 +4213,7 @@
     "spAtk": 85,
     "spDef": 45,
     "speed": 70,
-    "catchRate": 0.3,
+    "catchRate": 60,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -4199,7 +4260,7 @@
     "spAtk": 100,
     "spDef": 35,
     "speed": 80,
-    "catchRate": 0.4,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 93,
@@ -4253,7 +4314,7 @@
     "spAtk": 115,
     "spDef": 55,
     "speed": 95,
-    "catchRate": 0.3,
+    "catchRate": 90,
     "evolutions": [
       {
         "evolutionId": 94,
@@ -4307,7 +4368,7 @@
     "spAtk": 130,
     "spDef": 75,
     "speed": 110,
-    "catchRate": 0.25,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -4361,7 +4422,7 @@
     "spAtk": 30,
     "spDef": 45,
     "speed": 70,
-    "catchRate": 0.4,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 208,
@@ -4412,7 +4473,7 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.35,
+    "catchRate": 190,
     "hp": 60,
     "attack": 48,
     "defense": 45,
@@ -4469,7 +4530,7 @@
       ],
       "bannerMoves": []
     },
-    "catchRate": 0.25,
+    "catchRate": 75,
     "hp": 85,
     "attack": 73,
     "defense": 70,
@@ -4522,7 +4583,7 @@
     "spAtk": 55,
     "spDef": 55,
     "speed": 100,
-    "catchRate": 0.4,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 101,
@@ -4576,7 +4637,7 @@
     "spAtk": 80,
     "spDef": 80,
     "speed": 150,
-    "catchRate": 0.3,
+    "catchRate": 60,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -4618,7 +4679,7 @@
     "spAtk": 40,
     "spDef": 50,
     "speed": 35,
-    "catchRate": 0.4,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 105,
@@ -4667,7 +4728,7 @@
     "spAtk": 50,
     "spDef": 80,
     "speed": 45,
-    "catchRate": 0.3,
+    "catchRate": 75,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -4701,7 +4762,7 @@
     "spAtk": 35,
     "spDef": 110,
     "speed": 87,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -4731,7 +4792,7 @@
     "spAtk": 35,
     "spDef": 110,
     "speed": 76,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -4777,7 +4838,7 @@
     "spAtk": 60,
     "spDef": 45,
     "speed": 35,
-    "catchRate": 0.4,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 110,
@@ -4830,7 +4891,7 @@
     "spAtk": 85,
     "spDef": 70,
     "speed": 60,
-    "catchRate": 0.3,
+    "catchRate": 60,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -4880,7 +4941,7 @@
     "spAtk": 30,
     "spDef": 30,
     "speed": 25,
-    "catchRate": 0.35,
+    "catchRate": 120,
     "evolutions": [
       {
         "evolutionId": 112,
@@ -4941,7 +5002,7 @@
     "spAtk": 45,
     "spDef": 45,
     "speed": 40,
-    "catchRate": 0.3,
+    "catchRate": 60,
     "evolutions": [
       {
         "evolutionId": 464,
@@ -4996,7 +5057,7 @@
     "spAtk": 100,
     "spDef": 40,
     "speed": 60,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 465,
@@ -5050,7 +5111,7 @@
     "spAtk": 40,
     "spDef": 80,
     "speed": 90,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -5096,7 +5157,7 @@
     "spAtk": 70,
     "spDef": 25,
     "speed": 60,
-    "catchRate": 0.4,
+    "catchRate": 225,
     "evolutions": [
       {
         "evolutionId": 117,
@@ -5149,7 +5210,7 @@
     "spAtk": 95,
     "spDef": 45,
     "speed": 85,
-    "catchRate": 0.3,
+    "catchRate": 75,
     "evolutions": [
       {
         "evolutionId": 230,
@@ -5196,7 +5257,7 @@
     "spAtk": 35,
     "spDef": 50,
     "speed": 63,
-    "catchRate": 0.4,
+    "catchRate": 225,
     "evolutions": [
       {
         "evolutionId": 119,
@@ -5247,7 +5308,7 @@
     "spAtk": 65,
     "spDef": 80,
     "speed": 68,
-    "catchRate": 0.3,
+    "catchRate": 60,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -5310,7 +5371,7 @@
     "spAtk": 70,
     "spDef": 55,
     "speed": 85,
-    "catchRate": 0.45,
+    "catchRate": 225,
     "evolutions": [
       {
         "evolutionId": 121,
@@ -5380,7 +5441,7 @@
     "spAtk": 100,
     "spDef": 85,
     "speed": 115,
-    "catchRate": 0.3,
+    "catchRate": 60,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -5422,7 +5483,7 @@
     "spAtk": 100,
     "spDef": 120,
     "speed": 90,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -5468,7 +5529,7 @@
     "spAtk": 55,
     "spDef": 80,
     "speed": 105,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 212,
@@ -5501,7 +5562,7 @@
     "spAtk": 115,
     "spDef": 95,
     "speed": 95,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -5559,7 +5620,7 @@
     "spAtk": 95,
     "spDef": 85,
     "speed": 105,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 466,
@@ -5630,7 +5691,7 @@
     "spAtk": 100,
     "spDef": 85,
     "speed": 93,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 467,
@@ -5663,7 +5724,7 @@
     "spAtk": 15,
     "spDef": 20,
     "speed": 80,
-    "catchRate": 0.5,
+    "catchRate": 255,
     "evolutions": [
       {
         "evolutionId": 130,
@@ -5726,7 +5787,7 @@
     "spAtk": 60,
     "spDef": 100,
     "speed": 81,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -5781,7 +5842,7 @@
     "spAtk": 85,
     "spDef": 95,
     "speed": 60,
-    "catchRate": 0.25,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -5830,7 +5891,7 @@
     "spAtk": 85,
     "spDef": 75,
     "speed": 40,
-    "catchRate": 0.2,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 233,
@@ -5871,7 +5932,7 @@
     "spAtk": 60,
     "spDef": 75,
     "speed": 130,
-    "catchRate": 0.2,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -5909,7 +5970,7 @@
     "spAtk": 65,
     "spDef": 110,
     "speed": 30,
-    "catchRate": 0.2,
+    "catchRate": 25,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -5935,7 +5996,7 @@
     "spAtk": 125,
     "spDef": 100,
     "speed": 95,
-    "catchRate": 0.15,
+    "catchRate": 3,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -5961,7 +6022,7 @@
     "spAtk": 125,
     "spDef": 90,
     "speed": 100,
-    "catchRate": 0.15,
+    "catchRate": 3,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -5987,7 +6048,7 @@
     "spAtk": 100,
     "spDef": 125,
     "speed": 90,
-    "catchRate": 0.15,
+    "catchRate": 3,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -6035,7 +6096,7 @@
     "spAtk": 50,
     "spDef": 50,
     "speed": 50,
-    "catchRate": 0.2,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 148,
@@ -6090,7 +6151,7 @@
     "spAtk": 70,
     "spDef": 70,
     "speed": 70,
-    "catchRate": 0.2,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 149,
@@ -6167,7 +6228,7 @@
     "spAtk": 100,
     "spDef": 100,
     "speed": 80,
-    "catchRate": 0.2,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -6197,7 +6258,7 @@
     "spAtk": 154,
     "spDef": 90,
     "speed": 130,
-    "catchRate": 0.05,
+    "catchRate": 3,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -6230,7 +6291,7 @@
     "spAtk": 35,
     "spDef": 45,
     "speed": 20,
-    "catchRate": 0.5,
+    "catchRate": 255,
     "evolutions": [
       {
         "evolutionId": 162,
@@ -6270,13 +6331,13 @@
     "spAtk": 45,
     "spDef": 55,
     "speed": 90,
-    "catchRate": 0.4,
+    "catchRate": 90,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 163,
-    "name": "HootHoot",
+    "name": "Hoothoot",
     "type1": 5,
     "type2": 6,
     "possibleMoves": {
@@ -6322,7 +6383,7 @@
     "spAtk": 36,
     "spDef": 56,
     "speed": 50,
-    "catchRate": 0.5,
+    "catchRate": 255,
     "evolutions": [
       {
         "evolutionId": 164,
@@ -6381,7 +6442,7 @@
     "spAtk": 86,
     "spDef": 96,
     "speed": 70,
-    "catchRate": 0.4,
+    "catchRate": 90,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -6429,7 +6490,7 @@
     "spAtk": 70,
     "spDef": 80,
     "speed": 130,
-    "catchRate": 0.3,
+    "catchRate": 90,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -6490,7 +6551,7 @@
     "spAtk": 90,
     "spDef": 100,
     "speed": 50,
-    "catchRate": 0.2,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -6539,7 +6600,7 @@
     "spAtk": 90,
     "spDef": 100,
     "speed": 70,
-    "catchRate": 0.25,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -6561,7 +6622,7 @@
     "spAtk": 55,
     "spDef": 95,
     "speed": 110,
-    "catchRate": 0.2,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -6600,7 +6661,7 @@
     "spAtk": 85,
     "spDef": 42,
     "speed": 91,
-    "catchRate": 0.35,
+    "catchRate": 30,
     "evolutions": [
       {
         "evolutionId": 430,
@@ -6665,7 +6726,7 @@
     "spAtk": 100,
     "spDef": 110,
     "speed": 30,
-    "catchRate": 0.35,
+    "catchRate": 70,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -6713,7 +6774,7 @@
     "spAtk": 85,
     "spDef": 85,
     "speed": 85,
-    "catchRate": 0.35,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 429,
@@ -6790,7 +6851,7 @@
     "spAtk": 55,
     "spDef": 65,
     "speed": 30,
-    "catchRate": 0.25,
+    "catchRate": 25,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -6837,7 +6898,7 @@
     "spAtk": 40,
     "spDef": 40,
     "speed": 30,
-    "catchRate": 0.4,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 210,
@@ -6907,7 +6968,7 @@
     "spAtk": 60,
     "spDef": 60,
     "speed": 45,
-    "catchRate": 0.3,
+    "catchRate": 75,
     "evolutions": [],
     "expGaugeType": "FAST"
   },
@@ -6957,7 +7018,7 @@
     "spAtk": 55,
     "spDef": 80,
     "speed": 65,
-    "catchRate": 0.2,
+    "catchRate": 25,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -7006,7 +7067,7 @@
     "spAtk": 70,
     "spDef": 40,
     "speed": 20,
-    "catchRate": 0.4,
+    "catchRate": 190,
     "evolutions": [
       {
         "evolutionId": 219,
@@ -7066,7 +7127,7 @@
     "spAtk": 90,
     "spDef": 80,
     "speed": 30,
-    "catchRate": 0.3,
+    "catchRate": 75,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -7119,7 +7180,7 @@
     "spAtk": 80,
     "spDef": 50,
     "speed": 65,
-    "catchRate": 0.4,
+    "catchRate": 120,
     "evolutions": [
       {
         "evolutionId": 229,
@@ -7183,7 +7244,7 @@
     "spAtk": 110,
     "spDef": 80,
     "speed": 95,
-    "catchRate": 0.25,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -7229,7 +7290,48 @@
     "spAtk": 95,
     "spDef": 95,
     "speed": 85,
-    "catchRate": 0.2,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 232,
+    "name": "Donphan",
+    "type1": 10,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 10,
+          "level": 1
+        },
+        {
+          "moveId": 118,
+          "level": 1
+        },
+        {
+          "moveId": 120,
+          "level": 1
+        },
+        {
+          "moveId": 30,
+          "level": 1
+        },
+        {
+          "moveId": 93,
+          "level": 43
+        }
+      ],
+      "movesLearnWithTM": [25,62,72,93],
+      "bannerMoves": []
+    },
+    "hp": 90,
+    "attack": 120,
+    "defense": 120,
+    "spAtk": 60,
+    "spDef": 60,
+    "speed": 50,
+    "catchRate": 60,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -7279,7 +7381,7 @@
     "spAtk": 105,
     "spDef": 95,
     "speed": 60,
-    "catchRate": 0.2,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 474,
@@ -7312,7 +7414,7 @@
     "spAtk": 35,
     "spDef": 35,
     "speed": 35,
-    "catchRate": 0.5,
+    "catchRate": 75,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -7338,7 +7440,7 @@
     "spAtk": 95,
     "spDef": 110,
     "speed": 70,
-    "catchRate": 0.5,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -7401,7 +7503,7 @@
     "spAtk": 70,
     "spDef": 55,
     "speed": 55,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 126,
@@ -7459,7 +7561,7 @@
     "spAtk": 45,
     "spDef": 50,
     "speed": 41,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 247,
@@ -7517,10 +7619,10 @@
     "spAtk": 65,
     "spDef": 70,
     "speed": 51,
+    "catchRate": 45,
     "evolutions": [
       {
         "evolutionId": 248,
-        "catchRate": 0.25,
         "evolutionCondition": {
           "level": 55
         }
@@ -7589,7 +7691,32 @@
     "spAtk": 95,
     "spDef": 100,
     "speed": 61,
-    "catchRate": 0.2,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 350,
+    "name": "Milotic",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 24,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 95,
+    "attack": 60,
+    "defense": 79,
+    "spAtk": 100,
+    "spDef": 125,
+    "speed": 81,
+    "catchRate": 60,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -7634,7 +7761,7 @@
     "spAtk": 105,
     "spDef": 105,
     "speed": 105,
-    "catchRate": 0.3,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "FAST"
   },
@@ -7681,7 +7808,82 @@
     "spAtk": 105,
     "spDef": 52,
     "speed": 71,
-    "catchRate": 0.3,
+    "catchRate": 30,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 442,
+    "name": "Spiritomb",
+    "type1": 13,
+    "type2": 17,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 48,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 50,
+    "attack": 92,
+    "defense": 108,
+    "spAtk": 92,
+    "spDef": 108,
+    "speed": 35,
+    "catchRate": 100,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 445,
+    "name": "Garchomp",
+    "type1": 15,
+    "type2": 10,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 27,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 108,
+    "attack": 130,
+    "defense": 95,
+    "spAtk": 80,
+    "spDef": 85,
+    "speed": 102,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 448,
+    "name": "Lucario",
+    "type1": 11,
+    "type2": 16,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 124,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 70,
+    "attack": 110,
+    "defense": 70,
+    "spAtk": 115,
+    "spDef": 70,
+    "speed": 90,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
   },
@@ -7732,7 +7934,7 @@
     "spAtk": 130,
     "spDef": 90,
     "speed": 70,
-    "catchRate": 0.25,
+    "catchRate": 30,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -7786,7 +7988,7 @@
     "spAtk": 55,
     "spDef": 55,
     "speed": 40,
-    "catchRate": 0.2,
+    "catchRate": 30,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -7834,7 +8036,7 @@
     "spAtk": 110,
     "spDef": 50,
     "speed": 50,
-    "catchRate": 0.3,
+    "catchRate": 30,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -7894,7 +8096,7 @@
     "spAtk": 95,
     "spDef": 85,
     "speed": 95,
-    "catchRate": 0.3,
+    "catchRate": 30,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -7961,9 +8163,34 @@
     "spAtk": 125,
     "spDef": 95,
     "speed": 83,
-    "catchRate": 0.3,
+    "catchRate": 30,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 468,
+    "name": "Togekiss",
+    "type1": 6,
+    "type2": 18,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 50,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 85,
+    "attack": 50,
+    "defense": 95,
+    "spAtk": 120,
+    "spDef": 115,
+    "speed": 80,
+    "catchRate": 30,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 473,
@@ -7987,7 +8214,7 @@
     "spAtk": 70,
     "spDef": 60,
     "speed": 80,
-    "catchRate": 0.3,
+    "catchRate": 50,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
@@ -8037,7 +8264,7 @@
     "spAtk": 135,
     "spDef": 75,
     "speed": 90,
-    "catchRate": 0.2,
+    "catchRate": 30,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   }

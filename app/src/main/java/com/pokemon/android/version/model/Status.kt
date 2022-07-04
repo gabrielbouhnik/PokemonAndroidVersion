@@ -4,17 +4,16 @@ import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.StatusMove
 import kotlin.random.Random
 
-enum class Status {
-    OK,
-    BURN,
-    PARALYSIS,
-    POISON,
-    ASLEEP,
-    FROZEN,
-    //Only for pokemon battle data:
-    CONFUSED,
-    FLINCHED,
-    TRAPPED;
+enum class Status(var activeOutsideBattle : Boolean) {
+    OK(true),
+    BURN(true),
+    PARALYSIS(true),
+    POISON(true),
+    ASLEEP(true),
+    FROZEN(true),
+    CONFUSED(false),
+    FLINCHED(false),
+    TRAPPED(false);
 
     fun toBattleIcon(): String {
         when (this) {
@@ -32,10 +31,7 @@ enum class Status {
             move.status.forEach {
                 val randomForStatus: Int = Random.nextInt(100)
                 if (randomForStatus <= it.probability) {
-                    if ((it.status == FLINCHED || it.status == CONFUSED || it.status == TRAPPED) && !opponent.battleData!!.battleStatus.contains(
-                            it.status
-                        )
-                    )
+                    if (!it.status.activeOutsideBattle && !opponent.battleData!!.battleStatus.contains(it.status))
                         opponent.battleData!!.battleStatus.add(it.status)
                     else if (isAffectedByStatus(it.status, opponent) && opponent.status == OK) {
                         opponent.status = it.status
@@ -45,7 +41,7 @@ enum class Status {
         }
 
         fun isAffectedByStatus(status: Status, opponent: Pokemon): Boolean {
-            if ((status == FLINCHED || status == CONFUSED || status == TRAPPED) && !opponent.battleData!!.battleStatus.contains( status))
+            if (!status.activeOutsideBattle && !opponent.battleData!!.battleStatus.contains(status))
                 return true
             if (opponent.status != OK)
                 return false

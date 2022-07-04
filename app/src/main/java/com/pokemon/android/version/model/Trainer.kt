@@ -7,6 +7,7 @@ import com.pokemon.android.version.utils.ItemUtils
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
+import kotlin.math.pow
 import kotlin.random.Random
 
 class Trainer(var name: String, gender: Gender) : ITrainer{
@@ -34,7 +35,6 @@ class Trainer(var name: String, gender: Gender) : ITrainer{
         if (items[ballId] == 0) {
             items.remove(ballId)
         }
-        val random : Int = Random.nextInt(3)
         var status = 1f
         if (pokemon.status == Status.BURN || pokemon.status == Status.POISON || pokemon.status == Status.PARALYSIS || pokemon.status == Status.FROZEN)
             status = 1.5f
@@ -45,15 +45,26 @@ class Trainer(var name: String, gender: Gender) : ITrainer{
         if (ball is Ball.NetBall && (pokemon.data.type1 == Type.WATER || pokemon.data.type1 == Type.BUG
                     || pokemon.data.type2 == Type.WATER || pokemon.data.type2 == Type.BUG))
                         successRate *= 3
-        val catch : Int = ((1 - ((2/3)*(pokemon.currentHP/pokemon.hp))).toFloat() * status).toInt() * (pokemon.data.catchRate*100f).toInt()*successRate
-        if (catch * random > 300){
+        val catch : Int = (((1f - ((2f/3f)*(pokemon.currentHP/pokemon.hp).toFloat())) * status) * pokemon.data.catchRate.toFloat() * successRate).toInt()
+        if (catch >= 255){
             receivePokemon(pokemon)
             if (ball is Ball.HealBall){
                 pokemon.currentHP = pokemon.hp
             }
             return true
         }
-        return false
+        else{
+            for (i in 0..2){
+                val random : Int = Random.nextInt(65535)
+                if (random > 65535 * (catch/255f).toDouble().pow(1/4.toDouble()))
+                    return false
+            }
+            receivePokemon(pokemon)
+            if (ball is Ball.HealBall){
+                pokemon.currentHP = pokemon.hp
+            }
+            return true
+        }
     }
 
     fun receivePokemon(pokemon: Pokemon) {
@@ -93,6 +104,14 @@ class Trainer(var name: String, gender: Gender) : ITrainer{
     }
 
     fun heal(pokemon : Pokemon){
+        if (items.contains(10) && ItemUtils.getItemById(10).isUsable(pokemon))
+            useItem(10,pokemon)
+        if (pokemon.currentHP == 0){
+            if (items.contains(9))
+                useItem(9,pokemon)
+            else
+                return
+        }
         while (pokemon.currentHP < pokemon.hp && items.contains(1)){
             useItem(1,pokemon)
         }
@@ -102,8 +121,6 @@ class Trainer(var name: String, gender: Gender) : ITrainer{
         while (pokemon.currentHP < pokemon.hp && items.contains(3)){
             useItem(3,pokemon)
         }
-        if (items.contains(10) && ItemUtils.getItemById(10).isUsable(pokemon))
-            useItem(10,pokemon)
         if (items.contains(4) && pokemon.status != Status.OK)
             useItem(4,pokemon)
     }
