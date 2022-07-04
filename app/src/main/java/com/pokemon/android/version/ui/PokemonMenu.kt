@@ -245,6 +245,12 @@ class PokemonMenu {
         movesButton.setOnClickListener{
             loadMovesLayout(activity, pokemon)
         }
+        val healButton : Button = activity.findViewById(R.id.healButton)
+        healButton.setOnClickListener{
+            activity.trainer!!.heal(pokemon)
+            displayPokemonInfo(activity, pokemon)
+            displayMoveButtons(activity,pokemon)
+        }
         val statusTextView :  TextView = activity.findViewById(R.id.statusDetailsTextView)
         if (pokemon.status != Status.OK)
             statusTextView.text = pokemon.status.toString()

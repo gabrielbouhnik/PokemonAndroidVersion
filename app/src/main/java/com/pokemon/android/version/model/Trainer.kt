@@ -92,6 +92,22 @@ class Trainer(var name: String, gender: Gender) : ITrainer{
         return false
     }
 
+    fun heal(pokemon : Pokemon){
+        while (pokemon.currentHP < pokemon.hp && items.contains(1)){
+            useItem(1,pokemon)
+        }
+        while (pokemon.currentHP < pokemon.hp && items.contains(2)){
+            useItem(2,pokemon)
+        }
+        while (pokemon.currentHP < pokemon.hp && items.contains(3)){
+            useItem(3,pokemon)
+        }
+        if (items.contains(10) && ItemUtils.getItemById(10).isUsable(pokemon))
+            useItem(10,pokemon)
+        if (items.contains(4) && pokemon.status != Status.OK)
+            useItem(4,pokemon)
+    }
+
     override fun canStillBattle(): Boolean {
         for (pokemon in team) {
             if (pokemon.currentHP > 0)

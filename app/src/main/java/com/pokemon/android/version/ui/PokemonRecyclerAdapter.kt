@@ -46,13 +46,13 @@ class PokemonRecyclerAdapter (val activity: MainActivity,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = data[position]
+        holder.itemView.tag = position
         holder.nameTextView.text = currentItem.data.name
         holder.hpLevelTextView.text = "Level  ${currentItem.level}  ${currentItem.currentHP}/${currentItem.hp}"
-        holder.itemView.tag = position
+        if (currentItem.canEvolve())
+            holder.canEvolveTextView.visibility = VISIBLE
         Glide.with(activity)
             .load(MainActivity.pokemonSpritesUrl + currentItem.data.id + ".png")
             .into(holder.spriteView)
-        if (currentItem.canEvolve())
-            holder.canEvolveTextView.visibility = VISIBLE
     }
 }
