@@ -501,6 +501,10 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
+          "moveId": 111,
+          "level": 1
+        },
+        {
           "moveId": 2,
           "level": 1
         },
@@ -665,6 +669,10 @@
         {
           "moveId": 60,
           "level": 32
+        },
+        {
+          "moveId": 122,
+          "level": 44
         }
       ],
       "movesLearnWithTM": [
@@ -1828,6 +1836,132 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 43,
+    "name": "Oddish",
+    "type1": 1,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 67,
+          "level": 1
+        },
+        {
+          "moveId": 58,
+          "level": 4
+        },
+        {
+          "moveId": 35,
+          "level": 14
+        },
+        {
+          "moveId": 34,
+          "level": 18
+        },
+        {
+          "moveId": 66,
+          "level": 20
+        },
+        {
+          "moveId": 83,
+          "level": 24
+        },
+        {
+          "moveId": 84,
+          "level": 28
+        }
+      ],
+      "movesLearnWithTM": [
+        37,
+        44,
+        105
+      ],
+      "bannerMoves": []
+    },
+    "hp": 45,
+    "attack": 50,
+    "defense": 55,
+    "spAtk": 75,
+    "spDef": 65,
+    "speed": 30,
+    "catchRate": 0.4,
+    "evolutions": [
+      {
+        "evolutionId": 44,
+        "evolutionCondition": {
+          "level": 21
+        }
+      }
+    ],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 44,
+    "name": "Gloom",
+    "type1": 1,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 67,
+          "level": 1
+        },
+        {
+          "moveId": 58,
+          "level": 4
+        },
+        {
+          "moveId": 35,
+          "level": 14
+        },
+        {
+          "moveId": 34,
+          "level": 18
+        },
+        {
+          "moveId": 66,
+          "level": 20
+        },
+        {
+          "moveId": 83,
+          "level": 26
+        },
+        {
+          "moveId": 84,
+          "level": 32
+        }
+      ],
+      "movesLearnWithTM": [
+        37,
+        44,
+        105
+      ],
+      "bannerMoves": []
+    },
+    "hp": 60,
+    "attack": 65,
+    "defense": 70,
+    "spAtk": 85,
+    "spDef": 75,
+    "speed": 40,
+    "catchRate": 0.3,
+    "evolutions": [
+      {
+        "evolutionId": 45,
+        "evolutionCondition": {
+          "itemId": 19
+        }
+      },
+      {
+        "evolutionId": 182,
+        "evolutionCondition": {
+          "itemId": 20
+        }
+      }
+    ],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
     "id": 45,
     "name": "Vileplume",
     "type1": 1,
@@ -1835,7 +1969,11 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
-          "moveId": 66,
+          "moveId": 67,
+          "level": 1
+        },
+        {
+          "moveId": 58,
           "level": 1
         },
         {
@@ -1847,11 +1985,22 @@
           "level": 1
         },
         {
-          "moveId": 58,
+          "moveId": 66,
+          "level": 1
+        },
+        {
+          "moveId": 83,
+          "level": 1
+        },
+        {
+          "moveId": 84,
           "level": 1
         }
       ],
       "movesLearnWithTM": [
+        37,
+        44,
+        105
       ],
       "bannerMoves": []
     },
@@ -2063,6 +2212,10 @@
         {
           "moveId": 45,
           "level": 55
+        },
+        {
+          "moveId": 122,
+          "level": 63
         }
       ],
       "movesLearnWithTM": [
@@ -2992,19 +3145,23 @@
         },
         {
           "moveId": 35,
-          "level": 13
+          "level": 1
         },
         {
           "moveId": 34,
-          "level": 15
+          "level": 1
         },
         {
           "moveId": 58,
-          "level": 24
+          "level": 1
         },
         {
           "moveId": 18,
-          "level": 39
+          "level": 1
+        },
+        {
+          "moveId": 121,
+          "level": 44
         }
       ],
       "movesLearnWithTM": [
@@ -4815,6 +4972,10 @@
           "level": 20
         },
         {
+          "moveId": 102,
+          "level": 24
+        },
+        {
           "moveId": 66,
           "level": 32
         },
@@ -4824,6 +4985,8 @@
         }
       ],
       "movesLearnWithTM": [
+        37,
+        105
       ],
       "bannerMoves": []
     },
@@ -4834,7 +4997,14 @@
     "spDef": 40,
     "speed": 60,
     "catchRate": 0.3,
-    "evolutions": [],
+    "evolutions": [
+      {
+        "evolutionId": 465,
+        "evolutionCondition": {
+          "level": 36
+        }
+      }
+    ],
     "expGaugeType": "MEDIUM_FAST"
   },
   {
@@ -6002,6 +6172,36 @@
     "expGaugeType": "SLOW"
   },
   {
+    "id": 150,
+    "name": "Mewtwo",
+    "type1": 12,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 39,
+          "level": 1
+        },
+        {
+          "moveId": 112,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 106,
+    "attack": 110,
+    "defense": 90,
+    "spAtk": 154,
+    "spDef": 90,
+    "speed": 130,
+    "catchRate": 0.05,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
     "id": 161,
     "name": "Sentret",
     "type1": 5,
@@ -6234,6 +6434,67 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 182,
+    "name": "Belossom",
+    "type1": 1,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 122,
+          "level": 1
+        },
+        {
+          "moveId": 67,
+          "level": 1
+        },
+        {
+          "moveId": 58,
+          "level": 1
+        },
+        {
+          "moveId": 35,
+          "level": 1
+        },
+        {
+          "moveId": 34,
+          "level": 1
+        },
+        {
+          "moveId": 66,
+          "level": 1
+        },
+        {
+          "moveId": 83,
+          "level": 1
+        },
+        {
+          "moveId": 84,
+          "level": 1
+        },
+        {
+          "moveId": 121,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [
+        37,
+        44,
+        105
+      ],
+      "bannerMoves": []
+    },
+    "hp": 75,
+    "attack": 80,
+    "defense": 95,
+    "spAtk": 90,
+    "spDef": 100,
+    "speed": 50,
+    "catchRate": 0.2,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
     "id": 186,
     "name": "Politoed",
     "type1": 3,
@@ -6339,8 +6600,14 @@
     "spAtk": 85,
     "spDef": 42,
     "speed": 91,
-    "catchRate": 0.4,
-    "evolutions": [],
+    "catchRate": 0.35,
+    "evolutions": [
+      {
+        "evolutionId": 430,
+        "evolutionCondition": {
+          "itemId": 60
+        }
+      }],
     "expGaugeType": "MEDIUM_SLOW"
   },
   {
@@ -6398,9 +6665,64 @@
     "spAtk": 100,
     "spDef": 110,
     "speed": 30,
-    "catchRate": 0.3,
+    "catchRate": 0.35,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 200,
+    "name": "Misdreavus",
+    "type1": 13,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 39,
+          "level": 1
+        },
+        {
+          "moveId": 47,
+          "level": 10
+        },
+        {
+          "moveId": 48,
+          "level": 14
+        },
+        {
+          "moveId": 59,
+          "level": 28
+        },
+        {
+          "moveId": 46,
+          "level": 41
+        },
+        {
+          "moveId": 51,
+          "level": 55
+        }
+      ],
+      "movesLearnWithTM": [
+        12,44,45,46
+      ],
+      "bannerMoves": [
+      ]
+    },
+    "hp": 60,
+    "attack": 60,
+    "defense": 60,
+    "spAtk": 85,
+    "spDef": 85,
+    "speed": 85,
+    "catchRate": 0.35,
+    "evolutions": [
+      {
+        "evolutionId": 429,
+        "evolutionCondition": {
+          "itemId": 60
+        }
+      }
+    ],
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 208,
@@ -7279,12 +7601,31 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
-          "moveId": 2,
+          "moveId": 39,
+          "level": 1
+        },
+        {
+          "moveId": 47,
+          "level": 1
+        },
+        {
+          "moveId": 48,
+          "level": 1
+        },
+        {
+          "moveId": 59,
+          "level": 1
+        },
+        {
+          "moveId": 46,
+          "level": 1
+        },
+        {
+          "moveId": 51,
           "level": 1
         }
       ],
-      "movesLearnWithTM": [
-      ],
+      "movesLearnWithTM": [12,44,45,46],
       "bannerMoves": []
     },
     "hp": 60,
@@ -7296,6 +7637,53 @@
     "catchRate": 0.3,
     "evolutions": [],
     "expGaugeType": "FAST"
+  },
+  {
+    "id": 430,
+    "name": "Honchkrow",
+    "type1": 6,
+    "type2": 17,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 11,
+          "level": 1
+        },
+        {
+          "moveId": 47,
+          "level": 1
+        },
+        {
+          "moveId": 4,
+          "level": 1
+        },
+        {
+          "moveId": 16,
+          "level": 1
+        },
+        {
+          "moveId": 123,
+          "level": 55
+        },
+        {
+          "moveId": 92,
+          "level": 75
+        }
+      ],
+      "movesLearnWithTM": [
+        46
+      ],
+      "bannerMoves": []
+    },
+    "hp": 100,
+    "attack": 125,
+    "defense": 52,
+    "spAtk": 105,
+    "spDef": 52,
+    "speed": 71,
+    "catchRate": 0.3,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": 462,
@@ -7401,6 +7789,54 @@
     "catchRate": 0.2,
     "evolutions": [],
     "expGaugeType": "SLOW"
+  },
+  {
+    "id": 465,
+    "name": "Tangrowth",
+    "type1": 1,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 67,
+          "level": 1
+        },
+        {
+          "moveId": 5,
+          "level": 16
+        },
+        {
+          "moveId": 34,
+          "level": 20
+        },
+        {
+          "moveId": 102,
+          "level": 24
+        },
+        {
+          "moveId": 66,
+          "level": 32
+        },
+        {
+          "moveId": 35,
+          "level": 36
+        }
+      ],
+      "movesLearnWithTM": [
+        37,
+        105
+      ],
+      "bannerMoves": []
+    },
+    "hp": 100,
+    "attack": 100,
+    "defense": 125,
+    "spAtk": 110,
+    "spDef": 50,
+    "speed": 50,
+    "catchRate": 0.3,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 466,

@@ -110,6 +110,7 @@ abstract class Battle {
         else{
             activity.trainer!!.useItem(itemId, pokemon)
         }
+        sb.append(opponentTurn(opponent.IA(pokemon)))
         endTurn(sb)
         dialogTextView.text = sb.toString()
     }

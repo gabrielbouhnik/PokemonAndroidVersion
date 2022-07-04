@@ -1398,14 +1398,14 @@
               "id": 114,
               "level": 40,
               "moveIds": [
-                66,35
+                66,35,102
               ]
             },
             {
               "id": 71,
               "level": 40,
               "moveIds": [
-                66,62,18
+                66,62,18,121
               ]
             },
             {
@@ -3323,7 +3323,7 @@
         "minLevel": 18,
         "maxLevel": 21,
         "encounters": [
-          16,17,69,163
+          16,17,43,69,163
         ]
       },
       "rewards": [
@@ -3551,7 +3551,7 @@
         "minLevel": 30,
         "maxLevel": 33,
         "encounters": [
-          48,69,17
+          17,43,43,43,43,44,48,48,48,69,69,69,69,70
         ]
       },
       "rewards": [
@@ -3719,13 +3719,97 @@
         },
         {
           "id": 5,
-          "quantity": 1
+          "quantity": 3
         }
       ],
       "icon": "images/electrode_level.PNG",
       "background": "images/electric_terrain_background.png",
       "music": 1,
       "exp": 9000
+    },
+    {
+      "id": 72,
+      "name": "\nCerulean Cave",
+      "description": "After defeating Zapdos, you visit Professor Oak and he informs you that your rival Jackson has gone to Cerulean Cave and encountered the most powerful Pokemon he has ever seen. He ran away because his Pokemon were defeated by this creature. Be careful!",
+      "encounter": 10,
+      "possibleEncounters":
+      {
+        "minLevel": 80,
+        "maxLevel": 83,
+        "encounters": [
+          28,42,47,57,75,82,101
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 5,
+          "quantity": 3
+        }
+      ],
+      "icon": "images/cerulean_cave_icon.png",
+      "background": "images/cerulean_cave_background.png",
+      "music": 1,
+      "exp": 12000
+    },
+    {
+      "id": 73,
+      "name": "\nCerulean Cave 1F",
+      "description": "Pokemon in this cave are very powerful. Keep it up!",
+      "encounter": 10,
+      "possibleEncounters":
+      {
+        "minLevel": 82,
+        "maxLevel": 85,
+        "encounters": [
+          49,85,101,112
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 3,
+          "quantity": 3
+        }
+      ],
+      "icon": "images/cerulean_cave_icon.png",
+      "background": "images/cerulean_cave_background.png",
+      "music": 1,
+      "exp": 12000
+    },
+    {
+      "id": 74,
+      "name": "\nCerulean Cave B1F",
+      "description": "You find a ladder that takes you into the depths of the cave. You feel the presence of the powerful Pokemon.",
+      "encounter": 10,
+      "possibleEncounters":
+      {
+        "minLevel": 83,
+        "maxLevel": 85,
+        "encounters": [
+          42,47,82,101
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 3,
+          "quantity": 3
+        }
+      ],
+      "icon": "images/cerulean_cave_icon.png",
+      "background": "images/cerulean_cave_background.png",
+      "music": 1,
+      "exp": 12000
     }
   ],
   "bossBattles": [
@@ -3884,6 +3968,40 @@
       "background": "images/electric_terrain_background.png",
       "music": 1,
       "exp": 12000
+    },
+    {
+      "id": 75,
+      "name": "\nVs Mewtwo",
+      "description": "You finally come across the powerful Pokemon. It seems to want to fight you! Show him what you can do!",
+      "boss":
+      {
+        "id": 150,
+        "level": 85,
+        "moveIds": [45,46,12,100],
+        "boostedStats": []
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 200
+        },
+        {
+          "id": 3,
+          "quantity": 5
+        },
+        {
+          "id": 9,
+          "quantity": 5
+        },
+        {
+          "id": 10,
+          "quantity": 5
+        }
+      ],
+      "icon": "images/mewtwo_boss_icon.PNG",
+      "background": "images/cerulean_cave_background.png",
+      "music": 6,
+      "exp": 15000
     }
   ]
 }

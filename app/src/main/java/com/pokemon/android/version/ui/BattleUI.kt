@@ -399,7 +399,7 @@ class BattleUI {
     }
 
     fun startBossBattle(activity : MainActivity, level: BossBattleLevelData){
-        activity.updateMusic(R.raw.boss_battle)
+        MusicUtils.playMusic(activity, level.music)
         activity.setContentView(R.layout.battle_layout)
         dialogTextView = activity.findViewById(R.id.dialogTextView)
         val trainerBackSprite : ImageView = activity.findViewById(R.id.trainerBackSpriteView)

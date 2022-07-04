@@ -24,47 +24,9 @@ open class Ball(val successRate : Int) : Item{
         throw ItemCannotBeUsedException()
     }
 
-    open fun catch(pokemon: Pokemon, trainer : Trainer) : Boolean{
-        if (pokemon.trainer != null){
-            throw ItemCannotBeUsedException()
-        }
-        if (Random.nextInt(0..100) < this.successRate){
-            trainer.receivePokemon(pokemon)
-            return true;
-        }
-        else
-            return false;
-    }
-
     class HealBall : Ball(20){
-        override fun catch(pokemon: Pokemon, trainer : Trainer) : Boolean{
-            if (pokemon.trainer != null){
-                throw ItemCannotBeUsedException()
-            }
-            if (Random.nextInt(0..100) < this.successRate){
-                pokemon.currentHP = pokemon.hp
-                trainer.receivePokemon(pokemon)
-                return true;
-            }
-            else
-                return false;
-        }
     }
 
     class NetBall : Ball(20){
-        override fun catch(pokemon: Pokemon, trainer : Trainer) : Boolean{
-            if (pokemon.trainer != null){
-                throw ItemCannotBeUsedException()
-            }
-            var multiplicator = if (pokemon.data.type1 == Type.WATER || pokemon.data.type1 == Type.BUG
-                || pokemon.data.type2 == Type.WATER || pokemon.data.type2 == Type.BUG) 3 else 1
-            if (Random.nextInt(0..100) < this.successRate * multiplicator){
-                pokemon.currentHP = pokemon.hp
-                trainer.receivePokemon(pokemon)
-                return true;
-            }
-            else
-                return false;
-        }
     }
 }

@@ -1319,7 +1319,7 @@
       "id": 118,
       "name": "Fire Fang",
       "power": 65,
-      "category": "SPECIAL",
+      "category": "PHYSICAL",
       "pp": 15,
       "type": 2,
       "accuracy": 95,
@@ -1341,7 +1341,7 @@
       "id": 119,
       "name": "Ice Fang",
       "power": 65,
-      "category": "SPECIAL",
+      "category": "PHYSICAL",
       "pp": 15,
       "type": 14,
       "accuracy": 95,
@@ -1363,7 +1363,7 @@
       "id": 120,
       "name": "Thunder Fang",
       "power": 65,
-      "category": "SPECIAL",
+      "category": "PHYSICAL",
       "pp": 15,
       "type": 4,
       "accuracy": 95,
@@ -1380,6 +1380,32 @@
         }
       ],
       "highCritRate": false
+    },
+    {
+      "id": 121,
+      "name": "Leaf Blade",
+      "power": 90,
+      "pp": 15,
+      "type": 1,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true
+    },
+    {
+      "id": 123,
+      "name": "Night Slash",
+      "power": 70,
+      "pp": 20,
+      "type": 17,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true
     }
   ],
   "variableHitMoves": [
@@ -1892,6 +1918,27 @@
       ],
       "target": "SELF",
       "multiplicator": 2,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 122,
+      "name": "Quiver Dance",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 7,
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK",
+        "SPDEF",
+        "SPEED"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "probabilty": 100,
       "status": [],
       "highCritRate": false
     }

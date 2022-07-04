@@ -36,14 +36,21 @@ class Trainer(var name: String, gender: Gender) : ITrainer{
         }
         val random : Int = Random.nextInt(3)
         var status = 1f
-        if (pokemon.status == Status.BURN || pokemon.status == Status.POISON || pokemon.status == Status.PARALYSIS)
+        if (pokemon.status == Status.BURN || pokemon.status == Status.POISON || pokemon.status == Status.PARALYSIS || pokemon.status == Status.FROZEN)
             status = 1.5f
         if (pokemon.status ==  Status.ASLEEP)
             status = 2.5f
         val ball : Ball = ItemUtils.getItemById(ballId) as Ball
-        val catch : Int = ((1 - ((2/3)*(pokemon.currentHP/pokemon.hp))).toFloat() * status).toInt() * (pokemon.data.catchRate*100f).toInt()*ball.successRate
+        var successRate = ball.successRate
+        if (ball is Ball.NetBall && (pokemon.data.type1 == Type.WATER || pokemon.data.type1 == Type.BUG
+                    || pokemon.data.type2 == Type.WATER || pokemon.data.type2 == Type.BUG))
+                        successRate *= 3
+        val catch : Int = ((1 - ((2/3)*(pokemon.currentHP/pokemon.hp))).toFloat() * status).toInt() * (pokemon.data.catchRate*100f).toInt()*successRate
         if (catch * random > 300){
             receivePokemon(pokemon)
+            if (ball is Ball.HealBall){
+                pokemon.currentHP = pokemon.hp
+            }
             return true
         }
         return false
