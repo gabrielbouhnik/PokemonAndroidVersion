@@ -19,17 +19,17 @@ class WildBattle() : Battle() {
         this.pokemon.battleData = PokemonBattleData()
     }
 
-    override fun updateOpponent(){
+    override fun updateOpponent() {
         if (encountersLeft > 0) {
             generateRandomEncounter()
         }
     }
 
     override fun getBattleState(): State {
-        if (encountersLeft == 0 && (opponent.trainer != null || opponent.currentHP == 0)){
+        if (encountersLeft == 0 && (opponent.trainer != null || opponent.currentHP == 0)) {
             return State.TRAINER_VICTORY
         }
-        if (!activity.trainer!!.canStillBattle()  || MoveUtils.getMoveList(opponent).none { it.pp > 0 }) {
+        if (!activity.trainer!!.canStillBattle() || MoveUtils.getMoveList(opponent).none { it.pp > 0 }) {
             return State.TRAINER_LOSS
         }
         return State.IN_PROGRESS

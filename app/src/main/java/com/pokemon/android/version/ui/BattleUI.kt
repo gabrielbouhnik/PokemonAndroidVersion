@@ -7,6 +7,7 @@ import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
@@ -22,7 +23,7 @@ import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.level.WildBattleLevelData
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
-import com.pokemon.android.version.utils.DailyHeal
+import com.pokemon.android.version.utils.HealUtils
 import com.pokemon.android.version.utils.ItemUtils
 import com.pokemon.android.version.utils.MusicUtils
 import java.io.InputStream
@@ -33,76 +34,74 @@ class BattleUI {
         const val GIRL_BACK_SPRITE = "images/HGSS_Lyra_Back.png"
     }
 
-    var dialogTextView : TextView? = null
-    var rewardMenu : RewardMenu = RewardMenu()
+    private var dialogTextView: TextView? = null
+    private var rewardMenu: RewardMenu = RewardMenu()
 
-    private fun loadBackgroundImage(level : LevelData, activity: MainActivity){
-        val background : ImageView = activity.findViewById(R.id.battleBackgroundImageView)
-        val img : InputStream = activity.assets.open(level.background)
+    private fun loadBackgroundImage(level: LevelData, activity: MainActivity) {
+        val background: ImageView = activity.findViewById(R.id.battleBackgroundImageView)
+        val img: InputStream = activity.assets.open(level.background)
         background.setImageDrawable(Drawable.createFromStream(img, level.background))
     }
 
-    private fun loadMainTrainerSprite(trainerBackSprite : ImageView, activity: MainActivity){
-        val backSprite : String = if (activity.trainer!!.gender!! == Gender.MALE) BOY_BACK_SPRITE else GIRL_BACK_SPRITE
-        val img : InputStream = activity.assets.open(backSprite)
+    private fun loadMainTrainerSprite(trainerBackSprite: ImageView, activity: MainActivity) {
+        val backSprite: String = if (activity.trainer!!.gender!! == Gender.MALE) BOY_BACK_SPRITE else GIRL_BACK_SPRITE
+        val img: InputStream = activity.assets.open(backSprite)
         trainerBackSprite.setImageDrawable(Drawable.createFromStream(img, backSprite))
     }
 
-    fun loadOpponentTrainerSprite(opponentTrainerSprite : ImageView, activity: MainActivity, filename : String){
-        val img : InputStream = activity.assets.open(filename)
+    private fun loadOpponentTrainerSprite(opponentTrainerSprite: ImageView, activity: MainActivity, filename: String) {
+        val img: InputStream = activity.assets.open(filename)
         opponentTrainerSprite.setImageDrawable(Drawable.createFromStream(img, filename))
     }
 
-    private fun displayPokemonsInfos(activity : MainActivity, battle : Battle){
-        val opponentPokemonSprite : ImageView = activity.findViewById(R.id.opponentPokemonImageView)
+    private fun displayPokemonsInfos(activity: MainActivity, battle: Battle) {
+        val opponentPokemonSprite: ImageView = activity.findViewById(R.id.opponentPokemonImageView)
         opponentPokemonSprite.visibility = VISIBLE
         activity.displayPokemon(battle.opponent.data.id, opponentPokemonSprite)
-        val pokemonBackSprite : ImageView = activity.findViewById(R.id.pokemonBackSpriteView)
+        val pokemonBackSprite: ImageView = activity.findViewById(R.id.pokemonBackSpriteView)
         pokemonBackSprite.visibility = VISIBLE
         activity.displayPokemonBack(battle.pokemon.data.id, pokemonBackSprite)
 
-        val trainerPokemonName : TextView =  activity.findViewById(R.id.myPokemonNameTextView)
+        val trainerPokemonName: TextView = activity.findViewById(R.id.myPokemonNameTextView)
         trainerPokemonName.text = battle.pokemon.data.name
-        val trainerPokemonHPLevel : TextView =  activity.findViewById(R.id.myPokemonHPLevelTextView)
+        val trainerPokemonHPLevel: TextView = activity.findViewById(R.id.myPokemonHPLevelTextView)
         trainerPokemonHPLevel.text = "Lv . ${battle.pokemon.level} ${battle.pokemon.currentHP}/${battle.pokemon.hp}"
 
-        val pokemonStatusTextView : TextView = activity.findViewById(R.id.pokemonBattleStatusTextView)
-        if (battle.pokemon.status != Status.OK){
+        val pokemonStatusTextView: TextView = activity.findViewById(R.id.pokemonBattleStatusTextView)
+        if (battle.pokemon.status != Status.OK) {
             pokemonStatusTextView.visibility = VISIBLE
             pokemonStatusTextView.text = battle.pokemon.status.toBattleIcon()
-        }
-        else{
+        } else {
             pokemonStatusTextView.visibility = GONE
         }
 
-        val opponentPokemonName : TextView =  activity.findViewById(R.id.opponentPokemonNameTextView)
+        val opponentPokemonName: TextView = activity.findViewById(R.id.opponentPokemonNameTextView)
         opponentPokemonName.text = battle.opponent.data.name
-        val opponentPokemonHPLevel : TextView =  activity.findViewById(R.id.opponentPokemonHPLevelTextView)
+        val opponentPokemonHPLevel: TextView = activity.findViewById(R.id.opponentPokemonHPLevelTextView)
         opponentPokemonHPLevel.text = "Lv . ${battle.opponent.level} ${battle.opponent.currentHP}/${battle.opponent.hp}"
 
-        val opponentStatusTextView : TextView = activity.findViewById(R.id.opponentStatusTextView)
-        if (battle.opponent.status != Status.OK){
+        val opponentStatusTextView: TextView = activity.findViewById(R.id.opponentStatusTextView)
+        if (battle.opponent.status != Status.OK) {
             opponentStatusTextView.visibility = VISIBLE
             opponentStatusTextView.text = battle.opponent.status.toBattleIcon()
-        }
-        else{
+        } else {
             opponentStatusTextView.visibility = GONE
         }
     }
 
-    private fun disableAttackButton(activity: MainActivity, id : Int, ppId: Int){
-        val button : Button =  activity.findViewById(id)
+    private fun disableAttackButton(activity: MainActivity, id: Int, ppId: Int) {
+        val button: Button = activity.findViewById(id)
         button.visibility = GONE
-        val ppTextView : TextView =  activity.findViewById(ppId)
+        val ppTextView: TextView = activity.findViewById(ppId)
         ppTextView.visibility = GONE
     }
 
-    private fun disableButton(activity: MainActivity, id : Int){
-        val button : Button =  activity.findViewById(id)
+    private fun disableButton(activity: MainActivity, id: Int) {
+        val button: Button = activity.findViewById(id)
         button.visibility = GONE
     }
 
-    private fun disableAttackButtons(activity : MainActivity){
+    private fun disableAttackButtons(activity: MainActivity) {
 
         disableAttackButton(activity, R.id.attack1Button, R.id.attack1PPTextView)
         disableAttackButton(activity, R.id.attack2Button, R.id.attack2PPTextView)
@@ -110,13 +109,13 @@ class BattleUI {
         disableAttackButton(activity, R.id.attack4Button, R.id.attack4PPTextView)
     }
 
-    private fun disableBattleButtons(activity : MainActivity){
+    private fun disableBattleButtons(activity: MainActivity) {
         disableAttackButtons(activity)
         disableButton(activity, R.id.bagButton)
         disableButton(activity, R.id.switchPokemonButton)
     }
 
-    fun endEliteBattle(activity : MainActivity, battle : Battle){
+    private fun endEliteBattle(activity: MainActivity, battle: Battle) {
         val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
         rewardsButton.visibility = VISIBLE
         if (activity.trainer!!.eliteProgression == 5) {
@@ -126,15 +125,14 @@ class BattleUI {
             activity.eliteMode = false
             if (activity.trainer!!.progression == LevelMenu.ELITE_4_FIRST_LEVEL_ID)
                 activity.trainer!!.progression += 5
-            DailyHeal.heal(activity.trainer!!)
+            HealUtils.dailyHeal(activity.trainer!!)
             rewardsButton.setOnClickListener {
                 SaveManager.save(activity)
                 activity.trainer!!.receiveExp((battle.levelData.exp * 0.5).toInt())
                 battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
                 activity.mainMenu.loadGameMenu(activity)
             }
-        }
-        else
+        } else
             rewardsButton.text = "Go forward"
         rewardsButton.setOnClickListener {
             SaveManager.save(activity)
@@ -145,26 +143,26 @@ class BattleUI {
         }
     }
 
-    private fun updateByBattleState(activity : MainActivity, battle : Battle){
-        when(battle.getBattleState()){
+    private fun updateByBattleState(activity: MainActivity, battle: Battle) {
+        when (battle.getBattleState()) {
             State.TRAINER_LOSS -> {
                 if (activity.eliteMode) {
                     activity.eliteMode = false
-                    DailyHeal.heal(activity.trainer!!)
+                    HealUtils.dailyHeal(activity.trainer!!)
                     activity.trainer!!.eliteProgression = 0
                 }
                 disableBattleButtons(activity)
                 if (battle is TrainerBattle)
                     dialogTextView!!.text = (battle.levelData as TrainerBattleLevelData).endDialogLoose
-                val rewardsButton : Button = activity.findViewById(R.id.getRewardsButton)
+                val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
                 rewardsButton.visibility = VISIBLE
                 rewardsButton.text = "Exit"
-                rewardsButton.setOnClickListener{
+                rewardsButton.setOnClickListener {
                     activity.mainMenu.loadGameMenu(activity)
                 }
             }
             State.TRAINER_VICTORY -> {
-                val firstTime : Boolean = activity.trainer!!.progression == battle.levelData.id
+                val firstTime: Boolean = activity.trainer!!.progression == battle.levelData.id
                 if (activity.trainer!!.eliteProgression == 4)
                     activity.updateMusic(R.raw.hall_of_fame)
                 else
@@ -177,11 +175,11 @@ class BattleUI {
                     }
                 }
                 disableBattleButtons(activity)
-                val opponentPokemonSprite : ImageView = activity.findViewById(R.id.opponentPokemonImageView)
+                val opponentPokemonSprite: ImageView = activity.findViewById(R.id.opponentPokemonImageView)
                 opponentPokemonSprite.visibility = GONE
-                val opponentPokemonName : TextView =  activity.findViewById(R.id.opponentPokemonNameTextView)
+                val opponentPokemonName: TextView = activity.findViewById(R.id.opponentPokemonNameTextView)
                 opponentPokemonName.visibility = GONE
-                val opponentPokemonHPLevel : TextView =  activity.findViewById(R.id.opponentPokemonHPLevelTextView)
+                val opponentPokemonHPLevel: TextView = activity.findViewById(R.id.opponentPokemonHPLevelTextView)
                 opponentPokemonHPLevel.visibility = GONE
                 if (battle is TrainerBattle)
                     dialogTextView!!.text = (battle.levelData as TrainerBattleLevelData).endDialogWin
@@ -199,16 +197,16 @@ class BattleUI {
                 }
             }
             else -> {
-                if (battle.pokemon.currentHP <= 0){
+                if (battle.pokemon.currentHP <= 0) {
                     disableAttackButtons(activity)
                     val recyclerView = activity.findViewById<RecyclerView>(R.id.battleRecyclerView)
                     recyclerView.visibility = VISIBLE
-                    val blackImageView : ImageView = activity.findViewById(R.id.blackImageView)
+                    val blackImageView: ImageView = activity.findViewById(R.id.blackImageView)
                     blackImageView.visibility = VISIBLE
-                    recyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+                    recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                     val myItemClickListener = View.OnClickListener {
                         val position = it.tag as Int
-                        val clickedPokemon : Pokemon = activity.trainer!!.team[position]
+                        val clickedPokemon: Pokemon = activity.trainer!!.team[position]
                         if (clickedPokemon.currentHP > 0 && clickedPokemon != battle.pokemon) {
                             recyclerView.visibility = GONE
                             blackImageView.visibility = GONE
@@ -218,68 +216,66 @@ class BattleUI {
                             displayPokemonsInfos(activity, battle)
                         }
                     }
-                    val adapter =  PokemonRecyclerAdapter(activity, activity.trainer!!.team, myItemClickListener)
+                    val adapter = PokemonRecyclerAdapter(activity, activity.trainer!!.team, myItemClickListener)
                     recyclerView.adapter = adapter
                 }
             }
         }
     }
 
-    private fun updateBattleUI(activity : MainActivity, battle : Battle){
+    private fun updateBattleUI(activity: MainActivity, battle: Battle) {
         displayPokemonsInfos(activity, battle)
         setUpAttackButtons(activity, battle)
         updateByBattleState(activity, battle)
     }
 
-    private fun setupAttackButton(activity : MainActivity, battle : Battle, move : PokemonMove?, id : Int, ppId : Int){
-        val attackButton : Button =  activity.findViewById(id)
-        val ppTextView : TextView =  activity.findViewById(ppId)
-        if (move != null && move.pp > 0){
+    private fun setupAttackButton(activity: MainActivity, battle: Battle, move: PokemonMove?, id: Int, ppId: Int) {
+        val attackButton: Button = activity.findViewById(id)
+        val ppTextView: TextView = activity.findViewById(ppId)
+        if (move != null && move.pp > 0) {
             attackButton.visibility = VISIBLE
             attackButton.text = move.move.name
             attackButton.setBackgroundColor(ColorUtils.getColorByType(move.move.type))
             ppTextView.visibility = VISIBLE
             ppTextView.text = "${move.pp}/${move.move.pp}"
-            attackButton.setOnClickListener{
+            attackButton.setOnClickListener {
                 battle.turn(move)
                 ppTextView.text = "${move.pp}/${move.move.pp}"
                 updateBattleUI(activity, battle)
             }
-        }
-        else {
+        } else {
             attackButton.visibility = GONE
             ppTextView.visibility = GONE
         }
     }
 
-    private fun setUpAttackButtons(activity : MainActivity, battle : Battle){
-        val attack1Button : Button =  activity.findViewById(R.id.attack1Button)
-        val ppTextView : TextView =  activity.findViewById(R.id.attack1PPTextView)
-        if (battle.pokemon.move1.pp > 0){
+    private fun setUpAttackButtons(activity: MainActivity, battle: Battle) {
+        val attack1Button: Button = activity.findViewById(R.id.attack1Button)
+        val ppTextView: TextView = activity.findViewById(R.id.attack1PPTextView)
+        if (battle.pokemon.move1.pp > 0) {
             attack1Button.visibility = VISIBLE
             attack1Button.text = battle.pokemon.move1.move.name
             attack1Button.setBackgroundColor(ColorUtils.getColorByType(battle.pokemon.move1.move.type))
             ppTextView.visibility = VISIBLE
             ppTextView.text = "${battle.pokemon.move1.pp}/${battle.pokemon.move1.move.pp}"
-            attack1Button.setOnClickListener{
+            attack1Button.setOnClickListener {
                 battle.turn(battle.pokemon.move1)
                 ppTextView.text = "${battle.pokemon.move1.pp}/${battle.pokemon.move1.move.pp}"
                 updateBattleUI(activity, battle)
             }
-        }
-        else {
+        } else {
             attack1Button.visibility = GONE
             ppTextView.visibility = GONE
         }
-        setupAttackButton(activity, battle, battle.pokemon.move2,R.id.attack2Button, R.id.attack2PPTextView)
-        setupAttackButton(activity, battle, battle.pokemon.move3,R.id.attack3Button, R.id.attack3PPTextView)
-        setupAttackButton(activity, battle, battle.pokemon.move4,R.id.attack4Button, R.id.attack4PPTextView)
+        setupAttackButton(activity, battle, battle.pokemon.move2, R.id.attack2Button, R.id.attack2PPTextView)
+        setupAttackButton(activity, battle, battle.pokemon.move3, R.id.attack3Button, R.id.attack3PPTextView)
+        setupAttackButton(activity, battle, battle.pokemon.move4, R.id.attack4Button, R.id.attack4PPTextView)
     }
 
-    private fun buttonSetUp(activity : MainActivity, battle : Battle){
+    private fun buttonSetUp(activity: MainActivity, battle: Battle) {
         setUpAttackButtons(activity, battle)
-        val switchButton : Button = activity.findViewById(R.id.switchPokemonButton)
-        val bagButton : Button = activity.findViewById(R.id.bagButton)
+        val switchButton: Button = activity.findViewById(R.id.switchPokemonButton)
+        val bagButton: Button = activity.findViewById(R.id.bagButton)
         switchButton.setOnClickListener {
             if (!battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED)) {
                 val closeButton: Button = activity.findViewById(R.id.closeTeamButton)
@@ -318,32 +314,37 @@ class BattleUI {
                     setUpAttackButtons(activity, battle)
                 }
             }
+            else
+                Toast.makeText(activity, "Your Pokemon is trapped and cannot be switched.", Toast.LENGTH_SHORT).show()
         }
         bagButton.setOnClickListener {
-            val closeButton : Button = activity.findViewById(R.id.closeBagButton)
+            val closeButton: Button = activity.findViewById(R.id.closeBagButton)
             closeButton.visibility = VISIBLE
             switchButton.visibility = GONE
             bagButton.visibility = GONE
             disableAttackButtons(activity)
-            val blackImageView : ImageView = activity.findViewById(R.id.blackImageView)
+            val blackImageView: ImageView = activity.findViewById(R.id.blackImageView)
             blackImageView.visibility = VISIBLE
             val recyclerView = activity.findViewById<RecyclerView>(R.id.battleRecyclerView)
             recyclerView.visibility = VISIBLE
-            recyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-            val items : ArrayList<ItemQuantity> = ArrayList(ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items).filter{battle.itemIsUsable(it.itemId)})
+            recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+            val items: ArrayList<ItemQuantity> = ArrayList(
+                ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items)
+                    .filter { battle.itemIsUsable(it.itemId) })
             val myItemClickListener = View.OnClickListener {
                 val position = it.tag as Int
-                val clickedItem : ItemQuantity = items[position]
+                val clickedItem: ItemQuantity = items[position]
                 recyclerView.visibility = GONE
                 blackImageView.visibility = GONE
                 closeButton.visibility = GONE
-                if (ItemUtils.getItemById(clickedItem.itemId).isUsable(battle.pokemon) || (battle is WildBattle && ItemUtils.isBall(clickedItem.itemId))) {
+                if (ItemUtils.getItemById(clickedItem.itemId)
+                        .isUsable(battle.pokemon) || (battle is WildBattle && ItemUtils.isBall(clickedItem.itemId))
+                ) {
                     battle.turnWithItemUsed(clickedItem.itemId)
                     updateBattleUI(activity, battle)
                     if (battle.pokemon.currentHP > 0)
                         setUpAttackButtons(activity, battle)
-                }
-                else
+                } else
                     setUpAttackButtons(activity, battle)
                 switchButton.visibility = VISIBLE
                 bagButton.visibility = VISIBLE
@@ -361,53 +362,54 @@ class BattleUI {
         }
     }
 
-    fun startWildBattle(activity : MainActivity, level : WildBattleLevelData){
+    fun startWildBattle(activity: MainActivity, level: WildBattleLevelData) {
         activity.updateMusic(R.raw.wild_battle)
         activity.setContentView(R.layout.battle_layout)
         dialogTextView = activity.findViewById(R.id.dialogTextView)
-        val trainerBackSprite : ImageView = activity.findViewById(R.id.trainerBackSpriteView)
+        val trainerBackSprite: ImageView = activity.findViewById(R.id.trainerBackSpriteView)
         loadMainTrainerSprite(trainerBackSprite, activity)
-        loadBackgroundImage(level,activity)
+        loadBackgroundImage(level, activity)
         val wildBattle = WildBattle(activity, level)
-        buttonSetUp(activity,wildBattle)
+        buttonSetUp(activity, wildBattle)
         wildBattle.generateRandomEncounter()
         dialogTextView!!.text = "You encountered a wild ${wildBattle.opponent.data.name}!"
         displayPokemonsInfos(activity, wildBattle)
     }
 
-    fun startTrainerBattle(activity : MainActivity, level : TrainerBattleLevelData){
+    fun startTrainerBattle(activity: MainActivity, level: TrainerBattleLevelData) {
         MusicUtils.playMusic(activity, level.music)
         activity.setContentView(R.layout.battle_layout)
         dialogTextView = activity.findViewById(R.id.dialogTextView)
         dialogTextView!!.text = level.startDialog
-        val trainerBackSprite : ImageView = activity.findViewById(R.id.trainerBackSpriteView)
+        val trainerBackSprite: ImageView = activity.findViewById(R.id.trainerBackSpriteView)
         loadMainTrainerSprite(trainerBackSprite, activity)
-        loadBackgroundImage(level,activity)
-        val opponentTrainerSprite : ImageView = activity.findViewById(R.id.opponentTrainerSpriteView)
+        loadBackgroundImage(level, activity)
+        val opponentTrainerSprite: ImageView = activity.findViewById(R.id.opponentTrainerSpriteView)
         opponentTrainerSprite.visibility = VISIBLE
-        loadOpponentTrainerSprite(opponentTrainerSprite,activity,level.opponentTrainerData[0].sprite)
+        loadOpponentTrainerSprite(opponentTrainerSprite, activity, level.opponentTrainerData[0].sprite)
         val trainerBattle = TrainerBattle(activity, level)
-        val rewardsButton : Button = activity.findViewById(R.id.getRewardsButton)
+        val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
         rewardsButton.visibility = VISIBLE
         rewardsButton.text = "BATTLE"
-        rewardsButton.setOnClickListener{
+        rewardsButton.setOnClickListener {
             dialogTextView!!.text = "${level.opponentTrainerData[0].name} wants to battle"
-            buttonSetUp(activity,trainerBattle)
+            buttonSetUp(activity, trainerBattle)
             displayPokemonsInfos(activity, trainerBattle)
             rewardsButton.visibility = GONE
         }
     }
 
-    fun startBossBattle(activity : MainActivity, level: BossBattleLevelData){
+    fun startBossBattle(activity: MainActivity, level: BossBattleLevelData) {
         MusicUtils.playMusic(activity, level.music)
         activity.setContentView(R.layout.battle_layout)
         dialogTextView = activity.findViewById(R.id.dialogTextView)
-        val trainerBackSprite : ImageView = activity.findViewById(R.id.trainerBackSpriteView)
+        val trainerBackSprite: ImageView = activity.findViewById(R.id.trainerBackSpriteView)
         loadMainTrainerSprite(trainerBackSprite, activity)
-        loadBackgroundImage(level,activity)
+        loadBackgroundImage(level, activity)
         val bossBattle = BossBattle(activity, level)
-        buttonSetUp(activity,bossBattle)
-        dialogTextView!!.text = "${bossBattle.opponent.data.name} appeared!\nIt looks very powerful and is not the kind to be caught."
+        buttonSetUp(activity, bossBattle)
+        dialogTextView!!.text =
+            "${bossBattle.opponent.data.name} appeared!\nIt looks very powerful and is not the kind to be caught."
         displayPokemonsInfos(activity, bossBattle)
     }
 }

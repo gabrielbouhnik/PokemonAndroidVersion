@@ -5,5 +5,4 @@ data class BossEntity(
     var level: Int,
     var moveIds: List<Int>,
     var boostedStats: List<String>
-) {
-}
+)

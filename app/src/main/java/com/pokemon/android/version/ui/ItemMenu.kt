@@ -13,31 +13,32 @@ import com.pokemon.android.version.model.item.ItemQuantity
 import com.pokemon.android.version.utils.ItemUtils
 
 class ItemMenu {
-    lateinit var items : ArrayList<ItemQuantity>
+    lateinit var items: ArrayList<ItemQuantity>
 
-    fun loadItemMenu(activity : MainActivity, pokemon : Pokemon?){
+    fun loadItemMenu(activity: MainActivity, pokemon: Pokemon?) {
         activity.setContentView(R.layout.item_menu)
-        val backButton : Button = activity.findViewById(R.id.itemMenuBackButton)
-        backButton.setOnClickListener{
+        val backButton: Button = activity.findViewById(R.id.itemMenuBackButton)
+        backButton.setOnClickListener {
             if (pokemon != null)
                 activity.mainMenu.pokemonMenu.loadPokemonInfoLayout(activity, pokemon)
             else
                 activity.mainMenu.loadGameMenu(activity)
         }
-        items = ArrayList(ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items).filter{!ItemUtils.isBadge(it.itemId)})
+        items = ArrayList(
+            ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items)
+                .filter { !ItemUtils.isBadge(it.itemId) })
         val recyclerView = activity.findViewById<RecyclerView>(R.id.itemRecyclerView)
-        recyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        val adapter =  ItemRecyclerAdapter(activity, items,
-            if (pokemon == null) View.OnClickListener{} else View.OnClickListener{
+        recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        val adapter = ItemRecyclerAdapter(activity, items,
+            if (pokemon == null) View.OnClickListener {} else View.OnClickListener {
                 val position = it.tag as Int
-                if (ItemUtils.getItemById(items[position].itemId).isUsable(pokemon)){
+                if (ItemUtils.getItemById(items[position].itemId).isUsable(pokemon)) {
                     activity.trainer!!.useItem(items[position].itemId, pokemon)
+                    activity.mainMenu.pokemonMenu.loadPokemonInfoLayout(activity, pokemon)
                     SaveManager.save(activity)
+                } else {
+                    Toast.makeText(activity, "This item cannot be used on this Pokemon", Toast.LENGTH_SHORT).show()
                 }
-                else{
-                    Toast.makeText(activity,"Item cannot be used on this pokemon", Toast.LENGTH_SHORT)
-                }
-                activity.mainMenu.pokemonMenu.loadPokemonInfoLayout(activity, pokemon)
             })
         recyclerView.adapter = adapter
     }

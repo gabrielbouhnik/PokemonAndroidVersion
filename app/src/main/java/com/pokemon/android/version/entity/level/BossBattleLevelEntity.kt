@@ -10,5 +10,4 @@ data class BossBattleLevelEntity(
     var icon: String,
     var background: String,
     var exp: Int
-) {
-}
+)

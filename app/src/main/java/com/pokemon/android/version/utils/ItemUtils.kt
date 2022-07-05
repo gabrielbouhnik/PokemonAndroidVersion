@@ -4,16 +4,16 @@ import com.pokemon.android.version.model.item.*
 
 class ItemUtils {
     companion object {
-        fun isBall(itemId: Int) : Boolean{
-            return itemId > 10 && itemId < 16
+        fun isBall(itemId: Int): Boolean {
+            return itemId in 11..15
         }
 
-        fun isBadge(itemId: Int) : Boolean{
-            return itemId > 30 && itemId < 39
+        fun isBadge(itemId: Int): Boolean {
+            return itemId in 31..38
         }
 
-        fun getItemById(itemId: Int) : Item {
-            when(itemId){
+        fun getItemById(itemId: Int): Item {
+            when (itemId) {
                 1 -> return HealingHPItem.POTION
                 2 -> return HealingHPItem.SUPERPOTION
                 3 -> return HealingHPItem.HYPERPOTION
@@ -23,10 +23,10 @@ class ItemUtils {
                 7 -> return HealingStatusItem.ANTIDOTE
                 8 -> return RareCandy.RARE_CANDY
                 9 -> return Revive.REVIVE
-                10  -> return PPHealItem.PP_HEAL
+                10 -> return PPHealItem.PP_HEAL
                 11 -> return Ball.POKEBALL
                 12 -> return Ball.SUPERBALL
-                13  -> return Ball.HYPERBALL
+                13 -> return Ball.HYPERBALL
                 14 -> return Ball.NETBALL
                 15 -> return Ball.HEALBALL
                 28 -> return ExpItem.EXP_CANDY_S
@@ -53,7 +53,7 @@ class ItemUtils {
                 57 -> return TMItem(100)
                 58 -> return TMItem(105)
             }
-            return EvolutionItem(itemId)
+            return Revive.MAX_REVIVE
         }
     }
 }

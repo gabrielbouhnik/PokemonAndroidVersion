@@ -28,12 +28,13 @@ class StatChangeMove(
                 StatChangeMoveEntity.pp,
                 StatChangeMoveEntity.accuracy,
                 StatChangeMoveEntity.priorityLevel,
-                StatChangeMoveEntity.statsAffected.map{Stats.valueOf(it)},
+                StatChangeMoveEntity.statsAffected.map { Stats.valueOf(it) },
                 Target.valueOf(StatChangeMoveEntity.target),
                 StatChangeMoveEntity.multiplicator,
                 StatChangeMoveEntity.probability,
                 StatChangeMoveEntity.status.map(StatusMove::of),
-                StatChangeMoveEntity.highCritRate)
+                StatChangeMoveEntity.highCritRate
+            )
         }
     }
 }

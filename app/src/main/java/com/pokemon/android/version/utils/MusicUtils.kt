@@ -4,9 +4,9 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 
 class MusicUtils {
-    companion object{
-        fun playMusic(activity: MainActivity, id : Int){
-            when(id){
+    companion object {
+        fun playMusic(activity: MainActivity, id: Int) {
+            when (id) {
                 1 -> activity.updateMusic(R.raw.boss_battle)
                 2 -> activity.updateMusic(R.raw.trainer_battle)
                 3 -> activity.updateMusic(R.raw.gym_leader)

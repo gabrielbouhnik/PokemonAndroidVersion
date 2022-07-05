@@ -9,16 +9,16 @@ import com.pokemon.android.version.entity.banner.BannerEntity
 import com.pokemon.android.version.utils.JsonFileToString
 
 class BannerRepository : Repository<BannerEntity> {
-    override fun loadData(activity: MainActivity) : List<BannerEntity> {
-        val BannersJsonString: String = JsonFileToString.loadJsonStringFromAssets(
+    override fun loadData(activity: MainActivity): List<BannerEntity> {
+        val bannersJsonString: String = JsonFileToString.loadJsonStringFromAssets(
             activity,
             GameDataService.BANNER_DATA_PATH
         ) ?: return ArrayList()
         val gson = Gson()
-        var result : List<BannerEntity> = ArrayList()
-        val Banners = object : TypeToken<List<BannerEntity>>() {}.type
-        result = gson.fromJson(BannersJsonString, Banners)
-        result.forEach{ banner -> Log.d("Banner description:", banner.description) }
+        val result: List<BannerEntity>
+        val banners = object : TypeToken<List<BannerEntity>>() {}.type
+        result = gson.fromJson(bannersJsonString, banners)
+        result.forEach { banner -> Log.d("Banner description:", banner.description) }
         return result
     }
 }

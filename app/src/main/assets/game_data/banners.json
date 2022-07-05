@@ -136,7 +136,7 @@
   },
   {
     "image": "images/larvitar_banner.JPG",
-    "description": "Get a special Larvitar with the move Iron Head",
+    "description": "Get a special Larvitar with the moves Iron Head and Dragon Dance",
     "cost": 120,
     "pokemons": [
       {
@@ -145,7 +145,8 @@
         "moveIds": [
           2,
           29,
-          57
+          57,
+          125
         ]
       }
     ],

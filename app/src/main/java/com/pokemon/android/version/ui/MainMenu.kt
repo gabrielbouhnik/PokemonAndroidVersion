@@ -1,7 +1,6 @@
 package com.pokemon.android.version.ui
 
 import android.graphics.drawable.Drawable
-import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Button
@@ -14,7 +13,7 @@ import com.pokemon.android.version.R
 import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.item.ItemQuantity
-import com.pokemon.android.version.utils.DailyHeal
+import com.pokemon.android.version.utils.HealUtils
 import com.pokemon.android.version.utils.ItemUtils
 import java.io.InputStream
 
@@ -24,41 +23,39 @@ class MainMenu {
         const val GIRL_SPRITE = "images/Spr_HGSS_Lyra.png"
     }
 
-    var pokemonMenu : PokemonMenu = PokemonMenu()
-    var bannerMenu : BannerMenu = BannerMenu()
-    var levelMenu : LevelMenu = LevelMenu()
-    var itemMenu : ItemMenu = ItemMenu()
+    var pokemonMenu: PokemonMenu = PokemonMenu()
+    var bannerMenu: BannerMenu = BannerMenu()
+    var levelMenu: LevelMenu = LevelMenu()
+    var itemMenu: ItemMenu = ItemMenu()
 
-    fun loadGameMenu(activity : MainActivity){
+    fun loadGameMenu(activity: MainActivity) {
         activity.setContentView(R.layout.main_menu)
         if (activity.eliteMode) {
             activity.updateMusic(R.raw.elite4_music)
-            val bannerTextView : TextView = activity.findViewById(R.id.MysteryGiftTextView)
+            val bannerTextView: TextView = activity.findViewById(R.id.MysteryGiftTextView)
             bannerTextView.visibility = GONE
-        }
-        else
+        } else
             activity.updateMusic(R.raw.main_menu)
-        val pokemonsButton : Button = activity.findViewById(R.id.pokemonsButton)
+        val pokemonsButton: Button = activity.findViewById(R.id.pokemonsButton)
         pokemonsButton.setOnClickListener {
             if (activity.eliteMode)
                 pokemonMenu.loadPokemonMenuElite(activity)
             else
                 pokemonMenu.loadPokemonMenu(activity)
         }
-        val bannersButton : Button = activity.findViewById(R.id.bannersButton)
+        val bannersButton: Button = activity.findViewById(R.id.bannersButton)
         if (activity.eliteMode) {
             bannersButton.visibility = GONE
-        }
-        else {
+        } else {
             bannersButton.setOnClickListener {
                 bannerMenu.loadBannerMenu(activity)
             }
         }
-        val adventureButton : Button = activity.findViewById(R.id.adventureButton)
+        val adventureButton: Button = activity.findViewById(R.id.adventureButton)
         if (activity.eliteMode) {
             adventureButton.text = "POKEMON LEAGUE"
-            val adventureDescrTextView : TextView = activity.findViewById(R.id.adventureDescriptionTextView)
-            adventureDescrTextView.text = "Face the elite 4 to become the champion."
+            val adventureDescriptionTextView: TextView = activity.findViewById(R.id.adventureDescriptionTextView)
+            adventureDescriptionTextView.text = "Face the elite 4 to become the champion."
         }
         adventureButton.setOnClickListener {
             if (activity.eliteMode)
@@ -66,25 +63,25 @@ class MainMenu {
             else
                 levelMenu.loadLevelMenu(activity)
         }
-        val itemsButton : Button = activity.findViewById(R.id.itemsButton)
+        val itemsButton: Button = activity.findViewById(R.id.itemsButton)
         itemsButton.setOnClickListener {
             itemMenu.loadItemMenu(activity, null)
         }
-        if (!activity.eliteMode && DailyHeal.canUseDailyHeal(activity.trainer!!)) {
+        if (!activity.eliteMode && HealUtils.canUseDailyHeal(activity.trainer!!)) {
             val dailyHealButton: Button = activity.findViewById(R.id.dailyHealButton)
             dailyHealButton.visibility = VISIBLE
             dailyHealButton.setOnClickListener {
                 activity.playSoundEffect(R.raw.daily_heal_sound_effect)
-                DailyHeal.heal(activity.trainer!!)
+                HealUtils.dailyHeal(activity.trainer!!)
                 dailyHealButton.visibility = GONE
             }
         }
-        val trainerCardButton : Button = activity.findViewById(R.id.trainerCardButton)
+        val trainerCardButton: Button = activity.findViewById(R.id.trainerCardButton)
         trainerCardButton.setOnClickListener {
             loadTrainerCardMenu(activity)
             SaveManager.save(activity)
         }
-        val eliteButton : Button = activity.findViewById(R.id.eliteButton)
+        val eliteButton: Button = activity.findViewById(R.id.eliteButton)
         if (!activity.eliteMode && activity.trainer!!.progression >= LevelMenu.ELITE_4_FIRST_LEVEL_ID) {
             eliteButton.visibility = VISIBLE
             eliteButton.setOnClickListener {
@@ -94,28 +91,33 @@ class MainMenu {
         }
     }
 
-    fun loadTrainerCardMenu(activity : MainActivity){
+    private fun loadTrainerCardMenu(activity: MainActivity) {
         activity.setContentView(R.layout.trainer_card)
-        val backButton : Button = activity.findViewById(R.id.trainerCardMenuBackButton)
-        backButton.setOnClickListener{
+        val backButton: Button = activity.findViewById(R.id.trainerCardMenuBackButton)
+        backButton.setOnClickListener {
             loadGameMenu(activity)
         }
-        val championTextView : TextView = activity.findViewById(R.id.championTextView)
+        val championTextView: TextView = activity.findViewById(R.id.championTextView)
         if (activity.trainer!!.progression < LevelMenu.ELITE_4_LAST_LEVEL_ID)
             championTextView.visibility = GONE
-        val trainerSpriteTextView : ImageView = activity.findViewById(R.id.trainerSpriteTextView)
+        val trainerSpriteTextView: ImageView = activity.findViewById(R.id.trainerSpriteTextView)
         val filename = if (activity.trainer!!.gender == Gender.MALE) BOY_SPRITE else GIRL_SPRITE
-        val img : InputStream = activity.assets.open(filename)
+        val img: InputStream = activity.assets.open(filename)
         trainerSpriteTextView.setImageDrawable(Drawable.createFromStream(img, filename))
-        val nameTextView : TextView = activity.findViewById(R.id.trainerNameTextView)
+        val nameTextView: TextView = activity.findViewById(R.id.trainerNameTextView)
         nameTextView.text = activity.trainer!!.name
-        val androCoinTextView : TextView = activity.findViewById(R.id.androCoinTextView)
+        val androCoinTextView: TextView = activity.findViewById(R.id.androCoinTextView)
         androCoinTextView.text = activity.trainer!!.coins.toString() + " AndroCoins"
-        val maxLevelTextView : TextView = activity.findViewById(R.id.maxLevelTextView)
+        val maxLevelTextView: TextView = activity.findViewById(R.id.maxLevelTextView)
         maxLevelTextView.text = "Your Pokemon will gain experience up to level " + activity.trainer!!.getMaxLevel()
         val recyclerView = activity.findViewById<RecyclerView>(R.id.badgesRecyclerView)
-        recyclerView.layoutManager =  LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        val adapter =  ItemRecyclerAdapter(activity, ArrayList(ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items).filter{ItemUtils.isBadge(it.itemId)}),View.OnClickListener{})
+        recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        val adapter = ItemRecyclerAdapter(
+            activity,
+            ArrayList(
+                ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items)
+                    .filter { ItemUtils.isBadge(it.itemId) })
+        ){}
         recyclerView.adapter = adapter
     }
 }

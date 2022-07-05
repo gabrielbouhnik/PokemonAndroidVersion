@@ -8,11 +8,11 @@ import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.utils.MoveUtils
 import java.io.InputStream
 
-class TrainerBattle() : Battle(){
-    var numberOfTrainers: Int = 0
-    var trainersIdx : Int = 0
-    lateinit var opponentTrainer : OpponentTrainer
-    lateinit var opponentTrainerSprite : ImageView
+class TrainerBattle() : Battle() {
+    private var numberOfTrainers: Int = 0
+    private var trainersIdx: Int = 0
+    private lateinit var opponentTrainer: OpponentTrainer
+    private lateinit var opponentTrainerSprite: ImageView
 
     constructor(activity: MainActivity, trainerBattleLevelData: TrainerBattleLevelData) : this() {
         this.activity = activity
@@ -22,11 +22,14 @@ class TrainerBattle() : Battle(){
         this.numberOfTrainers = trainerBattleLevelData.opponentTrainerData.size
         this.pokemon = activity.trainer!!.getFirstPokemonThatCanFight()!!
         this.pokemon.battleData = PokemonBattleData()
-        this.opponentTrainer = OpponentTrainerFactory.createOpponentTrainer(trainerBattleLevelData.opponentTrainerData.first(), activity.gameDataService)
+        this.opponentTrainer = OpponentTrainerFactory.createOpponentTrainer(
+            trainerBattleLevelData.opponentTrainerData.first(),
+            activity.gameDataService
+        )
         this.opponent = this.opponentTrainer.getFirstPokemonThatCanFight()!!
     }
 
-    override fun updateOpponent(){
+    override fun updateOpponent() {
         if (opponentTrainer.canStillBattle())
             opponent = opponentTrainer.getFirstPokemonThatCanFight()!!
         else
@@ -43,13 +46,16 @@ class TrainerBattle() : Battle(){
         return State.IN_PROGRESS
     }
 
-    fun nextTrainer(){
-        trainersIdx ++
-        if (numberOfTrainers > trainersIdx){
-            opponentTrainer = OpponentTrainerFactory.createOpponentTrainer((levelData as TrainerBattleLevelData).opponentTrainerData[trainersIdx], activity.gameDataService)
+    private fun nextTrainer() {
+        trainersIdx++
+        if (numberOfTrainers > trainersIdx) {
+            opponentTrainer = OpponentTrainerFactory.createOpponentTrainer(
+                (levelData as TrainerBattleLevelData).opponentTrainerData[trainersIdx],
+                activity.gameDataService
+            )
             opponent = opponentTrainer.getFirstPokemonThatCanFight()!!
-            val img : InputStream = activity.assets.open(opponentTrainer.sprite)
-            opponentTrainerSprite.setImageDrawable(Drawable.createFromStream(img,opponentTrainer.sprite))
+            val img: InputStream = activity.assets.open(opponentTrainer.sprite)
+            opponentTrainerSprite.setImageDrawable(Drawable.createFromStream(img, opponentTrainer.sprite))
         }
     }
 }

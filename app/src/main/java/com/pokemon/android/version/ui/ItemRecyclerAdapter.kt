@@ -10,21 +10,16 @@ import com.pokemon.android.version.R
 import com.pokemon.android.version.model.item.ItemQuantity
 import com.pokemon.android.version.utils.ItemUtils
 
-class ItemRecyclerAdapter(var activity : MainActivity,
-                          val data: ArrayList<ItemQuantity>,
-                          private val onItemClickListener: View.OnClickListener) :
+class ItemRecyclerAdapter(
+    var activity: MainActivity,
+    val data: ArrayList<ItemQuantity>,
+    private val onItemClickListener: View.OnClickListener
+) :
     RecyclerView.Adapter<ItemRecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var nameTextView: TextView
-        var quantityTextView: TextView
-        //var spriteView: ImageView
-
-        init {
-            nameTextView = itemView.findViewById(R.id.rewardNameTextView)
-            quantityTextView = itemView.findViewById(R.id.rewardQuantityTextView)
-            //spriteView = itemView.findViewById(R.id.rewardSpriteView)
-        }
+        var nameTextView: TextView = itemView.findViewById(R.id.rewardNameTextView)
+        var quantityTextView: TextView = itemView.findViewById(R.id.rewardQuantityTextView)
     }
 
     override fun getItemCount(): Int {
@@ -36,20 +31,16 @@ class ItemRecyclerAdapter(var activity : MainActivity,
             .from(activity)
             .inflate(R.layout.reward_item, parent, false)
         rowView.setOnClickListener(onItemClickListener)
-        val viewHolder = ViewHolder(rowView)
-        return viewHolder
+        return ViewHolder(rowView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = data[position]
-        var name = activity.gameDataService.items[currentItem.itemId].name
+        val name = activity.gameDataService.items[currentItem.itemId].name
         holder.nameTextView.text = name
         if (!ItemUtils.isBadge(currentItem.itemId)) {
             holder.quantityTextView.text = "x ${currentItem.quantity}"
             holder.itemView.tag = position
         }
-        /*Glide.with(activity)
-            .load(MainActivity.itemsSpritesUrl + name.lowercase().replace(" ", "-") + ".png")
-            .into(holder.spriteView)*/
     }
 }

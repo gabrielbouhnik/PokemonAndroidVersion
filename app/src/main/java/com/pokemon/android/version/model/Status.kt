@@ -1,10 +1,9 @@
 package com.pokemon.android.version.model
 
 import com.pokemon.android.version.model.move.Move
-import com.pokemon.android.version.model.move.StatusMove
 import kotlin.random.Random
 
-enum class Status(var activeOutsideBattle : Boolean) {
+enum class Status(var activeOutsideBattle: Boolean) {
     OK(true),
     BURN(true),
     PARALYSIS(true),
@@ -29,12 +28,13 @@ enum class Status(var activeOutsideBattle : Boolean) {
     companion object {
         fun updateStatus(opponent: Pokemon, move: Move) {
             move.status.forEach {
-                val randomForStatus: Int = Random.nextInt(100)
-                if (randomForStatus <= it.probability) {
-                    if (!it.status.activeOutsideBattle && !opponent.battleData!!.battleStatus.contains(it.status))
-                        opponent.battleData!!.battleStatus.add(it.status)
-                    else if (isAffectedByStatus(it.status, opponent) && opponent.status == OK) {
-                        opponent.status = it.status
+                if (isAffectedByStatus(it.status, opponent)) {
+                    val randomForStatus: Int = Random.nextInt(100)
+                    if (it.probability == null || randomForStatus <= it.probability!!) {
+                        if (it.status.activeOutsideBattle)
+                            opponent.status = it.status
+                        else
+                            opponent.battleData!!.battleStatus.add(it.status)
                     }
                 }
             }

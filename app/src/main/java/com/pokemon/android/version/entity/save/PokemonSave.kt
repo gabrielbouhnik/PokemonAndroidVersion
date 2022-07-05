@@ -1,7 +1,6 @@
 package com.pokemon.android.version.entity.save
 
 import com.pokemon.android.version.model.Pokemon
-import kotlin.collections.ArrayList
 
 data class PokemonSave(
     var id: Int,
@@ -17,11 +16,11 @@ data class PokemonSave(
     var currentHP: Int,
     var currentExp: Int,
     var moveids: List<MoveSave>,
-    var isFromBanner : Boolean
+    var isFromBanner: Boolean
 ) {
     companion object {
         fun of(pokemon: Pokemon): PokemonSave {
-            val moveIds : ArrayList<MoveSave> = ArrayList()
+            val moveIds: ArrayList<MoveSave> = ArrayList()
             moveIds.add(MoveSave(pokemon.move1.move.id, pokemon.move1.pp))
             if (pokemon.move2 != null)
                 moveIds.add(MoveSave(pokemon.move2!!.move.id, pokemon.move2!!.pp))

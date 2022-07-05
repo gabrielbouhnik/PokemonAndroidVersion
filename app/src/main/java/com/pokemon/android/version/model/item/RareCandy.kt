@@ -3,7 +3,7 @@ package com.pokemon.android.version.model.item
 import com.pokemon.android.version.model.Pokemon
 
 class RareCandy : Item {
-    companion object{
+    companion object {
         val RARE_CANDY = RareCandy()
     }
 

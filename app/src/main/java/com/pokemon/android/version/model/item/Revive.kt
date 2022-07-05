@@ -1,10 +1,9 @@
 package com.pokemon.android.version.model.item
 
-import com.pokemon.android.version.exception.ItemCannotBeUsedException
 import com.pokemon.android.version.model.Pokemon
 
-class Revive(var isMax: Boolean): Item {
-    companion object{
+class Revive(var isMax: Boolean) : Item {
+    companion object {
         val REVIVE = Revive(false)
         val MAX_REVIVE = Revive(true)
     }
@@ -17,6 +16,6 @@ class Revive(var isMax: Boolean): Item {
         if (isMax)
             pokemon.currentHP = pokemon.hp
         else
-            pokemon.currentHP = pokemon.hp/2
+            pokemon.currentHP = pokemon.hp / 2
     }
 }

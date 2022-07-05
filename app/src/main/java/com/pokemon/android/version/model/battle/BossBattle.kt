@@ -14,16 +14,18 @@ class BossBattle() : Battle() {
         this.levelData = bossBattleLevelData
         this.pokemon = activity.trainer!!.getFirstPokemonThatCanFight()!!
         this.pokemon.battleData = PokemonBattleData()
-        this.opponent = activity.gameDataService.generatePokemonWithMoves(bossBattleLevelData.boss.id,
+        this.opponent = activity.gameDataService.generatePokemonWithMoves(
+            bossBattleLevelData.boss.id,
             bossBattleLevelData.boss.level,
-            bossBattleLevelData.boss.moves)
+            bossBattleLevelData.boss.moves
+        )
         this.opponent.hp *= 4
         this.opponent.currentHP *= 4
         Stats.increaseBossStats(opponent, bossBattleLevelData.boss.boostedStats)
     }
 
     override fun getBattleState(): State {
-        if (opponent.currentHP == 0){
+        if (opponent.currentHP == 0) {
             return State.TRAINER_VICTORY
         }
         if (!activity.trainer!!.canStillBattle() || MoveUtils.getMoveList(opponent).none { it.pp > 0 }) {
@@ -32,7 +34,7 @@ class BossBattle() : Battle() {
         return State.IN_PROGRESS
     }
 
-    override fun updateOpponent(){
+    override fun updateOpponent() {
 
     }
 }

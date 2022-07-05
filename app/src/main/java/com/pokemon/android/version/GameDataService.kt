@@ -21,11 +21,11 @@ import kotlin.random.Random
 import kotlin.random.nextInt
 
 class GameDataService {
-    var items : List<ItemData> = ArrayList()
-    var moves : List<Move> = ArrayList()
-    var pokemons : List<PokemonData> = ArrayList()
-    var banners : List<Banner> = ArrayList()
-    var levels : List<LevelData> = ArrayList()
+    var items: List<ItemData> = ArrayList()
+    var moves: List<Move> = ArrayList()
+    var pokemons: List<PokemonData> = ArrayList()
+    var banners: List<Banner> = ArrayList()
+    var levels: List<LevelData> = ArrayList()
 
     companion object {
         const val MOVES_DATA_PATH = "game_data/moves.json"
@@ -35,7 +35,7 @@ class GameDataService {
         const val LEVELS_DATA_PATH = "game_data/levels.json"
     }
 
-    fun loadGameData(activity: MainActivity){
+    fun loadGameData(activity: MainActivity) {
         val pokemonRepository = PokemonRepository()
         val itemRepository = ItemsRepository()
         val bannerRepository = BannerRepository()
@@ -43,33 +43,34 @@ class GameDataService {
         val levelsRepository = LevelsRepository()
         this.moves = MoveFactory.createMove(movesRepository.loadData(activity))
         this.items = ItemFactory.createItems(itemRepository.loadData(activity), this.moves)
-        this.pokemons = pokemonRepository.loadData(activity).map{PokemonData.of(it, moves)}
-        this.banners = bannerRepository.loadData(activity).map{Banner.of(it, this )}
+        this.pokemons = pokemonRepository.loadData(activity).map { PokemonData.of(it, moves) }
+        this.banners = bannerRepository.loadData(activity).map { Banner.of(it, this) }
         this.levels = LevelFactory.createLevels(levelsRepository.loadData(activity), this)
     }
 
-    fun getPokemonDataById(id : Int): PokemonData{
-        return pokemons.filter {it.id == id}.first()
+    fun getPokemonDataById(id: Int): PokemonData {
+        return pokemons.first { it.id == id }
     }
 
-    fun getMoveById(id : Int) : Move{
-        return moves.filter {it.id == id}.first()
+    fun getMoveById(id: Int): Move {
+        return moves.first { it.id == id }
     }
 
-    fun generatePokemon(id : Int, level : Int) :  Pokemon {
-        val pokemonData : PokemonData = pokemons.filter {it.id == id}.first()
-        val hp : Int = 10 + (pokemonData.hp.toFloat() * (level/50f)).roundToInt()
-        val attack : Int = 5 + (pokemonData.attack.toFloat() * (level/50f)).roundToInt()
-        val defense : Int = 5 + (pokemonData.defense.toFloat() * (level/50f)).roundToInt()
-        val spAtk : Int = 5 + (pokemonData.spAtk.toFloat() * (level/50f)).roundToInt()
-        val spDef : Int = 5 + (pokemonData.spDef.toFloat() * (level/50f)).roundToInt()
-        val speed : Int = 5 + (pokemonData.speed.toFloat() * (level/50f)).roundToInt()
-        val moves : List<PokemonMove> = pokemonData.movesByLevel.filter {it.level <= level }.map{PokemonMove(it.move, it.move.pp)}
-        val move1 : PokemonMove = moves.first()
-        val move2 : PokemonMove? = if (moves.size < 2) null else moves[1]
-        val move3 : PokemonMove? = if (moves.size < 3) null else moves[2]
-        val move4 : PokemonMove? = if (moves.size < 4) null else moves[3]
-        var gender : Gender = Gender.MALE
+    fun generatePokemon(id: Int, level: Int): Pokemon {
+        val pokemonData: PokemonData = pokemons.first { it.id == id }
+        val hp: Int = 10 + (pokemonData.hp.toFloat() * (level / 50f)).roundToInt()
+        val attack: Int = 5 + (pokemonData.attack.toFloat() * (level / 50f)).roundToInt()
+        val defense: Int = 5 + (pokemonData.defense.toFloat() * (level / 50f)).roundToInt()
+        val spAtk: Int = 5 + (pokemonData.spAtk.toFloat() * (level / 50f)).roundToInt()
+        val spDef: Int = 5 + (pokemonData.spDef.toFloat() * (level / 50f)).roundToInt()
+        val speed: Int = 5 + (pokemonData.speed.toFloat() * (level / 50f)).roundToInt()
+        val moves: List<PokemonMove> =
+            pokemonData.movesByLevel.filter { it.level <= level }.map { PokemonMove(it.move, it.move.pp) }
+        val move1: PokemonMove = moves.first()
+        val move2: PokemonMove? = if (moves.size < 2) null else moves[1]
+        val move3: PokemonMove? = if (moves.size < 3) null else moves[2]
+        val move4: PokemonMove? = if (moves.size < 4) null else moves[3]
+        var gender: Gender = Gender.MALE
         if (Random.nextInt(1..10) > 5)
             gender = Gender.FEMALE
         return Pokemon.PokemonBuilder()
@@ -90,18 +91,18 @@ class GameDataService {
             .build()
     }
 
-    fun generatePokemonFromBanner(pokemonBanner : PokemonBanner) :  Pokemon {
-        val hp : Int = 10 + (pokemonBanner.pokemonData.hp.toFloat() * 0.1).roundToInt()
-        val attack : Int = 5 + (pokemonBanner.pokemonData.attack.toFloat() * 0.1).roundToInt()
-        val defense : Int = 5 + (pokemonBanner.pokemonData.defense.toFloat() * 0.1).roundToInt()
-        val spAtk : Int = 5 + (pokemonBanner.pokemonData.spAtk.toFloat() * 0.1).roundToInt()
-        val spDef : Int = 5 + (pokemonBanner.pokemonData.spDef.toFloat() * 0.1).roundToInt()
-        val speed : Int = 5 + (pokemonBanner.pokemonData.speed.toFloat() * 0.1).roundToInt()
+    fun generatePokemonFromBanner(pokemonBanner: PokemonBanner): Pokemon {
+        val hp: Int = 10 + (pokemonBanner.pokemonData.hp.toFloat() * 0.1).roundToInt()
+        val attack: Int = 5 + (pokemonBanner.pokemonData.attack.toFloat() * 0.1).roundToInt()
+        val defense: Int = 5 + (pokemonBanner.pokemonData.defense.toFloat() * 0.1).roundToInt()
+        val spAtk: Int = 5 + (pokemonBanner.pokemonData.spAtk.toFloat() * 0.1).roundToInt()
+        val spDef: Int = 5 + (pokemonBanner.pokemonData.spDef.toFloat() * 0.1).roundToInt()
+        val speed: Int = 5 + (pokemonBanner.pokemonData.speed.toFloat() * 0.1).roundToInt()
         val move1 = PokemonMove(pokemonBanner.move1)
         val move2 = if (pokemonBanner.move2 == null) null else PokemonMove(pokemonBanner.move2!!)
         val move3 = if (pokemonBanner.move3 == null) null else PokemonMove(pokemonBanner.move3!!)
         val move4 = if (pokemonBanner.move4 == null) null else PokemonMove(pokemonBanner.move4!!)
-        var gender : Gender = Gender.MALE
+        var gender: Gender = Gender.MALE
         if (Random.nextInt(1..10) > 5)
             gender = Gender.FEMALE
         return Pokemon.PokemonBuilder()
@@ -123,19 +124,19 @@ class GameDataService {
             .build()
     }
 
-    fun generatePokemonWithMoves(id : Int, level : Int, moves : List<Move>) : Pokemon{
-        val pokemonData : PokemonData = pokemons.filter {it.id == id}.first()
-        val hp : Int = 10 + (pokemonData.hp.toFloat() * (level/50f)).roundToInt()
-        val attack : Int = 5 + (pokemonData.attack.toFloat() * (level/50f)).roundToInt()
-        val defense : Int = 5 + (pokemonData.defense.toFloat() * (level/50f)).roundToInt()
-        val spAtk : Int = 5 + (pokemonData.spAtk.toFloat() * (level/50f)).roundToInt()
-        val spDef : Int = 5 + (pokemonData.spDef.toFloat() * (level/50f)).roundToInt()
-        val speed : Int = 5 + (pokemonData.speed.toFloat() * (level/50f)).roundToInt()
+    fun generatePokemonWithMoves(id: Int, level: Int, moves: List<Move>): Pokemon {
+        val pokemonData: PokemonData = pokemons.first { it.id == id }
+        val hp: Int = 10 + (pokemonData.hp.toFloat() * (level / 50f)).roundToInt()
+        val attack: Int = 5 + (pokemonData.attack.toFloat() * (level / 50f)).roundToInt()
+        val defense: Int = 5 + (pokemonData.defense.toFloat() * (level / 50f)).roundToInt()
+        val spAtk: Int = 5 + (pokemonData.spAtk.toFloat() * (level / 50f)).roundToInt()
+        val spDef: Int = 5 + (pokemonData.spDef.toFloat() * (level / 50f)).roundToInt()
+        val speed: Int = 5 + (pokemonData.speed.toFloat() * (level / 50f)).roundToInt()
         val move1 = PokemonMove(moves[0])
-        val move2 : PokemonMove? = if (moves.size < 2) null else PokemonMove(moves[1])
-        val move3 : PokemonMove? = if (moves.size < 3) null else PokemonMove(moves[2])
-        val move4 : PokemonMove? = if (moves.size < 4) null else PokemonMove(moves[3])
-        var gender : Gender = Gender.MALE
+        val move2: PokemonMove? = if (moves.size < 2) null else PokemonMove(moves[1])
+        val move3: PokemonMove? = if (moves.size < 3) null else PokemonMove(moves[2])
+        val move4: PokemonMove? = if (moves.size < 4) null else PokemonMove(moves[3])
+        var gender: Gender = Gender.MALE
         if (Random.nextInt(1..10) > 5)
             gender = Gender.FEMALE
         return Pokemon.PokemonBuilder()
@@ -156,9 +157,14 @@ class GameDataService {
             .build()
     }
 
-    fun updateEliteMode(){
-        levels.filter { it.id in LevelMenu.ELITE_4_FIRST_LEVEL_ID..LevelMenu.ELITE_4_LAST_LEVEL_ID }.map{it as TrainerBattleLevelData }.forEach{
-            it.opponentTrainerData.forEach { it.pokemons.forEach{it.level += 10 } }
-        }
+    fun updateEliteMode() {
+        levels.filter { it.id in LevelMenu.ELITE_4_FIRST_LEVEL_ID..LevelMenu.ELITE_4_LAST_LEVEL_ID }
+            .map { it as TrainerBattleLevelData }.forEach { levelData ->
+                levelData.opponentTrainerData.forEach { trainer ->
+                    trainer.pokemons.forEach { pokemon ->
+                        pokemon.level += 10
+                    }
+                }
+            }
     }
 }

@@ -5,10 +5,11 @@ import com.pokemon.android.version.model.Status
 
 class StatusMove(
     var status: Status,
-    var probability: Int) {
+    var probability: Int?
+) {
     companion object {
         fun of(statusEntity: StatusEntity): StatusMove {
-            return StatusMove(Status.valueOf(statusEntity.status),statusEntity.probability)
+            return StatusMove(Status.valueOf(statusEntity.status), statusEntity.probability)
         }
     }
 }

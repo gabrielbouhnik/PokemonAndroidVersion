@@ -9,23 +9,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.move.Move
 
-class MoveRecyclerAdapter (val context: Context,
-                           var data: MutableList<Move>,
-                           private val onItemClickListener: View.OnClickListener) :
+class MoveRecyclerAdapter(
+    val context: Context,
+    var data: MutableList<Move>,
+    private val onItemClickListener: View.OnClickListener
+) :
     RecyclerView.Adapter<MoveRecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var moveNameTextView: TextView
-        var movePowerTextView: TextView
-        var movePPTextView: TextView
-        var moveCategoryTextView: TextView
-
-        init {
-            moveNameTextView = itemView.findViewById(R.id.moveNameTextView)
-            movePowerTextView = itemView.findViewById(R.id.movePowerTextView)
-            movePPTextView = itemView.findViewById(R.id.movePPTextView)
-            moveCategoryTextView = itemView.findViewById(R.id.moveCategoryTextView)
-        }
+        var moveNameTextView: TextView = itemView.findViewById(R.id.moveNameTextView)
+        var movePowerTextView: TextView = itemView.findViewById(R.id.movePowerTextView)
+        var movePPTextView: TextView = itemView.findViewById(R.id.movePPTextView)
+        var moveCategoryTextView: TextView = itemView.findViewById(R.id.moveCategoryTextView)
     }
 
     override fun getItemCount(): Int {
@@ -37,8 +32,7 @@ class MoveRecyclerAdapter (val context: Context,
             .from(context)
             .inflate(R.layout.move_item, parent, false)
         rowView.setOnClickListener(onItemClickListener)
-        val viewHolder = ViewHolder(rowView)
-        return viewHolder
+        return ViewHolder(rowView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

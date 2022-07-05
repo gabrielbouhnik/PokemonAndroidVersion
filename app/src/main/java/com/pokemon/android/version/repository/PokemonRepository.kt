@@ -9,16 +9,16 @@ import com.pokemon.android.version.entity.pokemon.PokemonDataEntity
 import com.pokemon.android.version.utils.JsonFileToString
 
 class PokemonRepository : Repository<PokemonDataEntity> {
-    override fun loadData(activity: MainActivity) : List<PokemonDataEntity> {
+    override fun loadData(activity: MainActivity): List<PokemonDataEntity> {
         val pokemonsJsonString: String = JsonFileToString.loadJsonStringFromAssets(
             activity,
             POKEMON_DATA_PATH
         ) ?: return ArrayList()
         val gson = Gson()
-        var result : List<PokemonDataEntity> = ArrayList()
+        val result: List<PokemonDataEntity>
         val pokemons = object : TypeToken<List<PokemonDataEntity>>() {}.type
         result = gson.fromJson(pokemonsJsonString, pokemons)
-        result.forEach{ pkmn -> Log.d("pokemon name:", pkmn.name) }
+        result.forEach { pkmn -> Log.d("pokemon name:", pkmn.name) }
         return result
     }
 }

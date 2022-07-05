@@ -13,26 +13,27 @@ import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.level.WildBattleLevelData
 
 class LevelMenu {
-    companion object{
+    companion object {
         const val ELITE_4_FIRST_LEVEL_ID = 64
         const val ELITE_4_LAST_LEVEL_ID = 68
     }
+
     var battleUI: BattleUI = BattleUI()
 
-    fun startBattle(activity: MainActivity, level: LevelData) {
-        if (level is WildBattleLevelData)
-            battleUI.startWildBattle(
+    private fun startBattle(activity: MainActivity, level: LevelData) {
+        when (level) {
+            is WildBattleLevelData -> battleUI.startWildBattle(
                 activity,
                 level
             )
-        else if (level is BossBattleLevelData) {
-            battleUI.startBossBattle(activity, level)
-        }
-        else
-            battleUI.startTrainerBattle(
+            is BossBattleLevelData -> {
+                battleUI.startBossBattle(activity, level)
+            }
+            else -> battleUI.startTrainerBattle(
                 activity,
                 level as TrainerBattleLevelData
             )
+        }
     }
 
     fun loadEliteLevels(activity: MainActivity) {
@@ -43,12 +44,13 @@ class LevelMenu {
         backButton.setOnClickListener {
             activity.mainMenu.loadGameMenu(activity)
         }
-        val levels = activity.gameDataService.levels.filter{it.id >= ELITE_4_FIRST_LEVEL_ID && it.id - ELITE_4_FIRST_LEVEL_ID == activity.trainer!!.eliteProgression }
+        val levels =
+            activity.gameDataService.levels.filter { it.id >= ELITE_4_FIRST_LEVEL_ID && it.id - ELITE_4_FIRST_LEVEL_ID == activity.trainer!!.eliteProgression }
         val myItemClickListener = View.OnClickListener {
             val position = it.tag as Int
-            val levelData : LevelData = levels[position]
+            val levelData: LevelData = levels[position]
             if (activity.trainer!!.canStillBattle())
-                startBattle(activity,levelData)
+                startBattle(activity, levelData)
         }
         val adapter = LevelRecyclerAdapter(activity, levels, myItemClickListener)
         recyclerView.adapter = adapter
@@ -62,22 +64,23 @@ class LevelMenu {
         backButton.setOnClickListener {
             activity.mainMenu.loadGameMenu(activity)
         }
-        val levels = activity.gameDataService.levels.filter{it.id <= activity.trainer!!.progression && it.id !in ELITE_4_FIRST_LEVEL_ID..ELITE_4_LAST_LEVEL_ID}
+        val levels =
+            activity.gameDataService.levels.filter { it.id <= activity.trainer!!.progression && it.id !in ELITE_4_FIRST_LEVEL_ID..ELITE_4_LAST_LEVEL_ID }
         val myItemClickListener = View.OnClickListener {
             val position = it.tag as Int
-            val levelData : LevelData =  levels[position]
+            val levelData: LevelData = levels[position]
             if (activity.trainer!!.canStillBattle())
                 if (activity.trainer!!.progression == levelData.id) {
                     loadLevelDescriptionMenu(activity, levelData)
-                } else if (activity.trainer!!.progression > levelData.id){
-                    startBattle(activity,levels[position])
+                } else if (activity.trainer!!.progression > levelData.id) {
+                    startBattle(activity, levels[position])
                 }
         }
         val adapter = LevelRecyclerAdapter(activity, levels, myItemClickListener)
         recyclerView.adapter = adapter
     }
 
-    fun loadLevelDescriptionMenu(activity: MainActivity, levelData: LevelData) {
+    private fun loadLevelDescriptionMenu(activity: MainActivity, levelData: LevelData) {
         activity.updateMusic(R.raw.level_descr)
         activity.setContentView(R.layout.level_description)
         val backButton: Button = activity.findViewById(R.id.levelDescrBackButton)
@@ -87,11 +90,11 @@ class LevelMenu {
         }
         val startButton: Button = activity.findViewById(R.id.levelDescrStartButton)
         startButton.setOnClickListener {
-            startBattle(activity,levelData)
+            startBattle(activity, levelData)
         }
-        val levelNameDescrTextView: TextView = activity.findViewById(R.id.levelNameDescrTextView)
-        levelNameDescrTextView.text = levelData.name
-        val levelDescrTextView: TextView = activity.findViewById(R.id.levelDescrTextView)
-        levelDescrTextView.text = levelData.description
+        val levelNameDescriptionTextView: TextView = activity.findViewById(R.id.levelNameDescrTextView)
+        levelNameDescriptionTextView.text = levelData.name
+        val levelDescriptionTextView: TextView = activity.findViewById(R.id.levelDescrTextView)
+        levelDescriptionTextView.text = levelData.description
     }
 }

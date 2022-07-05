@@ -14,7 +14,7 @@ class RecoilMove(
     priorityLevel: Int = 0,
     status: ArrayList<StatusMove>,
     highCritRate: Boolean = false,
-    var recoil : Recoil
+    var recoil: Recoil
 ) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate) {
     companion object {
         fun of(recoilMoveEntity: RecoilMoveEntity): RecoilMove {

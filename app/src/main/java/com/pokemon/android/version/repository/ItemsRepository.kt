@@ -8,13 +8,13 @@ import com.pokemon.android.version.entity.item.ItemsEntity
 import com.pokemon.android.version.utils.JsonFileToString
 
 class ItemsRepository {
-    fun loadData(activity: MainActivity) : ItemsEntity? {
+    fun loadData(activity: MainActivity): ItemsEntity? {
         val itemsJsonString: String = JsonFileToString.loadJsonStringFromAssets(
             activity,
             GameDataService.ITEMS_DATA_PATH
         ) ?: return null
         val gson = Gson()
-        val result : ItemsEntity
+        val result: ItemsEntity
         val items = object : TypeToken<ItemsEntity>() {}.type
         result = gson.fromJson(itemsJsonString, items)
         return result

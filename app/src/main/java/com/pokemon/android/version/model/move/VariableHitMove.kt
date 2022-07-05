@@ -56,6 +56,7 @@ class VariableHitMove(
         fun highCritRate(highCritRate: Boolean) = apply { this.highCritRate = highCritRate }
         fun status(status: List<StatusMove>) = apply { this.status = status }
 
-        fun build() = VariableHitMove(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate)
+        fun build() =
+            VariableHitMove(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate)
     }
 }

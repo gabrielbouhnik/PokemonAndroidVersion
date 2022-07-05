@@ -13,5 +13,4 @@ data class TrainerBattleLevelEntity(
     var icon: String,
     var background: String,
     var exp: Int
-) {
-}
+)

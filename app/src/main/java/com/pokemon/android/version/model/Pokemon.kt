@@ -32,8 +32,8 @@ class Pokemon(
     var currentHP: Int = 0,
     var currentExp: Int = 0,
     var battleData: PokemonBattleData?,
-    var isFromBanner : Boolean = false,
-    var movesLearnedByTM : ArrayList<Move> = arrayListOf()
+    var isFromBanner: Boolean = false,
+    var movesLearnedByTM: ArrayList<Move> = arrayListOf()
 ) {
 
     constructor(
@@ -102,25 +102,25 @@ class Pokemon(
         }
     }
 
-    fun IA(opponent: Pokemon): PokemonMove {
+    fun ia(opponent: Pokemon): PokemonMove {
         val usableMoves = MoveUtils.getMoveList(this).filter { it.pp > 0 }
         var maxDamage = 0
         var maxDamageIdx = 0
         for ((Idx, move) in usableMoves.withIndex()) {
-            val damage : Int = DamageCalculator.computeDamageIA(this, move.move, opponent)
+            val damage: Int = DamageCalculator.computeDamageIA(this, move.move, opponent)
             if (damage > opponent.currentHP)
                 return move
-            if (damage > 0 && hp/currentHP < 10 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
+            if (damage > 0 && hp / currentHP < 10 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
                 return move
-            move.move.status.forEach{
-                if (Status.isAffectedByStatus(it.status, opponent) && it.probability == 100)
+            move.move.status.forEach {
+                if (Status.isAffectedByStatus(it.status, opponent) && it.probability == null)
                     return move
             }
-            if (move.move is StatChangeMove)
-            {
-                val statChangeMove : StatChangeMove = move.move as StatChangeMove
+            if (move.move is StatChangeMove) {
+                val statChangeMove: StatChangeMove = move.move as StatChangeMove
                 if (move.move.power == 0 &&
-                    statChangeMove.statsAffected.contains(Stats.SPEED) && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
+                    statChangeMove.statsAffected.contains(Stats.SPEED) && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator
+                )
                     return move
                 if (statChangeMove.statsAffected.contains(Stats.ACCURACY) && opponent.battleData!!.accuracyMultiplicator == 1f)
                     return move
@@ -133,12 +133,12 @@ class Pokemon(
         return usableMoves[maxDamageIdx]
     }
 
-    private fun canAttack(move: PokemonMove, opponent: Pokemon): AttackResponse{
+    private fun canAttack(): AttackResponse {
         if (this.status == Status.FROZEN) {
             if (Random.nextInt(100) > 20)
                 return AttackResponse(false, "But ${this.data.name} is frozen solid!\n")
             else
-                status = Status.OK;
+                status = Status.OK
         }
         if (this.status == Status.ASLEEP) {
             if (battleData!!.sleepCounter == 3) {
@@ -167,11 +167,11 @@ class Pokemon(
                 return AttackResponse(false, "But ${this.data.name} hits hurt itself in its confusion\n")
             }
         }
-        return AttackResponse(true,"")
+        return AttackResponse(true, "")
     }
 
     fun attack(move: PokemonMove, opponent: Pokemon): AttackResponse {
-        val attackResponse = canAttack(move,opponent)
+        val attackResponse = canAttack()
         if (!attackResponse.success)
             return attackResponse
         move.pp = move.pp - 1
@@ -191,7 +191,7 @@ class Pokemon(
                 }
             }
         }
-        var damageDone = 0
+        val damageDone: Int
         if (damage >= opponent.currentHP) {
             damageDone = opponent.currentHP
             opponent.currentHP = 0
@@ -206,22 +206,23 @@ class Pokemon(
                 Status.updateStatus(opponent, move.move)
             }
             if (move.move is StatChangeMove && (move.move.power == 0 || damage > 0)) {
-                val statChangeMove = move.move as StatChangeMove
-                if (statChangeMove.target == Target.SELF)
-                    Stats.updateStat(this, move.move as StatChangeMove)
-                else
-                    Stats.updateStat(opponent, move.move as StatChangeMove)
+                if ((move.move as StatChangeMove).probability == null || Random.nextInt(100) < (move.move as StatChangeMove).probability!!) {
+                    val statChangeMove = move.move as StatChangeMove
+                    if (statChangeMove.target == Target.SELF)
+                        Stats.updateStat(this, move.move as StatChangeMove)
+                    else
+                        Stats.updateStat(opponent, move.move as StatChangeMove)
+                }
             }
         }
         if (move.move is DrainMove) {
-            currentHP = if (currentHP + damageDone/2 > hp) hp else currentHP + damageDone/2
+            currentHP = if (currentHP + damageDone / 2 > hp) hp else currentHP + damageDone / 2
         }
         if (move.move is RecoilMove) {
             val recoil = (move.move as RecoilMove).recoil
             if (currentHP > (damageDone * recoil.damage).toInt()) {
                 currentHP -= (damageDone * recoil.damage).toInt()
-            }
-            else{
+            } else {
                 currentHP = 0
                 status = Status.OK
                 battleData = null
@@ -270,13 +271,13 @@ class Pokemon(
         return false
     }
 
-    fun gainLevel() {
+    private fun gainLevel() {
         this.level += 1
         this.trainer!!.coins += 10
         this.recomputeStat()
         val moveFiltered = data.movesByLevel.filter { it.level == this.level }
         if (moveFiltered.size == 1)
-            autoLearnMove(data.movesByLevel.filter { it.level == this.level }.first().move)
+            autoLearnMove(data.movesByLevel.first { it.level == this.level }.move)
     }
 
     fun gainExp(value: Int) {
@@ -294,7 +295,7 @@ class Pokemon(
         this.currentExp += exp
     }
 
-    private fun meetsEvolutionCondition(evolution : Evolution) : Boolean{
+    private fun meetsEvolutionCondition(evolution: Evolution): Boolean {
         val condition = evolution.evolutionCondition
         if (condition.level != null && level >= condition.level!!) {
             return true
@@ -305,23 +306,23 @@ class Pokemon(
     }
 
     fun canEvolve(): Boolean {
-        if (data.evolutions.size == 0)
+        if (data.evolutions.isEmpty())
             return false
         return if (data.evolutions.size == 1) {
             meetsEvolutionCondition(data.evolutions[0])
-        } else{
-            data.evolutions.any { meetsEvolutionCondition(it)}
+        } else {
+            data.evolutions.any { meetsEvolutionCondition(it) }
         }
     }
 
-    fun getPossibleEvolutions() : List<Int>{
-        return data.evolutions.filter { meetsEvolutionCondition(it) }.map{it.evolutionId}
+    fun getPossibleEvolutions(): List<Int> {
+        return data.evolutions.filter { meetsEvolutionCondition(it) }.map { it.evolutionId }
     }
 
-    fun evolve(gameDataService: GameDataService, evolutionId : Int) {
+    fun evolve(gameDataService: GameDataService, evolutionId: Int) {
         if (canEvolve()) {
             val evolution = data.evolutions.first { it.evolutionId == evolutionId }
-            if (evolution.evolutionCondition.itemId != null){
+            if (evolution.evolutionCondition.itemId != null) {
                 this.trainer!!.useItem(evolution.evolutionCondition.itemId!!, this)
             }
             this.data = gameDataService.getPokemonDataById(evolutionId)
@@ -330,7 +331,7 @@ class Pokemon(
                 currentHP = hp
             val moveFiltered = data.movesByLevel.filter { it.level == this.level }
             if (moveFiltered.size == 1)
-                autoLearnMove(data.movesByLevel.filter { it.level == this.level }.first().move)
+                autoLearnMove(data.movesByLevel.first { it.level == this.level }.move)
         }
     }
 
@@ -352,7 +353,7 @@ class Pokemon(
         var speed: Int = 0,
         var currentHP: Int = 0,
         var currentExp: Int = 0,
-        var isFromBanner : Boolean = false,
+        var isFromBanner: Boolean = false,
         var movesLearnedByTM: ArrayList<Move> = arrayListOf()
     ) {
         fun data(data: PokemonData) = apply { this.data = data }

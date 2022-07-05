@@ -9,5 +9,4 @@ abstract class LevelData(
     var icon: String,
     var background: String,
     var exp: Int
-) {
-}
+)

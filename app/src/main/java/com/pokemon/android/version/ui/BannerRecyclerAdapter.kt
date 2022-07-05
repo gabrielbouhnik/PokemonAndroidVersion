@@ -13,21 +13,17 @@ import com.pokemon.android.version.R
 import com.pokemon.android.version.model.banner.Banner
 import java.io.InputStream
 
-class BannerRecyclerAdapter (var activity : MainActivity,
-                            var data : MutableList<Banner>) :
+class BannerRecyclerAdapter(
+    var activity: MainActivity,
+    var data: MutableList<Banner>
+) :
     RecyclerView.Adapter<BannerRecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var descriptionTextView: TextView
-        var costTextView: TextView
-        var spriteView: ImageView
-        var summonButton : Button = itemView.findViewById(R.id.summonButton)
-
-        init {
-            descriptionTextView = itemView.findViewById(R.id.bannerDescriptionTextView)
-            costTextView = itemView.findViewById(R.id.bannerCostTextView)
-            spriteView = itemView.findViewById(R.id.bannerImageView)
-        }
+        var descriptionTextView: TextView = itemView.findViewById(R.id.bannerDescriptionTextView)
+        var costTextView: TextView = itemView.findViewById(R.id.bannerCostTextView)
+        var spriteView: ImageView = itemView.findViewById(R.id.bannerImageView)
+        var summonButton: Button = itemView.findViewById(R.id.summonButton)
     }
 
     override fun getItemCount(): Int {
@@ -38,8 +34,7 @@ class BannerRecyclerAdapter (var activity : MainActivity,
         val rowView = LayoutInflater
             .from(activity)
             .inflate(R.layout.banner_item, parent, false)
-        val viewHolder = ViewHolder(rowView)
-        return viewHolder
+        return ViewHolder(rowView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -47,7 +42,7 @@ class BannerRecyclerAdapter (var activity : MainActivity,
         holder.descriptionTextView.text = currentItem.description
         holder.costTextView.text = "COST: ${currentItem.cost} AndroCoins"
         holder.itemView.tag = position
-        holder.summonButton.setOnClickListener{
+        holder.summonButton.setOnClickListener {
             val s = currentItem.summon(activity)
             if (s != null) {
                 activity.playSoundEffect(R.raw.item_sound_effect)
@@ -55,7 +50,7 @@ class BannerRecyclerAdapter (var activity : MainActivity,
                 activity.mainMenu.bannerMenu.loadSummonResultScreen(activity, s)
             }
         }
-        val img : InputStream = activity.assets.open(currentItem.image)
+        val img: InputStream = activity.assets.open(currentItem.image)
         holder.spriteView.setImageDrawable(Drawable.createFromStream(img, currentItem.image))
     }
 }

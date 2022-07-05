@@ -12,21 +12,17 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Pokemon
 
-class TeamMemberRecyclerAdapter (val context: Context,
-                                 val data: MutableList<Pokemon>,
-                                 private val onItemClickListener: View.OnClickListener) :
+class TeamMemberRecyclerAdapter(
+    val context: Context,
+    val data: MutableList<Pokemon>,
+    private val onItemClickListener: View.OnClickListener
+) :
     RecyclerView.Adapter<TeamMemberRecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var nameTextView: TextView
-        var hpLevelTextView: TextView
-        var spriteView: ImageView
-
-        init {
-            nameTextView = itemView.findViewById(R.id.teamMemberNameTextView)
-            hpLevelTextView = itemView.findViewById(R.id.teamMemberLevelItemTextView)
-            spriteView = itemView.findViewById(R.id.teamMemberSpriteView)
-        }
+        var nameTextView: TextView = itemView.findViewById(R.id.teamMemberNameTextView)
+        var hpLevelTextView: TextView = itemView.findViewById(R.id.teamMemberLevelItemTextView)
+        var spriteView: ImageView = itemView.findViewById(R.id.teamMemberSpriteView)
     }
 
     override fun getItemCount(): Int {
@@ -38,8 +34,7 @@ class TeamMemberRecyclerAdapter (val context: Context,
             .from(context)
             .inflate(R.layout.team_item, parent, false)
         rowView.setOnClickListener(onItemClickListener)
-        val viewHolder = ViewHolder(rowView)
-        return viewHolder
+        return ViewHolder(rowView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

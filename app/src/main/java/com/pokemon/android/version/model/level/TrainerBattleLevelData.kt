@@ -9,16 +9,19 @@ class TrainerBattleLevelData(
     description: String,
     rewards: ArrayList<Reward>,
     music: Int,
-    icon : String,
+    icon: String,
     background: String,
-    exp : Int,
-    var startDialog    : String,
-    var endDialogWin   : String,
-    var endDialogLoose : String,
-    var opponentTrainerData : List<OpponentTrainerData>,
-    ) : LevelData(id,name,description,rewards,music,icon,background, exp) {
-    companion object{
-        fun of(trainerBattleLevelEntity : TrainerBattleLevelEntity, gameDataService : GameDataService) : TrainerBattleLevelData {
+    exp: Int,
+    var startDialog: String,
+    var endDialogWin: String,
+    var endDialogLoose: String,
+    var opponentTrainerData: List<OpponentTrainerData>,
+) : LevelData(id, name, description, rewards, music, icon, background, exp) {
+    companion object {
+        fun of(
+            trainerBattleLevelEntity: TrainerBattleLevelEntity,
+            gameDataService: GameDataService
+        ): TrainerBattleLevelData {
             return TrainerBattleLevelData(
                 trainerBattleLevelEntity.id,
                 trainerBattleLevelEntity.name,
@@ -31,7 +34,7 @@ class TrainerBattleLevelData(
                 trainerBattleLevelEntity.startDialog,
                 trainerBattleLevelEntity.endDialogWin,
                 trainerBattleLevelEntity.endDialogLoose,
-                trainerBattleLevelEntity.opponents.map{OpponentTrainerData.of(it, gameDataService)}
+                trainerBattleLevelEntity.opponents.map { OpponentTrainerData.of(it, gameDataService) }
             )
         }
     }

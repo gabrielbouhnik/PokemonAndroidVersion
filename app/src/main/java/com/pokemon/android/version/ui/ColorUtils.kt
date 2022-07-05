@@ -4,9 +4,9 @@ import android.graphics.Color
 import com.pokemon.android.version.model.Type
 
 class ColorUtils {
-    companion object{
-        fun getColorByType(type : Type) : Int{
-            when(type){
+    companion object {
+        fun getColorByType(type: Type): Int {
+            when (type) {
                 Type.GRASS -> {
                     return Color.parseColor("#7AC74C")
                 }
@@ -61,8 +61,8 @@ class ColorUtils {
                 Type.FAIRY -> {
                     return Color.parseColor("#FFB6C1")
                 }
+                else -> return Color.BLACK
             }
-            return Color.BLACK
         }
     }
 }

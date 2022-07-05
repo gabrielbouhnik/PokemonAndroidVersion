@@ -1569,17 +1569,17 @@
             {
               "id": 89,
               "level": 50,
-              "moveIds": [37,62,69]
+              "moveIds": [37,62,69,25]
             },
             {
               "id": 49,
               "level": 50,
-              "moveIds": [45,37,60]
+              "moveIds": [45,37,60,122]
             },
             {
               "id": 169,
               "level": 51,
-              "moveIds": [37,50,66,46]
+              "moveIds": [129,50,66,46]
             }
           ]
         }
@@ -2424,17 +2424,17 @@
             {
               "id": 37,
               "level": 58,
-              "moveIds": [82,81]
+              "moveIds": [82,81,130,3]
             },
             {
               "id": 218,
               "level": 58,
-              "moveIds": [82,25]
+              "moveIds": [31,87,88,102]
             },
             {
               "id": 58,
               "level": 58,
-              "moveIds": [82,27,73]
+              "moveIds": [82,27,73,115]
             }
           ]
         }
@@ -2473,12 +2473,12 @@
             {
               "id": 38,
               "level": 59,
-              "moveIds": [82,81,48]
+              "moveIds": [82,81,48,130]
             },
             {
               "id": 59,
               "level": 59,
-              "moveIds": [82,27,120,75]
+              "moveIds": [116,27,120,75]
             },
             {
               "id": 219,
@@ -2488,12 +2488,12 @@
             {
               "id": 126,
               "level": 60,
-              "moveIds": [82,103,69]
+              "moveIds": [82,103,69,110]
             },
             {
               "id": 78,
               "level": 62,
-              "moveIds": [82,3,63,62]
+              "moveIds": [82,3,116,62]
             }
           ]
         }
@@ -2708,7 +2708,7 @@
             {
               "id": 247,
               "level": 70,
-              "moveIds": [25,93,27]
+              "moveIds": [25,93,27,72]
             },
             {
               "id": 106,
@@ -2785,7 +2785,7 @@
             {
               "id": 78,
               "level": 72,
-              "moveIds": [82,3,63,62]
+              "moveIds": [82,3,63,130]
             },
             {
               "id": 71,
@@ -2868,7 +2868,7 @@
             {
               "id": 91,
               "level": 73,
-              "moveIds": [43,98,77,95]
+              "moveIds": [43,98,131,95]
             },
             {
               "id": 131,
@@ -2927,7 +2927,7 @@
             {
               "id": 68,
               "level": 75,
-              "moveIds": [33,25,107,93]
+              "moveIds": [33,25,127,93]
             }
           ]
         }
@@ -2969,7 +2969,7 @@
             {
               "id": 169,
               "level": 73,
-              "moveIds": [37,50,48,46]
+              "moveIds": [129,50,48,46]
             },
             {
               "id": 429,
@@ -3162,7 +3162,7 @@
           "quantity": 2
         }
       ],
-      "startDialog": "When you are facing a Trainer in battle, you can learn everything about them. What Pokémon they have. What moves they've taught. What items they make their Pokémon hold. There's no need for words then.",
+      "startDialog": "When you are facing a Trainer in battle, you can learn everything about them. What Pokémon they have. What moves they've taught. There's no need for words then.",
       "endDialogWin": "That was excellent. Truly, an outstanding battle. You gave the support your Pokémon needed to maximize their power. And you guided them with certainty to secure victory.",
       "endDialogLoose": "What's necessary to become stronger? I think it's important to never lose your love of Pokémon.",
       "music": 7,
@@ -4078,9 +4078,9 @@
       "boss":
       {
         "id": 248,
-        "level": 85,
+        "level": 82,
         "moveIds": [25,27,82,93],
-        "boostedStats": ["SPEED"]
+        "boostedStats": []
       },
       "rewards": [
         {
