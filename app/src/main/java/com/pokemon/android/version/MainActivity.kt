@@ -59,8 +59,8 @@ class MainActivity : AppCompatActivity() {
             sprite2.visibility = GONE
         }
         displayPokemon(1, sprite1)
-        displayPokemon(2, sprite2)
-        displayPokemon(3, sprite3)
+        displayPokemon(4, sprite2)
+        displayPokemon(7, sprite3)
     }
 
     fun displayPokemon(id: Int, imageView: ImageView) {
