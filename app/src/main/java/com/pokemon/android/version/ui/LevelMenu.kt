@@ -3,6 +3,7 @@ package com.pokemon.android.version.ui
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
@@ -51,6 +52,8 @@ class LevelMenu {
             val levelData: LevelData = levels[position]
             if (activity.trainer!!.canStillBattle())
                 startBattle(activity, levelData)
+            else
+                Toast.makeText(activity, "You need to heal your Pokemon before starting a battle.", Toast.LENGTH_SHORT).show()
         }
         val adapter = LevelRecyclerAdapter(activity, levels, myItemClickListener)
         recyclerView.adapter = adapter
