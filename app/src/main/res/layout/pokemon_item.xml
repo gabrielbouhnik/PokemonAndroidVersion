@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content"
+                                                   android:backgroundTint="#FFFFFF">
+
+    <TextView
+            android:text="TextView"
+            android:layout_width="220dp"
+            android:layout_height="48dp" android:id="@+id/levelItemTextView"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="80dp"
+            app:layout_constraintHorizontal_bias="0.413" app:layout_constraintStart_toEndOf="@+id/pokemonSpriteView"
+            android:textSize="24sp" android:textStyle="bold" android:textAlignment="center"
+            android:textColor="#AAAAAA"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="220dp"
+            android:layout_height="48dp" android:id="@+id/nameItemTextView"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="32dp"
+            app:layout_constraintHorizontal_bias="0.413" app:layout_constraintStart_toEndOf="@+id/pokemonSpriteView"
+            android:textSize="24sp" android:textStyle="bold" android:textAlignment="center"
+            android:textColor="#AAAAAA"/>
+    <ImageView
+            android:layout_width="129dp"
+            android:layout_height="105dp" tools:srcCompat="@color/purple_200" android:id="@+id/pokemonSpriteView"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="32dp" android:layout_marginStart="16dp"/>
+    <TextView
+            android:text="CAN EVOLVE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/canEvolveTextView"
+            app:layout_constraintTop_toBottomOf="@+id/levelItemTextView"
+            android:layout_marginTop="8dp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:textAlignment="center"
+            app:layout_constraintHorizontal_bias="0.701" android:textColor="#F44336" android:visibility="gone"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

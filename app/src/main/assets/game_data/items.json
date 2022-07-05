@@ -1,0 +1,270 @@
+{
+  "items": [
+    {
+      "id": 0,
+      "name": "AndroCoin"
+    },
+    {
+      "id": 1,
+      "name": "Potion"
+    },
+    {
+      "id": 2,
+      "name": "Super Potion"
+    },
+    {
+      "id": 3,
+      "name": "Hyper Potion"
+    },
+    {
+      "id": 4,
+      "name": "Full Heal"
+    },
+    {
+      "id": 5,
+      "name": "Paralyze Heal"
+    },
+    {
+      "id": 6,
+      "name": "Burn Heal"
+    },
+    {
+      "id": 7,
+      "name": "Antidote"
+    },
+    {
+      "id": 8,
+      "name": "Rare Candy"
+    },
+    {
+      "id": 9,
+      "name": "Revive"
+    },
+    {
+      "id": 10,
+      "name": "PP Heal"
+    },
+    {
+      "id": 11,
+      "name": "Poke Ball"
+    },
+    {
+      "id": 12,
+      "name": "Great Ball"
+    },
+    {
+      "id": 13,
+      "name": "Hyper Ball"
+    },
+    {
+      "id": 14,
+      "name": "Net Ball"
+    },
+    {
+      "id": 15,
+      "name": "Heal Ball"
+    },
+    {
+      "id": 16,
+      "name": "Fire Stone"
+    },
+    {
+      "id": 17,
+      "name": "Thunder Stone"
+    },
+    {
+      "id": 18,
+      "name": "Water Stone"
+    },
+    {
+      "id": 19,
+      "name": "Leaf Stone"
+    },
+    {
+      "id": 20,
+      "name": "Sun Stone"
+    },
+    {
+      "id": 21,
+      "name": "King's Rock"
+    },
+    {
+      "id": 22,
+      "name": "Dragon Scale"
+    },
+    {
+      "id": 23,
+      "name": "Metal Coat"
+    },
+    {
+      "id": 24,
+      "name": "Upgrade"
+    },
+    {
+      "id": 25,
+      "name": "Magmarizer"
+    },
+    {
+      "id": 26,
+      "name": "Electirizer"
+    },
+    {
+      "id": 27,
+      "name": "Protector"
+    },
+    {
+      "id": 28,
+      "name": "Exp. Candy S"
+    },
+    {
+      "id": 29,
+      "name": "Exp. Candy M"
+    },
+    {
+      "id": 30,
+      "name": "Exp. Candy L"
+    },
+    {
+      "id": 31,
+      "name": "Boulder Badge"
+    },
+    {
+      "id": 32,
+      "name": "Cascade Badge"
+    },
+    {
+      "id": 33,
+      "name": "Thunder Badge"
+    },
+    {
+      "id": 34,
+      "name": "Rainbow Badge"
+    },
+    {
+      "id": 35,
+      "name": "Soul Badge"
+    },
+    {
+      "id": 36,
+      "name": "Marsh Badge"
+    },
+    {
+      "id": 37,
+      "name": "Volcano Badge"
+    },
+    {
+      "id": 38,
+      "name": "Earth Badge"
+    },
+    {
+      "id": 59,
+      "name": "Dubious Disc"
+    },
+    {
+      "id": 60,
+      "name": "Dusk Stone"
+    }
+  ],
+  "TMs": [
+    {
+      "id": 39,
+      "name": "TM01 Headbutt",
+      "moveId": 72
+    },
+    {
+      "id": 40,
+      "name": "TM02 Brick Break",
+      "moveId": 69
+    },
+    {
+      "id": 41,
+      "name": "TM03 Iron Tail",
+      "moveId": 13
+    },
+    {
+      "id": 42,
+      "name": "TM04 Rock Slide",
+      "moveId": 25
+    },
+    {
+      "id": 43,
+      "name": "TM05 Thunder Punch",
+      "moveId": 103
+    },
+    {
+      "id": 44,
+      "name": "TM06 Poison Jab",
+      "moveId": 62
+    },
+    {
+      "id": 45,
+      "name": "TM07 Fire Punch",
+      "moveId": 110
+    },
+    {
+      "id": 46,
+      "name": "TM08 Dazzling Gleam",
+      "moveId": 44
+    },
+    {
+      "id": 47,
+      "name": "TM09 Dragon Pulse",
+      "moveId": 104
+    },
+    {
+      "id": 48,
+      "name": "TM10 Ice Punch",
+      "moveId": 107
+    },
+    {
+      "id": 49,
+      "name": "TM11 Thunderbolt",
+      "moveId": 12
+    },
+    {
+      "id": 50,
+      "name": "TM12 Flamethrower",
+      "moveId": 31
+    },
+    {
+      "id": 51,
+      "name": "TM13 Psychic",
+      "moveId": 45
+    },
+    {
+      "id": 52,
+      "name": "TM14 Earthquake",
+      "moveId": 93
+    },
+    {
+      "id": 53,
+      "name": "TM15 Shadow Ball",
+      "moveId": 46
+    },
+    {
+      "id": 54,
+      "name": "TM16 Fire Blast",
+      "moveId": 82
+    },
+    {
+      "id": 55,
+      "name": "TM17 Surf",
+      "moveId": 43
+    },
+    {
+      "id": 56,
+      "name": "TM18 Sludge Bomb",
+      "moveId": 37
+    },
+    {
+      "id": 57,
+      "name": "TM19 Ice Beam",
+      "moveId": 100
+    },
+    {
+      "id": 58,
+      "name": "TM20 Energy Ball",
+      "moveId": 105
+    }
+  ]
+}

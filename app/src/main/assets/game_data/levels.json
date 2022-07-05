@@ -1,0 +1,4139 @@
+{
+  "trainerBattles": [
+    {
+      "id": 1,
+      "name": "\nVS Rival",
+      "description": "After receiving your first pokemon, your rival challenges you to show you how powerful he is",
+      "opponents": [
+        {
+          "sprite": "images/Spr_Rival.png",
+          "name" : "Jackson",
+          "pokemons": [
+            {
+              "id": 236,
+              "level": 6,
+              "moveIds": [
+                2
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 1,
+          "quantity": 2
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hey you, you want to be a pokemon trainer, so show me what you got!",
+      "endDialogWin": "It's beginner's luck. Next time, I'll crush you with my Tyrogue.",
+      "endDialogLoose": "Don't even think about leaving Pallet Town...",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 60
+    },
+    {
+      "id": 4,
+      "name": "\nVS Rival 2",
+      "description": "Having no badge, the guard does not let you enter the Victory Road. However, you come across your rival",
+      "opponents": [
+        {
+          "sprite": "images/Spr_Rival.png",
+          "name" : "Jackson",
+          "pokemons": [
+            {
+              "id": 236,
+              "level": 10,
+              "moveIds": [
+                2,
+                14
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 1,
+          "quantity": 2
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hey, you got kicked out of the Victory Road too.  I was ready to blow them away with my Tyrogue. For that matter, I'm going to blow you away.",
+      "endDialogWin": "You just got lucky.",
+      "endDialogLoose": "Well done Tyrogue",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 100
+    },
+    {
+      "id": 7,
+      "name": "\nVS Bug Catcher",
+      "description": "You finally find the exit of Viridian Forest but a trainer challenges you",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Bug_Catcher.png",
+          "name" : "Bug Catcher",
+          "pokemons": [
+            {
+              "id": 10,
+              "level": 7,
+              "moveIds": [
+                2,26
+              ]
+            },
+            {
+              "id": 13,
+              "level": 7,
+              "moveIds": [
+                17
+              ]
+            },
+            {
+              "id": 14,
+              "level": 7,
+              "moveIds": [
+                32,17
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 40
+        },
+        {
+          "id": 4,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "If you want to leave Viridian Forest, you'll have to fight me!",
+      "endDialogWin": "I'm going to catch stronger bug types Pokemon",
+      "endDialogLoose": "Bugs are the strongest",
+      "music": 2,
+      "icon": "images/forest_battle_background.jpg",
+      "background": "images/forest_battle_background.jpg",
+      "exp": 120
+    },
+    {
+      "id": 8,
+      "name": "\nPewter Gym",
+      "description": "You have arrived in Pewter City and are going straight to the arena. However, you can't face the gym leader yet.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Campeur.png",
+          "name" : "Jerry",
+          "pokemons": [
+            {
+              "id": 27,
+              "level": 11,
+              "moveIds": [
+                17,19,1
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Stop right there, kid! It's way too early for you to take on Brock",
+      "endDialogWin": "You're pretty good, but not as good as Brock!",
+      "endDialogLoose": "I warned you",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 140
+    },
+    {
+      "id": 9,
+      "name": "\nVS Brock",
+      "description": "After defeating the guard, you can finally face the gym leader!",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Brock.png",
+          "name" : "Gym Leader Brock",
+          "pokemons": [
+            {
+              "id": 74,
+              "level": 12,
+              "moveIds": [
+                32,2,29
+              ]
+            },
+            {
+              "id": 95,
+              "level": 14,
+              "moveIds": [
+                32,2,15,29
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        },
+        {
+          "id": 31,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "I am Brock, the gym leader of Pewter City ! I believe in the great power of rock! That's why my Pokémon are of the Rock type! Do you still want to fight with me?  All right!",
+      "endDialogWin": "I took you for granted, and so I lost. As proof of your victory, I confer on you this...the official Pokémon League Boulder Badge.",
+      "endDialogLoose": "The best offense is a good defense! That's my way of doing things!",
+      "music": 3,
+      "icon": "images/VS_Brock.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 350
+    },
+    {
+      "id": 10,
+      "name": "\nRoute 3",
+      "description": "After obtaining your first badge, you go to Route 3 where several trainers want to battle",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Youngster.png",
+          "name" : "Youngster Ben",
+          "pokemons": [
+            {
+              "id": 19,
+              "level": 11,
+              "moveIds": [
+                2,3,22,23
+              ]
+            },
+            {
+              "id": 23,
+              "level": 11,
+              "moveIds": [
+                17,23
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Bug_Catcher.png",
+          "name" : "Bug Catcher Greg",
+          "pokemons": [
+            {
+              "id": 10,
+              "level": 9,
+              "moveIds": [
+                2,26
+              ]
+            },
+            {
+              "id": 11,
+              "level": 9,
+              "moveIds": [
+                32,2,26
+              ]
+            },
+            {
+              "id": 13,
+              "level": 9,
+              "moveIds": [
+                17
+              ]
+            },
+            {
+              "id": 14,
+              "level": 9,
+              "moveIds": [
+                32,17
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Youngster.png",
+          "name" : "Youngster Calvin",
+          "pokemons": [
+            {
+              "id": 21,
+              "level": 14,
+              "moveIds": [
+                11,10
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 60
+        },
+        {
+          "id": 1,
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hi! I like shorts! They're comfy and easy to wear!",
+      "endDialogWin": "",
+      "endDialogLoose": "",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 420
+    },
+    {
+      "id": 11,
+      "name": "\nMt. Moon",
+      "description": "After crossing Route 3, you enter a cave to reach Cerulean City.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Youngster.png",
+          "name" : "Youngster Josh",
+          "pokemons": [
+            {
+              "id": 19,
+              "level": 12,
+              "moveIds": [
+                2,3,22,23
+              ]
+            },
+            {
+              "id": 41,
+              "level": 12,
+              "moveIds": [
+                47,16,23
+              ]
+            },
+            {
+              "id": 19,
+              "level": 12,
+              "moveIds": [
+                2,3,22,23
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Montagnard.png",
+          "name" : "Hiker Markos",
+          "pokemons": [
+            {
+              "id": 74,
+              "level": 12,
+              "moveIds": [
+                32,2,29
+              ]
+            },
+            {
+              "id": 74,
+              "level": 12,
+              "moveIds": [
+                2,32,29
+              ]
+            },
+            {
+              "id": 95,
+              "level": 12,
+              "moveIds": [
+                32,2,29
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 1,
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Did you come to explore too?",
+      "endDialogWin": "Kids like you shouldn't be here!",
+      "endDialogLoose": "Kids like you shouldn't be here!",
+      "music": 2,
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "exp": 570
+    },
+    {
+      "id": 13,
+      "name": "\nVS Team Rocket",
+      "description": "Suspicious men are in the cave. One of them is heading towards you.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 19,
+              "level": 12,
+              "moveIds": [
+                2,3,22,23
+              ]
+            },
+            {
+              "id": 41,
+              "level": 12,
+              "moveIds": [
+                47,16,23
+              ]
+            },
+            {
+              "id": 19,
+              "level": 12,
+              "moveIds": [
+                2,3,22,23
+              ]
+            },
+            {
+              "id": 41,
+              "level": 13,
+              "moveIds": [
+                47,16,23
+              ]
+            },
+            {
+              "id": 19,
+              "level": 13,
+              "moveIds": [
+                2,3,22,23
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 80
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "We, TEAM ROCKET, are POKEMON gangsters",
+      "endDialogWin": "I blew it!",
+      "endDialogLoose": "You can't beat Team Rocket!",
+      "music": 2,
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "exp": 580
+    },
+    {
+      "id": 15,
+      "name": "\nVS Rival 3",
+      "description": "You have finally arrived in Cerulean City but you come across Jackson.",
+      "opponents": [
+        {
+          "sprite": "images/Spr_Rival.png",
+          "name" : "Jackson",
+          "pokemons": [
+            {
+              "id": 236,
+              "level": 19,
+              "moveIds": [
+                2,
+                14
+              ]
+            },
+            {
+              "id": 17,
+              "level": 18,
+              "moveIds": [
+                4,3,19,2
+              ]
+            },
+            {
+              "id": 19,
+              "level": 18,
+              "moveIds": [
+                3,22,23,28
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 90
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hey, you only got one badge. I've already beaten the gym here. Come on, show me what you got",
+      "endDialogWin": "Hey! Take it easy! You won already!",
+      "endDialogLoose": "I am the strongest!",
+      "music": 2,
+      "icon": "images/city_battle_background.png",
+      "background": "images/city_battle_background.png",
+      "exp": 800
+    },
+    {
+      "id": 16,
+      "name": "\nRoute 24",
+      "description": "You have decide to train before challenging the Cerulean Gym so you go to Route 24",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Bug_Catcher.png",
+          "name" : "Bug Catcher Cale",
+          "pokemons": [
+            {
+              "id": 10,
+              "level": 18,
+              "moveIds": [
+                2,26
+              ]
+            },
+            {
+              "id": 11,
+              "level": 18,
+              "moveIds": [
+                32,2,26
+              ]
+            },
+            {
+              "id": 13,
+              "level": 18,
+              "moveIds": [
+                17
+              ]
+            },
+            {
+              "id": 14,
+              "level": 18,
+              "moveIds": [
+                32,17
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Fillette.png",
+          "name" : "Lass Ali",
+          "pokemons": [
+            {
+              "id": 16,
+              "level": 18,
+              "moveIds": [
+                2,3,4,19
+              ]
+            },
+            {
+              "id": 69,
+              "level": 18,
+              "moveIds": [
+                5,34,35
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Youngster.png",
+          "name" : "Youngster Timmy",
+          "pokemons": [
+            {
+              "id": 27,
+              "level": 18,
+              "moveIds": [
+                1,17,19
+              ]
+            },
+            {
+              "id": 23,
+              "level": 18,
+              "moveIds": [
+                17,23
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Fillette.png",
+          "name" : "Lass Reli",
+          "pokemons": [
+            {
+              "id": 17,
+              "level": 18,
+              "moveIds": [
+                2,3,4,19
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Campeur.png",
+          "name" : "Camper Ethan",
+          "pokemons": [
+            {
+              "id": 56,
+              "level": 18,
+              "moveIds": [
+                1,9,22
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 23,
+              "level": 18,
+              "moveIds": [
+                17,23
+              ]
+            },
+            {
+              "id": 41,
+              "level": 18,
+              "moveIds": [
+                16,23,47,48
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 90
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        },
+        {
+          "id": 10,
+          "quantity": 2
+        }
+      ],
+      "startDialog": "This is NUGGET BRIDGE! Do you have what it takes to beat us 5 trainers?",
+      "endDialogWin": "With your ability, you could become a top leader in TEAM ROCKET!",
+      "endDialogLoose": "Try again",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 1100
+    },
+    {
+      "id": 17,
+      "name": "\nCerulean Gym",
+      "description": "After facing the trainers on the bridge, you finally feel ready to take on the Cerulean gym.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Swimmer.png",
+          "name" : "Swimmer Luis",
+          "pokemons": [
+            {
+              "id": 116,
+              "level": 19,
+              "moveIds": [
+                6,22,42,54
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "You want to fight Misty, you'll have to beat me first.",
+      "endDialogWin": "Misty won't lose to someone like you!",
+      "endDialogLoose": "Guess you'll never beat Misty",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 800
+    },
+    {
+      "id": 18,
+      "name": "\nVS Misty",
+      "description": "As you have defeated the guard, you can finally face Misty, the gym leader of Cerulean City.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Ondine.png",
+          "name" : "Gym Leader Misty",
+          "pokemons": [
+            {
+              "id": 120,
+              "level": 20,
+              "moveIds": [
+                2,6,32,48
+              ]
+            },
+            {
+              "id": 54,
+              "level": 20,
+              "moveIds": [
+                1,6,24,39
+              ]
+            },
+            {
+              "id": 121,
+              "level": 22,
+              "moveIds": [
+                43,12,45,44
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        },
+        {
+          "id": 32,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hi, you're a new face! Only those Trainers who have a policy about Pokémon can turn pro. What is your approach when you catch and train Pokémon? My policy is an all out offensive with Water-type Pokémon!",
+      "endDialogWin": "You really are good... I'll admit that you are skilled... Here you go. It's the Cascade Badge.",
+      "endDialogLoose": "See! This is the Water-type toughness I was talking about!",
+      "music": 3,
+      "icon": "images/VS_Misty.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 1240
+    },
+    {
+      "id":20,
+      "name": "\nRoute 6",
+      "description": "Guards are blocking your access to Saffron City. You decide to go through an underground and challenge the gym in the city south of Saffron City.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Campeur.png",
+          "name" : "Camper Jeff",
+          "pokemons": [
+            {
+              "id": 20,
+              "level": 20,
+              "moveIds": [
+                2,3,23,28
+              ]
+            },
+            {
+              "id": 21,
+              "level": 20,
+              "moveIds": [
+                10,113
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Bug_Catcher.png",
+          "name" : "Bug Catcher Elijah",
+          "pokemons": [
+            {
+              "id": 12,
+              "level": 19,
+              "moveIds": [
+                59,4,35,39
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 60
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 5,
+          "quantity": 2
+        }
+      ],
+      "startDialog": "I've never seen you around! Are you good?",
+      "endDialogWin": "I like bugs, so I'm going back to VIRIDIAN FOREST",
+      "endDialogLoose": "I'm surprised, you look pretty tough",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 1000
+    },
+    {
+      "id": 21,
+      "name": "\nVermilion Gym",
+      "description": "You have arrived in Vermilion City and you are going to challenge the gym immediately. As usual, you will have to defeat the guard before challenging the gym leader.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Rocker.png",
+          "name" : "Rocker Vicent",
+          "pokemons": [
+            {
+              "id": 100,
+              "level": 21,
+              "moveIds": [
+                2,8,41,112
+              ]
+            },
+            {
+              "id": 100,
+              "level": 21,
+              "moveIds": [
+                2,8,41,112
+              ]
+            },
+            {
+              "id": 100,
+              "level": 21,
+              "moveIds": [
+                2,8,41,112
+              ]
+            },
+            {
+              "id": 100,
+              "level": 21,
+              "moveIds": [
+                2,8,41,112
+              ]
+            },
+            {
+              "id": 100,
+              "level": 21,
+              "moveIds": [
+                2,8,41,112
+              ]
+            },
+            {
+              "id": 100,
+              "level": 21,
+              "moveIds": [
+                12,8,41,112
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 5,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "This is no place for kids!",
+      "endDialogWin": "Watch out for Lt. Surge's electric pokemon",
+      "endDialogLoose": "I told you...",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 1110
+    },
+    {
+      "id": 22,
+      "name": "\nVS Lt. Surge",
+      "description": "As you have defeated the guard, you can finally face Lt. Surge, the gym leader of Vermilion City.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Surge.png",
+          "name" : "Gym Leader Lt. Surge",
+          "pokemons": [
+            {
+              "id": 25,
+              "level": 22,
+              "moveIds": [
+                3,13,52
+              ]
+            },
+            {
+              "id": 100,
+              "level": 22,
+              "moveIds": [
+                2,12,52,112
+              ]
+            },
+            {
+              "id": 26,
+              "level": 28,
+              "moveIds": [
+                43,12,13,52
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        },
+        {
+          "id": 33,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hey, kid! What do you think you're doing here? You won't live long in combat! That's for sure!",
+      "endDialogWin": "Whoa! You're the real deal, kid! Fine then, take the Thunder Badge.",
+      "endDialogLoose": "Oh yeah! I'm strong!",
+      "music": 3,
+      "icon": "images/VS_Surge.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 1520
+    },
+    {
+      "id":25,
+      "name": "\nRoute 9",
+      "description": "After defeating Dugtrio, Professor Oak advises you to go to Lavender Town to catch some ghost types Pokemon. So you go to Route 9 to the east of Cerulean City",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Montagnard.png",
+          "name" : "Hiker Alan",
+          "pokemons": [
+            {
+              "id": 75,
+              "level": 31,
+              "moveIds": [
+                2,32,29,30
+              ]
+            },
+            {
+              "id": 95,
+              "level": 31,
+              "moveIds": [
+                25,2,15,32
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Campeur.png",
+          "name" : "Camper Chris",
+          "pokemons": [
+            {
+              "id": 5,
+              "level": 32,
+              "moveIds": [
+                15,118,31,42
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Bug_Catcher.png",
+          "name" : "Bug Catcher Conner",
+          "pokemons": [
+            {
+              "id": 15,
+              "level": 29,
+              "moveIds": [
+                17,26,10,56
+              ]
+            },
+            {
+              "id": 14,
+              "level": 29,
+              "moveIds": [
+                17,26,10,56
+              ]
+            }
+          ]
+        },{
+          "sprite": "images/Sprite_Campeur.png",
+          "name" : "Camper Drew",
+          "pokemons": [
+            {
+              "id": 20,
+              "level": 32,
+              "moveIds": [
+                22,23,27,28
+              ]
+            },
+            {
+              "id": 28,
+              "level": 32,
+              "moveIds": [
+                30,38,19,17
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 60
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 2
+        }
+      ],
+      "startDialog": "Hahahaha! Come on, dude!",
+      "endDialogWin": "Use a flashlight to cross the Rock Tunnel",
+      "endDialogLoose": "You're not strong enough to get through the Rock Tunnel",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 2100
+    },
+    {
+      "id":26,
+      "name": "\nRock Tunner 1F",
+      "description": "You enter Rock Tunnel but it is so dark that you can't  see anything. So you use a flashlight and see several trainers ready to battle you.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Montagnard.png",
+          "name" : "Hiker Alan",
+          "pokemons": [
+            {
+              "id": 75,
+              "level": 34,
+              "moveIds": [
+                2,32,29,30
+              ]
+            },
+            {
+              "id": 75,
+              "level": 34,
+              "moveIds": [
+                2,32,29,30
+              ]
+            },
+            {
+              "id": 95,
+              "level": 34,
+              "moveIds": [
+                25,2,15,32
+              ]
+            },
+            {
+              "id": 95,
+              "level": 34,
+              "moveIds": [
+                25,2,15,32
+              ]
+            }
+          ]
+        },{
+          "sprite": "images/Sprite_Campeur.png",
+          "name" : "Camper Dean",
+          "pokemons": [
+            {
+              "id": 17,
+              "level": 32,
+              "moveIds": [
+                3,4,21,54
+              ]
+            },
+            {
+              "id": 20,
+              "level": 32,
+              "moveIds": [
+                22,4,27,28
+              ]
+            },
+            {
+              "id": 20,
+              "level": 32,
+              "moveIds": [
+                22,4,27,28
+              ]
+            },
+            {
+              "id": 20,
+              "level": 32,
+              "moveIds": [
+                22,4,27,28
+              ]
+            },
+            {
+              "id": 20,
+              "level": 32,
+              "moveIds": [
+                22,4,27,28
+              ]
+            },
+            {
+              "id": 70,
+              "level": 31,
+              "moveIds": [
+                5,34,35,58
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 60
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 2
+        }
+      ],
+      "startDialog": "This tunnel goes a long way, kid!",
+      "endDialogWin": "Whew! I'm all sweaty now!",
+      "endDialogLoose": "I play hard!",
+      "music": 2,
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "exp": 2200
+    },
+    {
+      "id": 29,
+      "name": "\nVS Rival 4",
+      "description": "You have arrived in Lavender Town and you are going to the Pokemon Tower. Once inside, you come across Jackson.",
+      "opponents": [
+        {
+          "sprite": "images/Spr_Rival.png",
+          "name" : "Jackson",
+          "pokemons": [
+            {
+              "id": 106,
+              "level": 40,
+              "moveIds": [
+                68,69,25,14
+              ]
+            },
+            {
+              "id": 18,
+              "level": 35,
+              "moveIds": [
+                3,16,54,19
+              ]
+            },
+            {
+              "id": 117,
+              "level": 35,
+              "moveIds": [
+                15,43,42
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 90
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "You again! I've gotten much stronger since our last fight let me show you.",
+      "endDialogWin": "I can't believe it!",
+      "endDialogLoose": "I knew I would win this time",
+      "music": 2,
+      "icon": "images/tower_battle_background.png",
+      "background": "images/tower_battle_background.png",
+      "exp": 4000
+    },
+    {
+      "id": 32,
+      "name": "\nVS Team Rocket",
+      "description": "On the top floor of the Pokemon Tower, you come across Team Rocket brutalizing an old man.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 42,
+              "level": 37,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },
+            {
+              "id": 42,
+              "level": 37,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },{
+              "id": 42,
+              "level": 37,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },{
+              "id": 42,
+              "level": 37,
+              "moveIds": [
+                50,23,48,16
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 80
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "What do you want? Why are you here?",
+      "endDialogWin": "I give up!",
+      "endDialogLoose": "You're not saving anyone, kid!",
+      "music": 2,
+      "icon": "images/tower_battle_background.png",
+      "background": "images/tower_battle_background.png",
+      "exp": 3570
+    },
+    {
+      "id": 35,
+      "name": "\nCeladon Gym",
+      "description": "You have arrived in Celadon City and are about to face the gym.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Fillette.png",
+          "name" : "Lass Kay",
+          "pokemons": [
+            {
+              "id": 69,
+              "level": 39,
+              "moveIds": [18,34,35,58
+              ]
+            },
+            {
+              "id": 70,
+              "level": 39,
+              "moveIds": [18,34,35,58
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hey! You are not allowed in here!",
+      "endDialogWin": "Bleaah! I hope ERIKA wipes you out!",
+      "endDialogLoose": "Oh! Splendid!",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 3900
+    },
+    {
+      "id": 36,
+      "name": "\nVS Erika",
+      "description": "After beating the guard, you go to the gym leader to challenge her.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Erika.png",
+          "name" : "Gym Leader Erika",
+          "pokemons": [
+            {
+              "id": 189,
+              "level": 40,
+              "moveIds": [
+                66,44,35
+              ]
+            },
+            {
+              "id": 114,
+              "level": 40,
+              "moveIds": [
+                66,35,102
+              ]
+            },
+            {
+              "id": 71,
+              "level": 40,
+              "moveIds": [
+                66,62,18,121
+              ]
+            },
+            {
+              "id": 45,
+              "level": 40,
+              "moveIds": [
+                66,44,37,76
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 34,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Welcome. My name is Erika. I am the Gym Leader of the Celadon Gym. I am a student of the art of flower arranging. My Pokémon are all of the Grass type. Did you perhaps wish to challenge me? Very well but I shall not lose",
+      "endDialogWin": "Oh! I concede defeat. You are remarkably strong. I must confer on you the Rainbow Badge",
+      "endDialogLoose": "I thank you for your demonstration",
+      "music": 3,
+      "icon": "images/VS_Erika.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 4900
+    },
+    {
+      "id": 38,
+      "name": "\nRoute 17",
+      "description": "You are walking on Route 17 and a biker comes to challenge you.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Motard.png",
+          "name" : "Biker Virgil",
+          "pokemons": [
+            {
+              "id": 109,
+              "level": 45,
+              "moveIds": [
+                37,83
+              ]
+            },
+            {
+              "id": 110,
+              "level": 45,
+              "moveIds": [
+                37,83
+              ]
+            },{
+              "id": 109,
+              "level": 45,
+              "moveIds": [
+                37,83
+              ]
+            },
+            {
+              "id": 110,
+              "level": 45,
+              "moveIds": [
+                37,83,31
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity":50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "What do you want, kiddo?",
+      "endDialogWin": "I could belly-bump you outta here!",
+      "endDialogLoose": "Whew! Good workout!",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 4700
+    },
+    {
+      "id": 40,
+      "name": "\nFuschia Gym",
+      "description": "You have arrived in Fuschia City and are about to face the gym.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Jongleur.png",
+          "name" : "Juggler Kirk",
+          "pokemons": [
+            {
+              "id": 24,
+              "level": 44,
+              "moveIds": [83,37,27]
+            },
+            {
+              "id": 24,
+              "level": 44,
+              "moveIds": [83,37,27]
+            },
+            {
+              "id": 24,
+              "level": 44,
+              "moveIds": [83,37,27]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Let's see you beat my special techniques!",
+      "endDialogWin": "I will keep on training under Koga, my ninja master!",
+      "endDialogLoose": "I like poison and sleep techniques, as they linger after battle!",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 5000
+    },
+    {
+      "id": 41,
+      "name": "\nVS Koga",
+      "description": "After beating the guard, you go to the gym leader to challenge him.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Koga.png",
+          "name" : "Gym Leader Koga",
+          "pokemons": [
+            {
+              "id": 109,
+              "level": 47,
+              "moveIds": [83,37]
+            },{
+              "id": 109,
+              "level": 47,
+              "moveIds": [83,37]
+            },
+            {
+              "id": 110,
+              "level": 50,
+              "moveIds": [37,12,31]
+            },
+            {
+              "id": 89,
+              "level": 50,
+              "moveIds": [37,62,69,25]
+            },
+            {
+              "id": 49,
+              "level": 50,
+              "moveIds": [45,37,60,122]
+            },
+            {
+              "id": 169,
+              "level": 51,
+              "moveIds": [129,50,66,46]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 35,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "A mere child like you dares to challenge me? Very well, I shall show you true terror as a ninja master!",
+      "endDialogWin": "You have proven your worth! Take a Soul Badge!",
+      "endDialogLoose": "Have you learned to fear the techniques of the ninja?",
+      "music": 3,
+      "icon": "images/VS_Koga.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 5600
+    },
+    {
+      "id": 43,
+      "name": "\nRoute 14",
+      "description": "You continue your way to Saffron City and several trainers stand in your way.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Ornithologue.png",
+          "name" : "Bird Keeper Benny",
+          "pokemons": [
+            {
+              "id": 22,
+              "level": 49,
+              "moveIds": [
+                10,90,91
+              ]
+            },
+            {
+              "id": 85,
+              "level": 49,
+              "moveIds": [
+                10,90,91
+              ]
+            },
+            {
+              "id": 22,
+              "level": 49,
+              "moveIds": [
+                10,90,91
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Motard.png",
+          "name" : "Biker Lukas",
+          "pokemons": [
+            {
+              "id": 109,
+              "level": 47,
+              "moveIds": [
+                37,83
+              ]
+            },
+            {
+              "id": 109,
+              "level": 47,
+              "moveIds": [
+                37,83
+              ]
+            },
+            {
+              "id": 110,
+              "level": 47,
+              "moveIds": [
+                37,83,31
+              ]
+            },
+            {
+              "id": 89,
+              "level": 47,
+              "moveIds": [
+                37,83
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity":50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "My bird POKEMON should be ready for battle",
+      "endDialogWin": "It's cool you made your POKEMON so strong! Might is right!",
+      "endDialogLoose": "Get lost!",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 5000
+    },
+    {
+      "id": 44,
+      "name": "\nRoute 13",
+      "description": "You continue your way to Saffron City and several trainers stand in your way.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Ornithologue.png",
+          "name" : "Bird Keeper Robert",
+          "pokemons": [
+            {
+              "id": 22,
+              "level": 49,
+              "moveIds": [
+                10,90,91,113
+              ]
+            },
+            {
+              "id": 18,
+              "level": 49,
+              "moveIds": [
+                3,16,113,54
+              ]
+            },
+            {
+              "id": 22,
+              "level": 49,
+              "moveIds": [
+                10,90,91
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Montagnard.png",
+          "name" : "Hiker Kenny",
+          "pokemons": [
+            {
+              "id": 75,
+              "level": 49,
+              "moveIds": [
+                25,30
+              ]
+            },
+            {
+              "id": 28,
+              "level": 47,
+              "moveIds": [
+                30,38
+              ]
+            },
+            {
+              "id": 76,
+              "level": 53,
+              "moveIds": [
+                25,30
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity":50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "I always go with bird POKEMON!",
+      "endDialogWin": "Wow! You totally won!",
+      "endDialogLoose": "It's over already?",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 5160
+    },
+    {
+      "id": 46,
+      "name": "\nSilph Co",
+      "description": "You arrive in Saffron City and Team Rocket has invaded the city. You learn that the boss of the organization is on the top floor of the Silph Co. building. You go there to stop him.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 42,
+              "level": 51,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },
+            {
+              "id": 20,
+              "level": 51,
+              "moveIds": [
+                3,23,28,27
+              ]
+            },
+            {
+              "id": 109,
+              "level": 51,
+              "moveIds": [
+                83,37,2
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 42,
+              "level": 51,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },
+            {
+              "id": 20,
+              "level": 51,
+              "moveIds": [
+                3,23,28,27
+              ]
+            },
+            {
+              "id": 109,
+              "level": 51,
+              "moveIds": [
+                83,37,2
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 42,
+              "level": 51,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },
+            {
+              "id": 20,
+              "level": 51,
+              "moveIds": [
+                3,23,28,27
+              ]
+            },
+            {
+              "id": 109,
+              "level": 51,
+              "moveIds": [
+                83,37,2
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 42,
+              "level": 51,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },
+            {
+              "id": 20,
+              "level": 51,
+              "moveIds": [
+                3,23,28,27
+              ]
+            },
+            {
+              "id": 24,
+              "level": 52,
+              "moveIds": [
+                83,37,27
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 42,
+              "level": 51,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },
+            {
+              "id": 20,
+              "level": 51,
+              "moveIds": [
+                3,23,28,27
+              ]
+            },
+            {
+              "id": 110,
+              "level": 51,
+              "moveIds": [
+                83,37,2
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 27,
+              "level": 53,
+              "moveIds": [
+                30,38,19,112
+              ]
+            },
+            {
+              "id": 42,
+              "level": 51,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },
+            {
+              "id": 20,
+              "level": 51,
+              "moveIds": [
+                3,23,28,27
+              ]
+            },
+            {
+              "id": 27,
+              "level": 53,
+              "moveIds": [
+                30,38,19,112
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 42,
+              "level": 51,
+              "moveIds": [
+                50,23,48,16
+              ]
+            },
+            {
+              "id": 20,
+              "level": 51,
+              "moveIds": [
+                3,23,28,27
+              ]
+            },
+            {
+              "id": 24,
+              "level": 52,
+              "moveIds": [
+                83,37,27
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 80
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "You broke into our operation?",
+      "endDialogWin": "You're not going to get away with this, brat!",
+      "endDialogLoose": "It's not smart to pick a fight with TEAM ROCKET",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 6000
+    },
+    {
+      "id": 47,
+      "name": "\nVS Rival 5",
+      "description": "Still in the Silph Co building, you come across Jackson.",
+      "opponents": [
+        {
+          "sprite": "images/Spr_Rival.png",
+          "name" : "Jackson",
+          "pokemons": [
+            {
+              "id": 106,
+              "level": 57,
+              "moveIds": [
+                68,69,25,14
+              ]
+            },
+            {
+              "id": 18,
+              "level": 54,
+              "moveIds": [
+                3,16,54,19
+              ]
+            },
+            {
+              "id": 117,
+              "level": 54,
+              "moveIds": [
+                15,43,100
+              ]
+            },
+            {
+              "id": 64,
+              "level": 54,
+              "moveIds": [
+                44,45,46
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 90
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "I thought you would show up again if I waited here! I guess TEAM ROCKET slowed you down! I want to see what you're made of.",
+      "endDialogWin": "You're ready to beat the boss of Team Rocket!",
+      "endDialogLoose": "I knew I would win this time",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 6300
+    },
+    {
+      "id": 48,
+      "name": "\nVS Archer",
+      "description": "You finally reach the top floor and a Team Rocket Executive is standing in front of the door of the room where the boss is.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Amos.png",
+          "name" : "Team Rocket Executive Archer",
+          "pokemons": [
+            {
+              "id": 42,
+              "level": 56,
+              "moveIds": [
+                50,37,23,48
+              ]
+            },
+            {
+              "id": 101,
+              "level": 56,
+              "moveIds": [
+                53,2,112
+              ]
+            },
+            {
+              "id": 110,
+              "level": 56,
+              "moveIds": [
+                37,31,12,92
+              ]
+            },
+            {
+              "id": 229,
+              "level": 57,
+              "moveIds": [
+                37,31,92,27
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 80
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "So you're fool enough to get in our way, is that it?",
+      "endDialogWin": "Forgive me, Giovanni... For me to be defeated by a simple child...",
+      "endDialogLoose": "I won't allow you to interfere with our plans!",
+      "music": 2,
+      "icon": "images/VS_Amos.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 6800
+    },
+    {
+      "id": 49,
+      "name": "\nVS Giovanni",
+      "description": "You enter the room where the boss is and you see him pressuring the chief of the Silph Co. to work for him.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Giovanni.png",
+          "name" : "Team Rocket Boss Giovanni",
+          "pokemons": [
+            {
+              "id": 53,
+              "level": 60,
+              "moveIds": [
+                38,73,51,12
+              ]
+            },
+            {
+              "id": 115,
+              "level": 57,
+              "moveIds": [
+                63,25,27,76
+              ]
+            },
+            {
+              "id": 51,
+              "level": 57,
+              "moveIds": [
+                30,25,38
+              ]
+            },
+            {
+              "id": 31,
+              "level": 57,
+              "moveIds": [
+                62,93,27,89
+              ]
+            },
+            {
+              "id": 34,
+              "level": 57,
+              "moveIds": [
+                62,93,12,31
+              ]
+            },
+            {
+              "id": 112,
+              "level": 59,
+              "moveIds": [
+                93,78,69,62
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "So, you defeated Archer. I must say, I am impressed you got here!",
+      "endDialogWin": "You ruined our plans for Silph! But, Team Rocket will never fall!! Never forget that all Pokémon exist for Team Rocket! I must go, but I shall return!",
+      "endDialogLoose": "You failed as soon as you challenged me, Trainer.",
+      "music": 4,
+      "icon": "images/VS_Giovanni.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 6800
+    },
+    {
+      "id": 50,
+      "name": "\nSaffron Gym",
+      "description": "After defeating Giovanni, you go to the gym to battle the gym leader.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Kinesiste.png",
+          "name" : "Psychic Franklin",
+          "pokemons": [
+            {
+              "id": 64,
+              "level": 55,
+              "moveIds": [45,44,46]
+            },
+            {
+              "id": 64,
+              "level": 55,
+              "moveIds": [45,44,46]
+            },
+            {
+              "id": 64,
+              "level": 55,
+              "moveIds": [45,44,46]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Medium.png",
+          "name" : "Medium Rebecca",
+          "pokemons": [
+            {
+              "id": 93,
+              "level": 55,
+              "moveIds": [45,44,46,37]
+            },
+            {
+              "id": 93,
+              "level": 55,
+              "moveIds": [45,44,46,37]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Sabrina is young, but she's also our LEADER! You won't reach her easily!",
+      "endDialogWin": "I never foresaw this!",
+      "endDialogLoose": "That's right! I used telepathy to read your mind!",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 6900
+    },
+    {
+      "id": 51,
+      "name": "\nVS Sabrina",
+      "description": "After defeating the guards, you go to the gym leader.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Morgane.png",
+          "name" : "Gym Leader Sabrina",
+          "pokemons": [
+            {
+              "id": 122,
+              "level": 55,
+              "moveIds": [45,44,46]
+            },
+            {
+              "id": 64,
+              "level": 55,
+              "moveIds": [45,44,46]
+            },
+            {
+              "id": 97,
+              "level": 55,
+              "moveIds": [45,44,76,83]
+            },
+            {
+              "id": 49,
+              "level": 55,
+              "moveIds": [35,37,45,60]
+            },
+            {
+              "id": 65,
+              "level": 57,
+              "moveIds": [45,44,46,105]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 36,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "I had a vision of your arrival! I have had psychic powers since I was a child. I dislike battling, but if you wish, I will show you my powers!",
+      "endDialogWin": "Your power... It far exceeds what I foresaw... Maybe it isn't possible to fully predict what the future holds. OK, you win. You earned yourself the Marsh Badge.",
+      "endDialogLoose": "Just as I foresaw...",
+      "music": 3,
+      "icon": "images/VS_Morgane.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 7000
+    },
+    {
+      "id": 53,
+      "name": "\nSea Route 20",
+      "description": "You are now heading to Cinnabar Island but there are pokemon trainers in the water.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Swimmer.png",
+          "name" : "Swimmer Barry",
+          "pokemons": [
+            {
+              "id": 116,
+              "level": 54,
+              "moveIds": [
+                43,15
+              ]
+            },
+            {
+              "id": 117,
+              "level": 54,
+              "moveIds": [
+                43,15
+              ]
+            },
+            {
+              "id": 117,
+              "level": 54,
+              "moveIds": [
+                43,15
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Nageuse.png",
+          "name" : "Swimmer Melissa",
+          "pokemons": [
+            {
+              "id": 118,
+              "level": 54,
+              "moveIds": [
+                43,79,11
+              ]
+            },
+            {
+              "id": 119,
+              "level": 54,
+              "moveIds": [
+                43,79,11
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity":50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Why are you riding a POKEMON? Can't you swim?",
+      "endDialogWin": "There's a huge cavern underneath this island.",
+      "endDialogLoose": "Now I'm ready for a swim!",
+      "music": 2,
+      "icon": "images/sea_battle_background.png",
+      "background": "images/sea_battle_background.png",
+      "exp": 6400
+    },
+    {
+      "id": 56,
+      "name": "\nCinnabar Gym",
+      "description": "When you arrive at Cinnabar Island, you head straight for the gym.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Scientifique.png",
+          "name" : "Scientist Daniel",
+          "pokemons": [
+            {
+              "id": 37,
+              "level": 58,
+              "moveIds": [82,81,130,3]
+            },
+            {
+              "id": 218,
+              "level": 58,
+              "moveIds": [31,87,88,102]
+            },
+            {
+              "id": 58,
+              "level": 58,
+              "moveIds": [82,27,73,115]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "You can't win! I have studied Pokemon totally!",
+      "endDialogWin": "My theories are too complicated for you!",
+      "endDialogLoose": "I will continue my studies...",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 7400
+    },
+    {
+      "id": 57,
+      "name": "\nVS Blaine",
+      "description": "After defeating the guard, you go to the gym leader.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Auguste.png",
+          "name" : "Gym Leader Blaine",
+          "pokemons": [
+            {
+              "id": 38,
+              "level": 59,
+              "moveIds": [82,81,48,130]
+            },
+            {
+              "id": 59,
+              "level": 59,
+              "moveIds": [116,27,120,75]
+            },
+            {
+              "id": 219,
+              "level": 59,
+              "moveIds": [31,25,87,88]
+            },
+            {
+              "id": 126,
+              "level": 60,
+              "moveIds": [82,103,69,110]
+            },
+            {
+              "id": 78,
+              "level": 62,
+              "moveIds": [82,3,116,62]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 37,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hi! I'm Blaine! I am the Leader of Cinnabar Gym! My fiery Pokémon will incinerate all challengers!",
+      "endDialogWin": "I have burned down to nothing! Not even ashes remain! You have earned the Volcano Badge.",
+      "endDialogLoose": "I'm a raging inferno!",
+      "music": 3,
+      "icon": "images/VS_Auguste.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 8000
+    },
+    {
+      "id": 58,
+      "name": "\nViridian Gym",
+      "description": "After obtaining your seventh badge, you return to Viridian City to face the gym.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Topdresseur.png",
+          "name" : "CoolTrainer Yuji",
+          "pokemons": [
+            {
+              "id": 105,
+              "level": 62,
+              "moveIds": [93,25,72,69]
+            },
+            {
+              "id": 105,
+              "level": 62,
+              "moveIds": [93,25,72,69]
+            },
+            {
+              "id": 76,
+              "level": 62,
+              "moveIds": [93,25,69]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Karateka.png",
+          "name" : "Blackbelt Takashi",
+          "pokemons": [
+            {
+              "id": 67,
+              "level": 62,
+              "moveIds": [30,25,69]
+            },
+            {
+              "id": 67,
+              "level": 62,
+              "moveIds": [30,25,69]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "This gym was closed for a long time, but now our leader is back!",
+      "endDialogWin": "Do you know the identity of our gym leader?",
+      "endDialogLoose": "Pokemon League? You? Don't get cocky!",
+      "music": 2,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 7900
+    },
+    {
+      "id": 59,
+      "name": "\nVS Giovanni 2",
+      "description": "After defeating the guards, you go to the gym leader and you notice that it's Giovanni, the boss of Team Rocket!",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Giovanni.png",
+          "name" : "Gym Leader Giovanni",
+          "pokemons": [
+            {
+              "id": 53,
+              "level": 70,
+              "moveIds": [
+                38,73,51,12
+              ]
+            },
+            {
+              "id": 112,
+              "level": 67,
+              "moveIds": [
+                93,78,62,77
+              ]
+            },
+            {
+              "id": 51,
+              "level": 67,
+              "moveIds": [
+                30,25,38
+              ]
+            },
+            {
+              "id": 31,
+              "level": 67,
+              "moveIds": [
+                62,93,27,89
+              ]
+            },
+            {
+              "id": 34,
+              "level": 67,
+              "moveIds": [
+                62,93,12,31
+              ]
+            },
+            {
+              "id": 464,
+              "level": 69,
+              "moveIds": [
+                93,78,69,62
+              ]
+            }
+
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 38,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "This is my hideout! I planned to resurrect TEAM ROCKET here! But, you have caught me again! So be it! This time, I'm not holding back!",
+      "endDialogWin": "That was a truly intense fight! You have won! As proof, here is the Earth Badge. Having lost, I cannot face my underlings! TEAM ROCKET is finished forever!",
+      "endDialogLoose": "Fwahahaha! You got defeated by me, Giovanni, the greatest trainer!",
+      "music": 3,
+      "icon": "images/VS_Giovanni.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 10000
+    },
+    {
+      "id": 60,
+      "name": "\nVS Rival 6",
+      "description": "Now that you have 8 badges, you head for the Victory Road. However, on Route 22, you run into Jackson.",
+      "opponents": [
+        {
+          "sprite": "images/Spr_Rival.png",
+          "name" : "Jackson",
+          "pokemons": [
+            {
+              "id": 18,
+              "level": 70,
+              "moveIds": [
+                3,16,54,19
+              ]
+            },
+            {
+              "id": 230,
+              "level": 70,
+              "moveIds": [
+                104,43,100,101
+              ]
+            },
+            {
+              "id": 65,
+              "level": 70,
+              "moveIds": [
+                44,45,46,105
+              ]
+            },
+            {
+              "id": 126,
+              "level": 70,
+              "moveIds": [82,103,69,45]
+            },
+            {
+              "id": 247,
+              "level": 70,
+              "moveIds": [25,93,27,72]
+            },
+            {
+              "id": 106,
+              "level": 73,
+              "moveIds": [
+                68,40,25,14
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 90
+        },
+        {
+          "id": 3,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "What a surprise to see you here! So you're going to the Pokemon League? You collected all the badges too? That's cool! Then I'll whip you as a warm up for Pokemon League!",
+      "endDialogWin": "I don't believe it! Well, I'm off to the Pokemon League.",
+      "endDialogLoose": "You need more practice!",
+      "music": 2,
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "exp": 10000
+    },
+    {
+      "id": 62,
+      "name": "\nVictory Road 2",
+      "description": "Still in Victory Road, there are several trainers in your path. Take them down to get to the Pokemon League",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Topdresseur.png",
+          "name" : "CoolTrainer Rolando",
+          "pokemons": [
+            {
+              "id": 3,
+              "level": 72,
+              "moveIds": [
+                66,37,93,36
+              ]
+            },
+            {
+              "id": 6,
+              "level": 72,
+              "moveIds": [
+                31,50,104,93
+              ]
+            },
+            {
+              "id": 9,
+              "level": 72,
+              "moveIds": [
+                43,100,69,93
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Topdresseuse.png",
+          "name" : "CoolTrainer Alexa",
+          "pokemons": [
+            {
+              "id": 78,
+              "level": 72,
+              "moveIds": [82,3,63,130]
+            },
+            {
+              "id": 71,
+              "level": 72,
+              "moveIds": [62,18,66,35]
+            },
+            {
+              "id": 87,
+              "level": 72,
+              "moveIds": [100,95,43,72]
+            },
+            {
+              "id": 28,
+              "level": 72,
+              "moveIds": [30,93,69,38]
+            },
+            {
+              "id": 101,
+              "level": 72,
+              "moveIds": [12,2,112]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 60
+        },
+        {
+          "id": 3,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Only the chosen can pass here!",
+      "endDialogWin": "By fighting tough battles, you get stronger!",
+      "endDialogLoose": "You showed me just how good I was!",
+      "music": 2,
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "exp": 10000
+    },
+    {
+      "id": 64,
+      "name": "\nVS Lorelei",
+      "description": "",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Olga.png",
+          "name" : "Elite 4 Lorelei",
+          "pokemons": [
+            {
+              "id": 87,
+              "level": 73,
+              "moveIds": [100,95,43,72]
+            },
+            {
+              "id": 80,
+              "level": 73,
+              "moveIds": [43,45,100,31]
+            },
+            {
+              "id": 124,
+              "level": 73,
+              "moveIds": [100,45,24,105]
+            },
+            {
+              "id": 473,
+              "level": 73,
+              "moveIds": [25,93,98,95]
+            },
+            {
+              "id": 91,
+              "level": 73,
+              "moveIds": [43,98,131,95]
+            },
+            {
+              "id": 131,
+              "level": 75,
+              "moveIds": [
+                100,12,43,45
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+      ],
+      "startDialog": "Welcome to the Pokemon League! I am Lorelei of the Elite Four! No one can best me when it comes to icy Pokemon. Are you ready?",
+      "endDialogWin": "You're better than I thought! Go on ahead! You only got a taste of Pokemon League power!",
+      "endDialogLoose": "You're no match against my icy Pokemon!",
+      "music": 3,
+      "icon": "images/VS_Olga.PNG",
+      "background": "images/building_battle_background.jpg",
+      "exp": 10000
+    },
+    {
+      "id": 65,
+      "name": "\nVS Bruno",
+      "description": "",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Aldo.png",
+          "name" : "Elite 4 Bruno",
+          "pokemons": [
+            {
+              "id": 107,
+              "level": 73,
+              "moveIds": [103,76,14,107]
+            },
+            {
+              "id": 62,
+              "level": 73,
+              "moveIds": [106,80,25,30]
+            },
+            {
+              "id": 208,
+              "level": 73,
+              "moveIds": [25,93,27,13]
+            },
+            {
+              "id": 237,
+              "level": 73,
+              "moveIds": [14,78,40,91]
+            },
+            {
+              "id": 57,
+              "level": 73,
+              "moveIds": [25,40,62,30]
+            },
+            {
+              "id": 68,
+              "level": 75,
+              "moveIds": [33,25,127,93]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+      ],
+      "startDialog": "I am Bruno of the Elite Four! Through rigorous training, people and Pokémon can become stronger without limit. I've lived and trained with my fighting Pokémon!",
+      "endDialogWin": "My job is done! Go face your next challenge!",
+      "endDialogLoose": "Our training has paid off!",
+      "music": 3,
+      "icon": "images/VS_Aldo.PNG",
+      "background": "images/building_battle_background.jpg",
+      "exp": 10000
+    },
+    {
+      "id": 66,
+      "name": "\nVS Agatha",
+      "description": "",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Agatha.png",
+          "name" : "Elite 4 Agatha",
+          "pokemons": [
+            {
+              "id": 93,
+              "level": 73,
+              "moveIds": [46,44,37,48]
+            },
+            {
+              "id": 94,
+              "level": 73,
+              "moveIds": [46,44,37,48]
+            },
+            {
+              "id": 24,
+              "level": 73,
+              "moveIds": [37,27,83,25]
+            },
+            {
+              "id": 169,
+              "level": 73,
+              "moveIds": [129,50,48,46]
+            },
+            {
+              "id": 429,
+              "level": 73,
+              "moveIds": [46,44,48,12]
+            },
+            {
+              "id": 94,
+              "level": 75,
+              "moveIds": [46,44,37,12]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+      ],
+      "startDialog": "I am Agatha of the Elite Four. Let me show you how a real trainer battles!",
+      "endDialogWin": "You win! I have nothing else to say. Run along now, child!",
+      "endDialogLoose": "That's how a proper battle's done!",
+      "music": 3,
+      "icon": "images/VS_Agatha.PNG",
+      "background": "images/building_battle_background.jpg",
+      "exp": 10000
+    },
+    {
+      "id": 67,
+      "name": "\nVS Lance",
+      "description": "",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Peter.png",
+          "name" : "Elite 4 Lance",
+          "pokemons": [
+            {
+              "id": 148,
+              "level": 73,
+              "moveIds": [79,104,12,31]
+            },
+            {
+              "id": 149,
+              "level": 73,
+              "moveIds": [104,12,31,101]
+            },
+            {
+              "id": 142,
+              "level": 73,
+              "moveIds": [57,27,25,16]
+            },
+            {
+              "id": 6,
+              "level": 73,
+              "moveIds": [50,31,104,103]
+            },
+            {
+              "id": 130,
+              "level": 73,
+              "moveIds": [79,27,93,78]
+            },
+            {
+              "id": 149,
+              "level": 77,
+              "moveIds": [108,16,103,93]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+      ],
+      "startDialog": "Ah! I heard about you! I lead the Elite Four! You can call me Lance the dragon trainer! Well, are you ready to lose? Your League challenge ends with me",
+      "endDialogWin": "That's it! I hate to admit it, but you are a Pokémon master!",
+      "endDialogLoose": "I never give up, no matter what",
+      "music": 3,
+      "icon": "images/VS_Peter.PNG",
+      "background": "images/building_battle_background.jpg",
+      "exp": 10000
+    },
+    {
+      "id": 68,
+      "name": "\nVS Champion",
+      "description": "",
+      "type": "Trainer Battle",
+      "opponents": [
+        {
+          "sprite": "images/Spr_Rival.png",
+          "name" : "Jackson",
+          "pokemons": [
+            {
+              "id": 18,
+              "level": 73,
+              "moveIds": [
+                3,16,54,19
+              ]
+            },
+            {
+              "id": 230,
+              "level": 75,
+              "moveIds": [
+                104,43,100,101
+              ]
+            },
+            {
+              "id": 65,
+              "level": 73,
+              "moveIds": [
+                44,45,46,105
+              ]
+            },
+            {
+              "id": 467,
+              "level": 75,
+              "moveIds": [82,12,69,45]
+            },
+            {
+              "id": 248,
+              "level": 75,
+              "moveIds": [25,93,27,120]
+            },
+            {
+              "id": 106,
+              "level": 80,
+              "moveIds": [
+                68,40,25,14
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [],
+      "startDialog": "Hey! I was looking forward to seeing you! My rival should be strong to keep me sharp! I looked all over for powerful Pokemon and I assembled a team that would beat any Pokemon type! And now! I'm the Pokemon League Champion! Do you know what that means? I'll tell you! I am the most powerful trainer in the world!",
+      "endDialogWin": "NO! That can't be! You beat my best! After all that work to become the champion? My reign is over already? It's not fair!",
+      "endDialogLoose": "Sorry to say it, but this is it for you",
+      "music": 5,
+      "icon": "images/building_battle_background.jpg",
+      "background": "images/building_battle_background.jpg",
+      "exp": 10000
+    },
+    {
+      "id": 75,
+      "name": "\nVS Cynthia",
+      "description": "At the top of Mt. Silver, you come across the champion of the Sinnoh region.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Cynthia.png",
+          "name" : "Champion Cynthia",
+          "pokemons": [
+            {
+              "id": 442,
+              "level": 83,
+              "moveIds": [46,48,92,94]
+            },
+            {
+              "id": 448,
+              "level": 83,
+              "moveIds": [124,75,111,104]
+            },
+            {
+              "id": 474,
+              "level": 83,
+              "moveIds": [117,12,46,100]
+            },
+            {
+              "id": 350,
+              "level": 83,
+              "moveIds": [43,100,104,13]
+            },
+            {
+              "id": 468,
+              "level": 83,
+              "moveIds": [50,44,31,124]
+            },
+            {
+              "id": 445,
+              "level": 85,
+              "moveIds": [108,93,82,25]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 3,
+          "quantity": 2
+        },
+        {
+          "id": 9,
+          "quantity": 2
+        }
+      ],
+      "startDialog": "When you are facing a Trainer in battle, you can learn everything about them. What Pokémon they have. What moves they've taught. There's no need for words then.",
+      "endDialogWin": "That was excellent. Truly, an outstanding battle. You gave the support your Pokémon needed to maximize their power. And you guided them with certainty to secure victory.",
+      "endDialogLoose": "What's necessary to become stronger? I think it's important to never lose your love of Pokémon.",
+      "music": 7,
+      "icon": "images/VS_Cynthia.png",
+      "background": "images/mt_silver_background.png",
+      "exp": 15000
+    }
+  ],
+  "randomWildEncounters": [
+    {
+      "id": 2,
+      "name": "\nRoute 1",
+      "description": "While walking along Route 1, you come across wild pokemon",
+      "encounter": 2,
+      "possibleEncounters":
+        {
+          "minLevel": 2,
+          "maxLevel": 3,
+          "encounters": [
+            16,
+            19,
+            161,
+            163
+          ]
+        },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 1,
+          "quantity": 2
+        },
+        {
+          "id": 5,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 60
+    },
+    {
+      "id": 3,
+      "name": "\nRoute 22",
+      "description": "After arriving in Viridian City, you decide to go to Route 22 to fight the pokemon league. However, several wild pokemon attack you",
+      "encounter": 2,
+      "possibleEncounters":
+        {
+          "minLevel": 2,
+          "maxLevel": 4,
+          "encounters": [
+            16,
+            19,
+            21,
+            56
+          ]
+        }
+      ,
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 1,
+          "quantity": 2
+        },
+        {
+          "id": 7,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 40
+    },
+    {
+      "id": 5,
+      "name": "\nRoute 2",
+      "description": "To get your first badge, you head to Pewter City. Several wild Pokemon attack you on Route 2",
+      "encounter": 2,
+      "possibleEncounters":
+      {
+        "minLevel": 3,
+        "maxLevel": 5,
+        "encounters": [
+          10,13
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 7,
+          "quantity": 3
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 60
+    },
+    {
+      "id": 6,
+      "name": "\nViridian Forest",
+      "description": "To reach Pewter City, you pass through Viridian Forest. You are attacked by several bug types Pokemon.",
+      "encounter": 3,
+      "possibleEncounters":
+      {
+        "minLevel": 3,
+        "maxLevel": 6,
+        "encounters": [
+          10,11,13,14
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 30
+        },
+        {
+          "id": 1,
+          "quantity": 2
+        },
+        {
+          "id": 7,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/forest_battle_background.jpg",
+      "background": "images/forest_battle_background.jpg",
+      "music": 1,
+      "exp": 70
+    },
+    {
+      "id": 12,
+      "name": "\nMt. Moon 2",
+      "description": "You are still trying to get out of this cave but wild pokemon are attacking you",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 10,
+        "maxLevel": 12,
+        "encounters": [
+          41,74,27,46
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 40
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "music": 1,
+      "exp": 300
+    },
+    {
+      "id": 14,
+      "name": "\nRoute 4",
+      "description": "You are finally out of the cave and you see Cerulean City in the distance. You just have to cross some tall grass and hope you don't run into any wild pokemon.",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 10,
+        "maxLevel": 12,
+        "encounters": [
+          19,21,23
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 40
+        },
+        {
+          "id": 1,
+          "quantity": 2
+        },
+        {
+          "id": 4,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 420
+    },
+    {
+      "id": 19,
+      "name": "\nRoute 5",
+      "description": "After getting your second badge, you head to the nearest gym: the one in Saffron City",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 18,
+        "maxLevel": 21,
+        "encounters": [
+          16,17,43,69,163
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 40
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 990
+    },
+    {
+      "id": 23,
+      "name": "\nDiglett’s Cave",
+      "description": "You receive a call from Professor Oak that a powerful pokemon has appeared in Diglett's cave. You go there to find out more.",
+      "encounter": 3,
+      "possibleEncounters":
+      {
+        "minLevel": 23,
+        "maxLevel": 25,
+        "encounters": [
+          50
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "music": 1,
+      "exp": 1200
+    },
+    {
+      "id": 27,
+      "name": "\nRock Tunnel B1F",
+      "description": "You enter the B1F and you come across several wild Pokemon.",
+      "encounter": 5,
+      "possibleEncounters":
+      {
+        "minLevel": 24,
+        "maxLevel": 26,
+        "encounters": [
+          41,41,41,74,74,74,95,95,95,115
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "music": 1,
+      "exp": 2130
+    },
+    {
+      "id": 28,
+      "name": "\nRoute 10",
+      "description": "You come out of the Rock Tunnel and see the Pokemon Tower of Lavanville on the horizon.",
+      "encounter": 3,
+      "possibleEncounters":
+      {
+        "minLevel": 21,
+        "maxLevel": 23,
+        "encounters": [
+          20,21,27,100
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 2160
+    },
+    {
+      "id": 30,
+      "name": "\nPokemon Tower",
+      "description": "After beating Jackson, you can finally catch some ghost types Pokemon.",
+      "encounter": 3,
+      "possibleEncounters":
+      {
+        "minLevel": 24,
+        "maxLevel": 27,
+        "encounters": [
+          104,92,104,92,104,92,104,92,93
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/tower_battle_background.png",
+      "background": "images/tower_battle_background.png",
+      "music": 1,
+      "exp": 2170
+    },
+    {
+      "id": 33,
+      "name": "\nRoute 8",
+      "description": "After saving the old man, he gives you a flute to wake up the sleeping pokemon on Route 16. Therefore, you're going there.",
+      "encounter": 3,
+      "possibleEncounters":
+      {
+        "minLevel": 28,
+        "maxLevel": 31,
+        "encounters": [
+          23,27,37,58
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 3000
+    },
+    {
+      "id": 34,
+      "name": "\nRoute 7",
+      "description": "A guard blocks your access to Saffron City, so you take an underground passage that leads you to Route 7.",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 28,
+        "maxLevel": 31,
+        "encounters": [
+          21,37,58,198,209,228
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 3300
+    },
+    {
+      "id": 39,
+      "name": "\nRoute 18",
+      "description": "You are almost in Fuchsia City, there are some wild Pokemon on your way",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 29,
+        "maxLevel": 32,
+        "encounters": [
+          218,88,22
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 4500
+    },
+    {
+      "id": 42,
+      "name": "\nRoute 15",
+      "description": "After obtaining your fifth badge, you head to the next gym which is located in Saffron City.",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 30,
+        "maxLevel": 33,
+        "encounters": [
+          17,43,43,43,43,44,48,48,48,69,69,69,69,70
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 4700
+    },
+    {
+      "id": 45,
+      "name": "\nRoute 12",
+      "description": "On Route 12, a fisherman offers you a fishing rod to find Pokemon water types. Therefore, you decide to use it.",
+      "encounter": 1,
+      "possibleEncounters":
+      {
+        "minLevel": 15,
+        "maxLevel": 17,
+        "encounters": [
+          60,118,118,118,118,129,129,129,129,129
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/sea_battle_background.png",
+      "background": "images/sea_battle_background.png",
+      "music": 1,
+      "exp": 900
+    },
+    {
+      "id": 52,
+      "name": "\nSea Route 19",
+      "description": "Before leaving Safrania, one of the Silph Co scientists will give you a Lapras to cross Sea Route 19 at the south of Fuschia City.",
+      "encounter": 6,
+      "possibleEncounters":
+      {
+        "minLevel": 35,
+        "maxLevel": 37,
+        "encounters": [
+          72,120,129
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/sea_battle_background.png",
+      "background": "images/sea_battle_background.png",
+      "music": 1,
+      "exp": 5000
+    },
+    {
+      "id": 54,
+      "name": "\nSeafoam Islands",
+      "description": "To reach Cinnabar Islands, you have to cross Seafoam Islands. Once in the cave, you feel the presence of a powerful pokemon.",
+      "encounter": 6,
+      "possibleEncounters":
+      {
+        "minLevel": 36,
+        "maxLevel": 38,
+        "encounters": [
+          41,41,42,54,54,54,55,79,79,79,79,86,86,86,86,87,90,116
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/seafoam_islands_icon.JPG",
+      "background": "images/seafoam_island_battle_background.png",
+      "music": 1,
+      "exp": 5300
+    },
+    {
+      "id": 61,
+      "name": "\nVictory Road",
+      "description": "Having shown your 8 badges to the guard, you enter the Victory Road, the last step before the Pokemon League",
+      "encounter": 15,
+      "possibleEncounters":
+      {
+        "minLevel": 65,
+        "maxLevel": 70,
+        "encounters": [28,42,75,95,111]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 30
+        }
+      ],
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "music": 1,
+      "exp": 9000
+    },
+    {
+      "id": 69,
+      "name": "\nPower Plant",
+      "description": "After defeating the league, Professor Oak sends you to the abandoned Power Plant on Route 10 because something strange is happening with the wild Pokemon there.",
+      "encounter": 5,
+      "possibleEncounters":
+      {
+        "minLevel": 40,
+        "maxLevel": 43,
+        "encounters": [81,81,81,81,82,100,100,100,100,100,100,100,100,101,125]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 40
+        },
+        {
+          "id": 5,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/power_plant_icon.jpg",
+      "background": "images/building_battle_background.jpg",
+      "music": 1,
+      "exp": 9000
+    },
+    {
+      "id": 70,
+      "name": "\nVS Electrodes",
+      "description": "You advance in the Power Plant and several powerful Electrodes attack you.",
+      "encounter": 5,
+      "possibleEncounters":
+      {
+        "minLevel": 80,
+        "maxLevel": 85,
+        "encounters": [101,101,101,101,101]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 60
+        },
+        {
+          "id": 5,
+          "quantity": 3
+        }
+      ],
+      "icon": "images/electrode_level.PNG",
+      "background": "images/electric_terrain_background.png",
+      "music": 1,
+      "exp": 9000
+    },
+    {
+      "id": 72,
+      "name": "\nRoute 28",
+      "description": "You receive a letter from the Sinnoh region's champion who wants to battle you on the top of Mt Silver. You decide to go there to face her.",
+      "encounter": 8,
+      "possibleEncounters":
+      {
+        "minLevel": 60,
+        "maxLevel": 63,
+        "encounters": [61,61,77,77,77,78,84,84,84,85,114,114,114,232]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 3,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/route_battle_background.png",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 9000
+    },
+    {
+      "id": 73,
+      "name": "\nMt Silver",
+      "description": "You finally reach Mt. Silver and you come across several wild Pokemon.",
+      "encounter": 10,
+      "possibleEncounters":
+      {
+        "minLevel": 70,
+        "maxLevel": 73,
+        "encounters": [42,42,42,42,55,55,75,75,75,95,95,95,200,232]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 30
+        },
+        {
+          "id": 3,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/cave_battle_background.png",
+      "background": "images/cave_battle_background.png",
+      "music": 1,
+      "exp": 9000
+    },
+    {
+      "id": 76,
+      "name": "\nCerulean Cave",
+      "description": "After defeating Cynthia, you visit Professor Oak and he informs you that your rival Jackson has gone to Cerulean Cave and encountered the most powerful Pokemon he has ever seen. He ran away because his Pokemon were defeated by this creature. Be careful!",
+      "encounter": 10,
+      "possibleEncounters":
+      {
+        "minLevel": 80,
+        "maxLevel": 83,
+        "encounters": [
+          28,42,47,57,75,82,101
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 5,
+          "quantity": 3
+        }
+      ],
+      "icon": "images/cerulean_cave_icon.png",
+      "background": "images/cerulean_cave_background.png",
+      "music": 1,
+      "exp": 12000
+    },
+    {
+      "id": 77,
+      "name": "\nCerulean Cave 1F",
+      "description": "Pokemon in this cave are very powerful. Keep it up!",
+      "encounter": 10,
+      "possibleEncounters":
+      {
+        "minLevel": 82,
+        "maxLevel": 85,
+        "encounters": [
+          49,85,101,112
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 3,
+          "quantity": 3
+        }
+      ],
+      "icon": "images/cerulean_cave_icon.png",
+      "background": "images/cerulean_cave_background.png",
+      "music": 1,
+      "exp": 12000
+    },
+    {
+      "id": 78,
+      "name": "\nCerulean Cave B1F",
+      "description": "You find a ladder that takes you into the depths of the cave. You feel the presence of the powerful Pokemon.",
+      "encounter": 10,
+      "possibleEncounters":
+      {
+        "minLevel": 83,
+        "maxLevel": 85,
+        "encounters": [
+          42,47,82,101
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 3,
+          "quantity": 3
+        }
+      ],
+      "icon": "images/cerulean_cave_icon.png",
+      "background": "images/cerulean_cave_background.png",
+      "music": 1,
+      "exp": 12000
+    }
+  ],
+  "bossBattles": [
+    {
+      "id": 24,
+      "name": "\nVs Dugtrio",
+      "description": "You finally find the powerful pokemon that Professor Oak tells you about. It is a wild Dugtrio. It attacks you by shaking the ground. Stop it before it's too late.",
+      "boss":
+      {
+        "id": 51,
+        "level": 40,
+        "moveIds": [30,38,25,37],
+        "boostedStats": ["SPATK"]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/dugtrio_boss_icon.JPG",
+      "background": "images/cave_battle_background.png",
+      "music": 1,
+      "exp": 4000
+    },
+    {
+      "id": 31,
+      "name": "\nVs Marowak",
+      "description": "As you advance through the Pokemon Tower, you come across a Marowak that looks extremely powerful. Watch out, it's attacking you!",
+      "boss":
+      {
+        "id": 105,
+        "level": 45,
+        "moveIds": [25,71,69,70],
+        "boostedStats": ["SPEED"]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/marowak_boss_icon.JPG",
+      "background": "images/tower_battle_background.png",
+      "music": 1,
+      "exp": 4400
+    },
+    {
+      "id": 37,
+      "name": "\nVs Snorlax",
+      "description": "After getting your fourth badge, you go to Route 16 and come across the sleeping pokemon. You wake him up with the flute that the old man gave you and it gets really angry!",
+      "boss":
+      {
+        "id": 143,
+        "level": 50,
+        "moveIds": [88,30,25,27],
+        "boostedStats": ["DEFENSE"]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/snorlax_boss_icon.JPG",
+      "background": "images/route_battle_background.png",
+      "music": 1,
+      "exp": 5300
+    },
+    {
+      "id": 55,
+      "name": "\nVs Articuno",
+      "description": "In the depths of Seafoam Island, you come across a powerful looking bird. Upon closer inspection, you notice that it is the legendary bird Articuno!",
+      "boss":
+      {
+        "id": 144,
+        "level": 58,
+        "moveIds": [100,102,50,24],
+        "boostedStats": ["DEFENSE"]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/articuno_boss_icon.PNG",
+      "background": "images/seafoam_island_battle_background.png",
+      "music": 1,
+      "exp": 7000
+    },
+    {
+      "id": 63,
+      "name": "\nVs Moltres",
+      "description": "You finally see the exit of Victory Road but you feel the presence of a powerful pokemon near you. You head into a room near the exit and come across the legendary bird Moltres.",
+      "boss":
+      {
+        "id": 146,
+        "level": 77,
+        "moveIds": [31,102,50,21],
+        "boostedStats": ["DEFENSE"]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 3,
+          "quantity": 4
+        }
+      ],
+      "icon": "images/moltres_boss_icon.JPG",
+      "background": "images/cave_battle_background.png",
+      "music": 1,
+      "exp": 10200
+    },
+    {
+      "id": 71,
+      "name": "\nVs Zapdos",
+      "description": "At the very bottom of the Power Plant, you come across the legendary bird Zapdos and he attacks you!",
+      "boss":
+      {
+        "id": 145,
+        "level": 82,
+        "moveIds": [90,53,102,21],
+        "boostedStats": ["ATTACK","DEFENSE"]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 3,
+          "quantity": 4
+        }
+      ],
+      "icon": "images/zapdos_boss_icon.PNG",
+      "background": "images/electric_terrain_background.png",
+      "music": 1,
+      "exp": 12000
+    },
+    {
+      "id": 74,
+      "name": "\nVs Tyranitar",
+      "description": "You can see the exit to the top of Mt Silver. However, a very powerful looking Tyranitar attacks you!",
+      "boss":
+      {
+        "id": 248,
+        "level": 82,
+        "moveIds": [25,27,82,93],
+        "boostedStats": []
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 200
+        },
+        {
+          "id": 3,
+          "quantity": 3
+        },
+        {
+          "id": 9,
+          "quantity": 3
+        }
+      ],
+      "icon": "images/tyranitar_boss_icon.PNG",
+      "background": "images/cave_battle_background.png",
+      "music": 1,
+      "exp": 15000
+    },
+    {
+      "id": 79,
+      "name": "\nVs Mewtwo",
+      "description": "You finally come across the powerful Pokemon. It seems to want to fight you! Show him what you can do!",
+      "boss":
+      {
+        "id": 150,
+        "level": 80,
+        "moveIds": [112,45,46,124],
+        "boostedStats": []
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 200
+        },
+        {
+          "id": 3,
+          "quantity": 5
+        },
+        {
+          "id": 9,
+          "quantity": 5
+        },
+        {
+          "id": 10,
+          "quantity": 5
+        }
+      ],
+      "icon": "images/mewtwo_boss_icon.PNG",
+      "background": "images/cerulean_cave_background.png",
+      "music": 6,
+      "exp": 15000
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                                   android:layout_height="match_parent">
+
+    <ImageView
+            android:layout_width="127dp"
+            android:layout_height="125dp" app:srcCompat="@drawable/ic_launcher_background"
+            android:id="@+id/trainerSpriteTextView"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="40dp" android:layout_marginStart="28dp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="160dp"
+            android:layout_height="40dp" android:id="@+id/trainerNameTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="60dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="60dp"
+            android:textSize="24sp" android:textAlignment="viewStart"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="159dp"
+            android:layout_height="41dp" android:id="@+id/androCoinTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="100dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="60dp"
+            android:textSize="14sp" android:textAlignment="viewStart"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="175dp"
+            android:layout_height="66dp" android:id="@+id/maxLevelTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="140dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="44dp"
+            android:textSize="14sp" android:textAlignment="viewStart"/>
+    <Button
+            android:text="Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/trainerCardMenuBackButton"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="548dp" app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintVertical_bias="0.659"/>
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="340dp"
+            android:layout_height="380dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.492" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.637" android:id="@+id/badgesRecyclerView"/>
+    <TextView
+            android:text="The champion of the Kanto Region"
+            android:layout_width="124dp"
+            android:layout_height="58dp" android:id="@+id/championTextView"
+            app:layout_constraintTop_toBottomOf="@+id/trainerSpriteTextView"
+            app:layout_constraintEnd_toStartOf="@+id/maxLevelTextView" app:layout_constraintStart_toStartOf="parent"
+            android:textSize="14sp" android:textAlignment="center"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

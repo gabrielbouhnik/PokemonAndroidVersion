@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent">
+
+    <ImageView
+            android:layout_width="457dp"
+            android:layout_height="506dp" app:srcCompat="@color/teal_200"
+            android:id="@+id/battleBackgroundImageView" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="4dp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+            android:background="#FFFFFF"/>
+    <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp" app:srcCompat="@drawable/ic_launcher_background"
+            android:id="@+id/pokemonBackSpriteView"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/battleBackgroundImageView"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="104dp"
+            app:layout_constraintVertical_bias="0.607"/>
+    <Button
+            android:text="Bag"
+            android:layout_width="150dp"
+            android:layout_height="50dp" android:id="@+id/bagButton"
+            app:layout_constraintBottom_toBottomOf="@+id/battleBackgroundImageView"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="16dp" app:layout_constraintVertical_bias="0.976"
+            android:backgroundTint="#009688"/>
+    <Button
+            android:text="Pokemon"
+            android:layout_width="150dp"
+            android:layout_height="50dp" android:id="@+id/switchPokemonButton"
+            app:layout_constraintBottom_toBottomOf="@+id/battleBackgroundImageView"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="16dp" app:layout_constraintVertical_bias="0.974"
+            android:backgroundTint="#CDDC39"/>
+    <Button
+            android:text="Button 1"
+            android:layout_width="180dp"
+            android:layout_height="44dp" android:id="@+id/attack1Button"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/dialogTextView" android:visibility="gone"/>
+    <Button
+            android:text="Button 3"
+            android:layout_width="180dp"
+            android:layout_height="44dp" android:id="@+id/attack3Button"
+            app:layout_constraintTop_toBottomOf="@+id/attack1Button"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp" android:visibility="gone"/>
+    <Button
+            android:text="Button 2"
+            android:layout_width="180dp"
+            android:layout_height="44dp" android:id="@+id/attack2Button"
+            app:layout_constraintTop_toBottomOf="@+id/dialogTextView"
+            app:layout_constraintStart_toStartOf="@+id/attack1Button" android:layout_marginStart="196dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+            app:layout_constraintHorizontal_bias="0.09" android:visibility="gone"/>
+    <Button
+            android:text="Button 4"
+            android:layout_width="180dp"
+            android:layout_height="44dp" android:id="@+id/attack4Button"
+            app:layout_constraintTop_toBottomOf="@+id/attack2Button"
+            app:layout_constraintStart_toStartOf="@+id/attack3Button" android:layout_marginStart="196dp"
+            android:layout_marginTop="20dp" android:visibility="gone"/>
+    <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp" app:srcCompat="@drawable/ic_launcher_background"
+            android:id="@+id/trainerBackSpriteView"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="200dp"
+            app:layout_constraintBottom_toBottomOf="@+id/battleBackgroundImageView"
+            app:layout_constraintVertical_bias="0.4" android:layout_marginBottom="20dp"/>
+    <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp" app:srcCompat="@drawable/ic_launcher_background"
+            android:id="@+id/opponentPokemonImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/battleBackgroundImageView"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="220dp"
+            app:layout_constraintHorizontal_bias="0.688" android:visibility="gone"/>
+    <ImageView
+            android:layout_width="95dp"
+            android:layout_height="156dp" app:srcCompat="@drawable/ic_launcher_background"
+            android:id="@+id/opponentTrainerSpriteView"
+            app:layout_constraintStart_toEndOf="@+id/opponentPokemonImageView" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="130dp" android:layout_marginStart="24dp"
+            app:layout_constraintEnd_toEndOf="parent" android:visibility="gone"/>
+    <TextView
+            android:layout_width="175dp"
+            android:layout_height="20dp" android:id="@+id/myPokemonHPLevelTextView"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="48dp" android:backgroundTint="#FFFFFF" android:textStyle="bold"
+            android:textSize="16sp"/>
+    <TextView
+            android:layout_width="139dp"
+            android:layout_height="29dp" android:id="@+id/myPokemonNameTextView"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp" android:backgroundTint="#FFFFFF" android:textStyle="bold"
+            android:textSize="18sp"/>
+    <TextView
+            android:layout_width="139dp"
+            android:layout_height="29dp" android:id="@+id/opponentPokemonNameTextView"
+            android:backgroundTint="#FFFFFF" android:textStyle="bold"
+            android:textSize="18sp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/battleBackgroundImageView" android:layout_marginTop="20dp"
+            android:textAlignment="textEnd"/>
+    <TextView
+            android:layout_width="175dp"
+            android:layout_height="20dp" android:id="@+id/opponentPokemonHPLevelTextView"
+            android:backgroundTint="#FFFFFF" android:textStyle="bold"
+            android:textSize="16sp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/battleBackgroundImageView" android:layout_marginTop="48dp"
+            android:textAlignment="textEnd" android:layout_marginEnd="4dp"/>
+    <TextView
+            android:layout_width="354dp"
+            android:layout_height="83dp" android:id="@+id/dialogTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.271" app:layout_constraintBottom_toBottomOf="parent"
+            android:textAlignment="center" android:textStyle="bold" android:layout_marginBottom="120dp"
+            app:layout_constraintEnd_toEndOf="@+id/battleBackgroundImageView"
+            app:layout_constraintTop_toBottomOf="@+id/battleBackgroundImageView"
+            app:layout_constraintVertical_bias="0.236"/>
+    <ImageView
+            android:layout_width="419dp"
+            android:layout_height="719dp" app:srcCompat="@color/black"
+            android:id="@+id/blackImageView"
+            android:visibility="gone" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="352dp"
+            android:layout_height="621dp"
+            android:id="@+id/battleRecyclerView"
+            android:translationZ="45dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone">
+    </androidx.recyclerview.widget.RecyclerView>
+    <Button
+            android:text="close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/closeTeamButton"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.513" app:layout_constraintVertical_bias="0.941"
+            android:visibility="gone"/>
+    <Button
+            android:text="close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/closeBagButton"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.513" app:layout_constraintVertical_bias="0.941"
+            android:translationZ="90dp" android:visibility="gone"/>
+    <Button
+            android:layout_width="315dp"
+            android:layout_height="93dp" android:id="@+id/getRewardsButton"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Rewards" android:backgroundTint="#F61052"
+            android:textSize="30sp" android:visibility="gone"
+            android:textAlignment="center" android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/battleBackgroundImageView"
+            app:layout_constraintVertical_bias="1.0" android:layout_marginTop="70dp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/attack1PPTextView"
+            app:layout_constraintTop_toBottomOf="@+id/attack1Button" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="68dp" android:visibility="gone"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/attack2PPTextView"
+            app:layout_constraintTop_toBottomOf="@+id/attack2Button" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="180dp" android:visibility="gone"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/attack3PPTextView"
+            app:layout_constraintTop_toBottomOf="@+id/attack3Button" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="68dp" android:visibility="gone"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/attack4PPTextView"
+            app:layout_constraintTop_toBottomOf="@+id/attack4Button" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="180dp" android:visibility="gone"/>
+
+    <TextView
+            android:text="TextView"
+            android:layout_width="42dp"
+            android:layout_height="24dp" android:id="@+id/pokemonBattleStatusTextView"
+            app:layout_constraintStart_toEndOf="@+id/myPokemonNameTextView" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp" app:layout_constraintBottom_toTopOf="@+id/myPokemonHPLevelTextView"
+            android:textSize="10sp" android:textStyle="bold" android:textAlignment="textStart"
+            android:visibility="gone"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="42dp"
+            android:layout_height="23dp" android:id="@+id/opponentStatusTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="32dp" app:layout_constraintEnd_toStartOf="@+id/opponentPokemonNameTextView"
+            app:layout_constraintBottom_toTopOf="@+id/opponentPokemonHPLevelTextView"
+            app:layout_constraintVertical_bias="1.0" android:textSize="10sp" android:textStyle="bold"
+            android:textAlignment="textEnd" android:visibility="gone"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

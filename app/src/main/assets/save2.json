@@ -1,0 +1,53 @@
+{
+  "name": "Gabriel",
+  "gender" : "MALE",
+  "pokemons" : [
+    {
+      "id" : 1,
+      "level": 5,
+      "moveids" : [
+        {
+        "id" : 2,
+        "pp" : 20
+        },
+        {
+          "id" : 5,
+          "pp" : 20
+        }
+      ],
+      "gender": "MALE",
+      "status": "OK",
+      "hp": 19,
+      "currentHP" : 19,
+      "attack": 10,
+      "defense": 10,
+      "spAtk": 12,
+      "spDef": 12,
+      "speed": 10
+    }
+  ],
+  "team" : [
+    {
+      "id" : 16,
+      "level": 5,
+      "moveids" : [
+        {
+          "id" : 2,
+          "pp" : 20
+        }
+      ],
+      "gender": "MALE",
+      "status": "OK",
+      "hp": 19,
+      "currentHP" : 19,
+      "attack": 9,
+      "defense": 9,
+      "spAtk": 7,
+      "spDef": 8,
+      "speed": 10
+    }
+  ],
+  "items": [],
+  "coins": 60000,
+  "progression": 0
+}

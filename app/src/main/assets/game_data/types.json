@@ -1,0 +1,50 @@
+[
+  {
+    "id": 0,
+    "name": "None"
+  },
+  {
+    "id": 1,
+    "name": "Grass"
+  },
+  {
+    "id": 2,
+    "name": "Fire"
+  },
+  {
+    "id": 3,
+    "name": "Water"
+  },
+  {
+    "id": 4,
+    "name": "Electric"
+  },
+  {
+    "id": 5,
+    "name": "Normal"
+  },
+  {
+    "id": 6,
+    "name": "Flying"
+  },
+  {
+    "id": 7,
+    "name": "Bug"
+  },
+  {
+    "id": 8,
+    "name": "Poison"
+  },
+  {
+    "id": 9,
+    "name": "Rock"
+  },
+  {
+    "id": 10,
+    "name": "Ground"
+  },
+  {
+    "id": 11,
+    "name": "Fighting"
+  }
+]
