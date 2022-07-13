@@ -4,7 +4,6 @@ import com.pokemon.android.version.model.Pokemon
 
 data class PokemonSave(
     var id: Int,
-    var gender: String,
     var status: String,
     var level: Int,
     var hp: Int,
@@ -30,7 +29,6 @@ data class PokemonSave(
                 moveIds.add(MoveSave(pokemon.move4!!.move.id, pokemon.move4!!.pp))
             return PokemonSave(
                 pokemon.data.id,
-                pokemon.gender.toString(),
                 pokemon.status.toString(),
                 pokemon.level,
                 pokemon.hp,

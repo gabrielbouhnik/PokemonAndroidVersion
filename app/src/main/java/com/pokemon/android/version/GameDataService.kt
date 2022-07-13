@@ -1,6 +1,6 @@
 package com.pokemon.android.version
 
-import com.pokemon.android.version.model.Gender
+import com.pokemon.android.version.model.BattleFrontierPokemon
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.banner.Banner
@@ -17,15 +17,13 @@ import com.pokemon.android.version.repository.*
 import com.pokemon.android.version.ui.LevelMenu
 import kotlin.math.roundToInt
 
-import kotlin.random.Random
-import kotlin.random.nextInt
-
 class GameDataService {
     var items: List<ItemData> = ArrayList()
     var moves: List<Move> = ArrayList()
     var pokemons: List<PokemonData> = ArrayList()
     var banners: List<Banner> = ArrayList()
     var levels: List<LevelData> = ArrayList()
+    var battleFrontierPokemons: List<BattleFrontierPokemon> = ArrayList()
 
     companion object {
         const val MOVES_DATA_PATH = "game_data/moves.json"
@@ -33,6 +31,7 @@ class GameDataService {
         const val POKEMON_DATA_PATH = "game_data/pokemons.json"
         const val BANNER_DATA_PATH = "game_data/banners.json"
         const val LEVELS_DATA_PATH = "game_data/levels.json"
+        const val POKEMON_BATTLE_FRONTIER_PATH = "game_data/battle_frontier/pokemons.json"
     }
 
     fun loadGameData(activity: MainActivity) {
@@ -41,11 +40,13 @@ class GameDataService {
         val bannerRepository = BannerRepository()
         val movesRepository = MovesRepository()
         val levelsRepository = LevelsRepository()
+        val battleFrontierPokemonRepository = BattleFrontierPokemonRepository()
         this.moves = MoveFactory.createMove(movesRepository.loadData(activity))
         this.items = ItemFactory.createItems(itemRepository.loadData(activity), this.moves)
         this.pokemons = pokemonRepository.loadData(activity).map { PokemonData.of(it, moves) }
         this.banners = bannerRepository.loadData(activity).map { Banner.of(it, this) }
         this.levels = LevelFactory.createLevels(levelsRepository.loadData(activity), this)
+        this.battleFrontierPokemons = battleFrontierPokemonRepository.loadData(activity).map { BattleFrontierPokemon.of(it, this) }
     }
 
     fun getPokemonDataById(id: Int): PokemonData {
@@ -70,9 +71,6 @@ class GameDataService {
         val move2: PokemonMove? = if (moves.size < 2) null else moves[1]
         val move3: PokemonMove? = if (moves.size < 3) null else moves[2]
         val move4: PokemonMove? = if (moves.size < 4) null else moves[3]
-        var gender: Gender = Gender.MALE
-        if (Random.nextInt(1..10) > 5)
-            gender = Gender.FEMALE
         return Pokemon.PokemonBuilder()
             .data(pokemonData)
             .level(level)
@@ -83,7 +81,6 @@ class GameDataService {
             .spDef(spDef)
             .speed(speed)
             .currentHP(hp)
-            .gender(gender)
             .move1(move1)
             .move2(move2)
             .move3(move3)
@@ -102,9 +99,6 @@ class GameDataService {
         val move2 = if (pokemonBanner.move2 == null) null else PokemonMove(pokemonBanner.move2!!)
         val move3 = if (pokemonBanner.move3 == null) null else PokemonMove(pokemonBanner.move3!!)
         val move4 = if (pokemonBanner.move4 == null) null else PokemonMove(pokemonBanner.move4!!)
-        var gender: Gender = Gender.MALE
-        if (Random.nextInt(1..10) > 5)
-            gender = Gender.FEMALE
         return Pokemon.PokemonBuilder()
             .data(pokemonBanner.pokemonData)
             .level(5)
@@ -115,7 +109,6 @@ class GameDataService {
             .spDef(spDef)
             .speed(speed)
             .currentHP(hp)
-            .gender(gender)
             .move1(move1)
             .move2(move2)
             .move3(move3)
@@ -136,9 +129,6 @@ class GameDataService {
         val move2: PokemonMove? = if (moves.size < 2) null else PokemonMove(moves[1])
         val move3: PokemonMove? = if (moves.size < 3) null else PokemonMove(moves[2])
         val move4: PokemonMove? = if (moves.size < 4) null else PokemonMove(moves[3])
-        var gender: Gender = Gender.MALE
-        if (Random.nextInt(1..10) > 5)
-            gender = Gender.FEMALE
         return Pokemon.PokemonBuilder()
             .data(pokemonData)
             .level(level)
@@ -149,7 +139,6 @@ class GameDataService {
             .spDef(spDef)
             .speed(speed)
             .currentHP(hp)
-            .gender(gender)
             .move1(move1)
             .move2(move2)
             .move3(move3)

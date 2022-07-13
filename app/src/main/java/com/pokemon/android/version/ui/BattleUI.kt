@@ -37,10 +37,16 @@ class BattleUI {
     private var dialogTextView: TextView? = null
     private var rewardMenu: RewardMenu = RewardMenu()
 
-    private fun loadBackgroundImage(level: LevelData, activity: MainActivity) {
+    private fun loadBackgroundImage(level: LevelData?, activity: MainActivity) {
         val background: ImageView = activity.findViewById(R.id.battleBackgroundImageView)
-        val img: InputStream = activity.assets.open(level.background)
-        background.setImageDrawable(Drawable.createFromStream(img, level.background))
+        if (level != null) {
+            val img: InputStream = activity.assets.open(level.background)
+            background.setImageDrawable(Drawable.createFromStream(img, level.background))
+        }
+        else {
+            val img: InputStream = activity.assets.open(BattleFrontierBattle.BACKGROUND_IMAGE)
+            background.setImageDrawable(Drawable.createFromStream(img, BattleFrontierBattle.BACKGROUND_IMAGE))
+        }
     }
 
     private fun loadMainTrainerSprite(trainerBackSprite: ImageView, activity: MainActivity) {
@@ -411,5 +417,26 @@ class BattleUI {
         dialogTextView!!.text =
             "${bossBattle.opponent.data.name} appeared!\nIt looks very powerful and is not the kind to be caught."
         displayPokemonsInfos(activity, bossBattle)
+    }
+
+    fun startBattleFrontierBattle(activity: MainActivity){
+        MusicUtils.playMusic(activity, R.raw.trainer_battle)
+        activity.setContentView(R.layout.battle_layout)
+        val trainerBackSprite: ImageView = activity.findViewById(R.id.trainerBackSpriteView)
+        loadMainTrainerSprite(trainerBackSprite, activity)
+        loadBackgroundImage(null, activity)
+        val opponentTrainerSprite: ImageView = activity.findViewById(R.id.opponentTrainerSpriteView)
+        opponentTrainerSprite.visibility = VISIBLE
+        val battleFrontierBattle = BattleFrontierBattle(activity)
+        loadOpponentTrainerSprite(opponentTrainerSprite, activity, battleFrontierBattle.opponentTrainer.sprite)
+        val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
+        rewardsButton.visibility = VISIBLE
+        rewardsButton.text = "BATTLE"
+        rewardsButton.setOnClickListener {
+            dialogTextView!!.text = "A trainer from the Battle Frontier wants to battle"
+            buttonSetUp(activity, battleFrontierBattle)
+            displayPokemonsInfos(activity, battleFrontierBattle)
+            rewardsButton.visibility = GONE
+        }
     }
 }

@@ -5,12 +5,6 @@ import com.pokemon.android.version.model.Pokemon
 
 class OpponentTrainer(var pokemons: List<Pokemon>, var sprite: String) : ITrainer {
 
-    companion object {
-        fun of() {
-
-        }
-    }
-
     override fun canStillBattle(): Boolean {
         for (pokemon in pokemons) {
             if (pokemon.currentHP > 0)

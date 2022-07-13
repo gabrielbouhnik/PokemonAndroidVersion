@@ -11,6 +11,9 @@ import com.pokemon.android.version.R
 import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Trainer
+import com.pokemon.android.version.model.item.Ball
+import com.pokemon.android.version.utils.ItemUtils
+import com.pokemon.android.version.utils.ItemUtils.Companion.POKEBALL_ID
 
 class StarterSelection {
 
@@ -31,6 +34,7 @@ class StarterSelection {
         submitButton.setOnClickListener {
             val gender: Gender = if (genderSwitch.isChecked) Gender.FEMALE else Gender.MALE
             activity.trainer = Trainer(characterName.text.toString(), gender)
+            activity.trainer!!.addItem(POKEBALL_ID,3)
             SaveManager.save(activity)
             submitButton.visibility = GONE
             genderSwitch.visibility = GONE

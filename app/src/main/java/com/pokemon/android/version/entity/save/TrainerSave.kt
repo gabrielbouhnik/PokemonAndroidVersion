@@ -14,7 +14,9 @@ class TrainerSave(
     var progression: Int,
     var lastTimeDailyHealUsed: String?,
     var eliteMode: Boolean?,
-    var eliteProgression: Int
+    var eliteProgression: Int,
+    var battleTowerSave: BattleFrontierSave?,
+    var battleFactorySave: BattleFrontierSave?
 ) {
     companion object {
         fun of(trainer: Trainer, eliteMode: Boolean): TrainerSave {
@@ -26,7 +28,9 @@ class TrainerSave(
                 trainer.progression,
                 if (trainer.lastTimeDailyHealUsed == null) null else SimpleDateFormat("yyyy-MM-dd").format(trainer.lastTimeDailyHealUsed),
                 eliteMode,
-                trainer.eliteProgression
+                trainer.eliteProgression,
+                if (trainer.battleTowerProgression == null) null else BattleFrontierSave.of(trainer.battleTowerProgression!!),
+                if (trainer.battleFactoryProgression == null) null else BattleFrontierSave.of(trainer.battleFactoryProgression!!)
             )
         }
     }
