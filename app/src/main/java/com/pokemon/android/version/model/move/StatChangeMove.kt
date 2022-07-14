@@ -16,7 +16,8 @@ class StatChangeMove(
     var multiplicator: Float, var probability: Int?,
     status: List<StatusMove>,
     highCritRate: Boolean = false,
-) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate) {
+    description: String
+) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description) {
     companion object {
         fun of(StatChangeMoveEntity: StatChangeMoveEntity): StatChangeMove {
             return StatChangeMove(
@@ -33,7 +34,8 @@ class StatChangeMove(
                 StatChangeMoveEntity.multiplicator,
                 StatChangeMoveEntity.probability,
                 StatChangeMoveEntity.status.map(StatusMove::of),
-                StatChangeMoveEntity.highCritRate
+                StatChangeMoveEntity.highCritRate,
+                StatChangeMoveEntity.description
             )
         }
     }

@@ -107,12 +107,14 @@ class Pokemon(
             val damage: Int = DamageCalculator.computeDamageIA(this, move.move, opponent)
             if (damage > opponent.currentHP)
                 return move
-            if (damage > 0 && hp / currentHP < 10 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
+            if (damage > 0 && hp / currentHP < 20 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
                 return move
             move.move.status.forEach {
                 if (Status.isAffectedByStatus(it.status, opponent) && it.probability == null)
                     return move
             }
+            if (move.move is HealMove && hp / currentHP < 40)
+                return move
             if (move.move is StatChangeMove) {
                 val statChangeMove: StatChangeMove = move.move as StatChangeMove
                 if (move.move.power == 0 &&
@@ -177,6 +179,8 @@ class Pokemon(
             if (random > move.move.accuracy!! * battleData!!.accuracyMultiplicator)
                 return AttackResponse(false, this.data.name + "'s attack missed!\n")
         }
+        if (move.move is HealMove)
+            HealMove.heal(this)
         var damage = 0
         if (move.move.power > 0) {
             damage = DamageCalculator.computeDamage(this, move.move, opponent)

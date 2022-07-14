@@ -71,7 +71,7 @@ class BattleUI {
         val trainerPokemonName: TextView = activity.findViewById(R.id.myPokemonNameTextView)
         trainerPokemonName.text = battle.pokemon.data.name
         val trainerPokemonHPLevel: TextView = activity.findViewById(R.id.myPokemonHPLevelTextView)
-        trainerPokemonHPLevel.text = "Lv . ${battle.pokemon.level} ${battle.pokemon.currentHP}/${battle.pokemon.hp}"
+        trainerPokemonHPLevel.text = activity.getString(R.string.pokemon_battle_info,battle.pokemon.level,battle.pokemon.currentHP,battle.pokemon.hp)
 
         val pokemonStatusTextView: TextView = activity.findViewById(R.id.pokemonBattleStatusTextView)
         if (battle.pokemon.status != Status.OK) {
@@ -84,7 +84,7 @@ class BattleUI {
         val opponentPokemonName: TextView = activity.findViewById(R.id.opponentPokemonNameTextView)
         opponentPokemonName.text = battle.opponent.data.name
         val opponentPokemonHPLevel: TextView = activity.findViewById(R.id.opponentPokemonHPLevelTextView)
-        opponentPokemonHPLevel.text = "Lv . ${battle.opponent.level} ${battle.opponent.currentHP}/${battle.opponent.hp}"
+        opponentPokemonHPLevel.text = activity.getString(R.string.pokemon_battle_info,battle.opponent.level,battle.opponent.currentHP,battle.opponent.hp)
 
         val opponentStatusTextView: TextView = activity.findViewById(R.id.opponentStatusTextView)
         if (battle.opponent.status != Status.OK) {
@@ -125,7 +125,7 @@ class BattleUI {
         val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
         rewardsButton.visibility = VISIBLE
         if (activity.trainer!!.eliteProgression == 5) {
-            rewardsButton.text = "Hall of Fame"
+            rewardsButton.text = activity.getString(R.string.hall_of_fame)
             activity.trainer!!.coins += 10000
             activity.trainer!!.eliteProgression = 0
             activity.eliteMode = false
@@ -139,7 +139,7 @@ class BattleUI {
                 activity.mainMenu.loadGameMenu(activity)
             }
         } else
-            rewardsButton.text = "Go forward"
+            rewardsButton.text = activity.getString(R.string.go_forward)
         rewardsButton.setOnClickListener {
             SaveManager.save(activity)
             activity.trainer!!.coins += 150
@@ -171,7 +171,7 @@ class BattleUI {
                     dialogTextView!!.text = (battle.levelData as TrainerBattleLevelData).endDialogLoose
                 val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
                 rewardsButton.visibility = VISIBLE
-                rewardsButton.text = "Exit"
+                rewardsButton.text = activity.getString(R.string.exit)
                 rewardsButton.setOnClickListener {
                     activity.mainMenu.loadGameMenu(activity)
                 }
@@ -216,7 +216,7 @@ class BattleUI {
                 else {
                     val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
                     rewardsButton.visibility = VISIBLE
-                    rewardsButton.text = "See Rewards"
+                    rewardsButton.text = activity.getString(R.string.see_rewards)
                     rewardsButton.setOnClickListener {
                         activity.trainer!!.receiveExp((battle.levelData.exp * 0.5).toInt())
                         battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
@@ -244,7 +244,7 @@ class BattleUI {
                             displayPokemonsInfos(activity, battle)
                         }
                     }
-                    val adapter = PokemonRecyclerAdapter(activity, team, myItemClickListener)
+                    val adapter = PokemonRecyclerAdapter(activity, team, myItemClickListener, false)
                     recyclerView.adapter = adapter
                 }
             }
@@ -265,10 +265,10 @@ class BattleUI {
             attackButton.text = move.move.name
             attackButton.setBackgroundColor(ColorUtils.getColorByType(move.move.type))
             ppTextView.visibility = VISIBLE
-            ppTextView.text = "${move.pp}/${move.move.pp}"
+            ppTextView.text = activity.getString(R.string.move_pp,move.pp,move.move.pp)
             attackButton.setOnClickListener {
                 battle.turn(move)
-                ppTextView.text = "${move.pp}/${move.move.pp}"
+                ppTextView.text = activity.getString(R.string.move_pp,move.pp,move.move.pp)
                 updateBattleUI(activity, battle)
             }
         } else {
@@ -285,10 +285,10 @@ class BattleUI {
             attack1Button.text = battle.pokemon.move1.move.name
             attack1Button.setBackgroundColor(ColorUtils.getColorByType(battle.pokemon.move1.move.type))
             ppTextView.visibility = VISIBLE
-            ppTextView.text = "${battle.pokemon.move1.pp}/${battle.pokemon.move1.move.pp}"
+            ppTextView.text = activity.getString(R.string.move_pp,battle.pokemon.move1.pp,battle.pokemon.move1.move.pp)
             attack1Button.setOnClickListener {
                 battle.turn(battle.pokemon.move1)
-                ppTextView.text = "${battle.pokemon.move1.pp}/${battle.pokemon.move1.move.pp}"
+                ppTextView.text = activity.getString(R.string.move_pp,battle.pokemon.move1.pp,battle.pokemon.move1.move.pp)
                 updateBattleUI(activity, battle)
             }
         } else {
@@ -333,7 +333,7 @@ class BattleUI {
                         }
                     }
                 }
-                val adapter = PokemonRecyclerAdapter(activity, team, myItemClickListener)
+                val adapter = PokemonRecyclerAdapter(activity, team, myItemClickListener, false)
                 recyclerView.adapter = adapter
                 closeButton.setOnClickListener {
                     recyclerView.visibility = GONE
@@ -404,7 +404,7 @@ class BattleUI {
         val wildBattle = WildBattle(activity, level)
         buttonSetUp(activity, wildBattle)
         wildBattle.generateRandomEncounter()
-        dialogTextView!!.text = "You encountered a wild ${wildBattle.opponent.data.name}!"
+        dialogTextView!!.text = activity.getString(R.string.wild_encounter,wildBattle.opponent.data.name)
         displayPokemonsInfos(activity, wildBattle)
     }
 
@@ -423,9 +423,9 @@ class BattleUI {
         val trainerBattle = TrainerBattle(activity, level)
         val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
         rewardsButton.visibility = VISIBLE
-        rewardsButton.text = "BATTLE"
+        rewardsButton.text = activity.getString(R.string.battle)
         rewardsButton.setOnClickListener {
-            dialogTextView!!.text = "${level.opponentTrainerData[0].name} wants to battle"
+            dialogTextView!!.text = activity.getString(R.string.trainer_encounter,level.opponentTrainerData[0].name)
             buttonSetUp(activity, trainerBattle)
             displayPokemonsInfos(activity, trainerBattle)
             rewardsButton.visibility = GONE
@@ -442,13 +442,15 @@ class BattleUI {
         loadBackgroundImage(level, activity)
         val bossBattle = BossBattle(activity, level)
         buttonSetUp(activity, bossBattle)
-        dialogTextView!!.text =
-            "${bossBattle.opponent.data.name} appeared!\nIt looks very powerful and is not the kind to be caught."
+        dialogTextView!!.text = activity.getString(R.string.boss_encounter,bossBattle.opponent.data.name)
         displayPokemonsInfos(activity, bossBattle)
     }
 
-    fun startBattleFrontierBattle(activity: MainActivity, team: List<Pokemon>, area : BattleFrontierArea) {
-        this.team = team.toMutableList()
+    fun startBattleFrontierBattle(activity: MainActivity, area : BattleFrontierArea) {
+        if (area == BattleFrontierArea.BATTLE_FACTORY)
+            this.team = activity.trainer!!.battleFactoryProgression!!.team.toMutableList()
+        else
+            this.team = activity.trainer!!.battleTowerProgression!!.team.toMutableList()
         MusicUtils.playMusic(activity, R.raw.trainer_battle)
         activity.setContentView(R.layout.battle_layout)
         MusicUtils.playMusic(activity,2)
@@ -461,10 +463,10 @@ class BattleUI {
         loadOpponentTrainerSprite(opponentTrainerSprite, activity, battleFrontierBattle.opponentTrainer.sprite)
         val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
         rewardsButton.visibility = VISIBLE
-        rewardsButton.text = "BATTLE"
+        rewardsButton.text = activity.getString(R.string.battle)
         dialogTextView = activity.findViewById(R.id.dialogTextView)
         rewardsButton.setOnClickListener {
-            dialogTextView!!.text = "A trainer from the Battle Frontier wants to battle"
+            dialogTextView!!.text = activity.getString(R.string.battle_frontier_encounter)
             buttonSetUp(activity, battleFrontierBattle)
             displayPokemonsInfos(activity, battleFrontierBattle)
             rewardsButton.visibility = GONE

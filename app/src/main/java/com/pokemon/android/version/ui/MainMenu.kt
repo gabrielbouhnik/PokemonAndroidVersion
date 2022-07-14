@@ -54,9 +54,9 @@ class MainMenu {
         }
         val adventureButton: Button = activity.findViewById(R.id.adventureButton)
         if (activity.eliteMode) {
-            adventureButton.text = "POKEMON LEAGUE"
+            adventureButton.text = activity.getString(R.string.pokemon_league)
             val adventureDescriptionTextView: TextView = activity.findViewById(R.id.adventureDescriptionTextView)
-            adventureDescriptionTextView.text = "Face the elite 4 to become the champion."
+            adventureDescriptionTextView.text = activity.getString(R.string.face_elite)
         }
         adventureButton.setOnClickListener {
             if (activity.eliteMode)
@@ -91,13 +91,13 @@ class MainMenu {
             }
         }
         val battleFrontierButton: Button = activity.findViewById(R.id.battleFrontierButton)
-        if (activity.trainer!!.progression > 50){
+        if (!activity.eliteMode && activity.trainer!!.progression > 50) {
             battleFrontierButton.setOnClickListener {
                 battleFrontierMenu.loadMenu(activity)
             }
-        }else{
+        } else {
             battleFrontierButton.visibility = GONE
-            val battleFrontierTextView : TextView = activity.findViewById(R.id.BattleFrontierTextView)
+            val battleFrontierTextView: TextView = activity.findViewById(R.id.BattleFrontierTextView)
             battleFrontierTextView.visibility = GONE
         }
     }
@@ -118,9 +118,9 @@ class MainMenu {
         val nameTextView: TextView = activity.findViewById(R.id.trainerNameTextView)
         nameTextView.text = activity.trainer!!.name
         val androCoinTextView: TextView = activity.findViewById(R.id.androCoinTextView)
-        androCoinTextView.text = activity.trainer!!.coins.toString() + " AndroCoins"
+        androCoinTextView.text = activity.getString(R.string.andro_coins, activity.trainer!!.coins)
         val maxLevelTextView: TextView = activity.findViewById(R.id.maxLevelTextView)
-        maxLevelTextView.text = "Your Pokemon will gain experience up to level " + activity.trainer!!.getMaxLevel()
+        maxLevelTextView.text = activity.getString(R.string.exp_limit, activity.trainer!!.getMaxLevel())
         val recyclerView = activity.findViewById<RecyclerView>(R.id.badgesRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         val adapter = ItemRecyclerAdapter(
@@ -128,7 +128,7 @@ class MainMenu {
             ArrayList(
                 ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items)
                     .filter { ItemUtils.isBadge(it.itemId) })
-        ){}
+        ) {}
         recyclerView.adapter = adapter
     }
 }

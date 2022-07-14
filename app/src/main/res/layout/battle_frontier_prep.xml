@@ -28,10 +28,20 @@
             app:layout_constraintVertical_bias="0.803" android:backgroundTint="#673AB7"/>
     <TextView
             android:text="Win Streak:"
-            android:layout_width="319dp"
-            android:layout_height="66dp" android:id="@+id/winStreakTextView"
+            android:layout_width="280dp"
+            android:layout_height="60dp" android:id="@+id/winStreakTextView"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/battleFrontierRecyclerView"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:textSize="24sp" android:textStyle="bold" android:textAlignment="center"/>
+            android:textSize="24sp" android:textStyle="bold" android:textAlignment="textStart"
+            app:layout_constraintHorizontal_bias="0.872" app:layout_constraintVertical_bias="1.0"
+            android:layout_marginTop="5dp"/>
+    <Button
+            android:text="Reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/resetProgressionButton"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/winStreakTextView" android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp" app:layout_constraintBottom_toTopOf="@+id/battleFrontierRecyclerView"
+            android:backgroundTint="@color/purple_700" android:layout_marginTop="5dp" android:layout_marginStart="5dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

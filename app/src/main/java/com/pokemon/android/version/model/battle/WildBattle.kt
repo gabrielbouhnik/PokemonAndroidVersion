@@ -21,6 +21,8 @@ class WildBattle() : Battle() {
     }
 
     override fun updateOpponent() {
+        if (opponent.data.id in 243..245)
+            activity.updateMusic(R.raw.wild_battle)
         if (encountersLeft > 0) {
             generateRandomEncounter()
         }
@@ -38,23 +40,27 @@ class WildBattle() : Battle() {
 
     fun generateRandomEncounter(): Pokemon {
         encountersLeft--
-        if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID) {
-            when(Random.nextInt(100)){
+        if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID
+            && levelData.name.startsWith("Route")) {
+            when(Random.nextInt(150)){
                 1 -> {
                     if (!activity.trainer!!.pokemons.map{it.data.id}.contains(243)) {
                         opponent = activity.gameDataService.generatePokemon(243, 70)
+                        activity.updateMusic(R.raw.legendary_dogs)
                         return opponent
                     }
                 }
                 2 -> {
                     if (!activity.trainer!!.pokemons.map{it.data.id}.contains(244)) {
                         opponent = activity.gameDataService.generatePokemon(244, 70)
+                        activity.updateMusic(R.raw.legendary_dogs)
                         return opponent
                     }
                 }
                 3 -> {
                     if (!activity.trainer!!.pokemons.map{it.data.id}.contains(245)) {
                         opponent = activity.gameDataService.generatePokemon(245, 70)
+                        activity.updateMusic(R.raw.legendary_dogs)
                         return opponent
                     }
                 }

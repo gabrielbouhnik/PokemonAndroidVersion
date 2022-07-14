@@ -19,6 +19,8 @@ import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.MoveUtils
 
 class PokemonMenu {
+    var moveDetailsMenu = MoveDetailsMenu(R.layout.pokemons_menu)
+
     fun loadPokemonMenuElite(activity: MainActivity) {
         activity.setContentView(R.layout.pokemons_menu)
         val backButton: Button = activity.findViewById(R.id.pokemonMenuBackButton)
@@ -32,7 +34,7 @@ class PokemonMenu {
             loadPokemonInfoLayout(activity, activity.trainer!!.pokemons[position])
         }
         val pokemons: MutableList<Pokemon> = (activity.trainer!!.team).toMutableList()
-        val adapter = PokemonRecyclerAdapter(activity, pokemons, myItemClickListener)
+        val adapter = PokemonRecyclerAdapter(activity, pokemons, myItemClickListener, true)
         recyclerView.adapter = adapter
         val teamButton: Button = activity.findViewById(R.id.buildTeamButton)
         teamButton.setOnClickListener {
@@ -47,8 +49,7 @@ class PokemonMenu {
         backButton.setOnClickListener {
             if (activity.trainer!!.team.size == teamSize) {
                 loadPokemonMenuElite(activity)
-            }
-            else
+            } else
                 Toast.makeText(activity, "You need to select all your Pokemon.", Toast.LENGTH_SHORT).show()
         }
         val teamRecyclerView = activity.findViewById<RecyclerView>(R.id.teamRecyclerView)
@@ -84,7 +85,7 @@ class PokemonMenu {
         val pokemons: MutableList<Pokemon> = (activity.trainer!!.team + activity.trainer!!.pokemons.filter {
             !activity.trainer!!.team.contains(it)
         }).toMutableList()
-        val adapter = PokemonRecyclerAdapter(activity, pokemons, myItemClickListener)
+        val adapter = PokemonRecyclerAdapter(activity, pokemons, myItemClickListener, true)
         recyclerView.adapter = adapter
         val teamButton: Button = activity.findViewById(R.id.buildTeamButton)
         teamButton.setOnClickListener {
@@ -99,8 +100,7 @@ class PokemonMenu {
             if (activity.trainer!!.team.size > 0) {
                 loadPokemonMenu(activity)
                 SaveManager.save(activity)
-            }
-            else
+            } else
                 Toast.makeText(activity, "You need at least one Pokemon on your team.", Toast.LENGTH_SHORT).show()
         }
         activity.trainer!!.team.clear()
@@ -117,59 +117,63 @@ class PokemonMenu {
                 activity.trainer!!.team.add(pokemons[position])
                 teamRecyclerView.adapter =
                     TeamMemberRecyclerAdapter(activity, activity.trainer!!.team) {}
-                activity.trainer!!.pokemons = ArrayList(activity.trainer!!.team + activity.trainer!!.pokemons.filter { pokemon ->
-                    !activity.trainer!!.team.contains(pokemon)
-                })
+                activity.trainer!!.pokemons =
+                    ArrayList(activity.trainer!!.team + activity.trainer!!.pokemons.filter { pokemon ->
+                        !activity.trainer!!.team.contains(pokemon)
+                    })
             }
         }
         pokemonsRecyclerView.adapter = TeamMemberRecyclerAdapter(activity, pokemons, myItemClickListener)
     }
 
-    private fun displayPokemonInfo(activity: MainActivity, pokemon: Pokemon) {
+    fun displayPokemonInfo(activity: MainActivity, pokemon: Pokemon) {
         val nameTextView: TextView = activity.findViewById(R.id.nameDetailsTextView)
         nameTextView.text = pokemon.data.name
         val levelTextView: TextView = activity.findViewById(R.id.levelDetailsTextView)
-        levelTextView.text = "Level ${pokemon.level}"
-        val hpValueTextView: TextView = activity.findViewById(R.id.hpValueDetailsTextView)
-        hpValueTextView.text = "${pokemon.currentHP}/${pokemon.hp}"
+        levelTextView.text = activity.getString(R.string.level, pokemon.level)
+        val hpValueTextView: TextView = activity.findViewById(R.id.hpDetailsTextView)
+        hpValueTextView.text = activity.getString(R.string.hp, pokemon.currentHP, pokemon.hp)
         val attackTextView: TextView = activity.findViewById(R.id.attackTextView)
-        attackTextView.text = "Attack: ${pokemon.attack}"
+        attackTextView.text = activity.getString(R.string.attack, pokemon.attack)
         val defenseTextView: TextView = activity.findViewById(R.id.defenseTextView)
-        defenseTextView.text = "Defense: ${pokemon.defense}"
+        defenseTextView.text = activity.getString(R.string.defense, pokemon.defense)
         val spAtkTextView: TextView = activity.findViewById(R.id.spAtkTextView)
-        spAtkTextView.text = "SpAtk: ${pokemon.spAtk}"
+        spAtkTextView.text = activity.getString(R.string.spAtk, pokemon.spAtk)
         val spDefTextView: TextView = activity.findViewById(R.id.spDefTextView)
-        spDefTextView.text = "SpDef: ${pokemon.spDef}"
+        spDefTextView.text = activity.getString(R.string.spDef, pokemon.spDef)
         val speedTextView: TextView = activity.findViewById(R.id.speedTextView)
-        speedTextView.text = "Speed: ${pokemon.speed}"
+        speedTextView.text = activity.getString(R.string.speed, pokemon.speed)
         val imageView: ImageView = activity.findViewById(R.id.pokemonSpriteDetailsView)
         activity.displayPokemon(pokemon.data.id, imageView)
     }
 
-    private fun displayMoveButton(activity: MainActivity, move : PokemonMove, buttonId : Int, ppTextViewId : Int){
+    private fun displayMoveButton(activity: MainActivity, pokemon: Pokemon, move: PokemonMove, buttonId: Int, ppTextViewId: Int) {
         val moveButton: Button = activity.findViewById(buttonId)
         moveButton.visibility = VISIBLE
         moveButton.text = move.move.name
         moveButton.setBackgroundColor(ColorUtils.getColorByType(move.move.type))
+        moveButton.setOnClickListener {
+            moveDetailsMenu.loadMoveMenu(activity, pokemon, move.move, null)
+        }
         val ppMoveTextView: TextView = activity.findViewById(ppTextViewId)
         ppMoveTextView.visibility = VISIBLE
-        ppMoveTextView.text = "${move.pp}/${move.move.pp}"
+        ppMoveTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
     }
 
-    private fun displayMoveButtons(activity: MainActivity, pokemon: Pokemon) {
-        displayMoveButton(activity,pokemon.move1,R.id.move1InfoButton, R.id.ppMove1TextView)
+    fun displayMoveButtons(activity: MainActivity, pokemon: Pokemon) {
+        displayMoveButton(activity, pokemon, pokemon.move1, R.id.move1InfoButton, R.id.ppMove1TextView)
         if (pokemon.move2 != null) {
-            displayMoveButton(activity,pokemon.move2!!,R.id.move2InfoButton, R.id.ppMove2TextView)
+            displayMoveButton(activity, pokemon, pokemon.move2!!, R.id.move2InfoButton, R.id.ppMove2TextView)
         }
         if (pokemon.move3 != null) {
-            displayMoveButton(activity,pokemon.move3!!,R.id.move3InfoButton, R.id.ppMove3TextView)
+            displayMoveButton(activity, pokemon, pokemon.move3!!, R.id.move3InfoButton, R.id.ppMove3TextView)
         }
         if (pokemon.move4 != null) {
-            displayMoveButton(activity,pokemon.move4!!,R.id.move4InfoButton, R.id.ppMove4TextView)
+            displayMoveButton(activity, pokemon, pokemon.move4!!, R.id.move4InfoButton, R.id.ppMove4TextView)
         }
     }
 
-    private fun loadMovesLayout(activity: MainActivity, pokemon: Pokemon) {
+    fun loadMovesLayout(activity: MainActivity, pokemon: Pokemon) {
         var selectedMoveNumber: Int? = null
         activity.setContentView(R.layout.move_layout)
         val backButton: Button = activity.findViewById(R.id.moveMenuBackButton)
@@ -225,17 +229,18 @@ class PokemonMenu {
         movesButton.setOnClickListener {
             loadMovesLayout(activity, pokemon)
         }
-        val healButton: Button = activity.findViewById(R.id.healButton)
-        healButton.setOnClickListener {
-            activity.trainer!!.heal(pokemon)
-            displayPokemonInfo(activity, pokemon)
-            displayMoveButtons(activity, pokemon)
-        }
         val statusTextView: TextView = activity.findViewById(R.id.statusDetailsTextView)
         if (pokemon.status != Status.OK)
             statusTextView.text = pokemon.status.toString()
         else
             statusTextView.visibility = GONE
+        val healButton: Button = activity.findViewById(R.id.healButton)
+        healButton.setOnClickListener {
+            activity.trainer!!.heal(pokemon)
+            statusTextView.text = pokemon.status.toString()
+            displayPokemonInfo(activity, pokemon)
+            displayMoveButtons(activity, pokemon)
+        }
         val evolveButton: Button = activity.findViewById(R.id.evolveButton)
         if (pokemon.canEvolve()) {
             evolveButton.visibility = VISIBLE
@@ -249,6 +254,27 @@ class PokemonMenu {
                 } else {
                     chooseEvolution(activity, pokemon)
                 }
+            }
+        }
+        if (!activity.eliteMode && !activity.trainer!!.team.contains(pokemon)
+            && activity.trainer!!.pokemons.count { pokemon.data.id == it.data.id } > 1
+        ) {
+            var alreadyClicked = false
+            val releaseButton: Button = activity.findViewById(R.id.releaseButton)
+            releaseButton.visibility = VISIBLE
+            releaseButton.setOnClickListener {
+                if (alreadyClicked) {
+                    activity.trainer!!.pokemons.remove(pokemon)
+                    loadPokemonMenu(activity)
+                } else {
+                    Toast.makeText(
+                        activity,
+                        "WARNING: Another click will release this Pokemon!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    alreadyClicked = true
+                }
+
             }
         }
         displayMoveButtons(activity, pokemon)
@@ -274,7 +300,7 @@ class PokemonMenu {
             loadPokemonInfoLayout(activity, pokemon)
             activity.playSoundEffect(R.raw.evolve_sound_effect)
         }
-        val adapter = PokemonRecyclerAdapter(activity, evolutions, myItemClickListener)
+        val adapter = PokemonRecyclerAdapter(activity, evolutions, myItemClickListener, true)
         recyclerView.adapter = adapter
     }
 }
