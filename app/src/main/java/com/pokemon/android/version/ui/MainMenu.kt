@@ -27,6 +27,7 @@ class MainMenu {
     var bannerMenu: BannerMenu = BannerMenu()
     var levelMenu: LevelMenu = LevelMenu()
     var itemMenu: ItemMenu = ItemMenu()
+    var battleFrontierMenu = BattleFrontierMenu()
 
     fun loadGameMenu(activity: MainActivity) {
         activity.setContentView(R.layout.main_menu)
@@ -88,6 +89,16 @@ class MainMenu {
                 activity.eliteMode = true
                 loadGameMenu(activity)
             }
+        }
+        val battleFrontierButton: Button = activity.findViewById(R.id.battleFrontierButton)
+        if (activity.trainer!!.progression > 50){
+            battleFrontierButton.setOnClickListener {
+                battleFrontierMenu.loadMenu(activity)
+            }
+        }else{
+            battleFrontierButton.visibility = GONE
+            val battleFrontierTextView : TextView = activity.findViewById(R.id.BattleFrontierTextView)
+            battleFrontierTextView.visibility = GONE
         }
     }
 

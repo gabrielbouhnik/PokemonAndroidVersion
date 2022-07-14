@@ -7711,6 +7711,184 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 243,
+    "name": "Raikou",
+    "type1": 4,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 75,
+          "level": 1
+        },
+        {
+          "moveId": 8,
+          "level": 1
+        },
+        {
+          "moveId": 3,
+          "level": 1
+        },
+        {
+          "moveId": 52,
+          "level": 6
+        },
+        {
+          "moveId": 23,
+          "level": 12
+        },
+        {
+          "moveId": 120,
+          "level": 30
+        },
+        {
+          "moveId": 27,
+          "level": 42
+        },
+        {
+          "moveId": 81,
+          "level": 48
+        },
+        {
+          "moveId": 53,
+          "level": 54
+        }
+      ],
+      "movesLearnWithTM": [12,13,46],
+      "bannerMoves": []
+    },
+    "hp": 90,
+    "attack": 85,
+    "defense": 75,
+    "spAtk": 115,
+    "spDef": 100,
+    "speed": 115,
+    "catchRate": 3,
+    "evolutions": [
+    ],
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 244,
+    "name": "Entei",
+    "type1": 2,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 75,
+          "level": 1
+        },
+        {
+          "moveId": 3,
+          "level": 1
+        },
+        {
+          "moveId": 63,
+          "level": 1
+        },
+        {
+          "moveId": 74,
+          "level": 6
+        },
+        {
+          "moveId": 23,
+          "level": 12
+        },
+        {
+          "moveId": 118,
+          "level": 30
+        },
+        {
+          "moveId": 27,
+          "level": 42
+        },
+        {
+          "moveId": 81,
+          "level": 48
+        },
+        {
+          "moveId": 82,
+          "level": 72
+        }
+      ],
+      "movesLearnWithTM": [31,46,82],
+      "bannerMoves": []
+    },
+    "hp": 115,
+    "attack": 115,
+    "defense": 85,
+    "spAtk": 90,
+    "spDef": 75,
+    "speed": 100,
+    "catchRate": 3,
+    "evolutions": [
+    ],
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 245,
+    "name": "Suicune",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 75,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 1
+        },
+        {
+          "moveId": 4,
+          "level": 1
+        },
+        {
+          "moveId": 24,
+          "level": 6
+        },
+        {
+          "moveId": 23,
+          "level": 12
+        },
+        {
+          "moveId": 119,
+          "level": 30
+        },
+        {
+          "moveId": 27,
+          "level": 42
+        },
+        {
+          "moveId": 81,
+          "level": 48
+        },
+        {
+          "moveId": 43,
+          "level": 54
+        },
+        {
+          "moveId": 80,
+          "level": 72
+        }
+      ],
+      "movesLearnWithTM": [43,46,100],
+      "bannerMoves": []
+    },
+    "hp": 100,
+    "attack": 75,
+    "defense": 115,
+    "spAtk": 90,
+    "spDef": 115,
+    "speed": 85,
+    "catchRate": 3,
+    "evolutions": [
+    ],
+    "expGaugeType": "SLOW"
+  },
+  {
     "id": 246,
     "name": "Larvitar",
     "type1": 9,

@@ -1,6 +1,5 @@
 package com.pokemon.android.version
 
-import com.pokemon.android.version.model.BattleFrontierPokemon
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.banner.Banner
@@ -15,6 +14,8 @@ import com.pokemon.android.version.model.move.MoveFactory
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.repository.*
 import com.pokemon.android.version.ui.LevelMenu
+import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.math.roundToInt
 
 class GameDataService {
@@ -23,8 +24,7 @@ class GameDataService {
     var pokemons: List<PokemonData> = ArrayList()
     var banners: List<Banner> = ArrayList()
     var levels: List<LevelData> = ArrayList()
-    var battleFrontierPokemons: List<BattleFrontierPokemon> = ArrayList()
-
+    var battleFrontierPokemons: HashMap<Int, ArrayList<List<Move>>> = HashMap<Int, ArrayList<List<Move>>>()
     companion object {
         const val MOVES_DATA_PATH = "game_data/moves.json"
         const val ITEMS_DATA_PATH = "game_data/items.json"
@@ -46,7 +46,12 @@ class GameDataService {
         this.pokemons = pokemonRepository.loadData(activity).map { PokemonData.of(it, moves) }
         this.banners = bannerRepository.loadData(activity).map { Banner.of(it, this) }
         this.levels = LevelFactory.createLevels(levelsRepository.loadData(activity), this)
-        this.battleFrontierPokemons = battleFrontierPokemonRepository.loadData(activity).map { BattleFrontierPokemon.of(it, this) }
+        battleFrontierPokemonRepository.loadData(activity).forEach {
+            if (this.battleFrontierPokemons.containsKey(it.id))
+                this.battleFrontierPokemons[it.id]!!.add(it.moveIds.map{ moveId -> getMoveById(moveId)})
+            else
+                this.battleFrontierPokemons[it.id] = arrayListOf(it.moveIds.map{ moveId -> getMoveById(moveId)})
+        }
     }
 
     fun getPokemonDataById(id: Int): PokemonData {
@@ -66,7 +71,7 @@ class GameDataService {
         val spDef: Int = 5 + (pokemonData.spDef.toFloat() * (level / 50f)).roundToInt()
         val speed: Int = 5 + (pokemonData.speed.toFloat() * (level / 50f)).roundToInt()
         val moves: List<PokemonMove> =
-            pokemonData.movesByLevel.filter { it.level <= level }.map { PokemonMove(it.move, it.move.pp) }
+            pokemonData.movesByLevel.filter { it.level <= level }.map { PokemonMove(it.move, it.move.pp) }.reversed()
         val move1: PokemonMove = moves.first()
         val move2: PokemonMove? = if (moves.size < 2) null else moves[1]
         val move3: PokemonMove? = if (moves.size < 3) null else moves[2]

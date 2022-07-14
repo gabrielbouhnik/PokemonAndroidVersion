@@ -4,6 +4,7 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.level.WildBattleLevelData
+import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.MoveUtils
 import kotlin.random.Random
 
@@ -37,6 +38,28 @@ class WildBattle() : Battle() {
 
     fun generateRandomEncounter(): Pokemon {
         encountersLeft--
+        if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID) {
+            when(Random.nextInt(100)){
+                1 -> {
+                    if (!activity.trainer!!.pokemons.map{it.data.id}.contains(243)) {
+                        opponent = activity.gameDataService.generatePokemon(243, 70)
+                        return opponent
+                    }
+                }
+                2 -> {
+                    if (!activity.trainer!!.pokemons.map{it.data.id}.contains(244)) {
+                        opponent = activity.gameDataService.generatePokemon(244, 70)
+                        return opponent
+                    }
+                }
+                3 -> {
+                    if (!activity.trainer!!.pokemons.map{it.data.id}.contains(245)) {
+                        opponent = activity.gameDataService.generatePokemon(245, 70)
+                        return opponent
+                    }
+                }
+            }
+        }
         val randomLevel = Random.nextInt(
             (levelData as WildBattleLevelData).possibleEncounters.minLevel,
             (levelData as WildBattleLevelData).possibleEncounters.maxLevel
