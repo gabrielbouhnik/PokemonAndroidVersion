@@ -23,7 +23,7 @@ abstract class Battle {
 
     abstract fun updateOpponent()
 
-    private fun opponentTurn(opponentPokemonMove: PokemonMove): String {
+    protected fun opponentTurn(opponentPokemonMove: PokemonMove): String {
         val opponentResponse = opponent.attack(opponentPokemonMove, pokemon)
         return if (!opponentResponse.success)
             opponentResponse.reason
@@ -84,7 +84,7 @@ abstract class Battle {
         this.pokemon = pokemonToBeSent
     }
 
-    fun turnWithSwitch(pokemonToBeSent: Pokemon) {
+    open fun turnWithSwitch(pokemonToBeSent: Pokemon) {
         val sb = StringBuilder()
         sb.append("${pokemonToBeSent.trainer!!.name} sends ${pokemonToBeSent.data.name}\n")
         switchPokemon(pokemonToBeSent)
@@ -118,7 +118,7 @@ abstract class Battle {
         dialogTextView.text = sb.toString()
     }
 
-    private fun endTurn(sb: StringBuilder) {
+    protected fun endTurn(sb: StringBuilder) {
         if (opponent.currentHP > 0)
             sb.append(checkStatus(opponent))
         if (pokemon.currentHP > 0)

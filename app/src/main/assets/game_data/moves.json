@@ -8,7 +8,7 @@
       "type": 5,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "Hard, pointed, sharp claws rake the target to inflict damage.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -21,7 +21,7 @@
       "type": 5,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "A physical attack in which the user charges and slams into the target with its whole body.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -47,7 +47,7 @@
       "type": 6,
       "category": "SPECIAL",
       "accuracy": 100,
-      "description": "",
+      "description": "A gust of wind is whipped up by wings and launched at the target to inflict damage.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -86,7 +86,7 @@
       "type": 6,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The target is jabbed with a sharply pointed beak or horn.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -164,7 +164,7 @@
       "type": 3,
       "category": "SPECIAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user attacks everything around it by swamping its surroundings with a giant wave.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -294,7 +294,7 @@
       "type": 10,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user sets off an earthquake that strikes every Pokémon around it.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -359,7 +359,7 @@
       "type": 2,
       "category": "SPECIAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The target is attacked with small flames. This may also leave the target with a burn.",
       "priorityLevel": 0,
       "status": [
         {
@@ -395,7 +395,7 @@
       "type": 4,
       "category": "SPECIAL",
       "accuracy": 100,
-      "description": "",
+      "description": "A strong electric blast crashes down on the target. This may also leave the target with paralysis.",
       "priorityLevel": 0,
       "status": [
         {
@@ -449,7 +449,7 @@
       "type": 17,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user bites the target with viciously sharp fangs to inflict damage.",
       "priorityLevel": 0,
       "status": [
         {
@@ -591,7 +591,7 @@
       "type": 12,
       "category": "SPECIAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The target is hit by a weak telekinetic force. This may also confuse the target.",
       "priorityLevel": 0,
       "status": [
         {
@@ -751,7 +751,7 @@
       "type": 12,
       "category": "SPECIAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The target is attacked with a peculiar ray. This may also leave the target confused.",
       "priorityLevel": 0,
       "status": [
         {
@@ -787,7 +787,7 @@
       "type": 5,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The target is stomped with a big foot. This may also make the target flinch.",
       "priorityLevel": 0,
       "status": [
         {
@@ -805,7 +805,7 @@
       "type": 13,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The target is licked with a long tongue, causing damage. This may also leave the target with paralysis.",
       "priorityLevel": 0,
       "status": [
         {
@@ -841,7 +841,7 @@
       "type": 5,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user sticks out its head and attacks by charging straight into the target. This may also make the target flinch.",
       "priorityLevel": 0,
       "status": [
         {
@@ -877,7 +877,7 @@
       "type": 12,
       "category": "SPECIAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user attacks with an odd, unseeable power. This may also make the target flinch.",
       "priorityLevel": 0,
       "status": [
         {
@@ -913,7 +913,7 @@
       "type": 8,
       "category": "OTHER",
       "accuracy": 90,
-      "description": "",
+      "description": "A move that leaves the target badly poisoned.",
       "priorityLevel": 0,
       "status": [
         {
@@ -948,7 +948,7 @@
       "type": 8,
       "category": "SPECIAL",
       "accuracy": 100,
-      "description": "",
+      "description": "Unsanitary sludge is hurled at the target. This may also poison the target.",
       "priorityLevel": 0,
       "status": [
         {
@@ -1002,7 +1002,7 @@
       "type": 12,
       "category": "OTHER",
       "accuracy": 60,
-      "description": "",
+      "description": "The user employs hypnotic suggestion to make the target fall into a deep sleep.",
       "priorityLevel": 0,
       "status": [
         {
@@ -1055,7 +1055,7 @@
       "type": 6,
       "category": "SPECIAL",
       "accuracy": 70,
-      "description": "",
+      "description": "The user attacks by wrapping its opponent in a fierce wind that flies up into the sky. This may also confuse the target.",
       "priorityLevel": 0,
       "status": [
         {
@@ -1201,7 +1201,7 @@
       "type": 5,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The target is attacked with a slash of claws or blades. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": true
@@ -1265,7 +1265,7 @@
       "pp": 20,
       "type": 5,
       "category": "SPECIAL",
-      "description": "",
+      "description": "Star-shaped rays are shot at opposing Pokémon. This attack never misses.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -1641,7 +1641,7 @@
       "type": 17,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user crunches up the target with sharp fangs. This may also lower the target's Defense stat.",
       "priorityLevel": 0,
       "statsAffected": [
         "DEFENSE"
@@ -1659,7 +1659,7 @@
       "category": "OTHER",
       "pp": 30,
       "type": 5,
-      "description": "",
+      "description": "The user stiffens all the muscles in its body to raise its Defense stat.",
       "priorityLevel": 0,
       "statsAffected": [
         "DEFENSE"
@@ -1770,7 +1770,7 @@
       "type": 10,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user tramples its target into the ground, dealing damage. This also lowers the target's action speed.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPEED"
@@ -1845,7 +1845,7 @@
       "pp": 15,
       "type": 18,
       "accuracy": 100,
-      "description": "",
+      "description": "Borrowing the power of the moon, the user attacks the target. This may also lower the target's offensive stats.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPATK"
@@ -1883,7 +1883,7 @@
       "type": 11,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user attacks the target with great power. However, this also lowers the user's Attack and Defense stats.",
       "priorityLevel": 0,
       "statsAffected": [
         "ATTACK",
@@ -2047,6 +2047,25 @@
       "probabilty": 10,
       "status": [],
       "highCritRate": false
+    },
+    {
+      "id": 135,
+      "name": "Calm Mind",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 12,
+      "accuracy": 100,
+      "description": "",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK",
+        "SPDEF"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false
     }
   ],
   "drainMoves": [
@@ -2136,6 +2155,38 @@
         }
       ],
       "highCritRate": false
+    }
+  ],
+  "healMoves": [
+    {
+      "id": 132,
+      "name": "Recover",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 10,
+      "type": 5,
+      "description": "The user recovers half of its maximum HP.",
+      "priorityLevel": 0
+    },
+    {
+      "id": 133,
+      "name": "Synthesis",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 5,
+      "type": 1,
+      "description": "The user recovers half of its maximum HP.",
+      "priorityLevel": 0
+    },
+    {
+      "id": 134,
+      "name": "Slack Off",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 10,
+      "type": 5,
+      "description": "The user recovers half of its maximum HP.",
+      "priorityLevel": 0
     }
   ]
 }

@@ -22,7 +22,6 @@ class Pokemon(
     var move3: PokemonMove?,
     var move4: PokemonMove?,
     var status: Status = Status.OK,
-    val gender: Gender?,
     var hp: Int = 0,
     var attack: Int = 0,
     var defense: Int = 0,
@@ -38,7 +37,7 @@ class Pokemon(
 
     constructor(
         data: PokemonData, trainer: Trainer?, level: Int,
-        move1: PokemonMove, move2: PokemonMove?, move3: PokemonMove?, move4: PokemonMove?, gender: Gender?,
+        move1: PokemonMove, move2: PokemonMove?, move3: PokemonMove?, move4: PokemonMove?,
         hp: Int, attack: Int, defense: Int, spAtk: Int, spDef: Int, speed: Int, currentHP: Int
     )
             : this(
@@ -50,7 +49,6 @@ class Pokemon(
         move3,
         move4,
         Status.OK,
-        gender,
         hp,
         attack,
         defense,
@@ -76,7 +74,6 @@ class Pokemon(
                 .speed(pokemonSave.speed)
                 .currentHP(pokemonSave.currentHP)
                 .currentExp(pokemonSave.currentExp)
-                .gender(Gender.valueOf(pokemonSave.gender))
                 .move1(PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[0].id), pokemonSave.moveids[0].pp))
                 .move2(
                     if (pokemonSave.moveids.size > 1) PokemonMove(
@@ -110,12 +107,14 @@ class Pokemon(
             val damage: Int = DamageCalculator.computeDamageIA(this, move.move, opponent)
             if (damage > opponent.currentHP)
                 return move
-            if (damage > 0 && hp / currentHP < 10 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
+            if (damage > 0 && hp / currentHP < 20 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
                 return move
             move.move.status.forEach {
                 if (Status.isAffectedByStatus(it.status, opponent) && it.probability == null)
                     return move
             }
+            if (move.move is HealMove && hp / currentHP < 40)
+                return move
             if (move.move is StatChangeMove) {
                 val statChangeMove: StatChangeMove = move.move as StatChangeMove
                 if (move.move.power == 0 &&
@@ -180,6 +179,8 @@ class Pokemon(
             if (random > move.move.accuracy!! * battleData!!.accuracyMultiplicator)
                 return AttackResponse(false, this.data.name + "'s attack missed!\n")
         }
+        if (move.move is HealMove)
+            HealMove.heal(this)
         var damage = 0
         if (move.move.power > 0) {
             damage = DamageCalculator.computeDamage(this, move.move, opponent)
@@ -344,7 +345,6 @@ class Pokemon(
         var move3: PokemonMove? = null,
         var move4: PokemonMove? = null,
         var status: Status = Status.OK,
-        var gender: Gender? = null,
         var hp: Int = 0,
         var attack: Int = 0,
         var defense: Int = 0,
@@ -364,7 +364,6 @@ class Pokemon(
         fun move2(move: PokemonMove?) = apply { this.move2 = move }
         fun move3(move: PokemonMove?) = apply { this.move3 = move }
         fun move4(move: PokemonMove?) = apply { this.move4 = move }
-        fun gender(gender: Gender) = apply { this.gender = gender }
         fun hp(hp: Int) = apply { this.hp = hp }
         fun attack(attack: Int) = apply { this.attack = attack }
         fun defense(defense: Int) = apply { this.defense = defense }
@@ -384,7 +383,6 @@ class Pokemon(
             move3,
             move4,
             status,
-            gender,
             hp,
             attack,
             defense,

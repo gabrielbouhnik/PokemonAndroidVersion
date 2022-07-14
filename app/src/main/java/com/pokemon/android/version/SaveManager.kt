@@ -6,6 +6,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.pokemon.android.version.entity.save.TrainerSave
+import com.pokemon.android.version.model.BattleFrontierProgression
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Trainer
@@ -37,6 +38,10 @@ class SaveManager {
                     SimpleDateFormat("yyyy-MM-dd").parse(trainerSave.lastTimeDailyHealUsed!!)
             if (trainerSave.eliteMode != null)
                 activity.eliteMode = trainerSave.eliteMode!!
+            if (trainerSave.battleFactorySave != null)
+                trainer.battleFactoryProgression = BattleFrontierProgression.of(trainerSave.battleFactorySave!!, activity.gameDataService, trainer)
+            if (trainerSave.battleTowerSave != null)
+                trainer.battleTowerProgression = BattleFrontierProgression.of(trainerSave.battleTowerSave!!,activity.gameDataService, trainer)
             return trainer
         }
 

@@ -15,7 +15,8 @@ class DrainMove(
     priorityLevel: Int = 0,
     status: ArrayList<StatusMove>,
     highCritRate: Boolean = false,
-) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate) {
+    description: String
+) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description) {
     companion object {
         fun of(drainMoveEntity: DrainMoveEntity): DrainMove {
             return DrainMoveBuilder()
@@ -29,6 +30,7 @@ class DrainMove(
                 .priorityLevel(drainMoveEntity.priorityLevel)
                 .highCritRate(drainMoveEntity.highCritRate)
                 .status(ArrayList(drainMoveEntity.status.map(StatusMove::of)))
+                .description(drainMoveEntity.description)
                 .build()
         }
     }
@@ -43,7 +45,8 @@ class DrainMove(
         var accuracy: Int = 100,
         var priorityLevel: Int = 0,
         var status: ArrayList<StatusMove> = arrayListOf(),
-        var highCritRate: Boolean = false
+        var highCritRate: Boolean = false,
+        var description: String = ""
     ) {
         fun id(id: Int) = apply { this.id = id }
         fun name(name: String) = apply { this.name = name }
@@ -54,8 +57,9 @@ class DrainMove(
         fun accuracy(accuracy: Int) = apply { this.accuracy = accuracy }
         fun priorityLevel(priorityLevel: Int) = apply { this.priorityLevel = priorityLevel }
         fun highCritRate(highCritRate: Boolean) = apply { this.highCritRate = highCritRate }
+        fun description(description: String) = apply { this.description = description }
         fun status(status: ArrayList<StatusMove>) = apply { this.status = status }
 
-        fun build() = DrainMove(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate)
+        fun build() = DrainMove(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description)
     }
 }
