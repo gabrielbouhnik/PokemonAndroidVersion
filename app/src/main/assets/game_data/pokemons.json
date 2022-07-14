@@ -8129,6 +8129,106 @@
     "expGaugeType": "SLOW"
   },
   {
+    "id": 254,
+    "name": "Sceptile",
+    "type1": 1,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 103,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 70					,
+    "attack": 85,
+    "defense": 65,
+    "spAtk": 105,
+    "spDef": 85,
+    "speed": 120,
+    "catchRate": 30,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 257,
+    "name": "Blaziken",
+    "type1": 2,
+    "type2": 11,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 40,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 80,
+    "attack": 120,
+    "defense": 70,
+    "spAtk": 110,
+    "spDef": 70,
+    "speed": 80,
+    "catchRate": 30,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 260,
+    "name": "Swampert",
+    "type1": 3,
+    "type2": 10,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 93,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 100,
+    "attack": 110,
+    "defense": 90,
+    "spAtk": 85,
+    "spDef": 90,
+    "speed": 60,
+    "catchRate": 30,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 282,
+    "name": "Gardevoir",
+    "type1": 12,
+    "type2": 18,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 84,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 60,
+    "attack": 65,
+    "defense": 65,
+    "spAtk": 125,
+    "spDef": 115,
+    "speed": 81,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
     "id": 350,
     "name": "Milotic",
     "type1": 3,

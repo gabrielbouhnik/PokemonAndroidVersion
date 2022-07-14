@@ -15,6 +15,10 @@ class BattleFrontierBattle() : Battle() {
                 gameDataService.battleFrontierPokemons.asSequence().shuffled().take(3).toList()
             return team.map{(id, moveSets) -> gameDataService.generatePokemonWithMoves(id,50,moveSets[Random.nextInt(moveSets.size)])}
         }
+
+        /*fun generateTrainerTeam(gameDataService: GameDataService) : List<Pokemon>{
+            return generateTrainerTeam(gameDataService)
+        }*/
     }
     lateinit var opponentTrainer: OpponentTrainer
     var team : List<Pokemon> = listOf()

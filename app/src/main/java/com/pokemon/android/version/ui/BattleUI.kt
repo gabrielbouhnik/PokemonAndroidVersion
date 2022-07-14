@@ -153,13 +153,10 @@ class BattleUI {
         when (battle.getBattleState()) {
             State.TRAINER_LOSS -> {
                 if (battle is BattleFrontierBattle) {
-                    activity.updateMusic(R.raw.main_menu)
-                    activity.mainMenu.battleFrontierMenu.loadMenu(activity)
                     if (battle.area == BattleFrontierArea.BATTLE_FACTORY)
                         activity.trainer!!.battleFactoryProgression = null
                     else
                         activity.trainer!!.battleTowerProgression = null
-                    return
                 }
                 if (activity.eliteMode) {
                     activity.eliteMode = false
@@ -173,21 +170,33 @@ class BattleUI {
                 rewardsButton.visibility = VISIBLE
                 rewardsButton.text = activity.getString(R.string.exit)
                 rewardsButton.setOnClickListener {
-                    activity.mainMenu.loadGameMenu(activity)
+                    if (battle is BattleFrontierBattle) {
+                        activity.updateMusic(R.raw.main_menu)
+                        activity.mainMenu.battleFrontierMenu.loadMenu(activity)
+                    }
+                    else
+                        activity.mainMenu.loadGameMenu(activity)
                 }
                 SaveManager.save(activity)
             }
             State.TRAINER_VICTORY -> {
                 if (battle is BattleFrontierBattle) {
                     HealUtils.healTeam(team)
-                    activity.updateMusic(R.raw.main_menu)
-                    activity.mainMenu.battleFrontierMenu.loadMenu(activity)
+                    activity.updateMusic(R.raw.victory_theme)
                     if (battle.area == BattleFrontierArea.BATTLE_FACTORY)
-                        activity.trainer!!.battleFactoryProgression!!.progression = 1
+                        activity.trainer!!.battleFactoryProgression!!.progression += 1
                     else
-                        activity.trainer!!.battleTowerProgression!!.progression = 1
+                        activity.trainer!!.battleTowerProgression!!.progression += 1
                     activity.trainer!!.coins += 20
                     SaveManager.save(activity)
+                    val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
+                    rewardsButton.visibility = VISIBLE
+                    rewardsButton.text = activity.getString(R.string.go_forward)
+                    rewardsButton.setOnClickListener {
+                        activity.updateMusic(R.raw.main_menu)
+                        activity.mainMenu.battleFrontierMenu.loadMenu(activity)
+                    }
+                    disableBattleButtons(activity)
                     return
                 }
                 val firstTime: Boolean = activity.trainer!!.progression == battle.levelData.id

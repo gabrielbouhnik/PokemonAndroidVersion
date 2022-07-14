@@ -41,7 +41,7 @@ class WildBattle() : Battle() {
     fun generateRandomEncounter(): Pokemon {
         encountersLeft--
         if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID
-            && levelData.name.startsWith("Route")) {
+            && levelData.name.startsWith("\nRoute")) {
             when(Random.nextInt(150)){
                 1 -> {
                     if (!activity.trainer!!.pokemons.map{it.data.id}.contains(243)) {

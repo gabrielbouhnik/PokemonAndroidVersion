@@ -24,7 +24,7 @@ class MoveDetailsMenu(var parent: Int) {
                 activity.mainMenu.battleFrontierMenu.loadPokemonInfoLayout(activity, pokemon, area!!)
             }
             else{
-                activity.mainMenu.pokemonMenu.loadPokemonInfoLayout(activity, pokemon)
+                activity.mainMenu.pokemonMenu.pokemonInfoMenu.loadPokemonInfoLayout(activity, pokemon)
             }
         }
     }

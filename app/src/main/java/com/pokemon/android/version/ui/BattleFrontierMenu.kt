@@ -17,9 +17,11 @@ import com.pokemon.android.version.model.battle.BattleFrontierBattle
 import com.pokemon.android.version.utils.MoveUtils
 
 class BattleFrontierMenu {
+    var pokemonInfoMenu = PokemonInfoMenu(R.layout.battle_frontier_prep)
+
     fun loadPokemonInfoLayout(activity: MainActivity, pokemon: Pokemon, area: BattleFrontierArea) {
         activity.setContentView(R.layout.pokemon_info)
-        activity.mainMenu.pokemonMenu.displayPokemonInfo(activity, pokemon)
+        pokemonInfoMenu.displayPokemonInfo(activity, pokemon)
         val backButton: Button = activity.findViewById(R.id.pokemonInfoBackButton)
         backButton.setOnClickListener {
             loadBattlePrepLayout(activity, area)
@@ -32,7 +34,7 @@ class BattleFrontierMenu {
         healButton.visibility = GONE
         val statusTextView: TextView = activity.findViewById(R.id.statusDetailsTextView)
         statusTextView.visibility = GONE
-        activity.mainMenu.pokemonMenu.displayMoveButtons(activity, pokemon)
+        pokemonInfoMenu.displayMoveButtons(activity, pokemon)
     }
 
     private fun loadBattlePrepLayout(activity: MainActivity, area: BattleFrontierArea) {
