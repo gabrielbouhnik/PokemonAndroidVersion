@@ -265,6 +265,81 @@
       "id": 58,
       "name": "TM20 Energy Ball",
       "moveId": 105
+    },
+    {
+      "id": 61,
+      "name": "TM21 Thunder Wave",
+      "moveId": 55
+    },
+    {
+      "id": 62,
+      "name": "TM22 Calm Mind",
+      "moveId": 135
+    },
+    {
+      "id": 63,
+      "name": "TM23 Sword Dance",
+      "moveId": 114
+    },
+    {
+      "id": 64,
+      "name": "TM24 Waterfall",
+      "moveId": 136
+    },
+    {
+      "id": 65,
+      "name": "TM25 Aerial Ace",
+      "moveId": 113
+    },
+    {
+      "id": 66,
+      "name": "TM26 Flash Cannon",
+      "moveId": 111
+    },
+    {
+      "id": 67,
+      "name": "TM27 Giga Drain",
+      "moveId": 66
+    },
+    {
+      "id": 68,
+      "name": "TM28 Drain Punch",
+      "moveId": 76
+    },
+    {
+      "id": 69,
+      "name": "TM29 Dragon Claw",
+      "moveId": 108
+    },
+    {
+      "id": 70,
+      "name": "TM30 Will-O-Wisp",
+      "moveId": 128
+    },
+    {
+      "id": 71,
+      "name": "TM31 Bulk Up",
+      "moveId": 140
+    },
+    {
+      "id": 72,
+      "name": "TM32 X-Scissor",
+      "moveId": 56
+    },
+    {
+      "id": 73,
+      "name": "TM33 Focus Blast",
+      "moveId": 138
+    },
+    {
+      "id": 74,
+      "name": "TM34 Bullet Seed",
+      "moveId": 137
+    },
+    {
+      "id": 75,
+      "name": "TM34 Dark Pulse",
+      "moveId": 92
     }
   ]
 }

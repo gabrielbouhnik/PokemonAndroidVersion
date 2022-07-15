@@ -11,6 +11,7 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
+import com.pokemon.android.version.model.battle.BattleFrontierArea
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.MoveUtils
@@ -20,6 +21,7 @@ class PokemonInfoMenu(var parentId: Int) {
 
     fun displayPokemonInfo(activity: MainActivity, pokemon: Pokemon) {
         val nameTextView: TextView = activity.findViewById(R.id.nameDetailsTextView)
+        nameTextView.setTextColor(ColorUtils.getColorByType(pokemon.data.type1))
         nameTextView.text = pokemon.data.name
         val levelTextView: TextView = activity.findViewById(R.id.levelDetailsTextView)
         levelTextView.text = activity.getString(R.string.level, pokemon.level)
@@ -39,29 +41,32 @@ class PokemonInfoMenu(var parentId: Int) {
         activity.displayPokemon(pokemon.data.id, imageView)
     }
 
-    private fun displayMoveButton(activity: MainActivity, pokemon: Pokemon, move: PokemonMove, buttonId: Int, ppTextViewId: Int) {
+    private fun displayMoveButton(activity: MainActivity, pokemon: Pokemon, move: PokemonMove, buttonId: Int, ppTextViewId: Int, area: BattleFrontierArea?) {
         val moveButton: Button = activity.findViewById(buttonId)
         moveButton.visibility = View.VISIBLE
         moveButton.text = move.move.name
         moveButton.setBackgroundColor(ColorUtils.getColorByType(move.move.type))
         moveButton.setOnClickListener {
-            moveDetailsMenu.loadMoveMenu(activity, pokemon, move.move, null)
+            if (parentId == R.layout.pokemons_menu)
+                moveDetailsMenu.loadMoveMenu(activity, pokemon, move.move, null)
+            else
+                moveDetailsMenu.loadMoveMenu(activity, pokemon, move.move, area!!)
         }
         val ppMoveTextView: TextView = activity.findViewById(ppTextViewId)
         ppMoveTextView.visibility = View.VISIBLE
         ppMoveTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
     }
 
-    fun displayMoveButtons(activity: MainActivity, pokemon: Pokemon) {
-        displayMoveButton(activity, pokemon, pokemon.move1, R.id.move1InfoButton, R.id.ppMove1TextView)
+    fun displayMoveButtons(activity: MainActivity, pokemon: Pokemon, area: BattleFrontierArea?) {
+        displayMoveButton(activity, pokemon, pokemon.move1, R.id.move1InfoButton, R.id.ppMove1TextView, area)
         if (pokemon.move2 != null) {
-            displayMoveButton(activity, pokemon, pokemon.move2!!, R.id.move2InfoButton, R.id.ppMove2TextView)
+            displayMoveButton(activity, pokemon, pokemon.move2!!, R.id.move2InfoButton, R.id.ppMove2TextView, area)
         }
         if (pokemon.move3 != null) {
-            displayMoveButton(activity, pokemon, pokemon.move3!!, R.id.move3InfoButton, R.id.ppMove3TextView)
+            displayMoveButton(activity, pokemon, pokemon.move3!!, R.id.move3InfoButton, R.id.ppMove3TextView, area)
         }
         if (pokemon.move4 != null) {
-            displayMoveButton(activity, pokemon, pokemon.move4!!, R.id.move4InfoButton, R.id.ppMove4TextView)
+            displayMoveButton(activity, pokemon, pokemon.move4!!, R.id.move4InfoButton, R.id.ppMove4TextView, area)
         }
     }
 
@@ -135,7 +140,7 @@ class PokemonInfoMenu(var parentId: Int) {
             activity.trainer!!.heal(pokemon)
             statusTextView.text = pokemon.status.toString()
             displayPokemonInfo(activity, pokemon)
-            displayMoveButtons(activity, pokemon)
+            displayMoveButtons(activity, pokemon, null)
         }
         val evolveButton: Button = activity.findViewById(R.id.evolveButton)
         if (pokemon.canEvolve()) {
@@ -144,7 +149,7 @@ class PokemonInfoMenu(var parentId: Int) {
                 if (pokemon.data.evolutions.size == 1) {
                     pokemon.evolve(activity.gameDataService, pokemon.data.evolutions[0].evolutionId)
                     displayPokemonInfo(activity, pokemon)
-                    displayMoveButtons(activity, pokemon)
+                    displayMoveButtons(activity, pokemon, null)
                     activity.playSoundEffect(R.raw.evolve_sound_effect)
                     evolveButton.visibility = View.GONE
                 } else {
@@ -173,7 +178,7 @@ class PokemonInfoMenu(var parentId: Int) {
 
             }
         }
-        displayMoveButtons(activity, pokemon)
+        displayMoveButtons(activity, pokemon, null)
     }
 
     private fun chooseEvolution(activity: MainActivity, pokemon: Pokemon) {

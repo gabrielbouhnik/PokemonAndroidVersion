@@ -34,7 +34,7 @@ class BattleFrontierMenu {
         healButton.visibility = GONE
         val statusTextView: TextView = activity.findViewById(R.id.statusDetailsTextView)
         statusTextView.visibility = GONE
-        pokemonInfoMenu.displayMoveButtons(activity, pokemon)
+        pokemonInfoMenu.displayMoveButtons(activity, pokemon, area)
     }
 
     private fun loadBattlePrepLayout(activity: MainActivity, area: BattleFrontierArea) {
