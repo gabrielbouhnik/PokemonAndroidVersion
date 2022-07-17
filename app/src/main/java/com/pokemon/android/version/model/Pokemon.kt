@@ -105,7 +105,7 @@ class Pokemon(
         var maxDamageIdx = 0
         for ((Idx, move) in usableMoves.withIndex()) {
             val damage: Int = DamageCalculator.computeDamageIA(this, move.move, opponent)
-            if (damage > opponent.currentHP)
+            if (damage >= opponent.currentHP)
                 return move
             if (damage > 0 && hp / currentHP < 20 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
                 return move

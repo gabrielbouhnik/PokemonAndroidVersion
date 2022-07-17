@@ -23,6 +23,7 @@ import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.level.WildBattleLevelData
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
+import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAIN_LEVEL_ID
 import com.pokemon.android.version.utils.HealUtils
 import com.pokemon.android.version.utils.ItemUtils
 import com.pokemon.android.version.utils.MusicUtils
@@ -158,6 +159,9 @@ class BattleUI {
                     else
                         activity.trainer!!.battleTowerProgression = null
                 }
+                if (battle.levelData.id == FRONTIER_BRAIN_LEVEL_ID){
+                    activity.trainer!!.battleTowerProgression = null
+                }
                 if (activity.eliteMode) {
                     activity.eliteMode = false
                     HealUtils.dailyHeal(activity.trainer!!)
@@ -187,7 +191,7 @@ class BattleUI {
                         activity.trainer!!.battleFactoryProgression!!.progression += 1
                     else
                         activity.trainer!!.battleTowerProgression!!.progression += 1
-                    activity.trainer!!.coins += 20
+                    activity.trainer!!.coins += 30
                     SaveManager.save(activity)
                     val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
                     rewardsButton.visibility = VISIBLE
@@ -220,6 +224,10 @@ class BattleUI {
                 opponentPokemonHPLevel.visibility = GONE
                 if (battle is TrainerBattle)
                     dialogTextView!!.text = (battle.levelData as TrainerBattleLevelData).endDialogWin
+                if (battle.levelData.id == 99) {
+                    activity.trainer!!.coins += 500
+                    activity.trainer!!.battleTowerProgression!!.progression += 1
+                }
                 if (activity.eliteMode)
                     endEliteBattle(activity, battle)
                 else {
@@ -361,46 +369,48 @@ class BattleUI {
         }
         if (battle !is BattleFrontierBattle) {
             bagButton.setOnClickListener {
-                val closeButton: Button = activity.findViewById(R.id.closeBagButton)
-                closeButton.visibility = VISIBLE
-                switchButton.visibility = GONE
-                bagButton.visibility = GONE
-                disableAttackButtons(activity)
-                val blackImageView: ImageView = activity.findViewById(R.id.blackImageView)
-                blackImageView.visibility = VISIBLE
-                val recyclerView = activity.findViewById<RecyclerView>(R.id.battleRecyclerView)
-                recyclerView.visibility = VISIBLE
-                recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-                val items: ArrayList<ItemQuantity> = ArrayList(
-                    ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items)
-                        .filter { battle.itemIsUsable(it.itemId) })
-                val myItemClickListener = View.OnClickListener {
-                    val position = it.tag as Int
-                    val clickedItem: ItemQuantity = items[position]
-                    recyclerView.visibility = GONE
-                    blackImageView.visibility = GONE
-                    closeButton.visibility = GONE
-                    if (ItemUtils.getItemById(clickedItem.itemId)
-                            .isUsable(battle.pokemon) || (battle is WildBattle && ItemUtils.isBall(clickedItem.itemId))
-                    ) {
-                        battle.turnWithItemUsed(clickedItem.itemId)
-                        updateBattleUI(activity, battle)
-                        if (battle.pokemon.currentHP > 0)
+                if (battle.levelData.id != FRONTIER_BRAIN_LEVEL_ID) {
+                    val closeButton: Button = activity.findViewById(R.id.closeBagButton)
+                    closeButton.visibility = VISIBLE
+                    switchButton.visibility = GONE
+                    bagButton.visibility = GONE
+                    disableAttackButtons(activity)
+                    val blackImageView: ImageView = activity.findViewById(R.id.blackImageView)
+                    blackImageView.visibility = VISIBLE
+                    val recyclerView = activity.findViewById<RecyclerView>(R.id.battleRecyclerView)
+                    recyclerView.visibility = VISIBLE
+                    recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+                    val items: ArrayList<ItemQuantity> = ArrayList(
+                        ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items)
+                            .filter { battle.itemIsUsable(it.itemId) })
+                    val myItemClickListener = View.OnClickListener {
+                        val position = it.tag as Int
+                        val clickedItem: ItemQuantity = items[position]
+                        recyclerView.visibility = GONE
+                        blackImageView.visibility = GONE
+                        closeButton.visibility = GONE
+                        if (ItemUtils.getItemById(clickedItem.itemId)
+                                .isUsable(battle.pokemon) || (battle is WildBattle && ItemUtils.isBall(clickedItem.itemId))
+                        ) {
+                            battle.turnWithItemUsed(clickedItem.itemId)
+                            updateBattleUI(activity, battle)
+                            if (battle.pokemon.currentHP > 0)
+                                setUpAttackButtons(activity, battle)
+                        } else
                             setUpAttackButtons(activity, battle)
-                    } else
+                        switchButton.visibility = VISIBLE
+                        bagButton.visibility = VISIBLE
+                    }
+                    val adapter = ItemRecyclerAdapter(activity, items, myItemClickListener)
+                    recyclerView.adapter = adapter
+                    closeButton.setOnClickListener {
+                        recyclerView.visibility = GONE
+                        blackImageView.visibility = GONE
+                        closeButton.visibility = GONE
+                        switchButton.visibility = VISIBLE
+                        bagButton.visibility = VISIBLE
                         setUpAttackButtons(activity, battle)
-                    switchButton.visibility = VISIBLE
-                    bagButton.visibility = VISIBLE
-                }
-                val adapter = ItemRecyclerAdapter(activity, items, myItemClickListener)
-                recyclerView.adapter = adapter
-                closeButton.setOnClickListener {
-                    recyclerView.visibility = GONE
-                    blackImageView.visibility = GONE
-                    closeButton.visibility = GONE
-                    switchButton.visibility = VISIBLE
-                    bagButton.visibility = VISIBLE
-                    setUpAttackButtons(activity, battle)
+                    }
                 }
             }
         }
@@ -422,7 +432,10 @@ class BattleUI {
     }
 
     fun startTrainerBattle(activity: MainActivity, level: TrainerBattleLevelData) {
-        team = activity.trainer!!.team
+       this.team = if (level.id == FRONTIER_BRAIN_LEVEL_ID)
+            activity.trainer!!.battleTowerProgression!!.team.toMutableList()
+        else
+            activity.trainer!!.team
         MusicUtils.playMusic(activity, level.music)
         activity.setContentView(R.layout.battle_layout)
         dialogTextView = activity.findViewById(R.id.dialogTextView)

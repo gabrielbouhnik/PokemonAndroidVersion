@@ -12,6 +12,7 @@ import com.pokemon.android.version.model.level.BossBattleLevelData
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.level.WildBattleLevelData
+import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAIN_LEVEL_ID
 
 class LevelMenu {
     companion object {
@@ -85,13 +86,16 @@ class LevelMenu {
         recyclerView.adapter = adapter
     }
 
-    private fun loadLevelDescriptionMenu(activity: MainActivity, levelData: LevelData) {
+    fun loadLevelDescriptionMenu(activity: MainActivity, levelData: LevelData) {
         activity.updateMusic(R.raw.level_descr)
         activity.setContentView(R.layout.level_description)
         val backButton: Button = activity.findViewById(R.id.levelDescrBackButton)
         backButton.setOnClickListener {
             activity.updateMusic(R.raw.main_menu)
-            loadLevelMenu(activity)
+            if (levelData.id == FRONTIER_BRAIN_LEVEL_ID)
+                activity.mainMenu.battleFrontierMenu.loadMenu(activity)
+            else
+                loadLevelMenu(activity)
         }
         val startButton: Button = activity.findViewById(R.id.levelDescrStartButton)
         startButton.setOnClickListener {

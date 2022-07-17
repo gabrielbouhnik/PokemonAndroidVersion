@@ -17,7 +17,7 @@ class MoveDetailsMenu(var parent: Int) {
         val descriptionTextView: TextView = activity.findViewById(R.id.moveDescriptionTextView)
         descriptionTextView.text = move.description
         val infoTextView: TextView = activity.findViewById(R.id.moveDetailsInfoTextView)
-        infoTextView.text = activity.getString(R.string.move_info, move.type.toString(), move.pp, if (move.accuracy == null) "_" else move.accuracy.toString())
+        infoTextView.text = activity.getString(R.string.move_info, move.power, move.type.toString(), move.pp, if (move.accuracy == null) "_" else move.accuracy.toString())
         val backButton: Button = activity.findViewById(R.id.moveDetailsBackButton)
         backButton.setOnClickListener{
             if (parent == R.layout.battle_frontier_prep){

@@ -14,6 +14,7 @@ class MusicUtils {
                 5 -> activity.updateMusic(R.raw.champion_theme)
                 6 -> activity.updateMusic(R.raw.mewtwo_theme)
                 7 -> activity.updateMusic(R.raw.cynthia_theme)
+                8 -> activity.updateMusic(R.raw.frontier_brain_theme)
             }
         }
     }

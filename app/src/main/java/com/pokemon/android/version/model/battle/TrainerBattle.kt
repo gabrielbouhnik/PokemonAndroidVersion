@@ -20,7 +20,9 @@ class TrainerBattle() : Battle() {
         this.opponentTrainerSprite = activity.findViewById(R.id.opponentTrainerSpriteView)
         this.levelData = trainerBattleLevelData
         this.numberOfTrainers = trainerBattleLevelData.opponentTrainerData.size
-        this.pokemon = activity.trainer!!.getFirstPokemonThatCanFight()!!
+        this.pokemon = if (trainerBattleLevelData.id == 99)
+            activity.trainer!!.battleTowerProgression!!.team[0]
+            else activity.trainer!!.getFirstPokemonThatCanFight()!!
         this.pokemon.battleData = PokemonBattleData()
         this.opponentTrainer = OpponentTrainerFactory.createOpponentTrainer(
             trainerBattleLevelData.opponentTrainerData.first(),
@@ -39,6 +41,11 @@ class TrainerBattle() : Battle() {
     override fun getBattleState(): State {
         if (numberOfTrainers == trainersIdx) {
             return State.TRAINER_VICTORY
+        }
+        if (levelData.id == 99){
+            return if (!activity.trainer!!.battleTowerProgression!!.team.any { it.currentHP > 0 })
+                State.TRAINER_LOSS
+            else State.IN_PROGRESS
         }
         if (!activity.trainer!!.canStillBattle() || MoveUtils.getMoveList(opponent).none { it.pp > 0 }) {
             return State.TRAINER_LOSS

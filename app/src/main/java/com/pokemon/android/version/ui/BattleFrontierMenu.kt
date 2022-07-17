@@ -14,9 +14,13 @@ import com.pokemon.android.version.model.BattleFrontierProgression
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.battle.BattleFrontierArea
 import com.pokemon.android.version.model.battle.BattleFrontierBattle
+import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.utils.MoveUtils
 
 class BattleFrontierMenu {
+    companion object{
+        const val FRONTIER_BRAIN_LEVEL_ID = 99
+    }
     var pokemonInfoMenu = PokemonInfoMenu(R.layout.battle_frontier_prep)
 
     fun loadPokemonInfoLayout(activity: MainActivity, pokemon: Pokemon, area: BattleFrontierArea) {
@@ -92,7 +96,14 @@ class BattleFrontierMenu {
         }
         val startBattleButton: Button = activity.findViewById(R.id.startBattleFrontierButton)
         startBattleButton.setOnClickListener {
-            activity.mainMenu.levelMenu.battleUI.startBattleFrontierBattle(activity, area)
+            if (area == BattleFrontierArea.BATTLE_TOWER &&
+                activity.trainer!!.battleTowerProgression!!.progression > 0 &&
+                activity.trainer!!.battleTowerProgression!!.progression % 7 == 0){
+                activity.mainMenu.levelMenu.loadLevelDescriptionMenu(activity,
+                activity.gameDataService.levels.find { it.id == 99 } as TrainerBattleLevelData)
+            }
+            else
+                activity.mainMenu.levelMenu.battleUI.startBattleFrontierBattle(activity, area)
         }
     }
 

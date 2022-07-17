@@ -3169,6 +3169,49 @@
       "icon": "images/VS_Cynthia.png",
       "background": "images/mt_silver_background.png",
       "exp": 15000
+    },
+    {
+      "id": 99,
+      "name": "\nVS Palmer",
+      "description": "As you keep winning in the Battle Tower, you are going to face the leader of the Battle Tower.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Palmer.png",
+          "name" : "Tower Tycoon Palmer",
+          "pokemons": [
+            {
+              "id": 149,
+              "level": 50,
+              "moveIds": [
+                108,125,79,93
+              ]
+            },
+            {
+              "id": 350,
+              "level": 50,
+              "moveIds": [
+                43,132,94,100
+              ]
+            },
+            {
+              "id": 464,
+              "level": 50,
+              "moveIds": [
+                25,93,107,110
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+      ],
+      "startDialog": "Hi! My name's Palmer. Show me the bond you've built with your Pokemon. Show me what you've learned through battles with Trainers!",
+      "endDialogWin": "I have no problem losing to a spectacular trainer like you!",
+      "endDialogLoose": "Ah, wonderful! That was fantastic! Do come again!",
+      "music": 8,
+      "icon": "images/Sprite_Palmer.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 0
     }
   ],
   "randomWildEncounters": [
@@ -4134,6 +4177,480 @@
       "background": "images/cerulean_cave_background.png",
       "music": 6,
       "exp": 15000
+    }
+  ],
+  "leaderBattles": [
+    {
+      "id": 9,
+      "name": "\nVS Brock",
+      "description": "After defeating the guard, you can finally face the gym leader!",
+      "battle1": [
+        {
+          "sprite": "images/Sprite_Brock.png",
+          "name" : "Gym Leader Brock",
+          "pokemons": [
+            {
+              "id": 74,
+              "level": 12,
+              "moveIds": [
+                32,2,29
+              ]
+            },
+            {
+              "id": 95,
+              "level": 14,
+              "moveIds": [
+                32,2,15,29
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        },
+        {
+          "id": 31,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "I am Brock, the gym leader of Pewter City ! I believe in the great power of rock! That's why my Pokémon are of the Rock type! Do you still want to fight with me?  All right!",
+      "endDialogWin": "I took you for granted, and so I lost. As proof of your victory, I confer on you this...the official Pokémon League Boulder Badge.",
+      "endDialogLoose": "The best offense is a good defense! That's my way of doing things!",
+      "music": 3,
+      "icon": "images/VS_Brock.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 350
+    },
+    {
+      "id": 18,
+      "name": "\nVS Misty",
+      "description": "As you have defeated the guard, you can finally face Misty, the gym leader of Cerulean City.",
+      "battle1": [
+        {
+          "sprite": "images/Sprite_Ondine.png",
+          "name" : "Gym Leader Misty",
+          "pokemons": [
+            {
+              "id": 120,
+              "level": 20,
+              "moveIds": [
+                2,6,32,48
+              ]
+            },
+            {
+              "id": 54,
+              "level": 20,
+              "moveIds": [
+                1,6,24,39
+              ]
+            },
+            {
+              "id": 121,
+              "level": 22,
+              "moveIds": [
+                43,12,45,44
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        },
+        {
+          "id": 32,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hi, you're a new face! Only those Trainers who have a policy about Pokémon can turn pro. What is your approach when you catch and train Pokémon? My policy is an all out offensive with Water-type Pokémon!",
+      "endDialogWin": "You really are good... I'll admit that you are skilled... Here you go. It's the Cascade Badge.",
+      "endDialogLoose": "See! This is the Water-type toughness I was talking about!",
+      "music": 3,
+      "icon": "images/VS_Misty.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 1240
+    },
+    {
+      "id": 22,
+      "name": "\nVS Lt. Surge",
+      "description": "As you have defeated the guard, you can finally face Lt. Surge, the gym leader of Vermilion City.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Surge.png",
+          "name" : "Gym Leader Lt. Surge",
+          "battle1": [
+            {
+              "id": 25,
+              "level": 22,
+              "moveIds": [
+                3,13,52
+              ]
+            },
+            {
+              "id": 100,
+              "level": 22,
+              "moveIds": [
+                2,12,52,112
+              ]
+            },
+            {
+              "id": 26,
+              "level": 28,
+              "moveIds": [
+                43,12,13,52
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        },
+        {
+          "id": 33,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hey, kid! What do you think you're doing here? You won't live long in combat! That's for sure!",
+      "endDialogWin": "Whoa! You're the real deal, kid! Fine then, take the Thunder Badge.",
+      "endDialogLoose": "Oh yeah! I'm strong!",
+      "music": 3,
+      "icon": "images/VS_Surge.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 1520
+    },
+    {
+      "id": 36,
+      "name": "\nVS Erika",
+      "battle1": "After beating the guard, you go to the gym leader to challenge her.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Erika.png",
+          "name" : "Gym Leader Erika",
+          "pokemons": [
+            {
+              "id": 189,
+              "level": 40,
+              "moveIds": [
+                66,44,35,133
+              ]
+            },
+            {
+              "id": 114,
+              "level": 40,
+              "moveIds": [
+                66,35,102
+              ]
+            },
+            {
+              "id": 71,
+              "level": 40,
+              "moveIds": [
+                66,62,18,121
+              ]
+            },
+            {
+              "id": 45,
+              "level": 40,
+              "moveIds": [
+                66,44,37,76
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 34,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Welcome. My name is Erika. I am the Gym Leader of the Celadon Gym. I am a student of the art of flower arranging. My Pokémon are all of the Grass type. Did you perhaps wish to challenge me? Very well but I shall not lose",
+      "endDialogWin": "Oh! I concede defeat. You are remarkably strong. I must confer on you the Rainbow Badge",
+      "endDialogLoose": "I thank you for your demonstration",
+      "music": 3,
+      "icon": "images/VS_Erika.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 4900
+    },
+    {
+      "id": 41,
+      "name": "\nVS Koga",
+      "description": "After beating the guard, you go to the gym leader to challenge him.",
+      "battle1": [
+        {
+          "sprite": "images/Sprite_Koga.png",
+          "name" : "Gym Leader Koga",
+          "pokemons": [
+            {
+              "id": 109,
+              "level": 47,
+              "moveIds": [83,37]
+            },{
+              "id": 109,
+              "level": 47,
+              "moveIds": [83,37]
+            },
+            {
+              "id": 110,
+              "level": 50,
+              "moveIds": [37,12,31,92]
+            },
+            {
+              "id": 89,
+              "level": 50,
+              "moveIds": [37,62,69,25]
+            },
+            {
+              "id": 49,
+              "level": 50,
+              "moveIds": [45,37,60,122]
+            },
+            {
+              "id": 169,
+              "level": 51,
+              "moveIds": [129,50,66,46]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 35,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "A mere child like you dares to challenge me? Very well, I shall show you true terror as a ninja master!",
+      "endDialogWin": "You have proven your worth! Take a Soul Badge!",
+      "endDialogLoose": "Have you learned to fear the techniques of the ninja?",
+      "music": 3,
+      "icon": "images/VS_Koga.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 5600
+    },
+    {
+      "id": 51,
+      "name": "\nVS Sabrina",
+      "description": "After defeating the guards, you go to the gym leader.",
+      "battle1": [
+        {
+          "sprite": "images/Sprite_Morgane.png",
+          "name" : "Gym Leader Sabrina",
+          "pokemons": [
+            {
+              "id": 122,
+              "level": 55,
+              "moveIds": [45,44,46]
+            },
+            {
+              "id": 64,
+              "level": 55,
+              "moveIds": [45,44,46]
+            },
+            {
+              "id": 97,
+              "level": 55,
+              "moveIds": [45,44,76,83]
+            },
+            {
+              "id": 49,
+              "level": 55,
+              "moveIds": [35,37,45,60]
+            },
+            {
+              "id": 65,
+              "level": 57,
+              "moveIds": [45,44,46,105]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 36,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "I had a vision of your arrival! I have had psychic powers since I was a child. I dislike battling, but if you wish, I will show you my powers!",
+      "endDialogWin": "Your power... It far exceeds what I foresaw... Maybe it isn't possible to fully predict what the future holds. OK, you win. You earned yourself the Marsh Badge.",
+      "endDialogLoose": "Just as I foresaw...",
+      "music": 3,
+      "icon": "images/VS_Morgane.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 7000
+    },
+    {
+      "id": 57,
+      "name": "\nVS Blaine",
+      "description": "After defeating the guard, you go to the gym leader.",
+      "battle1": [
+        {
+          "sprite": "images/Sprite_Auguste.png",
+          "name" : "Gym Leader Blaine",
+          "pokemons": [
+            {
+              "id": 38,
+              "level": 59,
+              "moveIds": [82,81,48,130]
+            },
+            {
+              "id": 59,
+              "level": 59,
+              "moveIds": [116,27,120,75]
+            },
+            {
+              "id": 219,
+              "level": 59,
+              "moveIds": [31,25,87,88]
+            },
+            {
+              "id": 126,
+              "level": 60,
+              "moveIds": [82,103,69,110]
+            },
+            {
+              "id": 78,
+              "level": 62,
+              "moveIds": [82,3,116,62]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 37,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hi! I'm Blaine! I am the Leader of Cinnabar Gym! My fiery Pokémon will incinerate all challengers!",
+      "endDialogWin": "I have burned down to nothing! Not even ashes remain! You have earned the Volcano Badge.",
+      "endDialogLoose": "I'm a raging inferno!",
+      "music": 3,
+      "icon": "images/VS_Auguste.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 8000
+    },
+    {
+      "id": 99,
+      "name": "\nVS Palmer",
+      "description": "As you keep winning in the Battle Tower, you are going to face the leader of the Battle Tower.",
+      "battle1": [
+        {
+          "sprite": "images/Sprite_Palmer.png",
+          "name" : "Tower Tycoon Palmer",
+          "pokemons": [
+            {
+              "id": 149,
+              "level": 50,
+              "moveIds": [
+                108,125,79,93
+              ]
+            },
+            {
+              "id": 350,
+              "level": 50,
+              "moveIds": [
+                43,132,94,100
+              ]
+            },
+            {
+              "id": 464,
+              "level": 50,
+              "moveIds": [
+                25,93,107,110
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+      ],
+      "startDialog": "Hi! My name's Palmer. Show me the bond you've built with your Pokemon. Show me what you've learned through battles with Trainers!",
+      "endDialogWin": "I have no problem losing to a spectacular trainer like you!",
+      "endDialogLoose": "Ah, wonderful! That was fantastic! Do come again!",
+      "music": 8,
+      "icon": "images/Sprite_Palmer.png",
+      "background": "images/building_battle_background.jpg",
+      "exp": 0
     }
   ]
 }

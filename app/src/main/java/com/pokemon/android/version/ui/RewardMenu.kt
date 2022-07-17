@@ -1,5 +1,6 @@
 package com.pokemon.android.version.ui
 
+import android.view.View.GONE
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,8 @@ class RewardMenu {
             activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(131, 25))
         }
         val battleAgainButton: Button = activity.findViewById(R.id.battleAgainButton)
+        if (levelData.id == 99)
+            battleAgainButton.visibility = GONE
         battleAgainButton.setOnClickListener {
             when (levelData) {
                 is WildBattleLevelData -> activity.mainMenu.levelMenu.battleUI.startWildBattle(activity, levelData)
@@ -28,7 +31,10 @@ class RewardMenu {
         }
         val backButton: Button = activity.findViewById(R.id.rewardsBackButton)
         backButton.setOnClickListener {
-            activity.mainMenu.loadGameMenu(activity)
+            if (levelData.id == 99)
+                activity.mainMenu.battleFrontierMenu.loadMenu(activity)
+            else
+                activity.mainMenu.loadGameMenu(activity)
         }
         val recyclerView = activity.findViewById<RecyclerView>(R.id.rewardRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
