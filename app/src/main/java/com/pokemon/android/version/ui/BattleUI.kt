@@ -18,10 +18,7 @@ import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.battle.*
 import com.pokemon.android.version.model.item.ItemQuantity
-import com.pokemon.android.version.model.level.BossBattleLevelData
-import com.pokemon.android.version.model.level.LevelData
-import com.pokemon.android.version.model.level.TrainerBattleLevelData
-import com.pokemon.android.version.model.level.WildBattleLevelData
+import com.pokemon.android.version.model.level.*
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAIN_LEVEL_ID
 import com.pokemon.android.version.utils.HealUtils
@@ -170,6 +167,8 @@ class BattleUI {
                 disableBattleButtons(activity)
                 if (battle is TrainerBattle)
                     dialogTextView!!.text = (battle.levelData as TrainerBattleLevelData).endDialogLoose
+                if (battle is LeaderBattle)
+                    dialogTextView!!.text = (battle.levelData as LeaderLevelData).endDialogLoose
                 val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
                 rewardsButton.visibility = VISIBLE
                 rewardsButton.text = activity.getString(R.string.exit)
@@ -224,6 +223,21 @@ class BattleUI {
                 opponentPokemonHPLevel.visibility = GONE
                 if (battle is TrainerBattle)
                     dialogTextView!!.text = (battle.levelData as TrainerBattleLevelData).endDialogWin
+                if (battle is LeaderBattle){
+                    if (battle.levelData.id == 99){
+                        HealUtils.healTeam(team)
+                        if (activity.trainer!!.battleTowerProgression!!.progression == 7)
+                            dialogTextView!!.text = (battle.levelData as LeaderLevelData).endDialogWin1
+                        else
+                            dialogTextView!!.text = (battle.levelData as LeaderLevelData).endDialogWin2
+                    }
+                    else {
+                        if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID)
+                            dialogTextView!!.text = (battle.levelData as LeaderLevelData).endDialogWin2
+                        else
+                            dialogTextView!!.text = (battle.levelData as LeaderLevelData).endDialogWin1
+                    }
+                }
                 if (battle.levelData.id == 99) {
                     activity.trainer!!.coins += 500
                     activity.trainer!!.battleTowerProgression!!.progression += 1
@@ -239,6 +253,7 @@ class BattleUI {
                         battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
                         rewardMenu.loadRewardMenu(activity, battle.levelData, firstTime)
                     }
+                    SaveManager.save(activity)
                 }
             }
             else -> {
@@ -432,10 +447,7 @@ class BattleUI {
     }
 
     fun startTrainerBattle(activity: MainActivity, level: TrainerBattleLevelData) {
-       this.team = if (level.id == FRONTIER_BRAIN_LEVEL_ID)
-            activity.trainer!!.battleTowerProgression!!.team.toMutableList()
-        else
-            activity.trainer!!.team
+        this.team = activity.trainer!!.team
         MusicUtils.playMusic(activity, level.music)
         activity.setContentView(R.layout.battle_layout)
         dialogTextView = activity.findViewById(R.id.dialogTextView)
@@ -454,6 +466,36 @@ class BattleUI {
             dialogTextView!!.text = activity.getString(R.string.trainer_encounter,level.opponentTrainerData[0].name)
             buttonSetUp(activity, trainerBattle)
             displayPokemonsInfos(activity, trainerBattle)
+            rewardsButton.visibility = GONE
+        }
+    }
+
+    fun startGymLeaderBattle(activity: MainActivity, level: LeaderLevelData){
+        this.team = if (level.id == FRONTIER_BRAIN_LEVEL_ID)
+            activity.trainer!!.battleTowerProgression!!.team.toMutableList()
+        else
+            activity.trainer!!.team
+        MusicUtils.playMusic(activity, level.music)
+        activity.setContentView(R.layout.battle_layout)
+        dialogTextView = activity.findViewById(R.id.dialogTextView)
+        if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID)
+            dialogTextView!!.text = level.startDialog1
+        else
+            dialogTextView!!.text = level.startDialog1
+        val trainerBackSprite: ImageView = activity.findViewById(R.id.trainerBackSpriteView)
+        loadMainTrainerSprite(trainerBackSprite, activity)
+        loadBackgroundImage(level, activity)
+        val opponentTrainerSprite: ImageView = activity.findViewById(R.id.opponentTrainerSpriteView)
+        opponentTrainerSprite.visibility = VISIBLE
+        loadOpponentTrainerSprite(opponentTrainerSprite, activity, level.sprite)
+        val gymLeaderBattle = LeaderBattle(activity, level)
+        val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
+        rewardsButton.visibility = VISIBLE
+        rewardsButton.text = activity.getString(R.string.battle)
+        rewardsButton.setOnClickListener {
+            dialogTextView!!.text = activity.getString(R.string.trainer_encounter,level.title)
+            buttonSetUp(activity, gymLeaderBattle)
+            displayPokemonsInfos(activity, gymLeaderBattle)
             rewardsButton.visibility = GONE
         }
     }

@@ -14,7 +14,7 @@ import com.pokemon.android.version.model.BattleFrontierProgression
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.battle.BattleFrontierArea
 import com.pokemon.android.version.model.battle.BattleFrontierBattle
-import com.pokemon.android.version.model.level.TrainerBattleLevelData
+import com.pokemon.android.version.model.level.LeaderLevelData
 import com.pokemon.android.version.utils.MoveUtils
 
 class BattleFrontierMenu {
@@ -100,7 +100,7 @@ class BattleFrontierMenu {
                 activity.trainer!!.battleTowerProgression!!.progression > 0 &&
                 activity.trainer!!.battleTowerProgression!!.progression % 7 == 0){
                 activity.mainMenu.levelMenu.loadLevelDescriptionMenu(activity,
-                activity.gameDataService.levels.find { it.id == 99 } as TrainerBattleLevelData)
+                activity.gameDataService.levels.find { it.id == 99 } as LeaderLevelData)
             }
             else
                 activity.mainMenu.levelMenu.battleUI.startBattleFrontierBattle(activity, area)

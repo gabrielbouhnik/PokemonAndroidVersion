@@ -6171,6 +6171,87 @@
     "expGaugeType": "SLOW"
   },
   {
+    "id": 134,
+    "name": "Vaporeon",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [
+        46
+      ],
+      "bannerMoves": []
+    },
+    "hp": 130,
+    "attack": 65,
+    "defense": 60,
+    "spAtk": 110,
+    "spDef": 95,
+    "speed": 65,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 135,
+    "name": "Jolteon",
+    "type1": 4,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [
+        46
+      ],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 65,
+    "defense": 60,
+    "spAtk": 110,
+    "spDef": 95,
+    "speed": 130,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 136,
+    "name": "Flareon",
+    "type1": 2,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [
+        46
+      ],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 130,
+    "defense": 60,
+    "spAtk": 95,
+    "spDef": 110,
+    "speed": 65,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 137,
     "name": "Porygon",
     "type1": 5,
@@ -6229,6 +6310,50 @@
         }
       }
     ],
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 139,
+    "name": "Omastar",
+    "type1": 3,
+    "type2": 9,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+      ],
+      "movesLearnWithTM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 70,
+    "attack": 60,
+    "defense": 125,
+    "spAtk": 115,
+    "spDef": 70,
+    "speed": 55,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 141,
+    "name": "Kabutops",
+    "type1": 3,
+    "type2": 9,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+      ],
+      "movesLearnWithTM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 60,
+    "attack": 115,
+    "defense": 105,
+    "spAtk": 65,
+    "spDef": 70,
+    "speed": 80,
+    "catchRate": 45,
+    "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
   },
   {
@@ -6861,6 +6986,31 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 171,
+    "name": "Lanturn",
+    "type1": 3,
+    "type2": 4,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 6,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [12,43],
+      "bannerMoves": []
+    },
+    "hp": 125,
+    "attack": 58,
+    "defense": 58,
+    "spAtk": 76,
+    "spDef": 76,
+    "speed": 67,
+    "catchRate": 75,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
     "id": 182,
     "name": "Belossom",
     "type1": 1,
@@ -7000,6 +7150,33 @@
     "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 196,
+    "name": "Espeon",
+    "type1": 12,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [
+        45,46
+      ],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 65,
+    "defense": 60,
+    "spAtk": 130,
+    "spDef": 95,
+    "speed": 110,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 198,
@@ -9003,6 +9180,33 @@
     "expGaugeType": "MEDIUM_SLOW"
   },
   {
+    "id": 470,
+    "name": "Leafeon",
+    "type1": 1,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [
+        46
+      ],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 110,
+    "defense": 130,
+    "spAtk": 60,
+    "spDef": 65,
+    "speed": 95,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 473,
     "name": "Mamoswine",
     "type1": 14,
@@ -9083,5 +9287,45 @@
     "catchRate": 30,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 485,
+    "name": "Hetran",
+    "type1": 2,
+    "type2": 16,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 91,
+    "attack": 90,
+    "defense": 106,
+    "spAtk": 130,
+    "spDef": 106,
+    "speed": 77,
+    "catchRate": 3,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 488,
+    "name": "Cresselia",
+    "type1": 12,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 120,
+    "attack": 70,
+    "defense": 120,
+    "spAtk": 75,
+    "spDef": 130,
+    "speed": 85,
+    "catchRate": 3,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
   }
 ]

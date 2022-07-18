@@ -91,8 +91,10 @@ class MainActivity : AppCompatActivity() {
                 starterSelection = StarterSelection()
                 starterSelection?.startNewGame(this)
             } else {
-                if (trainer!!.progression >= 67)
+                if (trainer!!.progression >= 67) {
                     gameDataService.updateEliteMode()
+                    gameDataService.updateGymLeaderExp()
+                }
                 mainMenu.loadGameMenu(this)
             }
         }

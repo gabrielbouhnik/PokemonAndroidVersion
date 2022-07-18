@@ -6,6 +6,7 @@ import com.pokemon.android.version.model.banner.Banner
 import com.pokemon.android.version.model.banner.PokemonBanner
 import com.pokemon.android.version.model.item.ItemData
 import com.pokemon.android.version.model.item.ItemFactory
+import com.pokemon.android.version.model.level.LeaderLevelData
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.level.LevelFactory
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
@@ -13,6 +14,7 @@ import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveFactory
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.repository.*
+import com.pokemon.android.version.ui.BattleFrontierMenu
 import com.pokemon.android.version.ui.LevelMenu
 import java.util.*
 import kotlin.collections.ArrayList
@@ -149,6 +151,11 @@ class GameDataService {
             .move3(move3)
             .move4(move4)
             .build()
+    }
+
+    fun updateGymLeaderExp(){
+        levels.filter { it is LeaderLevelData && it.id < BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID}
+            .forEach { it.exp = 10000}
     }
 
     fun updateEliteMode() {

@@ -8,10 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
-import com.pokemon.android.version.model.level.BossBattleLevelData
-import com.pokemon.android.version.model.level.LevelData
-import com.pokemon.android.version.model.level.TrainerBattleLevelData
-import com.pokemon.android.version.model.level.WildBattleLevelData
+import com.pokemon.android.version.model.level.*
 import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAIN_LEVEL_ID
 
 class LevelMenu {
@@ -31,6 +28,7 @@ class LevelMenu {
             is BossBattleLevelData -> {
                 battleUI.startBossBattle(activity, level)
             }
+            is LeaderLevelData -> battleUI.startGymLeaderBattle(activity, level)
             else -> battleUI.startTrainerBattle(
                 activity,
                 level as TrainerBattleLevelData

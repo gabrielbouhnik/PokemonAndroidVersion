@@ -21,7 +21,7 @@ class BannerMenu {
         coinsTextView = activity.findViewById(R.id.coinBannerTextView)
         coinsTextView.text = activity.getString(R.string.andro_coins,activity.trainer!!.coins)
         val recyclerView = activity.findViewById<RecyclerView>(R.id.bannerRecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         val backButton: Button = activity.findViewById(R.id.bannerMenuBackButton)
         backButton.setOnClickListener {
             activity.mainMenu.loadGameMenu(activity)
