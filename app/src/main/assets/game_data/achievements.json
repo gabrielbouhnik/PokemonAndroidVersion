@@ -2,73 +2,118 @@
   {
     "id": 1,
     "description": "Beat the Pokemon League",
-    "pokemonReward": [143],
+    "pokemonReward": [
+      {
+        "id": 143,
+        "level": 30
+      }
+    ],
     "itemRewards": []
   },
   {
     "id": 2,
     "description": "Beat the Pokemon League a second time",
-    "pokemonReward": [142],
+    "pokemonReward": [
+      {
+        "id": 142,
+        "level": 30
+      }
+    ],
     "itemRewards": []
   },
   {
     "id": 3,
     "description": "Beat Dugtrio with a team of Pokemon below level 35",
     "pokemonReward": [],
-    "itemRewards": [52]
+    "itemRewards": [
+      52
+    ]
   },
   {
     "id": 4,
     "description": "Beat Articuno with a team of Pokemon below level 55",
-    "pokemonReward": [144],
+    "pokemonReward": [
+      {
+        "id": 144,
+        "level": 50
+      }
+    ],
     "itemRewards": []
   },
   {
     "id": 5,
-    "description": "Beat Sulfura with a team of Pokemon below level 70",
-    "pokemonReward": [146],
+    "description": "Beat Moltres with a team of Pokemon below level 70",
+    "pokemonReward": [
+      {
+        "id": 146,
+        "level": 50
+      }
+    ],
     "itemRewards": []
   },
   {
     "id": 6,
-    "description": "Beat Electhor without using any ground types Pokemon",
-    "pokemonReward": [145],
+    "description": "Beat Zapdos without using any ground types Pokemon",
+    "pokemonReward": [
+      {
+        "id": 145,
+        "level": 50
+      }
+    ],
     "itemRewards": []
   },
   {
     "id": 7,
-    "description": "Catch Entei",
+    "description": "Catch Raikou",
     "pokemonReward": [],
-    "itemRewards": [50]
+    "itemRewards": [
+      49
+    ]
   },
   {
     "id": 8,
-    "description": "Catch Raikou",
+    "description": "Catch Entei",
     "pokemonReward": [],
-    "itemRewards": [49]
+    "itemRewards": [
+      50
+    ]
   },
   {
     "id": 9,
     "description": "Catch Suicune",
     "pokemonReward": [],
-    "itemRewards": [55]
+    "itemRewards": [
+      55
+    ]
   },
   {
     "id": 10,
     "description": "Beat the Pokemon League with only 4 Pokemons",
-    "pokemonReward": [251],
+    "pokemonReward": [
+      {
+        "id": 251,
+        "level": 5
+      }
+    ],
     "itemRewards": []
   },
   {
     "id": 11,
     "description": "Beat the Tower Tycoon",
     "pokemonReward": [],
-    "itemRewards": [138]
+    "itemRewards": [
+      138
+    ]
   },
   {
     "id": 12,
     "description": "Beat the Tower Tycoon a second time",
-    "pokemonReward": [150],
+    "pokemonReward": [
+      {
+        "id": 151,
+        "level": 5
+      }
+    ],
     "itemRewards": []
   },
   {
@@ -85,8 +130,13 @@
   },
   {
     "id": 15,
-    "description": "Beat the last level of the game with only 3 Pokemons",
-    "pokemonReward": [150],
+    "description": "Beat the last level of the game with only 3 Pokemons in your team",
+    "pokemonReward": [
+      {
+        "id": 151,
+        "level": 70
+      }
+    ],
     "itemRewards": []
   }
 ]

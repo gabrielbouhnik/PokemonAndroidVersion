@@ -1,5 +1,6 @@
 package com.pokemon.android.version
 
+import com.pokemon.android.version.model.Achievement
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.banner.Banner
@@ -26,6 +27,7 @@ class GameDataService {
     var pokemons: List<PokemonData> = ArrayList()
     var banners: List<Banner> = ArrayList()
     var levels: List<LevelData> = ArrayList()
+    var achievements: List<Achievement> = ArrayList()
     var battleFrontierPokemons: HashMap<Int, ArrayList<List<Move>>> = HashMap<Int, ArrayList<List<Move>>>()
     companion object {
         const val MOVES_DATA_PATH = "game_data/moves.json"
@@ -34,12 +36,14 @@ class GameDataService {
         const val BANNER_DATA_PATH = "game_data/banners.json"
         const val LEVELS_DATA_PATH = "game_data/levels.json"
         const val POKEMON_BATTLE_FRONTIER_PATH = "game_data/battle_frontier/pokemons.json"
+        const val ACHIEVEMENTS_DATA_PATH = "game_data/achievements.json"
     }
 
     fun loadGameData(activity: MainActivity) {
         val pokemonRepository = PokemonRepository()
         val itemRepository = ItemsRepository()
         val bannerRepository = BannerRepository()
+        val achievementsRepository = AchievementRepository()
         val movesRepository = MovesRepository()
         val levelsRepository = LevelsRepository()
         val battleFrontierPokemonRepository = BattleFrontierPokemonRepository()
@@ -48,6 +52,7 @@ class GameDataService {
         this.pokemons = pokemonRepository.loadData(activity).map { PokemonData.of(it, moves) }
         this.banners = bannerRepository.loadData(activity).map { Banner.of(it, this) }
         this.levels = LevelFactory.createLevels(levelsRepository.loadData(activity), this)
+        this.achievements = achievementsRepository.loadData(activity).map{ Achievement.of(it, this)}
         battleFrontierPokemonRepository.loadData(activity).forEach {
             if (this.battleFrontierPokemons.containsKey(it.id))
                 this.battleFrontierPokemons[it.id]!!.add(it.moveIds.map{ moveId -> getMoveById(moveId)})

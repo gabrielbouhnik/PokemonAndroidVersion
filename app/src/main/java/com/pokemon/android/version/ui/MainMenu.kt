@@ -108,9 +108,14 @@ class MainMenu {
         backButton.setOnClickListener {
             loadGameMenu(activity)
         }
-        val championTextView: TextView = activity.findViewById(R.id.championTextView)
+        val achievementsButton: TextView = activity.findViewById(R.id.achievementsButton)
         if (activity.trainer!!.progression < LevelMenu.ELITE_4_LAST_LEVEL_ID)
-            championTextView.visibility = GONE
+            achievementsButton.visibility = GONE
+        else{
+            achievementsButton.setOnClickListener {
+                loadAchievementsMenu(activity)
+            }
+        }
         val trainerSpriteTextView: ImageView = activity.findViewById(R.id.trainerSpriteTextView)
         val filename = if (activity.trainer!!.gender == Gender.MALE) BOY_SPRITE else GIRL_SPRITE
         val img: InputStream = activity.assets.open(filename)
@@ -129,6 +134,18 @@ class MainMenu {
                 ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items)
                     .filter { ItemUtils.isBadge(it.itemId) })
         ) {}
+        recyclerView.adapter = adapter
+    }
+
+    private fun loadAchievementsMenu(activity: MainActivity) {
+        activity.setContentView(R.layout.achievements_menu)
+        val backButton: Button = activity.findViewById(R.id.achievementsMenuBackButton)
+        backButton.setOnClickListener {
+            loadTrainerCardMenu(activity)
+        }
+        val recyclerView = activity.findViewById<RecyclerView>(R.id.achievementsRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        val adapter = AchievementRecyclerAdapter(activity, activity.gameDataService.achievements)
         recyclerView.adapter = adapter
     }
 }

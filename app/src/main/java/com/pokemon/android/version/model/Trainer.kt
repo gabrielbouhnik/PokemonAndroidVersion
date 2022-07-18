@@ -19,6 +19,8 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
     var eliteProgression: Int = 0
     var battleTowerProgression: BattleFrontierProgression? = null
     var battleFactoryProgression: BattleFrontierProgression? = null
+    var successfulAchievements: ArrayList<Int> = arrayListOf()
+    var achievements : Achievements? = null
 
     override fun getFirstPokemonThatCanFight(): Pokemon? {
         for (pokemon in team) {

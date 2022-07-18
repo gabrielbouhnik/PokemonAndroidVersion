@@ -6733,6 +6733,33 @@
     "expGaugeType": "SLOW"
   },
   {
+    "id": 151,
+    "name": "Mew",
+    "type1": 12,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 64,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [
+        45
+      ],
+      "bannerMoves": []
+    },
+    "hp": 100,
+    "attack": 100,
+    "defense": 100,
+    "spAtk": 100,
+    "spDef": 100,
+    "speed": 100,
+    "catchRate": 5,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
     "id": 161,
     "name": "Sentret",
     "type1": 5,
@@ -8552,6 +8579,33 @@
     "spDef": 100,
     "speed": 61,
     "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 251,
+    "name": "Celebi",
+    "type1": 1,
+    "type2": 12,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 64,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [
+        45
+      ],
+      "bannerMoves": []
+    },
+    "hp": 100,
+    "attack": 100,
+    "defense": 100,
+    "spAtk": 100,
+    "spDef": 100,
+    "speed": 100,
+    "catchRate": 5,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },

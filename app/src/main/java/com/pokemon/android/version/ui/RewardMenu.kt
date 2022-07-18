@@ -19,6 +19,10 @@ class RewardMenu {
         val battleAgainButton: Button = activity.findViewById(R.id.battleAgainButton)
         if (levelData.id == 99)
             battleAgainButton.visibility = GONE
+        else if (levelData is LeaderLevelData){
+            if (!activity.trainer!!.achievements!!.leadersDefeatedAfterTheLeague.contains(levelData.id))
+                activity.trainer!!.achievements!!.leadersDefeatedAfterTheLeague.add(levelData.id)
+        }
         battleAgainButton.setOnClickListener {
             when (levelData) {
                 is WildBattleLevelData -> activity.mainMenu.levelMenu.battleUI.startWildBattle(activity, levelData)
