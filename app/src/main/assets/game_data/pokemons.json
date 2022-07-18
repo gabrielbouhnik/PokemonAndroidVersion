@@ -3299,6 +3299,10 @@
           "level": 1
         },
         {
+          "moveId": 142,
+          "level": 32
+        },
+        {
           "moveId": 121,
           "level": 44
         }
@@ -5283,6 +5287,10 @@
         {
           "moveId": 35,
           "level": 36
+        },
+        {
+          "moveId": 143,
+          "level": 48
         }
       ],
       "movesLearnWithTM": [
@@ -6374,10 +6382,25 @@
         {
           "moveId": 16,
           "level": 10
+        },
+        {
+          "moveId": 25,
+          "level": 20
+        },
+        {
+          "moveId": 27,
+          "level": 30
+        },
+        {
+          "moveId": 57,
+          "level": 35
+        },
+        {
+          "moveId": 78,
+          "level": 45
         }
       ],
-      "movesLearnWithTM": [
-      ],
+      "movesLearnWithTM": [25,31,72,82,93,13,104,108,113],
       "bannerMoves": []
     },
     "hp": 80,
@@ -6406,16 +6429,15 @@
           "level": 1
         },
         {
-          "moveId": 88,
-          "level": 25
+          "moveId": 27,
+          "level": 24
         },
         {
-          "moveId": 27,
-          "level": 49
+          "moveId": 88,
+          "level": 28
         }
       ],
-      "movesLearnWithTM": [
-      ],
+      "movesLearnWithTM": [25,69,72,93,103,107,110],
       "bannerMoves": []
     },
     "hp": 160,
@@ -6438,10 +6460,29 @@
         {
           "moveId": 4,
           "level": 1
+        },
+        {
+          "moveId": 95,
+          "level": 15
+        },
+        {
+          "moveId": 21,
+          "level": 20
+        },
+        {
+          "moveId": 102,
+          "level": 25
+        },
+        {
+          "moveId": 100,
+          "level": 45
+        },
+        {
+          "moveId": 101,
+          "level": 55
         }
       ],
-      "movesLearnWithTM": [
-      ],
+      "movesLearnWithTM": [100,113],
       "bannerMoves": []
     },
     "hp": 90,
@@ -6464,10 +6505,29 @@
         {
           "moveId": 4,
           "level": 1
+        },
+        {
+          "moveId": 55,
+          "level": 1
+        },
+        {
+          "moveId": 21,
+          "level": 20
+        },
+        {
+          "moveId": 102,
+          "level": 25
+        },
+        {
+          "moveId": 90,
+          "level": 35
+        },
+        {
+          "moveId": 53,
+          "level": 45
         }
       ],
-      "movesLearnWithTM": [
-      ],
+      "movesLearnWithTM": [12,55,113],
       "bannerMoves": []
     },
     "hp": 90,
@@ -6490,10 +6550,37 @@
         {
           "moveId": 4,
           "level": 1
+        },
+        {
+          "moveId": 7,
+          "level": 1
+        },
+        {
+          "moveId": 130,
+          "level": 5
+        },
+        {
+          "moveId": 16,
+          "level": 15
+        },
+        {
+          "moveId": 21,
+          "level": 20
+        },
+        {
+          "moveId": 102,
+          "level": 25
+        },
+        {
+          "moveId": 50,
+          "level": 35
+        },
+        {
+          "moveId": 31,
+          "level": 45
         }
       ],
-      "movesLearnWithTM": [
-      ],
+      "movesLearnWithTM": [31,82,113,128],
       "bannerMoves": []
     },
     "hp": 90,
@@ -6716,9 +6803,44 @@
         {
           "moveId": 112,
           "level": 1
+        },
+        {
+          "moveId": 124,
+          "level": 40
+        },
+        {
+          "moveId": 45,
+          "level": 48
+        },
+        {
+          "moveId": 132,
+          "level": 80
         }
       ],
       "movesLearnWithTM": [
+        12,
+        13,
+        25,
+        31,
+        43,
+        44,
+        45,
+        46,
+        55,
+        62,
+        69,
+        72,
+        76,
+        81,
+        93,
+        104,
+        100,
+        103,
+        105,
+        107,
+        110,
+        111,
+        135
       ],
       "bannerMoves": []
     },
@@ -6742,10 +6864,46 @@
         {
           "moveId": 64,
           "level": 1
+        },
+        {
+          "moveId": 45,
+          "level": 30
+        },
+        {
+          "moveId": 102,
+          "level": 50
+        },
+        {
+          "moveId": 124,
+          "level": 70
         }
       ],
       "movesLearnWithTM": [
-        45
+        12,
+        13,
+        25,
+        31,
+        37,
+        43,
+        44,
+        45,
+        46,
+        55,
+        62,
+        69,
+        72,
+        76,
+        81,
+        92,
+        93,
+        104,
+        100,
+        103,
+        105,
+        107,
+        110,
+        111,
+        135
       ],
       "bannerMoves": []
     },
@@ -6755,7 +6913,7 @@
     "spAtk": 100,
     "spDef": 100,
     "speed": 100,
-    "catchRate": 5,
+    "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -8590,12 +8748,28 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
-          "moveId": 64,
+          "moveId": 39,
           "level": 1
+        },
+        {
+          "moveId": 141,
+          "level": 30
+        },
+        {
+          "moveId": 102,
+          "level": 30
+        },
+        {
+          "moveId": 132,
+          "level": 60
+        },
+        {
+          "moveId": 142,
+          "level": 80
         }
       ],
       "movesLearnWithTM": [
-        45
+        44,45,46,55,66,105,137
       ],
       "bannerMoves": []
     },
@@ -8763,6 +8937,10 @@
         },
         {
           "moveId": 51,
+          "level": 1
+        },
+        {
+          "moveId": 141,
           "level": 1
         }
       ],
@@ -9055,6 +9233,10 @@
         {
           "moveId": 35,
           "level": 36
+        },
+        {
+          "moveId": 143,
+          "level": 48
         }
       ],
       "movesLearnWithTM": [

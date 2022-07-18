@@ -6,10 +6,8 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.pokemon.android.version.entity.save.TrainerSave
-import com.pokemon.android.version.model.BattleFrontierProgression
-import com.pokemon.android.version.model.Gender
-import com.pokemon.android.version.model.Pokemon
-import com.pokemon.android.version.model.Trainer
+import com.pokemon.android.version.model.*
+import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.JsonFileToString
 import java.text.SimpleDateFormat
 
@@ -39,9 +37,16 @@ class SaveManager {
             if (trainerSave.eliteMode != null)
                 activity.eliteMode = trainerSave.eliteMode!!
             if (trainerSave.battleFactorySave != null)
-                trainer.battleFactoryProgression = BattleFrontierProgression.of(trainerSave.battleFactorySave!!, activity.gameDataService, trainer)
+                trainer.battleFactoryProgression =
+                    BattleFrontierProgression.of(trainerSave.battleFactorySave!!, activity.gameDataService, trainer)
             if (trainerSave.battleTowerSave != null)
-                trainer.battleTowerProgression = BattleFrontierProgression.of(trainerSave.battleTowerSave!!,activity.gameDataService, trainer)
+                trainer.battleTowerProgression =
+                    BattleFrontierProgression.of(trainerSave.battleTowerSave!!, activity.gameDataService, trainer)
+            if (trainer.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID) {
+                trainer.achievements = if (trainerSave.achievements == null) Achievements() else trainerSave.achievements
+                trainer.successfulAchievements =
+                    if (trainerSave.successfulAchievements == null) arrayListOf() else trainerSave.successfulAchievements!!
+            }
             return trainer
         }
 

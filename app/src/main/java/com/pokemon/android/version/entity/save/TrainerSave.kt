@@ -1,8 +1,10 @@
 package com.pokemon.android.version.entity.save
 
+import com.pokemon.android.version.model.Achievements
 import com.pokemon.android.version.model.Trainer
 import com.pokemon.android.version.model.item.ItemQuantity
 import java.text.SimpleDateFormat
+import java.util.ArrayList
 
 class TrainerSave(
     var name: String,
@@ -16,7 +18,9 @@ class TrainerSave(
     var eliteMode: Boolean?,
     var eliteProgression: Int,
     var battleTowerSave: BattleFrontierSave?,
-    var battleFactorySave: BattleFrontierSave?
+    var battleFactorySave: BattleFrontierSave?,
+    var successfulAchievements: ArrayList<Int>?,
+    var achievements: Achievements?
 ) {
     companion object {
         fun of(trainer: Trainer, eliteMode: Boolean): TrainerSave {
@@ -30,7 +34,9 @@ class TrainerSave(
                 eliteMode,
                 trainer.eliteProgression,
                 if (trainer.battleTowerProgression == null) null else BattleFrontierSave.of(trainer.battleTowerProgression!!),
-                if (trainer.battleFactoryProgression == null) null else BattleFrontierSave.of(trainer.battleFactoryProgression!!)
+                if (trainer.battleFactoryProgression == null) null else BattleFrontierSave.of(trainer.battleFactoryProgression!!),
+                trainer.successfulAchievements,
+                trainer.achievements
             )
         }
     }

@@ -132,11 +132,7 @@
     "id": 15,
     "description": "Beat the last level of the game with only 3 Pokemons in your team",
     "pokemonReward": [
-      {
-        "id": 151,
-        "level": 70
-      }
     ],
-    "itemRewards": []
+    "itemRewards": [51]
   }
 ]

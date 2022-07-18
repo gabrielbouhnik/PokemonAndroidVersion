@@ -129,6 +129,11 @@ class BattleUI {
             activity.eliteMode = false
             if (activity.trainer!!.progression == LevelMenu.ELITE_4_FIRST_LEVEL_ID)
                 activity.trainer!!.progression += 5
+            else{
+                activity.trainer!!.achievements!!.leagueDefeatedSecondTime = true
+                if (activity.trainer!!.team.size <= 4)
+                    activity.trainer!!.achievements!!.leagueWithTeamOfFourAchievement = true
+            }
             HealUtils.dailyHeal(activity.trainer!!)
             rewardsButton.setOnClickListener {
                 SaveManager.save(activity)
@@ -156,7 +161,7 @@ class BattleUI {
                     else
                         activity.trainer!!.battleTowerProgression = null
                 }
-                if (battle.levelData.id == FRONTIER_BRAIN_LEVEL_ID){
+                else if (battle.levelData.id == FRONTIER_BRAIN_LEVEL_ID){
                     activity.trainer!!.battleTowerProgression = null
                 }
                 if (activity.eliteMode) {
@@ -186,8 +191,11 @@ class BattleUI {
                 if (battle is BattleFrontierBattle) {
                     HealUtils.healTeam(team)
                     activity.updateMusic(R.raw.victory_theme)
-                    if (battle.area == BattleFrontierArea.BATTLE_FACTORY)
+                    if (battle.area == BattleFrontierArea.BATTLE_FACTORY) {
                         activity.trainer!!.battleFactoryProgression!!.progression += 1
+                        if (activity.trainer!!.battleFactoryProgression!!.progression >= 25)
+                            activity.trainer!!.achievements!!.winstreak25Factory = true
+                    }
                     else
                         activity.trainer!!.battleTowerProgression!!.progression += 1
                     activity.trainer!!.coins += 30

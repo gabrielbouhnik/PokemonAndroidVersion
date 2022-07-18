@@ -11,7 +11,6 @@ class Achievements(
     var winstreak15Achievement: Boolean = false,
     var winstreak25Factory: Boolean = false,
     var leagueWithTeamOfFourAchievement: Boolean = false,
-    var mewtwoAchievement: Boolean = false,
-    //TODO add data for rewards
+    var mewtwoAchievement: Boolean = false
 ) {
 }

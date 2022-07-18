@@ -1073,7 +1073,7 @@
       "type": 4,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The target is punched with an electrified fist. This may also leave the target with paralysis.",
       "priorityLevel": 0,
       "status": [
         {
@@ -1170,7 +1170,7 @@
       "type": 1,
       "category": "PHYSICAL",
       "accuracy": 95,
-      "description": "",
+      "description": "Sharp-edged leaves are launched to slash at opposing Pokémon. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": true
@@ -1377,7 +1377,7 @@
       "type": 1,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user handles a sharp leaf like a sword and attacks by cutting its target. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": true
@@ -1505,6 +1505,31 @@
           "status": "BURN"
         }
       ],
+      "highCritRate": false
+    },
+    {
+      "id": 141,
+      "name": "Magical Leaf",
+      "power": 60,
+      "pp": 20,
+      "type": 1,
+      "category": "SPECIAL",
+      "description": "The user scatters curious leaves that chase the target. This attack never misses.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 143,
+      "name": "Power Whip",
+      "power": 120,
+      "pp": 10,
+      "type": 1,
+      "category": "PHYSICAL",
+      "accuracy": 85,
+      "description": "The user violently whirls its vines, tentacles, or the like to harshly lash the target.",
+      "priorityLevel": 0,
+      "status": [],
       "highCritRate": false
     }
   ],
@@ -2143,6 +2168,24 @@
       ],
       "target": "SELF",
       "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 142,
+      "name": "Leaf Storm",
+      "power": 130,
+      "pp": 5,
+      "type": 1,
+      "category": "SPECIAL",
+      "accuracy": 90,
+      "description": "The user whips up a storm of leaves around the target. The attack's recoil harshly lowers the user's Sp. Atk stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK"
+      ],
+      "target": "SELF",
+      "multiplicator": 0.5,
       "status": [],
       "highCritRate": false
     }
