@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "description": "Beat the Pokemon League",
+    "pokemonReward": [143],
+    "itemRewards": []
+  },
+  {
+    "id": 2,
+    "description": "Beat the Pokemon League a second time",
+    "pokemonReward": [142],
+    "itemRewards": []
+  },
+  {
+    "id": 3,
+    "description": "Beat Dugtrio with a team of Pokemon below level 35",
+    "pokemonReward": [],
+    "itemRewards": [52]
+  },
+  {
+    "id": 4,
+    "description": "Beat Articuno with a team of Pokemon below level 55",
+    "pokemonReward": [144],
+    "itemRewards": []
+  },
+  {
+    "id": 5,
+    "description": "Beat Sulfura with a team of Pokemon below level 70",
+    "pokemonReward": [146],
+    "itemRewards": []
+  },
+  {
+    "id": 6,
+    "description": "Beat Electhor without using any ground types Pokemon",
+    "pokemonReward": [145],
+    "itemRewards": []
+  },
+  {
+    "id": 7,
+    "description": "Catch Entei",
+    "pokemonReward": [],
+    "itemRewards": [50]
+  },
+  {
+    "id": 8,
+    "description": "Catch Raikou",
+    "pokemonReward": [],
+    "itemRewards": [49]
+  },
+  {
+    "id": 9,
+    "description": "Catch Suicune",
+    "pokemonReward": [],
+    "itemRewards": [55]
+  },
+  {
+    "id": 10,
+    "description": "Beat the Pokemon League with only 4 Pokemons",
+    "pokemonReward": [251],
+    "itemRewards": []
+  },
+  {
+    "id": 11,
+    "description": "Beat the Tower Tycoon",
+    "pokemonReward": [],
+    "itemRewards": [138]
+  },
+  {
+    "id": 12,
+    "description": "Beat the Tower Tycoon a second time",
+    "pokemonReward": [150],
+    "itemRewards": []
+  },
+  {
+    "id": 13,
+    "description": "Win 25 times in a row in the Battle Factory",
+    "pokemonReward": [],
+    "itemRewards": []
+  },
+  {
+    "id": 14,
+    "description": "Face all the gym leaders a second time",
+    "pokemonReward": [],
+    "itemRewards": []
+  },
+  {
+    "id": 15,
+    "description": "Beat the last level of the game with only 3 Pokemons",
+    "pokemonReward": [150],
+    "itemRewards": []
+  }
+]

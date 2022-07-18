@@ -3,6 +3,7 @@ package com.pokemon.android.version.ui
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
@@ -24,6 +25,7 @@ class BannerRecyclerAdapter(
         var costTextView: TextView = itemView.findViewById(R.id.bannerCostTextView)
         var spriteView: ImageView = itemView.findViewById(R.id.bannerImageView)
         var summonButton: Button = itemView.findViewById(R.id.summonButton)
+        var arrowImageView: ImageView = itemView.findViewById(R.id.arrowImageView)
     }
 
     override fun getItemCount(): Int {
@@ -39,6 +41,16 @@ class BannerRecyclerAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = data[position]
+        if (position == 0 && position == data.size - 1)
+            holder.arrowImageView.visibility = GONE
+        if (position == 0){
+            val img: InputStream = activity.assets.open("images/right.png")
+            holder.arrowImageView.setImageDrawable(Drawable.createFromStream(img, "images/right.png"))
+        }
+        if (position == data.size - 1) {
+            val img: InputStream = activity.assets.open("images/left.png")
+            holder.arrowImageView.setImageDrawable(Drawable.createFromStream(img, "images/left.png"))
+        }
         holder.descriptionTextView.text = currentItem.description
         holder.costTextView.text = "COST: ${currentItem.cost} AndroCoins"
         holder.itemView.tag = position
