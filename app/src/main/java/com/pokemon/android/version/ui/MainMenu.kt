@@ -27,6 +27,7 @@ class MainMenu {
     var bannerMenu: BannerMenu = BannerMenu()
     var levelMenu: LevelMenu = LevelMenu()
     var itemMenu: ItemMenu = ItemMenu()
+    var battleFrontierMenu = BattleFrontierMenu()
 
     fun loadGameMenu(activity: MainActivity) {
         activity.setContentView(R.layout.main_menu)
@@ -53,9 +54,9 @@ class MainMenu {
         }
         val adventureButton: Button = activity.findViewById(R.id.adventureButton)
         if (activity.eliteMode) {
-            adventureButton.text = "POKEMON LEAGUE"
+            adventureButton.text = activity.getString(R.string.pokemon_league)
             val adventureDescriptionTextView: TextView = activity.findViewById(R.id.adventureDescriptionTextView)
-            adventureDescriptionTextView.text = "Face the elite 4 to become the champion."
+            adventureDescriptionTextView.text = activity.getString(R.string.face_elite)
         }
         adventureButton.setOnClickListener {
             if (activity.eliteMode)
@@ -89,6 +90,16 @@ class MainMenu {
                 loadGameMenu(activity)
             }
         }
+        val battleFrontierButton: Button = activity.findViewById(R.id.battleFrontierButton)
+        if (!activity.eliteMode && activity.trainer!!.progression > 50) {
+            battleFrontierButton.setOnClickListener {
+                battleFrontierMenu.loadMenu(activity)
+            }
+        } else {
+            battleFrontierButton.visibility = GONE
+            val battleFrontierTextView: TextView = activity.findViewById(R.id.BattleFrontierTextView)
+            battleFrontierTextView.visibility = GONE
+        }
     }
 
     private fun loadTrainerCardMenu(activity: MainActivity) {
@@ -97,9 +108,14 @@ class MainMenu {
         backButton.setOnClickListener {
             loadGameMenu(activity)
         }
-        val championTextView: TextView = activity.findViewById(R.id.championTextView)
+        val achievementsButton: TextView = activity.findViewById(R.id.achievementsButton)
         if (activity.trainer!!.progression < LevelMenu.ELITE_4_LAST_LEVEL_ID)
-            championTextView.visibility = GONE
+            achievementsButton.visibility = GONE
+        else{
+            achievementsButton.setOnClickListener {
+                loadAchievementsMenu(activity)
+            }
+        }
         val trainerSpriteTextView: ImageView = activity.findViewById(R.id.trainerSpriteTextView)
         val filename = if (activity.trainer!!.gender == Gender.MALE) BOY_SPRITE else GIRL_SPRITE
         val img: InputStream = activity.assets.open(filename)
@@ -107,9 +123,9 @@ class MainMenu {
         val nameTextView: TextView = activity.findViewById(R.id.trainerNameTextView)
         nameTextView.text = activity.trainer!!.name
         val androCoinTextView: TextView = activity.findViewById(R.id.androCoinTextView)
-        androCoinTextView.text = activity.trainer!!.coins.toString() + " AndroCoins"
+        androCoinTextView.text = activity.getString(R.string.andro_coins, activity.trainer!!.coins)
         val maxLevelTextView: TextView = activity.findViewById(R.id.maxLevelTextView)
-        maxLevelTextView.text = "Your Pokemon will gain experience up to level " + activity.trainer!!.getMaxLevel()
+        maxLevelTextView.text = activity.getString(R.string.exp_limit, activity.trainer!!.getMaxLevel())
         val recyclerView = activity.findViewById<RecyclerView>(R.id.badgesRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         val adapter = ItemRecyclerAdapter(
@@ -117,7 +133,19 @@ class MainMenu {
             ArrayList(
                 ItemQuantity.createItemQuantityFromHashMap(activity.trainer!!.items)
                     .filter { ItemUtils.isBadge(it.itemId) })
-        ){}
+        ) {}
+        recyclerView.adapter = adapter
+    }
+
+    private fun loadAchievementsMenu(activity: MainActivity) {
+        activity.setContentView(R.layout.achievements_menu)
+        val backButton: Button = activity.findViewById(R.id.achievementsMenuBackButton)
+        backButton.setOnClickListener {
+            loadTrainerCardMenu(activity)
+        }
+        val recyclerView = activity.findViewById<RecyclerView>(R.id.achievementsRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        val adapter = AchievementRecyclerAdapter(activity, activity.gameDataService.achievements)
         recyclerView.adapter = adapter
     }
 }

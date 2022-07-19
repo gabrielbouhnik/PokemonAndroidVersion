@@ -4,7 +4,7 @@ import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.entity.level.PokemonOpponentTrainerEntity
 import com.pokemon.android.version.model.move.Move
 
-class PokemonOpponentTrainerData(var id: Int, var level: Int, var moves: List<Move>) {
+open class PokemonOpponentTrainerData(var id: Int, var level: Int, var moves: List<Move>) {
     companion object {
         fun of(
             pokemonOpponentTrainerEntity: PokemonOpponentTrainerEntity,

@@ -14,8 +14,9 @@ class RecoilMove(
     priorityLevel: Int = 0,
     status: ArrayList<StatusMove>,
     highCritRate: Boolean = false,
+    description: String,
     var recoil: Recoil
-) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate) {
+) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description) {
     companion object {
         fun of(recoilMoveEntity: RecoilMoveEntity): RecoilMove {
             return RecoilMoveBuilder()
@@ -30,6 +31,7 @@ class RecoilMove(
                 .highCritRate(recoilMoveEntity.highCritRate)
                 .status(ArrayList(recoilMoveEntity.status.map(StatusMove::of)))
                 .recoil(Recoil.valueOf(recoilMoveEntity.recoil))
+                .description(recoilMoveEntity.description)
                 .build()
         }
     }
@@ -45,6 +47,7 @@ class RecoilMove(
         var priorityLevel: Int = 0,
         var status: ArrayList<StatusMove> = arrayListOf(),
         var highCritRate: Boolean = false,
+        var description: String = "",
         var recoil: Recoil = Recoil.ALL
     ) {
         fun id(id: Int) = apply { this.id = id }
@@ -56,10 +59,11 @@ class RecoilMove(
         fun accuracy(accuracy: Int) = apply { this.accuracy = accuracy }
         fun priorityLevel(priorityLevel: Int) = apply { this.priorityLevel = priorityLevel }
         fun highCritRate(highCritRate: Boolean) = apply { this.highCritRate = highCritRate }
+        fun description(description: String) = apply { this.description = description }
         fun status(status: ArrayList<StatusMove>) = apply { this.status = status }
         fun recoil(recoil: Recoil) = apply { this.recoil = recoil }
 
         fun build() =
-            RecoilMove(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, recoil)
+            RecoilMove(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description, recoil)
     }
 }

@@ -15,7 +15,8 @@ import com.pokemon.android.version.model.Pokemon
 class PokemonRecyclerAdapter(
     val activity: MainActivity,
     val data: MutableList<Pokemon>,
-    private val onItemClickListener: View.OnClickListener
+    private val onItemClickListener: View.OnClickListener,
+    private val displayCanEvolve : Boolean
 ) :
     RecyclerView.Adapter<PokemonRecyclerAdapter.ViewHolder>() {
 
@@ -43,7 +44,7 @@ class PokemonRecyclerAdapter(
         holder.itemView.tag = position
         holder.nameTextView.text = currentItem.data.name
         holder.hpLevelTextView.text = "Level  ${currentItem.level}  ${currentItem.currentHP}/${currentItem.hp}"
-        if (currentItem.canEvolve())
+        if (displayCanEvolve && currentItem.canEvolve())
             holder.canEvolveTextView.visibility = VISIBLE
         Glide.with(activity)
             .load(MainActivity.pokemonSpritesUrl + currentItem.data.id + ".png")

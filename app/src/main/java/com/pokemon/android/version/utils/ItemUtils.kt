@@ -4,6 +4,8 @@ import com.pokemon.android.version.model.item.*
 
 class ItemUtils {
     companion object {
+        const val POKEBALL_ID = 11
+
         fun isBall(itemId: Int): Boolean {
             return itemId in 11..15
         }

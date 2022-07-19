@@ -46,11 +46,12 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.492" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_bias="0.637" android:id="@+id/badgesRecyclerView"/>
-    <TextView
-            android:text="The champion of the Kanto Region"
-            android:layout_width="124dp"
-            android:layout_height="58dp" android:id="@+id/championTextView"
-            app:layout_constraintTop_toBottomOf="@+id/trainerSpriteTextView"
+    <Button
+            android:text="Achievements"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/achievementsButton"
             app:layout_constraintEnd_toStartOf="@+id/maxLevelTextView" app:layout_constraintStart_toStartOf="parent"
-            android:textSize="14sp" android:textAlignment="center"/>
+            android:layout_marginTop="1dp" app:layout_constraintTop_toBottomOf="@+id/trainerSpriteTextView"
+            android:layout_marginBottom="19dp" app:layout_constraintBottom_toTopOf="@+id/badgesRecyclerView"
+            android:backgroundTint="#F44336"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

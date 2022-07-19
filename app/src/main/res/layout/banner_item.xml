@@ -6,8 +6,8 @@
                                                    android:layout_height="wrap_content">
 
     <ImageView
-            android:layout_width="262dp"
-            android:layout_height="258dp" app:srcCompat="@drawable/ic_launcher_background"
+            android:layout_width="260dp"
+            android:layout_height="260dp" app:srcCompat="@drawable/ic_launcher_background"
             android:id="@+id/bannerImageView" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.496" app:layout_constraintBottom_toBottomOf="parent"
@@ -22,7 +22,7 @@
             android:backgroundTint="#F44336" android:textSize="30sp"/>
     <TextView
             android:text="TextView"
-            android:layout_width="275dp"
+            android:layout_width="250dp"
             android:layout_height="80dp" android:id="@+id/bannerDescriptionTextView"
             app:layout_constraintBottom_toTopOf="@+id/summonButton"
             app:layout_constraintTop_toBottomOf="@+id/bannerImageView" app:layout_constraintEnd_toEndOf="parent"
@@ -35,4 +35,13 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/summonButton" android:textSize="18sp"
             android:textStyle="bold" android:textAlignment="center"/>
+    <ImageView
+            android:layout_width="120dp"
+            android:layout_height="60dp" android:id="@+id/arrowImageView"
+            android:textColor="#F44336" android:textSize="60sp"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.0" app:layout_constraintTop_toBottomOf="@+id/bannerCostTextView"
+            app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">Pokemon Android Version</string>
+    <string name="win_streak">Win Streak: %d</string>
+    <string name="wild_encounter">You encountered a wild %1$s</string>
+    <string name="trainer_encounter">%1$s wants to battle</string>
+    <string name="boss_encounter">%1$s appeared!\nIt looks very powerful and is not the kind to be caught.</string>
+    <string name="see_rewards">See Rewards</string>
+    <string name="hall_of_fame">Hall of fame</string>
+    <string name="go_forward">Go forward</string>
+    <string name="battle">BATTLE</string>
+    <string name="exit">Exit</string>
+    <string name="pokemon_league">POKEMON LEAGUE</string>
+    <string name="face_elite">Face the elite 4 to become the champion.</string>
+    <string name="battle_frontier_encounter">A trainer from the Battle Frontier wants to battle</string>
+    <string name="move_pp">%1$d/%2$d</string>
+    <string name="pokemon_battle_info">Lv . %1$d %2$d/%3$d</string>
+    <string name="level">Level %d</string>
+    <string name="hp">HP: %1$d/%2$d</string>
+    <string name="attack">Attack: %d</string>
+    <string name="defense">Defense: %d</string>
+    <string name="spAtk">SpAtk: %d</string>
+    <string name="spDef">SpDef: %d</string>
+    <string name="speed">Speed: %d</string>
+    <string name="andro_coins">%d AndroCoins</string>
+    <string name="exp_limit">Your Pokemon will gain experience up to level %d</string>
+    <string name="summon_pokemon">You got a %s!</string>
+    <string name="summon_item">You earned a %s!</string>
+    <string name="move_info">
+        power: %1$d\n
+        type: %2$s\n
+        pp: %3$d\n
+        accuracy: %4$s\n
+    </string>
 </resources>

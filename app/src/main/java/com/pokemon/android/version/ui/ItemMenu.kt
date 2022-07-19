@@ -20,7 +20,7 @@ class ItemMenu {
         val backButton: Button = activity.findViewById(R.id.itemMenuBackButton)
         backButton.setOnClickListener {
             if (pokemon != null)
-                activity.mainMenu.pokemonMenu.loadPokemonInfoLayout(activity, pokemon)
+                activity.mainMenu.pokemonMenu.pokemonInfoMenu.loadPokemonInfoLayout(activity, pokemon)
             else
                 activity.mainMenu.loadGameMenu(activity)
         }
@@ -34,7 +34,7 @@ class ItemMenu {
                 val position = it.tag as Int
                 if (ItemUtils.getItemById(items[position].itemId).isUsable(pokemon)) {
                     activity.trainer!!.useItem(items[position].itemId, pokemon)
-                    activity.mainMenu.pokemonMenu.loadPokemonInfoLayout(activity, pokemon)
+                    activity.mainMenu.pokemonMenu.pokemonInfoMenu.loadPokemonInfoLayout(activity, pokemon)
                     SaveManager.save(activity)
                 } else {
                     Toast.makeText(activity, "This item cannot be used on this Pokemon", Toast.LENGTH_SHORT).show()

@@ -29,6 +29,14 @@ class HealUtils {
                 pokemon.move4!!.pp = pokemon.move4!!.move.pp
         }
 
+        fun healTeam(team: List<Pokemon>){
+            team.forEach {
+                it.currentHP = it.hp
+                it.status = Status.OK
+                healPP(it)
+            }
+        }
+
         fun dailyHeal(trainer: Trainer) {
             trainer.pokemons.forEach {
                 it.currentHP = it.hp
