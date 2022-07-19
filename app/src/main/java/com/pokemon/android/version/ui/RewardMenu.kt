@@ -45,18 +45,17 @@ class RewardMenu {
 
     fun loadRewardMenu(activity: MainActivity, levelData: LevelData, firstTime: Boolean) {
         activity.setContentView(R.layout.reward_layout)
-        if( (activity.trainer!!.progression > LevelMenu.ELITE_4_FIRST_LEVEL_ID))
+        if (activity.trainer!!.progression > LevelMenu.ELITE_4_FIRST_LEVEL_ID) {
             updateAchievements(activity, levelData)
+            if (levelData is LeaderLevelData && !activity.trainer!!.achievements!!.leadersDefeatedAfterTheLeague.contains(levelData.id))
+                    activity.trainer!!.achievements!!.leadersDefeatedAfterTheLeague.add(levelData.id)
+        }
         if (firstTime && levelData.id == 51) {
             activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(131, 25))
         }
         val battleAgainButton: Button = activity.findViewById(R.id.battleAgainButton)
         if (levelData.id == 99)
             battleAgainButton.visibility = GONE
-        else if (levelData is LeaderLevelData){
-            if (!activity.trainer!!.achievements!!.leadersDefeatedAfterTheLeague.contains(levelData.id))
-                activity.trainer!!.achievements!!.leadersDefeatedAfterTheLeague.add(levelData.id)
-        }
         battleAgainButton.setOnClickListener {
             when (levelData) {
                 is WildBattleLevelData -> activity.mainMenu.levelMenu.battleUI.startWildBattle(activity, levelData)
@@ -82,7 +81,7 @@ class RewardMenu {
         recyclerView.adapter = adapter
         levelData.rewards.forEach {
             if (ItemUtils.isBadge(it.itemId)) {
-                if (firstTime)
+                if (!activity.trainer!!.items.contains(it.itemId))
                     activity.trainer!!.addItem(it.itemId, it.quantity)
             } else if (it.itemId == 0) {
                 if (levelData is LeaderLevelData
