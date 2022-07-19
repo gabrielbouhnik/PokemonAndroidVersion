@@ -13,10 +13,12 @@ import com.pokemon.android.version.model.level.LevelFactory
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveFactory
+import com.pokemon.android.version.model.move.Stats
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.repository.*
 import com.pokemon.android.version.ui.BattleFrontierMenu
 import com.pokemon.android.version.ui.LevelMenu
+import com.pokemon.android.version.utils.StatUtils
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.roundToInt
@@ -71,72 +73,30 @@ class GameDataService {
 
     fun generatePokemon(id: Int, level: Int): Pokemon {
         val pokemonData: PokemonData = pokemons.first { it.id == id }
-        val hp: Int = 10 + (pokemonData.hp.toFloat() * (level / 50f)).roundToInt()
-        val attack: Int = 5 + (pokemonData.attack.toFloat() * (level / 50f)).roundToInt()
-        val defense: Int = 5 + (pokemonData.defense.toFloat() * (level / 50f)).roundToInt()
-        val spAtk: Int = 5 + (pokemonData.spAtk.toFloat() * (level / 50f)).roundToInt()
-        val spDef: Int = 5 + (pokemonData.spDef.toFloat() * (level / 50f)).roundToInt()
-        val speed: Int = 5 + (pokemonData.speed.toFloat() * (level / 50f)).roundToInt()
-        val moves: List<PokemonMove> =
-            pokemonData.movesByLevel.filter { it.level <= level }.map { PokemonMove(it.move, it.move.pp) }.reversed()
-        val move1: PokemonMove = moves.first()
-        val move2: PokemonMove? = if (moves.size < 2) null else moves[1]
-        val move3: PokemonMove? = if (moves.size < 3) null else moves[2]
-        val move4: PokemonMove? = if (moves.size < 4) null else moves[3]
-        return Pokemon.PokemonBuilder()
-            .data(pokemonData)
-            .level(level)
-            .hp(hp)
-            .attack(attack)
-            .defense(defense)
-            .spAtk(spAtk)
-            .spDef(spDef)
-            .speed(speed)
-            .currentHP(hp)
-            .move1(move1)
-            .move2(move2)
-            .move3(move3)
-            .move4(move4)
-            .build()
+        val possibleMoves: List<Move> = pokemonData.movesByLevel.filter { it.level <= level }.map{it.move}.reversed()
+        val moveSet : ArrayList<Move> = arrayListOf()
+        moveSet.add(possibleMoves.first())
+        if (possibleMoves.size > 2)
+            moveSet.add(possibleMoves[1])
+        if (possibleMoves.size > 3)
+            moveSet.add(possibleMoves[2])
+        if (possibleMoves.size > 4)
+            moveSet.add(possibleMoves[3])
+        return generatePokemonWithMoves(id, level, moveSet)
     }
 
     fun generatePokemonFromBanner(pokemonBanner: PokemonBanner): Pokemon {
-        val hp: Int = 10 + (pokemonBanner.pokemonData.hp.toFloat() * 0.1).roundToInt()
-        val attack: Int = 5 + (pokemonBanner.pokemonData.attack.toFloat() * 0.1).roundToInt()
-        val defense: Int = 5 + (pokemonBanner.pokemonData.defense.toFloat() * 0.1).roundToInt()
-        val spAtk: Int = 5 + (pokemonBanner.pokemonData.spAtk.toFloat() * 0.1).roundToInt()
-        val spDef: Int = 5 + (pokemonBanner.pokemonData.spDef.toFloat() * 0.1).roundToInt()
-        val speed: Int = 5 + (pokemonBanner.pokemonData.speed.toFloat() * 0.1).roundToInt()
-        val move1 = PokemonMove(pokemonBanner.move1)
-        val move2 = if (pokemonBanner.move2 == null) null else PokemonMove(pokemonBanner.move2!!)
-        val move3 = if (pokemonBanner.move3 == null) null else PokemonMove(pokemonBanner.move3!!)
-        val move4 = if (pokemonBanner.move4 == null) null else PokemonMove(pokemonBanner.move4!!)
-        return Pokemon.PokemonBuilder()
-            .data(pokemonBanner.pokemonData)
-            .level(5)
-            .hp(hp)
-            .attack(attack)
-            .defense(defense)
-            .spAtk(spAtk)
-            .spDef(spDef)
-            .speed(speed)
-            .currentHP(hp)
-            .move1(move1)
-            .move2(move2)
-            .move3(move3)
-            .move4(move4)
-            .isFromBanner(true)
-            .build()
+        return generatePokemonWithMoves(pokemonBanner.pokemonId, 5, pokemonBanner.moves)
     }
 
     fun generatePokemonWithMoves(id: Int, level: Int, moves: List<Move>): Pokemon {
         val pokemonData: PokemonData = pokemons.first { it.id == id }
-        val hp: Int = 10 + (pokemonData.hp.toFloat() * (level / 50f)).roundToInt()
-        val attack: Int = 5 + (pokemonData.attack.toFloat() * (level / 50f)).roundToInt()
-        val defense: Int = 5 + (pokemonData.defense.toFloat() * (level / 50f)).roundToInt()
-        val spAtk: Int = 5 + (pokemonData.spAtk.toFloat() * (level / 50f)).roundToInt()
-        val spDef: Int = 5 + (pokemonData.spDef.toFloat() * (level / 50f)).roundToInt()
-        val speed: Int = 5 + (pokemonData.speed.toFloat() * (level / 50f)).roundToInt()
+        val hp: Int = StatUtils.computeHP(pokemonData,level)
+        val attack: Int = StatUtils.computeStat(pokemonData, level, Stats.ATTACK)
+        val defense: Int = StatUtils.computeStat(pokemonData, level, Stats.DEFENSE)
+        val spAtk: Int = StatUtils.computeStat(pokemonData, level, Stats.SPATK)
+        val spDef: Int = StatUtils.computeStat(pokemonData, level, Stats.SPDEF)
+        val speed: Int = StatUtils.computeStat(pokemonData, level, Stats.SPEED)
         val move1 = PokemonMove(moves[0])
         val move2: PokemonMove? = if (moves.size < 2) null else PokemonMove(moves[1])
         val move3: PokemonMove? = if (moves.size < 3) null else PokemonMove(moves[2])

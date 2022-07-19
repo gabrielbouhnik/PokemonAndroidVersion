@@ -23,6 +23,9 @@ class MoveDetailsMenu(var parent: Int) {
             if (parent == R.layout.battle_frontier_prep){
                 activity.mainMenu.battleFrontierMenu.loadPokemonInfoLayout(activity, pokemon, area!!)
             }
+            else if (parent == R.layout.move_layout) {
+                activity.mainMenu.pokemonMenu.pokemonInfoMenu.loadMovesLayout(activity, pokemon)
+            }
             else{
                 activity.mainMenu.pokemonMenu.pokemonInfoMenu.loadPokemonInfoLayout(activity, pokemon)
             }

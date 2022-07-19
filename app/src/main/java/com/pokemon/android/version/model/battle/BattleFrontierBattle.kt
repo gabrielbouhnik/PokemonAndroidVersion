@@ -4,6 +4,7 @@ import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Pokemon
+import com.pokemon.android.version.model.PokemonData
 import kotlin.random.Random
 
 class BattleFrontierBattle() : Battle() {
@@ -16,9 +17,24 @@ class BattleFrontierBattle() : Battle() {
             return team.map{(id, moveSets) -> gameDataService.generatePokemonWithMoves(id,50,moveSets[Random.nextInt(moveSets.size)])}
         }
 
-        /*fun generateTrainerTeam(gameDataService: GameDataService) : List<Pokemon>{
-            return generateTrainerTeam(gameDataService)
-        }*/
+        private fun haveSameTypes(data1 : PokemonData, data2 : PokemonData) : Boolean{
+            return (data1.type1 == data2.type1 && data1.type2 == data2.type2)
+                    || (data1.type1 == data2.type2 && data1.type2 == data2.type1)
+        }
+
+        private fun haveATypeInCommon(data1 : PokemonData, data2 : PokemonData, data3 : PokemonData) : Boolean{
+            return (data1.type1 == data2.type1 || data1.type1 == data2.type2)
+                    && (data1.type1 == data3.type1 || data1.type1 == data3.type2)
+        }
+
+        fun generateTrainerTeam(gameDataService: GameDataService) : List<Pokemon> {
+            var team = generateTeam(gameDataService)
+            while((haveSameTypes(team[0].data, team[1].data) && haveSameTypes(team[1].data, team[2].data))
+                || haveATypeInCommon(team[0].data, team[1].data,team[2].data)){
+                team = generateTeam(gameDataService)
+            }
+            return team
+        }
     }
     lateinit var opponentTrainer: OpponentTrainer
     var team : List<Pokemon> = listOf()

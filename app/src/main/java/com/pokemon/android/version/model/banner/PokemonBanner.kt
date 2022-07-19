@@ -6,24 +6,14 @@ import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.move.Move
 
 class PokemonBanner(
-    var pokemonData: PokemonData,
-    var move1: Move,
-    var move2: Move?,
-    var move3: Move?,
-    var move4: Move?,
+    var pokemonId: Int,
+    var name: String,
+    var moves : List<Move>,
     private var rate: Int
 ) : Summonable {
     companion object {
         fun of(pokemonBannerEntity: PokemonBannerEntity, gameDataService: GameDataService): PokemonBanner {
-            val data = gameDataService.getPokemonDataById(pokemonBannerEntity.id)
-            val move1 = gameDataService.getMoveById(pokemonBannerEntity.moveIds[0])
-            val move2 =
-                if (pokemonBannerEntity.moveIds.size > 1) gameDataService.getMoveById(pokemonBannerEntity.moveIds[1]) else null
-            val move3 =
-                if (pokemonBannerEntity.moveIds.size > 2) gameDataService.getMoveById(pokemonBannerEntity.moveIds[2]) else null
-            val move4 =
-                if (pokemonBannerEntity.moveIds.size > 3) gameDataService.getMoveById(pokemonBannerEntity.moveIds[3]) else null
-            return PokemonBanner(data, move1, move2, move3, move4, pokemonBannerEntity.rate)
+            return PokemonBanner(pokemonBannerEntity.id, gameDataService.getPokemonDataById(pokemonBannerEntity.id).name, pokemonBannerEntity.moveIds.map{gameDataService.getMoveById(it)},pokemonBannerEntity.rate)
         }
     }
 

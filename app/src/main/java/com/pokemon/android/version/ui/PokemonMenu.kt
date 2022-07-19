@@ -13,10 +13,6 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Pokemon
-import com.pokemon.android.version.model.Status
-import com.pokemon.android.version.model.move.Move
-import com.pokemon.android.version.model.move.pokemon.PokemonMove
-import com.pokemon.android.version.utils.MoveUtils
 
 class PokemonMenu {
     var pokemonInfoMenu = PokemonInfoMenu(R.layout.pokemons_menu)

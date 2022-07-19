@@ -9,6 +9,7 @@ import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.MoveUtils
+import com.pokemon.android.version.utils.StatUtils
 import kotlin.math.roundToInt
 import kotlin.random.Random
 import kotlin.random.nextInt
@@ -62,16 +63,17 @@ class Pokemon(
 
     companion object {
         fun of(pokemonSave: PokemonSave, gameDataService: GameDataService, trainer: Trainer): Pokemon {
-            return PokemonBuilder().data(gameDataService.getPokemonDataById(pokemonSave.id))
+            val data = gameDataService.getPokemonDataById(pokemonSave.id)
+            return PokemonBuilder().data(data)
                 .level(pokemonSave.level)
                 .trainer(trainer)
                 .status(Status.valueOf(pokemonSave.status))
-                .hp(pokemonSave.hp)
-                .attack(pokemonSave.attack)
-                .defense(pokemonSave.defense)
-                .spAtk(pokemonSave.spAtk)
-                .spDef(pokemonSave.spDef)
-                .speed(pokemonSave.speed)
+                .hp(StatUtils.computeHP(data,pokemonSave.level))
+                .attack(StatUtils.computeStat(data,pokemonSave.level,Stats.ATTACK))
+                .defense(StatUtils.computeStat(data,pokemonSave.level,Stats.DEFENSE))
+                .spAtk(StatUtils.computeStat(data,pokemonSave.level,Stats.SPATK))
+                .spDef(StatUtils.computeStat(data,pokemonSave.level,Stats.SPDEF))
+                .speed(StatUtils.computeStat(data,pokemonSave.level,Stats.SPEED))
                 .currentHP(pokemonSave.currentHP)
                 .currentExp(pokemonSave.currentExp)
                 .move1(PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[0].id), pokemonSave.moveids[0].pp))
@@ -113,7 +115,7 @@ class Pokemon(
                 if (Status.isAffectedByStatus(it.status, opponent) && it.probability == null)
                     return move
             }
-            if (move.move is HealMove && hp / currentHP < 40)
+            if (move.move is HealMove && hp / currentHP > 40)
                 return move
             if (move.move is StatChangeMove) {
                 val statChangeMove: StatChangeMove = move.move as StatChangeMove
@@ -235,12 +237,12 @@ class Pokemon(
 
     private fun recomputeStat() {
         val addHP: Boolean = hp == currentHP
-        this.hp = 10 + (data.hp.toFloat() * (level / 50f)).roundToInt()
-        this.attack = 5 + (data.attack.toFloat() * (level / 50f)).roundToInt()
-        this.defense = 5 + (data.defense.toFloat() * (level / 50f)).roundToInt()
-        this.spAtk = 5 + (data.spAtk.toFloat() * (level / 50f)).roundToInt()
-        this.spDef = 5 + (data.spDef.toFloat() * (level / 50f)).roundToInt()
-        this.speed = 5 + (data.speed.toFloat() * (level / 50f)).roundToInt()
+        this.hp = StatUtils.computeHP(data, level)
+        this.attack = StatUtils.computeStat(data, level, Stats.ATTACK)
+        this.defense = StatUtils.computeStat(data, level, Stats.DEFENSE)
+        this.spAtk = StatUtils.computeStat(data, level, Stats.SPATK)
+        this.spDef = StatUtils.computeStat(data, level, Stats.SPDEF)
+        this.speed = StatUtils.computeStat(data, level, Stats.SPEED)
         if (addHP)
             currentHP = hp
     }

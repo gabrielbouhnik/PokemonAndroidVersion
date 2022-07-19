@@ -19,8 +19,8 @@ class BossBattle() : Battle() {
             bossBattleLevelData.boss.level,
             bossBattleLevelData.boss.moves
         )
-        this.opponent.hp *= 4
-        this.opponent.currentHP *= 4
+        this.opponent.hp *= 3
+        this.opponent.currentHP *= 3
         Stats.increaseBossStats(opponent, bossBattleLevelData.boss.boostedStats)
     }
 

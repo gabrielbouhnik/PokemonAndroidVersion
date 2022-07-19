@@ -11,6 +11,7 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
+import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.battle.BattleFrontierArea
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
@@ -37,6 +38,17 @@ class PokemonInfoMenu(var parentId: Int) {
         spDefTextView.text = activity.getString(R.string.spDef, pokemon.spDef)
         val speedTextView: TextView = activity.findViewById(R.id.speedTextView)
         speedTextView.text = activity.getString(R.string.speed, pokemon.speed)
+
+        val type1TextView: TextView = activity.findViewById(R.id.type1TextView)
+        type1TextView.setTextColor(ColorUtils.getColorByType(pokemon.data.type1))
+        type1TextView.text = pokemon.data.type1.toString()
+
+        val type2TextView: TextView = activity.findViewById(R.id.type2TextView)
+        if (pokemon.data.type2 != Type.NONE) {
+            type2TextView.setTextColor(ColorUtils.getColorByType(pokemon.data.type2))
+            type2TextView.text = pokemon.data.type2.toString()
+        }
+
         val imageView: ImageView = activity.findViewById(R.id.pokemonSpriteDetailsView)
         activity.displayPokemon(pokemon.data.id, imageView)
     }
@@ -70,7 +82,7 @@ class PokemonInfoMenu(var parentId: Int) {
         }
     }
 
-    private fun loadMovesLayout(activity: MainActivity, pokemon: Pokemon) {
+    fun loadMovesLayout(activity: MainActivity, pokemon: Pokemon) {
         var selectedMoveNumber: Int? = null
         activity.setContentView(R.layout.move_layout)
         val backButton: Button = activity.findViewById(R.id.moveMenuBackButton)
@@ -92,6 +104,7 @@ class PokemonInfoMenu(var parentId: Int) {
             val position = it.tag as Int
             if (currentMoves.size < 4) {
                 pokemon.autoLearnMove(possibleMoves[position])
+                activity.playSoundEffect(R.raw.evolve_sound_effect)
                 loadPokemonInfoLayout(activity, pokemon)
             } else if (selectedMoveNumber != null) {
                 val pokemonMove = PokemonMove(possibleMoves[position], possibleMoves[position].pp)
@@ -103,6 +116,9 @@ class PokemonInfoMenu(var parentId: Int) {
                 }
                 activity.playSoundEffect(R.raw.evolve_sound_effect)
                 loadPokemonInfoLayout(activity, pokemon)
+            }
+            else{
+                MoveDetailsMenu(R.layout.move_layout).loadMoveMenu(activity, pokemon,possibleMoves[position], null)
             }
         }
         movesRecyclerView.adapter = MoveRecyclerAdapter(activity, possibleMoves, movesItemClickListener)
@@ -138,7 +154,8 @@ class PokemonInfoMenu(var parentId: Int) {
         val healButton: Button = activity.findViewById(R.id.healButton)
         healButton.setOnClickListener {
             activity.trainer!!.heal(pokemon)
-            statusTextView.text = pokemon.status.toString()
+            if (pokemon.status == Status.OK)
+                statusTextView.text = ""
             displayPokemonInfo(activity, pokemon)
             displayMoveButtons(activity, pokemon, null)
         }

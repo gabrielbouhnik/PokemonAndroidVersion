@@ -158,7 +158,7 @@ class BattleFrontierMenu {
             if (activity.trainer!!.battleFactoryProgression == null) {
                 activity.trainer!!.battleFactoryProgression = BattleFrontierProgression(
                     0,
-                    BattleFrontierBattle.generateTeam(activity.gameDataService).toMutableList()
+                    BattleFrontierBattle.generateTrainerTeam(activity.gameDataService).toMutableList()
                 )
             }
             loadBattlePrepLayout(activity, BattleFrontierArea.BATTLE_FACTORY)

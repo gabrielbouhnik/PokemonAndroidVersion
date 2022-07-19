@@ -44,7 +44,7 @@ class BannerMenu {
         }
         val resultTextView: TextView = activity.findViewById(R.id.summonResultTextView)
         if (s is PokemonBanner) {
-            resultTextView.text = activity.getString(R.string.summon_pokemon,s.pokemonData.name)
+            resultTextView.text = activity.getString(R.string.summon_pokemon,s.name)
         } else {
             resultTextView.text = activity.getString(R.string.summon_item,activity.gameDataService.items[(s as ItemBanner).id].name)
         }
