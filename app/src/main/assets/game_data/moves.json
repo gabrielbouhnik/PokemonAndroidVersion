@@ -92,19 +92,6 @@
       "highCritRate": false
     },
     {
-      "id": 13,
-      "name": "Iron Tail",
-      "power": 100,
-      "pp": 15,
-      "type": 16,
-      "category": "PHYSICAL",
-      "accuracy": 75,
-      "description": "",
-      "priorityLevel": 0,
-      "status": [],
-      "highCritRate": false
-    },
-    {
       "id": 14,
       "name": "Mach Punch",
       "power": 40,
@@ -112,7 +99,7 @@
       "type": 11,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user throws a punch at blinding speed. This move always goes first.",
       "priorityLevel": 1,
       "status": [],
       "highCritRate": false
@@ -138,7 +125,7 @@
       "type": 9,
       "category": "PHYSICAL",
       "accuracy": 90,
-      "description": "",
+      "description": "The user picks up and throws a small rock at the target to attack.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -281,7 +268,7 @@
       "type": 6,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "A corkscrewing attack that strikes the target with a sharp beak acting as a drill.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -346,7 +333,7 @@
       "type": 15,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user slashes the target with huge sharp claws.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -503,7 +490,7 @@
       "type": 5,
       "category": "PHYSICAL",
       "accuracy": 90,
-      "description": "",
+      "description": "The user bites hard on the target with its sharp front fangs. This may also make the target flinch.",
       "priorityLevel": 0,
       "status": [
         {
@@ -539,7 +526,7 @@
       "type": 8,
       "category": "OTHER",
       "accuracy": 75,
-      "description": "",
+      "description": "The user scatters a cloud of poisonous dust that poisons the target.",
       "priorityLevel": 0,
       "status": [
         {
@@ -930,7 +917,7 @@
       "type": 8,
       "category": "SPECIAL",
       "accuracy": 70,
-      "description": "",
+      "description": "The target is attacked with a discharge of filthy gases. This may also poison the target.",
       "priorityLevel": 0,
       "status": [
         {
@@ -1019,7 +1006,7 @@
       "type": 14,
       "category": "PHYSICAL",
       "accuracy": 90,
-      "description": "",
+      "description": "The user attacks by harshly dropping large icicles onto the target. This may also make the target flinch.",
       "priorityLevel": 0,
       "status": [
         {
@@ -1091,7 +1078,7 @@
       "type": 11,
       "category": "PHYSICAL",
       "accuracy": 50,
-      "description": "",
+      "description": "The user punches the target with full, concentrated power. This confuses the target if it hits.",
       "priorityLevel": 0,
       "status": [
         {
@@ -1222,9 +1209,14 @@
       "type": 2,
       "category": "PHYSICAL",
       "accuracy": 90,
-      "description": "",
+      "description": "The user launches a kick that lands a critical hit more easily. This may also leave the target with a burn.",
       "priorityLevel": 0,
-      "status": [],
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 10
+        }
+      ],
       "highCritRate": true
     },
     {
@@ -1390,7 +1382,7 @@
       "type": 17,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user slashes the target the instant an opportunity arises. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": true
@@ -1402,7 +1394,7 @@
       "pp": 10,
       "type": 11,
       "category": "SPECIAL",
-      "description": "",
+      "description": "The user lets loose a blast of aura power from deep within its body at the target. This attack never misses.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -1428,7 +1420,7 @@
       "type": 8,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "A slashing attack with a poisonous blade that may also poison the target. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [
         {
@@ -1446,7 +1438,7 @@
       "type": 2,
       "category": "SPECIAL",
       "accuracy": 85,
-      "description": "",
+      "description": "The target becomes trapped within a fierce vortex of fire that rages for four to five turns.",
       "priorityLevel": 0,
       "status": [
         {
@@ -1463,7 +1455,7 @@
       "type": 3,
       "category": "SPECIAL",
       "accuracy": 85,
-      "description": "",
+      "description": "The user traps the target in a violent swirling whirlpool for four to five turns.",
       "priorityLevel": 0,
       "status": [
         {
@@ -1531,6 +1523,23 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
+    },
+    {
+      "id": 146,
+      "name": "Sand Tomb",
+      "power": 35,
+      "pp": 15,
+      "type": 10,
+      "category": "PHYSICAL",
+      "accuracy": 85,
+      "description": "The user traps the target inside a harshly raging sandstorm for four to five turns.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "TRAPPED"
+        }
+      ],
+      "highCritRate": false
     }
   ],
   "variableHitMoves": [
@@ -1542,7 +1551,7 @@
       "type": 5,
       "category": "PHYSICAL",
       "accuracy": 85,
-      "description": "",
+      "description": "The target is jabbed repeatedly with a horn or beak two to five times in a row.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -1555,7 +1564,7 @@
       "type": 7,
       "category": "PHYSICAL",
       "accuracy": 95,
-      "description": "",
+      "description": "Sharp spikes are shot at the target in rapid succession. They hit two to five times in a row.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -1568,7 +1577,7 @@
       "type": 10,
       "category": "PHYSICAL",
       "accuracy": 90,
-      "description": "",
+      "description": "The user strikes the target with a hard bone two to five times in a row.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -1594,7 +1603,7 @@
       "type": 14,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user launches sharp icicles at the target two to five times in a row.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -1614,6 +1623,25 @@
     }
   ],
   "statsChangesMoves": [
+    {
+      "id": 13,
+      "name": "Iron Tail",
+      "power": 100,
+      "pp": 15,
+      "type": 16,
+      "category": "PHYSICAL",
+      "accuracy": 75,
+      "description": "The target is slammed with a steel-hard tail. This may also lower the target's Defense stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "probabilty": 30,
+      "status": [],
+      "highCritRate": false
+    },
     {
       "id": 19,
       "name": "Sand Attack",
@@ -1782,7 +1810,7 @@
       "pp": 20,
       "type": 5,
       "accuracy": 100,
-      "description": "",
+      "description": "The user releases an obscuring cloud of smoke or ink. This lowers the target's accuracy.",
       "priorityLevel": 0,
       "statsAffected": [
         "ACCURACY"
@@ -1800,7 +1828,7 @@
       "pp": 10,
       "type": 12,
       "accuracy": 100,
-      "description": "",
+      "description": "The target is hit by a strong telekinetic force. This may also lower the target's Sp. Def stat.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
@@ -1856,7 +1884,7 @@
       "type": 8,
       "category": "SPECIAL",
       "accuracy": 100,
-      "description": "",
+      "description": "Opposing Pokémon are attacked with a spray of harsh acid. This may also lower their Sp. Def stats.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
@@ -1932,7 +1960,7 @@
       "pp": 10,
       "type": 10,
       "accuracy": 100,
-      "description": "",
+      "description": "The user makes the ground under the target erupt with power. This may also lower the target's Sp. Def stat.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
@@ -2011,7 +2039,7 @@
       "pp": 10,
       "type": 1,
       "accuracy": 100,
-      "description": "",
+      "description": "The user draws power from nature and fires it at the target. This may also lower the target's Sp. Def stat.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
@@ -2030,7 +2058,7 @@
       "pp": 10,
       "type": 16,
       "accuracy": 100,
-      "description": "",
+      "description": "The user gathers all its light energy and releases it at once. This may also lower the target's defensive stats.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
@@ -2043,12 +2071,12 @@
     },
     {
       "id": 114,
-      "name": "Sword Dance",
+      "name": "Swords Dance",
       "power": 0,
       "category": "OTHER",
       "pp": 20,
       "type": 5,
-      "description": "",
+      "description": "A frenetic dance to uplift the fighting spirit. This sharply raises the user's Attack stat.",
       "priorityLevel": 0,
       "statsAffected": [
         "ATTACK"
@@ -2066,7 +2094,7 @@
       "pp": 20,
       "type": 7,
       "accuracy": 100,
-      "description": "",
+      "description": "The user lightly performs a beautiful, mystic dance. This boosts the user's Sp. Atk, Sp. Def, and Speed stats.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPATK",
@@ -2105,7 +2133,7 @@
       "pp": 20,
       "type": 3,
       "accuracy": 100,
-      "description": "",
+      "description": "A spray of bubbles is forcefully ejected at the target. This may also lower the target's Speed stat.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPEED"
@@ -2123,7 +2151,7 @@
       "category": "OTHER",
       "pp": 20,
       "type": 12,
-      "description": "",
+      "description": "The user quietly focuses its mind and calms its spirit to raise its Sp. Atk and Sp. Def stats.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPATK",
@@ -2160,7 +2188,7 @@
       "category": "OTHER",
       "pp": 10,
       "type": 11,
-      "description": "",
+      "description": "The user tenses its muscles to bulk up its body, raising both its Attack and Defense stats.",
       "priorityLevel": 0,
       "statsAffected": [
         "ATTACK",
@@ -2186,6 +2214,41 @@
       ],
       "target": "SELF",
       "multiplicator": 0.5,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 144,
+      "name": "Rock Polish",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 9,
+      "description": "The user polishes its body to reduce drag. This sharply raises the Speed stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "SELF",
+      "multiplicator": 2,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 145,
+      "name": "Mud Shot",
+      "power": 55,
+      "category": "SPECIAL",
+      "pp": 15,
+      "type": 10,
+      "accuracy": 95,
+      "description": "The user attacks by hurling a blob of mud at the target. This also lowers the target's Speed stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.75,
       "status": [],
       "highCritRate": false
     }
@@ -2276,6 +2339,20 @@
           "probability": 10
         }
       ],
+      "highCritRate": false
+    },
+    {
+      "id": 147,
+      "name": "Double Edge",
+      "power": 120,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 5,
+      "accuracy": 100,
+      "description": "A reckless, life-risking tackle in which the user rushes the target. This also damages the user quite a lot.",
+      "priorityLevel": 0,
+      "recoil": "THIRD",
+      "status": [],
       "highCritRate": false
     }
   ],

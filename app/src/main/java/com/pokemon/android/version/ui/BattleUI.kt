@@ -431,12 +431,16 @@ class BattleUI {
                         ) {
                             battle.turnWithItemUsed(clickedItem.itemId)
                             updateBattleUI(activity, battle)
-                            if (battle.pokemon.currentHP > 0)
+                            if (battle.pokemon.currentHP > 0 && battle.getBattleState() == State.IN_PROGRESS){
                                 setUpAttackButtons(activity, battle)
-                        } else
+                                switchButton.visibility = VISIBLE
+                                bagButton.visibility = VISIBLE
+                            }
+                        } else {
                             setUpAttackButtons(activity, battle)
-                        switchButton.visibility = VISIBLE
-                        bagButton.visibility = VISIBLE
+                            switchButton.visibility = VISIBLE
+                            bagButton.visibility = VISIBLE
+                        }
                     }
                     val adapter = ItemRecyclerAdapter(activity, items, myItemClickListener)
                     recyclerView.adapter = adapter

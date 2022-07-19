@@ -37,6 +37,10 @@
         {
           "moveId": 37,
           "level": 35
+        },
+        {
+          "moveId": 147,
+          "level": 39
         }
       ],
       "movesLearnWithTM": [
@@ -104,6 +108,10 @@
         {
           "moveId": 37,
           "level": 37
+        },
+        {
+          "moveId": 147,
+          "level": 45
         }
       ],
       "movesLearnWithTM": [
@@ -171,6 +179,10 @@
         {
           "moveId": 37,
           "level": 39
+        },
+        {
+          "moveId": 147,
+          "level": 51
         }
       ],
       "movesLearnWithTM": [
@@ -1100,6 +1112,10 @@
         {
           "moveId": 27,
           "level": 22
+        },
+        {
+          "moveId": 147,
+          "level": 31
         }
       ],
       "movesLearnWithTM": [
@@ -1154,6 +1170,10 @@
         {
           "moveId": 27,
           "level": 24
+        },
+        {
+          "moveId": 147,
+          "level": 39
         }
       ],
       "movesLearnWithTM": [
@@ -1591,6 +1611,10 @@
         {
           "moveId": 112,
           "level": 21
+        },
+        {
+          "moveId": 146,
+          "level": 31
         },
         {
           "moveId": 38,
@@ -2408,6 +2432,10 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
+          "moveId": 123,
+          "level": 1
+        },
+        {
           "moveId": 1,
           "level": 1
         },
@@ -2426,6 +2454,10 @@
         {
           "moveId": 38,
           "level": 24
+        },
+        {
+          "moveId": 146,
+          "level": 26
         }
       ],
       "movesLearnWithTM": [
@@ -2850,6 +2882,10 @@
           "level": 6
         },
         {
+          "moveId": 145,
+          "level": 12
+        },
+        {
           "moveId": 126,
           "level": 18
         },
@@ -2864,6 +2900,10 @@
         {
           "moveId": 80,
           "level": 42
+        },
+        {
+          "moveId": 147,
+          "level": 54
         }
       ],
       "movesLearnWithTM": [
@@ -2911,6 +2951,10 @@
           "level": 6
         },
         {
+          "moveId": 145,
+          "level": 12
+        },
+        {
           "moveId": 126,
           "level": 18
         },
@@ -2925,6 +2969,10 @@
         {
           "moveId": 80,
           "level": 42
+        },
+        {
+          "moveId": 147,
+          "level": 66
         }
       ],
       "movesLearnWithTM": [
@@ -2967,6 +3015,10 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
+          "moveId": 106,
+          "level": 1
+        },
+        {
           "moveId": 6,
           "level": 1
         },
@@ -2976,6 +3028,10 @@
         },
         {
           "moveId": 64,
+          "level": 1
+        },
+        {
+          "moveId": 145,
           "level": 1
         },
         {
@@ -2995,7 +3051,7 @@
           "level": 1
         },
         {
-          "moveId": 106,
+          "moveId": 147,
           "level": 1
         }
       ],
@@ -3468,6 +3524,10 @@
           "level": 1
         },
         {
+          "moveId": 144,
+          "level": 6
+        },
+        {
           "moveId": 32,
           "level": 12
         },
@@ -3486,6 +3546,10 @@
         {
           "moveId": 93,
           "level": 34
+        },
+        {
+          "moveId": 147,
+          "level": 40
         },
         {
           "moveId": 78,
@@ -3529,6 +3593,10 @@
           "level": 1
         },
         {
+          "moveId": 144,
+          "level": 6
+        },
+        {
           "moveId": 32,
           "level": 12
         },
@@ -3547,6 +3615,10 @@
         {
           "moveId": 93,
           "level": 40
+        },
+        {
+          "moveId": 147,
+          "level": 50
         },
         {
           "moveId": 78,
@@ -3590,6 +3662,10 @@
           "level": 1
         },
         {
+          "moveId": 144,
+          "level": 6
+        },
+        {
           "moveId": 32,
           "level": 12
         },
@@ -3608,6 +3684,10 @@
         {
           "moveId": 93,
           "level": 40
+        },
+        {
+          "moveId": 147,
+          "level": 50
         },
         {
           "moveId": 78,
@@ -4617,6 +4697,10 @@
           "level": 1
         },
         {
+          "moveId": 144,
+          "level": 8
+        },
+        {
           "moveId": 15,
           "level": 12
         },
@@ -4625,12 +4709,20 @@
           "level": 20
         },
         {
+          "moveId": 146,
+          "level": 28
+        },
+        {
           "moveId": 13,
           "level": 48
         },
         {
           "moveId": 78,
           "level": 52
+        },
+        {
+          "moveId": 147,
+          "level": 56
         }
       ],
       "movesLearnWithTM": [
@@ -6503,7 +6595,7 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
-          "moveId": 4,
+          "moveId": 11,
           "level": 1
         },
         {
@@ -7119,6 +7211,10 @@
           "level": 1
         },
         {
+          "moveId": 41,
+          "level": 1
+        },
+        {
           "moveId": 67,
           "level": 1
         },
@@ -7280,6 +7376,10 @@
           "level": 1
         },
         {
+          "moveId": 145,
+          "level": 1
+        },
+        {
           "moveId": 126,
           "level": 1
         },
@@ -7289,6 +7389,10 @@
         },
         {
           "moveId": 87,
+          "level": 1
+        },
+        {
+          "moveId": 147,
           "level": 1
         }
       ],
@@ -7335,6 +7439,56 @@
     "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 195,
+    "name": "Quasgire",
+    "type1": 3,
+    "type2": 10,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 6,
+          "level": 1
+        },
+        {
+          "moveId": 145,
+          "level": 6
+        },
+        {
+          "moveId": 79,
+          "level": 24
+        },
+        {
+          "moveId": 83,
+          "level": 46
+        },
+        {
+          "moveId": 93,
+          "level": 52
+        }
+      ],
+      "movesLearnWithTM": [
+        25,
+        37,
+        43,
+        69,
+        93,
+        100,
+        107,
+        136
+      ],
+      "bannerMoves": []
+    },
+    "hp": 95,
+    "attack": 85,
+    "defense": 85,
+    "spAtk": 65,
+    "spDef": 65,
+    "speed": 35,
+    "catchRate": 90,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 196,
@@ -7544,6 +7698,10 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
+          "moveId": 27,
+          "level": 1
+        },
+        {
           "moveId": 118,
           "level": 1
         },
@@ -7556,11 +7714,11 @@
           "level": 1
         },
         {
-          "moveId": 27,
+          "moveId": 2,
           "level": 1
         },
         {
-          "moveId": 2,
+          "moveId": 144,
           "level": 1
         },
         {
@@ -7580,12 +7738,20 @@
           "level": 20
         },
         {
+          "moveId": 146,
+          "level": 28
+        },
+        {
           "moveId": 13,
           "level": 48
         },
         {
           "moveId": 78,
           "level": 52
+        },
+        {
+          "moveId": 147,
+          "level": 56
         }
       ],
       "movesLearnWithTM": [
@@ -7641,6 +7807,7 @@
       ],
       "movesLearnWithTM": [
         69,
+        72,
         140
       ],
       "bannerMoves": []
@@ -7711,7 +7878,10 @@
         }
       ],
       "movesLearnWithTM": [
+        25,
         69,
+        72,
+        93,
         140
       ],
       "bannerMoves": []
@@ -7923,6 +8093,59 @@
     "catchRate": 75,
     "evolutions": [],
     "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 222,
+    "name": "Corsola",
+    "type1": 3,
+    "type2": 9,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 32,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 5
+        },
+        {
+          "moveId": 102,
+          "level": 20
+        },
+        {
+          "moveId": 126,
+          "level": 25
+        },
+        {
+          "moveId": 51,
+          "level": 40
+        },
+        {
+          "moveId": 87,
+          "level": 45
+        },
+        {
+          "moveId": 132,
+          "level": 50
+        }
+      ],
+      "movesLearnWithTM": [25,43,45,46,93,100],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 55,
+    "defense": 95,
+    "spAtk": 65,
+    "spDef": 95,
+    "speed": 35,
+    "catchRate": 60,
+    "evolutions": [],
+    "expGaugeType": "FAST"
   },
   {
     "id": 228,
@@ -8138,6 +8361,14 @@
         {
           "moveId": 30,
           "level": 1
+        },
+        {
+          "moveId": 147,
+          "level": 1
+        },
+        {
+          "moveId": 25,
+          "level": 30
         },
         {
           "moveId": 93,
