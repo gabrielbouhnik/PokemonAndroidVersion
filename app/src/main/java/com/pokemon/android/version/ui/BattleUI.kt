@@ -268,27 +268,33 @@ class BattleUI {
             else -> {
                 if (battle.pokemon.currentHP <= 0) {
                     disableBattleButtons(activity)
-                    val recyclerView = activity.findViewById<RecyclerView>(R.id.battleRecyclerView)
-                    recyclerView.visibility = VISIBLE
-                    val blackImageView: ImageView = activity.findViewById(R.id.blackImageView)
-                    blackImageView.visibility = VISIBLE
-                    recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-                    val myItemClickListener = View.OnClickListener {
-                        val position = it.tag as Int
-                        val clickedPokemon: Pokemon = team[position]
-                        if (clickedPokemon.currentHP > 0 && clickedPokemon != battle.pokemon) {
-                            recyclerView.visibility = GONE
-                            blackImageView.visibility = GONE
-                            activity.findViewById<Button>(R.id.bagButton).visibility = VISIBLE
-                            activity.findViewById<Button>(R.id.switchPokemonButton).visibility = VISIBLE
-                            disableAttackButtons(activity)
-                            battle.switchPokemon(clickedPokemon)
-                            setUpAttackButtons(activity, battle)
-                            displayPokemonsInfos(activity, battle)
+                    val switchButton: Button = activity.findViewById(R.id.switchPokemonButton)
+                    switchButton.visibility = VISIBLE
+                    switchButton.setOnClickListener {
+                        switchButton.visibility = GONE
+                        val recyclerView = activity.findViewById<RecyclerView>(R.id.battleRecyclerView)
+                        recyclerView.visibility = VISIBLE
+                        val blackImageView: ImageView = activity.findViewById(R.id.blackImageView)
+                        blackImageView.visibility = VISIBLE
+                        recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+                        val myItemClickListener = View.OnClickListener {
+                            val position = it.tag as Int
+                            val clickedPokemon: Pokemon = team[position]
+                            if (clickedPokemon.currentHP > 0 && clickedPokemon != battle.pokemon) {
+                                recyclerView.visibility = GONE
+                                blackImageView.visibility = GONE
+                                activity.findViewById<Button>(R.id.bagButton).visibility = VISIBLE
+                                activity.findViewById<Button>(R.id.switchPokemonButton).visibility = VISIBLE
+                                disableAttackButtons(activity)
+                                switchButtonSetUp(activity, battle)
+                                battle.switchPokemon(clickedPokemon)
+                                setUpAttackButtons(activity, battle)
+                                displayPokemonsInfos(activity, battle)
+                            }
                         }
+                        val adapter = PokemonRecyclerAdapter(activity, team, myItemClickListener, false)
+                        recyclerView.adapter = adapter
                     }
-                    val adapter = PokemonRecyclerAdapter(activity, team, myItemClickListener, false)
-                    recyclerView.adapter = adapter
                 }
             }
         }
@@ -343,10 +349,9 @@ class BattleUI {
         setupAttackButton(activity, battle, battle.pokemon.move4, R.id.attack4Button, R.id.attack4PPTextView)
     }
 
-    private fun buttonSetUp(activity: MainActivity, battle: Battle) {
-        setUpAttackButtons(activity, battle)
-        val switchButton: Button = activity.findViewById(R.id.switchPokemonButton)
+    private fun switchButtonSetUp(activity: MainActivity, battle: Battle){
         val bagButton: Button = activity.findViewById(R.id.bagButton)
+        val switchButton: Button = activity.findViewById(R.id.switchPokemonButton)
         switchButton.setOnClickListener {
             if (!battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED)) {
                 val closeButton: Button = activity.findViewById(R.id.closeTeamButton)
@@ -391,6 +396,13 @@ class BattleUI {
             } else
                 Toast.makeText(activity, "Your Pokemon is trapped and cannot be switched.", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun buttonSetUp(activity: MainActivity, battle: Battle) {
+        setUpAttackButtons(activity, battle)
+        switchButtonSetUp(activity, battle)
+        val switchButton: Button = activity.findViewById(R.id.switchPokemonButton)
+        val bagButton: Button = activity.findViewById(R.id.bagButton)
         if (battle !is BattleFrontierBattle) {
             bagButton.setOnClickListener {
                 if (battle.levelData.id != FRONTIER_BRAIN_LEVEL_ID) {

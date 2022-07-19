@@ -134,10 +134,10 @@ class Pokemon(
         return usableMoves[maxDamageIdx]
     }
 
-    private fun canAttack(): AttackResponse {
+    private fun canAttack(move: PokemonMove): AttackResponse {
         if (this.status == Status.FROZEN) {
             if (Random.nextInt(100) > 20)
-                return AttackResponse(false, "But ${this.data.name} is frozen solid!\n")
+                return AttackResponse(false, "${this.data.name} is frozen solid!\n")
             else
                 status = Status.OK
         }
@@ -149,11 +149,11 @@ class Pokemon(
                 return AttackResponse(false, this.data.name + " is fast asleep!\n")
         }
         if (this.battleData!!.battleStatus.contains(Status.FLINCHED))
-            return AttackResponse(false, "But ${this.data.name} flinched and couldn't move\n")
+            return AttackResponse(false, "${this.data.name} flinched and couldn't move\n")
 
         if (this.status == Status.PARALYSIS) {
             if (Random.nextInt(100) < 25)
-                return AttackResponse(false, "But ${this.data.name} can't move because it is paralysed!\n")
+                return AttackResponse(false, "${this.data.name} can't move because it is paralysed!\n")
         }
         if (this.battleData!!.battleStatus.contains(Status.CONFUSED)) {
             if (Random.nextInt(100) < 33) {
@@ -165,21 +165,21 @@ class Pokemon(
                     status = Status.OK
                     battleData = null
                 }
-                return AttackResponse(false, "But ${this.data.name} hits hurt itself in its confusion\n")
+                return AttackResponse(false, "${this.data.name} uses ${move.move.name}\nBut ${this.data.name} hits hurt itself in its confusion\n")
             }
         }
         return AttackResponse(true, "")
     }
 
     fun attack(move: PokemonMove, opponent: Pokemon): AttackResponse {
-        val attackResponse = canAttack()
+        val attackResponse = canAttack(move)
         if (!attackResponse.success)
             return attackResponse
         move.pp = move.pp - 1
         if (move.move.accuracy != null) {
             val random: Int = Random.nextInt(100)
             if (random > move.move.accuracy!! * battleData!!.accuracyMultiplicator)
-                return AttackResponse(false, this.data.name + "'s attack missed!\n")
+                return AttackResponse(false, "${this.data.name} uses ${move.move.name}\n${this.data.name}'s attack missed!\n")
         }
         if (move.move is HealMove)
             HealMove.heal(this)
@@ -188,7 +188,7 @@ class Pokemon(
             damage = DamageCalculator.computeDamage(this, move.move, opponent)
             if (move.move is VariableHitMove) {
                 var timesItHits = Random.nextInt(1..4)
-                while (timesItHits > 0) {
+                while (timesItHits > 0 || damage > opponent.currentHP) {
                     damage += DamageCalculator.computeDamage(this, move.move, opponent)
                     timesItHits--
                 }
