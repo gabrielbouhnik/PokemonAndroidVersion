@@ -1,6 +1,7 @@
 package com.pokemon.android.version.ui
 
 import android.graphics.drawable.Drawable
+import android.text.method.ScrollingMovementMethod
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -452,11 +453,17 @@ class BattleUI {
         }
     }
 
+    private fun setDialogTextView(activity : MainActivity){
+        val dialogTextView : TextView = activity.findViewById(R.id.dialogTextView)
+        this.dialogTextView = dialogTextView
+        dialogTextView.movementMethod = ScrollingMovementMethod()
+    }
+
     fun startWildBattle(activity: MainActivity, level: WildBattleLevelData) {
         team = activity.trainer!!.team
         activity.updateMusic(R.raw.wild_battle)
         activity.setContentView(R.layout.battle_layout)
-        dialogTextView = activity.findViewById(R.id.dialogTextView)
+        setDialogTextView(activity)
         val trainerBackSprite: ImageView = activity.findViewById(R.id.trainerBackSpriteView)
         loadMainTrainerSprite(trainerBackSprite, activity)
         loadBackgroundImage(level, activity)
@@ -471,7 +478,7 @@ class BattleUI {
         this.team = activity.trainer!!.team
         MusicUtils.playMusic(activity, level.music)
         activity.setContentView(R.layout.battle_layout)
-        dialogTextView = activity.findViewById(R.id.dialogTextView)
+        setDialogTextView(activity)
         dialogTextView!!.text = level.startDialog
         val trainerBackSprite: ImageView = activity.findViewById(R.id.trainerBackSpriteView)
         loadMainTrainerSprite(trainerBackSprite, activity)
@@ -498,7 +505,7 @@ class BattleUI {
             activity.trainer!!.team
         MusicUtils.playMusic(activity, level.music)
         activity.setContentView(R.layout.battle_layout)
-        dialogTextView = activity.findViewById(R.id.dialogTextView)
+        setDialogTextView(activity)
         if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID)
             dialogTextView!!.text = level.startDialog1
         else
@@ -525,7 +532,7 @@ class BattleUI {
         team = activity.trainer!!.team
         MusicUtils.playMusic(activity, level.music)
         activity.setContentView(R.layout.battle_layout)
-        dialogTextView = activity.findViewById(R.id.dialogTextView)
+        setDialogTextView(activity)
         val trainerBackSprite: ImageView = activity.findViewById(R.id.trainerBackSpriteView)
         loadMainTrainerSprite(trainerBackSprite, activity)
         loadBackgroundImage(level, activity)
@@ -553,7 +560,7 @@ class BattleUI {
         val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
         rewardsButton.visibility = VISIBLE
         rewardsButton.text = activity.getString(R.string.battle)
-        dialogTextView = activity.findViewById(R.id.dialogTextView)
+        setDialogTextView(activity)
         rewardsButton.setOnClickListener {
             dialogTextView!!.text = activity.getString(R.string.battle_frontier_encounter)
             buttonSetUp(activity, battleFrontierBattle)
