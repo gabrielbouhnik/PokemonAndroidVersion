@@ -164,7 +164,7 @@
       "type": 18,
       "category": "SPECIAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user damages opposing Pokémon by emitting a powerful flash.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -216,7 +216,7 @@
       "type": 11,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user attacks with a swift chop.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
@@ -810,7 +810,7 @@
       "type": 10,
       "category": "PHYSICAL",
       "accuracy": 85,
-      "description": "",
+      "description": "The user clubs the target with a bone. This may also make the target flinch.",
       "priorityLevel": 0,
       "status": [
         {
@@ -1537,6 +1537,24 @@
       "status": [
         {
           "status": "TRAPPED"
+        }
+      ],
+      "highCritRate": false
+    },
+    {
+      "id": 148,
+      "name": "Zen Headbutt",
+      "power": 80,
+      "pp": 15,
+      "type": 12,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The user focuses its willpower to its head and attacks the target. This may also make the target flinch.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 20
         }
       ],
       "highCritRate": false

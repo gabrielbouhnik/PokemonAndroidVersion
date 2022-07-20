@@ -60,6 +60,7 @@ class RewardMenu {
             when (levelData) {
                 is WildBattleLevelData -> activity.mainMenu.levelMenu.battleUI.startWildBattle(activity, levelData)
                 is TrainerBattleLevelData -> activity.mainMenu.levelMenu.battleUI.startTrainerBattle(activity, levelData)
+                is LeaderLevelData -> activity.mainMenu.levelMenu.battleUI.startGymLeaderBattle(activity, levelData)
                 else -> activity.mainMenu.levelMenu.battleUI.startBossBattle(activity, levelData as BossBattleLevelData)
             }
         }

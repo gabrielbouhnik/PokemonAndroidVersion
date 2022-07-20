@@ -2531,6 +2531,10 @@
           "level": 12
         },
         {
+          "moveId": 148,
+          "level": 18
+        },
+        {
           "moveId": 79,
           "level": 24
         },
@@ -2590,6 +2594,10 @@
         {
           "moveId": 24,
           "level": 12
+        },
+        {
+          "moveId": 148,
+          "level": 18
         },
         {
           "moveId": 79,
@@ -2653,8 +2661,9 @@
       ],
       "movesLearnWithTM": [
         25,
-        69,
         62,
+        69,
+        72,
         140
       ],
       "bannerMoves": []
@@ -2706,8 +2715,9 @@
       ],
       "movesLearnWithTM": [
         25,
-        69,
         62,
+        69,
+        72,
         93,
         140
       ],
@@ -3863,6 +3873,10 @@
           "level": 21
         },
         {
+          "moveId": 148,
+          "level": 24
+        },
+        {
           "moveId": 43,
           "level": 30
         },
@@ -3933,6 +3947,10 @@
         {
           "moveId": 72,
           "level": 21
+        },
+        {
+          "moveId": 148,
+          "level": 24
         },
         {
           "moveId": 43,
@@ -4783,6 +4801,14 @@
           "level": 25
         },
         {
+          "moveId": 94,
+          "level": 37
+        },
+        {
+          "moveId": 148,
+          "level": 41
+        },
+        {
           "moveId": 45,
           "level": 49
         }
@@ -4800,7 +4826,7 @@
     "speed": 42,
     "evolutions": [
       {
-        "evolutionId": 65,
+        "evolutionId": 97,
         "evolutionCondition": {
           "level": 26
         }
@@ -4838,6 +4864,14 @@
         {
           "moveId": 59,
           "level": 25
+        },
+        {
+          "moveId": 94,
+          "level": 37
+        },
+        {
+          "moveId": 148,
+          "level": 41
         },
         {
           "moveId": 45,
@@ -6635,7 +6669,7 @@
   {
     "id": 146,
     "name": "Moltres",
-    "type1": 3,
+    "type1": 2,
     "type2": 6,
     "possibleMoves": {
       "movesLearnByLevel": [
@@ -7419,14 +7453,159 @@
     "expGaugeType": "MEDIUM_SLOW"
   },
   {
+    "id": 187,
+    "name": "Hoppip",
+    "type1": 1,
+    "type2": 6,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 67,
+          "level": 1
+        },
+        {
+          "moveId": 133,
+          "level": 4
+        },
+        {
+          "moveId": 2,
+          "level": 8
+        },
+        {
+          "moveId": 34,
+          "level": 12
+        },
+        {
+          "moveId": 35,
+          "level": 16
+        },
+        {
+          "moveId": 137,
+          "level": 19
+        },
+        {
+          "moveId": 66,
+          "level": 43
+        }
+      ],
+      "movesLearnWithTM": [
+        44,66,72,105,113,137
+      ],
+      "bannerMoves": []
+    },
+    "hp": 35,
+    "attack": 35,
+    "defense": 40,
+    "spAtk": 35,
+    "spDef": 55,
+    "speed": 50,
+    "catchRate": 255,
+    "evolutions": [
+      {
+        "evolutionId": 188,
+        "evolutionCondition": {
+          "level": 18
+        }
+      }
+    ],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 188,
+    "name": "Skiploom",
+    "type1": 1,
+    "type2": 6,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 67,
+          "level": 1
+        },
+        {
+          "moveId": 133,
+          "level": 4
+        },
+        {
+          "moveId": 2,
+          "level": 8
+        },
+        {
+          "moveId": 34,
+          "level": 12
+        },
+        {
+          "moveId": 35,
+          "level": 16
+        },
+        {
+          "moveId": 137,
+          "level": 20
+        },
+        {
+          "moveId": 66,
+          "level": 52
+        }
+      ],
+      "movesLearnWithTM": [
+        44,66,72,105,113,137
+      ],
+      "bannerMoves": []
+    },
+    "hp": 75,
+    "attack": 55,
+    "defense": 70,
+    "spAtk": 55,
+    "spDef": 95,
+    "speed": 110,
+    "catchRate": 45,
+    "evolutions": [
+      {
+        "evolutionId": 189,
+        "evolutionCondition": {
+          "level": 27
+        }
+      }
+    ],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
     "id": 189,
     "name": "Jumpluff",
     "type1": 1,
     "type2": 6,
     "possibleMoves": {
       "movesLearnByLevel": [
+        {
+          "moveId": 67,
+          "level": 1
+        },
+        {
+          "moveId": 133,
+          "level": 4
+        },
+        {
+          "moveId": 2,
+          "level": 8
+        },
+        {
+          "moveId": 34,
+          "level": 12
+        },
+        {
+          "moveId": 35,
+          "level": 16
+        },
+        {
+          "moveId": 137,
+          "level": 20
+        },
+        {
+          "moveId": 66,
+          "level": 59
+        }
       ],
       "movesLearnWithTM": [
+        44,66,72,105,113,137
       ],
       "bannerMoves": []
     },
@@ -7595,6 +7774,10 @@
         {
           "moveId": 72,
           "level": 21
+        },
+        {
+          "moveId": 148,
+          "level": 24
         },
         {
           "moveId": 43,
@@ -9757,7 +9940,7 @@
   },
   {
     "id": 485,
-    "name": "Hetran",
+    "name": "Heatran",
     "type1": 2,
     "type2": 16,
     "possibleMoves": {

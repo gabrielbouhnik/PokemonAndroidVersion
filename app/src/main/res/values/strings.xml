@@ -26,9 +26,10 @@
     <string name="summon_pokemon">You got a %s!</string>
     <string name="summon_item">You earned a %s!</string>
     <string name="move_info">
-        power: %1$d\n
+         power: %1$d\n
         type: %2$s\n
         pp: %3$d\n
         accuracy: %4$s\n
+        category: %5$s\n
     </string>
 </resources>

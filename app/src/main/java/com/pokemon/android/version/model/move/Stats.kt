@@ -16,27 +16,27 @@ enum class Stats {
             statChangeMove.statsAffected.forEach {
                 when (it) {
                     ATTACK -> {
-                        if (pokemon.battleData!!.attackMultiplicator < 4 && pokemon.battleData!!.attackMultiplicator > 0.1)
+                        if (pokemon.battleData!!.attackMultiplicator < 4 && pokemon.battleData!!.attackMultiplicator > 0.25f)
                             pokemon.battleData!!.attackMultiplicator *= statChangeMove.multiplicator
                     }
                     DEFENSE -> {
-                        if (pokemon.battleData!!.defenseMultiplicator < 4 && pokemon.battleData!!.defenseMultiplicator > 0.1)
+                        if (pokemon.battleData!!.defenseMultiplicator < 4 && pokemon.battleData!!.defenseMultiplicator > 0.25f)
                             pokemon.battleData!!.defenseMultiplicator *= statChangeMove.multiplicator
                     }
                     SPATK -> {
-                        if (pokemon.battleData!!.spAtkMultiplicator < 4 && pokemon.battleData!!.spAtkMultiplicator > 0.1)
+                        if (pokemon.battleData!!.spAtkMultiplicator < 4 && pokemon.battleData!!.spAtkMultiplicator > 0.25f)
                             pokemon.battleData!!.spAtkMultiplicator *= statChangeMove.multiplicator
                     }
                     SPDEF -> {
-                        if (pokemon.battleData!!.spDefMultiplicator < 4 && pokemon.battleData!!.spDefMultiplicator > 0.1)
+                        if (pokemon.battleData!!.spDefMultiplicator < 4 && pokemon.battleData!!.spDefMultiplicator > 0.25f)
                             pokemon.battleData!!.spDefMultiplicator *= statChangeMove.multiplicator
                     }
                     SPEED -> {
-                        if (pokemon.battleData!!.speedMultiplicator < 4 && pokemon.battleData!!.speedMultiplicator > 0.1)
+                        if (pokemon.battleData!!.speedMultiplicator < 4 && pokemon.battleData!!.speedMultiplicator > 0.25f)
                             pokemon.battleData!!.speedMultiplicator *= statChangeMove.multiplicator
                     }
                     ACCURACY -> {
-                        if (pokemon.battleData!!.accuracyMultiplicator < 4 && pokemon.battleData!!.accuracyMultiplicator > 0.1)
+                        if (pokemon.battleData!!.accuracyMultiplicator < 4 && pokemon.battleData!!.accuracyMultiplicator > 0.25f)
                             pokemon.battleData!!.accuracyMultiplicator *= statChangeMove.multiplicator
                     }
                     CRITICAL_RATE -> {
