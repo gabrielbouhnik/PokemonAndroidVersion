@@ -10,7 +10,6 @@ import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.MoveUtils
 import com.pokemon.android.version.utils.StatUtils
-import kotlin.math.roundToInt
 import kotlin.random.Random
 import kotlin.random.nextInt
 
@@ -181,18 +180,22 @@ class Pokemon(
             if (random > move.move.accuracy!! * battleData!!.accuracyMultiplicator)
                 return AttackResponse(false, "${this.data.name} uses ${move.move.name}\n${this.data.name}'s attack missed!\n")
         }
+        var details = ""
         if (move.move is HealMove)
             HealMove.heal(this)
         var damage = 0
         if (move.move.power > 0) {
-            damage = DamageCalculator.computeDamage(this, move.move, opponent)
             if (move.move is VariableHitMove) {
-                var timesItHits = Random.nextInt(1..4)
-                while (timesItHits > 0 || damage > opponent.currentHP) {
+                var timesItHits = Random.nextInt(2..5)
+                while (timesItHits > 0 && opponent.currentHP > damage) {
                     damage += DamageCalculator.computeDamage(this, move.move, opponent)
                     timesItHits--
                 }
+                timesItHits = 5 - timesItHits
+                details = if (timesItHits > 1 ) "${opponent.data.name} was hit $timesItHits times!\n" else "${opponent.data.name} was hit 1 time!\n"
             }
+            else
+                damage = DamageCalculator.computeDamage(this, move.move, opponent)
         }
         val damageDone: Int
         if (damage >= opponent.currentHP) {
@@ -205,13 +208,13 @@ class Pokemon(
             opponent.currentHP = opponent.currentHP - damage
             if (move.move.type == Type.FIRE && opponent.status == Status.FROZEN)
                 opponent.status = Status.OK
-            if (move.move.power == 0 || damage > 0) {
-                Status.updateStatus(opponent, move.move)
+            if (move.move.power == 0 || damage > 0 && move.move.status.isNotEmpty()) {
+                details = Status.updateStatus(opponent, move.move)
             }
             if (move.move is StatChangeMove && (move.move.power == 0 || damage > 0)) {
                 if ((move.move as StatChangeMove).probability == null || Random.nextInt(100) < (move.move as StatChangeMove).probability!!) {
                     val statChangeMove = move.move as StatChangeMove
-                    if (statChangeMove.target == Target.SELF)
+                    details = if (statChangeMove.target == Target.SELF)
                         Stats.updateStat(this, move.move as StatChangeMove)
                     else
                         Stats.updateStat(opponent, move.move as StatChangeMove)
@@ -232,7 +235,7 @@ class Pokemon(
             }
 
         }
-        return AttackResponse(true, "")
+        return AttackResponse(true, details)
     }
 
     private fun recomputeStat() {

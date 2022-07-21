@@ -2,18 +2,23 @@ package com.pokemon.android.version.model.move
 
 import com.pokemon.android.version.model.Pokemon
 
-enum class Stats {
-    ATTACK,
-    DEFENSE,
-    SPATK,
-    SPDEF,
-    SPEED,
-    ACCURACY,
-    CRITICAL_RATE;
+enum class Stats(var value: String) {
+    ATTACK("Attack"),
+    DEFENSE("Defense"),
+    SPATK("Sp. Atk"),
+    SPDEF("Sp. Def"),
+    SPEED("Speed"),
+    ACCURACY("Accuracy"),
+    CRITICAL_RATE("Crit Rate");
 
     companion object {
-        fun updateStat(pokemon: Pokemon, statChangeMove: StatChangeMove) {
+        fun updateStat(pokemon: Pokemon, statChangeMove: StatChangeMove) : String {
+            val sb = StringBuilder()
             statChangeMove.statsAffected.forEach {
+                if (statChangeMove.multiplicator > 1)
+                    sb.append("${pokemon.data.name}'s " + it.value + " rose!\n")
+                else
+                    sb.append("${pokemon.data.name}'s " + it.value + " fell!\n")
                 when (it) {
                     ATTACK -> {
                         if (pokemon.battleData!!.attackMultiplicator < 4 && pokemon.battleData!!.attackMultiplicator > 0.25f)
@@ -45,6 +50,7 @@ enum class Stats {
                     }
                 }
             }
+            return sb.toString()
         }
 
         fun increaseBossStats(pokemon: Pokemon, stats: List<Stats>) {

@@ -1558,6 +1558,19 @@
         }
       ],
       "highCritRate": false
+    },
+    {
+      "id": 152,
+      "name": "Crabhammer",
+      "power": 100,
+      "pp": 10,
+      "type": 3,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The target is hammered with a large pincer. Critical hits land more easily.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true
     }
   ],
   "variableHitMoves": [
@@ -1638,6 +1651,19 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
+    },
+    {
+      "id": 151,
+      "name": "Fury Swipes",
+      "power": 18,
+      "pp": 25,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 80,
+      "description": "The target is raked with sharp claws or scythes quickly two to five times in a row.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     }
   ],
   "statsChangesMoves": [
@@ -1656,7 +1682,7 @@
       ],
       "target": "SELF",
       "multiplicator": 1.5,
-      "probabilty": 30,
+      "probability": 30,
       "status": [],
       "highCritRate": false
     },
@@ -1761,8 +1787,8 @@
         "DEFENSE"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.75,
-      "probabilty": 20,
+      "multiplicator": 0.67,
+      "probability": 20,
       "status": [],
       "highCritRate": false
     },
@@ -1798,7 +1824,7 @@
         "SPDEF"
       ],
       "target": "SELF",
-      "multiplicator": 0.75,
+      "multiplicator": 0.67,
       "status": [],
       "highCritRate": false
     },
@@ -1852,8 +1878,8 @@
         "SPDEF"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
       "highCritRate": false
     },
@@ -1871,8 +1897,8 @@
         "SPDEF"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 20,
+      "multiplicator": 0.67,
+      "probability": 20,
       "status": [],
       "highCritRate": false
     },
@@ -1890,7 +1916,7 @@
         "SPEED"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.75,
+      "multiplicator": 0.67,
       "status": [],
       "highCritRate": false
     },
@@ -1902,14 +1928,14 @@
       "type": 8,
       "category": "SPECIAL",
       "accuracy": 100,
-      "description": "Opposing Pokémon are attacked with a spray of harsh acid. This may also lower their Sp. Def stats.",
+      "description": "Opposing Pokemon are attacked with a spray of harsh acid. This may also lower their Sp. Def stats.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.75,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
       "highCritRate": false
     },
@@ -1927,8 +1953,8 @@
         "SPDEF"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
       "highCritRate": false
     },
@@ -1946,8 +1972,8 @@
         "ATTACK"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
       "highCritRate": false
     },
@@ -1965,8 +1991,8 @@
         "SPATK"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
       "highCritRate": false
     },
@@ -1984,8 +2010,8 @@
         "SPDEF"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
       "highCritRate": false
     },
@@ -2004,7 +2030,7 @@
         "DEFENSE"
       ],
       "target": "SELF",
-      "multiplicator": 0.75,
+      "multiplicator": 0.67,
       "status": [],
       "highCritRate": false
     },
@@ -2022,7 +2048,7 @@
         "SPEED"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
+      "multiplicator": 0.67,
       "status": [],
       "highCritRate": false
     },
@@ -2045,7 +2071,7 @@
       ],
       "target": "SELF",
       "multiplicator": 1.5,
-      "probabilty": 10,
+      "probability": 10,
       "status": [],
       "highCritRate": false
     },
@@ -2063,8 +2089,8 @@
         "SPDEF"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
       "highCritRate": false
     },
@@ -2082,8 +2108,8 @@
         "SPDEF"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
       "highCritRate": false
     },
@@ -2157,8 +2183,8 @@
         "SPEED"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
       "highCritRate": false
     },
@@ -2194,8 +2220,8 @@
         "SPDEF"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
       "highCritRate": false
     },
@@ -2266,7 +2292,42 @@
         "SPEED"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.75,
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 149,
+      "name": "Hammer Arm",
+      "power": 100,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The user swings and hits with its strong, heavy fist. It lowers the user's Speed.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "SELF",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 150,
+      "name": "Amnesia",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 12,
+      "description": "The user temporarily empties its mind to forget its concerns. This sharply raises the user's Sp. Def stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPDEF"
+      ],
+      "target": "SELF",
+      "multiplicator": 2,
       "status": [],
       "highCritRate": false
     }

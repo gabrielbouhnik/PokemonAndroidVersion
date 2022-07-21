@@ -858,6 +858,10 @@
         {
           "moveId": 62,
           "level": 35
+        },
+        {
+          "moveId": 21,
+          "level": 38
         }
       ],
       "movesLearnWithTM": [
@@ -1428,6 +1432,10 @@
           "level": 20
         },
         {
+          "moveId": 21,
+          "level": 24
+        },
+        {
           "moveId": 53,
           "level": 32
         },
@@ -1487,6 +1495,10 @@
           "level": 20
         },
         {
+          "moveId": 21,
+          "level": 24
+        },
+        {
           "moveId": 53,
           "level": 32
         },
@@ -1543,6 +1555,10 @@
         {
           "moveId": 112,
           "level": 21
+        },
+        {
+          "moveId": 151,
+          "level": 24
         },
         {
           "moveId": 38,
@@ -1611,6 +1627,10 @@
         {
           "moveId": 112,
           "level": 21
+        },
+        {
+          "moveId": 151,
+          "level": 26
         },
         {
           "moveId": 146,
@@ -2527,6 +2547,10 @@
           "level": 6
         },
         {
+          "moveId": 151,
+          "level": 9
+        },
+        {
           "moveId": 24,
           "level": 12
         },
@@ -2537,6 +2561,10 @@
         {
           "moveId": 79,
           "level": 24
+        },
+        {
+          "moveId": 150,
+          "level": 34
         },
         {
           "moveId": 80,
@@ -2592,6 +2620,10 @@
           "level": 6
         },
         {
+          "moveId": 151,
+          "level": 9
+        },
+        {
           "moveId": 24,
           "level": 12
         },
@@ -2602,6 +2634,10 @@
         {
           "moveId": 79,
           "level": 24
+        },
+        {
+          "moveId": 150,
+          "level": 36
         },
         {
           "moveId": 80,
@@ -2644,6 +2680,10 @@
         },
         {
           "moveId": 22,
+          "level": 1
+        },
+        {
+          "moveId": 151,
           "level": 5
         },
         {
@@ -2698,6 +2738,10 @@
         },
         {
           "moveId": 22,
+          "level": 1
+        },
+        {
+          "moveId": 151,
           "level": 5
         },
         {
@@ -3877,6 +3921,10 @@
           "level": 24
         },
         {
+          "moveId": 150,
+          "level": 27
+        },
+        {
           "moveId": 43,
           "level": 30
         },
@@ -3951,6 +3999,10 @@
         {
           "moveId": 148,
           "level": 24
+        },
+        {
+          "moveId": 150,
+          "level": 27
         },
         {
           "moveId": 43,
@@ -4893,6 +4945,118 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 98,
+    "name": "Krabby",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 6,
+          "level": 1
+        },
+        {
+          "moveId": 32,
+          "level": 4
+        },
+        {
+          "moveId": 145,
+          "level": 12
+        },
+        {
+          "moveId": 126,
+          "level": 20
+        },
+        {
+          "moveId": 63,
+          "level": 24
+        },
+        {
+          "moveId": 114,
+          "level": 40
+        },
+        {
+          "moveId": 152,
+          "level": 44
+        }
+      ],
+      "movesLearnWithTM": [
+        25,43,56,69,100,114
+      ],
+      "bannerMoves": []
+    },
+    "hp": 30,
+    "attack": 105,
+    "defense": 90,
+    "spAtk": 25,
+    "spDef": 25,
+    "speed": 50,
+    "catchRate": 225,
+    "evolutions": [
+      {
+        "evolutionId": 99,
+        "evolutionCondition": {
+          "level": 28
+        }
+      }],
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 99,
+    "name": "Kingler",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 149,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 1
+        },
+        {
+          "moveId": 32,
+          "level": 4
+        },
+        {
+          "moveId": 145,
+          "level": 12
+        },
+        {
+          "moveId": 126,
+          "level": 20
+        },
+        {
+          "moveId": 63,
+          "level": 24
+        },
+        {
+          "moveId": 114,
+          "level": 48
+        },
+        {
+          "moveId": 152,
+          "level": 54
+        }
+      ],
+      "movesLearnWithTM": [
+        25,43,56,69,100,114
+      ],
+      "bannerMoves": []
+    },
+    "hp": 55,
+    "attack": 130,
+    "defense": 115,
+    "spAtk": 50,
+    "spDef": 50,
+    "speed": 75,
+    "catchRate": 60,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 100,
     "name": "Voltorb",
     "type1": 4,
@@ -5326,6 +5490,10 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
+          "moveId": 149,
+          "level": 1
+        },
+        {
           "moveId": 2,
           "level": 1
         },
@@ -5655,12 +5823,12 @@
           "level": 16
         },
         {
-          "moveId": 10,
-          "level": 24
+          "moveId": 21,
+          "level": 20
         },
         {
-          "moveId": 21,
-          "level": 29
+          "moveId": 10,
+          "level": 24
         },
         {
           "moveId": 136,
@@ -5716,12 +5884,12 @@
           "level": 16
         },
         {
-          "moveId": 10,
-          "level": 24
+          "moveId": 21,
+          "level": 20
         },
         {
-          "moveId": 21,
-          "level": 29
+          "moveId": 10,
+          "level": 24
         },
         {
           "moveId": 136,
@@ -6561,6 +6729,14 @@
         {
           "moveId": 88,
           "level": 28
+        },
+        {
+          "moveId": 150,
+          "level": 36
+        },
+        {
+          "moveId": 149,
+          "level": 44
         }
       ],
       "movesLearnWithTM": [25,69,72,93,103,107,110],
@@ -6931,6 +7107,10 @@
           "level": 1
         },
         {
+          "moveId": 150,
+          "level": 32
+        },
+        {
           "moveId": 124,
           "level": 40
         },
@@ -6990,6 +7170,10 @@
         {
           "moveId": 64,
           "level": 1
+        },
+        {
+          "moveId": 150,
+          "level": 10
         },
         {
           "moveId": 45,
@@ -7057,6 +7241,14 @@
         {
           "moveId": 3,
           "level": 7
+        },
+        {
+          "moveId": 151,
+          "level": 13
+        },
+        {
+          "moveId": 150,
+          "level": 36
         }
       ],
       "movesLearnWithTM": [
@@ -7097,6 +7289,14 @@
         {
           "moveId": 3,
           "level": 7
+        },
+        {
+          "moveId": 151,
+          "level": 13
+        },
+        {
+          "moveId": 150,
+          "level": 42
         }
       ],
       "movesLearnWithTM": [
@@ -7639,6 +7839,10 @@
           "level": 24
         },
         {
+          "moveId": 150,
+          "level": 40
+        },
+        {
           "moveId": 83,
           "level": 46
         },
@@ -7778,6 +7982,10 @@
         {
           "moveId": 148,
           "level": 24
+        },
+        {
+          "moveId": 150,
+          "level": 27
         },
         {
           "moveId": 43,
@@ -8091,6 +8299,10 @@
           "level": 1
         },
         {
+          "moveId": 21,
+          "level": 1
+        },
+        {
           "moveId": 3,
           "level": 1
         },
@@ -8170,6 +8382,10 @@
           "level": 29
         },
         {
+          "moveId": 150,
+          "level": 36
+        },
+        {
           "moveId": 88,
           "level": 41
         },
@@ -8241,6 +8457,10 @@
         {
           "moveId": 25,
           "level": 29
+        },
+        {
+          "moveId": 150,
+          "level": 36
         },
         {
           "moveId": 88,
@@ -9566,6 +9786,10 @@
     "type2": 10,
     "possibleMoves": {
       "movesLearnByLevel": [
+        {
+          "moveId": 149,
+          "level": 1
+        },
         {
           "moveId": 2,
           "level": 1

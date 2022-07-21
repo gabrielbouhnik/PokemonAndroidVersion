@@ -4,6 +4,7 @@ import android.widget.TextView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
+import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.move.DrainMove
@@ -28,7 +29,7 @@ abstract class Battle {
         return if (!opponentResponse.success)
             opponentResponse.reason
         else {
-            var action = "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}\n"
+            var action = "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}\n" + opponentResponse.reason
             if (opponentPokemonMove.move is DrainMove)
                 action += "${pokemon.data.name} had its energy drained!\n"
             else if (opponentPokemonMove.move is RecoilMove)
@@ -42,7 +43,15 @@ abstract class Battle {
         return if (!response.success)
             response.reason
         else {
-            var action = "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n"
+            var action = "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n" + response.reason
+            if (trainerPokemonMove.move.power > 0){
+                val effectiveness = trainerPokemonMove.move.type.isEffectiveAgainst(opponent.data.type1) *
+                        trainerPokemonMove.move.type.isEffectiveAgainst(opponent.data.type2)
+                if (effectiveness >= 2)
+                    action += "It's super effective!\n"
+                if (effectiveness < 1)
+                    action += "It's not very effective effective!\n"
+            }
             if (trainerPokemonMove.move is DrainMove)
                 action += "The opposing ${opponent.data.name} had its energy drained!\n"
             else if (trainerPokemonMove.move is RecoilMove)

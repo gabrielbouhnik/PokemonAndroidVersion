@@ -125,11 +125,12 @@ class BattleUI {
         rewardsButton.visibility = VISIBLE
         if (activity.trainer!!.eliteProgression == 5) {
             rewardsButton.text = activity.getString(R.string.hall_of_fame)
-            activity.trainer!!.coins += 10000
             activity.trainer!!.eliteProgression = 0
             activity.eliteMode = false
-            if (activity.trainer!!.progression == LevelMenu.ELITE_4_FIRST_LEVEL_ID)
+            if (activity.trainer!!.progression == LevelMenu.ELITE_4_FIRST_LEVEL_ID) {
                 activity.trainer!!.progression += 5
+                activity.trainer!!.coins += 5000
+            }
             else{
                 activity.trainer!!.achievements!!.leagueDefeatedSecondTime = true
                 if (activity.trainer!!.team.size <= 4)

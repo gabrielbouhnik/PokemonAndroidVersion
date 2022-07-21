@@ -42,52 +42,54 @@ class AchievementRecyclerAdapter(
             holder.achievementDescrTextView.setTextColor(Color.GRAY)
         }
         holder.claimRewardButton.setOnClickListener{
-            if (Achievement.isClaimable(activity,currentItem.id)) {
-                holder.achievementDescrTextView.setTextColor(Color.GRAY)
-                holder.claimRewardButton.visibility = View.GONE
-                activity.playSoundEffect(R.raw.item_sound_effect)
-                activity.trainer!!.successfulAchievements.add(currentItem.id)
-                when {
-                    currentItem.pokemonRewards.isNotEmpty() -> {
-                        activity.trainer!!.receivePokemon(currentItem.pokemonRewards[0])
-                        Toast.makeText(
-                            activity,
-                            "You got a " + currentItem.pokemonRewards[0].data.name + "!",
-                            Toast.LENGTH_SHORT
-                        )
-                            .show()
-                    }
-                    currentItem.itemRewards.isNotEmpty() -> {
-                        Toast.makeText(
-                            activity,
-                            "You earn a " + activity.gameDataService.items[currentItem.itemRewards[0]].name + "!",
-                            Toast.LENGTH_SHORT
-                        )
-                            .show()
-                    }
-                    else -> {
-                        activity.trainer!!.coins += 500
-                        Toast.makeText(
-                            activity,
-                            "You earn 500 AndroCoins!",
-                            Toast.LENGTH_SHORT
-                        ).show()
+            when {
+                Achievement.isClaimable(activity,currentItem.id) -> {
+                    holder.achievementDescrTextView.setTextColor(Color.GRAY)
+                    holder.claimRewardButton.visibility = View.GONE
+                    activity.playSoundEffect(R.raw.item_sound_effect)
+                    activity.trainer!!.successfulAchievements.add(currentItem.id)
+                    when {
+                        currentItem.pokemonRewards.isNotEmpty() -> {
+                            activity.trainer!!.receivePokemon(currentItem.pokemonRewards[0])
+                            Toast.makeText(
+                                activity,
+                                "You got a " + currentItem.pokemonRewards[0].data.name + "!",
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                        }
+                        currentItem.itemRewards.isNotEmpty() -> {
+                            Toast.makeText(
+                                activity,
+                                "You earn a " + activity.gameDataService.items[currentItem.itemRewards[0]].name + "!",
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                        }
+                        else -> {
+                            activity.trainer!!.coins += 500
+                            Toast.makeText(
+                                activity,
+                                "You earn 500 AndroCoins!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
                 }
-            }
-            else if (activity.trainer!!.successfulAchievements.contains(currentItem.id)){
-                Toast.makeText(
-                    activity,
-                    "You have already received this reward!",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-            else{
-                Toast.makeText(
-                    activity,
-                    "You can't receive this reward!",
-                    Toast.LENGTH_SHORT
-                ).show()
+                activity.trainer!!.successfulAchievements.contains(currentItem.id) -> {
+                    Toast.makeText(
+                        activity,
+                        "You have already received this reward!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                else -> {
+                    Toast.makeText(
+                        activity,
+                        "You can't receive this reward!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
     }

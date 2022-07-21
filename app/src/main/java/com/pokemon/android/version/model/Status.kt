@@ -26,18 +26,25 @@ enum class Status(var activeOutsideBattle: Boolean) {
     }
 
     companion object {
-        fun updateStatus(opponent: Pokemon, move: Move) {
+        fun updateStatus(opponent: Pokemon, move: Move) : String{
+            var details = ""
             move.status.forEach {
                 if (isAffectedByStatus(it.status, opponent)) {
                     val randomForStatus: Int = Random.nextInt(100)
                     if (it.probability == null || randomForStatus <= it.probability!!) {
                         if (it.status.activeOutsideBattle)
                             opponent.status = it.status
-                        else
+                        else {
+                            if (it.status == CONFUSED)
+                                details = "${opponent.data.name} became confused!\n"
+                            if (it.status == TRAPPED)
+                                details = "${opponent.data.name} is trapped!\n"
                             opponent.battleData!!.battleStatus.add(it.status)
+                        }
                     }
                 }
             }
+            return details
         }
 
         fun isAffectedByStatus(status: Status, opponent: Pokemon): Boolean {
