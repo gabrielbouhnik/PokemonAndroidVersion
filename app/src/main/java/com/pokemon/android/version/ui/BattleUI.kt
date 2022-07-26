@@ -150,7 +150,10 @@ class BattleUI {
             activity.trainer!!.coins += 150
             activity.trainer!!.receiveExp((battle.levelData.exp * 0.5).toInt())
             battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
-            activity.mainMenu.levelMenu.loadEliteLevels(activity)
+            if (activity.eliteMode)
+                activity.mainMenu.levelMenu.loadEliteLevels(activity)
+            else
+                activity.mainMenu.loadGameMenu(activity)
         }
     }
 

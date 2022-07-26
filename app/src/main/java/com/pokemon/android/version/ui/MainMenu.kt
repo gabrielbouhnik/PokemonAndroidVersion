@@ -28,6 +28,7 @@ class MainMenu {
     var levelMenu: LevelMenu = LevelMenu()
     var itemMenu: ItemMenu = ItemMenu()
     var battleFrontierMenu = BattleFrontierMenu()
+    var pokedexMenu = PokedexMenu()
 
     fun loadGameMenu(activity: MainActivity) {
         activity.setContentView(R.layout.main_menu)
@@ -99,6 +100,10 @@ class MainMenu {
             battleFrontierButton.visibility = GONE
             val battleFrontierTextView: TextView = activity.findViewById(R.id.BattleFrontierTextView)
             battleFrontierTextView.visibility = GONE
+        }
+        val pokedexButton : Button = activity.findViewById(R.id.pokedexButton)
+        pokedexButton.setOnClickListener {
+            pokedexMenu.loadPokedexMenu(activity)
         }
     }
 

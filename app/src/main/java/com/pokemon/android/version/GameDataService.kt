@@ -73,14 +73,16 @@ class GameDataService {
 
     fun generatePokemon(id: Int, level: Int): Pokemon {
         val pokemonData: PokemonData = pokemons.first { it.id == id }
-        val possibleMoves: List<Move> = pokemonData.movesByLevel.filter { it.level <= level }.map{it.move}.reversed()
+        var possibleMoves: List<Move> = pokemonData.movesByLevel.filter { it.level <= level }.map{it.move}
+        if (possibleMoves.size > 4)
+            possibleMoves = possibleMoves.reversed()
         val moveSet : ArrayList<Move> = arrayListOf()
         moveSet.add(possibleMoves.first())
-        if (possibleMoves.size > 2)
+        if (possibleMoves.size > 1)
             moveSet.add(possibleMoves[1])
-        if (possibleMoves.size > 3)
+        if (possibleMoves.size > 2)
             moveSet.add(possibleMoves[2])
-        if (possibleMoves.size > 4)
+        if (possibleMoves.size > 3)
             moveSet.add(possibleMoves[3])
         return generatePokemonWithMoves(id, level, moveSet)
     }

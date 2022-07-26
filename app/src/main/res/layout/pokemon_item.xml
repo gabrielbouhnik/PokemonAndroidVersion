@@ -7,7 +7,6 @@
                                                    android:backgroundTint="#FFFFFF">
 
     <TextView
-            android:text="TextView"
             android:layout_width="220dp"
             android:layout_height="48dp" android:id="@+id/levelItemTextView"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
@@ -16,7 +15,7 @@
             android:textSize="24sp" android:textStyle="bold" android:textAlignment="center"
             android:textColor="#AAAAAA"/>
     <TextView
-            android:text="TextView"
+            android:text=""
             android:layout_width="220dp"
             android:layout_height="48dp" android:id="@+id/nameItemTextView"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +25,7 @@
             android:textColor="#AAAAAA"/>
     <ImageView
             android:layout_width="129dp"
-            android:layout_height="105dp" tools:srcCompat="@color/purple_200" android:id="@+id/pokemonSpriteView"
+            android:layout_height="105dp" tools:srcCompat="@color/white" android:id="@+id/pokemonSpriteView"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="32dp" android:layout_marginStart="16dp"/>
     <TextView

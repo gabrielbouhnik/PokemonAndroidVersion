@@ -1322,6 +1322,10 @@
         {
           "moveId": 37,
           "level": 33
+        },
+        {
+          "moveId": 155,
+          "level": 49
         }
       ],
       "movesLearnWithTM": [
@@ -1387,6 +1391,10 @@
         {
           "moveId": 37,
           "level": 39
+        },
+        {
+          "moveId": 155,
+          "level": 63
         }
       ],
       "movesLearnWithTM": [
@@ -2412,6 +2420,10 @@
           "level": 8
         },
         {
+          "moveId": 154,
+          "level": 12
+        },
+        {
           "moveId": 30,
           "level": 16
         },
@@ -2466,6 +2478,10 @@
         {
           "moveId": 47,
           "level": 8
+        },
+        {
+          "moveId": 154,
+          "level": 12
         },
         {
           "moveId": 30,
@@ -3462,6 +3478,10 @@
           "level": 24
         },
         {
+          "moveId": 156,
+          "level": 32
+        },
+        {
           "moveId": 62,
           "level": 36
         },
@@ -3529,6 +3549,10 @@
         {
           "moveId": 126,
           "level": 24
+        },
+        {
+          "moveId": 156,
+          "level": 34
         },
         {
           "moveId": 62,
@@ -4384,12 +4408,28 @@
           "level": 1
         },
         {
+          "moveId": 154,
+          "level": 7
+        },
+        {
           "moveId": 86,
           "level": 15
         },
         {
           "moveId": 37,
           "level": 29
+        },
+        {
+          "moveId": 153,
+          "level": 32
+        },
+        {
+          "moveId": 155,
+          "level": 40
+        },
+        {
+          "moveId": 156,
+          "level": 43
         }
       ],
       "movesLearnWithTM": [
@@ -4431,8 +4471,28 @@
           "level": 1
         },
         {
+          "moveId": 154,
+          "level": 7
+        },
+        {
+          "moveId": 86,
+          "level": 15
+        },
+        {
           "moveId": 37,
           "level": 29
+        },
+        {
+          "moveId": 153,
+          "level": 32
+        },
+        {
+          "moveId": 155,
+          "level": 40
+        },
+        {
+          "moveId": 156,
+          "level": 46
         }
       ],
       "movesLearnWithTM": [
@@ -5165,8 +5225,12 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
-          "moveId": 72,
+          "moveId": 154,
           "level": 1
+        },
+        {
+          "moveId": 72,
+          "level": 12
         },
         {
           "moveId": 70,
@@ -5214,8 +5278,12 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
-          "moveId": 72,
+          "moveId": 154,
           "level": 1
+        },
+        {
+          "moveId": 72,
+          "level": 12
         },
         {
           "moveId": 70,
@@ -8313,10 +8381,6 @@
         {
           "moveId": 38,
           "level": 24
-        },
-        {
-          "moveId": 21,
-          "level": 32
         },
         {
           "moveId": 57,

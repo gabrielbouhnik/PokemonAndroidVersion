@@ -27,6 +27,7 @@ class TrainerBattle() : Battle() {
             activity.gameDataService
         )
         this.opponent = this.opponentTrainer.getFirstPokemonThatCanFight()!!
+        activity.trainer!!.updatePokedex(opponent)
     }
 
     override fun updateOpponent() {
@@ -34,6 +35,7 @@ class TrainerBattle() : Battle() {
             opponent = opponentTrainer.getFirstPokemonThatCanFight()!!
         else
             nextTrainer()
+        activity.trainer!!.updatePokedex(opponent)
     }
 
     override fun getBattleState(): State {

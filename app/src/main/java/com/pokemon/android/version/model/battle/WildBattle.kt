@@ -74,6 +74,7 @@ class WildBattle() : Battle() {
             (levelData as WildBattleLevelData).possibleEncounters.encounters.random().id,
             randomLevel
         )
+        activity.trainer!!.updatePokedex(opponent)
         return opponent
     }
 }

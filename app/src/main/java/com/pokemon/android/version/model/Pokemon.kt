@@ -332,6 +332,7 @@ class Pokemon(
                 this.trainer!!.useItem(evolution.evolutionCondition.itemId!!, this)
             }
             this.data = gameDataService.getPokemonDataById(evolutionId)
+            this.trainer!!.pokedex[this.data.id] = true
             recomputeStat()
             if (currentHP > hp)
                 currentHP = hp

@@ -8,6 +8,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
     BURN(true),
     PARALYSIS(true),
     POISON(true),
+    BADLY_POISON(true),
     ASLEEP(true),
     FROZEN(true),
     CONFUSED(false),
@@ -15,14 +16,14 @@ enum class Status(var activeOutsideBattle: Boolean) {
     TRAPPED(false);
 
     fun toBattleIcon(): String {
-        when (this) {
-            BURN -> return "BRN"
-            PARALYSIS -> return "PAR"
-            POISON -> return "PSN"
-            ASLEEP -> return "SLP"
-            FROZEN -> return "FRZ"
+        return when (this) {
+            BURN -> "BRN"
+            PARALYSIS -> "PAR"
+            POISON, BADLY_POISON-> "PSN"
+            ASLEEP -> "SLP"
+            FROZEN -> "FRZ"
+            else -> ""
         }
-        return ""
     }
 
     companion object {

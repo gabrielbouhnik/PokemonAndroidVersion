@@ -38,11 +38,13 @@ class LeaderBattle() : Battle() {
             it.moves)}
             ,leaderLevelData.sprite)
         this.opponent = this.opponentTrainer.getFirstPokemonThatCanFight()!!
+        activity.trainer!!.updatePokedex(opponent)
     }
 
     override fun updateOpponent() {
         if (opponentTrainer.canStillBattle())
             opponent = opponentTrainer.getFirstPokemonThatCanFight()!!
+        activity.trainer!!.updatePokedex(opponent)
     }
 
     override fun getBattleState(): State {

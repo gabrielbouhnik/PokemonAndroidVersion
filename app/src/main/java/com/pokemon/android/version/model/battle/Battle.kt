@@ -4,10 +4,10 @@ import android.widget.TextView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
-import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.move.DrainMove
+import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.RecoilMove
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.BattleUtils
@@ -29,12 +29,8 @@ abstract class Battle {
         return if (!opponentResponse.success)
             opponentResponse.reason
         else {
-            var action = "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}\n" + opponentResponse.reason
-            if (opponentPokemonMove.move is DrainMove)
-                action += "${pokemon.data.name} had its energy drained!\n"
-            else if (opponentPokemonMove.move is RecoilMove)
-                action += "The opposing ${opponent.data.name} is damaged by recoil!\n"
-            action
+            val action = "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}\n" + opponentResponse.reason
+            action + getTurnDescription(opponent,pokemon, opponentPokemonMove.move)
         }
     }
 
@@ -43,20 +39,8 @@ abstract class Battle {
         return if (!response.success)
             response.reason
         else {
-            var action = "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n" + response.reason
-            if (trainerPokemonMove.move.power > 0){
-                val effectiveness = trainerPokemonMove.move.type.isEffectiveAgainst(opponent.data.type1) *
-                        trainerPokemonMove.move.type.isEffectiveAgainst(opponent.data.type2)
-                if (effectiveness >= 2)
-                    action += "It's super effective!\n"
-                if (effectiveness < 1)
-                    action += "It's not very effective effective!\n"
-            }
-            if (trainerPokemonMove.move is DrainMove)
-                action += "The opposing ${opponent.data.name} had its energy drained!\n"
-            else if (trainerPokemonMove.move is RecoilMove)
-                action += "${pokemon.data.name} is damaged by recoil!\n"
-            action
+            val action = "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n" + response.reason
+            action + getTurnDescription(pokemon, opponent, trainerPokemonMove.move)
         }
     }
 
@@ -144,6 +128,25 @@ abstract class Battle {
     }
 
     companion object {
+        protected fun getTurnDescription(attacker : Pokemon, other: Pokemon, move: Move) : String{
+            var action = ""
+            if (move.power > 0){
+                val effectiveness = move.type.isEffectiveAgainst(other.data.type1) *
+                        move.type.isEffectiveAgainst(other.data.type2)
+                if (effectiveness >= 2)
+                    action += "It's super effective!\n"
+                if (effectiveness == 0f)
+                    action += "It does not affect ${other.data.name}"
+                else if (effectiveness < 1)
+                    action += "It's not very effective effective!\n"
+            }
+            if (move is DrainMove)
+                action += "The opposing ${other.data.name} had its energy drained!\n"
+            else if (move is RecoilMove)
+                action += "${attacker.data.name} is damaged by recoil!\n"
+            return action
+        }
+
         fun checkStatus(pokemon: Pokemon): String {
             if (pokemon.battleData!!.battleStatus.contains(Status.CONFUSED)) {
                 pokemon.battleData!!.confusionCounter++
@@ -167,6 +170,15 @@ abstract class Battle {
             if (pokemon.status != Status.OK) {
                 when (pokemon.status) {
                     Status.POISON -> {
+                        pokemon.currentHP -= pokemon.hp / 8
+                        if (pokemon.currentHP <= 0) {
+                            pokemon.currentHP = 0
+                            pokemon.status = Status.OK
+                            pokemon.battleData = null
+                        }
+                        return pokemon.data.name + " suffers from the poison\n"
+                    }
+                    Status.BADLY_POISON -> {
                         pokemon.currentHP -= pokemon.battleData!!.poisonCounter * (pokemon.hp / 16)
                         pokemon.battleData!!.poisonCounter++
                         if (pokemon.currentHP <= 0) {

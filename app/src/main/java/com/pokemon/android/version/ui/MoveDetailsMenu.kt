@@ -20,14 +20,16 @@ class MoveDetailsMenu(var parent: Int) {
         infoTextView.text = activity.getString(R.string.move_info, move.power, move.type.toString(), move.pp, if (move.accuracy == null) "_" else move.accuracy.toString(), move.category.toString())
         val backButton: Button = activity.findViewById(R.id.moveDetailsBackButton)
         backButton.setOnClickListener{
-            if (parent == R.layout.battle_frontier_prep){
-                activity.mainMenu.battleFrontierMenu.loadPokemonInfoLayout(activity, pokemon, area!!)
-            }
-            else if (parent == R.layout.move_layout) {
-                activity.mainMenu.pokemonMenu.pokemonInfoMenu.loadMovesLayout(activity, pokemon)
-            }
-            else{
-                activity.mainMenu.pokemonMenu.pokemonInfoMenu.loadPokemonInfoLayout(activity, pokemon)
+            when (parent) {
+                R.layout.battle_frontier_prep -> {
+                    activity.mainMenu.battleFrontierMenu.loadPokemonInfoLayout(activity, pokemon, area!!)
+                }
+                R.layout.move_layout -> {
+                    activity.mainMenu.pokemonMenu.pokemonInfoMenu.loadMovesLayout(activity, pokemon)
+                }
+                else -> {
+                    activity.mainMenu.pokemonMenu.pokemonInfoMenu.loadPokemonInfoLayout(activity, pokemon)
+                }
             }
         }
     }

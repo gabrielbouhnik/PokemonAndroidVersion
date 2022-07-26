@@ -21,6 +21,9 @@ class SaveManager {
             Log.d("save:", jsonString)
             val trainerSave: TrainerSave = gson.fromJson(jsonString, data)
             val trainer = Trainer(trainerSave.name, Gender.valueOf(trainerSave.gender))
+            trainer.pokedex = HashMap()
+            if (trainerSave.pokedex != null)
+                trainerSave.pokedex!!.forEach { trainer.pokedex[it.id] = it.caught}
             trainer.coins = trainerSave.coins
             trainer.progression = trainerSave.progression
             trainer.eliteProgression = trainerSave.eliteProgression
@@ -29,8 +32,12 @@ class SaveManager {
                 val pokemon: Pokemon = Pokemon.of(it, activity.gameDataService, trainer)
                 trainer.pokemons.add(pokemon)
                 trainer.team.add(pokemon)
+                trainer.pokedex[it.id] = true
             }
-            trainerSave.pokemons.forEach { trainer.pokemons.add(Pokemon.of(it, activity.gameDataService, trainer)) }
+            trainerSave.pokemons.forEach {
+                trainer.pokemons.add(Pokemon.of(it, activity.gameDataService, trainer))
+                trainer.pokedex[it.id] = true
+            }
             if (trainerSave.lastTimeDailyHealUsed != null)
                 trainer.lastTimeDailyHealUsed =
                     SimpleDateFormat("yyyy-MM-dd").parse(trainerSave.lastTimeDailyHealUsed!!)

@@ -1,5 +1,6 @@
 package com.pokemon.android.version.ui
 
+import android.text.method.ScrollingMovementMethod
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Button
@@ -24,6 +25,7 @@ class StarterSelection {
         val genderSwitch: Switch = activity.findViewById(R.id.genderSwitch)
         val characterName: EditText = activity.findViewById(R.id.characterName)
         val oakTextView: TextView = activity.findViewById(R.id.oakTextView)
+        oakTextView.movementMethod = ScrollingMovementMethod()
         nextButton.setOnClickListener {
             oakTextView.text = "Now you can introduce yourself to me"
             nextButton.visibility = GONE
@@ -48,6 +50,7 @@ class StarterSelection {
         SaveManager.save(activity)
         val nextButton: Button = activity.findViewById(R.id.nextButton)
         val oakTextView: TextView = activity.findViewById(R.id.oakTextView)
+        oakTextView.movementMethod = ScrollingMovementMethod()
         oakTextView.text =
             "So you chose $starterName.\nYou can now go on an adventure and become a great pokemon trainer."
         nextButton.visibility = VISIBLE

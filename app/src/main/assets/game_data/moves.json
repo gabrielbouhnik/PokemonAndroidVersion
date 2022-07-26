@@ -904,7 +904,7 @@
       "priorityLevel": 0,
       "status": [
         {
-          "status": "POISON"
+          "status": "BADLY_POISON"
         }
       ],
       "highCritRate": false
@@ -1571,6 +1571,42 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": true
+    },
+    {
+      "id": 153,
+      "name": "Sludge Wave",
+      "power": 95,
+      "pp": 10,
+      "type": 8,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user strikes everything around it by swamping the area with a giant sludge wave. This may also poison those hit.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "POISON",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false
+    },
+    {
+      "id": 155,
+      "name": "Gunk Shot",
+      "power": 120,
+      "pp": 5,
+      "type": 8,
+      "category": "PHYSICAL",
+      "accuracy": 80,
+      "description": "The user shoots filthy garbage at the target to attack. This may also poison the target.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "POISON",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     }
   ],
   "variableHitMoves": [
@@ -2325,6 +2361,41 @@
       "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
+      ],
+      "target": "SELF",
+      "multiplicator": 2,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 154,
+      "name": "Mud-Slap",
+      "power": 20,
+      "category": "SPECIAL",
+      "pp": 20,
+      "type": 10,
+      "accuracy": 100,
+      "description": "The user hurls mud in the target's face to inflict damage and lower its accuracy.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ACCURACY"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 156,
+      "name": "Acid Armor",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 8,
+      "description": "The user alters its cellular structure to liquefy itself, sharply raising its Defense stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE"
       ],
       "target": "SELF",
       "multiplicator": 2,
