@@ -60,6 +60,7 @@ class DrainMove(
         fun description(description: String) = apply { this.description = description }
         fun status(status: ArrayList<StatusMove>) = apply { this.status = status }
 
-        fun build() = DrainMove(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description)
+        fun build() =
+            DrainMove(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description)
     }
 }

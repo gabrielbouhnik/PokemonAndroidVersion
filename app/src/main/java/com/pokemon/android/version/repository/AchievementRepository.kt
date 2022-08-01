@@ -1,12 +1,10 @@
 package com.pokemon.android.version.repository
 
-import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.entity.achievement.AchievementEntity
-import com.pokemon.android.version.entity.banner.BannerEntity
 import com.pokemon.android.version.utils.JsonFileToString
 
 class AchievementRepository : Repository<AchievementEntity> {

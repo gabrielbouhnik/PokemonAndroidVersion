@@ -20,7 +20,7 @@ data class PokemonSave(
                 pokemon.level,
                 pokemon.currentHP,
                 pokemon.currentExp,
-                MoveUtils.getMoveList(pokemon).map{MoveSave(it.move.id, it.move.pp)},
+                MoveUtils.getMoveList(pokemon).map { MoveSave(it.move.id, it.move.pp) },
                 pokemon.isFromBanner
             )
         }

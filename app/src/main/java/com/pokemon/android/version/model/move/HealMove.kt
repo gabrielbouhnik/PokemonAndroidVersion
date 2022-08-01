@@ -3,7 +3,6 @@ package com.pokemon.android.version.model.move
 import com.pokemon.android.version.entity.move.HealMoveEntity
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Type
-import kotlin.annotation.Target
 
 class HealMove(
     id: Int,
@@ -27,11 +26,12 @@ class HealMove(
                 healMoveEntity.pp,
                 healMoveEntity.accuracy,
                 healMoveEntity.priorityLevel,
-                healMoveEntity.description)
+                healMoveEntity.description
+            )
         }
 
-        fun heal(pokemon: Pokemon){
-            val hpToBeRestored = pokemon.hp/2
+        fun heal(pokemon: Pokemon) {
+            val hpToBeRestored = pokemon.hp / 2
             if (hpToBeRestored + pokemon.currentHP > pokemon.hp)
                 pokemon.currentHP = pokemon.hp
             else

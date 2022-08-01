@@ -22,6 +22,7 @@ class BossBattle() : Battle() {
         this.opponent.hp *= 3
         this.opponent.currentHP *= 3
         Stats.increaseBossStats(opponent, bossBattleLevelData.boss.boostedStats)
+        activity.trainer!!.updatePokedex(opponent)
     }
 
     override fun getBattleState(): State {

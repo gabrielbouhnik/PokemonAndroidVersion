@@ -19,9 +19,6 @@ import com.pokemon.android.version.repository.*
 import com.pokemon.android.version.ui.BattleFrontierMenu
 import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.StatUtils
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.math.roundToInt
 
 class GameDataService {
     var items: List<ItemData> = ArrayList()
@@ -31,6 +28,7 @@ class GameDataService {
     var levels: List<LevelData> = ArrayList()
     var achievements: List<Achievement> = ArrayList()
     var battleFrontierPokemons: HashMap<Int, ArrayList<List<Move>>> = HashMap<Int, ArrayList<List<Move>>>()
+
     companion object {
         const val MOVES_DATA_PATH = "game_data/moves.json"
         const val ITEMS_DATA_PATH = "game_data/items.json"
@@ -54,12 +52,12 @@ class GameDataService {
         this.pokemons = pokemonRepository.loadData(activity).map { PokemonData.of(it, moves) }
         this.banners = bannerRepository.loadData(activity).map { Banner.of(it, this) }
         this.levels = LevelFactory.createLevels(levelsRepository.loadData(activity), this)
-        this.achievements = achievementsRepository.loadData(activity).map{ Achievement.of(it, this)}
+        this.achievements = achievementsRepository.loadData(activity).map { Achievement.of(it, this) }
         battleFrontierPokemonRepository.loadData(activity).forEach {
             if (this.battleFrontierPokemons.containsKey(it.id))
-                this.battleFrontierPokemons[it.id]!!.add(it.moveIds.map{ moveId -> getMoveById(moveId)})
+                this.battleFrontierPokemons[it.id]!!.add(it.moveIds.map { moveId -> getMoveById(moveId) })
             else
-                this.battleFrontierPokemons[it.id] = arrayListOf(it.moveIds.map{ moveId -> getMoveById(moveId)})
+                this.battleFrontierPokemons[it.id] = arrayListOf(it.moveIds.map { moveId -> getMoveById(moveId) })
         }
     }
 
@@ -73,10 +71,10 @@ class GameDataService {
 
     fun generatePokemon(id: Int, level: Int): Pokemon {
         val pokemonData: PokemonData = pokemons.first { it.id == id }
-        var possibleMoves: List<Move> = pokemonData.movesByLevel.filter { it.level <= level }.map{it.move}
+        var possibleMoves: List<Move> = pokemonData.movesByLevel.filter { it.level <= level }.map { it.move }
         if (possibleMoves.size > 4)
             possibleMoves = possibleMoves.reversed()
-        val moveSet : ArrayList<Move> = arrayListOf()
+        val moveSet: ArrayList<Move> = arrayListOf()
         moveSet.add(possibleMoves.first())
         if (possibleMoves.size > 1)
             moveSet.add(possibleMoves[1])
@@ -93,7 +91,7 @@ class GameDataService {
 
     fun generatePokemonWithMoves(id: Int, level: Int, moves: List<Move>): Pokemon {
         val pokemonData: PokemonData = pokemons.first { it.id == id }
-        val hp: Int = StatUtils.computeHP(pokemonData,level)
+        val hp: Int = StatUtils.computeHP(pokemonData, level)
         val attack: Int = StatUtils.computeStat(pokemonData, level, Stats.ATTACK)
         val defense: Int = StatUtils.computeStat(pokemonData, level, Stats.DEFENSE)
         val spAtk: Int = StatUtils.computeStat(pokemonData, level, Stats.SPATK)
@@ -120,9 +118,9 @@ class GameDataService {
             .build()
     }
 
-    fun updateGymLeaderExp(){
-        levels.filter { it is LeaderLevelData && it.id < BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID}
-            .forEach { it.exp = 10000}
+    fun updateGymLeaderExp() {
+        levels.filter { it is LeaderLevelData && it.id < BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID }
+            .forEach { it.exp = 10000 }
     }
 
     fun updateEliteMode() {

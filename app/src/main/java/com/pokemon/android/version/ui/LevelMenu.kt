@@ -13,8 +13,8 @@ import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAI
 
 class LevelMenu {
     companion object {
-        const val ELITE_4_FIRST_LEVEL_ID = 64
-        const val ELITE_4_LAST_LEVEL_ID = 68
+        const val ELITE_4_FIRST_LEVEL_ID = 65
+        const val ELITE_4_LAST_LEVEL_ID = 69
     }
 
     var battleUI: BattleUI = BattleUI()
@@ -50,7 +50,8 @@ class LevelMenu {
             val position = it.tag as Int
             val levelData: LevelData = levels[position]
             if (activity.trainer!!.canStillBattle())
-                startBattle(activity, levelData)}
+                startBattle(activity, levelData)
+        }
         val adapter = LevelRecyclerAdapter(activity, levels, myItemClickListener)
         recyclerView.adapter = adapter
     }
@@ -68,16 +69,15 @@ class LevelMenu {
         val myItemClickListener = View.OnClickListener {
             val position = it.tag as Int
             val levelData: LevelData = levels[position]
-            if (activity.trainer!!.canStillBattle())
-            {
+            if (activity.trainer!!.canStillBattle()) {
                 if (activity.trainer!!.progression == levelData.id) {
                     loadLevelDescriptionMenu(activity, levelData)
                 } else if (activity.trainer!!.progression > levelData.id) {
                     startBattle(activity, levels[position])
                 }
-            }
-            else
-                Toast.makeText(activity, "You need to heal your Pokemon before starting a battle.", Toast.LENGTH_SHORT).show()
+            } else
+                Toast.makeText(activity, "You need to heal your Pokemon before starting a battle.", Toast.LENGTH_SHORT)
+                    .show()
 
         }
         val adapter = LevelRecyclerAdapter(activity, levels, myItemClickListener)

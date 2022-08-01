@@ -43,7 +43,7 @@ class BannerRecyclerAdapter(
         val currentItem = data[position]
         if (position == 0 && position == data.size - 1)
             holder.arrowImageView.visibility = GONE
-        if (position == 0){
+        if (position == 0) {
             val img: InputStream = activity.assets.open("images/right.png")
             holder.arrowImageView.setImageDrawable(Drawable.createFromStream(img, "images/right.png"))
         }

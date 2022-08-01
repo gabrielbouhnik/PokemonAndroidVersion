@@ -25,21 +25,34 @@ abstract class Battle {
     abstract fun updateOpponent()
 
     protected fun opponentTurn(opponentPokemonMove: PokemonMove): String {
+        var action = ""
+        if (opponent.battleData!!.confusionCounter == 4) {
+            opponent.battleData!!.battleStatus.remove(Status.CONFUSED)
+            opponent.battleData!!.confusionCounter = 0
+            action += "The opposing ${opponent.data.name} is no longer confused!\n"
+        }
         val opponentResponse = opponent.attack(opponentPokemonMove, pokemon)
         return if (!opponentResponse.success)
-            opponentResponse.reason
+            action + opponentResponse.reason
         else {
-            val action = "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}\n" + opponentResponse.reason
-            action + getTurnDescription(opponent,pokemon, opponentPokemonMove.move)
+            action +=
+                "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}\n" + opponentResponse.reason
+            action + getTurnDescription(opponent, pokemon, opponentPokemonMove.move)
         }
     }
 
     private fun trainerTurn(trainerPokemonMove: PokemonMove): String {
+        var action = ""
+        if (pokemon.battleData!!.confusionCounter == 4) {
+            pokemon.battleData!!.battleStatus.remove(Status.CONFUSED)
+            pokemon.battleData!!.confusionCounter = 0
+            action += pokemon.data.name + " is no longer confused!\n"
+        }
         val response = pokemon.attack(trainerPokemonMove, opponent)
         return if (!response.success)
-            response.reason
+            action + response.reason
         else {
-            val action = "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n" + response.reason
+            action += "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n" + response.reason
             action + getTurnDescription(pokemon, opponent, trainerPokemonMove.move)
         }
     }
@@ -112,10 +125,16 @@ abstract class Battle {
     }
 
     protected fun endTurn(sb: StringBuilder) {
-        if (opponent.currentHP > 0)
+        if (opponent.currentHP > 0) {
             sb.append(checkStatus(opponent))
-        if (pokemon.currentHP > 0)
+            if (pokemon.currentHP == 0 && opponent.battleData!!.battleStatus.contains(Status.TRAPPED))
+                opponent.battleData!!.battleStatus.remove(Status.TRAPPED)
+        }
+        if (pokemon.currentHP > 0) {
             sb.append(checkStatus(pokemon))
+            if (opponent.currentHP == 0 && pokemon.battleData!!.battleStatus.contains(Status.TRAPPED))
+                pokemon.battleData!!.battleStatus.remove(Status.TRAPPED)
+        }
         if (pokemon.currentHP == 0) {
             sb.append(pokemon.data.name + " fainted\n")
             pokemon.status = Status.OK
@@ -128,9 +147,9 @@ abstract class Battle {
     }
 
     companion object {
-        protected fun getTurnDescription(attacker : Pokemon, other: Pokemon, move: Move) : String{
+        protected fun getTurnDescription(attacker: Pokemon, other: Pokemon, move: Move): String {
             var action = ""
-            if (move.power > 0){
+            if (move.power > 0) {
                 val effectiveness = move.type.isEffectiveAgainst(other.data.type1) *
                         move.type.isEffectiveAgainst(other.data.type2)
                 if (effectiveness >= 2)
@@ -148,25 +167,32 @@ abstract class Battle {
         }
 
         fun checkStatus(pokemon: Pokemon): String {
+            var details = ""
             if (pokemon.battleData!!.battleStatus.contains(Status.CONFUSED)) {
                 pokemon.battleData!!.confusionCounter++
-                if (pokemon.battleData!!.confusionCounter == 4) {
-                    pokemon.battleData!!.battleStatus.remove(Status.CONFUSED)
-                    pokemon.battleData!!.confusionCounter = 0
-                }
             }
             if (pokemon.battleData!!.battleStatus.contains(Status.TRAPPED)) {
                 pokemon.battleData!!.trapCounter++
                 if (pokemon.battleData!!.trapCounter == 5) {
                     pokemon.battleData!!.battleStatus.remove(Status.TRAPPED)
                     pokemon.battleData!!.trapCounter = 0
-                }
-                else {
-                    pokemon.currentHP = if ((pokemon.hp / 8) >= pokemon.currentHP) 0 else pokemon.currentHP - (pokemon.hp / 8)
+                } else {
+                    pokemon.currentHP =
+                        if ((pokemon.hp / 8) >= pokemon.currentHP) 0 else pokemon.currentHP - (pokemon.hp / 8)
                 }
             }
             if (pokemon.battleData!!.battleStatus.contains(Status.FLINCHED))
                 pokemon.battleData!!.battleStatus.remove(Status.FLINCHED)
+            if (pokemon.battleData!!.battleStatus.contains(Status.TIRED)) {
+                if (pokemon.battleData!!.sleepCounter == 0)
+                    pokemon.battleData!!.sleepCounter += 1
+                else {
+                    pokemon.battleData!!.battleStatus.remove(Status.TIRED)
+                    pokemon.battleData!!.sleepCounter = 0
+                    pokemon.status = Status.ASLEEP
+                    details += pokemon.data.name + " fell asleep!\n"
+                }
+            }
             if (pokemon.status != Status.OK) {
                 when (pokemon.status) {
                     Status.POISON -> {
@@ -176,7 +202,7 @@ abstract class Battle {
                             pokemon.status = Status.OK
                             pokemon.battleData = null
                         }
-                        return pokemon.data.name + " suffers from the poison\n"
+                        details += pokemon.data.name + " suffers from the poison!\n"
                     }
                     Status.BADLY_POISON -> {
                         pokemon.currentHP -= pokemon.battleData!!.poisonCounter * (pokemon.hp / 16)
@@ -186,7 +212,7 @@ abstract class Battle {
                             pokemon.status = Status.OK
                             pokemon.battleData = null
                         }
-                        return pokemon.data.name + " suffers from the poison\n"
+                        details += pokemon.data.name + " suffers from the poison!\n"
                     }
                     Status.BURN -> {
                         pokemon.currentHP -= pokemon.hp / 16
@@ -195,7 +221,7 @@ abstract class Battle {
                             pokemon.status = Status.OK
                             pokemon.battleData = null
                         }
-                        return pokemon.data.name + " suffers from its burn\n"
+                        details += pokemon.data.name + " suffers from its burn!\n"
                     }
                     Status.ASLEEP -> {
                         pokemon.battleData!!.sleepCounter++
@@ -203,7 +229,7 @@ abstract class Battle {
                     else -> {}
                 }
             }
-            return ""
+            return details
         }
     }
 }

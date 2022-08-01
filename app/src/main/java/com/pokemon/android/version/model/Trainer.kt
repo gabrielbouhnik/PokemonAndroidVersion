@@ -20,7 +20,7 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
     var battleTowerProgression: BattleFrontierProgression? = null
     var battleFactoryProgression: BattleFrontierProgression? = null
     var successfulAchievements: ArrayList<Int> = arrayListOf()
-    var achievements : Achievements? = null
+    var achievements: Achievements? = null
     var pokedex: HashMap<Int, Boolean> = HashMap()
 
     override fun getFirstPokemonThatCanFight(): Pokemon? {
@@ -166,7 +166,7 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         return 20
     }
 
-    fun updatePokedex(pokemon: Pokemon){
+    fun updatePokedex(pokemon: Pokemon) {
         if (!pokedex.containsKey(pokemon.data.id))
             pokedex[pokemon.data.id] = false
     }

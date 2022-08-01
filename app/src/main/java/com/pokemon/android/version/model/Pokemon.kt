@@ -10,6 +10,11 @@ import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.MoveUtils
 import com.pokemon.android.version.utils.StatUtils
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
+import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.random.Random
 import kotlin.random.nextInt
 
@@ -67,12 +72,12 @@ class Pokemon(
                 .level(pokemonSave.level)
                 .trainer(trainer)
                 .status(Status.valueOf(pokemonSave.status))
-                .hp(StatUtils.computeHP(data,pokemonSave.level))
-                .attack(StatUtils.computeStat(data,pokemonSave.level,Stats.ATTACK))
-                .defense(StatUtils.computeStat(data,pokemonSave.level,Stats.DEFENSE))
-                .spAtk(StatUtils.computeStat(data,pokemonSave.level,Stats.SPATK))
-                .spDef(StatUtils.computeStat(data,pokemonSave.level,Stats.SPDEF))
-                .speed(StatUtils.computeStat(data,pokemonSave.level,Stats.SPEED))
+                .hp(StatUtils.computeHP(data, pokemonSave.level))
+                .attack(StatUtils.computeStat(data, pokemonSave.level, Stats.ATTACK))
+                .defense(StatUtils.computeStat(data, pokemonSave.level, Stats.DEFENSE))
+                .spAtk(StatUtils.computeStat(data, pokemonSave.level, Stats.SPATK))
+                .spDef(StatUtils.computeStat(data, pokemonSave.level, Stats.SPDEF))
+                .speed(StatUtils.computeStat(data, pokemonSave.level, Stats.SPEED))
                 .currentHP(pokemonSave.currentHP)
                 .currentExp(pokemonSave.currentExp)
                 .move1(PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[0].id), pokemonSave.moveids[0].pp))
@@ -105,7 +110,7 @@ class Pokemon(
         var maxDamage = 0
         var maxDamageIdx = 0
         for ((Idx, move) in usableMoves.withIndex()) {
-            val damage: Int = DamageCalculator.computeDamageIA(this, move.move, opponent)
+            val damage: Int = DamageCalculator.computeDamage(this, move.move, opponent, 1f)
             if (damage >= opponent.currentHP)
                 return move
             if (damage > 0 && hp / currentHP < 20 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
@@ -164,7 +169,10 @@ class Pokemon(
                     status = Status.OK
                     battleData = null
                 }
-                return AttackResponse(false, "${this.data.name} uses ${move.move.name}\nBut ${this.data.name} hits hurt itself in its confusion\n")
+                return AttackResponse(
+                    false,
+                    "${this.data.name} uses ${move.move.name}\nBut ${this.data.name} hits hurt itself in its confusion\n"
+                )
             }
         }
         return AttackResponse(true, "")
@@ -178,7 +186,10 @@ class Pokemon(
         if (move.move.accuracy != null) {
             val random: Int = Random.nextInt(100)
             if (random > move.move.accuracy!! * battleData!!.accuracyMultiplicator)
-                return AttackResponse(false, "${this.data.name} uses ${move.move.name}\n${this.data.name}'s attack missed!\n")
+                return AttackResponse(
+                    false,
+                    "${this.data.name} uses ${move.move.name}\n${this.data.name}'s attack missed!\n"
+                )
         }
         var details = ""
         if (move.move is HealMove)
@@ -188,14 +199,29 @@ class Pokemon(
             if (move.move is VariableHitMove) {
                 var timesItHits = Random.nextInt(2..5)
                 while (timesItHits > 0 && opponent.currentHP > damage) {
-                    damage += DamageCalculator.computeDamage(this, move.move, opponent)
+                    damage += DamageCalculator.computeDamage(
+                        this,
+                        move.move,
+                        opponent,
+                        DamageCalculator.getCriticalMultiplicator(this, move.move)
+                    )
                     timesItHits--
                 }
                 timesItHits = 5 - timesItHits
-                details = if (timesItHits > 1 ) "${opponent.data.name} was hit $timesItHits times!\n" else "${opponent.data.name} was hit 1 time!\n"
+                details =
+                    if (timesItHits > 1) "${opponent.data.name} was hit $timesItHits times!\n" else "${opponent.data.name} was hit 1 time!\n"
+            } else {
+                val crit = DamageCalculator.getCriticalMultiplicator(this, move.move)
+                if (crit == 1.5f)
+                    details += "A critical hit!\n"
+                damage = DamageCalculator.computeDamage(
+                    this,
+                    move.move,
+                    opponent,
+                    crit
+                )
+
             }
-            else
-                damage = DamageCalculator.computeDamage(this, move.move, opponent)
         }
         val damageDone: Int
         if (damage >= opponent.currentHP) {
@@ -209,12 +235,12 @@ class Pokemon(
             if (move.move.type == Type.FIRE && opponent.status == Status.FROZEN)
                 opponent.status = Status.OK
             if (move.move.power == 0 || damage > 0 && move.move.status.isNotEmpty()) {
-                details = Status.updateStatus(opponent, move.move)
+                details += Status.updateStatus(opponent, move.move)
             }
             if (move.move is StatChangeMove && (move.move.power == 0 || damage > 0)) {
                 if ((move.move as StatChangeMove).probability == null || Random.nextInt(100) < (move.move as StatChangeMove).probability!!) {
                     val statChangeMove = move.move as StatChangeMove
-                    details = if (statChangeMove.target == Target.SELF)
+                    details += if (statChangeMove.target == Target.SELF)
                         Stats.updateStat(this, move.move as StatChangeMove)
                     else
                         Stats.updateStat(opponent, move.move as StatChangeMove)
@@ -233,7 +259,6 @@ class Pokemon(
                 status = Status.OK
                 battleData = null
             }
-
         }
         return AttackResponse(true, details)
     }
@@ -304,6 +329,14 @@ class Pokemon(
     private fun meetsEvolutionCondition(evolution: Evolution): Boolean {
         val condition = evolution.evolutionCondition
         if (condition.level != null && level >= condition.level!!) {
+            if (condition.dayTime != null){
+                val rightNow = Calendar.getInstance()
+                val currentHourIn24Format: Int =rightNow.get(Calendar.HOUR_OF_DAY)
+                if (condition.dayTime == "DAY")
+                    return currentHourIn24Format in 6..18
+                if (condition.dayTime == "NIGHT")
+                    return currentHourIn24Format in 18..24 || currentHourIn24Format in 0..6
+            }
             return true
         }
         if (condition.itemId != null && this.trainer!!.items.containsKey(condition.itemId))

@@ -92,7 +92,7 @@ class MainMenu {
             }
         }
         val battleFrontierButton: Button = activity.findViewById(R.id.battleFrontierButton)
-        if (!activity.eliteMode && activity.trainer!!.progression > 50) {
+        if (!activity.eliteMode && activity.trainer!!.progression > 51) {
             battleFrontierButton.setOnClickListener {
                 battleFrontierMenu.loadMenu(activity)
             }
@@ -101,10 +101,14 @@ class MainMenu {
             val battleFrontierTextView: TextView = activity.findViewById(R.id.BattleFrontierTextView)
             battleFrontierTextView.visibility = GONE
         }
-        val pokedexButton : Button = activity.findViewById(R.id.pokedexButton)
-        pokedexButton.setOnClickListener {
-            pokedexMenu.loadPokedexMenu(activity)
+        val pokedexButton: Button = activity.findViewById(R.id.pokedexButton)
+        if (activity.trainer!!.name == "gab") {
+            pokedexButton.setOnClickListener {
+                pokedexMenu.loadPokedexMenu(activity)
+            }
         }
+        else
+            pokedexButton.visibility = GONE
     }
 
     private fun loadTrainerCardMenu(activity: MainActivity) {
@@ -116,7 +120,7 @@ class MainMenu {
         val achievementsButton: TextView = activity.findViewById(R.id.achievementsButton)
         if (activity.trainer!!.progression < LevelMenu.ELITE_4_LAST_LEVEL_ID)
             achievementsButton.visibility = GONE
-        else{
+        else {
             achievementsButton.setOnClickListener {
                 loadAchievementsMenu(activity)
             }

@@ -1144,7 +1144,7 @@
       "type": 11,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "This move can't be used. It's recommended that this move is forgotten. Once forgotten, this move can't be remembered.",
+      "description": "The target is attacked with a sharp chop. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": true
@@ -1438,7 +1438,7 @@
       "type": 2,
       "category": "SPECIAL",
       "accuracy": 85,
-      "description": "The target becomes trapped within a fierce vortex of fire that rages for four to five turns.",
+      "description": "The target becomes trapped within a fierce vortex of fire that rages for five turns.",
       "priorityLevel": 0,
       "status": [
         {
@@ -1455,7 +1455,7 @@
       "type": 3,
       "category": "SPECIAL",
       "accuracy": 85,
-      "description": "The user traps the target in a violent swirling whirlpool for four to five turns.",
+      "description": "The user traps the target in a violent swirling whirlpool for five turns.",
       "priorityLevel": 0,
       "status": [
         {
@@ -1532,7 +1532,7 @@
       "type": 10,
       "category": "PHYSICAL",
       "accuracy": 85,
-      "description": "The user traps the target inside a harshly raging sandstorm for four to five turns.",
+      "description": "The user traps the target inside a harshly raging sandstorm for five turns.",
       "priorityLevel": 0,
       "status": [
         {
@@ -1604,6 +1604,39 @@
         {
           "status": "POISON",
           "probability": 30
+        }
+      ],
+      "highCritRate": false
+    },
+    {
+      "id": 159,
+      "name": "Yawn",
+      "power": 0,
+      "pp": 10,
+      "type": 5,
+      "category": "OTHER",
+      "description": "The user lets loose a huge yawn that lulls the target into falling asleep on the next turn.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "TIRED"
+        }
+      ],
+      "highCritRate": false
+    },
+    {
+      "id": 160,
+      "name": "Wrap",
+      "power": 15,
+      "pp": 20,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "A long body, vines, or the like are used to wrap and squeeze the target for five turns.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "TRAPPED"
         }
       ],
       "highCritRate": false
@@ -2399,6 +2432,42 @@
       ],
       "target": "SELF",
       "multiplicator": 2,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 157,
+      "name": "Iron Defense",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 15,
+      "type": 16,
+      "description": "The user hardens its body's surface like iron, sharply raising its Defense stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE"
+      ],
+      "target": "SELF",
+      "multiplicator": 2,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 158,
+      "name": "Metal Claw",
+      "power": 50,
+      "category": "PHYSICAL",
+      "pp": 35,
+      "type": 16,
+      "accuracy": 95,
+      "description": "The target is raked with steel claws. This may also raise the user's Attack stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "probability": 10,
       "status": [],
       "highCritRate": false
     }

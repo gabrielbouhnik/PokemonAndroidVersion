@@ -64,6 +64,19 @@ class RecoilMove(
         fun recoil(recoil: Recoil) = apply { this.recoil = recoil }
 
         fun build() =
-            RecoilMove(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description, recoil)
+            RecoilMove(
+                id,
+                name,
+                type,
+                category,
+                power,
+                pp,
+                accuracy,
+                priorityLevel,
+                status,
+                highCritRate,
+                description,
+                recoil
+            )
     }
 }

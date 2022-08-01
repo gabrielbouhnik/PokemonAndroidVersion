@@ -60,6 +60,18 @@ class VariableHitMove(
         fun status(status: List<StatusMove>) = apply { this.status = status }
 
         fun build() =
-            VariableHitMove(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description)
+            VariableHitMove(
+                id,
+                name,
+                type,
+                category,
+                power,
+                pp,
+                accuracy,
+                priorityLevel,
+                status,
+                highCritRate,
+                description
+            )
     }
 }

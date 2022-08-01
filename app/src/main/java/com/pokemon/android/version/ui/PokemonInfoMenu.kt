@@ -53,7 +53,14 @@ class PokemonInfoMenu(var parentId: Int) {
         activity.displayPokemon(pokemon.data.id, imageView)
     }
 
-    private fun displayMoveButton(activity: MainActivity, pokemon: Pokemon, move: PokemonMove, buttonId: Int, ppTextViewId: Int, area: BattleFrontierArea?) {
+    private fun displayMoveButton(
+        activity: MainActivity,
+        pokemon: Pokemon,
+        move: PokemonMove,
+        buttonId: Int,
+        ppTextViewId: Int,
+        area: BattleFrontierArea?
+    ) {
         val moveButton: Button = activity.findViewById(buttonId)
         moveButton.visibility = View.VISIBLE
         moveButton.text = move.move.name
@@ -116,9 +123,8 @@ class PokemonInfoMenu(var parentId: Int) {
                 }
                 activity.playSoundEffect(R.raw.evolve_sound_effect)
                 loadPokemonInfoLayout(activity, pokemon)
-            }
-            else{
-                MoveDetailsMenu(R.layout.move_layout).loadMoveMenu(activity, pokemon,possibleMoves[position], null)
+            } else {
+                MoveDetailsMenu(R.layout.move_layout).loadMoveMenu(activity, pokemon, possibleMoves[position], null)
             }
         }
         movesRecyclerView.adapter = MoveRecyclerAdapter(activity, possibleMoves, movesItemClickListener)

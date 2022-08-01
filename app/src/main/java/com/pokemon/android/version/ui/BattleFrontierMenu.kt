@@ -18,9 +18,10 @@ import com.pokemon.android.version.model.level.LeaderLevelData
 import com.pokemon.android.version.utils.MoveUtils
 
 class BattleFrontierMenu {
-    companion object{
+    companion object {
         const val FRONTIER_BRAIN_LEVEL_ID = 99
     }
+
     var pokemonInfoMenu = PokemonInfoMenu(R.layout.battle_frontier_prep)
 
     fun loadPokemonInfoLayout(activity: MainActivity, pokemon: Pokemon, area: BattleFrontierArea) {
@@ -47,13 +48,14 @@ class BattleFrontierMenu {
         battleFrontierPrepBackButton.setOnClickListener {
             loadMenu(activity)
         }
-        val resetProgressionButton : Button = activity.findViewById(R.id.resetProgressionButton)
+        val resetProgressionButton: Button = activity.findViewById(R.id.resetProgressionButton)
         val winStreakTextView: TextView = activity.findViewById(R.id.winStreakTextView)
         val recyclerView = activity.findViewById<RecyclerView>(R.id.battleFrontierRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         var alreadyClickedOnReset = false
         if (area == BattleFrontierArea.BATTLE_FACTORY) {
-            winStreakTextView.text = activity.getString(R.string.win_streak,activity.trainer!!.battleFactoryProgression!!.progression)
+            winStreakTextView.text =
+                activity.getString(R.string.win_streak, activity.trainer!!.battleFactoryProgression!!.progression)
             val adapter = PokemonRecyclerAdapter(activity, activity.trainer!!.battleFactoryProgression!!.team, {
                 val position = it.tag as Int
                 loadPokemonInfoLayout(activity, activity.trainer!!.battleFactoryProgression!!.team[position], area)
@@ -74,7 +76,8 @@ class BattleFrontierMenu {
             }
             recyclerView.adapter = adapter
         } else {
-            winStreakTextView.text = activity.getString(R.string.win_streak,activity.trainer!!.battleTowerProgression!!.progression)
+            winStreakTextView.text =
+                activity.getString(R.string.win_streak, activity.trainer!!.battleTowerProgression!!.progression)
             val adapter = PokemonRecyclerAdapter(activity, activity.trainer!!.battleTowerProgression!!.team, {
                 val position = it.tag as Int
                 loadPokemonInfoLayout(activity, activity.trainer!!.battleTowerProgression!!.team[position], area)
@@ -98,11 +101,11 @@ class BattleFrontierMenu {
         startBattleButton.setOnClickListener {
             if (area == BattleFrontierArea.BATTLE_TOWER &&
                 activity.trainer!!.battleTowerProgression!!.progression > 0 &&
-                activity.trainer!!.battleTowerProgression!!.progression % 7 == 0){
+                activity.trainer!!.battleTowerProgression!!.progression % 7 == 0
+            ) {
                 activity.mainMenu.levelMenu.loadLevelDescriptionMenu(activity,
-                activity.gameDataService.levels.find { it.id == 99 } as LeaderLevelData)
-            }
-            else
+                    activity.gameDataService.levels.find { it.id == 99 } as LeaderLevelData)
+            } else
                 activity.mainMenu.levelMenu.battleUI.startBattleFrontierBattle(activity, area)
         }
     }

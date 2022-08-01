@@ -19,7 +19,7 @@ class BannerMenu {
     fun loadBannerMenu(activity: MainActivity) {
         activity.setContentView(R.layout.banners_menu)
         coinsTextView = activity.findViewById(R.id.coinBannerTextView)
-        coinsTextView.text = activity.getString(R.string.andro_coins,activity.trainer!!.coins)
+        coinsTextView.text = activity.getString(R.string.andro_coins, activity.trainer!!.coins)
         val recyclerView = activity.findViewById<RecyclerView>(R.id.bannerRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         val backButton: Button = activity.findViewById(R.id.bannerMenuBackButton)
@@ -44,9 +44,10 @@ class BannerMenu {
         }
         val resultTextView: TextView = activity.findViewById(R.id.summonResultTextView)
         if (s is PokemonBanner) {
-            resultTextView.text = activity.getString(R.string.summon_pokemon,s.name)
+            resultTextView.text = activity.getString(R.string.summon_pokemon, s.name)
         } else {
-            resultTextView.text = activity.getString(R.string.summon_item,activity.gameDataService.items[(s as ItemBanner).id].name)
+            resultTextView.text =
+                activity.getString(R.string.summon_item, activity.gameDataService.items[(s as ItemBanner).id].name)
         }
     }
 }

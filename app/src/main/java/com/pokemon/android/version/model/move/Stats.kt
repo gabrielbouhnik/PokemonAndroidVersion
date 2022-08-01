@@ -12,7 +12,7 @@ enum class Stats(var value: String) {
     CRITICAL_RATE("Crit Rate");
 
     companion object {
-        fun updateStat(pokemon: Pokemon, statChangeMove: StatChangeMove) : String {
+        fun updateStat(pokemon: Pokemon, statChangeMove: StatChangeMove): String {
             val sb = StringBuilder()
             statChangeMove.statsAffected.forEach {
                 if (statChangeMove.multiplicator > 1)

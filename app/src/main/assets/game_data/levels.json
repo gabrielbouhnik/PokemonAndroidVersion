@@ -550,7 +550,7 @@
               "id": 69,
               "level": 18,
               "moveIds": [
-                5,34,35
+                5,34,35,160
               ]
             }
           ]
@@ -2143,8 +2143,94 @@
     },
     {
       "id": 58,
+      "name": "\nSea Route 21",
+      "description": "After obtaining your seventh badge, you decide to go to Viridian City to get your last badge.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Swimmer.png",
+          "name" : "Swimmer Jerome",
+          "pokemons": [
+            {
+              "id": 8,
+              "level": 57,
+              "moveIds": [43,100,79,23]
+            },
+            {
+              "id": 121,
+              "level": 58,
+              "moveIds": [43,45,51,132]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Pecheur.png",
+          "name" : "Fisherman Wade",
+          "pokemons": [
+            {
+              "id": 130,
+              "level": 58,
+              "moveIds": [79,27,119,54]
+            },
+            {
+              "id": 130,
+              "level": 58,
+              "moveIds": [79,27,119,125]
+            },
+            {
+              "id": 130,
+              "level": 58,
+              "moveIds": [79,27,119,125]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Swimmer.png",
+          "name" : "Swimmer Roland",
+          "pokemons": [
+            {
+              "id": 73,
+              "level": 58,
+              "moveIds": [43,62,153,100]
+            },
+            {
+              "id": 117,
+              "level": 58,
+              "moveIds": [43,100,104,42]
+            },
+            {
+              "id": 62,
+              "level": 58,
+              "moveIds": [43,87,88,106]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 40
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Ahh! Feel the sun and the wind!",
+      "endDialogWin": "I lost!",
+      "endDialogLoose": "The sea cleanses my body and my soul!",
+      "music": 2,
+      "icon": "images/sea_battle_background.png",
+      "background": "images/sea_battle_background.png",
+      "exp": 7600
+    },
+    {
+      "id": 59,
       "name": "\nViridian Gym",
-      "description": "After obtaining your seventh badge, you return to Viridian City to face the gym.",
+      "description": "You are back in Viridian City, it's time to get your last badge.",
       "opponents": [
         {
           "sprite": "images/Sprite_Topdresseur.png",
@@ -2207,7 +2293,7 @@
       "exp": 7900
     },
     {
-      "id": 59,
+      "id": 60,
       "name": "\nVS Giovanni 2",
       "description": "After defeating the guards, you go to the gym leader and you notice that it's Giovanni, the boss of Team Rocket!",
       "opponents": [
@@ -2288,7 +2374,7 @@
       "exp": 10000
     },
     {
-      "id": 60,
+      "id": 61,
       "name": "\nVS Rival 6",
       "description": "Now that you have 8 badges, you head for the Victory Road. However, on Route 22, you run into Jackson.",
       "opponents": [
@@ -2364,7 +2450,7 @@
       "exp": 10000
     },
     {
-      "id": 62,
+      "id": 63,
       "name": "\nVictory Road 2",
       "description": "Still in Victory Road, there are several trainers in your path. Take them down to get to the Pokemon League",
       "opponents": [
@@ -2454,7 +2540,7 @@
       "exp": 10000
     },
     {
-      "id": 64,
+      "id": 65,
       "name": "\nVS Lorelei",
       "description": "",
       "opponents": [
@@ -2508,7 +2594,7 @@
       "exp": 10000
     },
     {
-      "id": 65,
+      "id": 66,
       "name": "\nVS Bruno",
       "description": "",
       "opponents": [
@@ -2560,7 +2646,7 @@
       "exp": 10000
     },
     {
-      "id": 66,
+      "id": 67,
       "name": "\nVS Agatha",
       "description": "",
       "opponents": [
@@ -2612,7 +2698,7 @@
       "exp": 10000
     },
     {
-      "id": 67,
+      "id": 68,
       "name": "\nVS Lance",
       "description": "",
       "opponents": [
@@ -2643,7 +2729,7 @@
             {
               "id": 130,
               "level": 73,
-              "moveIds": [79,27,93,78]
+              "moveIds": [79,27,93,125]
             },
             {
               "id": 149,
@@ -2664,7 +2750,7 @@
       "exp": 10000
     },
     {
-      "id": 68,
+      "id": 69,
       "name": "\nVS Champion",
       "description": "",
       "type": "Trainer Battle",
@@ -2724,7 +2810,7 @@
       "exp": 10000
     },
     {
-      "id": 75,
+      "id": 76,
       "name": "\nVS Cynthia",
       "description": "At the top of Mt. Silver, you come across the champion of the Sinnoh region.",
       "opponents": [
@@ -3321,7 +3407,7 @@
       "exp": 5300
     },
     {
-      "id": 61,
+      "id": 62,
       "name": "\nVictory Road",
       "description": "Having shown your 8 badges to the guard, you enter the Victory Road, the last step before the Pokemon League",
       "encounter": 15,
@@ -3347,7 +3433,7 @@
       "exp": 9000
     },
     {
-      "id": 69,
+      "id": 70,
       "name": "\nPower Plant",
       "description": "After defeating the league, Professor Oak sends you to the abandoned Power Plant on Route 10 because something strange is happening with the wild Pokemon there.",
       "encounter": 5,
@@ -3373,7 +3459,7 @@
       "exp": 9000
     },
     {
-      "id": 70,
+      "id": 71,
       "name": "\nVS Electrodes",
       "description": "You advance in the Power Plant and several powerful Electrodes attack you.",
       "encounter": 5,
@@ -3399,7 +3485,7 @@
       "exp": 9000
     },
     {
-      "id": 72,
+      "id": 73,
       "name": "\nRoute 28",
       "description": "You receive a letter from the Sinnoh region's champion who wants to battle you on the top of Mt Silver. You decide to go there to face her.",
       "encounter": 8,
@@ -3425,7 +3511,7 @@
       "exp": 9000
     },
     {
-      "id": 73,
+      "id": 74,
       "name": "\nMt Silver",
       "description": "You finally reach Mt. Silver and you come across several wild Pokemon.",
       "encounter": 10,
@@ -3451,7 +3537,7 @@
       "exp": 9000
     },
     {
-      "id": 76,
+      "id": 77,
       "name": "\nCerulean Cave",
       "description": "After defeating Cynthia, you visit Professor Oak and he informs you that your rival Jackson has gone to Cerulean Cave and encountered the most powerful Pokemon he has ever seen. He ran away because his Pokemon were defeated by this creature. Be careful!",
       "encounter": 10,
@@ -3479,7 +3565,7 @@
       "exp": 12000
     },
     {
-      "id": 77,
+      "id": 78,
       "name": "\nCerulean Cave 1F",
       "description": "Pokemon in this cave are very powerful. Keep it up!",
       "encounter": 10,
@@ -3507,7 +3593,7 @@
       "exp": 12000
     },
     {
-      "id": 78,
+      "id": 79,
       "name": "\nCerulean Cave B1F",
       "description": "You find a ladder that takes you into the depths of the cave. You feel the presence of the powerful Pokemon.",
       "encounter": 10,
@@ -3641,7 +3727,7 @@
       "exp": 7000
     },
     {
-      "id": 63,
+      "id": 64,
       "name": "\nVs Moltres",
       "description": "You finally see the exit of Victory Road but you feel the presence of a powerful pokemon near you. You head into a room near the exit and come across the legendary bird Moltres.",
       "boss":
@@ -3667,7 +3753,7 @@
       "exp": 10200
     },
     {
-      "id": 71,
+      "id": 72,
       "name": "\nVs Zapdos",
       "description": "At the very bottom of the Power Plant, you come across the legendary bird Zapdos and he attacks you!",
       "boss":
@@ -3693,7 +3779,7 @@
       "exp": 12000
     },
     {
-      "id": 74,
+      "id": 75,
       "name": "\nVs Tyranitar",
       "description": "You can see the exit to the top of Mt Silver. However, a very powerful looking Tyranitar attacks you!",
       "boss":
@@ -3723,7 +3809,7 @@
       "exp": 15000
     },
     {
-      "id": 79,
+      "id": 80,
       "name": "\nVs Mewtwo",
       "description": "You finally come across the powerful Pokemon. It seems to want to fight you! Show him what you can do!",
       "boss":
@@ -3904,10 +3990,10 @@
           ]
         },
         {
-          "id": 119,
+          "id": 195,
           "level": 80,
           "moveIds": [
-            136,62,109,24
+            93,79,82,132
           ]
         },
         {

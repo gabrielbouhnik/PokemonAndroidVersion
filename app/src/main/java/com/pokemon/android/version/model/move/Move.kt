@@ -58,6 +58,7 @@ open class Move(
         fun highCritRate(highCritRate: Boolean) = apply { this.highCritRate = highCritRate }
         fun description(description: String) = apply { this.description = description }
         fun status(status: List<StatusMove>) = apply { this.status = status }
-        fun build() = Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description)
+        fun build() =
+            Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description)
     }
 }

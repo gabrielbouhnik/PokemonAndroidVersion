@@ -157,29 +157,19 @@
       "name": "Earth Badge"
     },
     {
-      "id": 59,
+      "id": 39,
       "name": "Dubious Disc"
     },
     {
-      "id": 60,
+      "id": 40,
       "name": "Dusk Stone"
     }
   ],
   "TMs": [
     {
-      "id": 39,
+      "id": 41,
       "name": "TM01 Headbutt",
       "moveId": 72
-    },
-    {
-      "id": 40,
-      "name": "TM02 Brick Break",
-      "moveId": 69
-    },
-    {
-      "id": 41,
-      "name": "TM03 Iron Tail",
-      "moveId": 13
     },
     {
       "id": 42,
@@ -265,6 +255,16 @@
       "id": 58,
       "name": "TM20 Energy Ball",
       "moveId": 105
+    },
+    {
+      "id": 59,
+      "name": "TM03 Iron Tail",
+      "moveId": 13
+    },
+    {
+      "id": 60,
+      "name": "TM02 Brick Break",
+      "moveId": 69
     },
     {
       "id": 61,

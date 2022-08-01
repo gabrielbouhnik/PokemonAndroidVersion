@@ -23,7 +23,7 @@ class SaveManager {
             val trainer = Trainer(trainerSave.name, Gender.valueOf(trainerSave.gender))
             trainer.pokedex = HashMap()
             if (trainerSave.pokedex != null)
-                trainerSave.pokedex!!.forEach { trainer.pokedex[it.id] = it.caught}
+                trainerSave.pokedex!!.forEach { trainer.pokedex[it.id] = it.caught }
             trainer.coins = trainerSave.coins
             trainer.progression = trainerSave.progression
             trainer.eliteProgression = trainerSave.eliteProgression
@@ -50,7 +50,8 @@ class SaveManager {
                 trainer.battleTowerProgression =
                     BattleFrontierProgression.of(trainerSave.battleTowerSave!!, activity.gameDataService, trainer)
             if (trainer.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID) {
-                trainer.achievements = if (trainerSave.achievements == null) Achievements() else trainerSave.achievements
+                trainer.achievements =
+                    if (trainerSave.achievements == null) Achievements() else trainerSave.achievements
                 trainer.successfulAchievements =
                     if (trainerSave.successfulAchievements == null) arrayListOf() else trainerSave.successfulAchievements!!
             }

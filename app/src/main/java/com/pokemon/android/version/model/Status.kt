@@ -13,13 +13,14 @@ enum class Status(var activeOutsideBattle: Boolean) {
     FROZEN(true),
     CONFUSED(false),
     FLINCHED(false),
+    TIRED(false),
     TRAPPED(false);
 
     fun toBattleIcon(): String {
         return when (this) {
             BURN -> "BRN"
             PARALYSIS -> "PAR"
-            POISON, BADLY_POISON-> "PSN"
+            POISON, BADLY_POISON -> "PSN"
             ASLEEP -> "SLP"
             FROZEN -> "FRZ"
             else -> ""
@@ -27,7 +28,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
     }
 
     companion object {
-        fun updateStatus(opponent: Pokemon, move: Move) : String{
+        fun updateStatus(opponent: Pokemon, move: Move): String {
             var details = ""
             move.status.forEach {
                 if (isAffectedByStatus(it.status, opponent)) {
@@ -40,6 +41,10 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                 details = "${opponent.data.name} became confused!\n"
                             if (it.status == TRAPPED)
                                 details = "${opponent.data.name} is trapped!\n"
+                            if (it.status == TIRED && opponent.status == OK)
+                                details = "${opponent.data.name} gets drowsy!\n"
+                            else
+                                return@forEach
                             opponent.battleData!!.battleStatus.add(it.status)
                         }
                     }
@@ -49,6 +54,8 @@ enum class Status(var activeOutsideBattle: Boolean) {
         }
 
         fun isAffectedByStatus(status: Status, opponent: Pokemon): Boolean {
+            if (status == TIRED && opponent.status != OK)
+                return false
             if (!status.activeOutsideBattle && !opponent.battleData!!.battleStatus.contains(status))
                 return true
             if (opponent.status != OK)

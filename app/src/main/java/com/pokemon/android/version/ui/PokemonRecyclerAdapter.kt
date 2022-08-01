@@ -16,7 +16,7 @@ class PokemonRecyclerAdapter(
     val activity: MainActivity,
     val data: MutableList<Pokemon>,
     private val onItemClickListener: View.OnClickListener,
-    private val displayCanEvolve : Boolean
+    private val displayCanEvolve: Boolean
 ) :
     RecyclerView.Adapter<PokemonRecyclerAdapter.ViewHolder>() {
 

@@ -14,7 +14,8 @@ import com.pokemon.android.version.model.Achievement
 
 class AchievementRecyclerAdapter(
     var activity: MainActivity,
-    val data: List<Achievement>) :
+    val data: List<Achievement>
+) :
     RecyclerView.Adapter<AchievementRecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -36,14 +37,14 @@ class AchievementRecyclerAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = data[position]
         holder.achievementDescrTextView.text = currentItem.description
-        if (Achievement.isClaimable(activity,currentItem.id))
+        if (Achievement.isClaimable(activity, currentItem.id))
             holder.achievementDescrTextView.setTextColor(Color.RED)
-        else if (activity.trainer!!.successfulAchievements.contains(currentItem.id)){
+        else if (activity.trainer!!.successfulAchievements.contains(currentItem.id)) {
             holder.achievementDescrTextView.setTextColor(Color.GRAY)
         }
-        holder.claimRewardButton.setOnClickListener{
+        holder.claimRewardButton.setOnClickListener {
             when {
-                Achievement.isClaimable(activity,currentItem.id) -> {
+                Achievement.isClaimable(activity, currentItem.id) -> {
                     holder.achievementDescrTextView.setTextColor(Color.GRAY)
                     holder.claimRewardButton.visibility = View.GONE
                     activity.playSoundEffect(R.raw.item_sound_effect)

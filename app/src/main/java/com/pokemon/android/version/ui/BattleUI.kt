@@ -70,7 +70,12 @@ class BattleUI {
         val trainerPokemonName: TextView = activity.findViewById(R.id.myPokemonNameTextView)
         trainerPokemonName.text = battle.pokemon.data.name
         val trainerPokemonHPLevel: TextView = activity.findViewById(R.id.myPokemonHPLevelTextView)
-        trainerPokemonHPLevel.text = activity.getString(R.string.pokemon_battle_info,battle.pokemon.level,battle.pokemon.currentHP,battle.pokemon.hp)
+        trainerPokemonHPLevel.text = activity.getString(
+            R.string.pokemon_battle_info,
+            battle.pokemon.level,
+            battle.pokemon.currentHP,
+            battle.pokemon.hp
+        )
 
         val pokemonStatusTextView: TextView = activity.findViewById(R.id.pokemonBattleStatusTextView)
         if (battle.pokemon.status != Status.OK) {
@@ -83,7 +88,12 @@ class BattleUI {
         val opponentPokemonName: TextView = activity.findViewById(R.id.opponentPokemonNameTextView)
         opponentPokemonName.text = battle.opponent.data.name
         val opponentPokemonHPLevel: TextView = activity.findViewById(R.id.opponentPokemonHPLevelTextView)
-        opponentPokemonHPLevel.text = activity.getString(R.string.pokemon_battle_info,battle.opponent.level,battle.opponent.currentHP,battle.opponent.hp)
+        opponentPokemonHPLevel.text = activity.getString(
+            R.string.pokemon_battle_info,
+            battle.opponent.level,
+            battle.opponent.currentHP,
+            battle.opponent.hp
+        )
 
         val opponentStatusTextView: TextView = activity.findViewById(R.id.opponentStatusTextView)
         if (battle.opponent.status != Status.OK) {
@@ -130,8 +140,7 @@ class BattleUI {
             if (activity.trainer!!.progression == LevelMenu.ELITE_4_FIRST_LEVEL_ID) {
                 activity.trainer!!.progression += 5
                 activity.trainer!!.coins += 5000
-            }
-            else{
+            } else {
                 activity.trainer!!.achievements!!.leagueDefeatedSecondTime = true
                 if (activity.trainer!!.team.size <= 4)
                     activity.trainer!!.achievements!!.leagueWithTeamOfFourAchievement = true
@@ -166,8 +175,7 @@ class BattleUI {
                     else
                         activity.trainer!!.battleTowerProgression = null
                     SaveManager.save(activity)
-                }
-                else if (battle.levelData.id == FRONTIER_BRAIN_LEVEL_ID){
+                } else if (battle.levelData.id == FRONTIER_BRAIN_LEVEL_ID) {
                     activity.trainer!!.battleTowerProgression = null
                     SaveManager.save(activity)
                 }
@@ -188,8 +196,7 @@ class BattleUI {
                     if (battle is BattleFrontierBattle) {
                         activity.updateMusic(R.raw.main_menu)
                         activity.mainMenu.battleFrontierMenu.loadMenu(activity)
-                    }
-                    else
+                    } else
                         activity.mainMenu.loadGameMenu(activity)
                 }
             }
@@ -201,8 +208,7 @@ class BattleUI {
                         activity.trainer!!.battleFactoryProgression!!.progression += 1
                         if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID && activity.trainer!!.battleFactoryProgression!!.progression >= 25)
                             activity.trainer!!.achievements!!.winstreak25Factory = true
-                    }
-                    else
+                    } else
                         activity.trainer!!.battleTowerProgression!!.progression += 1
                     activity.trainer!!.coins += 30
                     SaveManager.save(activity)
@@ -237,15 +243,14 @@ class BattleUI {
                 opponentPokemonHPLevel.visibility = GONE
                 if (battle is TrainerBattle)
                     dialogTextView!!.text = (battle.levelData as TrainerBattleLevelData).endDialogWin
-                if (battle is LeaderBattle){
-                    if (battle.levelData.id == 99){
+                if (battle is LeaderBattle) {
+                    if (battle.levelData.id == 99) {
                         HealUtils.healTeam(team)
                         if (activity.trainer!!.battleTowerProgression!!.progression == 7)
                             dialogTextView!!.text = (battle.levelData as LeaderLevelData).endDialogWin1
                         else
                             dialogTextView!!.text = (battle.levelData as LeaderLevelData).endDialogWin2
-                    }
-                    else {
+                    } else {
                         if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID)
                             dialogTextView!!.text = (battle.levelData as LeaderLevelData).endDialogWin2
                         else
@@ -319,10 +324,10 @@ class BattleUI {
             attackButton.text = move.move.name
             attackButton.setBackgroundColor(ColorUtils.getColorByType(move.move.type))
             ppTextView.visibility = VISIBLE
-            ppTextView.text = activity.getString(R.string.move_pp,move.pp,move.move.pp)
+            ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
             attackButton.setOnClickListener {
                 battle.turn(move)
-                ppTextView.text = activity.getString(R.string.move_pp,move.pp,move.move.pp)
+                ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
                 updateBattleUI(activity, battle)
             }
         } else {
@@ -339,10 +344,12 @@ class BattleUI {
             attack1Button.text = battle.pokemon.move1.move.name
             attack1Button.setBackgroundColor(ColorUtils.getColorByType(battle.pokemon.move1.move.type))
             ppTextView.visibility = VISIBLE
-            ppTextView.text = activity.getString(R.string.move_pp,battle.pokemon.move1.pp,battle.pokemon.move1.move.pp)
+            ppTextView.text =
+                activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
             attack1Button.setOnClickListener {
                 battle.turn(battle.pokemon.move1)
-                ppTextView.text = activity.getString(R.string.move_pp,battle.pokemon.move1.pp,battle.pokemon.move1.move.pp)
+                ppTextView.text =
+                    activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
                 updateBattleUI(activity, battle)
             }
         } else {
@@ -354,7 +361,7 @@ class BattleUI {
         setupAttackButton(activity, battle, battle.pokemon.move4, R.id.attack4Button, R.id.attack4PPTextView)
     }
 
-    private fun switchButtonSetUp(activity: MainActivity, battle: Battle){
+    private fun switchButtonSetUp(activity: MainActivity, battle: Battle) {
         val bagButton: Button = activity.findViewById(R.id.bagButton)
         val switchButton: Button = activity.findViewById(R.id.switchPokemonButton)
         switchButton.setOnClickListener {
@@ -435,7 +442,7 @@ class BattleUI {
                         ) {
                             battle.turnWithItemUsed(clickedItem.itemId)
                             updateBattleUI(activity, battle)
-                            if (battle.pokemon.currentHP > 0 && battle.getBattleState() == State.IN_PROGRESS){
+                            if (battle.pokemon.currentHP > 0 && battle.getBattleState() == State.IN_PROGRESS) {
                                 setUpAttackButtons(activity, battle)
                                 switchButton.visibility = VISIBLE
                                 bagButton.visibility = VISIBLE
@@ -461,8 +468,8 @@ class BattleUI {
         }
     }
 
-    private fun setDialogTextView(activity : MainActivity){
-        val dialogTextView : TextView = activity.findViewById(R.id.dialogTextView)
+    private fun setDialogTextView(activity: MainActivity) {
+        val dialogTextView: TextView = activity.findViewById(R.id.dialogTextView)
         this.dialogTextView = dialogTextView
         dialogTextView.movementMethod = ScrollingMovementMethod()
     }
@@ -478,7 +485,7 @@ class BattleUI {
         val wildBattle = WildBattle(activity, level)
         buttonSetUp(activity, wildBattle)
         wildBattle.generateRandomEncounter()
-        dialogTextView!!.text = activity.getString(R.string.wild_encounter,wildBattle.opponent.data.name)
+        dialogTextView!!.text = activity.getString(R.string.wild_encounter, wildBattle.opponent.data.name)
         displayPokemonsInfos(activity, wildBattle)
     }
 
@@ -499,14 +506,14 @@ class BattleUI {
         rewardsButton.visibility = VISIBLE
         rewardsButton.text = activity.getString(R.string.battle)
         rewardsButton.setOnClickListener {
-            dialogTextView!!.text = activity.getString(R.string.trainer_encounter,level.opponentTrainerData[0].name)
+            dialogTextView!!.text = activity.getString(R.string.trainer_encounter, level.opponentTrainerData[0].name)
             buttonSetUp(activity, trainerBattle)
             displayPokemonsInfos(activity, trainerBattle)
             rewardsButton.visibility = GONE
         }
     }
 
-    fun startGymLeaderBattle(activity: MainActivity, level: LeaderLevelData){
+    fun startGymLeaderBattle(activity: MainActivity, level: LeaderLevelData) {
         this.team = if (level.id == FRONTIER_BRAIN_LEVEL_ID)
             activity.trainer!!.battleTowerProgression!!.team.toMutableList()
         else
@@ -529,7 +536,7 @@ class BattleUI {
         rewardsButton.visibility = VISIBLE
         rewardsButton.text = activity.getString(R.string.battle)
         rewardsButton.setOnClickListener {
-            dialogTextView!!.text = activity.getString(R.string.trainer_encounter,level.title)
+            dialogTextView!!.text = activity.getString(R.string.trainer_encounter, level.title)
             buttonSetUp(activity, gymLeaderBattle)
             displayPokemonsInfos(activity, gymLeaderBattle)
             rewardsButton.visibility = GONE
@@ -546,18 +553,18 @@ class BattleUI {
         loadBackgroundImage(level, activity)
         val bossBattle = BossBattle(activity, level)
         buttonSetUp(activity, bossBattle)
-        dialogTextView!!.text = activity.getString(R.string.boss_encounter,bossBattle.opponent.data.name)
+        dialogTextView!!.text = activity.getString(R.string.boss_encounter, bossBattle.opponent.data.name)
         displayPokemonsInfos(activity, bossBattle)
     }
 
-    fun startBattleFrontierBattle(activity: MainActivity, area : BattleFrontierArea) {
+    fun startBattleFrontierBattle(activity: MainActivity, area: BattleFrontierArea) {
         if (area == BattleFrontierArea.BATTLE_FACTORY)
             this.team = activity.trainer!!.battleFactoryProgression!!.team.toMutableList()
         else
             this.team = activity.trainer!!.battleTowerProgression!!.team.toMutableList()
         MusicUtils.playMusic(activity, R.raw.trainer_battle)
         activity.setContentView(R.layout.battle_layout)
-        MusicUtils.playMusic(activity,2)
+        MusicUtils.playMusic(activity, 2)
         val trainerBackSprite: ImageView = activity.findViewById(R.id.trainerBackSpriteView)
         loadMainTrainerSprite(trainerBackSprite, activity)
         loadBackgroundImage(null, activity)
