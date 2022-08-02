@@ -34,9 +34,7 @@ class ItemUtils {
                 28 -> return ExpItem.EXP_CANDY_S
                 29 -> return ExpItem.EXP_CANDY_M
                 30 -> return ExpItem.EXP_CANDY_L
-                39 -> return TMItem(72)
-                40 -> return TMItem(69)
-                41 -> return TMItem(13)
+                41 -> return TMItem(72)
                 42 -> return TMItem(25)
                 43 -> return TMItem(103)
                 44 -> return TMItem(62)
@@ -54,6 +52,23 @@ class ItemUtils {
                 56 -> return TMItem(37)
                 57 -> return TMItem(100)
                 58 -> return TMItem(105)
+                59 -> return TMItem(13)
+                60 -> return TMItem(69)
+                61 -> return TMItem(55)
+                62 -> return TMItem(135)
+                63 -> return TMItem(114)
+                64 -> return TMItem(136)
+                65 -> return TMItem(113)
+                66 -> return TMItem(111)
+                67 -> return TMItem(66)
+                68 -> return TMItem(76)
+                69 -> return TMItem(108)
+                70 -> return TMItem(128)
+                71 -> return TMItem(140)
+                72 -> return TMItem(56)
+                73 -> return TMItem(138)
+                74 -> return TMItem(137)
+                75 -> return TMItem(92)
             }
             return Revive.MAX_REVIVE
         }

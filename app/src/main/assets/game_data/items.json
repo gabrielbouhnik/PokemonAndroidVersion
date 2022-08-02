@@ -173,97 +173,97 @@
     },
     {
       "id": 42,
-      "name": "TM04 Rock Slide",
+      "name": "TM02 Rock Slide",
       "moveId": 25
     },
     {
       "id": 43,
-      "name": "TM05 Thunder Punch",
+      "name": "TM03 Thunder Punch",
       "moveId": 103
     },
     {
       "id": 44,
-      "name": "TM06 Poison Jab",
+      "name": "TM04 Poison Jab",
       "moveId": 62
     },
     {
       "id": 45,
-      "name": "TM07 Fire Punch",
+      "name": "TM05 Fire Punch",
       "moveId": 110
     },
     {
       "id": 46,
-      "name": "TM08 Dazzling Gleam",
+      "name": "TM06 Dazzling Gleam",
       "moveId": 44
     },
     {
       "id": 47,
-      "name": "TM09 Dragon Pulse",
+      "name": "TM07 Dragon Pulse",
       "moveId": 104
     },
     {
       "id": 48,
-      "name": "TM10 Ice Punch",
+      "name": "TM08 Ice Punch",
       "moveId": 107
     },
     {
       "id": 49,
-      "name": "TM11 Thunderbolt",
+      "name": "TM09 Thunderbolt",
       "moveId": 12
     },
     {
       "id": 50,
-      "name": "TM12 Flamethrower",
+      "name": "TM10 Flamethrower",
       "moveId": 31
     },
     {
       "id": 51,
-      "name": "TM13 Psychic",
+      "name": "TM11 Psychic",
       "moveId": 45
     },
     {
       "id": 52,
-      "name": "TM14 Earthquake",
+      "name": "TM12 Earthquake",
       "moveId": 93
     },
     {
       "id": 53,
-      "name": "TM15 Shadow Ball",
+      "name": "TM13 Shadow Ball",
       "moveId": 46
     },
     {
       "id": 54,
-      "name": "TM16 Fire Blast",
+      "name": "TM14 Fire Blast",
       "moveId": 82
     },
     {
       "id": 55,
-      "name": "TM17 Surf",
+      "name": "TM15 Surf",
       "moveId": 43
     },
     {
       "id": 56,
-      "name": "TM18 Sludge Bomb",
+      "name": "TM16 Sludge Bomb",
       "moveId": 37
     },
     {
       "id": 57,
-      "name": "TM19 Ice Beam",
+      "name": "TM17 Ice Beam",
       "moveId": 100
     },
     {
       "id": 58,
-      "name": "TM20 Energy Ball",
+      "name": "TM18 Energy Ball",
       "moveId": 105
     },
     {
       "id": 59,
-      "name": "TM03 Iron Tail",
+      "name": "TM19 Iron Tail",
       "moveId": 13
     },
     {
       "id": 60,
-      "name": "TM02 Brick Break",
+      "name": "TM20 Brick Break",
       "moveId": 69
     },
     {
@@ -314,7 +314,7 @@
     {
       "id": 70,
       "name": "TM30 Will-O-Wisp",
-      "moveId": 128
+      "moveId": 138
     },
     {
       "id": 71,
