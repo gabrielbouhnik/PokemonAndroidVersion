@@ -45,7 +45,7 @@ class PokedexMenu {
         activity.setContentView(R.layout.pokedex_layout)
         val recyclerView = activity.findViewById<RecyclerView>(R.id.pokedexRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        val data = activity.gameDataService.pokemons.filter { it.id < 252 }
+        val data = if (activity.trainer!!.name ==  "gab ") activity.gameDataService.pokemons else activity.gameDataService.pokemons.filter { it.id < 252 }
         val myItemClickListener = View.OnClickListener {
             val dexNumber = it.tag as Int + 1
             if (activity.trainer!!.name == "gab" || activity.trainer!!.pokedex.containsKey(dexNumber))

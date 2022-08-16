@@ -35,7 +35,7 @@ class BattleFrontierBattle() : Battle() {
 
         fun generateTrainerTeam(gameDataService: GameDataService): List<Pokemon> {
             var team = generateTeam(gameDataService)
-            while ((haveSameTypes(team[0].data, team[1].data) && haveSameTypes(team[1].data, team[2].data))
+            while ((haveSameTypes(team[0].data, team[1].data) || haveSameTypes(team[1].data, team[2].data))
                 || haveATypeInCommon(team[0].data, team[1].data, team[2].data)
             ) {
                 team = generateTeam(gameDataService)

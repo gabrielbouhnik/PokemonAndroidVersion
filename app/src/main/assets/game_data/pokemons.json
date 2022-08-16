@@ -2535,6 +2535,62 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 52,
+    "name": "Meowth",
+    "type1": 5,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 23,
+          "level": 16
+        },
+        {
+          "moveId": 151,
+          "level": 29
+        },
+        {
+          "moveId": 41,
+          "level": 32
+        },
+        {
+          "moveId": 38,
+          "level": 36
+        },
+        {
+          "moveId": 73,
+          "level": 44
+        },
+        {
+          "moveId": 123,
+          "level": 49
+        }
+      ],
+      "movesLearnWithTM": [12,13,46,92,113],
+      "bannerMoves": []
+    },
+    "hp": 40,
+    "attack": 45,
+    "defense": 35,
+    "spAtk": 40,
+    "spDef": 40,
+    "speed": 90,
+    "catchRate": 255,
+    "evolutions": [
+      {
+        "evolutionId": 53,
+        "evolutionCondition": {
+          "level": 28
+        }
+      }
+    ],
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 53,
     "name": "Persian",
     "type1": 5,
@@ -2548,10 +2604,33 @@
         {
           "moveId": 23,
           "level": 16
+        },
+        {
+          "moveId": 51,
+          "level": 28
+        },
+        {
+          "moveId": 151,
+          "level": 31
+        },
+        {
+          "moveId": 41,
+          "level": 36
+        },
+        {
+          "moveId": 38,
+          "level": 42
+        },
+        {
+          "moveId": 73,
+          "level": 54
+        },
+        {
+          "moveId": 123,
+          "level": 61
         }
       ],
-      "movesLearnWithTM": [
-      ],
+      "movesLearnWithTM": [12,13,46,92,113],
       "bannerMoves": []
     },
     "hp": 65,
@@ -6266,10 +6345,6 @@
         {
           "moveId": 114,
           "level": 48
-        },
-        {
-          "moveId": 40,
-          "level": 56
         }
       ],
       "movesLearnWithTM": [
