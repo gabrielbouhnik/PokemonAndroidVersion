@@ -3630,8 +3630,8 @@
       {
         "id": 51,
         "level": 40,
-        "moveIds": [30,38,25,37],
-        "boostedStats": ["SPATK"]
+        "moveIds": [30,38,25,113],
+        "boostedStats": []
       },
       "rewards": [
         {
@@ -3787,7 +3787,7 @@
         "id": 248,
         "level": 82,
         "moveIds": [25,27,82,93],
-        "boostedStats": []
+        "boostedStats": ["DEFENSE","SPDEF"]
       },
       "rewards": [
         {

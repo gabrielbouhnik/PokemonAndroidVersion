@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
                                                    android:layout_height="match_parent">
 
     <ImageView
@@ -34,8 +35,8 @@
             android:textSize="18sp" android:textStyle="bold" android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"/>
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="392dp"
-            android:layout_height="365dp"
+            android:layout_width="386dp"
+            android:layout_height="304dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/learnsetRecyclerView"
             app:layout_constraintHorizontal_bias="0.473" android:layout_marginBottom="60dp"/>
@@ -47,4 +48,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="13dp" app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintVertical_bias="0.0" app:layout_constraintTop_toBottomOf="@+id/itemRecyclerView"/>
+    <RadioButton
+            android:text="TM Moves"
+            android:layout_width="128dp"
+            android:layout_height="46dp" android:id="@+id/tmMovesRadioButton"
+            app:layout_constraintBottom_toTopOf="@+id/learnsetRecyclerView" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="50dp" app:layout_constraintStart_toEndOf="@+id/movesByLevelRadioButton"/>
+    <RadioButton
+            android:text="Moves learned by leveling up"
+            android:layout_width="150dp"
+            android:layout_height="46dp" android:id="@+id/movesByLevelRadioButton"
+            app:layout_constraintBottom_toTopOf="@+id/learnsetRecyclerView"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="50dp" android:checked="true"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

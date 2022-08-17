@@ -326,9 +326,13 @@ class BattleUI {
             ppTextView.visibility = VISIBLE
             ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
             attackButton.setOnClickListener {
-                battle.turn(move)
-                ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
-                updateBattleUI(activity, battle)
+                try {
+                    battle.turn(move)
+                    ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
+                    updateBattleUI(activity, battle)
+                } catch (e: Exception) {
+
+                }
             }
         } else {
             attackButton.visibility = GONE
@@ -347,10 +351,14 @@ class BattleUI {
             ppTextView.text =
                 activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
             attack1Button.setOnClickListener {
-                battle.turn(battle.pokemon.move1)
-                ppTextView.text =
-                    activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
-                updateBattleUI(activity, battle)
+                try {
+                    battle.turn(battle.pokemon.move1)
+                    ppTextView.text =
+                        activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
+                    updateBattleUI(activity, battle)
+                } catch (e: Exception) {
+
+                }
             }
         } else {
             attack1Button.visibility = GONE

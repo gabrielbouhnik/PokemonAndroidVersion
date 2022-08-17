@@ -1,8 +1,10 @@
 package com.pokemon.android.version.ui
 
 import android.view.View
+import android.view.View.GONE
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.RadioButton
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -37,6 +39,23 @@ class PokedexMenu {
         } else
             recyclerView.adapter = LearnsetRecyclerAdapter(activity, listOf()) {}
 
+        val levelRadioButton : RadioButton = activity.findViewById(R.id.movesByLevelRadioButton)
+        if (activity.trainer!!.name != "gab" && activity.trainer!!.pokedex[data.id] == false)
+            levelRadioButton.visibility = GONE
+
+        val tmRadioButton : RadioButton = activity.findViewById(R.id.tmMovesRadioButton)
+        if (activity.trainer!!.name != "gab" && activity.trainer!!.pokedex[data.id] == false)
+            tmRadioButton.visibility = GONE
+
+        levelRadioButton.setOnClickListener{
+            recyclerView.adapter = LearnsetRecyclerAdapter(activity, data.movesByLevel) {}
+            tmRadioButton.isChecked = false
+        }
+        tmRadioButton.setOnClickListener{
+            recyclerView.adapter = TMMovesRecyclerAdapter(activity, data.movesByTM){}
+            levelRadioButton.isChecked = false
+        }
+
         val backButton: Button = activity.findViewById(R.id.pokedexPageBackButton)
         backButton.setOnClickListener { loadPokedexMenu(activity) }
     }
@@ -45,7 +64,7 @@ class PokedexMenu {
         activity.setContentView(R.layout.pokedex_layout)
         val recyclerView = activity.findViewById<RecyclerView>(R.id.pokedexRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        val data = if (activity.trainer!!.name ==  "gab ") activity.gameDataService.pokemons else activity.gameDataService.pokemons.filter { it.id < 252 }
+        val data = if (activity.trainer!!.name ==  "gab") activity.gameDataService.pokemons else activity.gameDataService.pokemons.filter { it.id < 252 }
         val myItemClickListener = View.OnClickListener {
             val dexNumber = it.tag as Int + 1
             if (activity.trainer!!.name == "gab" || activity.trainer!!.pokedex.containsKey(dexNumber))

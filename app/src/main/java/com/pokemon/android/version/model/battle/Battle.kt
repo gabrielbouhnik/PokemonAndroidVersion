@@ -155,7 +155,7 @@ abstract class Battle {
                 if (effectiveness >= 2)
                     action += "It's super effective!\n"
                 if (effectiveness == 0f)
-                    action += "It does not affect ${other.data.name}"
+                    action += "It does not affect ${other.data.name}\n"
                 else if (effectiveness < 1)
                     action += "It's not very effective effective!\n"
             }
