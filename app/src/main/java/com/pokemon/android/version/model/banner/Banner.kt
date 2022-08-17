@@ -45,7 +45,10 @@ class Banner(
         }
         val s: Summonable = summon()
         if (s is ItemBanner) {
-            activity.trainer!!.addItem(s.id, 1)
+            if (activity.trainer!!.items.contains(s.id) && activity.trainer!!.items[s.id] == 99)
+                activity.trainer!!.coins += cost
+            else
+                activity.trainer!!.addItem(s.id, 1)
         } else {
             val pokemonBanner = s as PokemonBanner
             activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemonFromBanner(pokemonBanner))

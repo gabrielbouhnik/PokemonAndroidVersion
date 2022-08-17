@@ -46,9 +46,9 @@ class RewardMenu {
         activity.setContentView(R.layout.reward_layout)
         if (activity.trainer!!.progression > LevelMenu.ELITE_4_FIRST_LEVEL_ID) {
             updateAchievements(activity, levelData)
-            if (levelData is LeaderLevelData && !activity.trainer!!.achievements!!.leadersDefeatedAfterTheLeague.contains(
-                    levelData.id
-                )
+            if (levelData is LeaderLevelData &&
+                !activity.trainer!!.achievements!!.leadersDefeatedAfterTheLeague.contains(levelData.id) &&
+                levelData.id != BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID
             )
                 activity.trainer!!.achievements!!.leadersDefeatedAfterTheLeague.add(levelData.id)
         }

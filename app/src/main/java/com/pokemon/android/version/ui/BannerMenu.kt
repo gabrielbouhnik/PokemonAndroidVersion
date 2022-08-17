@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
+import com.pokemon.android.version.model.banner.Banner
 import com.pokemon.android.version.model.banner.ItemBanner
 import com.pokemon.android.version.model.banner.PokemonBanner
 import com.pokemon.android.version.model.banner.Summonable
@@ -36,11 +37,23 @@ class BannerMenu {
             recyclerView.adapter = BannerRecyclerAdapter(activity, banners)
     }
 
-    fun loadSummonResultScreen(activity: MainActivity, s: Summonable) {
+    fun loadSummonResultScreen(activity: MainActivity, banner: Banner, s: Summonable) {
         activity.setContentView(R.layout.summon_layout)
+        val coinsSummonAgainTextView : TextView = activity.findViewById(R.id.coinSummonResultTextView)
+        coinsSummonAgainTextView.text = activity.getString(R.string.andro_coins, activity.trainer!!.coins)
         val backButton: Button = activity.findViewById(R.id.summonResultBackButton)
         backButton.setOnClickListener {
             loadBannerMenu(activity)
+        }
+        val summonAgainButton: Button = activity.findViewById(R.id.summonAgainButton)
+        if (activity.trainer!!.coins >= banner.cost)
+        summonAgainButton.setOnClickListener {
+            val newSummonResult = banner.summon(activity)
+            if (newSummonResult != null) {
+                activity.mainMenu.bannerMenu.coinsTextView.text = "${activity.trainer!!.coins} AndroCoins"
+                activity.mainMenu.bannerMenu.loadSummonResultScreen(activity, banner, newSummonResult)
+                activity.playSoundEffect(R.raw.item_sound_effect)
+            }
         }
         val resultTextView: TextView = activity.findViewById(R.id.summonResultTextView)
         if (s is PokemonBanner) {

@@ -103,12 +103,14 @@ abstract class Battle {
         val sb = StringBuilder()
         if (ItemUtils.getItemById(itemId) is Ball) {
             if (this is WildBattle) {
+                sb.append(activity.trainer!!.name + " throws a " + activity.gameDataService.items.first { it.id == itemId }.name + "!\n")
                 if (activity.trainer!!.getMaxLevel() > opponent.level && activity.trainer!!.catchPokemon(
                         opponent,
                         itemId
                     )
                 ) {
-                    dialogTextView.text = activity.trainer!!.name + " caught ${opponent.data.name}!\n"
+                    sb.append(activity.trainer!!.name + " caught ${opponent.data.name}!\n")
+                    dialogTextView.text = sb.toString()
                     if (this.encountersLeft > 0)
                         this.generateRandomEncounter()
                     return
@@ -117,6 +119,7 @@ abstract class Battle {
                 }
             }
         } else {
+            sb.append(activity.trainer!!.name + " uses " + activity.gameDataService.items.first { it.id == itemId }.name + "!\n")
             activity.trainer!!.useItem(itemId, pokemon)
         }
         sb.append(opponentTurn(opponent.ia(pokemon)))
@@ -200,7 +203,6 @@ abstract class Battle {
                         if (pokemon.currentHP <= 0) {
                             pokemon.currentHP = 0
                             pokemon.status = Status.OK
-                            pokemon.battleData = null
                         }
                         details += pokemon.data.name + " suffers from the poison!\n"
                     }
@@ -210,7 +212,6 @@ abstract class Battle {
                         if (pokemon.currentHP <= 0) {
                             pokemon.currentHP = 0
                             pokemon.status = Status.OK
-                            pokemon.battleData = null
                         }
                         details += pokemon.data.name + " suffers from the poison!\n"
                     }
@@ -219,7 +220,6 @@ abstract class Battle {
                         if (pokemon.currentHP <= 0) {
                             pokemon.currentHP = 0
                             pokemon.status = Status.OK
-                            pokemon.battleData = null
                         }
                         details += pokemon.data.name + " suffers from its burn!\n"
                     }

@@ -145,20 +145,25 @@ class Pokemon(
             else
                 status = Status.OK
         }
-        if (this.status == Status.ASLEEP) {
-            if (battleData!!.sleepCounter == 3) {
-                battleData!!.sleepCounter = 0
-                this.status = Status.OK
-            } else
-                return AttackResponse(false, this.data.name + " is fast asleep!\n")
-        }
-        if (this.battleData!!.battleStatus.contains(Status.FLINCHED))
-            return AttackResponse(false, "${this.data.name} flinched and couldn't move\n")
-
         if (this.status == Status.PARALYSIS) {
             if (Random.nextInt(100) < 25)
                 return AttackResponse(false, "${this.data.name} can't move because it is paralysed!\n")
         }
+        if (this.status == Status.ASLEEP) {
+            if (battleData!!.sleepCounter == 3) {
+                battleData!!.sleepCounter = 0
+                this.status = Status.OK
+            } else {
+                if (Random.nextInt(100) < 30){
+                    battleData!!.sleepCounter = 0
+                    this.status = Status.OK
+                }
+                else
+                    return AttackResponse(false, this.data.name + " is fast asleep!\n")
+            }
+        }
+        if (this.battleData!!.battleStatus.contains(Status.FLINCHED))
+            return AttackResponse(false, "${this.data.name} flinched and couldn't move\n")
         if (this.battleData!!.battleStatus.contains(Status.CONFUSED)) {
             if (Random.nextInt(100) < 33) {
                 val confusionDamage = DamageCalculator.computeConfusionDamage(this)
@@ -167,7 +172,6 @@ class Pokemon(
                 } else {
                     currentHP = 0
                     status = Status.OK
-                    battleData = null
                 }
                 return AttackResponse(
                     false,
@@ -228,7 +232,6 @@ class Pokemon(
             damageDone = opponent.currentHP
             opponent.currentHP = 0
             opponent.status = Status.OK
-            opponent.battleData = null
         } else {
             damageDone = damage
             opponent.currentHP = opponent.currentHP - damage
@@ -257,7 +260,6 @@ class Pokemon(
             } else {
                 currentHP = 0
                 status = Status.OK
-                battleData = null
             }
         }
         return AttackResponse(true, details)

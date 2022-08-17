@@ -59,7 +59,7 @@ class BannerRecyclerAdapter(
             if (s != null) {
                 activity.playSoundEffect(R.raw.item_sound_effect)
                 activity.mainMenu.bannerMenu.coinsTextView.text = "${activity.trainer!!.coins} AndroCoins"
-                activity.mainMenu.bannerMenu.loadSummonResultScreen(activity, s)
+                activity.mainMenu.bannerMenu.loadSummonResultScreen(activity, currentItem, s)
             }
         }
         val img: InputStream = activity.assets.open(currentItem.image)

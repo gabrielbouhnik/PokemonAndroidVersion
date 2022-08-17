@@ -76,10 +76,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun titleScreen() {
-        val random = Random.nextInt(1..251)
+        val ids : List<Int> = listOf(3,6,9,25,26,59,76,94,95,112,115,121,123,125,126,130,131,143,149,229,248)
+        val randomId = ids[Random.nextInt(ids.size)]
         val imageView: ImageView = findViewById(R.id.randomPokemonSpriteView)
         Glide.with(this)
-            .load("$pokemonSpritesUrl$random.png")
+            .load("$pokemonSpritesUrl$randomId.png")
             .into(imageView)
         val startButton: Button = findViewById(R.id.startButton)
         startButton.setOnClickListener {

@@ -257,7 +257,8 @@
         104,
         108,
         110,
-        114
+        114,
+        138
       ],
       "bannerMoves": []
     },
@@ -329,7 +330,8 @@
         104,
         108,
         110,
-        114
+        114,
+        138
       ],
       "bannerMoves": []
     },
@@ -4893,7 +4895,7 @@
       {
         "evolutionId": 94,
         "evolutionCondition": {
-          "level": 36
+          "level": 48
         }
       }
     ],
@@ -8254,6 +8256,117 @@
     "expGaugeType": "MEDIUM_SLOW"
   },
   {
+    "id": 191,
+    "name": "Sunkern",
+    "type1": 1,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 67,
+          "level": 7
+        },
+        {
+          "moveId": 18,
+          "level": 16
+        },
+        {
+          "moveId": 66,
+          "level": 22
+        },
+        {
+          "moveId": 133,
+          "level": 28
+        },
+        {
+          "moveId": 36,
+          "level": 43
+        }
+      ],
+      "movesLearnWithTM": [
+        37,
+        66,
+        105,
+        137
+      ],
+      "bannerMoves": []
+    },
+    "hp": 30,
+    "attack": 30,
+    "defense": 30,
+    "spAtk": 30,
+    "spDef": 30,
+    "speed": 30,
+    "catchRate": 235,
+    "evolutions": [
+      {
+        "evolutionId": 192,
+        "evolutionCondition": {
+          "itemId": 20
+        }
+      }
+    ],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 192,
+    "name": "Sunflora",
+    "type1": 1,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 67,
+          "level": 7
+        },
+        {
+          "moveId": 18,
+          "level": 16
+        },
+        {
+          "moveId": 66,
+          "level": 22
+        },
+        {
+          "moveId": 133,
+          "level": 28
+        },
+        {
+          "moveId": 36,
+          "level": 43
+        },
+        {
+          "moveId": 142,
+          "level": 50
+        }
+      ],
+      "movesLearnWithTM": [
+        37,
+        66,
+        105,
+        137
+      ],
+      "bannerMoves": []
+    },
+    "hp": 75,
+    "attack": 75,
+    "defense": 55,
+    "spAtk": 105,
+    "spDef": 85,
+    "speed": 30,
+    "catchRate": 120,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
     "id": 195,
     "name": "Quasgire",
     "type1": 3,
@@ -10438,6 +10551,7 @@
       "movesLearnWithTM": [
         37,
         66,
+        93,
         105,
         114,
         139,

@@ -1557,7 +1557,7 @@
           ]
         },
         {
-          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "sprite": "images/Sprite_Sbire_Rocket2.png",
           "name" : "Team Rocket Grunt",
           "pokemons": [
             {
@@ -1611,7 +1611,7 @@
           ]
         },
         {
-          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "sprite": "images/Sprite_Sbire_Rocket2.png",
           "name" : "Team Rocket Grunt",
           "pokemons": [
             {
@@ -1665,7 +1665,7 @@
           ]
         },
         {
-          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "sprite": "images/Sprite_Sbire_Rocket2.png",
           "name" : "Team Rocket Grunt",
           "pokemons": [
             {
@@ -1744,8 +1744,8 @@
       "endDialogWin": "You're not going to get away with this, brat!",
       "endDialogLoose": "It's not smart to pick a fight with TEAM ROCKET",
       "music": 2,
-      "icon": "images/building_battle_background.jpg",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/silphco_battle_background.png",
+      "background": "images/silphco_battle_background.png",
       "exp": 6000
     },
     {
@@ -1810,8 +1810,8 @@
       "endDialogWin": "You're ready to beat the boss of Team Rocket!",
       "endDialogLoose": "I knew I would win this time",
       "music": 2,
-      "icon": "images/building_battle_background.jpg",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/silphco_battle_background.png",
+      "background": "images/silphco_battle_background.png",
       "exp": 6300
     },
     {
@@ -1873,7 +1873,7 @@
       "endDialogLoose": "I won't allow you to interfere with our plans!",
       "music": 2,
       "icon": "images/VS_Amos.png",
-      "background": "images/building_battle_background.jpg",
+      "background": "images/silphco_battle_background.png",
       "exp": 6800
     },
     {
@@ -1949,7 +1949,7 @@
       "endDialogLoose": "You failed as soon as you challenged me, Trainer.",
       "music": 4,
       "icon": "images/VS_Giovanni.png",
-      "background": "images/building_battle_background.jpg",
+      "background": "images/giovanni_battle_background.png",
       "exp": 6800
     },
     {
@@ -2590,7 +2590,7 @@
       "endDialogLoose": "You're no match against my icy Pokemon!",
       "music": 3,
       "icon": "images/VS_Olga.PNG",
-      "background": "images/building_battle_background.jpg",
+      "background": "images/elite_background1.png",
       "exp": 10000
     },
     {
@@ -2642,7 +2642,7 @@
       "endDialogLoose": "Our training has paid off!",
       "music": 3,
       "icon": "images/VS_Aldo.PNG",
-      "background": "images/building_battle_background.jpg",
+      "background": "images/elite_background2.jpg",
       "exp": 10000
     },
     {
@@ -2694,7 +2694,7 @@
       "endDialogLoose": "That's how a proper battle's done!",
       "music": 3,
       "icon": "images/VS_Agatha.PNG",
-      "background": "images/building_battle_background.jpg",
+      "background": "images/elite_background3.jpg",
       "exp": 10000
     },
     {
@@ -2746,7 +2746,7 @@
       "endDialogLoose": "I never give up, no matter what",
       "music": 3,
       "icon": "images/VS_Peter.PNG",
-      "background": "images/building_battle_background.jpg",
+      "background": "images/elite_background4.jpg",
       "exp": 10000
     },
     {
@@ -2805,8 +2805,8 @@
       "endDialogWin": "NO! That can't be! You beat my best! After all that work to become the champion? My reign is over already? It's not fair!",
       "endDialogLoose": "Sorry to say it, but this is it for you",
       "music": 5,
-      "icon": "images/building_battle_background.jpg",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/champion_battle_background.png",
+      "background": "images/champion_battle_background.png",
       "exp": 10000
     },
     {
@@ -3044,7 +3044,7 @@
         "minLevel": 10,
         "maxLevel": 12,
         "encounters": [
-          19,21,23
+          19,19,19,21,21,21,23,23,23,163,163,191
         ]
       },
       "rewards": [
@@ -3248,7 +3248,7 @@
         "minLevel": 28,
         "maxLevel": 31,
         "encounters": [
-          21,37,58,198,209,228
+          21,37,52,58,198,209,228
         ]
       },
       "rewards": [
@@ -3524,11 +3524,11 @@
       "rewards": [
         {
           "id": 0,
-          "quantity": 30
+          "quantity": 40
         },
         {
           "id": 3,
-          "quantity": 1
+          "quantity": 2
         }
       ],
       "icon": "images/cave_battle_background.png",
@@ -3729,7 +3729,7 @@
     {
       "id": 64,
       "name": "\nVs Moltres",
-      "description": "You finally see the exit of Victory Road but you feel the presence of a powerful pokemon near you. You head into a room near the exit and come across the legendary bird Moltres.",
+      "description": "You finally see the exit of Victory Road but you feel the presence of a powerful pokemon near you. You head into a really hot room near the exit and come across the legendary bird Moltres.",
       "boss":
       {
         "id": 146,
@@ -3748,7 +3748,7 @@
         }
       ],
       "icon": "images/moltres_boss_icon.JPG",
-      "background": "images/cave_battle_background.png",
+      "background": "images/moltres_battle_background.png",
       "music": 1,
       "exp": 10200
     },
@@ -3838,7 +3838,7 @@
         }
       ],
       "icon": "images/mewtwo_boss_icon.PNG",
-      "background": "images/cerulean_cave_background.png",
+      "background": "images/mewtwo_background_battle.png",
       "music": 6,
       "exp": 15000
     }
@@ -3917,11 +3917,11 @@
         },
         {
           "id": 9,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 10,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 31,
@@ -4018,11 +4018,11 @@
         },
         {
           "id": 9,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 10,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 32,
@@ -4119,11 +4119,11 @@
         },
         {
           "id": 9,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 10,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 33,
@@ -4227,11 +4227,11 @@
         },
         {
           "id": 2,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 9,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 34,
@@ -4324,11 +4324,11 @@
         },
         {
           "id": 2,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 9,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 35,
@@ -4417,11 +4417,11 @@
         },
         {
           "id": 2,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 9,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 36,
@@ -4510,11 +4510,11 @@
         },
         {
           "id": 2,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 9,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 37,
@@ -4592,7 +4592,7 @@
       "endDialogLoose": "Ah, wonderful! That was fantastic! Do come again!",
       "music": 8,
       "icon": "images/Sprite_Palmer.png",
-      "background": "images/building_battle_background.jpg",
+      "background": "images/battle_frontier_background.png",
       "exp": 0
     }
   ]
