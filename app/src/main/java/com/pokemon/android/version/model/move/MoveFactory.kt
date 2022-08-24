@@ -13,6 +13,8 @@ class MoveFactory {
                 movesEntity.drainMoves.forEach { res.add(DrainMove.of(it)) }
                 movesEntity.recoilMoves.forEach { res.add(RecoilMove.of(it)) }
                 movesEntity.healMoves.forEach { res.add(HealMove.of(it)) }
+                movesEntity.multipleHitMoves.forEach { res.add(MultipleHitMove.of(it)) }
+                movesEntity.movesBasedOnLevelEntity.forEach { res.add(MoveBasedOnLevel.of(it)) }
             }
             res.sortBy { it.id }
             return res

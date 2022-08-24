@@ -10,9 +10,6 @@ import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.MoveUtils
 import com.pokemon.android.version.utils.StatUtils
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.random.Random
@@ -153,7 +150,7 @@ class Pokemon(
             if (battleData!!.sleepCounter == 3) {
                 battleData!!.sleepCounter = 0
                 this.status = Status.OK
-            } else {
+            } else if (battleData!!.sleepCounter > 0){
                 if (Random.nextInt(100) < 30){
                     battleData!!.sleepCounter = 0
                     this.status = Status.OK
@@ -200,21 +197,52 @@ class Pokemon(
             HealMove.heal(this)
         var damage = 0
         if (move.move.power > 0) {
-            if (move.move is VariableHitMove) {
+            if (move.move is MoveBasedOnLevel){
+                damage = this.level
+            } else if (move.move is VariableHitMove) {
                 var timesItHits = Random.nextInt(2..5)
                 while (timesItHits > 0 && opponent.currentHP > damage) {
+                    val crit = DamageCalculator.getCriticalMultiplicator(this, move.move)
+                    if (crit == 1.5f)
+                        details += "A critical hit!\n"
                     damage += DamageCalculator.computeDamage(
                         this,
                         move.move,
                         opponent,
-                        DamageCalculator.getCriticalMultiplicator(this, move.move)
+                        crit
                     )
                     timesItHits--
                 }
                 timesItHits = 5 - timesItHits
                 details =
                     if (timesItHits > 1) "${opponent.data.name} was hit $timesItHits times!\n" else "${opponent.data.name} was hit 1 time!\n"
-            } else {
+            } else if (move.move is MultipleHitMove){
+                val crit = DamageCalculator.getCriticalMultiplicator(this, move.move)
+                if (crit == 1.5f)
+                    details += "A critical hit!\n"
+                damage += DamageCalculator.computeDamage(
+                    this,
+                    move.move,
+                    opponent,
+                    crit
+                )
+                if (damage >= opponent.currentHP){
+                    details += "${opponent.data.name} was hit 1 time!\n"
+                }
+                else{
+                    DamageCalculator.getCriticalMultiplicator(this, move.move)
+                    if (crit == 1.5f)
+                        details += "A critical hit!\n"
+                    damage += DamageCalculator.computeDamage(
+                        this,
+                        move.move,
+                        opponent,
+                        crit
+                    )
+                    details += "${opponent.data.name} was hit 2 times!\n"
+                }
+            }
+            else {
                 val crit = DamageCalculator.getCriticalMultiplicator(this, move.move)
                 if (crit == 1.5f)
                     details += "A critical hit!\n"

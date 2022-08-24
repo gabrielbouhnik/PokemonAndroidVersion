@@ -114,15 +114,15 @@
     },
     {
       "id": 28,
-      "name": "Exp. Candy S"
+      "name": "Moon Stone"
     },
     {
       "id": 29,
-      "name": "Exp. Candy M"
+      "name": "Shiny Stone"
     },
     {
       "id": 30,
-      "name": "Exp. Candy L"
+      "name": "Reaper Cloth"
     },
     {
       "id": 31,
@@ -329,7 +329,7 @@
     {
       "id": 73,
       "name": "TM33 Focus Blast",
-      "moveId": 138
+      "moveId": 139
     },
     {
       "id": 74,

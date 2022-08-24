@@ -933,6 +933,33 @@
               ]
             }
           ]
+        },
+        {
+          "sprite": "images/Sprite_Montagnard.png",
+          "name" : "Hiker Brice",
+          "pokemons": [
+            {
+              "id": 75,
+              "level": 31,
+              "moveIds": [
+                2,32,29,30
+              ]
+            },
+            {
+              "id": 75,
+              "level": 31,
+              "moveIds": [
+                2,32,29,30
+              ]
+            },
+            {
+              "id": 67,
+              "level": 31,
+              "moveIds": [
+                69,25,72
+              ]
+            }
+          ]
         }
       ],
       "rewards": [
@@ -2923,6 +2950,8 @@
             16,
             19,
             21,
+            29,
+            32,
             56
           ]
         }
@@ -3016,7 +3045,7 @@
         "minLevel": 10,
         "maxLevel": 12,
         "encounters": [
-          41,74,27,46
+          35,41,41,41,74,74,74,27,27,27,46,46,46
         ]
       },
       "rewards": [
@@ -3136,7 +3165,7 @@
         "minLevel": 24,
         "maxLevel": 26,
         "encounters": [
-          41,41,41,74,74,74,95,95,95,115
+          41,41,41,66,66,66,74,74,74,95,95,95,115
         ]
       },
       "rewards": [
@@ -3415,7 +3444,7 @@
       {
         "minLevel": 65,
         "maxLevel": 70,
-        "encounters": [28,42,75,95,111]
+        "encounters": [28,42,67,75,95,111]
       },
       "rewards": [
         {

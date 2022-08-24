@@ -31,9 +31,6 @@ class ItemUtils {
                 13 -> return Ball.HYPERBALL
                 14 -> return Ball.NETBALL
                 15 -> return Ball.HEALBALL
-                28 -> return ExpItem.EXP_CANDY_S
-                29 -> return ExpItem.EXP_CANDY_M
-                30 -> return ExpItem.EXP_CANDY_L
                 41 -> return TMItem(72)
                 42 -> return TMItem(25)
                 43 -> return TMItem(103)
