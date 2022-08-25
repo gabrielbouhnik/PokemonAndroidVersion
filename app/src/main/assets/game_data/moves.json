@@ -1681,6 +1681,23 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false
+    },
+    {
+      "id": 170,
+      "name": "Lava Plume",
+      "power": 80,
+      "pp": 15,
+      "type": 2,
+      "category": "SPECIAL",
+      "description": "The user torches everything around it in an inferno of scarlet flames. This may also leave the target with a burn.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false
     }
   ],
   "multipleHitMoves": [
@@ -2585,6 +2602,24 @@
       "probability": 10,
       "status": [],
       "highCritRate": false
+    },
+    {
+      "id": 175,
+      "name": "Aurora Bean",
+      "power": 65,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 14,
+      "accuracy": 100,
+      "description": "The target is hit with a rainbow-colored beam. This may also lower the target's Attack stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false
     }
   ],
   "drainMoves": [
@@ -2638,6 +2673,77 @@
       "description": "The user drains the target's blood. The user's HP is restored by half the damage taken by the target.",
       "priorityLevel": 0,
       "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 171,
+      "name": "Scary Face",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 10,
+      "type": 5,
+      "accuracy": 100,
+      "description": "The user frightens the target with a scary face to harshly lower its Speed stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.5,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 172,
+      "name": "Flame Charge",
+      "power": 50,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 2,
+      "accuracy": 100,
+      "description": "Cloaking itself in flame, the user attacks the target. Then, building up more power, the user raises its Speed stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 173,
+      "name": "Nasty Plot",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 17,
+      "description": "The user stimulates its brain by thinking bad thoughts. This sharply raises the user's Sp. Atk stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK"
+      ],
+      "target": "SELF",
+      "multiplicator": 2,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 174,
+      "name": "Powder Snow",
+      "power": 40,
+      "pp": 25,
+      "type": 14,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user attacks with a chilling gust of powdery snow. This may also freeze opposing Pokémon.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "FROZEN",
+          "probability": 10
+        }
+      ],
       "highCritRate": false
     }
   ],

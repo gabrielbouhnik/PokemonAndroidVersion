@@ -657,7 +657,14 @@
               "id": 116,
               "level": 19,
               "moveIds": [
-                6,22,42,54
+                6,54,42
+              ]
+            },
+            {
+              "id": 90,
+              "level": 19,
+              "moveIds": [
+                6,2,95,131
               ]
             }
           ]
@@ -718,7 +725,7 @@
               "id": 12,
               "level": 19,
               "moveIds": [
-                59,4,39,35
+                59,4,2,35
               ]
             }
           ]
@@ -843,14 +850,14 @@
               "id": 15,
               "level": 29,
               "moveIds": [
-                17,26,10,56
+                17,163,26,10
               ]
             },
             {
               "id": 15,
               "level": 29,
               "moveIds": [
-                17,26,10,56
+                17,163,26,10
               ]
             }
           ]
@@ -863,14 +870,14 @@
               "id": 75,
               "level": 31,
               "moveIds": [
-                2,32,29,30
+                29,30,2,144
               ]
             },
             {
               "id": 95,
               "level": 31,
               "moveIds": [
-                25,2,15,32
+                25,2,15,146
               ]
             }
           ]
@@ -956,7 +963,7 @@
               "id": 67,
               "level": 31,
               "moveIds": [
-                69,25,72
+                9,25,72,171
               ]
             }
           ]
@@ -1031,21 +1038,21 @@
               "id": 75,
               "level": 34,
               "moveIds": [
-                2,32,29,30
+                2,29,30,144
               ]
             },
             {
               "id": 95,
               "level": 34,
               "moveIds": [
-                25,15,2,144
+                25,15,2,146
               ]
             },
             {
               "id": 95,
               "level": 34,
               "moveIds": [
-                25,15,2,144
+                25,15,2,146
               ]
             }
           ]
@@ -1079,7 +1086,7 @@
               "id": 70,
               "level": 31,
               "moveIds": [
-                5,58,34,35
+                5,58,160,35
               ]
             }
           ]
@@ -1134,7 +1141,7 @@
               "id": 117,
               "level": 35,
               "moveIds": [
-                15,43,42
+                15,43,100,111
               ]
             }
           ]
@@ -1172,7 +1179,7 @@
       "description": "On the top floor of the Pokemon Tower, you come across Team Rocket brutalizing an old man.",
       "opponents": [
         {
-          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "sprite": "images/Sprite_Sbire_Rocket2.png",
           "name" : "Team Rocket Grunt",
           "pokemons": [
             {
@@ -1188,17 +1195,39 @@
               "moveIds": [
                 50,23,16,48
               ]
-            },{
+            },
+            {
               "id": 42,
               "level": 37,
               "moveIds": [
                 50,23,16,48
               ]
-            },{
+            },
+            {
               "id": 42,
               "level": 37,
               "moveIds": [
                 50,23,16,48
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Sbire_Rocket.png",
+          "name" : "Team Rocket Grunt",
+          "pokemons": [
+            {
+              "id": 109,
+              "level": 37,
+              "moveIds": [
+                2,37,83,42
+              ]
+            },
+            {
+              "id": 96,
+              "level": 37,
+              "moveIds": [
+                72,59,46,94
               ]
             }
           ]
@@ -1244,6 +1273,53 @@
               "id": 70,
               "level": 39,
               "moveIds": [18,34,35,58]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Topdresseuse.png",
+          "name" : "Cooltrainer Mary",
+          "pokemons": [
+            {
+              "id": 69,
+              "level": 38,
+              "moveIds": [18,34,35,58]
+            },
+            {
+              "id": 43,
+              "level": 38,
+              "moveIds": [66,84,58,83]
+            },
+            {
+              "id": 70,
+              "level": 38,
+              "moveIds": [18,34,35,58]
+            },
+            {
+              "id": 44,
+              "level": 38,
+              "moveIds": [66,84,58,83]
+            },
+            {
+              "id": 2,
+              "level": 38,
+              "moveIds": [36,37,133,35]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Fillette.png",
+          "name" : "Lass Lisa",
+          "pokemons": [
+            {
+              "id": 43,
+              "level": 39,
+              "moveIds": [66,84,58,83]
+            },
+            {
+              "id": 44,
+              "level": 39,
+              "moveIds": [66,84,58,83]
             }
           ]
         }
@@ -1441,7 +1517,7 @@
               "id": 89,
               "level": 47,
               "moveIds": [
-                37,83
+                153,154,62,83
               ]
             }
           ]
@@ -1509,21 +1585,21 @@
               "id": 75,
               "level": 49,
               "moveIds": [
-                25,30
+                25,30,72,144
               ]
             },
             {
               "id": 28,
               "level": 47,
               "moveIds": [
-                30,38
+                30,38,146,56
               ]
             },
             {
               "id": 76,
               "level": 53,
               "moveIds": [
-                25,30
+                25,30,147,144
               ]
             }
           ]
@@ -1659,7 +1735,7 @@
               "id": 24,
               "level": 52,
               "moveIds": [
-                37,27,83
+                37,27,83,120
               ]
             }
           ]
@@ -1802,14 +1878,14 @@
               "id": 117,
               "level": 54,
               "moveIds": [
-                15,43,100
+                104,43,100,111
               ]
             },
             {
               "id": 64,
               "level": 54,
               "moveIds": [
-                44,45,46
+                44,45,46,105
               ]
             }
           ]
@@ -1865,6 +1941,13 @@
               ]
             },
             {
+              "id": 126,
+              "level": 57,
+              "moveIds": [
+                31,103,169,69
+              ]
+            },
+            {
               "id": 110,
               "level": 56,
               "moveIds": [
@@ -1875,7 +1958,7 @@
               "id": 229,
               "level": 57,
               "moveIds": [
-                37,31,92,27
+                37,31,92,120
               ]
             }
           ]
@@ -1916,7 +1999,7 @@
               "id": 53,
               "level": 60,
               "moveIds": [
-                38,73,51,12
+                38,123,51,12
               ]
             },
             {
@@ -1930,7 +2013,7 @@
               "id": 51,
               "level": 57,
               "moveIds": [
-                30,25,38
+                30,25,38,113
               ]
             },
             {
@@ -1951,7 +2034,7 @@
               "id": 112,
               "level": 59,
               "moveIds": [
-                93,78,69,62
+                93,25,149,109
               ]
             }
           ]
@@ -1986,22 +2069,22 @@
       "opponents": [
         {
           "sprite": "images/Sprite_Kinesiste.png",
-          "name" : "Psychic Franklin",
+          "name" : "Psychic Cameron",
           "pokemons": [
             {
-              "id": 64,
-              "level": 55,
-              "moveIds": [45,44,46]
+              "id": 79,
+              "level": 53,
+              "moveIds": [43,45,134,72]
             },
             {
-              "id": 64,
-              "level": 55,
-              "moveIds": [45,44,46]
+              "id": 80,
+              "level": 53,
+              "moveIds": [43,45,134,148]
             },
             {
-              "id": 64,
-              "level": 55,
-              "moveIds": [45,44,46]
+              "id": 199,
+              "level": 53,
+              "moveIds": [43,45,51,134]
             }
           ]
         },
@@ -2018,6 +2101,32 @@
               "id": 93,
               "level": 55,
               "moveIds": [45,44,46,37]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Kinesiste.png",
+          "name" : "Psychic Johan",
+          "pokemons": [
+            {
+              "id": 64,
+              "level": 53,
+              "moveIds": [45,44,46,132]
+            },
+            {
+              "id": 122,
+              "level": 53,
+              "moveIds": [45,44,46,105]
+            },
+            {
+              "id": 79,
+              "level": 53,
+              "moveIds": [43,45,134,72]
+            },
+            {
+              "id": 64,
+              "level": 53,
+              "moveIds": [45,44,46,132]
             }
           ]
         }
@@ -2057,21 +2166,21 @@
               "id": 116,
               "level": 54,
               "moveIds": [
-                43,15
+                43,15,100,42
               ]
             },
             {
               "id": 117,
               "level": 54,
               "moveIds": [
-                43,15
+                43,15,100,42
               ]
             },
             {
               "id": 117,
               "level": 54,
               "moveIds": [
-                43,15
+                43,15,100
               ]
             }
           ]
@@ -2084,14 +2193,14 @@
               "id": 118,
               "level": 54,
               "moveIds": [
-                43,79,11
+                136,24,11,109
               ]
             },
             {
               "id": 119,
               "level": 54,
               "moveIds": [
-                43,79,11,109
+                136,24,62,109
               ]
             }
           ]
@@ -2265,18 +2374,18 @@
           "pokemons": [
             {
               "id": 105,
-              "level": 62,
+              "level": 63,
               "moveIds": [93,25,72,69]
             },
             {
-              "id": 105,
-              "level": 62,
-              "moveIds": [93,25,72,69]
+              "id": 28,
+              "level": 63,
+              "moveIds": [93,38,25,56]
             },
             {
               "id": 76,
-              "level": 62,
-              "moveIds": [93,25,69]
+              "level": 63,
+              "moveIds": [30,25,147,69]
             }
           ]
         },
@@ -2286,13 +2395,49 @@
           "pokemons": [
             {
               "id": 67,
-              "level": 62,
-              "moveIds": [30,25,69]
+              "level": 65,
+              "moveIds": [25,69,167,171]
             },
             {
               "id": 67,
-              "level": 62,
-              "moveIds": [30,25,69]
+              "level": 65,
+              "moveIds": [25,69,107,171]
+            },
+            {
+              "id": 67,
+              "level": 65,
+              "moveIds": [69,25,103,110]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Topdresseur.png",
+          "name" : "CoolTrainer Warren",
+          "pokemons": [
+            {
+              "id": 105,
+              "level": 63,
+              "moveIds": [93,25,72,69]
+            },
+            {
+              "id": 28,
+              "level": 63,
+              "moveIds": [93,38,25,56]
+            },
+            {
+              "id": 111,
+              "level": 63,
+              "moveIds": [25,30,63,109]
+            },
+            {
+              "id": 30,
+              "level": 64,
+              "moveIds": [37,27,161,83]
+            },
+            {
+              "id": 33,
+              "level": 64,
+              "moveIds": [37,62,161,83]
             }
           ]
         }
@@ -2346,7 +2491,7 @@
               "id": 51,
               "level": 67,
               "moveIds": [
-                30,25,38
+                30,25,123,113
               ]
             },
             {
@@ -2367,7 +2512,7 @@
               "id": 464,
               "level": 69,
               "moveIds": [
-                93,25,69,62
+                93,25,109,149
               ]
             }
 
@@ -2412,23 +2557,17 @@
             {
               "id": 18,
               "level": 70,
-              "moveIds": [
-                3,16,54,19
-              ]
+              "moveIds": [3,16,54,19]
             },
             {
               "id": 230,
               "level": 70,
-              "moveIds": [
-                104,43,100,101
-              ]
+              "moveIds": [104,43,100,111]
             },
             {
               "id": 65,
               "level": 70,
-              "moveIds": [
-                44,45,46,105
-              ]
+              "moveIds": [44,45,46,105]
             },
             {
               "id": 126,
@@ -2438,14 +2577,12 @@
             {
               "id": 247,
               "level": 70,
-              "moveIds": [25,93,27,72]
+              "moveIds": [25,93,27,171]
             },
             {
               "id": 106,
               "level": 73,
-              "moveIds": [
-                68,40,25,14
-              ]
+              "moveIds": [68,40,25,14]
             }
           ]
         }
@@ -3815,7 +3952,7 @@
       {
         "id": 248,
         "level": 82,
-        "moveIds": [25,27,82,93],
+        "moveIds": [25,27,93,57],
         "boostedStats": ["DEFENSE","SPDEF"]
       },
       "rewards": [
@@ -3900,7 +4037,7 @@
           "id": 76,
           "level": 80,
           "moveIds": [
-            25,93,69,72
+            25,93,69,144
           ]
         },
         {
@@ -4178,28 +4315,28 @@
       "battle1":  [
         {
           "id": 189,
-          "level": 40,
+          "level": 41,
           "moveIds": [
             66,44,35,133
           ]
         },
         {
           "id": 114,
-          "level": 40,
+          "level": 42,
           "moveIds": [
             66,35,102
           ]
         },
         {
           "id": 71,
-          "level": 40,
+          "level": 45,
           "moveIds": [
             66,62,18,121
           ]
         },
         {
           "id": 45,
-          "level": 40,
+          "level": 46,
           "moveIds": [
             66,84,37,76
           ]
