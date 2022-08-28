@@ -41,8 +41,8 @@
       "endDialogWin": "It's beginner's luck. Next time, I'll crush you with my Tyrogue.",
       "endDialogLoose": "Don't even think about leaving Pallet Town...",
       "music": 2,
-      "icon": "images/building_battle_background.jpg",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/battle_background/building_battle_background.jpg",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 60
     },
     {
@@ -83,8 +83,8 @@
       "endDialogWin": "You just got lucky.",
       "endDialogLoose": "Well done Tyrogue",
       "music": 2,
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "exp": 100
     },
     {
@@ -138,8 +138,8 @@
       "endDialogWin": "I'm going to catch stronger bug types Pokemon",
       "endDialogLoose": "Bugs are the strongest",
       "music": 2,
-      "icon": "images/forest_battle_background.jpg",
-      "background": "images/forest_battle_background.jpg",
+      "icon": "images/battle_background/forest_battle_background.jpg",
+      "background": "images/battle_background/forest_battle_background.jpg",
       "exp": 120
     },
     {
@@ -179,8 +179,8 @@
       "endDialogWin": "You're pretty good, but not as good as Brock!",
       "endDialogLoose": "I warned you",
       "music": 2,
-      "icon": "images/building_battle_background.jpg",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/battle_background/building_battle_background.jpg",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 140
     },
     {
@@ -274,8 +274,8 @@
       "endDialogWin": "",
       "endDialogLoose": "",
       "music": 2,
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "exp": 420
     },
     {
@@ -356,8 +356,8 @@
       "endDialogWin": "Kids like you shouldn't be here!",
       "endDialogLoose": "Kids like you shouldn't be here!",
       "music": 2,
-      "icon": "images/cave_battle_background.png",
-      "background": "images/cave_battle_background.png",
+      "icon": "images/battle_background/cave_battle_background.png",
+      "background": "images/battle_background/cave_battle_background.png",
       "exp": 570
     },
     {
@@ -425,8 +425,8 @@
       "endDialogWin": "I blew it!",
       "endDialogLoose": "You can't beat Team Rocket!",
       "music": 2,
-      "icon": "images/cave_battle_background.png",
-      "background": "images/cave_battle_background.png",
+      "icon": "images/battle_background/cave_battle_background.png",
+      "background": "images/battle_background/cave_battle_background.png",
       "exp": 580
     },
     {
@@ -485,8 +485,8 @@
       "endDialogWin": "Hey! Take it easy! You won already!",
       "endDialogLoose": "I am the strongest!",
       "music": 2,
-      "icon": "images/city_battle_background.png",
-      "background": "images/city_battle_background.png",
+      "icon": "images/battle_background/city_battle_background.png",
+      "background": "images/battle_background/city_battle_background.png",
       "exp": 800
     },
     {
@@ -640,8 +640,8 @@
       "endDialogWin": "With your ability, you could become a top leader in TEAM ROCKET!",
       "endDialogLoose": "Try again",
       "music": 2,
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "exp": 1100
     },
     {
@@ -688,8 +688,8 @@
       "endDialogWin": "Misty won't lose to someone like you!",
       "endDialogLoose": "Guess you'll never beat Misty",
       "music": 2,
-      "icon": "images/building_battle_background.jpg",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/battle_background/building_battle_background.jpg",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 800
     },
     {
@@ -749,8 +749,8 @@
       "endDialogWin": "I like bugs, so I'm going back to VIRIDIAN FOREST",
       "endDialogLoose": "I'm surprised, you look pretty tough",
       "music": 2,
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "exp": 1000
     },
     {
@@ -833,8 +833,8 @@
       "endDialogWin": "Watch out for Lt. Surge's electric pokemon",
       "endDialogLoose": "I told you...",
       "music": 2,
-      "icon": "images/building_battle_background.jpg",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/battle_background/building_battle_background.jpg",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 1110
     },
     {
@@ -987,8 +987,8 @@
       "endDialogWin": "Use a flashlight to cross the Rock Tunnel",
       "endDialogLoose": "You're not strong enough to get through the Rock Tunnel",
       "music": 2,
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "exp": 2100
     },
     {
@@ -1110,8 +1110,8 @@
       "endDialogWin": "Whew! I'm all sweaty now!",
       "endDialogLoose": "I play hard!",
       "music": 2,
-      "icon": "images/cave_battle_background.png",
-      "background": "images/cave_battle_background.png",
+      "icon": "images/battle_background/cave_battle_background.png",
+      "background": "images/battle_background/cave_battle_background.png",
       "exp": 2200
     },
     {
@@ -1169,8 +1169,8 @@
       "endDialogWin": "I can't believe it!",
       "endDialogLoose": "I knew I would win this time",
       "music": 2,
-      "icon": "images/tower_battle_background.png",
-      "background": "images/tower_battle_background.png",
+      "icon": "images/battle_background/tower_battle_background.png",
+      "background": "images/battle_background/tower_battle_background.png",
       "exp": 4000
     },
     {
@@ -1251,8 +1251,8 @@
       "endDialogWin": "I give up!",
       "endDialogLoose": "You're not saving anyone, kid!",
       "music": 2,
-      "icon": "images/tower_battle_background.png",
-      "background": "images/tower_battle_background.png",
+      "icon": "images/battle_background/tower_battle_background.png",
+      "background": "images/battle_background/tower_battle_background.png",
       "exp": 3570
     },
     {
@@ -1342,8 +1342,8 @@
       "endDialogWin": "Bleaah! I hope ERIKA wipes you out!",
       "endDialogLoose": "Oh! Splendid!",
       "music": 2,
-      "icon": "images/building_battle_background.jpg",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/battle_background/building_battle_background.jpg",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 3900
     },
     {
@@ -1403,8 +1403,8 @@
       "endDialogWin": "I could belly-bump you outta here!",
       "endDialogLoose": "Whew! Good workout!",
       "music": 2,
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "exp": 4700
     },
     {
@@ -1452,8 +1452,8 @@
       "endDialogWin": "I will keep on training under Koga, my ninja master!",
       "endDialogLoose": "I like poison and sleep techniques, as they linger after battle!",
       "music": 2,
-      "icon": "images/building_battle_background.jpg",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/battle_background/building_battle_background.jpg",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 5000
     },
     {
@@ -1541,8 +1541,8 @@
       "endDialogWin": "It's cool you made your POKEMON so strong! Might is right!",
       "endDialogLoose": "Get lost!",
       "music": 2,
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "exp": 5000
     },
     {
@@ -1623,8 +1623,8 @@
       "endDialogWin": "Wow! You totally won!",
       "endDialogLoose": "It's over already?",
       "music": 2,
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "exp": 5160
     },
     {
@@ -1847,8 +1847,8 @@
       "endDialogWin": "You're not going to get away with this, brat!",
       "endDialogLoose": "It's not smart to pick a fight with TEAM ROCKET",
       "music": 2,
-      "icon": "images/silphco_battle_background.png",
-      "background": "images/silphco_battle_background.png",
+      "icon": "images/battle_background/silphco_battle_background.png",
+      "background": "images/battle_background/silphco_battle_background.png",
       "exp": 6000
     },
     {
@@ -1913,8 +1913,8 @@
       "endDialogWin": "You're ready to beat the boss of Team Rocket!",
       "endDialogLoose": "I knew I would win this time",
       "music": 2,
-      "icon": "images/silphco_battle_background.png",
-      "background": "images/silphco_battle_background.png",
+      "icon": "images/battle_background/silphco_battle_background.png",
+      "background": "images/battle_background/silphco_battle_background.png",
       "exp": 6300
     },
     {
@@ -1982,8 +1982,8 @@
       "endDialogWin": "Forgive me, Giovanni... For me to be defeated by a simple child...",
       "endDialogLoose": "I won't allow you to interfere with our plans!",
       "music": 2,
-      "icon": "images/VS_Amos.png",
-      "background": "images/silphco_battle_background.png",
+      "icon": "images/boss_icon/VS_Amos.png",
+      "background": "images/battle_background/silphco_battle_background.png",
       "exp": 6800
     },
     {
@@ -2058,8 +2058,8 @@
       "endDialogWin": "You ruined our plans for Silph! But, Team Rocket will never fall!! Never forget that all Pokémon exist for Team Rocket! I must go, but I shall return!",
       "endDialogLoose": "You failed as soon as you challenged me, Trainer.",
       "music": 4,
-      "icon": "images/VS_Giovanni.png",
-      "background": "images/giovanni_battle_background.png",
+      "icon": "images/boss_icon/VS_Giovanni.png",
+      "background": "images/battle_background/giovanni_battle_background.png",
       "exp": 6800
     },
     {
@@ -2149,8 +2149,8 @@
       "endDialogWin": "I never foresaw this!",
       "endDialogLoose": "That's right! I used telepathy to read your mind!",
       "music": 2,
-      "icon": "images/building_battle_background.jpg",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/battle_background/building_battle_background.jpg",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 6900
     },
     {
@@ -2224,8 +2224,8 @@
       "endDialogWin": "There's a huge cavern underneath this island.",
       "endDialogLoose": "Now I'm ready for a swim!",
       "music": 2,
-      "icon": "images/sea_battle_background.png",
-      "background": "images/sea_battle_background.png",
+      "icon": "images/battle_background/sea_battle_background.png",
+      "background": "images/battle_background/sea_battle_background.png",
       "exp": 6400
     },
     {
@@ -2273,8 +2273,8 @@
       "endDialogWin": "My theories are too complicated for you!",
       "endDialogLoose": "I will continue my studies...",
       "music": 2,
-      "icon": "images/building_battle_background.jpg",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/battle_background/building_battle_background.jpg",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 7400
     },
     {
@@ -2359,8 +2359,8 @@
       "endDialogWin": "I lost!",
       "endDialogLoose": "The sea cleanses my body and my soul!",
       "music": 2,
-      "icon": "images/sea_battle_background.png",
-      "background": "images/sea_battle_background.png",
+      "icon": "images/battle_background/sea_battle_background.png",
+      "background": "images/battle_background/sea_battle_background.png",
       "exp": 7600
     },
     {
@@ -2460,8 +2460,8 @@
       "endDialogWin": "Do you know the identity of our gym leader?",
       "endDialogLoose": "Pokemon League? You? Don't get cocky!",
       "music": 2,
-      "icon": "images/building_battle_background.jpg",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/battle_background/building_battle_background.jpg",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 7900
     },
     {
@@ -2541,8 +2541,8 @@
       "endDialogWin": "That was a truly intense fight! You have won! As proof, here is the Earth Badge. Having lost, I cannot face my underlings! TEAM ROCKET is finished forever!",
       "endDialogLoose": "Fwahahaha! You got defeated by me, Giovanni, the greatest trainer!",
       "music": 3,
-      "icon": "images/VS_Giovanni.png",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/boss_icon/VS_Giovanni.png",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 10000
     },
     {
@@ -2609,8 +2609,8 @@
       "endDialogWin": "I don't believe it! Well, I'm off to the Pokemon League.",
       "endDialogLoose": "You need more practice!",
       "music": 2,
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "exp": 10000
     },
     {
@@ -2699,8 +2699,8 @@
       "endDialogWin": "By fighting tough battles, you get stronger!",
       "endDialogLoose": "You showed me just how good I was!",
       "music": 2,
-      "icon": "images/cave_battle_background.png",
-      "background": "images/cave_battle_background.png",
+      "icon": "images/battle_background/cave_battle_background.png",
+      "background": "images/battle_background/cave_battle_background.png",
       "exp": 10000
     },
     {
@@ -2753,8 +2753,8 @@
       "endDialogWin": "You're better than I thought! Go on ahead! You only got a taste of Pokemon League power!",
       "endDialogLoose": "You're no match against my icy Pokemon!",
       "music": 3,
-      "icon": "images/VS_Olga.PNG",
-      "background": "images/elite_background1.png",
+      "icon": "images/boss_icon/VS_Olga.PNG",
+      "background": "images/battle_background/elite_background1.png",
       "exp": 10000
     },
     {
@@ -2805,8 +2805,8 @@
       "endDialogWin": "My job is done! Go face your next challenge!",
       "endDialogLoose": "Our training has paid off!",
       "music": 3,
-      "icon": "images/VS_Aldo.PNG",
-      "background": "images/elite_background2.jpg",
+      "icon": "images/boss_icon/VS_Aldo.PNG",
+      "background": "images/battle_background/elite_background2.jpg",
       "exp": 10000
     },
     {
@@ -2857,8 +2857,8 @@
       "endDialogWin": "You win! I have nothing else to say. Run along now, child!",
       "endDialogLoose": "That's how a proper battle's done!",
       "music": 3,
-      "icon": "images/VS_Agatha.PNG",
-      "background": "images/elite_background3.jpg",
+      "icon": "images/boss_icon/VS_Agatha.PNG",
+      "background": "images/battle_background/elite_background3.jpg",
       "exp": 10000
     },
     {
@@ -2909,8 +2909,8 @@
       "endDialogWin": "That's it! I hate to admit it, but you are a Pokémon master!",
       "endDialogLoose": "I never give up, no matter what",
       "music": 3,
-      "icon": "images/VS_Peter.PNG",
-      "background": "images/elite_background4.jpg",
+      "icon": "images/boss_icon/VS_Peter.PNG",
+      "background": "images/battle_background/elite_background4.jpg",
       "exp": 10000
     },
     {
@@ -2969,8 +2969,8 @@
       "endDialogWin": "NO! That can't be! You beat my best! After all that work to become the champion? My reign is over already? It's not fair!",
       "endDialogLoose": "Sorry to say it, but this is it for you",
       "music": 5,
-      "icon": "images/champion_battle_background.png",
-      "background": "images/champion_battle_background.png",
+      "icon": "images/battle_background/champion_battle_background.png",
+      "background": "images/battle_background/champion_battle_background.png",
       "exp": 10000
     },
     {
@@ -3033,8 +3033,8 @@
       "endDialogWin": "That was excellent. Truly, an outstanding battle. You gave the support your Pokémon needed to maximize their power. And you guided them with certainty to secure victory.",
       "endDialogLoose": "What's necessary to become stronger? I think it's important to never lose your love of Pokémon.",
       "music": 7,
-      "icon": "images/VS_Cynthia.png",
-      "background": "images/mt_silver_background.png",
+      "icon": "images/boss_icon/VS_Cynthia.png",
+      "background": "images/battle_background/mt_silver_background.png",
       "exp": 15000
     }
   ],
@@ -3069,8 +3069,8 @@
           "quantity": 2
         }
       ],
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "music": 1,
       "exp": 60
     },
@@ -3107,8 +3107,8 @@
           "quantity": 2
         }
       ],
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "music": 1,
       "exp": 40
     },
@@ -3135,8 +3135,8 @@
           "quantity": 3
         }
       ],
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "music": 1,
       "exp": 60
     },
@@ -3167,8 +3167,8 @@
           "quantity": 1
         }
       ],
-      "icon": "images/forest_battle_background.jpg",
-      "background": "images/forest_battle_background.jpg",
+      "icon": "images/battle_background/forest_battle_background.jpg",
+      "background": "images/battle_background/forest_battle_background.jpg",
       "music": 1,
       "exp": 70
     },
@@ -3195,8 +3195,8 @@
           "quantity": 2
         }
       ],
-      "icon": "images/cave_battle_background.png",
-      "background": "images/cave_battle_background.png",
+      "icon": "images/battle_background/cave_battle_background.png",
+      "background": "images/battle_background/cave_battle_background.png",
       "music": 1,
       "exp": 300
     },
@@ -3227,8 +3227,8 @@
           "quantity": 2
         }
       ],
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "music": 1,
       "exp": 420
     },
@@ -3259,8 +3259,8 @@
           "quantity": 1
         }
       ],
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "music": 1,
       "exp": 990
     },
@@ -3287,8 +3287,8 @@
           "quantity": 1
         }
       ],
-      "icon": "images/cave_battle_background.png",
-      "background": "images/cave_battle_background.png",
+      "icon": "images/battle_background/cave_battle_background.png",
+      "background": "images/battle_background/cave_battle_background.png",
       "music": 1,
       "exp": 1200
     },
@@ -3315,8 +3315,8 @@
           "quantity": 2
         }
       ],
-      "icon": "images/cave_battle_background.png",
-      "background": "images/cave_battle_background.png",
+      "icon": "images/battle_background/cave_battle_background.png",
+      "background": "images/battle_background/cave_battle_background.png",
       "music": 1,
       "exp": 2130
     },
@@ -3343,8 +3343,8 @@
           "quantity": 1
         }
       ],
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "music": 1,
       "exp": 2160
     },
@@ -3371,8 +3371,8 @@
           "quantity": 1
         }
       ],
-      "icon": "images/tower_battle_background.png",
-      "background": "images/tower_battle_background.png",
+      "icon": "images/battle_background/tower_battle_background.png",
+      "background": "images/battle_background/tower_battle_background.png",
       "music": 1,
       "exp": 2170
     },
@@ -3399,8 +3399,8 @@
           "quantity": 1
         }
       ],
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "music": 1,
       "exp": 3000
     },
@@ -3427,8 +3427,8 @@
           "quantity": 1
         }
       ],
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "music": 1,
       "exp": 3300
     },
@@ -3455,8 +3455,8 @@
           "quantity": 1
         }
       ],
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "music": 1,
       "exp": 4500
     },
@@ -3483,8 +3483,8 @@
           "quantity": 1
         }
       ],
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "music": 1,
       "exp": 4700
     },
@@ -3511,8 +3511,8 @@
           "quantity": 1
         }
       ],
-      "icon": "images/sea_battle_background.png",
-      "background": "images/sea_battle_background.png",
+      "icon": "images/battle_background/sea_battle_background.png",
+      "background": "images/battle_background/sea_battle_background.png",
       "music": 1,
       "exp": 900
     },
@@ -3539,8 +3539,8 @@
           "quantity": 1
         }
       ],
-      "icon": "images/sea_battle_background.png",
-      "background": "images/sea_battle_background.png",
+      "icon": "images/battle_background/sea_battle_background.png",
+      "background": "images/battle_background/sea_battle_background.png",
       "music": 1,
       "exp": 5000
     },
@@ -3567,8 +3567,8 @@
           "quantity": 1
         }
       ],
-      "icon": "images/seafoam_islands_icon.JPG",
-      "background": "images/seafoam_island_battle_background.png",
+      "icon": "images/battle_background/seafoam_islands_icon.JPG",
+      "background": "images/battle_background/seafoam_island_battle_background.png",
       "music": 1,
       "exp": 5300
     },
@@ -3593,8 +3593,8 @@
           "quantity": 2
         }
       ],
-      "icon": "images/cave_battle_background.png",
-      "background": "images/cave_battle_background.png",
+      "icon": "images/battle_background/cave_battle_background.png",
+      "background": "images/battle_background/cave_battle_background.png",
       "music": 1,
       "exp": 9000
     },
@@ -3620,7 +3620,7 @@
         }
       ],
       "icon": "images/power_plant_icon.jpg",
-      "background": "images/building_battle_background.jpg",
+      "background": "images/battle_background/building_battle_background.jpg",
       "music": 1,
       "exp": 9000
     },
@@ -3646,7 +3646,7 @@
         }
       ],
       "icon": "images/electrode_level.PNG",
-      "background": "images/electric_terrain_background.png",
+      "background": "images/battle_background/electric_terrain_background.png",
       "music": 1,
       "exp": 9000
     },
@@ -3671,8 +3671,8 @@
           "quantity": 1
         }
       ],
-      "icon": "images/route_battle_background.png",
-      "background": "images/route_battle_background.png",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
       "music": 1,
       "exp": 9000
     },
@@ -3697,8 +3697,8 @@
           "quantity": 2
         }
       ],
-      "icon": "images/cave_battle_background.png",
-      "background": "images/cave_battle_background.png",
+      "icon": "images/battle_background/cave_battle_background.png",
+      "background": "images/battle_background/cave_battle_background.png",
       "music": 1,
       "exp": 9000
     },
@@ -3726,7 +3726,7 @@
         }
       ],
       "icon": "images/cerulean_cave_icon.png",
-      "background": "images/cerulean_cave_background.png",
+      "background": "images/battle_background/cerulean_cave_background.png",
       "music": 1,
       "exp": 12000
     },
@@ -3754,7 +3754,7 @@
         }
       ],
       "icon": "images/cerulean_cave_icon.png",
-      "background": "images/cerulean_cave_background.png",
+      "background": "images/battle_background/cerulean_cave_background.png",
       "music": 1,
       "exp": 12000
     },
@@ -3782,7 +3782,7 @@
         }
       ],
       "icon": "images/cerulean_cave_icon.png",
-      "background": "images/cerulean_cave_background.png",
+      "background": "images/battle_background/cerulean_cave_background.png",
       "music": 1,
       "exp": 12000
     }
@@ -3809,8 +3809,8 @@
           "quantity": 2
         }
       ],
-      "icon": "images/dugtrio_boss_icon.JPG",
-      "background": "images/cave_battle_background.png",
+      "icon": "images/boss_icon/dugtrio_boss_icon.JPG",
+      "background": "images/battle_background/cave_battle_background.png",
       "music": 1,
       "exp": 4000
     },
@@ -3835,8 +3835,8 @@
           "quantity": 2
         }
       ],
-      "icon": "images/marowak_boss_icon.JPG",
-      "background": "images/tower_battle_background.png",
+      "icon": "images/boss_icon/marowak_boss_icon.JPG",
+      "background": "images/battle_background/tower_battle_background.png",
       "music": 1,
       "exp": 4400
     },
@@ -3861,8 +3861,8 @@
           "quantity": 2
         }
       ],
-      "icon": "images/snorlax_boss_icon.JPG",
-      "background": "images/route_battle_background.png",
+      "icon": "images/boss_icon/snorlax_boss_icon.JPG",
+      "background": "images/battle_background/route_battle_background.png",
       "music": 1,
       "exp": 5300
     },
@@ -3887,7 +3887,7 @@
           "quantity": 2
         }
       ],
-      "icon": "images/articuno_boss_icon.PNG",
+      "icon": "images/boss_icon/articuno_boss_icon.PNG",
       "background": "images/seafoam_island_battle_background.png",
       "music": 1,
       "exp": 7000
@@ -3913,8 +3913,8 @@
           "quantity": 4
         }
       ],
-      "icon": "images/moltres_boss_icon.JPG",
-      "background": "images/moltres_battle_background.png",
+      "icon": "images/boss_icon/moltres_boss_icon.JPG",
+      "background": "images/battle_background/moltres_battle_background.png",
       "music": 1,
       "exp": 10200
     },
@@ -3939,8 +3939,8 @@
           "quantity": 4
         }
       ],
-      "icon": "images/zapdos_boss_icon.PNG",
-      "background": "images/electric_terrain_background.png",
+      "icon": "images/boss_icon/zapdos_boss_icon.PNG",
+      "background": "images/battle_background/electric_terrain_background.png",
       "music": 1,
       "exp": 12000
     },
@@ -3969,8 +3969,8 @@
           "quantity": 3
         }
       ],
-      "icon": "images/tyranitar_boss_icon.PNG",
-      "background": "images/cave_battle_background.png",
+      "icon": "images/boss_icon/tyranitar_boss_icon.PNG",
+      "background": "images/battle_background/cave_battle_background.png",
       "music": 1,
       "exp": 15000
     },
@@ -4003,8 +4003,8 @@
           "quantity": 5
         }
       ],
-      "icon": "images/mewtwo_boss_icon.PNG",
-      "background": "images/mewtwo_background_battle.png",
+      "icon": "images/boss_icon/mewtwo_boss_icon.PNG",
+      "background": "images/battle_background/mewtwo_background_battle.png",
       "music": 6,
       "exp": 15000
     }
@@ -4100,8 +4100,8 @@
       "endDialogWin2": "I knew you were strong, but this...",
       "endDialogLoose": "The best offense is a good defense! That's my way of doing things!",
       "music": 3,
-      "icon": "images/VS_Brock.png",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/boss_icon/VS_Brock.png",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 350
     },
     {
@@ -4201,8 +4201,8 @@
       "endDialogWin2": "How annoying!",
       "endDialogLoose": "See! This is the Water-type toughness I was talking about!",
       "music": 3,
-      "icon": "images/VS_Misty.png",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/boss_icon/VS_Misty.png",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 1240
     },
     {
@@ -4302,8 +4302,8 @@
       "endDialogWin2": "Absolutely shocking!",
       "endDialogLoose": "Oh yeah! I'm strong!",
       "music": 3,
-      "icon": "images/VS_Surge.png",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/boss_icon/VS_Surge.png",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 1520
     },
     {
@@ -4410,8 +4410,8 @@
       "endDialogWin2": "Oh! It appears it is my loss.",
       "endDialogLoose": "I thank you for your demonstration",
       "music": 3,
-      "icon": "images/VS_Erika.png",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/boss_icon/VS_Erika.png",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 4900
     },
     {
@@ -4507,8 +4507,8 @@
       "endDialogWin2": "If I am not strong enough to defeat you now, there is but one thing to do. I must hone my skills.",
       "endDialogLoose": "Have you learned to fear the techniques of the ninja?",
       "music": 3,
-      "icon": "images/VS_Koga.png",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/boss_icon/VS_Koga.png",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 5600
     },
     {
@@ -4600,8 +4600,8 @@
       "endDialogWin2": "There was once a time when I was shocked that I lost to you. That feeling is gone now. It's been replaced with a desire to grow strong and live freely, as you do.",
       "endDialogLoose": "Just as I foresaw...",
       "music": 3,
-      "icon": "images/VS_Morgane.png",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/boss_icon/VS_Morgane.png",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 7000
     },
     {
@@ -4693,8 +4693,8 @@
       "endDialogWin2": "I have burned down to nothing! Not even ashes remain!",
       "endDialogLoose": "I'm a raging inferno!",
       "music": 3,
-      "icon": "images/VS_Auguste.png",
-      "background": "images/building_battle_background.jpg",
+      "icon": "images/boss_icon/VS_Auguste.png",
+      "background": "images/battle_background/building_battle_background.jpg",
       "exp": 8000
     },
     {
@@ -4757,8 +4757,8 @@
       "endDialogWin2": "I have no problem losing to a spectacular trainer like you!",
       "endDialogLoose": "Ah, wonderful! That was fantastic! Do come again!",
       "music": 8,
-      "icon": "images/Sprite_Palmer.png",
-      "background": "images/battle_frontier_background.png",
+      "icon": "images/boos_icon/Sprite_Palmer.png",
+      "background": "images/battle_background/battle_frontier_background.png",
       "exp": 0
     }
   ]

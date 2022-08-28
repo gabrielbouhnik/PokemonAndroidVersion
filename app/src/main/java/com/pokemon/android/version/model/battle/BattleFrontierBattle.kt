@@ -9,7 +9,7 @@ import kotlin.random.Random
 
 class BattleFrontierBattle() : Battle() {
     companion object {
-        const val BACKGROUND_IMAGE = "images/battle_frontier_background.png"
+        const val BACKGROUND_IMAGE = "images/battle_background/battle_frontier_background.png"
 
         fun generateTeam(gameDataService: GameDataService): List<Pokemon> {
             val team =

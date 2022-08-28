@@ -10,14 +10,14 @@
             android:layout_width="305dp"
             android:layout_height="wrap_content" android:id="@+id/adventureDescriptionTextView"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:text="Face the trainers and wild pokemon that stand in your way" android:textSize="18sp"
+            android:text="Face trainers and wild pokemon that stand in your way" android:textSize="18sp"
             android:textAlignment="center" app:layout_constraintTop_toBottomOf="@+id/adventureButton"
             android:backgroundTint="#FFFFFF" android:textColor="@color/black"/>
     <TextView
             android:layout_width="309dp"
             android:layout_height="49dp" android:id="@+id/MysteryGiftTextView"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:text="Use your AndroCoin to get gift like rare items and Pokemon" android:textSize="18sp"
+            android:text="Use your AndroCoins to get gift like rare items and Pokemon" android:textSize="18sp"
             android:textAlignment="center" app:layout_constraintTop_toBottomOf="@+id/bannersButton"
             android:layout_marginTop="8dp" android:textColor="@color/black"/>
     <TextView

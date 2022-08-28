@@ -1,6 +1,6 @@
 [
   {
-    "image": "images/pikachu_irontail_banner.JPG",
+    "image": "images/banners/pikachu_irontail_banner.JPG",
     "description": "Get a special Pikachu with the move Iron Tail",
     "cost": 100,
     "pokemons": [
@@ -45,7 +45,7 @@
     ]
   },
   {
-    "image": "images/magby_banner.JPG",
+    "image": "images/banners/magby_banner.JPG",
     "description": "Get a special Magby with the moves Mach Punch and Cross Chop",
     "cost": 100,
     "pokemons": [
@@ -91,7 +91,7 @@
     ]
   },
   {
-    "image": "images/eevee_banner.JPG",
+    "image": "images/banners/eevee_banner.JPG",
     "description": "Get an Eevee",
     "cost": 100,
     "pokemons": [
@@ -133,7 +133,7 @@
     ]
   },
   {
-    "image": "images/porygon_banner.JPG",
+    "image": "images/banners/porygon_banner.JPG",
     "description": "Get a Porygon",
     "cost": 100,
     "pokemons": [
@@ -177,7 +177,7 @@
     ]
   },
   {
-    "image": "images/larvitar_banner.JPG",
+    "image": "images/banners/larvitar_banner.JPG",
     "description": "Get a special Larvitar with the moves Iron Head and Dragon Dance",
     "cost": 120,
     "pokemons": [
@@ -224,7 +224,7 @@
     ]
   },
   {
-    "image": "images/scyther_banner.JPG",
+    "image": "images/banners/scyther_banner.JPG",
     "description": "Get a Scyther",
     "cost": 100,
     "pokemons": [
@@ -268,7 +268,7 @@
     ]
   },
   {
-    "image": "images/dratini_banner.JPG",
+    "image": "images/banners/dratini_banner.JPG",
     "description": "Get a Dratini with the move Dragon Breath",
     "cost": 120,
     "pokemons": [
@@ -313,7 +313,7 @@
     ]
   },
   {
-    "image": "images/HyperBall.png",
+    "image": "images/banners/HyperBall.png",
     "description": "Get a Hyper Ball which is an improved version of the Great Ball",
     "cost": 50,
     "pokemons": [
@@ -354,7 +354,7 @@
     ]
   },
   {
-    "image": "images/evolution_stones_banner.JPG",
+    "image": "images/banners/evolution_stones_banner.JPG",
     "description": "Get stones with the ability to make certain species of Pokémon evolve upon contact",
     "cost": 50,
     "pokemons": [
@@ -412,7 +412,7 @@
     ]
   },
   {
-    "image": "images/evolution_items_banner.png",
+    "image": "images/banners/evolution_items_banner.png",
     "description": "Get items with the ability to make certain species of Pokémon evolve like Seadra and Scyther",
     "cost": 50,
     "pokemons": [
@@ -461,7 +461,7 @@
     ]
   },
   {
-    "image": "images/sinnoh_evolution_items.PNG",
+    "image": "images/banners/sinnoh_evolution_items.PNG",
     "description": "Get items with the ability to make certain species of Pokémon evolve like Magmar or Porygon2",
     "cost": 100,
     "pokemons": [
@@ -506,7 +506,7 @@
     ]
   },
   {
-    "image": "images/tm_banner.png",
+    "image": "images/banners/tm_banner.png",
     "description": "Get a single-use TM that can teach a move to some Pokemon.",
     "cost": 100,
     "pokemons": [
@@ -593,7 +593,7 @@
     ]
   },
   {
-    "image": "images/tm_banner.png",
+    "image": "images/banners/tm_banner.png",
     "description": "Get a single-use TM that can teach a move to some Pokemon.",
     "cost": 100,
     "pokemons": [
