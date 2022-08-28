@@ -150,7 +150,7 @@ class BattleUI {
                 SaveManager.save(activity)
                 activity.trainer!!.receiveExp((battle.levelData.exp * 0.5).toInt())
                 battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
-                activity.mainMenu.loadGameMenu(activity)
+                rewardMenu.loadHallOfFameMenu(activity)
             }
         } else
             rewardsButton.text = activity.getString(R.string.go_forward)
