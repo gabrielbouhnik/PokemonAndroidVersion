@@ -102,13 +102,9 @@ class MainMenu {
             battleFrontierTextView.visibility = GONE
         }
         val pokedexButton: Button = activity.findViewById(R.id.pokedexButton)
-        if (activity.trainer!!.name == "gab") {
-            pokedexButton.setOnClickListener {
+        pokedexButton.setOnClickListener {
                 pokedexMenu.loadPokedexMenu(activity)
-            }
         }
-        else
-            pokedexButton.visibility = GONE
     }
 
     private fun loadTrainerCardMenu(activity: MainActivity) {

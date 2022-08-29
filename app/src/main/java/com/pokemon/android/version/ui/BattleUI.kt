@@ -31,11 +31,14 @@ class BattleUI {
     companion object {
         const val BOY_BACK_SPRITE = "images/HGSS_Ethan_Back.png"
         const val GIRL_BACK_SPRITE = "images/HGSS_Lyra_Back.png"
+        const val MEGA_DISABLED_ICON = "images/mega/mega_disabled.png"
+        const val MEGA_ENABLED_ICON = "images/mega/mega_enabled.png"
     }
 
     private var dialogTextView: TextView? = null
     private var rewardMenu: RewardMenu = RewardMenu()
     private var team: MutableList<Pokemon> = mutableListOf()
+    private var megaEvolve = false
 
     private fun loadBackgroundImage(level: LevelData?, activity: MainActivity) {
         val background: ImageView = activity.findViewById(R.id.battleBackgroundImageView)
@@ -62,13 +65,40 @@ class BattleUI {
     private fun displayPokemonsInfos(activity: MainActivity, battle: Battle) {
         val opponentPokemonSprite: ImageView = activity.findViewById(R.id.opponentPokemonImageView)
         opponentPokemonSprite.visibility = VISIBLE
-        activity.displayPokemon(battle.opponent.data.id, opponentPokemonSprite)
+        if (battle.opponent.isMegaEvolved()){
+            val filename = "images/mega/" + battle.opponent.data.id + "_front.png"
+            val img: InputStream = activity.assets.open(filename)
+            opponentPokemonSprite.setImageDrawable(Drawable.createFromStream(img, filename))
+        }
+        else
+            activity.displayPokemon(battle.opponent.data.id, opponentPokemonSprite)
         val pokemonBackSprite: ImageView = activity.findViewById(R.id.pokemonBackSpriteView)
         pokemonBackSprite.visibility = VISIBLE
-        activity.displayPokemonBack(battle.pokemon.data.id, pokemonBackSprite)
+        if (battle.pokemon.isMegaEvolved()) {
+            val filename = "images/mega/" + battle.pokemon.data.id + "_back.png"
+            val img: InputStream = activity.assets.open(filename)
+            pokemonBackSprite.setImageDrawable(Drawable.createFromStream(img, filename))
+        }
+        else {
+            activity.displayPokemonBack(battle.pokemon.data.id, pokemonBackSprite)
+            val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
+            if (battle.pokemon.canMegaEvolve() && !battle.trainerHasUsedMegaEvolution){
+                megaEvolutionImageView.setImageDrawable(Drawable.createFromStream(activity.assets.open(MEGA_DISABLED_ICON), MEGA_DISABLED_ICON))
+                megaEvolutionImageView.setOnClickListener{
+                    if (megaEvolve) {
+                        megaEvolve = false
+                        megaEvolutionImageView.setImageDrawable(Drawable.createFromStream(activity.assets.open(MEGA_DISABLED_ICON), MEGA_DISABLED_ICON))
+                    }
+                    else{
+                        megaEvolve = true
+                        megaEvolutionImageView.setImageDrawable(Drawable.createFromStream(activity.assets.open(MEGA_ENABLED_ICON), MEGA_ENABLED_ICON))
+                    }
+                }
+            }
+        }
 
         val trainerPokemonName: TextView = activity.findViewById(R.id.myPokemonNameTextView)
-        trainerPokemonName.text = battle.pokemon.data.name
+        trainerPokemonName.text = if (battle.pokemon.isMegaEvolved()) "Mega " + battle.pokemon.data.name else battle.pokemon.data.name
         val trainerPokemonHPLevel: TextView = activity.findViewById(R.id.myPokemonHPLevelTextView)
         trainerPokemonHPLevel.text = activity.getString(
             R.string.pokemon_battle_info,
@@ -85,8 +115,6 @@ class BattleUI {
             pokemonStatusTextView.visibility = GONE
         }
 
-        val opponentPokemonName: TextView = activity.findViewById(R.id.opponentPokemonNameTextView)
-        opponentPokemonName.text = battle.opponent.data.name
         val opponentPokemonHPLevel: TextView = activity.findViewById(R.id.opponentPokemonHPLevelTextView)
         opponentPokemonHPLevel.text = activity.getString(
             R.string.pokemon_battle_info,
@@ -94,6 +122,9 @@ class BattleUI {
             battle.opponent.currentHP,
             battle.opponent.hp
         )
+
+        val opponentPokemonName: TextView = activity.findViewById(R.id.opponentPokemonNameTextView)
+        opponentPokemonName.text = if (battle.opponent.isMegaEvolved()) "Mega " + battle.opponent.data.name else battle.opponent.data.name
 
         val opponentStatusTextView: TextView = activity.findViewById(R.id.opponentStatusTextView)
         if (battle.opponent.status != Status.OK) {
@@ -117,7 +148,6 @@ class BattleUI {
     }
 
     private fun disableAttackButtons(activity: MainActivity) {
-
         disableAttackButton(activity, R.id.attack1Button, R.id.attack1PPTextView)
         disableAttackButton(activity, R.id.attack2Button, R.id.attack2PPTextView)
         disableAttackButton(activity, R.id.attack3Button, R.id.attack3PPTextView)
@@ -201,6 +231,7 @@ class BattleUI {
                 }
             }
             State.TRAINER_VICTORY -> {
+                activity.trainer!!.team.forEach { it.recomputeStat() }
                 if (battle is BattleFrontierBattle) {
                     HealUtils.healTeam(team)
                     activity.updateMusic(R.raw.victory_theme)
@@ -281,6 +312,7 @@ class BattleUI {
                     val switchButton: Button = activity.findViewById(R.id.switchPokemonButton)
                     switchButton.visibility = VISIBLE
                     switchButton.setOnClickListener {
+                        megaEvolve = false
                         switchButton.visibility = GONE
                         val recyclerView = activity.findViewById<RecyclerView>(R.id.battleRecyclerView)
                         recyclerView.visibility = VISIBLE
@@ -326,7 +358,15 @@ class BattleUI {
             ppTextView.visibility = VISIBLE
             ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
             attackButton.setOnClickListener {
-                battle.turn(move)
+                if (megaEvolve && battle.pokemon.canMegaEvolve()){
+                    val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
+                    megaEvolutionImageView.visibility = GONE
+                    battle.turn(move,true)
+                }
+                else{
+                    megaEvolve = false
+                    battle.turn(move,false)
+                }
                 ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
                 updateBattleUI(activity, battle)
             }
@@ -347,7 +387,15 @@ class BattleUI {
             ppTextView.text =
                 activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
             attack1Button.setOnClickListener {
-                battle.turn(battle.pokemon.move1)
+                if (megaEvolve && battle.pokemon.canMegaEvolve()){
+                    val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
+                    megaEvolutionImageView.visibility = GONE
+                    battle.turn(battle.pokemon.move1,true)
+                }
+                else{
+                    megaEvolve = false
+                    battle.turn(battle.pokemon.move1,false)
+                }
                 ppTextView.text =
                     activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
                 updateBattleUI(activity, battle)
@@ -366,6 +414,7 @@ class BattleUI {
         val switchButton: Button = activity.findViewById(R.id.switchPokemonButton)
         switchButton.setOnClickListener {
             if (!battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED)) {
+                megaEvolve = false
                 val closeButton: Button = activity.findViewById(R.id.closeTeamButton)
                 closeButton.visibility = VISIBLE
                 switchButton.visibility = GONE
@@ -418,6 +467,7 @@ class BattleUI {
         if (battle !is BattleFrontierBattle) {
             bagButton.setOnClickListener {
                 if (battle.levelData.id != FRONTIER_BRAIN_LEVEL_ID) {
+                    megaEvolve= false
                     val closeButton: Button = activity.findViewById(R.id.closeBagButton)
                     closeButton.visibility = VISIBLE
                     switchButton.visibility = GONE

@@ -124,6 +124,13 @@
             app:layout_constraintTop_toBottomOf="@+id/battleBackgroundImageView"
             app:layout_constraintVertical_bias="0.236"/>
     <ImageView
+            android:layout_width="58dp"
+            android:layout_height="51dp" android:id="@+id/megaEvolutionImageView"
+            app:layout_constraintEnd_toStartOf="@+id/switchPokemonButton"
+            android:layout_marginEnd="11dp" android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/bagButton" android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/dialogTextView"/>
+    <ImageView
             android:layout_width="419dp"
             android:layout_height="719dp" app:srcCompat="@color/white"
             android:id="@+id/blackImageView"

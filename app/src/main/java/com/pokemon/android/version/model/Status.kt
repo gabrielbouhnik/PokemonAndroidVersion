@@ -62,13 +62,15 @@ enum class Status(var activeOutsideBattle: Boolean) {
                 return false
             if (status == ASLEEP)
                 return true
-            if (status == FROZEN && (opponent.data.type1 != Type.ICE && opponent.data.type2 != Type.ICE))
+            val type1 = if (opponent.isMegaEvolved()) opponent.data.megaEvolutionData!!.type1 else opponent.data.type1
+            val type2 = if (opponent.isMegaEvolved()) opponent.data.megaEvolutionData!!.type2 else opponent.data.type2
+            if (status == FROZEN && (type1 != Type.ICE && type2 != Type.ICE))
                 return true
-            if (status == BURN && (opponent.data.type1 != Type.FIRE && opponent.data.type2 != Type.FIRE))
+            if (status == BURN && (type1 != Type.FIRE && type2 != Type.FIRE))
                 return true
-            if (status == PARALYSIS && (opponent.data.type1 != Type.ELECTRIC && opponent.data.type2 != Type.ELECTRIC))
+            if (status == PARALYSIS && (type1 != Type.ELECTRIC && type2 != Type.ELECTRIC))
                 return true
-            if (status == POISON && (opponent.data.type1 != Type.POISON && opponent.data.type2 != Type.POISON) && (opponent.data.type1 != Type.STEEL && opponent.data.type2 != Type.STEEL))
+            if (status == POISON && (type1 != Type.POISON && type2 != Type.POISON) && (type1 != Type.STEEL && type2 != Type.STEEL))
                 return true
             return false
         }

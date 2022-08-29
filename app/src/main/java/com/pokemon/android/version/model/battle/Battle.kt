@@ -4,6 +4,7 @@ import android.widget.TextView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
+import com.pokemon.android.version.model.Trainer
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.move.DrainMove
@@ -19,6 +20,7 @@ abstract class Battle {
     lateinit var opponent: Pokemon
     lateinit var levelData: LevelData
     lateinit var dialogTextView: TextView
+    var trainerHasUsedMegaEvolution = false
 
     abstract fun getBattleState(): State
 
@@ -57,8 +59,17 @@ abstract class Battle {
         }
     }
 
-    fun turn(trainerPokemonMove: PokemonMove) {
+    fun turn(trainerPokemonMove: PokemonMove, megaEvolution : Boolean) {
         val sb = StringBuilder()
+        if (megaEvolution) {
+            sb.append("${pokemon.data.name} has Mega Evolved into Mega-${pokemon.data.name}\n")
+            pokemon.megaEvolve()
+            trainerHasUsedMegaEvolution = true
+        }
+        /*if (this is TrainerBattle && opponent.canMegaEvolve()) {
+            opponent.megaEvolve()
+            sb.append("${opponent.data.name} has Mega Evolved into Mega-${opponent.data.name}\n")
+        }*/
         val opponentMove: PokemonMove = opponent.ia(pokemon)
         if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move, opponentMove.move)) {
             sb.append(trainerTurn(trainerPokemonMove))
@@ -92,7 +103,7 @@ abstract class Battle {
 
     open fun turnWithSwitch(pokemonToBeSent: Pokemon) {
         val sb = StringBuilder()
-        sb.append("${pokemonToBeSent.trainer!!.name} sends ${pokemonToBeSent.data.name}\n")
+        sb.append("${(pokemonToBeSent.trainer!! as Trainer).name} sends ${pokemonToBeSent.data.name}\n")
         switchPokemon(pokemonToBeSent)
         sb.append(opponentTurn(opponent.ia(pokemon)))
         endTurn(sb)
@@ -142,6 +153,9 @@ abstract class Battle {
             sb.append(pokemon.data.name + " fainted\n")
             pokemon.status = Status.OK
             pokemon.battleData = null
+            if (pokemon.isMegaEvolved()) {
+                pokemon.recomputeStat()
+            }
         }
         if (opponent.currentHP == 0) {
             sb.append("The opposing " + opponent.data.name + " fainted\n")
@@ -153,8 +167,11 @@ abstract class Battle {
         protected fun getTurnDescription(attacker: Pokemon, other: Pokemon, move: Move): String {
             var action = ""
             if (move.power > 0) {
-                val effectiveness = move.type.isEffectiveAgainst(other.data.type1) *
+                var effectiveness = move.type.isEffectiveAgainst(other.data.type1) *
                         move.type.isEffectiveAgainst(other.data.type2)
+                if (other.isMegaEvolved())
+                    effectiveness = move.type.isEffectiveAgainst(other.data.megaEvolutionData!!.type1) *
+                            move.type.isEffectiveAgainst(other.data.megaEvolutionData!!.type2)
                 if (effectiveness >= 2)
                     action += "It's super effective!\n"
                 if (effectiveness == 0f)

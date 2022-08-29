@@ -9,13 +9,15 @@ class OpponentTrainerFactory {
             opponentTrainerData: OpponentTrainerData,
             gameDataService: GameDataService
         ): OpponentTrainer {
-            return OpponentTrainer(opponentTrainerData.pokemons.map {
+            val opponentTrainer =  OpponentTrainer(opponentTrainerData.pokemons.map {
                 gameDataService.generatePokemonWithMoves(
                     it.id,
                     it.level,
                     it.moves
                 )
             }, opponentTrainerData.sprite)
+            opponentTrainer.team.forEach { it.trainer = opponentTrainer}
+            return opponentTrainer
         }
     }
 }

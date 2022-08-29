@@ -26,5 +26,5 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="36dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="4dp"
             android:fontFamily="casual" android:textSize="18sp" android:textAlignment="textEnd"
-            android:textColor="@color/black"/>
+            android:textColor="#FF797979"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

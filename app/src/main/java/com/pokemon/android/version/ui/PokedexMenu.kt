@@ -15,6 +15,10 @@ import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.Type
 
 class PokedexMenu {
+    companion object{
+        const val ADMIN = "admin"
+    }
+
     private fun loadPokedexPage(activity: MainActivity, data: PokemonData) {
         activity.setContentView(R.layout.pokedex_page)
         val spriteView: ImageView = activity.findViewById(R.id.pokedexPageSpriteView)
@@ -26,7 +30,7 @@ class PokedexMenu {
         val recyclerView = activity.findViewById<RecyclerView>(R.id.learnsetRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
-        if (activity.trainer!!.name == "gab" || activity.trainer!!.pokedex[data.id] == true) {
+        if (activity.trainer!!.name == ADMIN || activity.trainer!!.pokedex[data.id] == true) {
             val type1TextView: TextView = activity.findViewById(R.id.pokedexType1TextView)
             type1TextView.setTextColor(ColorUtils.getColorByType(data.type1))
             type1TextView.text = data.type1.toString()
@@ -40,11 +44,11 @@ class PokedexMenu {
             recyclerView.adapter = LearnsetRecyclerAdapter(activity, listOf()) {}
 
         val levelRadioButton : RadioButton = activity.findViewById(R.id.movesByLevelRadioButton)
-        if (activity.trainer!!.name != "gab" && activity.trainer!!.pokedex[data.id] == false)
+        if (activity.trainer!!.name != ADMIN && activity.trainer!!.pokedex[data.id] == false)
             levelRadioButton.visibility = GONE
 
         val tmRadioButton : RadioButton = activity.findViewById(R.id.tmMovesRadioButton)
-        if (activity.trainer!!.name != "gab" && activity.trainer!!.pokedex[data.id] == false)
+        if (activity.trainer!!.name != ADMIN && activity.trainer!!.pokedex[data.id] == false)
             tmRadioButton.visibility = GONE
 
         levelRadioButton.setOnClickListener{
@@ -64,10 +68,10 @@ class PokedexMenu {
         activity.setContentView(R.layout.pokedex_layout)
         val recyclerView = activity.findViewById<RecyclerView>(R.id.pokedexRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        val data = if (activity.trainer!!.name ==  "gab") activity.gameDataService.pokemons else activity.gameDataService.pokemons.filter { it.id < 252 }
+        val data = if (activity.trainer!!.name ==  ADMIN) activity.gameDataService.pokemons else activity.gameDataService.pokemons.filter { it.id < 252 }
         val myItemClickListener = View.OnClickListener {
             val dexNumber = it.tag as Int + 1
-            if (activity.trainer!!.name == "gab" || activity.trainer!!.pokedex.containsKey(dexNumber))
+            if (activity.trainer!!.name == ADMIN || activity.trainer!!.pokedex.containsKey(dexNumber))
                 loadPokedexPage(activity, data[dexNumber - 1])
         }
         val adapter = PokedexRecyclerAdapter(activity, data, myItemClickListener)

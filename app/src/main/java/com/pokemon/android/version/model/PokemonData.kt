@@ -1,6 +1,7 @@
 package com.pokemon.android.version.model
 
 import com.pokemon.android.version.entity.pokemon.PokemonDataEntity
+import com.pokemon.android.version.model.battle.MegaEvolutionData
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.pokemon.MoveLearned
 import com.pokemon.android.version.model.move.pokemon.MoveLearnedByLevel
@@ -21,7 +22,8 @@ class PokemonData(
     var spDef: Int,
     var speed: Int,
     var evolutions: List<Evolution>,
-    val expGaugeType: ExpGaugeType
+    val expGaugeType: ExpGaugeType,
+    val megaEvolutionData: MegaEvolutionData?
 ) {
     companion object {
         fun of(pokemonDataEntity: PokemonDataEntity, moves: List<Move>): PokemonData {
@@ -60,6 +62,7 @@ class PokemonData(
                     )
                 })
                 .expGaugeType(ExpGaugeType.valueOf(pokemonDataEntity.expGaugeType))
+                .megaEvolutionData(MegaEvolutionData.of(pokemonDataEntity.megaEvolutionData))
                 .build()
         }
     }
@@ -80,7 +83,8 @@ class PokemonData(
         var spDef: Int = 0,
         var speed: Int = 0,
         var evolutions: List<Evolution> = arrayListOf(),
-        var expGaugeType: ExpGaugeType = ExpGaugeType.FAST
+        var expGaugeType: ExpGaugeType = ExpGaugeType.FAST,
+        var megaEvolutionData: MegaEvolutionData? = null
     ) {
         fun id(id: Int) = apply { this.id = id }
         fun name(name: String) = apply { this.name = name }
@@ -98,6 +102,7 @@ class PokemonData(
         fun speed(speed: Int) = apply { this.speed = speed }
         fun evolutions(evolutions: List<Evolution>) = apply { this.evolutions = evolutions }
         fun expGaugeType(expGaugeType: ExpGaugeType) = apply { this.expGaugeType = expGaugeType }
+        fun megaEvolutionData(megaEvolutionData: MegaEvolutionData?) = apply { this.megaEvolutionData = megaEvolutionData }
         fun build() = PokemonData(
             id,
             name,
@@ -114,7 +119,8 @@ class PokemonData(
             spDef,
             speed,
             evolutions,
-            expGaugeType
+            expGaugeType,
+            megaEvolutionData
         )
     }
 }

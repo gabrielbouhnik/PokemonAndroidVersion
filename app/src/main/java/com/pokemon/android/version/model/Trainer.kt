@@ -31,6 +31,10 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         return null
     }
 
+    override fun getTrainerTeam(): List<Pokemon> {
+        return team
+    }
+
     fun catchPokemon(pokemon: Pokemon, ballId: Int): Boolean {
         if (pokemon.trainer != null)
             return false

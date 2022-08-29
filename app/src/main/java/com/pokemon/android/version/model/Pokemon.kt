@@ -4,6 +4,7 @@ import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.entity.save.PokemonSave
 import com.pokemon.android.version.model.battle.AttackResponse
 import com.pokemon.android.version.model.battle.DamageCalculator
+import com.pokemon.android.version.model.battle.MegaEvolutionData
 import com.pokemon.android.version.model.battle.PokemonBattleData
 import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
@@ -17,7 +18,7 @@ import kotlin.random.nextInt
 
 class Pokemon(
     var data: PokemonData,
-    var trainer: Trainer?,
+    var trainer: ITrainer?,
     var level: Int,
     var move1: PokemonMove,
     var move2: PokemonMove?,
@@ -34,7 +35,7 @@ class Pokemon(
     var currentExp: Int = 0,
     var battleData: PokemonBattleData?,
     var isFromBanner: Boolean = false,
-    var movesLearnedByTM: ArrayList<Move> = arrayListOf()
+    var movesLearnedByTM: ArrayList<Move> = arrayListOf(),
 ) {
 
     constructor(
@@ -293,7 +294,29 @@ class Pokemon(
         return AttackResponse(true, details)
     }
 
-    private fun recomputeStat() {
+    fun isMegaEvolved() : Boolean{
+        return data.megaEvolutionData != null && data.megaEvolutionData!!.isMegaEvolved
+    }
+    
+    fun canMegaEvolve() : Boolean{
+        return level >= 60 && data.megaEvolutionData != null && !data.megaEvolutionData!!.isMegaEvolved
+                && trainer!!.getTrainerTeam().none { it.isMegaEvolved()}
+    }
+
+    fun megaEvolve(){
+        if (data.megaEvolutionData != null && !data.megaEvolutionData!!.isMegaEvolved){
+            this.attack = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.ATTACK)
+            this.defense = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.DEFENSE)
+            this.spAtk = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.SPATK)
+            this.spDef = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.SPDEF)
+            this.speed = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.SPEED)
+            data.megaEvolutionData!!.isMegaEvolved = true
+        }
+    }
+    
+    fun recomputeStat() {
+        if (isMegaEvolved())
+            this.data.megaEvolutionData!!.isMegaEvolved = false
         val addHP: Boolean = hp == currentHP
         this.hp = StatUtils.computeHP(data, level)
         this.attack = StatUtils.computeStat(data, level, Stats.ATTACK)
@@ -334,7 +357,7 @@ class Pokemon(
 
     private fun gainLevel() {
         this.level += 1
-        this.trainer!!.coins += 10
+        (this.trainer!! as Trainer).coins += 10
         this.recomputeStat()
         val moveFiltered = data.movesByLevel.filter { it.level == this.level }
         if (moveFiltered.size == 1)
@@ -342,7 +365,7 @@ class Pokemon(
     }
 
     fun gainExp(value: Int) {
-        val maxLevel = trainer!!.getMaxLevel()
+        val maxLevel = (trainer!! as Trainer).getMaxLevel()
         if (this.level >= maxLevel)
             return
         var exp = value
@@ -369,7 +392,7 @@ class Pokemon(
             }
             return true
         }
-        if (condition.itemId != null && this.trainer!!.items.containsKey(condition.itemId))
+        if (condition.itemId != null && (this.trainer!! as Trainer).items.containsKey(condition.itemId))
             return true
         return false
     }
@@ -392,10 +415,10 @@ class Pokemon(
         if (canEvolve()) {
             val evolution = data.evolutions.first { it.evolutionId == evolutionId }
             if (evolution.evolutionCondition.itemId != null) {
-                this.trainer!!.useItem(evolution.evolutionCondition.itemId!!, this)
+                (this.trainer!! as Trainer).useItem(evolution.evolutionCondition.itemId!!, this)
             }
             this.data = gameDataService.getPokemonDataById(evolutionId)
-            this.trainer!!.pokedex[this.data.id] = true
+            (this.trainer!! as Trainer).pokedex[this.data.id] = true
             recomputeStat()
             if (currentHP > hp)
                 currentHP = hp

@@ -15,9 +15,11 @@ class BattleUtils {
                     false
                 }
                 else -> {
+                    val pokemonSpeed = pokemon.speed.toFloat() * pokemon.battleData!!.speedMultiplicator
+                    val otherSpeed = other.speed.toFloat() * other.battleData!!.speedMultiplicator
                     val paralysisMultiplicator: Float = if (pokemon.status == Status.PARALYSIS) 0.5f else 1f
                     val opponentParalysisMultiplicator: Float = if (other.status == Status.PARALYSIS) 0.5f else 1f
-                    pokemon.speed.toFloat() * pokemon.battleData!!.speedMultiplicator * paralysisMultiplicator >= other.speed.toFloat() * other.battleData!!.speedMultiplicator * opponentParalysisMultiplicator
+                    pokemonSpeed * paralysisMultiplicator >= otherSpeed * opponentParalysisMultiplicator
                 }
             }
         }

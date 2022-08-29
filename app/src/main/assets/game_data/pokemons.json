@@ -204,7 +204,16 @@
     "speed": 80,
     "catchRate": 45,
     "evolutions": [],
-    "expGaugeType": "MEDIUM_SLOW"
+    "expGaugeType": "MEDIUM_SLOW",
+    "megaEvolutionData": {
+      "type1": 1,
+      "type2": 8,
+      "attack": 100,
+      "defense": 123,
+      "spAtk": 122,
+      "spDef": 120,
+      "speed": 80
+    }
   },
   {
     "id": 4,
@@ -437,7 +446,16 @@
     "speed": 100,
     "catchRate": 45,
     "evolutions": [],
-    "expGaugeType": "MEDIUM_SLOW"
+    "expGaugeType": "MEDIUM_SLOW",
+    "megaEvolutionData": {
+      "type1": 2,
+      "type2": 15,
+      "attack": 130,
+      "defense": 111,
+      "spAtk": 130,
+      "spDef": 85,
+      "speed": 100
+    }
   },
   {
     "id": 7,
@@ -637,7 +655,16 @@
     "speed": 78,
     "catchRate": 45,
     "evolutions": [],
-    "expGaugeType": "MEDIUM_SLOW"
+    "expGaugeType": "MEDIUM_SLOW",
+    "megaEvolutionData": {
+      "type1": 3,
+      "type2": 0,
+      "attack": 103,
+      "defense": 111,
+      "spAtk": 135,
+      "spDef": 115,
+      "speed": 78
+    }
   },
   {
     "id": 10,
@@ -912,7 +939,16 @@
     "speed": 75,
     "catchRate": 45,
     "evolutions": [],
-    "expGaugeType": "MEDIUM_FAST"
+    "expGaugeType": "MEDIUM_FAST",
+    "megaEvolutionData": {
+      "type1": 7,
+      "type2": 8,
+      "attack": 150,
+      "defense": 40,
+      "spAtk": 15,
+      "spDef": 80,
+      "speed": 145
+    }
   },
   {
     "id": 16,
@@ -7277,7 +7313,16 @@
     "speed": 81,
     "catchRate": 45,
     "evolutions": [],
-    "expGaugeType": "SLOW"
+    "expGaugeType": "SLOW",
+    "megaEvolutionData": {
+      "type1": 3,
+      "type2": 17,
+      "attack": 155,
+      "defense": 109,
+      "spAtk": 70,
+      "spDef": 130,
+      "speed": 81
+    }
   },
   {
     "id": 131,
@@ -9495,7 +9540,16 @@
     "speed": 30,
     "catchRate": 25,
     "evolutions": [],
-    "expGaugeType": "MEDIUM_FAST"
+    "expGaugeType": "MEDIUM_FAST",
+    "megaEvolutionData": {
+      "type1": 16,
+      "type2": 10,
+      "attack": 125,
+      "defense": 230,
+      "spAtk": 55,
+      "spDef": 95,
+      "speed": 30
+    }
   },
   {
     "id": 209,
@@ -9697,7 +9751,16 @@
     "speed": 65,
     "catchRate": 25,
     "evolutions": [],
-    "expGaugeType": "MEDIUM_FAST"
+    "expGaugeType": "MEDIUM_FAST",
+    "megaEvolutionData": {
+      "type1": 7,
+      "type2": 16,
+      "attack": 150,
+      "defense": 140,
+      "spAtk": 65,
+      "spDef": 100,
+      "speed": 75
+    }
   },
   {
     "id": 218,
@@ -10058,7 +10121,16 @@
     "speed": 95,
     "catchRate": 45,
     "evolutions": [],
-    "expGaugeType": "SLOW"
+    "expGaugeType": "SLOW",
+    "megaEvolutionData": {
+      "type1": 2,
+      "type2": 17,
+      "attack": 90,
+      "defense": 90,
+      "spAtk": 140,
+      "spDef": 90,
+      "speed": 115
+    }
   },
   {
     "id": 230,
@@ -10814,7 +10886,16 @@
     "speed": 61,
     "catchRate": 45,
     "evolutions": [],
-    "expGaugeType": "SLOW"
+    "expGaugeType": "SLOW",
+    "megaEvolutionData": {
+      "type1": 9,
+      "type2": 17,
+      "attack": 164,
+      "defense": 150,
+      "spAtk": 95,
+      "spDef": 120,
+      "speed": 71
+    }
   },
   {
     "id": 251,

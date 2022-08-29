@@ -21,14 +21,18 @@ class DamageCalculator {
 
         fun computeDamage(attacker: Pokemon, move: Move, opponent: Pokemon, criticalMultiplicator: Float): Int {
             var multiplicator = 1f
-            val stab = if (attacker.data.type1 == move.type || attacker.data.type2 == move.type) 1.5f else 1f
+            var stab = if (attacker.data.type1 == move.type || attacker.data.type2 == move.type) 1.5f else 1f
+            if (attacker.isMegaEvolved() && (attacker.data.megaEvolutionData!!.type1 == move.type || attacker.data.megaEvolutionData!!.type2 == move.type))
+                stab = 1.5f
             if (move.category == MoveCategory.PHYSICAL) {
                 if (attacker.status == Status.BURN)
                     multiplicator *= 0.5f
             }
             return try {
-                val type: Float =
-                    move.type.isEffectiveAgainst(opponent.data.type2) * move.type.isEffectiveAgainst(opponent.data.type1)
+                var type: Float = move.type.isEffectiveAgainst(opponent.data.type2) * move.type.isEffectiveAgainst(opponent.data.type1)
+                if (opponent.isMegaEvolved()){
+                    type = move.type.isEffectiveAgainst(opponent.data.megaEvolutionData!!.type2) * move.type.isEffectiveAgainst(opponent.data.megaEvolutionData!!.type1)
+                }
                 val random: Float = Random.nextInt(85, 100).toFloat() / 100f
                 val offensiveStat: Int =
                     if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * attacker.battleData!!.spAtkMultiplicator).roundToInt()
