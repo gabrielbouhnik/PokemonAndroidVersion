@@ -260,11 +260,8 @@ class BattleUI {
                     activity.updateMusic(R.raw.victory_theme)
                 if (activity.eliteMode)
                     activity.trainer!!.eliteProgression++
-                else {
-                    if (firstTime) {
+                else if (firstTime && battle.levelData.mandatory)
                         activity.trainer!!.progression++
-                    }
-                }
                 disableBattleButtons(activity)
                 val opponentPokemonSprite: ImageView = activity.findViewById(R.id.opponentPokemonImageView)
                 opponentPokemonSprite.visibility = GONE
@@ -572,7 +569,7 @@ class BattleUI {
         activity.setContentView(R.layout.battle_layout)
         setDialogTextView(activity)
         if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID)
-            dialogTextView!!.text = level.startDialog1
+            dialogTextView!!.text = level.startDialog2
         else
             dialogTextView!!.text = level.startDialog1
         val trainerBackSprite: ImageView = activity.findViewById(R.id.trainerBackSpriteView)

@@ -13,7 +13,7 @@
             android:layout_marginTop="80dp"
             app:layout_constraintHorizontal_bias="0.413" app:layout_constraintStart_toEndOf="@+id/pokemonSpriteView"
             android:textSize="24sp" android:textStyle="bold" android:textAlignment="center"
-            android:textColor="@color/black"/>
+            android:textColor="#7F7F7F" android:alpha="0.75" android:background="@color/white"/>
     <TextView
             android:text=""
             android:layout_width="220dp"
@@ -22,7 +22,7 @@
             android:layout_marginTop="32dp"
             app:layout_constraintHorizontal_bias="0.413" app:layout_constraintStart_toEndOf="@+id/pokemonSpriteView"
             android:textSize="24sp" android:textStyle="bold" android:textAlignment="center"
-            android:textColor="@color/black"/>
+            android:textColor="#7F7F7F" android:alpha="0.75" android:background="#FFFFFF"/>
     <ImageView
             android:layout_width="129dp"
             android:layout_height="105dp" tools:srcCompat="@color/white" android:id="@+id/pokemonSpriteView"

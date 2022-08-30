@@ -14,6 +14,7 @@ class LeaderLevelData(
     icon: String,
     background: String,
     exp: Int,
+    mandatory: Boolean,
     var startDialog1: String,
     var startDialog2: String,
     var endDialogWin1: String,
@@ -21,7 +22,7 @@ class LeaderLevelData(
     var endDialogLoose: String,
     var battle1: List<PokemonOpponentTrainerData>,
     var battle2: List<PokemonOpponentTrainerData>,
-) : LevelData(id, name, description, rewards, music, icon, background, exp) {
+) : LevelData(id, name, description, rewards, music, icon, background, exp, mandatory) {
     companion object {
         fun of(
             gymLeaderBattleLevelEntity: LeaderLevelEntity,
@@ -38,6 +39,7 @@ class LeaderLevelData(
                 gymLeaderBattleLevelEntity.icon,
                 gymLeaderBattleLevelEntity.background,
                 gymLeaderBattleLevelEntity.exp,
+                gymLeaderBattleLevelEntity.mandatory,
                 gymLeaderBattleLevelEntity.startDialog1,
                 gymLeaderBattleLevelEntity.startDialog2,
                 gymLeaderBattleLevelEntity.endDialogWin1,

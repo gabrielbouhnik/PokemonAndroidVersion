@@ -114,7 +114,7 @@ class Pokemon(
             if (damage > 0 && hp / currentHP < 20 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
                 return move
             move.move.status.forEach {
-                if (Status.isAffectedByStatus(it.status, opponent) && it.probability == null)
+                if (Status.isAffectedByStatus(move.move.id, it.status, opponent) && it.probability == null)
                     return move
             }
             if (move.move is HealMove && hp / currentHP > 40)

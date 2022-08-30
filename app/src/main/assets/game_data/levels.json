@@ -1,4 +1,779 @@
 {
+  "randomWildEncounters": [
+    {
+      "id": 2,
+      "name": "\nRoute 1",
+      "description": "While walking along Route 1, you come across wild pokemon",
+      "encounter": 2,
+      "possibleEncounters":
+      {
+        "minLevel": 2,
+        "maxLevel": 3,
+        "encounters": [
+          16,
+          19,
+          161,
+          163
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 1,
+          "quantity": 2
+        },
+        {
+          "id": 5,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "music": 1,
+      "exp": 60,
+      "mandatory": true
+    },
+    {
+      "id": 3,
+      "name": "\nRoute 22",
+      "description": "After arriving in Viridian City, you decide to go to Route 22 to fight the pokemon league. However, several wild pokemon attack you",
+      "encounter": 2,
+      "possibleEncounters":
+      {
+        "minLevel": 2,
+        "maxLevel": 4,
+        "encounters": [
+          16,
+          19,
+          21,
+          29,
+          32,
+          56
+        ]
+      }
+    ,
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 1,
+          "quantity": 2
+        },
+        {
+          "id": 7,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "music": 1,
+      "exp": 40,
+      "mandatory": true
+    },
+    {
+      "id": 5,
+      "name": "\nRoute 2",
+      "description": "To get your first badge, you head to Pewter City. Several wild Pokemon attack you on Route 2",
+      "encounter": 2,
+      "possibleEncounters":
+      {
+        "minLevel": 3,
+        "maxLevel": 5,
+        "encounters": [
+          10,13
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 7,
+          "quantity": 3
+        }
+      ],
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "music": 1,
+      "exp": 60,
+      "mandatory": true
+    },
+    {
+      "id": 6,
+      "name": "\nViridian Forest",
+      "description": "To reach Pewter City, you pass through Viridian Forest. You are attacked by several bug types Pokemon.",
+      "encounter": 3,
+      "possibleEncounters":
+      {
+        "minLevel": 3,
+        "maxLevel": 6,
+        "encounters": [
+          10,11,13,14
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 30
+        },
+        {
+          "id": 1,
+          "quantity": 2
+        },
+        {
+          "id": 7,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/battle_background/forest_battle_background.jpg",
+      "background": "images/battle_background/forest_battle_background.jpg",
+      "music": 1,
+      "exp": 70,
+      "mandatory": true
+    },
+    {
+      "id": 12,
+      "name": "\nMt. Moon 2",
+      "description": "You are still trying to get out of this cave but wild pokemon are attacking you",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 10,
+        "maxLevel": 12,
+        "encounters": [
+          35,41,41,41,74,74,74,27,27,27,46,46,46
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 40
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/battle_background/cave_battle_background.png",
+      "background": "images/battle_background/cave_battle_background.png",
+      "music": 1,
+      "exp": 300,
+      "mandatory": true
+    },
+    {
+      "id": 14,
+      "name": "\nRoute 4",
+      "description": "You are finally out of the cave and you see Cerulean City in the distance. You just have to cross some tall grass and hope you don't run into any wild pokemon.",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 10,
+        "maxLevel": 12,
+        "encounters": [
+          19,19,19,21,21,21,23,23,23,39,39,163,163,191
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 40
+        },
+        {
+          "id": 1,
+          "quantity": 2
+        },
+        {
+          "id": 4,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "music": 1,
+      "exp": 420,
+      "mandatory": true
+    },
+    {
+      "id": 19,
+      "name": "\nRoute 5",
+      "description": "After getting your second badge, you head to the nearest gym: the one in Saffron City",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 18,
+        "maxLevel": 21,
+        "encounters": [
+          16,17,43,52,69,163
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 40
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "music": 1,
+      "exp": 990,
+      "mandatory": true
+    },
+    {
+      "id": 23,
+      "name": "\nDiglett’s Cave",
+      "description": "You receive a call from Professor Oak that a powerful pokemon has appeared in Diglett's cave. You go there to find out more.",
+      "encounter": 3,
+      "possibleEncounters":
+      {
+        "minLevel": 23,
+        "maxLevel": 25,
+        "encounters": [
+          50
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/battle_background/cave_battle_background.png",
+      "background": "images/battle_background/cave_battle_background.png",
+      "music": 1,
+      "exp": 1200,
+      "mandatory": true
+    },
+    {
+      "id": 27,
+      "name": "\nRock Tunnel B1F",
+      "description": "You enter the B1F and you come across several wild Pokemon.",
+      "encounter": 5,
+      "possibleEncounters":
+      {
+        "minLevel": 24,
+        "maxLevel": 26,
+        "encounters": [
+          41,41,41,66,66,66,74,74,74,95,95,95,115
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/battle_background/cave_battle_background.png",
+      "background": "images/battle_background/cave_battle_background.png",
+      "music": 1,
+      "exp": 2130,
+      "mandatory": true
+    },
+    {
+      "id": 28,
+      "name": "\nRoute 10",
+      "description": "You come out of the Rock Tunnel and see the Pokemon Tower of Lavanville on the horizon.",
+      "encounter": 3,
+      "possibleEncounters":
+      {
+        "minLevel": 21,
+        "maxLevel": 23,
+        "encounters": [
+          20,21,27,100
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "music": 1,
+      "exp": 2160,
+      "mandatory": true
+    },
+    {
+      "id": 30,
+      "name": "\nPokemon Tower",
+      "description": "After beating Jackson, you can finally catch some ghost types Pokemon.",
+      "encounter": 3,
+      "possibleEncounters":
+      {
+        "minLevel": 24,
+        "maxLevel": 27,
+        "encounters": [
+          104,92,104,92,104,92,104,92,93
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/battle_background/tower_battle_background.png",
+      "background": "images/battle_background/tower_battle_background.png",
+      "music": 1,
+      "exp": 2170,
+      "mandatory": true
+    },
+    {
+      "id": 33,
+      "name": "\nRoute 8",
+      "description": "After saving the old man, he gives you a flute to wake up the sleeping pokemon on Route 16. Therefore, you're going there.",
+      "encounter": 3,
+      "possibleEncounters":
+      {
+        "minLevel": 28,
+        "maxLevel": 31,
+        "encounters": [
+          16,23,27,37,52,58,164
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "music": 1,
+      "exp": 3000,
+      "mandatory": true
+    },
+    {
+      "id": 34,
+      "name": "\nRoute 7",
+      "description": "A guard blocks your access to Saffron City, so you take an underground passage that leads you to Route 7.",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 28,
+        "maxLevel": 31,
+        "encounters": [
+          21,37,52,58,198,209,228
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "music": 1,
+      "exp": 3300,
+      "mandatory": true
+    },
+    {
+      "id": 39,
+      "name": "\nRoute 18",
+      "description": "You are almost in Fuchsia City, there are some wild Pokemon on your way",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 29,
+        "maxLevel": 32,
+        "encounters": [
+          218,88,22
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "music": 1,
+      "exp": 4500,
+      "mandatory": true
+    },
+    {
+      "id": 42,
+      "name": "\nRoute 15",
+      "description": "After obtaining your fifth badge, you head to the next gym which is located in Saffron City.",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 30,
+        "maxLevel": 33,
+        "encounters": [
+          17,17,43,43,43,43,44,48,48,48,69,69,69,69,70,187,187,188,195
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "music": 1,
+      "exp": 4700,
+      "mandatory": true
+    },
+    {
+      "id": 45,
+      "name": "\nRoute 12",
+      "description": "On Route 12, a fisherman offers you a fishing rod to find Pokemon water types. Therefore, you decide to use it.",
+      "encounter": 1,
+      "possibleEncounters":
+      {
+        "minLevel": 15,
+        "maxLevel": 17,
+        "encounters": [
+          60,118,118,118,118,129,129,129,129,129
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/battle_background/sea_battle_background.png",
+      "background": "images/battle_background/sea_battle_background.png",
+      "music": 1,
+      "exp": 900,
+      "mandatory": true
+    },
+    {
+      "id": 52,
+      "name": "\nSea Route 19",
+      "description": "Before leaving Safrania, one of the Silph Co scientists will give you a Lapras to cross Sea Route 19 at the south of Fuschia City.",
+      "encounter": 6,
+      "possibleEncounters":
+      {
+        "minLevel": 35,
+        "maxLevel": 37,
+        "encounters": [
+          72,72,72,72,120,129,129,129,222
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/battle_background/sea_battle_background.png",
+      "background": "images/battle_background/sea_battle_background.png",
+      "music": 1,
+      "exp": 5000,
+      "mandatory": true
+    },
+    {
+      "id": 54,
+      "name": "\nSeafoam Islands",
+      "description": "To reach Cinnabar Islands, you have to cross Seafoam Islands. Once in the cave, you feel the presence of a powerful pokemon.",
+      "encounter": 6,
+      "possibleEncounters":
+      {
+        "minLevel": 36,
+        "maxLevel": 38,
+        "encounters": [
+          41,41,42,54,54,54,55,79,79,79,79,86,86,86,86,87,90,98,98,98,116
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/battle_background/seafoam_islands_icon.JPG",
+      "background": "images/battle_background/seafoam_island_battle_background.png",
+      "music": 1,
+      "exp": 5300,
+      "mandatory": true
+    },
+    {
+      "id": 62,
+      "name": "\nVictory Road",
+      "description": "Having shown your 8 badges to the guard, you enter the Victory Road, the last step before the Pokemon League",
+      "encounter": 15,
+      "possibleEncounters":
+      {
+        "minLevel": 65,
+        "maxLevel": 70,
+        "encounters": [28,42,67,75,95,111]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 30
+        },
+        {
+          "id": 3,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/battle_background/cave_battle_background.png",
+      "background": "images/battle_background/cave_battle_background.png",
+      "music": 1,
+      "exp": 9000,
+      "mandatory": true
+    },
+    {
+      "id": 70,
+      "name": "\nPower Plant",
+      "description": "After defeating the league, Professor Oak sends you to the abandoned Power Plant on Route 10 because something strange is happening with the wild Pokemon there.",
+      "encounter": 5,
+      "possibleEncounters":
+      {
+        "minLevel": 40,
+        "maxLevel": 43,
+        "encounters": [81,81,81,81,82,100,100,100,100,100,100,100,100,101,125]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 40
+        },
+        {
+          "id": 5,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/power_plant_icon.jpg",
+      "background": "images/battle_background/building_battle_background.jpg",
+      "music": 1,
+      "exp": 9000,
+      "mandatory": true
+    },
+    {
+      "id": 71,
+      "name": "\nVS Electrodes",
+      "description": "You advance in the Power Plant and several powerful Electrodes attack you.",
+      "encounter": 5,
+      "possibleEncounters":
+      {
+        "minLevel": 80,
+        "maxLevel": 85,
+        "encounters": [101,101,101,101,101]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 60
+        },
+        {
+          "id": 5,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/electrode_level.PNG",
+      "background": "images/battle_background/electric_terrain_background.png",
+      "music": 1,
+      "exp": 9000,
+      "mandatory": true
+    },
+    {
+      "id": 73,
+      "name": "\nRoute 28",
+      "description": "You receive a letter from the Sinnoh region's champion who wants to battle you on the top of Mt Silver. You decide to go there to face her.",
+      "encounter": 8,
+      "possibleEncounters":
+      {
+        "minLevel": 60,
+        "maxLevel": 63,
+        "encounters": [61,61,77,77,77,78,84,84,84,85,114,114,114,232]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 3,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "music": 1,
+      "exp": 9000,
+      "mandatory": true
+    },
+    {
+      "id": 74,
+      "name": "\nMt Silver",
+      "description": "You finally reach Mt. Silver and you come across several wild Pokemon.",
+      "encounter": 10,
+      "possibleEncounters":
+      {
+        "minLevel": 70,
+        "maxLevel": 73,
+        "encounters": [42,42,42,42,55,55,75,75,75,95,95,95,200,232]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 40
+        },
+        {
+          "id": 3,
+          "quantity": 2
+        }
+      ],
+      "icon": "images/battle_background/cave_battle_background.png",
+      "background": "images/battle_background/cave_battle_background.png",
+      "music": 1,
+      "exp": 9000,
+      "mandatory": true
+    },
+    {
+      "id": 77,
+      "name": "\nCerulean Cave",
+      "description": "After defeating Cynthia, you visit Professor Oak and he informs you that your rival Jackson has gone to Cerulean Cave and encountered the most powerful Pokemon he has ever seen. He ran away because his Pokemon were defeated by this creature. Be careful!",
+      "encounter": 10,
+      "possibleEncounters":
+      {
+        "minLevel": 80,
+        "maxLevel": 83,
+        "encounters": [
+          28,42,47,57,75,82,97,101
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 5,
+          "quantity": 3
+        }
+      ],
+      "icon": "images/cerulean_cave_icon.png",
+      "background": "images/battle_background/cerulean_cave_background.png",
+      "music": 1,
+      "exp": 12000,
+      "mandatory": true
+    },
+    {
+      "id": 78,
+      "name": "\nCerulean Cave 1F",
+      "description": "Pokemon in this cave are very powerful. Keep it up!",
+      "encounter": 10,
+      "possibleEncounters":
+      {
+        "minLevel": 82,
+        "maxLevel": 85,
+        "encounters": [
+          49,85,101,112
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 3,
+          "quantity": 3
+        }
+      ],
+      "icon": "images/cerulean_cave_icon.png",
+      "background": "images/battle_background/cerulean_cave_background.png",
+      "music": 1,
+      "exp": 12000,
+      "mandatory": true
+    },
+    {
+      "id": 79,
+      "name": "\nCerulean Cave B1F",
+      "description": "You find a ladder that takes you into the depths of the cave. You feel the presence of the powerful Pokemon.",
+      "encounter": 10,
+      "possibleEncounters":
+      {
+        "minLevel": 83,
+        "maxLevel": 85,
+        "encounters": [
+          42,47,82,101
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 3,
+          "quantity": 3
+        }
+      ],
+      "icon": "images/cerulean_cave_icon.png",
+      "background": "images/battle_background/cerulean_cave_background.png",
+      "music": 1,
+      "exp": 12000,
+      "mandatory": true
+    }
+  ],
   "trainerBattles": [
     {
       "id": 1,
@@ -43,7 +818,8 @@
       "music": 2,
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 60
+      "exp": 60,
+      "mandatory": true
     },
     {
       "id": 4,
@@ -85,7 +861,8 @@
       "music": 2,
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
-      "exp": 100
+      "exp": 100,
+      "mandatory": true
     },
     {
       "id": 7,
@@ -140,7 +917,8 @@
       "music": 2,
       "icon": "images/battle_background/forest_battle_background.jpg",
       "background": "images/battle_background/forest_battle_background.jpg",
-      "exp": 120
+      "exp": 120,
+      "mandatory": true
     },
     {
       "id": 8,
@@ -181,7 +959,8 @@
       "music": 2,
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 140
+      "exp": 140,
+      "mandatory": true
     },
     {
       "id": 10,
@@ -276,7 +1055,8 @@
       "music": 2,
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
-      "exp": 420
+      "exp": 420,
+      "mandatory": true
     },
     {
       "id": 11,
@@ -358,7 +1138,8 @@
       "music": 2,
       "icon": "images/battle_background/cave_battle_background.png",
       "background": "images/battle_background/cave_battle_background.png",
-      "exp": 570
+      "exp": 570,
+      "mandatory": true
     },
     {
       "id": 13,
@@ -427,7 +1208,8 @@
       "music": 2,
       "icon": "images/battle_background/cave_battle_background.png",
       "background": "images/battle_background/cave_battle_background.png",
-      "exp": 580
+      "exp": 580,
+      "mandatory": true
     },
     {
       "id": 15,
@@ -487,7 +1269,8 @@
       "music": 2,
       "icon": "images/battle_background/city_battle_background.png",
       "background": "images/battle_background/city_battle_background.png",
-      "exp": 800
+      "exp": 800,
+      "mandatory": true
     },
     {
       "id": 16,
@@ -642,7 +1425,8 @@
       "music": 2,
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
-      "exp": 1100
+      "exp": 1100,
+      "mandatory": true
     },
     {
       "id": 17,
@@ -690,7 +1474,8 @@
       "music": 2,
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 800
+      "exp": 800,
+      "mandatory": true
     },
     {
       "id":20,
@@ -751,7 +1536,8 @@
       "music": 2,
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
-      "exp": 1000
+      "exp": 1000,
+      "mandatory": true
     },
     {
       "id": 21,
@@ -835,7 +1621,8 @@
       "music": 2,
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 1110
+      "exp": 1110,
+      "mandatory": true
     },
     {
       "id":25,
@@ -989,7 +1776,8 @@
       "music": 2,
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
-      "exp": 2100
+      "exp": 2100,
+      "mandatory": true
     },
     {
       "id":26,
@@ -1112,7 +1900,8 @@
       "music": 2,
       "icon": "images/battle_background/cave_battle_background.png",
       "background": "images/battle_background/cave_battle_background.png",
-      "exp": 2200
+      "exp": 2200,
+      "mandatory": true
     },
     {
       "id": 29,
@@ -1171,7 +1960,8 @@
       "music": 2,
       "icon": "images/battle_background/tower_battle_background.png",
       "background": "images/battle_background/tower_battle_background.png",
-      "exp": 4000
+      "exp": 4000,
+      "mandatory": true
     },
     {
       "id": 32,
@@ -1253,7 +2043,8 @@
       "music": 2,
       "icon": "images/battle_background/tower_battle_background.png",
       "background": "images/battle_background/tower_battle_background.png",
-      "exp": 3570
+      "exp": 3570,
+      "mandatory": true
     },
     {
       "id": 35,
@@ -1344,7 +2135,8 @@
       "music": 2,
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 3900
+      "exp": 3900,
+      "mandatory": true
     },
     {
       "id": 38,
@@ -1405,7 +2197,8 @@
       "music": 2,
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
-      "exp": 4700
+      "exp": 4700,
+      "mandatory": true
     },
     {
       "id": 40,
@@ -1454,7 +2247,8 @@
       "music": 2,
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 5000
+      "exp": 5000,
+      "mandatory": true
     },
     {
       "id": 43,
@@ -1543,7 +2337,8 @@
       "music": 2,
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
-      "exp": 5000
+      "exp": 5000,
+      "mandatory": true
     },
     {
       "id": 44,
@@ -1625,7 +2420,8 @@
       "music": 2,
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
-      "exp": 5160
+      "exp": 5160,
+      "mandatory": true
     },
     {
       "id": 46,
@@ -1849,7 +2645,8 @@
       "music": 2,
       "icon": "images/battle_background/silphco_battle_background.png",
       "background": "images/battle_background/silphco_battle_background.png",
-      "exp": 6000
+      "exp": 6000,
+      "mandatory": true
     },
     {
       "id": 47,
@@ -1915,7 +2712,8 @@
       "music": 2,
       "icon": "images/battle_background/silphco_battle_background.png",
       "background": "images/battle_background/silphco_battle_background.png",
-      "exp": 6300
+      "exp": 6300,
+      "mandatory": true
     },
     {
       "id": 48,
@@ -1984,7 +2782,8 @@
       "music": 2,
       "icon": "images/boss_icon/VS_Amos.png",
       "background": "images/battle_background/silphco_battle_background.png",
-      "exp": 6800
+      "exp": 6800,
+      "mandatory": true
     },
     {
       "id": 49,
@@ -2060,7 +2859,8 @@
       "music": 4,
       "icon": "images/boss_icon/VS_Giovanni.png",
       "background": "images/battle_background/giovanni_battle_background.png",
-      "exp": 6800
+      "exp": 6800,
+      "mandatory": true
     },
     {
       "id": 50,
@@ -2151,7 +2951,8 @@
       "music": 2,
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 6900
+      "exp": 6900,
+      "mandatory": true
     },
     {
       "id": 53,
@@ -2226,7 +3027,8 @@
       "music": 2,
       "icon": "images/battle_background/sea_battle_background.png",
       "background": "images/battle_background/sea_battle_background.png",
-      "exp": 6400
+      "exp": 6400,
+      "mandatory": true
     },
     {
       "id": 56,
@@ -2275,7 +3077,8 @@
       "music": 2,
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 7400
+      "exp": 7400,
+      "mandatory": true
     },
     {
       "id": 58,
@@ -2361,7 +3164,8 @@
       "music": 2,
       "icon": "images/battle_background/sea_battle_background.png",
       "background": "images/battle_background/sea_battle_background.png",
-      "exp": 7600
+      "exp": 7600,
+      "mandatory": true
     },
     {
       "id": 59,
@@ -2462,7 +3266,8 @@
       "music": 2,
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 7900
+      "exp": 7900,
+      "mandatory": true
     },
     {
       "id": 60,
@@ -2543,7 +3348,8 @@
       "music": 3,
       "icon": "images/boss_icon/VS_Giovanni.png",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 10000
+      "exp": 10000,
+      "mandatory": true
     },
     {
       "id": 61,
@@ -2611,7 +3417,8 @@
       "music": 2,
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
-      "exp": 10000
+      "exp": 10000,
+      "mandatory": true
     },
     {
       "id": 63,
@@ -2701,7 +3508,8 @@
       "music": 2,
       "icon": "images/battle_background/cave_battle_background.png",
       "background": "images/battle_background/cave_battle_background.png",
-      "exp": 10000
+      "exp": 10000,
+      "mandatory": true
     },
     {
       "id": 65,
@@ -2755,7 +3563,8 @@
       "music": 3,
       "icon": "images/boss_icon/VS_Olga.PNG",
       "background": "images/battle_background/elite_background1.png",
-      "exp": 10000
+      "exp": 10000,
+      "mandatory": true
     },
     {
       "id": 66,
@@ -2807,7 +3616,8 @@
       "music": 3,
       "icon": "images/boss_icon/VS_Aldo.PNG",
       "background": "images/battle_background/elite_background2.jpg",
-      "exp": 10000
+      "exp": 10000,
+      "mandatory": true
     },
     {
       "id": 67,
@@ -2859,7 +3669,8 @@
       "music": 3,
       "icon": "images/boss_icon/VS_Agatha.PNG",
       "background": "images/battle_background/elite_background3.jpg",
-      "exp": 10000
+      "exp": 10000,
+      "mandatory": true
     },
     {
       "id": 68,
@@ -2911,7 +3722,8 @@
       "music": 3,
       "icon": "images/boss_icon/VS_Peter.PNG",
       "background": "images/battle_background/elite_background4.jpg",
-      "exp": 10000
+      "exp": 10000,
+      "mandatory": true
     },
     {
       "id": 69,
@@ -2971,7 +3783,8 @@
       "music": 5,
       "icon": "images/battle_background/champion_battle_background.png",
       "background": "images/battle_background/champion_battle_background.png",
-      "exp": 10000
+      "exp": 10000,
+      "mandatory": true
     },
     {
       "id": 76,
@@ -3035,756 +3848,8 @@
       "music": 7,
       "icon": "images/boss_icon/VS_Cynthia.png",
       "background": "images/battle_background/mt_silver_background.png",
-      "exp": 15000
-    }
-  ],
-  "randomWildEncounters": [
-    {
-      "id": 2,
-      "name": "\nRoute 1",
-      "description": "While walking along Route 1, you come across wild pokemon",
-      "encounter": 2,
-      "possibleEncounters":
-        {
-          "minLevel": 2,
-          "maxLevel": 3,
-          "encounters": [
-            16,
-            19,
-            161,
-            163
-          ]
-        },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 20
-        },
-        {
-          "id": 1,
-          "quantity": 2
-        },
-        {
-          "id": 5,
-          "quantity": 2
-        }
-      ],
-      "icon": "images/battle_background/route_battle_background.png",
-      "background": "images/battle_background/route_battle_background.png",
-      "music": 1,
-      "exp": 60
-    },
-    {
-      "id": 3,
-      "name": "\nRoute 22",
-      "description": "After arriving in Viridian City, you decide to go to Route 22 to fight the pokemon league. However, several wild pokemon attack you",
-      "encounter": 2,
-      "possibleEncounters":
-        {
-          "minLevel": 2,
-          "maxLevel": 4,
-          "encounters": [
-            16,
-            19,
-            21,
-            29,
-            32,
-            56
-          ]
-        }
-      ,
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 20
-        },
-        {
-          "id": 1,
-          "quantity": 2
-        },
-        {
-          "id": 7,
-          "quantity": 2
-        }
-      ],
-      "icon": "images/battle_background/route_battle_background.png",
-      "background": "images/battle_background/route_battle_background.png",
-      "music": 1,
-      "exp": 40
-    },
-    {
-      "id": 5,
-      "name": "\nRoute 2",
-      "description": "To get your first badge, you head to Pewter City. Several wild Pokemon attack you on Route 2",
-      "encounter": 2,
-      "possibleEncounters":
-      {
-        "minLevel": 3,
-        "maxLevel": 5,
-        "encounters": [
-          10,13
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 20
-        },
-        {
-          "id": 7,
-          "quantity": 3
-        }
-      ],
-      "icon": "images/battle_background/route_battle_background.png",
-      "background": "images/battle_background/route_battle_background.png",
-      "music": 1,
-      "exp": 60
-    },
-    {
-      "id": 6,
-      "name": "\nViridian Forest",
-      "description": "To reach Pewter City, you pass through Viridian Forest. You are attacked by several bug types Pokemon.",
-      "encounter": 3,
-      "possibleEncounters":
-      {
-        "minLevel": 3,
-        "maxLevel": 6,
-        "encounters": [
-          10,11,13,14
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 30
-        },
-        {
-          "id": 1,
-          "quantity": 2
-        },
-        {
-          "id": 7,
-          "quantity": 1
-        }
-      ],
-      "icon": "images/battle_background/forest_battle_background.jpg",
-      "background": "images/battle_background/forest_battle_background.jpg",
-      "music": 1,
-      "exp": 70
-    },
-    {
-      "id": 12,
-      "name": "\nMt. Moon 2",
-      "description": "You are still trying to get out of this cave but wild pokemon are attacking you",
-      "encounter": 4,
-      "possibleEncounters":
-      {
-        "minLevel": 10,
-        "maxLevel": 12,
-        "encounters": [
-          35,41,41,41,74,74,74,27,27,27,46,46,46
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 40
-        },
-        {
-          "id": 2,
-          "quantity": 2
-        }
-      ],
-      "icon": "images/battle_background/cave_battle_background.png",
-      "background": "images/battle_background/cave_battle_background.png",
-      "music": 1,
-      "exp": 300
-    },
-    {
-      "id": 14,
-      "name": "\nRoute 4",
-      "description": "You are finally out of the cave and you see Cerulean City in the distance. You just have to cross some tall grass and hope you don't run into any wild pokemon.",
-      "encounter": 4,
-      "possibleEncounters":
-      {
-        "minLevel": 10,
-        "maxLevel": 12,
-        "encounters": [
-          19,19,19,21,21,21,23,23,23,163,163,191
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 40
-        },
-        {
-          "id": 1,
-          "quantity": 2
-        },
-        {
-          "id": 4,
-          "quantity": 2
-        }
-      ],
-      "icon": "images/battle_background/route_battle_background.png",
-      "background": "images/battle_background/route_battle_background.png",
-      "music": 1,
-      "exp": 420
-    },
-    {
-      "id": 19,
-      "name": "\nRoute 5",
-      "description": "After getting your second badge, you head to the nearest gym: the one in Saffron City",
-      "encounter": 4,
-      "possibleEncounters":
-      {
-        "minLevel": 18,
-        "maxLevel": 21,
-        "encounters": [
-          16,17,43,52,69,163
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 40
-        },
-        {
-          "id": 2,
-          "quantity": 1
-        },
-        {
-          "id": 10,
-          "quantity": 1
-        }
-      ],
-      "icon": "images/battle_background/route_battle_background.png",
-      "background": "images/battle_background/route_battle_background.png",
-      "music": 1,
-      "exp": 990
-    },
-    {
-      "id": 23,
-      "name": "\nDiglett’s Cave",
-      "description": "You receive a call from Professor Oak that a powerful pokemon has appeared in Diglett's cave. You go there to find out more.",
-      "encounter": 3,
-      "possibleEncounters":
-      {
-        "minLevel": 23,
-        "maxLevel": 25,
-        "encounters": [
-          50
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 20
-        },
-        {
-          "id": 2,
-          "quantity": 1
-        }
-      ],
-      "icon": "images/battle_background/cave_battle_background.png",
-      "background": "images/battle_background/cave_battle_background.png",
-      "music": 1,
-      "exp": 1200
-    },
-    {
-      "id": 27,
-      "name": "\nRock Tunnel B1F",
-      "description": "You enter the B1F and you come across several wild Pokemon.",
-      "encounter": 5,
-      "possibleEncounters":
-      {
-        "minLevel": 24,
-        "maxLevel": 26,
-        "encounters": [
-          41,41,41,66,66,66,74,74,74,95,95,95,115
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 20
-        },
-        {
-          "id": 2,
-          "quantity": 2
-        }
-      ],
-      "icon": "images/battle_background/cave_battle_background.png",
-      "background": "images/battle_background/cave_battle_background.png",
-      "music": 1,
-      "exp": 2130
-    },
-    {
-      "id": 28,
-      "name": "\nRoute 10",
-      "description": "You come out of the Rock Tunnel and see the Pokemon Tower of Lavanville on the horizon.",
-      "encounter": 3,
-      "possibleEncounters":
-      {
-        "minLevel": 21,
-        "maxLevel": 23,
-        "encounters": [
-          20,21,27,100
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 20
-        },
-        {
-          "id": 2,
-          "quantity": 1
-        }
-      ],
-      "icon": "images/battle_background/route_battle_background.png",
-      "background": "images/battle_background/route_battle_background.png",
-      "music": 1,
-      "exp": 2160
-    },
-    {
-      "id": 30,
-      "name": "\nPokemon Tower",
-      "description": "After beating Jackson, you can finally catch some ghost types Pokemon.",
-      "encounter": 3,
-      "possibleEncounters":
-      {
-        "minLevel": 24,
-        "maxLevel": 27,
-        "encounters": [
-          104,92,104,92,104,92,104,92,93
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 20
-        },
-        {
-          "id": 2,
-          "quantity": 1
-        }
-      ],
-      "icon": "images/battle_background/tower_battle_background.png",
-      "background": "images/battle_background/tower_battle_background.png",
-      "music": 1,
-      "exp": 2170
-    },
-    {
-      "id": 33,
-      "name": "\nRoute 8",
-      "description": "After saving the old man, he gives you a flute to wake up the sleeping pokemon on Route 16. Therefore, you're going there.",
-      "encounter": 3,
-      "possibleEncounters":
-      {
-        "minLevel": 28,
-        "maxLevel": 31,
-        "encounters": [
-          23,27,37,58
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 20
-        },
-        {
-          "id": 2,
-          "quantity": 1
-        }
-      ],
-      "icon": "images/battle_background/route_battle_background.png",
-      "background": "images/battle_background/route_battle_background.png",
-      "music": 1,
-      "exp": 3000
-    },
-    {
-      "id": 34,
-      "name": "\nRoute 7",
-      "description": "A guard blocks your access to Saffron City, so you take an underground passage that leads you to Route 7.",
-      "encounter": 4,
-      "possibleEncounters":
-      {
-        "minLevel": 28,
-        "maxLevel": 31,
-        "encounters": [
-          21,37,52,58,198,209,228
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 20
-        },
-        {
-          "id": 2,
-          "quantity": 1
-        }
-      ],
-      "icon": "images/battle_background/route_battle_background.png",
-      "background": "images/battle_background/route_battle_background.png",
-      "music": 1,
-      "exp": 3300
-    },
-    {
-      "id": 39,
-      "name": "\nRoute 18",
-      "description": "You are almost in Fuchsia City, there are some wild Pokemon on your way",
-      "encounter": 4,
-      "possibleEncounters":
-      {
-        "minLevel": 29,
-        "maxLevel": 32,
-        "encounters": [
-          218,88,22
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 20
-        },
-        {
-          "id": 2,
-          "quantity": 1
-        }
-      ],
-      "icon": "images/battle_background/route_battle_background.png",
-      "background": "images/battle_background/route_battle_background.png",
-      "music": 1,
-      "exp": 4500
-    },
-    {
-      "id": 42,
-      "name": "\nRoute 15",
-      "description": "After obtaining your fifth badge, you head to the next gym which is located in Saffron City.",
-      "encounter": 4,
-      "possibleEncounters":
-      {
-        "minLevel": 30,
-        "maxLevel": 33,
-        "encounters": [
-          17,17,43,43,43,43,44,48,48,48,69,69,69,69,70,187,187,188,195
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 20
-        },
-        {
-          "id": 2,
-          "quantity": 1
-        }
-      ],
-      "icon": "images/battle_background/route_battle_background.png",
-      "background": "images/battle_background/route_battle_background.png",
-      "music": 1,
-      "exp": 4700
-    },
-    {
-      "id": 45,
-      "name": "\nRoute 12",
-      "description": "On Route 12, a fisherman offers you a fishing rod to find Pokemon water types. Therefore, you decide to use it.",
-      "encounter": 1,
-      "possibleEncounters":
-      {
-        "minLevel": 15,
-        "maxLevel": 17,
-        "encounters": [
-          60,118,118,118,118,129,129,129,129,129
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 20
-        },
-        {
-          "id": 2,
-          "quantity": 1
-        }
-      ],
-      "icon": "images/battle_background/sea_battle_background.png",
-      "background": "images/battle_background/sea_battle_background.png",
-      "music": 1,
-      "exp": 900
-    },
-    {
-      "id": 52,
-      "name": "\nSea Route 19",
-      "description": "Before leaving Safrania, one of the Silph Co scientists will give you a Lapras to cross Sea Route 19 at the south of Fuschia City.",
-      "encounter": 6,
-      "possibleEncounters":
-      {
-        "minLevel": 35,
-        "maxLevel": 37,
-        "encounters": [
-          72,72,72,72,120,129,129,129,222
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 20
-        },
-        {
-          "id": 2,
-          "quantity": 1
-        }
-      ],
-      "icon": "images/battle_background/sea_battle_background.png",
-      "background": "images/battle_background/sea_battle_background.png",
-      "music": 1,
-      "exp": 5000
-    },
-    {
-      "id": 54,
-      "name": "\nSeafoam Islands",
-      "description": "To reach Cinnabar Islands, you have to cross Seafoam Islands. Once in the cave, you feel the presence of a powerful pokemon.",
-      "encounter": 6,
-      "possibleEncounters":
-      {
-        "minLevel": 36,
-        "maxLevel": 38,
-        "encounters": [
-          41,41,42,54,54,54,55,79,79,79,79,86,86,86,86,87,90,98,98,98,116
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 20
-        },
-        {
-          "id": 2,
-          "quantity": 1
-        }
-      ],
-      "icon": "images/battle_background/seafoam_islands_icon.JPG",
-      "background": "images/battle_background/seafoam_island_battle_background.png",
-      "music": 1,
-      "exp": 5300
-    },
-    {
-      "id": 62,
-      "name": "\nVictory Road",
-      "description": "Having shown your 8 badges to the guard, you enter the Victory Road, the last step before the Pokemon League",
-      "encounter": 15,
-      "possibleEncounters":
-      {
-        "minLevel": 65,
-        "maxLevel": 70,
-        "encounters": [28,42,67,75,95,111]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 30
-        },
-        {
-          "id": 3,
-          "quantity": 2
-        }
-      ],
-      "icon": "images/battle_background/cave_battle_background.png",
-      "background": "images/battle_background/cave_battle_background.png",
-      "music": 1,
-      "exp": 9000
-    },
-    {
-      "id": 70,
-      "name": "\nPower Plant",
-      "description": "After defeating the league, Professor Oak sends you to the abandoned Power Plant on Route 10 because something strange is happening with the wild Pokemon there.",
-      "encounter": 5,
-      "possibleEncounters":
-      {
-        "minLevel": 40,
-        "maxLevel": 43,
-        "encounters": [81,81,81,81,82,100,100,100,100,100,100,100,100,101,125]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 40
-        },
-        {
-          "id": 5,
-          "quantity": 2
-        }
-      ],
-      "icon": "images/power_plant_icon.jpg",
-      "background": "images/battle_background/building_battle_background.jpg",
-      "music": 1,
-      "exp": 9000
-    },
-    {
-      "id": 71,
-      "name": "\nVS Electrodes",
-      "description": "You advance in the Power Plant and several powerful Electrodes attack you.",
-      "encounter": 5,
-      "possibleEncounters":
-      {
-        "minLevel": 80,
-        "maxLevel": 85,
-        "encounters": [101,101,101,101,101]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 60
-        },
-        {
-          "id": 5,
-          "quantity": 1
-        }
-      ],
-      "icon": "images/electrode_level.PNG",
-      "background": "images/battle_background/electric_terrain_background.png",
-      "music": 1,
-      "exp": 9000
-    },
-    {
-      "id": 73,
-      "name": "\nRoute 28",
-      "description": "You receive a letter from the Sinnoh region's champion who wants to battle you on the top of Mt Silver. You decide to go there to face her.",
-      "encounter": 8,
-      "possibleEncounters":
-      {
-        "minLevel": 60,
-        "maxLevel": 63,
-        "encounters": [61,61,77,77,77,78,84,84,84,85,114,114,114,232]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 20
-        },
-        {
-          "id": 3,
-          "quantity": 1
-        }
-      ],
-      "icon": "images/battle_background/route_battle_background.png",
-      "background": "images/battle_background/route_battle_background.png",
-      "music": 1,
-      "exp": 9000
-    },
-    {
-      "id": 74,
-      "name": "\nMt Silver",
-      "description": "You finally reach Mt. Silver and you come across several wild Pokemon.",
-      "encounter": 10,
-      "possibleEncounters":
-      {
-        "minLevel": 70,
-        "maxLevel": 73,
-        "encounters": [42,42,42,42,55,55,75,75,75,95,95,95,200,232]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 40
-        },
-        {
-          "id": 3,
-          "quantity": 2
-        }
-      ],
-      "icon": "images/battle_background/cave_battle_background.png",
-      "background": "images/battle_background/cave_battle_background.png",
-      "music": 1,
-      "exp": 9000
-    },
-    {
-      "id": 77,
-      "name": "\nCerulean Cave",
-      "description": "After defeating Cynthia, you visit Professor Oak and he informs you that your rival Jackson has gone to Cerulean Cave and encountered the most powerful Pokemon he has ever seen. He ran away because his Pokemon were defeated by this creature. Be careful!",
-      "encounter": 10,
-      "possibleEncounters":
-      {
-        "minLevel": 80,
-        "maxLevel": 83,
-        "encounters": [
-          28,42,47,57,75,82,97,101
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 100
-        },
-        {
-          "id": 5,
-          "quantity": 3
-        }
-      ],
-      "icon": "images/cerulean_cave_icon.png",
-      "background": "images/battle_background/cerulean_cave_background.png",
-      "music": 1,
-      "exp": 12000
-    },
-    {
-      "id": 78,
-      "name": "\nCerulean Cave 1F",
-      "description": "Pokemon in this cave are very powerful. Keep it up!",
-      "encounter": 10,
-      "possibleEncounters":
-      {
-        "minLevel": 82,
-        "maxLevel": 85,
-        "encounters": [
-          49,85,101,112
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 100
-        },
-        {
-          "id": 3,
-          "quantity": 3
-        }
-      ],
-      "icon": "images/cerulean_cave_icon.png",
-      "background": "images/battle_background/cerulean_cave_background.png",
-      "music": 1,
-      "exp": 12000
-    },
-    {
-      "id": 79,
-      "name": "\nCerulean Cave B1F",
-      "description": "You find a ladder that takes you into the depths of the cave. You feel the presence of the powerful Pokemon.",
-      "encounter": 10,
-      "possibleEncounters":
-      {
-        "minLevel": 83,
-        "maxLevel": 85,
-        "encounters": [
-          42,47,82,101
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 100
-        },
-        {
-          "id": 3,
-          "quantity": 3
-        }
-      ],
-      "icon": "images/cerulean_cave_icon.png",
-      "background": "images/battle_background/cerulean_cave_background.png",
-      "music": 1,
-      "exp": 12000
+      "exp": 15000,
+      "mandatory": true
     }
   ],
   "bossBattles": [
@@ -3812,7 +3877,8 @@
       "icon": "images/boss_icon/dugtrio_boss_icon.JPG",
       "background": "images/battle_background/cave_battle_background.png",
       "music": 1,
-      "exp": 4000
+      "exp": 4000,
+      "mandatory": true
     },
     {
       "id": 31,
@@ -3838,7 +3904,8 @@
       "icon": "images/boss_icon/marowak_boss_icon.JPG",
       "background": "images/battle_background/tower_battle_background.png",
       "music": 1,
-      "exp": 4400
+      "exp": 4400,
+      "mandatory": true
     },
     {
       "id": 37,
@@ -3864,7 +3931,8 @@
       "icon": "images/boss_icon/snorlax_boss_icon.JPG",
       "background": "images/battle_background/route_battle_background.png",
       "music": 1,
-      "exp": 5300
+      "exp": 5300,
+      "mandatory": true
     },
     {
       "id": 55,
@@ -3888,9 +3956,10 @@
         }
       ],
       "icon": "images/boss_icon/articuno_boss_icon.PNG",
-      "background": "images/seafoam_island_battle_background.png",
+      "background": "images/battle_background/seafoam_island_battle_background.png",
       "music": 1,
-      "exp": 7000
+      "exp": 7000,
+      "mandatory": true
     },
     {
       "id": 64,
@@ -3916,7 +3985,8 @@
       "icon": "images/boss_icon/moltres_boss_icon.JPG",
       "background": "images/battle_background/moltres_battle_background.png",
       "music": 1,
-      "exp": 10200
+      "exp": 10200,
+      "mandatory": true
     },
     {
       "id": 72,
@@ -3942,7 +4012,8 @@
       "icon": "images/boss_icon/zapdos_boss_icon.PNG",
       "background": "images/battle_background/electric_terrain_background.png",
       "music": 1,
-      "exp": 12000
+      "exp": 12000,
+      "mandatory": true
     },
     {
       "id": 75,
@@ -3972,7 +4043,8 @@
       "icon": "images/boss_icon/tyranitar_boss_icon.PNG",
       "background": "images/battle_background/cave_battle_background.png",
       "music": 1,
-      "exp": 15000
+      "exp": 15000,
+      "mandatory": true
     },
     {
       "id": 80,
@@ -4006,7 +4078,8 @@
       "icon": "images/boss_icon/mewtwo_boss_icon.PNG",
       "background": "images/battle_background/mewtwo_background_battle.png",
       "music": 6,
-      "exp": 15000
+      "exp": 15000,
+      "mandatory": true
     }
   ],
   "leaderBattles": [
@@ -4102,7 +4175,8 @@
       "music": 3,
       "icon": "images/boss_icon/VS_Brock.png",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 350
+      "exp": 350,
+      "mandatory": true
     },
     {
       "id": 18,
@@ -4203,7 +4277,8 @@
       "music": 3,
       "icon": "images/boss_icon/VS_Misty.png",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 1240
+      "exp": 1240,
+      "mandatory": true
     },
     {
       "id": 22,
@@ -4304,7 +4379,8 @@
       "music": 3,
       "icon": "images/boss_icon/VS_Surge.png",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 1520
+      "exp": 1520,
+      "mandatory": true
     },
     {
       "id": 36,
@@ -4412,7 +4488,8 @@
       "music": 3,
       "icon": "images/boss_icon/VS_Erika.png",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 4900
+      "exp": 4900,
+      "mandatory": true
     },
     {
       "id": 41,
@@ -4509,7 +4586,8 @@
       "music": 3,
       "icon": "images/boss_icon/VS_Koga.png",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 5600
+      "exp": 5600,
+      "mandatory": true
     },
     {
       "id": 51,
@@ -4602,7 +4680,8 @@
       "music": 3,
       "icon": "images/boss_icon/VS_Morgane.png",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 7000
+      "exp": 7000,
+      "mandatory": true
     },
     {
       "id": 57,
@@ -4695,7 +4774,8 @@
       "music": 3,
       "icon": "images/boss_icon/VS_Auguste.png",
       "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 8000
+      "exp": 8000,
+      "mandatory": true
     },
     {
       "id": 99,
@@ -4759,7 +4839,8 @@
       "music": 8,
       "icon": "images/boos_icon/Sprite_Palmer.png",
       "background": "images/battle_background/battle_frontier_background.png",
-      "exp": 0
+      "exp": 0,
+      "mandatory": false
     }
   ]
 }

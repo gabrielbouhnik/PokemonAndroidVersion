@@ -31,21 +31,19 @@ enum class Status(var activeOutsideBattle: Boolean) {
         fun updateStatus(opponent: Pokemon, move: Move): String {
             var details = ""
             move.status.forEach {
-                if (isAffectedByStatus(it.status, opponent)) {
+                if (isAffectedByStatus(move.id, it.status, opponent)) {
                     val randomForStatus: Int = Random.nextInt(100)
                     if (it.probability == null || randomForStatus <= it.probability!!) {
                         if (it.status.activeOutsideBattle)
                             opponent.status = it.status
                         else {
+                            opponent.battleData!!.battleStatus.add(it.status)
                             if (it.status == CONFUSED)
                                 details = "${opponent.data.name} became confused!\n"
                             if (it.status == TRAPPED)
                                 details = "${opponent.data.name} is trapped!\n"
                             if (it.status == TIRED && opponent.status == OK)
                                 details = "${opponent.data.name} gets drowsy!\n"
-                            else
-                                return@forEach
-                            opponent.battleData!!.battleStatus.add(it.status)
                         }
                     }
                 }
@@ -53,7 +51,11 @@ enum class Status(var activeOutsideBattle: Boolean) {
             return details
         }
 
-        fun isAffectedByStatus(status: Status, opponent: Pokemon): Boolean {
+        fun isAffectedByStatus(id: Int, status: Status, opponent: Pokemon): Boolean {
+            if ((id == 34 || id == 35) && (opponent.data.type1 == Type.GRASS || opponent.data.type2 == Type.GRASS))
+                return false
+            if (id == 55 && (opponent.data.type1 == Type.GROUND || opponent.data.type2 == Type.GROUND))
+                return false
             if (status == TIRED && opponent.status != OK)
                 return false
             if (!status.activeOutsideBattle && !opponent.battleData!!.battleStatus.contains(status))

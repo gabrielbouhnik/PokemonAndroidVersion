@@ -12,11 +12,12 @@ class TrainerBattleLevelData(
     icon: String,
     background: String,
     exp: Int,
+    mandatory : Boolean,
     var startDialog: String,
     var endDialogWin: String,
     var endDialogLoose: String,
     var opponentTrainerData: List<OpponentTrainerData>,
-) : LevelData(id, name, description, rewards, music, icon, background, exp) {
+) : LevelData(id, name, description, rewards, music, icon, background, exp, mandatory) {
     companion object {
         fun of(
             trainerBattleLevelEntity: TrainerBattleLevelEntity,
@@ -31,10 +32,11 @@ class TrainerBattleLevelData(
                 trainerBattleLevelEntity.icon,
                 trainerBattleLevelEntity.background,
                 trainerBattleLevelEntity.exp,
+                trainerBattleLevelEntity.mandatory,
                 trainerBattleLevelEntity.startDialog,
                 trainerBattleLevelEntity.endDialogWin,
                 trainerBattleLevelEntity.endDialogLoose,
-                trainerBattleLevelEntity.opponents.map { OpponentTrainerData.of(it, gameDataService) }
+                trainerBattleLevelEntity.opponents.map { OpponentTrainerData.of(it, gameDataService) },
             )
         }
     }
