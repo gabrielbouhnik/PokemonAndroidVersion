@@ -70,9 +70,10 @@ class PokedexMenu {
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         val data = if (activity.trainer!!.name ==  ADMIN) activity.gameDataService.pokemons else activity.gameDataService.pokemons.filter { it.id < 252 }
         val myItemClickListener = View.OnClickListener {
-            val dexNumber = it.tag as Int + 1
-            if (activity.trainer!!.name == ADMIN || activity.trainer!!.pokedex.containsKey(dexNumber))
-                loadPokedexPage(activity, data[dexNumber - 1])
+            val dexNumber = it.tag as Int
+            val pokemonData = activity.gameDataService.pokemons[dexNumber]
+            if (activity.trainer!!.name == ADMIN || activity.trainer!!.pokedex.containsKey(pokemonData.id))
+                loadPokedexPage(activity, pokemonData)
         }
         val adapter = PokedexRecyclerAdapter(activity, data, myItemClickListener)
         recyclerView.adapter = adapter
