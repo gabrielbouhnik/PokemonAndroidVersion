@@ -28,7 +28,7 @@ class MainMenu {
     var levelMenu: LevelMenu = LevelMenu()
     var itemMenu: ItemMenu = ItemMenu()
     var battleFrontierMenu = BattleFrontierMenu()
-    var pokedexMenu = PokedexMenu()
+    private var pokedexMenu = PokedexMenu()
 
     fun loadGameMenu(activity: MainActivity) {
         activity.setContentView(R.layout.main_menu)

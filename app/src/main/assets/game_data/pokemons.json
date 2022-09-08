@@ -6123,6 +6123,28 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 103,
+    "name": "Exeggutor",
+    "type1": 1,
+    "type2": 12,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+      ],
+      "movesLearnWithTM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 95,
+    "attack": 95,
+    "defense": 85,
+    "spAtk": 125,
+    "spDef": 75,
+    "speed": 55,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
     "id": 104,
     "name": "Cubone",
     "type1": 10,
@@ -6322,7 +6344,8 @@
         31,
         37,
         82,
-        92
+        92,
+        138
       ],
       "bannerMoves": []
     },
@@ -6384,7 +6407,8 @@
         31,
         37,
         82,
-        92
+        92,
+        138
       ],
       "bannerMoves": []
     },
@@ -7330,6 +7354,32 @@
       }
     ],
     "expGaugeType": "MEDIUM_FAST"
+  },
+  {
+    "id": 128,
+    "name": "Tauros",
+    "type1": 5,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [
+      ],
+      "bannerMoves": []
+    },
+    "hp": 75,
+    "attack": 100,
+    "defense": 95,
+    "spAtk": 40,
+    "spDef": 70,
+    "speed": 110,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
   },
   {
     "id": 129,

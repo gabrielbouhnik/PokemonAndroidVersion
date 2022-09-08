@@ -13,8 +13,14 @@ import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAI
 
 class LevelMenu {
     companion object {
-        const val ELITE_4_FIRST_LEVEL_ID = 65
-        const val ELITE_4_LAST_LEVEL_ID = 69
+        const val DUGTRIO_LEVEL = 24
+        const val LAPRAS_LEVEL = 51
+        const val ARTICUNO_LEVEL = 55
+        const val MOLTRES_LEVEL = 65
+        const val ZAPDOS_LEVEL = 74
+        const val MEWTWO_LEVEL = 82
+        const val ELITE_4_FIRST_LEVEL_ID = 67
+        const val ELITE_4_LAST_LEVEL_ID = 71
     }
 
     var battleUI: BattleUI = BattleUI()

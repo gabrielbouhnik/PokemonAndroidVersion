@@ -13,13 +13,13 @@
             android:textSize="24sp" android:textAlignment="center" app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_bias="0.461" app:layout_constraintStart_toStartOf="parent"
-            android:backgroundTint="#FFFFFF" android:textColor="#7F7F7F"/>
+            android:textColor="#7F7F7F" android:background="@color/white"/>
     <TextView
-            android:layout_width="140dp"
-            android:layout_height="69dp" android:id="@+id/rewardQuantityTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp" android:id="@+id/rewardQuantityTextView"
             app:layout_constraintStart_toEndOf="@+id/rewardNameTextView" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"
             android:textSize="36sp" android:textStyle="bold" android:textAlignment="viewStart"
-            android:textColor="#7F7F7F"/>
+            android:textColor="#7F7F7F" android:background="@color/white"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

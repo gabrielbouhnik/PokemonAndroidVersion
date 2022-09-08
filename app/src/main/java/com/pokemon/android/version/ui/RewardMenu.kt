@@ -10,7 +10,6 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Type
-import com.pokemon.android.version.model.battle.BattleFrontierBattle
 import com.pokemon.android.version.model.level.*
 import com.pokemon.android.version.utils.ItemUtils
 import java.io.InputStream
@@ -18,27 +17,27 @@ import java.io.InputStream
 class RewardMenu {
     private fun updateAchievements(activity: MainActivity, levelData: LevelData) {
         when (levelData.id) {
-            24 -> {
+            LevelMenu.DUGTRIO_LEVEL -> {
                 if (activity.trainer!!.team.none { it.level > 35 })
                     activity.trainer!!.achievements!!.dugtrioAchievement = true
             }
-            55 -> {
+            LevelMenu.ARTICUNO_LEVEL -> {
                 if (activity.trainer!!.team.none { it.level > 55 })
                     activity.trainer!!.achievements!!.articunoAchievement = true
             }
-            63 -> {
+            LevelMenu.MOLTRES_LEVEL -> {
                 if (activity.trainer!!.team.none { it.level > 70 })
                     activity.trainer!!.achievements!!.moltresAchievement = true
             }
-            71 -> {
+            LevelMenu.ZAPDOS_LEVEL -> {
                 if (activity.trainer!!.team.none { it.data.type1 == Type.GROUND || it.data.type2 == Type.GROUND })
                     activity.trainer!!.achievements!!.zapdosAchievement = true
             }
-            79 -> {
+            LevelMenu.MEWTWO_LEVEL -> {
                 if (activity.trainer!!.team.size <= 3)
                     activity.trainer!!.achievements!!.mewtwoAchievement = true
             }
-            99 -> {
+            BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID -> {
                 if (activity.trainer!!.battleTowerProgression!!.progression < 10)
                     activity.trainer!!.achievements!!.winstreak8Achievement = true
                 else
@@ -57,11 +56,11 @@ class RewardMenu {
             )
                 activity.trainer!!.achievements!!.leadersDefeatedAfterTheLeague.add(levelData.id)
         }
-        if (firstTime && levelData.id == 51) {
+        if (firstTime && levelData.id == LevelMenu.LAPRAS_LEVEL) {
             activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(131, 25))
         }
         val battleAgainButton: Button = activity.findViewById(R.id.battleAgainButton)
-        if (levelData.id == 99)
+        if (levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID)
             battleAgainButton.visibility = GONE
         battleAgainButton.setOnClickListener {
             when (levelData) {
@@ -76,7 +75,7 @@ class RewardMenu {
         }
         val backButton: Button = activity.findViewById(R.id.rewardsBackButton)
         backButton.setOnClickListener {
-            if (levelData.id == 99) {
+            if (levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID) {
                 activity.updateMusic(R.raw.main_menu)
                 activity.mainMenu.battleFrontierMenu.loadMenu(activity)
             } else
@@ -90,7 +89,7 @@ class RewardMenu {
         )
         recyclerView.adapter = adapter
         levelData.rewards.forEach {
-            if (ItemUtils.isBadge(it.itemId)) {
+            if (ItemUtils.isBadge(it.itemId) || it.itemId == 30) {
                 if (!activity.trainer!!.items.contains(it.itemId))
                     activity.trainer!!.addItem(it.itemId, it.quantity)
             } else if (it.itemId == 0) {
@@ -116,17 +115,17 @@ class RewardMenu {
             val img: InputStream = activity.assets.open(MainMenu.GIRL_SPRITE)
             trainerSprite.setImageDrawable(Drawable.createFromStream(img, MainMenu.GIRL_SPRITE))
         }
-        activity.displayPokemon(activity.trainer!!.team[0].data.id,activity.findViewById<ImageView>(R.id.pokemonHOFspriteView))
+        activity.displayPokemon(activity.trainer!!.team[0].data.id,activity.findViewById(R.id.pokemonHOFspriteView))
         if (activity.trainer!!.team.size > 1)
-            activity.displayPokemon(activity.trainer!!.team[1].data.id,activity.findViewById<ImageView>(R.id.pokemonHOFspriteView2))
+            activity.displayPokemon(activity.trainer!!.team[1].data.id,activity.findViewById(R.id.pokemonHOFspriteView2))
         if (activity.trainer!!.team.size > 2)
-            activity.displayPokemon(activity.trainer!!.team[2].data.id,activity.findViewById<ImageView>(R.id.pokemonHOFspriteView3))
+            activity.displayPokemon(activity.trainer!!.team[2].data.id,activity.findViewById(R.id.pokemonHOFspriteView3))
         if (activity.trainer!!.team.size > 3)
-            activity.displayPokemon(activity.trainer!!.team[3].data.id,activity.findViewById<ImageView>(R.id.pokemonHOFspriteView4))
+            activity.displayPokemon(activity.trainer!!.team[3].data.id,activity.findViewById(R.id.pokemonHOFspriteView4))
         if (activity.trainer!!.team.size > 4)
-            activity.displayPokemon(activity.trainer!!.team[4].data.id,activity.findViewById<ImageView>(R.id.pokemonHOFspriteView5))
+            activity.displayPokemon(activity.trainer!!.team[4].data.id,activity.findViewById(R.id.pokemonHOFspriteView5))
         if (activity.trainer!!.team.size > 5)
-            activity.displayPokemon(activity.trainer!!.team[5].data.id,activity.findViewById<ImageView>(R.id.pokemonHOFspriteView6))
+            activity.displayPokemon(activity.trainer!!.team[5].data.id,activity.findViewById(R.id.pokemonHOFspriteView6))
         val backButton : Button = activity.findViewById(R.id.HOFBackButton)
         backButton.setOnClickListener{
             activity.mainMenu.loadGameMenu(activity)

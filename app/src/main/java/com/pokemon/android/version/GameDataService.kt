@@ -27,7 +27,7 @@ class GameDataService {
     var banners: List<Banner> = ArrayList()
     var levels: List<LevelData> = ArrayList()
     var achievements: List<Achievement> = ArrayList()
-    var battleFrontierPokemons: HashMap<Int, ArrayList<List<Move>>> = HashMap<Int, ArrayList<List<Move>>>()
+    var battleFrontierPokemons: HashMap<Int, ArrayList<List<Move>>> = HashMap()
 
     companion object {
         const val MOVES_DATA_PATH = "game_data/moves.json"

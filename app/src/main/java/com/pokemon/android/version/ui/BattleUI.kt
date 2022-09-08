@@ -253,6 +253,7 @@ class BattleUI {
                     disableBattleButtons(activity)
                     return
                 }
+                activity.trainer!!.team.forEach { it.battleData = null }
                 val firstTime: Boolean = activity.trainer!!.progression == battle.levelData.id
                 if (activity.trainer!!.eliteProgression == 4)
                     activity.updateMusic(R.raw.hall_of_fame)
@@ -323,7 +324,7 @@ class BattleUI {
                                 recyclerView.visibility = GONE
                                 blackImageView.visibility = GONE
                                 activity.findViewById<Button>(R.id.bagButton).visibility = VISIBLE
-                                activity.findViewById<Button>(R.id.switchPokemonButton).visibility = VISIBLE
+                                switchButton.visibility = VISIBLE
                                 disableAttackButtons(activity)
                                 switchButtonSetUp(activity, battle)
                                 battle.switchPokemon(clickedPokemon)

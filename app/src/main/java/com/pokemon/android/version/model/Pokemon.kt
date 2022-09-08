@@ -2,10 +2,7 @@ package com.pokemon.android.version.model
 
 import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.entity.save.PokemonSave
-import com.pokemon.android.version.model.battle.AttackResponse
-import com.pokemon.android.version.model.battle.DamageCalculator
-import com.pokemon.android.version.model.battle.MegaEvolutionData
-import com.pokemon.android.version.model.battle.PokemonBattleData
+import com.pokemon.android.version.model.battle.*
 import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
@@ -159,6 +156,8 @@ class Pokemon(
                 else
                     return AttackResponse(false, this.data.name + " is fast asleep!\n")
             }
+            else
+                return AttackResponse(false, this.data.name + " is fast asleep!\n")
         }
         if (this.battleData!!.battleStatus.contains(Status.FLINCHED))
             return AttackResponse(false, "${this.data.name} flinched and couldn't move\n")
@@ -299,8 +298,9 @@ class Pokemon(
     }
     
     fun canMegaEvolve() : Boolean{
-        return level >= 60 && data.megaEvolutionData != null && !data.megaEvolutionData!!.isMegaEvolved
+        return data.megaEvolutionData != null && !data.megaEvolutionData!!.isMegaEvolved
                 && trainer!!.getTrainerTeam().none { it.isMegaEvolved()}
+                && (trainer is OpponentTrainer || (trainer as Trainer).items.containsKey(30))
     }
 
     fun megaEvolve(){

@@ -66,10 +66,22 @@ abstract class Battle {
             pokemon.megaEvolve()
             trainerHasUsedMegaEvolution = true
         }
-        /*if (this is TrainerBattle && opponent.canMegaEvolve()) {
-            opponent.megaEvolve()
-            sb.append("${opponent.data.name} has Mega Evolved into Mega-${opponent.data.name}\n")
-        }*/
+        if (this is TrainerBattle && opponent.canMegaEvolve()) {
+            when (levelData.id){
+                60 -> {
+                    if (opponent.data.id == 6){
+                        opponent.megaEvolve()
+                        sb.append("${opponent.data.name} has Mega Evolved into Mega-${opponent.data.name}\n")
+                    }
+                }
+                65 ->  {
+                    if (opponent.data.id == 3){
+                        opponent.megaEvolve()
+                        sb.append("${opponent.data.name} has Mega Evolved into Mega-${opponent.data.name}\n")
+                    }
+                }
+            }
+        }
         val opponentMove: PokemonMove = opponent.ia(pokemon)
         if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move, opponentMove.move)) {
             sb.append(trainerTurn(trainerPokemonMove))
@@ -159,6 +171,9 @@ abstract class Battle {
         }
         if (opponent.currentHP == 0) {
             sb.append("The opposing " + opponent.data.name + " fainted\n")
+            if (opponent.isMegaEvolved()) {
+                opponent.recomputeStat()
+            }
             updateOpponent()
         }
     }

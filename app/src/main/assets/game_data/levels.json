@@ -552,7 +552,36 @@
       "mandatory": true
     },
     {
-      "id": 62,
+      "id": 56,
+      "name": "\nPokemon Mansion",
+      "description": "Once you arrive at Cinnabar Island, you head to Cinnabar Gym but the door is locked but there is a note on that door indicating that the key is in the Pokemon Mansion.",
+      "encounter": 8,
+      "possibleEncounters":
+      {
+        "minLevel": 37,
+        "maxLevel": 39,
+        "encounters": [
+          20,20,20,20,20,37,37,37,58,58,58,77,77,77,88,88,88,89,109,109,109,110
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 20
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/pokemon_mansion_icon.jpg",
+      "background": "images/battle_background/giovanni_battle_background.png",
+      "music": 1,
+      "exp": 5700,
+      "mandatory": true
+    },
+    {
+      "id": 64,
       "name": "\nVictory Road",
       "description": "Having shown your 8 badges to the guard, you enter the Victory Road, the last step before the Pokemon League",
       "encounter": 15,
@@ -579,9 +608,9 @@
       "mandatory": true
     },
     {
-      "id": 70,
+      "id": 72,
       "name": "\nPower Plant",
-      "description": "After defeating the league, Professor Oak sends you to the abandoned Power Plant on Route 10 because something strange is happening with the wild Pokemon there.",
+      "description": "After defeating the Pokemon League, Professor Oak sends you to the abandoned Power Plant on Route 10 because something strange is happening with the wild Pokemon there.",
       "encounter": 5,
       "possibleEncounters":
       {
@@ -606,7 +635,7 @@
       "mandatory": true
     },
     {
-      "id": 71,
+      "id": 73,
       "name": "\nVS Electrodes",
       "description": "You advance in the Power Plant and several powerful Electrodes attack you.",
       "encounter": 5,
@@ -633,7 +662,7 @@
       "mandatory": true
     },
     {
-      "id": 73,
+      "id": 75,
       "name": "\nRoute 28",
       "description": "You receive a letter from the Sinnoh region's champion who wants to battle you on the top of Mt Silver. You decide to go there to face her.",
       "encounter": 8,
@@ -660,7 +689,7 @@
       "mandatory": true
     },
     {
-      "id": 74,
+      "id": 76,
       "name": "\nMt Silver",
       "description": "You finally reach Mt. Silver and you come across several wild Pokemon.",
       "encounter": 10,
@@ -687,7 +716,7 @@
       "mandatory": true
     },
     {
-      "id": 77,
+      "id": 79,
       "name": "\nCerulean Cave",
       "description": "After defeating Cynthia, you visit Professor Oak and he informs you that your rival Jackson has gone to Cerulean Cave and encountered the most powerful Pokemon he has ever seen. He ran away because his Pokemon were defeated by this creature. Be careful!",
       "encounter": 10,
@@ -716,7 +745,7 @@
       "mandatory": true
     },
     {
-      "id": 78,
+      "id": 80,
       "name": "\nCerulean Cave 1F",
       "description": "Pokemon in this cave are very powerful. Keep it up!",
       "encounter": 10,
@@ -745,7 +774,7 @@
       "mandatory": true
     },
     {
-      "id": 79,
+      "id": 81,
       "name": "\nCerulean Cave B1F",
       "description": "You find a ladder that takes you into the depths of the cave. You feel the presence of the powerful Pokemon.",
       "encounter": 10,
@@ -1478,7 +1507,7 @@
       "mandatory": true
     },
     {
-      "id":20,
+      "id": 20,
       "name": "\nRoute 6",
       "description": "Guards are blocking your access to Saffron City. You decide to go through an underground and challenge the gym in the city south of Saffron City.",
       "opponents": [
@@ -1625,7 +1654,7 @@
       "mandatory": true
     },
     {
-      "id":25,
+      "id": 25,
       "name": "\nRoute 9",
       "description": "After defeating Dugtrio, Professor Oak advises you to go to Lavender Town to catch some ghost types Pokemon. So you go to Route 9 to the east of Cerulean City",
       "opponents": [
@@ -1780,7 +1809,7 @@
       "mandatory": true
     },
     {
-      "id":26,
+      "id": 26,
       "name": "\nRock Tunner 1F",
       "description": "You enter Rock Tunnel but it is so dark that you can't  see anything. So you use a flashlight and see several trainers ready to battle you.",
       "opponents": [
@@ -2130,7 +2159,7 @@
         }
       ],
       "startDialog": "Hey! You are not allowed in here!",
-      "endDialogWin": "Bleaah! I hope ERIKA wipes you out!",
+      "endDialogWin": "Aah! I hope Erika wipes you out!",
       "endDialogLoose": "Oh! Splendid!",
       "music": 2,
       "icon": "images/battle_background/building_battle_background.jpg",
@@ -2632,7 +2661,7 @@
         },
         {
           "id": 2,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 9,
@@ -2846,11 +2875,11 @@
         },
         {
           "id": 2,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 9,
-          "quantity": 1
+          "quantity": 2
         }
       ],
       "startDialog": "So, you defeated Archer. I must say, I am impressed you got here!",
@@ -2917,16 +2946,6 @@
               "id": 122,
               "level": 53,
               "moveIds": [45,44,46,105]
-            },
-            {
-              "id": 79,
-              "level": 53,
-              "moveIds": [43,45,134,72]
-            },
-            {
-              "id": 64,
-              "level": 53,
-              "moveIds": [45,44,46,132]
             }
           ]
         }
@@ -3031,9 +3050,9 @@
       "mandatory": true
     },
     {
-      "id": 56,
+      "id": 57,
       "name": "\nCinnabar Gym",
-      "description": "When you arrive at Cinnabar Island, you head straight for the gym.",
+      "description": "After finding the key to the gym, you leave the mansion and head straight for the gym.",
       "opponents": [
         {
           "sprite": "images/Sprite_Scientifique.png",
@@ -3081,7 +3100,7 @@
       "mandatory": true
     },
     {
-      "id": 58,
+      "id": 59,
       "name": "\nSea Route 21",
       "description": "After obtaining your seventh badge, you decide to go to Viridian City to get your last badge.",
       "opponents": [
@@ -3168,7 +3187,58 @@
       "mandatory": true
     },
     {
-      "id": 59,
+      "id": 60,
+      "name": "\nVS Professor Oak",
+      "description": "You arrive in Pallet Town and visit Professor Oak",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Oak.png",
+          "name" : "Professor Oak",
+          "pokemons": [
+            {
+              "id": 128,
+              "level": 66,
+              "moveIds": [147,93,148,25]
+            },
+            {
+              "id": 103,
+              "level": 67,
+              "moveIds": [105,45,133,37]
+            },
+            {
+              "id": 130,
+              "level": 70,
+              "moveIds": [79,27,119,125]
+            },
+            {
+              "id": 6,
+              "level": 69,
+              "moveIds": [82,50,108,93]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 40
+        },
+        {
+          "id": 30,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Hello, it's been a long time! I'd like to show you an item from the Kalos region that can increase the strength of your Pokemon.",
+      "endDialogWin": "Here, it's yours! Try using it on the Pokemon I gave you when you started your journey!",
+      "endDialogLoose": "I can give it to you if you can defeat me.",
+      "music": 2,
+      "icon": "images/battle_background/building_battle_background.jpg",
+      "background": "images/battle_background/building_battle_background.jpg",
+      "exp": 120,
+      "mandatory": true
+    },
+    {
+      "id": 61,
       "name": "\nViridian Gym",
       "description": "You are back in Viridian City, it's time to get your last badge.",
       "opponents": [
@@ -3270,7 +3340,7 @@
       "mandatory": true
     },
     {
-      "id": 60,
+      "id": 62,
       "name": "\nVS Giovanni 2",
       "description": "After defeating the guards, you go to the gym leader and you notice that it's Giovanni, the boss of Team Rocket!",
       "opponents": [
@@ -3352,7 +3422,7 @@
       "mandatory": true
     },
     {
-      "id": 61,
+      "id": 63,
       "name": "\nVS Rival 6",
       "description": "Now that you have 8 badges, you head for the Victory Road. However, on Route 22, you run into Jackson.",
       "opponents": [
@@ -3421,7 +3491,7 @@
       "mandatory": true
     },
     {
-      "id": 63,
+      "id": 65,
       "name": "\nVictory Road 2",
       "description": "Still in Victory Road, there are several trainers in your path. Take them down to get to the Pokemon League",
       "opponents": [
@@ -3512,7 +3582,7 @@
       "mandatory": true
     },
     {
-      "id": 65,
+      "id": 67,
       "name": "\nVS Lorelei",
       "description": "",
       "opponents": [
@@ -3533,7 +3603,7 @@
             {
               "id": 124,
               "level": 73,
-              "moveIds": [100,45,24,105]
+              "moveIds": [100,45,46,105]
             },
             {
               "id": 473,
@@ -3567,7 +3637,7 @@
       "mandatory": true
     },
     {
-      "id": 66,
+      "id": 68,
       "name": "\nVS Bruno",
       "description": "",
       "opponents": [
@@ -3620,7 +3690,7 @@
       "mandatory": true
     },
     {
-      "id": 67,
+      "id": 69,
       "name": "\nVS Agatha",
       "description": "",
       "opponents": [
@@ -3673,7 +3743,7 @@
       "mandatory": true
     },
     {
-      "id": 68,
+      "id": 70,
       "name": "\nVS Lance",
       "description": "",
       "opponents": [
@@ -3726,7 +3796,7 @@
       "mandatory": true
     },
     {
-      "id": 69,
+      "id": 71,
       "name": "\nVS Champion",
       "description": "",
       "type": "Trainer Battle",
@@ -3787,7 +3857,7 @@
       "mandatory": true
     },
     {
-      "id": 76,
+      "id": 78,
       "name": "\nVS Cynthia",
       "description": "At the top of Mt. Silver, you come across the champion of the Sinnoh region.",
       "opponents": [
@@ -3962,7 +4032,7 @@
       "mandatory": true
     },
     {
-      "id": 64,
+      "id": 66,
       "name": "\nVs Moltres",
       "description": "You finally see the exit of Victory Road but you feel the presence of a powerful pokemon near you. You head into a really hot room near the exit and come across the legendary bird Moltres.",
       "boss":
@@ -3989,7 +4059,7 @@
       "mandatory": true
     },
     {
-      "id": 72,
+      "id": 74,
       "name": "\nVs Zapdos",
       "description": "At the very bottom of the Power Plant, you come across the legendary bird Zapdos and he attacks you!",
       "boss":
@@ -4016,7 +4086,7 @@
       "mandatory": true
     },
     {
-      "id": 75,
+      "id": 77,
       "name": "\nVs Tyranitar",
       "description": "You can see the exit to the top of Mt Silver. However, a very powerful looking Tyranitar attacks you!",
       "boss":
@@ -4047,7 +4117,7 @@
       "mandatory": true
     },
     {
-      "id": 80,
+      "id": 82,
       "name": "\nVs Mewtwo",
       "description": "You finally come across the powerful Pokemon. It seems to want to fight you! Show him what you can do!",
       "boss":
@@ -4393,14 +4463,14 @@
           "id": 189,
           "level": 41,
           "moveIds": [
-            66,44,35,133
+            66,44,133,35
           ]
         },
         {
           "id": 114,
           "level": 42,
           "moveIds": [
-            66,35,102
+            66,102,37,35
           ]
         },
         {
@@ -4684,7 +4754,7 @@
       "mandatory": true
     },
     {
-      "id": 57,
+      "id": 58,
       "name": "\nVS Blaine",
       "description": "After defeating the guard, you go to the gym leader.",
       "sprite": "images/Sprite_Auguste.png",
