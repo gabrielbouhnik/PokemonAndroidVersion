@@ -298,7 +298,7 @@ class Pokemon(
     }
     
     fun canMegaEvolve() : Boolean{
-        return data.megaEvolutionData != null && !data.megaEvolutionData!!.isMegaEvolved
+        return trainer != null && data.megaEvolutionData != null && !data.megaEvolutionData!!.isMegaEvolved
                 && trainer!!.getTrainerTeam().none { it.isMegaEvolved()}
                 && (trainer is OpponentTrainer || (trainer as Trainer).items.containsKey(30))
     }

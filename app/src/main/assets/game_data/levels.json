@@ -588,8 +588,8 @@
       "possibleEncounters":
       {
         "minLevel": 65,
-        "maxLevel": 70,
-        "encounters": [28,42,67,75,95,111]
+        "maxLevel": 69,
+        "encounters": [28,42,42,42,42,67,75,75,75,75,95,95,111,232]
       },
       "rewards": [
         {

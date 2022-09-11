@@ -11208,6 +11208,31 @@
     "expGaugeType": "SLOW"
   },
   {
+    "id": 330,
+    "name": "Flygon",
+    "type1": 15,
+    "type2": 10,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 108,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 80,
+    "attack": 100,
+    "defense": 80,
+    "spAtk": 80,
+    "spDef": 80,
+    "speed": 100,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
     "id": 350,
     "name": "Milotic",
     "type1": 3,
@@ -11427,6 +11452,31 @@
     "catchRate": 45,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 454,
+    "name": "Toxicroak",
+    "type1": 11,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 17,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 83,
+    "attack": 106,
+    "defense": 65,
+    "spAtk": 86,
+    "spDef": 65,
+    "speed": 85,
+    "catchRate": 75,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 462,
