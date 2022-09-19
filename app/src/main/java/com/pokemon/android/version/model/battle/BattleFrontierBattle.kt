@@ -29,14 +29,17 @@ class BattleFrontierBattle() : Battle() {
         }
 
         private fun haveATypeInCommon(data1: PokemonData, data2: PokemonData, data3: PokemonData): Boolean {
-            return (data1.type1 == data2.type1 || data1.type1 == data2.type2)
-                    && (data1.type1 == data3.type1 || data1.type1 == data3.type2)
+            return ((data1.type1 == data2.type1 || data1.type1 == data2.type2)
+                    && (data1.type1 == data3.type1 || data1.type1 == data3.type2))
+                    || ((data1.type2 == data2.type1 || data1.type2 == data2.type2)
+                    && (data1.type2 == data3.type1 || data1.type2 == data3.type2))
         }
 
         fun generateTrainerTeam(gameDataService: GameDataService): List<Pokemon> {
             var team = generateTeam(gameDataService)
-            while ((haveSameTypes(team[0].data, team[1].data) || haveSameTypes(team[1].data, team[2].data))
-                || haveATypeInCommon(team[0].data, team[1].data, team[2].data)
+            team.filter{it.speed > 70}.count()
+            while (team.filter{it.speed >= 80}.count() == 0 && ((haveSameTypes(team[0].data, team[1].data) || haveSameTypes(team[1].data, team[2].data))
+                || haveATypeInCommon(team[0].data, team[1].data, team[2].data))
             ) {
                 team = generateTeam(gameDataService)
             }

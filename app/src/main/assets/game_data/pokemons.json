@@ -3847,15 +3847,22 @@
         },
         {
           "moveId": 59,
-          "level": 21
+          "level": 20
+        },
+        {
+          "moveId": 132,
+          "level": 25
         },
         {
           "moveId": 45,
-          "level": 38
+          "level": 35
+        },
+        {
+          "moveId": 135,
+          "level": 50
         }
       ],
-      "movesLearnWithTM": [
-      ],
+      "movesLearnWithTM": [72,44,45,46,55,76,103,105,107,110,135,139],
       "bannerMoves": []
     },
     "hp": 40,
@@ -3888,15 +3895,22 @@
         },
         {
           "moveId": 59,
-          "level": 21
+          "level": 20
+        },
+        {
+          "moveId": 132,
+          "level": 25
         },
         {
           "moveId": 45,
-          "level": 38
+          "level": 35
+        },
+        {
+          "moveId": 135,
+          "level": 50
         }
       ],
-      "movesLearnWithTM": [
-      ],
+      "movesLearnWithTM": [72,44,45,46,55,76,103,105,107,110,135,139],
       "bannerMoves": []
     },
     "hp": 55,

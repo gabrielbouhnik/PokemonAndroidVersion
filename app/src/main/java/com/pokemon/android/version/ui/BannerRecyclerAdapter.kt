@@ -16,7 +16,7 @@ import java.io.InputStream
 
 class BannerRecyclerAdapter(
     var activity: MainActivity,
-    var data: MutableList<Banner>
+    var data: List<Banner>
 ) :
     RecyclerView.Adapter<BannerRecyclerAdapter.ViewHolder>() {
 
