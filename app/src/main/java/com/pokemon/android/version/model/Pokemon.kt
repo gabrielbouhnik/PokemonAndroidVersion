@@ -200,8 +200,9 @@ class Pokemon(
             if (move.move is MoveBasedOnLevel){
                 damage = this.level
             } else if (move.move is VariableHitMove) {
-                var timesItHits = Random.nextInt(2..5)
-                while (timesItHits > 0 && opponent.currentHP > damage) {
+                val timesItHits = Random.nextInt(2..5)
+                var i = 0
+                while (i < timesItHits && opponent.currentHP > damage) {
                     val crit = DamageCalculator.getCriticalMultiplicator(this, move.move)
                     if (crit == 1.5f)
                         details += "A critical hit!\n"
@@ -211,9 +212,8 @@ class Pokemon(
                         opponent,
                         crit
                     )
-                    timesItHits--
+                    i++
                 }
-                timesItHits = 5 - timesItHits
                 details =
                     if (timesItHits > 1) "${opponent.data.name} was hit $timesItHits times!\n" else "${opponent.data.name} was hit 1 time!\n"
             } else if (move.move is MultipleHitMove){

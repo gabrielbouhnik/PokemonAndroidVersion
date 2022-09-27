@@ -45,7 +45,7 @@ class Banner(
         }
         val s: Summonable = summon()
         if (s is ItemBanner) {
-            if (activity.trainer!!.items.contains(s.id) && activity.trainer!!.items[s.id] == 99)
+            if (activity.trainer!!.items.contains(s.id) && ((description.contains("TM") && activity.trainer!!.items[s.id] == 10) || activity.trainer!!.items[s.id] == 99))
                 activity.trainer!!.coins += cost
             else
                 activity.trainer!!.addItem(s.id, 1)

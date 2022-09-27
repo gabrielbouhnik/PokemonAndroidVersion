@@ -35,7 +35,6 @@ class StarterSelection {
             val gender: Gender = if (genderSwitch.isChecked) Gender.FEMALE else Gender.MALE
             activity.trainer = Trainer(characterName.text.toString(), gender)
             activity.trainer!!.addItem(POKEBALL_ID, 3)
-            SaveManager.save(activity)
             submitButton.visibility = GONE
             genderSwitch.visibility = GONE
             characterName.visibility = GONE

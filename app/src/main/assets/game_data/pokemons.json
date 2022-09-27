@@ -7370,6 +7370,26 @@
     "expGaugeType": "MEDIUM_FAST"
   },
   {
+    "id": 127,
+    "name": "Pinsir",
+    "type1": 7,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 125,
+    "defense": 100,
+    "spAtk": 55,
+    "spDef": 70,
+    "speed": 85,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
     "id": 128,
     "name": "Tauros",
     "type1": 5,
@@ -9944,6 +9964,71 @@
     }
   },
   {
+    "id": 214,
+    "name": "Heracross",
+    "type1": 11,
+    "type2": 7,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 80,
+    "attack": 125,
+    "defense": 75,
+    "spAtk": 40,
+    "spDef": 95,
+    "speed": 85,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 217,
+    "name": "Ursaring",
+    "type1": 5,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 149,
+          "level": 1
+        },
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 65,
+          "level": 1
+        },
+        {
+          "moveId": 151,
+          "level": 8
+        },
+        {
+          "moveId": 38,
+          "level": 29
+        },
+        {
+          "moveId": 171,
+          "level": 38
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 90,
+    "attack": 130,
+    "defense": 75,
+    "spAtk": 75,
+    "spDef": 75,
+    "speed": 55,
+    "catchRate": 60,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_FAST"
+  },
+  {
     "id": 218,
     "name": "Slugma",
     "type1": 2,
@@ -11197,6 +11282,31 @@
     "expGaugeType": "MEDIUM_SLOW"
   },
   {
+    "id": 272,
+    "name": "Ludicolo",
+    "type1": 3,
+    "type2": 1,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 126,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 80,
+    "attack": 70,
+    "defense": 70,
+    "spAtk": 90,
+    "spDef": 100,
+    "speed": 70,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
     "id": 282,
     "name": "Gardevoir",
     "type1": 12,
@@ -11218,6 +11328,81 @@
     "spDef": 115,
     "speed": 81,
     "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 286,
+    "name": "Breloom",
+    "type1": 11,
+    "type2": 1,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 14,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 60,
+    "attack": 130,
+    "defense": 80,
+    "spAtk": 60,
+    "spDef": 60,
+    "speed": 70,
+    "catchRate": 90,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 297,
+    "name": "Hariyama",
+    "type1": 11,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 144,
+    "attack": 120,
+    "defense": 60,
+    "spAtk": 40,
+    "spDef": 60,
+    "speed": 50,
+    "catchRate": 200,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 319,
+    "name": "Sharpedo",
+    "type1": 3,
+    "type2": 17,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 96,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 70,
+    "attack": 120,
+    "defense": 40,
+    "spAtk": 95,
+    "spDef": 40,
+    "speed": 95,
+    "catchRate": 60,
     "evolutions": [],
     "expGaugeType": "SLOW"
   },
@@ -11247,6 +11432,31 @@
     "expGaugeType": "MEDIUM_SLOW"
   },
   {
+    "id": 346,
+    "name": "Cradily",
+    "type1": 9,
+    "type2": 1,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 47,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 86,
+    "attack": 81,
+    "defense": 97,
+    "spAtk": 81,
+    "spDef": 107,
+    "speed": 43,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
     "id": 350,
     "name": "Milotic",
     "type1": 3,
@@ -11267,6 +11477,106 @@
     "spAtk": 100,
     "spDef": 125,
     "speed": 81,
+    "catchRate": 60,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 365,
+    "name": "Walrein",
+    "type1": 3,
+    "type2": 14,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 27,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 110,
+    "attack": 80,
+    "defense": 90,
+    "spAtk": 95,
+    "spDef": 90,
+    "speed": 65,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 373,
+    "name": "Salamence",
+    "type1": 7,
+    "type2": 15,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 15,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 95,
+    "attack": 135,
+    "defense": 80,
+    "spAtk": 110,
+    "spDef": 80,
+    "speed": 100,
+    "catchRate": 45,
+    "evolutions": [],
+    "expGaugeType": "SLOW"
+  },
+  {
+    "id": 407,
+    "name": "Roserade",
+    "type1": 1,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 17,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 60,
+    "attack": 70,
+    "defense": 65,
+    "spAtk": 125,
+    "spDef": 105,
+    "speed": 90,
+    "catchRate": 75,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 426,
+    "name": "Drifblim",
+    "type1": 6,
+    "type2": 13,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 4,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 150,
+    "attack": 80,
+    "defense": 44,
+    "spAtk": 90,
+    "spDef": 54,
+    "speed": 80,
     "catchRate": 60,
     "evolutions": [],
     "expGaugeType": "SLOW"
@@ -11835,6 +12145,26 @@
     "catchRate": 30,
     "evolutions": [],
     "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 469,
+    "name": "Yanmega",
+    "type1": 6,
+    "type2": 7,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 86,
+    "attack": 76,
+    "defense": 86,
+    "spAtk": 116,
+    "spDef": 56,
+    "speed": 95,
+    "catchRate": 30,
+    "evolutions": [],
+    "expGaugeType": "MEDIUM_FAST"
   },
   {
     "id": 470,

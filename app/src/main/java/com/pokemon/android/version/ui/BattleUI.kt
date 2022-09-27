@@ -182,17 +182,18 @@ class BattleUI {
                 battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
                 rewardMenu.loadHallOfFameMenu(activity)
             }
-        } else
+        } else{
             rewardsButton.text = activity.getString(R.string.go_forward)
-        rewardsButton.setOnClickListener {
-            SaveManager.save(activity)
-            activity.trainer!!.coins += 150
-            activity.trainer!!.receiveExp((battle.levelData.exp * 0.5).toInt())
-            battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
-            if (activity.eliteMode)
-                activity.mainMenu.levelMenu.loadEliteLevels(activity)
-            else
-                activity.mainMenu.loadGameMenu(activity)
+            rewardsButton.setOnClickListener {
+                SaveManager.save(activity)
+                activity.trainer!!.coins += 150
+                activity.trainer!!.receiveExp((battle.levelData.exp * 0.5).toInt())
+                battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
+                if (activity.eliteMode)
+                    activity.mainMenu.levelMenu.loadEliteLevels(activity)
+                else
+                    activity.mainMenu.loadGameMenu(activity)
+            }
         }
     }
 
