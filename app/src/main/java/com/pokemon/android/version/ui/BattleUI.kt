@@ -73,6 +73,7 @@ class BattleUI {
         else
             activity.displayPokemon(battle.opponent.data.id, opponentPokemonSprite)
         val pokemonBackSprite: ImageView = activity.findViewById(R.id.pokemonBackSpriteView)
+        val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
         pokemonBackSprite.visibility = VISIBLE
         if (battle.pokemon.isMegaEvolved()) {
             val filename = "images/mega/" + battle.pokemon.data.id + "_back.png"
@@ -81,7 +82,6 @@ class BattleUI {
         }
         else {
             activity.displayPokemonBack(battle.pokemon.data.id, pokemonBackSprite)
-            val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
             if (battle.pokemon.canMegaEvolve() && !battle.trainerHasUsedMegaEvolution){
                 megaEvolutionImageView.setImageDrawable(Drawable.createFromStream(activity.assets.open(MEGA_DISABLED_ICON), MEGA_DISABLED_ICON))
                 megaEvolutionImageView.setOnClickListener{
@@ -96,7 +96,9 @@ class BattleUI {
                 }
             }
         }
-
+        if (battle is BattleFrontierBattle && activity.trainer!!.battleFactoryProgression != null &&
+            activity.trainer!!.battleFactoryProgression!!.team.contains(battle.pokemon))
+                megaEvolutionImageView.visibility = GONE
         val trainerPokemonName: TextView = activity.findViewById(R.id.myPokemonNameTextView)
         trainerPokemonName.text = if (battle.pokemon.isMegaEvolved()) "Mega " + battle.pokemon.data.name else battle.pokemon.data.name
         val trainerPokemonHPLevel: TextView = activity.findViewById(R.id.myPokemonHPLevelTextView)

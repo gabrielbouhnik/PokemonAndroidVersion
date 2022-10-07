@@ -14,6 +14,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
     CONFUSED(false),
     FLINCHED(false),
     TIRED(false),
+    UNABLE_TO_MOVE(false),
     TRAPPED(false);
 
     fun toBattleIcon(): String {
@@ -34,18 +35,39 @@ enum class Status(var activeOutsideBattle: Boolean) {
                 if (isAffectedByStatus(move.id, it.status, opponent)) {
                     val randomForStatus: Int = Random.nextInt(100)
                     if (it.probability == null || randomForStatus <= it.probability!!) {
-                        if (it.status.activeOutsideBattle)
+                        if (it.status.activeOutsideBattle) {
                             opponent.status = it.status
+                            if (opponent.data.abilities.contains(Ability.GUTS))
+                                opponent.battleData!!.attackMultiplicator *= 1.5f
+                        }
                         else {
-                            opponent.battleData!!.battleStatus.add(it.status)
-                            if (it.status == CONFUSED)
-                                details = "${opponent.data.name} became confused!\n"
-                            if (it.status == TRAPPED)
-                                details = "${opponent.data.name} is trapped!\n"
-                            if (it.status == TIRED && opponent.status == OK)
-                                details = "${opponent.data.name} gets drowsy!\n"
+                            if (it.status == CONFUSED) {
+                                details = if (opponent.data.abilities.contains(Ability.OWN_TEMPO))
+                                    "${opponent.data.name} cannot be confused!\n"
+                                else {
+                                    opponent.battleData!!.battleStatus.add(it.status)
+                                    "${opponent.data.name} became confused!\n"
+                                }
+                            }
+                            else if (it.status == FLINCHED){
+                                if (!opponent.data.abilities.contains(Ability.INNER_FOCUS))
+                                    opponent.battleData!!.battleStatus.add(it.status)
+                            }
+                            else {
+                                opponent.battleData!!.battleStatus.add(it.status)
+                                if (it.status == TRAPPED)
+                                    details = "${opponent.data.name} is trapped!\n"
+                                if (it.status == TIRED && opponent.status == OK)
+                                    details = "${opponent.data.name} gets drowsy!\n"
+                            }
                         }
                     }
+                }
+                else{
+                    if (move.id == 83 && opponent.data.abilities.contains(Ability.IMMUNITY))
+                        details = "It does not affect ${opponent.data.name}!\n"
+                    if (it.status == PARALYSIS && opponent.data.abilities.contains(Ability.LIMBER))
+                        details = "It does not affect ${opponent.data.name}!\n"
                 }
             }
             return details
@@ -70,9 +92,10 @@ enum class Status(var activeOutsideBattle: Boolean) {
                 return true
             if (status == BURN && (type1 != Type.FIRE && type2 != Type.FIRE))
                 return true
-            if (status == PARALYSIS && (type1 != Type.ELECTRIC && type2 != Type.ELECTRIC))
+            if (status == PARALYSIS && (type1 != Type.ELECTRIC && type2 != Type.ELECTRIC) && !opponent.data.abilities.contains(Ability.LIMBER))
                 return true
-            if (status == POISON && (type1 != Type.POISON && type2 != Type.POISON) && (type1 != Type.STEEL && type2 != Type.STEEL))
+            if ((status == POISON || status ==  BADLY_POISON) && (type1 != Type.POISON && type2 != Type.POISON) && (type1 != Type.STEEL && type2 != Type.STEEL)
+                && !opponent.data.abilities.contains(Ability.IMMUNITY))
                 return true
             return false
         }

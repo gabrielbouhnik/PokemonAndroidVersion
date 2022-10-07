@@ -23,6 +23,7 @@ class PokemonData(
     var speed: Int,
     var evolutions: List<Evolution>,
     val expGaugeType: ExpGaugeType,
+    val abilities: List<Ability>,
     val megaEvolutionData: MegaEvolutionData?
 ) {
     companion object {
@@ -61,6 +62,7 @@ class PokemonData(
                         EvolutionCondition.of(it.evolutionCondition)
                     )
                 })
+                .abilities(pokemonDataEntity.abilities.map{Ability.valueOf(it)})
                 .expGaugeType(ExpGaugeType.valueOf(pokemonDataEntity.expGaugeType))
                 .megaEvolutionData(MegaEvolutionData.of(pokemonDataEntity.megaEvolutionData))
                 .build()
@@ -83,6 +85,7 @@ class PokemonData(
         var spDef: Int = 0,
         var speed: Int = 0,
         var evolutions: List<Evolution> = arrayListOf(),
+        var abilities: List<Ability> = listOf(),
         var expGaugeType: ExpGaugeType = ExpGaugeType.FAST,
         var megaEvolutionData: MegaEvolutionData? = null
     ) {
@@ -101,6 +104,7 @@ class PokemonData(
         fun spDef(spDef: Int) = apply { this.spDef = spDef }
         fun speed(speed: Int) = apply { this.speed = speed }
         fun evolutions(evolutions: List<Evolution>) = apply { this.evolutions = evolutions }
+        fun abilities(abilities: List<Ability>) = apply { this.abilities = abilities }
         fun expGaugeType(expGaugeType: ExpGaugeType) = apply { this.expGaugeType = expGaugeType }
         fun megaEvolutionData(megaEvolutionData: MegaEvolutionData?) = apply { this.megaEvolutionData = megaEvolutionData }
         fun build() = PokemonData(
@@ -120,6 +124,7 @@ class PokemonData(
             speed,
             evolutions,
             expGaugeType,
+            abilities,
             megaEvolutionData
         )
     }

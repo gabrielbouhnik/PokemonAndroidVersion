@@ -15,6 +15,7 @@ class MoveFactory {
                 movesEntity.healMoves.forEach { res.add(HealMove.of(it)) }
                 movesEntity.multipleHitMoves.forEach { res.add(MultipleHitMove.of(it)) }
                 movesEntity.movesBasedOnLevelEntity.forEach { res.add(MoveBasedOnLevel.of(it)) }
+                movesEntity.ultimateMoves.forEach { res.add(UltimateMove.of(it)) }
             }
             res.sortBy { it.id }
             return res

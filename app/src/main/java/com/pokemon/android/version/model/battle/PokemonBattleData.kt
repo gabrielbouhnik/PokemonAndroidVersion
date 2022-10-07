@@ -14,5 +14,6 @@ class PokemonBattleData(
     var confusionCounter: Int = 0,
     var trapCounter: Int = 0,
     var poisonCounter: Int = 0,
+    var unableToMoveCounter: Int = 0,
     var battleStatus: ArrayList<Status> = arrayListOf()
 )

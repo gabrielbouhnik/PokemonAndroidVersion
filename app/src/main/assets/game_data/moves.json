@@ -1883,6 +1883,49 @@
         }
       ],
       "highCritRate": false
+    },
+    {
+      "id": 180,
+      "name": "Vital Throw",
+      "power": 70,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "description": "The user attacks last. In return, this throw move never misses.",
+      "priorityLevel": -1,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 181,
+      "name": "Strength",
+      "power": 80,
+      "pp": 15,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The target is slugged with a punch thrown at maximum power.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 182,
+      "name": "Poison Fang",
+      "power": 50,
+      "pp": 15,
+      "type": 8,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user bites the target with toxic fangs. This may also leave the target badly poisoned.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "BADLY_POISON",
+          "probability": 50
+        }
+      ],
+      "highCritRate": false
     }
   ],
   "statsChangesMoves": [
@@ -2643,7 +2686,7 @@
       "id": 172,
       "name": "Flame Charge",
       "power": 50,
-      "category": "OTHER",
+      "category": "PHYSICAL",
       "pp": 20,
       "type": 2,
       "accuracy": 100,
@@ -2678,7 +2721,7 @@
       "id": 175,
       "name": "Aurora Bean",
       "power": 65,
-      "category": "OTHER",
+      "category": "SPECIAL",
       "pp": 20,
       "type": 14,
       "accuracy": 100,
@@ -2689,6 +2732,44 @@
       ],
       "target": "OPPONENT",
       "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 178,
+      "name": "Muddy Water",
+      "power": 90,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 3,
+      "accuracy": 85,
+      "description": "The user attacks by shooting muddy water at opposing Pokémon. This may also lower their accuracy.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ACCURACY"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.67,
+      "probability": 30,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 179,
+      "name": "Meteor Mash",
+      "power": 90,
+      "category": "PHYSICAL",
+      "pp": 10,
+      "type": 16,
+      "accuracy": 90,
+      "description": "The target is hit with a hard punch fired like a meteor. This may also raise the user's Attack stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "probability": 20,
       "status": [],
       "highCritRate": false
     }
@@ -2836,6 +2917,47 @@
       "type": 18,
       "description": "The user recovers half of its maximum HP.",
       "priorityLevel": 0
+    }
+  ],
+  "ultimateMoves": [
+    {
+      "id": 176,
+      "name": "Hyper Beam",
+      "power": 150,
+      "category": "SPECIAL",
+      "pp": 5,
+      "type": 5,
+      "accuracy": 90,
+      "description": "The target is attacked with a powerful beam. The user can't move on the next turn.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 177,
+      "name": "Giga Impact",
+      "power": 150,
+      "category": "PHYSICAL",
+      "pp": 5,
+      "type": 5,
+      "accuracy": 90,
+      "description": "The user charges at the target using every bit of its power. The user can't move on the next turn.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
+    },
+    {
+      "id": 183,
+      "name": "Rock Wrecker",
+      "power": 150,
+      "category": "PHYSICAL",
+      "pp": 5,
+      "type": 9,
+      "accuracy": 90,
+      "description": "The user launches a huge boulder at the target to attack. The user can't move on the next turn.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false
     }
   ]
 }

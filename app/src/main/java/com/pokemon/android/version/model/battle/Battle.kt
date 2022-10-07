@@ -2,9 +2,7 @@ package com.pokemon.android.version.model.battle
 
 import android.widget.TextView
 import com.pokemon.android.version.MainActivity
-import com.pokemon.android.version.model.Pokemon
-import com.pokemon.android.version.model.Status
-import com.pokemon.android.version.model.Trainer
+import com.pokemon.android.version.model.*
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.move.DrainMove
@@ -95,6 +93,11 @@ abstract class Battle {
             }
         }
         endTurn(sb)
+        if (pokemon.currentHP > 0 && getBattleState() == State.IN_PROGRESS && pokemon.battleData!!.unableToMoveCounter == 1){
+            sb.append(pokemon.data.name + " needs to recharge!\n")
+            sb.append(opponentTurn(opponent.ia(pokemon)))
+            endTurn(sb)
+        }
         dialogTextView.text = sb.toString()
     }
 
@@ -117,6 +120,9 @@ abstract class Battle {
         val sb = StringBuilder()
         sb.append("${(pokemonToBeSent.trainer!! as Trainer).name} sends ${pokemonToBeSent.data.name}\n")
         switchPokemon(pokemonToBeSent)
+        if (pokemon.data.abilities.contains(Ability.INTIMIDATE))
+            sb.append("Intimidate: ${opponent.data.name}'s attack fell!\n")
+        BattleUtils.abilitiesCheck(pokemon,opponent)
         sb.append(opponentTurn(opponent.ia(pokemon)))
         endTurn(sb)
         dialogTextView.text = sb.toString()
@@ -168,13 +174,29 @@ abstract class Battle {
             if (pokemon.isMegaEvolved()) {
                 pokemon.recomputeStat()
             }
+            if (opponent.data.abilities.contains(Ability.MOXIE))
+                opponent.battleData!!.attackMultiplicator *= 1.5f
+            if (opponent.data.abilities.contains(Ability.SPEED_BOOST)) {
+                opponent.battleData!!.speedMultiplicator *= 1.5f
+                sb.append("${opponent.data.name}'s speed rose!\n")
+            }
         }
         if (opponent.currentHP == 0) {
             sb.append("The opposing " + opponent.data.name + " fainted\n")
             if (opponent.isMegaEvolved()) {
                 opponent.recomputeStat()
             }
+            if (pokemon.data.abilities.contains(Ability.MOXIE) && pokemon.battleData != null)
+                pokemon.battleData!!.attackMultiplicator *= 1.5f
+            if (pokemon.data.abilities.contains(Ability.SPEED_BOOST) && pokemon.battleData != null) {
+                pokemon.battleData!!.speedMultiplicator *= 1.5f
+                sb.append("Speed Boost: ${pokemon.data.name}'s speed rose!\n")
+            }
             updateOpponent()
+            BattleUtils.abilitiesCheck(opponent,pokemon)
+            if (opponent.data.abilities.contains(Ability.INTIMIDATE)) {
+                sb.append("Intimidate: ${pokemon.data.name}'s attack fell!\n")
+            }
         }
     }
 
@@ -187,17 +209,34 @@ abstract class Battle {
                 if (other.isMegaEvolved())
                     effectiveness = move.type.isEffectiveAgainst(other.data.megaEvolutionData!!.type1) *
                             move.type.isEffectiveAgainst(other.data.megaEvolutionData!!.type2)
-                if (effectiveness >= 2)
-                    action += "It's super effective!\n"
-                if (effectiveness == 0f)
-                    action += "It does not affect ${other.data.name}\n"
-                else if (effectiveness < 1)
-                    action += "It's not very effective effective!\n"
+                if (move.type == Type.GROUND && other.data.abilities.contains(Ability.LEVITATE))
+                    action += "Levitate: It does not affect ${other.data.name}!\n"
+                if (move.type == Type.ELECTRIC)
+                {
+                    if (other.data.abilities.contains(Ability.VOLT_ABSORB))
+                        action += "Volt Absorb: ${other.data.name}'s HP was restored\n"
+                    if (other.data.abilities.contains(Ability.LIGHTNING_ROD))
+                        action += "Lightning Rod: It does not affect ${other.data.name}!\n"
+                }
+                else if (move.type == Type.WATER && other.data.abilities.contains(Ability.WATER_ABSORB))
+                    action += "Water Absorb: ${other.data.name}'s HP was restored\n"
+                else {
+                    if (effectiveness == 0f) {
+                        action += "It does not affect ${other.data.name}\n"
+                    } else if (effectiveness >= 2)
+                        action += "It's super effective!\n"
+                    else if (effectiveness < 1)
+                        action += "It's not very effective effective!\n"
+                }
             }
             if (move is DrainMove)
                 action += "The opposing ${other.data.name} had its energy drained!\n"
-            else if (move is RecoilMove)
-                action += "${attacker.data.name} is damaged by recoil!\n"
+            else if (move is RecoilMove) {
+                action += if (attacker.data.abilities.contains(Ability.ROCK_HEAD))
+                    "Rock Head: ${attacker.data.name} does not receive recoil damage!\n"
+                else
+                    "${attacker.data.name} is damaged by recoil!\n"
+            }
             return action
         }
 
@@ -227,6 +266,15 @@ abstract class Battle {
                     pokemon.status = Status.ASLEEP
                     details += pokemon.data.name + " fell asleep!\n"
                 }
+            }
+            if (pokemon.battleData!!.battleStatus.contains(Status.UNABLE_TO_MOVE))
+            {
+                if (pokemon.battleData!!.unableToMoveCounter == 1) {
+                    pokemon.battleData!!.battleStatus.remove(Status.UNABLE_TO_MOVE)
+                    pokemon.battleData!!.unableToMoveCounter = 0
+                }
+                else
+                    pokemon.battleData!!.unableToMoveCounter++
             }
             if (pokemon.status != Status.OK) {
                 when (pokemon.status) {
