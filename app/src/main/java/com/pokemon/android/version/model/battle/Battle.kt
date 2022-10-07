@@ -161,11 +161,19 @@ abstract class Battle {
             sb.append(checkStatus(opponent))
             if (pokemon.currentHP == 0 && opponent.battleData!!.battleStatus.contains(Status.TRAPPED))
                 opponent.battleData!!.battleStatus.remove(Status.TRAPPED)
+            if (opponent.data.abilities.contains(Ability.SPEED_BOOST)) {
+                opponent.battleData!!.speedMultiplicator *= 1.5f
+                sb.append("${opponent.data.name}'s speed rose!\n")
+            }
         }
         if (pokemon.currentHP > 0) {
             sb.append(checkStatus(pokemon))
             if (opponent.currentHP == 0 && pokemon.battleData!!.battleStatus.contains(Status.TRAPPED))
                 pokemon.battleData!!.battleStatus.remove(Status.TRAPPED)
+            if (pokemon.data.abilities.contains(Ability.SPEED_BOOST) && pokemon.battleData != null) {
+                pokemon.battleData!!.speedMultiplicator *= 1.5f
+                sb.append("Speed Boost: ${pokemon.data.name}'s speed rose!\n")
+            }
         }
         if (pokemon.currentHP == 0) {
             sb.append(pokemon.data.name + " fainted\n")
@@ -174,11 +182,9 @@ abstract class Battle {
             if (pokemon.isMegaEvolved()) {
                 pokemon.recomputeStat()
             }
-            if (opponent.data.abilities.contains(Ability.MOXIE))
+            if (opponent.data.abilities.contains(Ability.MOXIE)) {
                 opponent.battleData!!.attackMultiplicator *= 1.5f
-            if (opponent.data.abilities.contains(Ability.SPEED_BOOST)) {
-                opponent.battleData!!.speedMultiplicator *= 1.5f
-                sb.append("${opponent.data.name}'s speed rose!\n")
+                sb.append("Moxie: ${opponent.data.name}'s attack rose!\n")
             }
         }
         if (opponent.currentHP == 0) {
@@ -186,16 +192,17 @@ abstract class Battle {
             if (opponent.isMegaEvolved()) {
                 opponent.recomputeStat()
             }
-            if (pokemon.data.abilities.contains(Ability.MOXIE) && pokemon.battleData != null)
+
+            if (pokemon.data.abilities.contains(Ability.MOXIE)) {
                 pokemon.battleData!!.attackMultiplicator *= 1.5f
-            if (pokemon.data.abilities.contains(Ability.SPEED_BOOST) && pokemon.battleData != null) {
-                pokemon.battleData!!.speedMultiplicator *= 1.5f
-                sb.append("Speed Boost: ${pokemon.data.name}'s speed rose!\n")
+                sb.append("Moxie: ${pokemon.data.name}'s attack rose!\n")
             }
             updateOpponent()
-            BattleUtils.abilitiesCheck(opponent,pokemon)
-            if (opponent.data.abilities.contains(Ability.INTIMIDATE)) {
-                sb.append("Intimidate: ${pokemon.data.name}'s attack fell!\n")
+            if (getBattleState() == State.IN_PROGRESS) {
+                BattleUtils.abilitiesCheck(opponent, pokemon)
+                if (opponent.data.abilities.contains(Ability.INTIMIDATE)) {
+                    sb.append("Intimidate: ${pokemon.data.name}'s attack fell!\n")
+                }
             }
         }
     }

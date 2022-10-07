@@ -43,7 +43,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
                         else {
                             if (it.status == CONFUSED) {
                                 details = if (opponent.data.abilities.contains(Ability.OWN_TEMPO))
-                                    "${opponent.data.name} cannot be confused!\n"
+                                    "Own Tempo: ${opponent.data.name} cannot be confused!\n"
                                 else {
                                     opponent.battleData!!.battleStatus.add(it.status)
                                     "${opponent.data.name} became confused!\n"
@@ -65,9 +65,9 @@ enum class Status(var activeOutsideBattle: Boolean) {
                 }
                 else{
                     if (move.id == 83 && opponent.data.abilities.contains(Ability.IMMUNITY))
-                        details = "It does not affect ${opponent.data.name}!\n"
+                        details = "Immunity: It does not affect ${opponent.data.name}!\n"
                     if (it.status == PARALYSIS && opponent.data.abilities.contains(Ability.LIMBER))
-                        details = "It does not affect ${opponent.data.name}!\n"
+                        details = "Limber: It does not affect ${opponent.data.name}!\n"
                 }
             }
             return details
@@ -84,7 +84,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
                 return true
             if (opponent.status != OK)
                 return false
-            if (status == ASLEEP)
+            if (status == ASLEEP && !opponent.data.abilities.contains(Ability.INSOMNIA))
                 return true
             val type1 = if (opponent.isMegaEvolved()) opponent.data.megaEvolutionData!!.type1 else opponent.data.type1
             val type2 = if (opponent.isMegaEvolved()) opponent.data.megaEvolutionData!!.type2 else opponent.data.type2

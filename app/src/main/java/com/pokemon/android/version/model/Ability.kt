@@ -6,6 +6,7 @@ enum class Ability(var description : String) {
     GUTS("It's so gutsy that having a status condition boosts the Pokémon's Attack stat."),
     IMMUNITY("The immune system of the Pokémon prevents it from getting poisoned."),
     INNER_FOCUS("The Pokémon's intensely focused, and that protects the Pokémon from flinching."),
+    INSOMNIA("The Pokémon is suffering from insomnia and cannot fall asleep."),
     INTIMIDATE("The Pokémon intimidates opposing Pokémon upon entering battle, lowering their Attack stat."),
     LEVITATE("By floating in the air, the Pokémon receives full immunity to all Ground-type moves."),
     LIGHTNING_ROD("The Pokémon draws in all Electric-type moves. Instead of being hit by Electric-type moves, it boosts its Sp. Atk."),

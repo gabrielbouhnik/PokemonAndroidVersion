@@ -67,6 +67,16 @@ class DamageCalculator {
                 multiplicator *= 0.5f
             if (move.power <= 60 && attacker.data.abilities.contains(Ability.TECHNICIAN))
                 multiplicator *= 2f
+            if ((attacker.currentHP / attacker.hp) < 0.4){
+                if (move.type == Type.GRASS && attacker.data.abilities.contains(Ability.OVERGROW))
+                    multiplicator *= 1.5f
+                if (move.type == Type.FIRE && attacker.data.abilities.contains(Ability.BLAZE))
+                    multiplicator *= 1.5f
+                if (move.type == Type.WATER && attacker.data.abilities.contains(Ability.TORRENT))
+                    multiplicator *= 1.5f
+                if (move.type == Type.BUG && attacker.data.abilities.contains(Ability.SWARM))
+                    multiplicator *= 1.5f
+            }
             return try {
                 var type: Float = move.type.isEffectiveAgainst(opponent.data.type2) * move.type.isEffectiveAgainst(opponent.data.type1)
                 if (opponent.isMegaEvolved()){

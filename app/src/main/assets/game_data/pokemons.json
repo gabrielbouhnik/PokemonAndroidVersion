@@ -3497,7 +3497,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["INSOMNIA"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3554,7 +3554,7 @@
     "speed": 95,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["INSOMNIA"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -5992,7 +5992,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["INSOMNIA"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -6055,7 +6055,7 @@
     "spDef": 115,
     "speed": 67,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["INSOMNIA"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -8945,7 +8945,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["INSOMNIA"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -9004,7 +9004,7 @@
     "speed": 70,
     "catchRate": 90,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["INSOMNIA"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -9764,7 +9764,7 @@
         }
       }
     ],
-    "abilities": ["SUPER_LUCK"],
+    "abilities": ["SUPER_LUCK","INSOMNIA"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
