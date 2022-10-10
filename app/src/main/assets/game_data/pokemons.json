@@ -1961,7 +1961,7 @@
     "speed": 76,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["SHEER_FORCE"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -2141,7 +2141,7 @@
     "speed": 85,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["SHEER_FORCE"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -3292,7 +3292,7 @@
     "speed": 115,
     "catchRate": 90,
     "evolutions": [],
-    "abilities": ["LIMBER"],
+    "abilities": ["TECHNICIAN","LIMBER"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3497,7 +3497,7 @@
         }
       }
     ],
-    "abilities": ["INSOMNIA"],
+    "abilities": ["VITAL_SPIRIT"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3554,7 +3554,7 @@
     "speed": 95,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["INSOMNIA"],
+    "abilities": ["VITAL_SPIRIT"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3966,7 +3966,7 @@
         }
       }
     ],
-    "abilities": ["INNER_FOCUS"],
+    "abilities": ["INNER_FOCUS","SYNCHRONIZE"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -4008,7 +4008,7 @@
     "speed": 120,
     "catchRate": 50,
     "evolutions": [],
-    "abilities": ["INNER_FOCUS"],
+    "abilities": ["INNER_FOCUS","SYNCHRONIZE"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -4077,7 +4077,7 @@
         }
       }
     ],
-    "abilities": ["GUTS"],
+    "abilities": ["GUTS","NO_GUARD"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -4146,7 +4146,7 @@
         }
       }
     ],
-    "abilities": ["GUTS"],
+    "abilities": ["GUTS","NO_GUARD"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -4458,7 +4458,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["LIQUID_OOZE","CLEAR_BODY"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -4529,7 +4529,7 @@
     "speed": 100,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["LIQUID_OOZE","CLEAR_BODY"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -5587,7 +5587,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["SHELL_ARMOR"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -5648,7 +5648,7 @@
     "speed": 70,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["SHELL_ARMOR"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -6117,7 +6117,7 @@
           "level": 28
         }
       }],
-    "abilities": [],
+    "abilities": ["SHEER_FORCE","SHELL_ARMOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -6177,7 +6177,7 @@
     "speed": 75,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["SHEER_FORCE","SHELL_ARMOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -6357,7 +6357,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["BATTLE_ARMOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -6404,7 +6404,7 @@
     "speed": 45,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["BATTLE_ARMOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -6470,7 +6470,7 @@
     "speed": 76,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["INNER_FOCUS"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -6653,7 +6653,7 @@
         }
       }
     ],
-    "abilities": ["ROCK_HEAD"],
+    "abilities": ["ROCK_HEAD","RECKLESS"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -6727,7 +6727,7 @@
         }
       }
     ],
-    "abilities": ["ROCK_HEAD"],
+    "abilities": ["ROCK_HEAD","RECKLESS"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -6845,7 +6845,7 @@
     "speed": 90,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["INNER_FOCUS"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7053,7 +7053,7 @@
         }
       }
     ],
-    "abilities": ["LIGHTNING_ROD"],
+    "abilities": ["LIGHTNING_ROD","WATER_VEIL"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7108,7 +7108,7 @@
     "speed": 68,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": ["LIGHTNING_ROD"],
+    "abilities": ["LIGHTNING_ROD","WATER_VEIL"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7185,7 +7185,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["NATURAL_CURE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -7255,7 +7255,7 @@
     "speed": 115,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["NATURAL_CURE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -7450,7 +7450,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["VITAL_SPIRIT"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7535,7 +7535,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["VITAL_SPIRIT"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7583,7 +7583,7 @@
     "speed": 110,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["INTIMIDATE"],
+    "abilities": ["INTIMIDATE","SHEER_FORCE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -7752,7 +7752,7 @@
     "speed": 60,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["WATER_ABSORB"],
+    "abilities": ["WATER_ABSORB","SHELL_ARMOR"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -8134,7 +8134,7 @@
     "speed": 55,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["SHELL_ARMOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -8157,7 +8157,7 @@
     "speed": 80,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["BATTLE_ARMOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -8788,7 +8788,7 @@
     "speed": 100,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["SYNCHRONIZE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -9643,7 +9643,7 @@
     "speed": 110,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["SYNCHRONIZE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -9707,7 +9707,7 @@
     "speed": 65,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["SYNCHRONIZE","INNER_FOCUS"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -9991,7 +9991,7 @@
     "speed": 30,
     "catchRate": 25,
     "evolutions": [],
-    "abilities": ["STURDY","ROCK_HEAD"],
+    "abilities": ["STURDY","ROCK_HEAD","SHEER_FORCE"],
     "expGaugeType":  "MEDIUM_FAST",
     "megaEvolutionData": {
       "type1": 16,
@@ -10235,7 +10235,7 @@
     "speed": 85,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["SWARM","MOXIE"],
+    "abilities": ["SWARM","MOXIE","GUTS"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -10367,7 +10367,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["MAGMA_ARMOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -10446,7 +10446,7 @@
     "speed": 30,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["MAGMA_ARMOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -10500,7 +10500,7 @@
     "speed": 35,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["NATURAL_CURE"],
     "expGaugeType":  "FAST"
   },
   {
@@ -10916,7 +10916,7 @@
     "speed": 70,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["TECHNICIAN"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -11000,7 +11000,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["VITAL_SPIRIT"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -11069,7 +11069,7 @@
     "catchRate": 3,
     "evolutions": [
     ],
-    "abilities": [],
+    "abilities": ["INNER_FOCUS"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -11146,7 +11146,7 @@
     "catchRate": 3,
     "evolutions": [
     ],
-    "abilities": [],
+    "abilities": ["INNER_FOCUS"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -11219,7 +11219,7 @@
     "catchRate": 3,
     "evolutions": [
     ],
-    "abilities": [],
+    "abilities": ["INNER_FOCUS"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -11501,7 +11501,7 @@
     "speed": 100,
     "catchRate": 5,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["NATURAL_CURE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -11631,7 +11631,7 @@
     "speed": 81,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["SYNCHRONIZE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -11657,7 +11657,7 @@
     "speed": 70,
     "catchRate": 90,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["TECHNICIAN"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -11683,7 +11683,7 @@
     "speed": 50,
     "catchRate": 200,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["THICK_FAT","SHEER_FORCE","GUTS"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -11865,7 +11865,7 @@
     "speed": 70,
     "catchRate": 3,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["CLEAR_BODY"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -11891,7 +11891,7 @@
     "speed": 100,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["INTIMIDATE"],
+    "abilities": ["INTIMIDATE","RECKLESS"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -11917,7 +11917,7 @@
     "speed": 90,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["NATURAL_CURE"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -12066,7 +12066,7 @@
     "speed": 71,
     "catchRate": 30,
     "evolutions": [],
-    "abilities": ["MOXIE","SUPER_LUCK"],
+    "abilities": ["MOXIE","SUPER_LUCK","INSOMNIA"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -12295,7 +12295,7 @@
     "speed": 40,
     "catchRate": 30,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["RECKLESS"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -12420,7 +12420,7 @@
     "speed": 95,
     "catchRate": 30,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["VITAL_SPIRIT"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -12506,7 +12506,7 @@
     "speed": 83,
     "catchRate": 30,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["VITAL_SPIRIT"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -12715,7 +12715,7 @@
     "speed": 85,
     "catchRate": 3,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["LEVITATE"],
     "expGaugeType":  "SLOW"
   }
 ]

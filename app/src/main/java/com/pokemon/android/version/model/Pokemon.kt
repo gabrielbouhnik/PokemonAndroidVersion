@@ -186,17 +186,17 @@ class Pokemon(
         if (!attackResponse.success)
             return attackResponse
         move.pp = move.pp - 1
-        if (move.move.type == Type.ELECTRIC && opponent.data.abilities.contains(Ability.LIGHTNING_ROD))
+        if (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.LIGHTNING_ROD))
             opponent.battleData!!.spAtkMultiplicator *= 1.5f
-        else if ((move.move.type == Type.WATER && opponent.data.abilities.contains(Ability.WATER_ABSORB))
-                    || (move.move.type == Type.ELECTRIC && opponent.data.abilities.contains(Ability.VOLT_ABSORB))){
+        else if ((move.move.type == Type.WATER && opponent.hasAbility(Ability.WATER_ABSORB))
+                    || (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))){
             val heal = DamageCalculator.computeDamageWithoutAbility(this, move.move, opponent)
             if (heal + this.currentHP > this.hp)
                 this.currentHP = hp
             else
                 this.currentHP += heal
         }
-        if (move.move.accuracy != null && !this.data.abilities.contains(Ability.NO_GUARD)) {
+        if (move.move.accuracy != null && !this.hasAbility(Ability.NO_GUARD)) {
             val random: Int = Random.nextInt(100)
             if (random > move.move.accuracy!! * battleData!!.accuracyMultiplicator)
                 return AttackResponse(
@@ -217,7 +217,7 @@ class Pokemon(
                 val timesItHits = Random.nextInt(2..5)
                 var i = 0
                 while (i < timesItHits && opponent.currentHP > damage) {
-                    val crit = DamageCalculator.getCriticalMultiplicator(this, move.move)
+                    val crit = DamageCalculator.getCriticalMultiplicator(this, move.move,opponent)
                     if (crit == 1.5f)
                         details += "A critical hit!\n"
                     damage += DamageCalculator.computeDamage(
@@ -231,7 +231,7 @@ class Pokemon(
                 details =
                     if (timesItHits > 1) "${opponent.data.name} was hit $timesItHits times!\n" else "${opponent.data.name} was hit 1 time!\n"
             } else if (move.move is MultipleHitMove){
-                val crit = DamageCalculator.getCriticalMultiplicator(this, move.move)
+                val crit = DamageCalculator.getCriticalMultiplicator(this, move.move,opponent)
                 if (crit == 1.5f)
                     details += "A critical hit!\n"
                 damage += DamageCalculator.computeDamage(
@@ -244,7 +244,7 @@ class Pokemon(
                     details += "${opponent.data.name} was hit 1 time!\n"
                 }
                 else{
-                    DamageCalculator.getCriticalMultiplicator(this, move.move)
+                    DamageCalculator.getCriticalMultiplicator(this, move.move,opponent)
                     if (crit == 1.5f)
                         details += "A critical hit!\n"
                     damage += DamageCalculator.computeDamage(
@@ -257,7 +257,7 @@ class Pokemon(
                 }
             }
             else {
-                val crit = DamageCalculator.getCriticalMultiplicator(this, move.move)
+                val crit = DamageCalculator.getCriticalMultiplicator(this, move.move,opponent)
                 if (crit == 1.5f)
                     details += "A critical hit!\n"
                 damage = DamageCalculator.computeDamage(
@@ -271,7 +271,7 @@ class Pokemon(
         }
         val damageDone: Int
         if (damage >= opponent.currentHP) {
-            if (opponent.currentHP == opponent.hp && opponent.data.abilities.contains(Ability.STURDY)) {
+            if (opponent.currentHP == opponent.hp && opponent.hasAbility(Ability.STURDY)) {
                 damageDone = opponent.currentHP - 1
                 opponent.currentHP = 1
                 details += "Sturdy: ${opponent.data.name} endured the hit!\n"
@@ -286,23 +286,32 @@ class Pokemon(
             opponent.currentHP = opponent.currentHP - damage
             if (move.move.type == Type.FIRE && opponent.status == Status.FROZEN)
                 opponent.status = Status.OK
-            if (move.move.power == 0 || damage > 0 && move.move.status.isNotEmpty()) {
-                details += Status.updateStatus(opponent, move.move)
+            if (!this.hasAbility(Ability.SHEER_FORCE) && move.move.power == 0 || damage > 0 && move.move.status.isNotEmpty()) {
+                details += Status.updateStatus(this, opponent, move.move)
             }
-            if (move.move is StatChangeMove && (move.move.power == 0 || damage > 0)) {
+            if (!this.hasAbility(Ability.SHEER_FORCE) && move.move is StatChangeMove && (move.move.power == 0 || damage > 0)) {
                 if ((move.move as StatChangeMove).probability == null || Random.nextInt(100) < (move.move as StatChangeMove).probability!!) {
                     val statChangeMove = move.move as StatChangeMove
                     details += if (statChangeMove.target == Target.SELF)
                         Stats.updateStat(this, move.move as StatChangeMove)
-                    else
-                        Stats.updateStat(opponent, move.move as StatChangeMove)
+                    else {
+                        if ((move.move as StatChangeMove).multiplicator < 0 && hasAbility(Ability.CLEAR_BODY))
+                            details += "Clear Body: ${data.name}'s stats cannot be lowered!\n"
+                        else
+                            Stats.updateStat(opponent, move.move as StatChangeMove)
+                    }
                 }
             }
         }
         if (move.move is DrainMove) {
-            currentHP = if (currentHP + damageDone / 2 > hp) hp else currentHP + damageDone / 2
+            if (opponent.hasAbility(Ability.LIQUID_OOZE)){
+                currentHP = if (damageDone / 2 > currentHP) 0 else currentHP - damageDone / 2
+                details += "Liquid Ooze: ${this.data.name} loses some hp.\n"
+            }
+            else
+                currentHP = if (currentHP + damageDone / 2 > hp) hp else currentHP + damageDone / 2
         }
-        if (move.move is RecoilMove && !this.data.abilities.contains(Ability.ROCK_HEAD)) {
+        if (move.move is RecoilMove && !this.hasAbility(Ability.ROCK_HEAD)) {
             val recoil = (move.move as RecoilMove).recoil
             if (currentHP > (damageDone * recoil.damage).toInt()) {
                 currentHP -= (damageDone * recoil.damage).toInt()
@@ -447,6 +456,10 @@ class Pokemon(
             if (moveFiltered.size == 1)
                 autoLearnMove(data.movesByLevel.first { it.level == this.level }.move)
         }
+    }
+
+    fun hasAbility(ability: Ability) : Boolean{
+        return data.abilities.contains(ability);
     }
 
     data class PokemonBuilder(

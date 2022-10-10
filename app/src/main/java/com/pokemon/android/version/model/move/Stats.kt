@@ -1,5 +1,6 @@
 package com.pokemon.android.version.model.move
 
+import com.pokemon.android.version.model.Ability
 import com.pokemon.android.version.model.Pokemon
 
 enum class Stats(var value: String) {
@@ -15,7 +16,11 @@ enum class Stats(var value: String) {
         fun updateStat(pokemon: Pokemon, statChangeMove: StatChangeMove): String {
             val sb = StringBuilder()
             statChangeMove.statsAffected.forEach {
-                if (statChangeMove.multiplicator > 1)
+                if (it == ACCURACY && pokemon.hasAbility(Ability.KEEN_EYE)) {
+                    sb.append("Keen Eye: ${pokemon.data.name}'s " + it.value + " cannot be lowered!\n")
+                    return@forEach
+                }
+                else if (statChangeMove.multiplicator > 1)
                     sb.append("${pokemon.data.name}'s " + it.value + " rose!\n")
                 else
                     sb.append("${pokemon.data.name}'s " + it.value + " fell!\n")

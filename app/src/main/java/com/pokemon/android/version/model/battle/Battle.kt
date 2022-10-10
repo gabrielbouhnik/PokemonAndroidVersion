@@ -113,6 +113,8 @@ abstract class Battle {
     fun switchPokemon(pokemonToBeSent: Pokemon) {
         pokemonToBeSent.battleData = PokemonBattleData()
         this.pokemon.battleData = PokemonBattleData()
+        if (this.pokemon.hasAbility(Ability.NATURAL_CURE))
+            this.pokemon.status = Status.OK
         this.pokemon = pokemonToBeSent
     }
 
@@ -120,9 +122,7 @@ abstract class Battle {
         val sb = StringBuilder()
         sb.append("${(pokemonToBeSent.trainer!! as Trainer).name} sends ${pokemonToBeSent.data.name}\n")
         switchPokemon(pokemonToBeSent)
-        if (pokemon.data.abilities.contains(Ability.INTIMIDATE))
-            sb.append("Intimidate: ${opponent.data.name}'s attack fell!\n")
-        BattleUtils.abilitiesCheck(pokemon,opponent)
+        sb.append(BattleUtils.abilitiesCheck(pokemon,opponent))
         sb.append(opponentTurn(opponent.ia(pokemon)))
         endTurn(sb)
         dialogTextView.text = sb.toString()
@@ -161,16 +161,16 @@ abstract class Battle {
             sb.append(checkStatus(opponent))
             if (pokemon.currentHP == 0 && opponent.battleData!!.battleStatus.contains(Status.TRAPPED))
                 opponent.battleData!!.battleStatus.remove(Status.TRAPPED)
-            if (opponent.data.abilities.contains(Ability.SPEED_BOOST)) {
+            if (opponent.hasAbility(Ability.SPEED_BOOST)) {
                 opponent.battleData!!.speedMultiplicator *= 1.5f
-                sb.append("${opponent.data.name}'s speed rose!\n")
+                sb.append("Speed Boost: the opposing ${opponent.data.name}'s speed rose!\n")
             }
         }
         if (pokemon.currentHP > 0) {
             sb.append(checkStatus(pokemon))
             if (opponent.currentHP == 0 && pokemon.battleData!!.battleStatus.contains(Status.TRAPPED))
                 pokemon.battleData!!.battleStatus.remove(Status.TRAPPED)
-            if (pokemon.data.abilities.contains(Ability.SPEED_BOOST) && pokemon.battleData != null) {
+            if (pokemon.hasAbility(Ability.SPEED_BOOST) && pokemon.battleData != null) {
                 pokemon.battleData!!.speedMultiplicator *= 1.5f
                 sb.append("Speed Boost: ${pokemon.data.name}'s speed rose!\n")
             }
@@ -182,9 +182,9 @@ abstract class Battle {
             if (pokemon.isMegaEvolved()) {
                 pokemon.recomputeStat()
             }
-            if (opponent.data.abilities.contains(Ability.MOXIE)) {
+            if (opponent.currentHP > 0 && opponent.hasAbility(Ability.MOXIE)) {
                 opponent.battleData!!.attackMultiplicator *= 1.5f
-                sb.append("Moxie: ${opponent.data.name}'s attack rose!\n")
+                sb.append("Moxie: the opposing ${opponent.data.name}'s attack rose!\n")
             }
         }
         if (opponent.currentHP == 0) {
@@ -192,17 +192,13 @@ abstract class Battle {
             if (opponent.isMegaEvolved()) {
                 opponent.recomputeStat()
             }
-
-            if (pokemon.data.abilities.contains(Ability.MOXIE)) {
+            if (pokemon.currentHP > 0 && pokemon.hasAbility(Ability.MOXIE)) {
                 pokemon.battleData!!.attackMultiplicator *= 1.5f
                 sb.append("Moxie: ${pokemon.data.name}'s attack rose!\n")
             }
             updateOpponent()
             if (getBattleState() == State.IN_PROGRESS) {
-                BattleUtils.abilitiesCheck(opponent, pokemon)
-                if (opponent.data.abilities.contains(Ability.INTIMIDATE)) {
-                    sb.append("Intimidate: ${pokemon.data.name}'s attack fell!\n")
-                }
+                sb.append(BattleUtils.abilitiesCheck(opponent, pokemon))
             }
         }
     }
@@ -216,16 +212,16 @@ abstract class Battle {
                 if (other.isMegaEvolved())
                     effectiveness = move.type.isEffectiveAgainst(other.data.megaEvolutionData!!.type1) *
                             move.type.isEffectiveAgainst(other.data.megaEvolutionData!!.type2)
-                if (move.type == Type.GROUND && other.data.abilities.contains(Ability.LEVITATE))
+                if (move.type == Type.GROUND && other.hasAbility(Ability.LEVITATE))
                     action += "Levitate: It does not affect ${other.data.name}!\n"
                 if (move.type == Type.ELECTRIC)
                 {
-                    if (other.data.abilities.contains(Ability.VOLT_ABSORB))
+                    if (other.hasAbility(Ability.VOLT_ABSORB))
                         action += "Volt Absorb: ${other.data.name}'s HP was restored\n"
-                    if (other.data.abilities.contains(Ability.LIGHTNING_ROD))
+                    if (other.hasAbility(Ability.LIGHTNING_ROD))
                         action += "Lightning Rod: It does not affect ${other.data.name}!\n"
                 }
-                else if (move.type == Type.WATER && other.data.abilities.contains(Ability.WATER_ABSORB))
+                else if (move.type == Type.WATER && other.hasAbility(Ability.WATER_ABSORB))
                     action += "Water Absorb: ${other.data.name}'s HP was restored\n"
                 else {
                     if (effectiveness == 0f) {
@@ -239,7 +235,7 @@ abstract class Battle {
             if (move is DrainMove)
                 action += "The opposing ${other.data.name} had its energy drained!\n"
             else if (move is RecoilMove) {
-                action += if (attacker.data.abilities.contains(Ability.ROCK_HEAD))
+                action += if (attacker.hasAbility(Ability.ROCK_HEAD))
                     "Rock Head: ${attacker.data.name} does not receive recoil damage!\n"
                 else
                     "${attacker.data.name} is damaged by recoil!\n"
