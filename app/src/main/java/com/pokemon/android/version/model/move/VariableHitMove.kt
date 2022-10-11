@@ -15,7 +15,8 @@ class VariableHitMove(
     status: List<StatusMove>,
     highCritRate: Boolean = false,
     description: String,
-) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description) {
+    characteristics : List<MoveCharacteristic> = listOf()
+) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description, characteristics) {
 
     companion object {
         fun of(variableHitMoveEntity: VariableHitMoveEntity): VariableHitMove {
@@ -30,6 +31,7 @@ class VariableHitMove(
                 .priorityLevel(variableHitMoveEntity.priorityLevel)
                 .highCritRate(variableHitMoveEntity.highCritRate)
                 .status(variableHitMoveEntity.status.map(StatusMove::of))
+                .characteristics(variableHitMoveEntity.characteristics.map{MoveCharacteristic.valueOf(it)})
                 .build()
         }
     }
@@ -45,7 +47,8 @@ class VariableHitMove(
         var priorityLevel: Int = 0,
         var status: List<StatusMove> = arrayListOf(),
         var highCritRate: Boolean = false,
-        var description: String = ""
+        var description: String = "",
+        var characteristics : List<MoveCharacteristic> = listOf()
     ) {
         fun id(id: Int) = apply { this.id = id }
         fun name(name: String) = apply { this.name = name }
@@ -57,6 +60,7 @@ class VariableHitMove(
         fun priorityLevel(priorityLevel: Int) = apply { this.priorityLevel = priorityLevel }
         fun highCritRate(highCritRate: Boolean) = apply { this.highCritRate = highCritRate }
         fun description(description: String) = apply { this.description = description }
+        fun characteristics(characteristics : List<MoveCharacteristic>) = apply { this.characteristics = characteristics }
         fun status(status: List<StatusMove>) = apply { this.status = status }
 
         fun build() =

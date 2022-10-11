@@ -6,6 +6,7 @@ import com.pokemon.android.version.model.battle.*
 import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
+import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.MoveUtils
 import com.pokemon.android.version.utils.StatUtils
 import java.util.*
@@ -185,10 +186,36 @@ class Pokemon(
         val attackResponse = canAttack(move)
         if (!attackResponse.success)
             return attackResponse
-        move.pp = move.pp - 1
-        if (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.LIGHTNING_ROD))
+        if (move.move.category != MoveCategory.OTHER && opponent.hasAbility(Ability.PRESSURE))
+            move.pp = if (move.pp > 1) move.pp - 2 else 0
+        else
+            move.pp = move.pp - 1
+        if (move.move.characteristics.contains(MoveCharacteristic.SOUND) && opponent.hasAbility(Ability.SOUNDPROOF))
+            return AttackResponse(
+                false,
+                "Soundproof: It does not affect ${opponent.data.name}!\n"
+            )
+        if (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.LIGHTNING_ROD)) {
             opponent.battleData!!.spAtkMultiplicator *= 1.5f
-        else if ((move.move.type == Type.WATER && opponent.hasAbility(Ability.WATER_ABSORB))
+            return AttackResponse(
+                false,
+                "Lightning Rod: ${opponent.data.name}'s Sp. Atk rose!\n"
+            )
+        }
+        if (move.move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE)
+            && !opponent.battleData!!.battleStatus.contains(Status.FIRED_UP)) {
+            opponent.battleData!!.battleStatus.add(Status.FIRED_UP)
+            return AttackResponse(
+                false,
+                "Flash Fire: ${opponent.data.name}'s fire power is increased!\n"
+            )
+        }
+        if (move.move.type == Type.GROUND && opponent.hasAbility(Ability.LEVITATE))
+            return AttackResponse(
+                false,
+                "Levitate: It does not affect ${opponent.data.name}!\n"
+            )
+        if ((move.move.type == Type.WATER && opponent.hasAbility(Ability.WATER_ABSORB))
                     || (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))){
             val heal = DamageCalculator.computeDamageWithoutAbility(this, move.move, opponent)
             if (heal + this.currentHP > this.hp)
@@ -320,6 +347,7 @@ class Pokemon(
                 status = Status.OK
             }
         }
+        details += BattleUtils.contactMovesCheck(this, move.move, opponent)
         return AttackResponse(true, details)
     }
 
@@ -459,7 +487,7 @@ class Pokemon(
     }
 
     fun hasAbility(ability: Ability) : Boolean{
-        return data.abilities.contains(ability);
+        return data.abilities.contains(ability) && !isMegaEvolved()
     }
 
     data class PokemonBuilder(

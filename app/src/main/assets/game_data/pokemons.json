@@ -1033,7 +1033,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["KEEN_EYE"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -1104,7 +1104,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["KEEN_EYE"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -1168,7 +1168,7 @@
     "speed": 101,
     "catchRate": 40,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["KEEN_EYE"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -1334,7 +1334,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["KEEN_EYE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -1386,7 +1386,7 @@
     "speed": 100,
     "catchRate": 90,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["KEEN_EYE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -1842,7 +1842,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["POISON_POINT"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -1903,7 +1903,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["POISON_POINT"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -1961,7 +1961,7 @@
     "speed": 76,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["SHEER_FORCE"],
+    "abilities": ["SHEER_FORCE","POISON_POINT"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -2022,7 +2022,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["POISON_POINT"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -2083,7 +2083,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["POISON_POINT"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -2141,7 +2141,7 @@
     "speed": 85,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["SHEER_FORCE"],
+    "abilities": ["SHEER_FORCE","POISON_POINT"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -2194,7 +2194,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["MAGIC_GUARD"],
     "expGaugeType":  "FAST"
   },
   {
@@ -2240,7 +2240,7 @@
     "speed": 60,
     "catchRate": 25,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["MAGIC_GUARD"],
     "expGaugeType":  "FAST"
   },
   {
@@ -2308,7 +2308,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["FLASH_FIRE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -2374,7 +2374,7 @@
     "spDef": 100,
     "speed": 109,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["FLASH_FIRE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3966,7 +3966,7 @@
         }
       }
     ],
-    "abilities": ["INNER_FOCUS","SYNCHRONIZE"],
+    "abilities": ["INNER_FOCUS","SYNCHRONIZE","MAGIC_GUARD"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -4008,7 +4008,7 @@
     "speed": 120,
     "catchRate": 50,
     "evolutions": [],
-    "abilities": ["INNER_FOCUS","SYNCHRONIZE"],
+    "abilities": ["INNER_FOCUS","SYNCHRONIZE","MAGIC_GUARD"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -4802,7 +4802,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["FLASH_FIRE","FLAME_BODY"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -4873,7 +4873,7 @@
     "speed": 105,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["FLASH_FIRE","FLAME_BODY"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -5460,7 +5460,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["POISON_TOUCH"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -5523,7 +5523,7 @@
     "speed": 50,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["POISON_TOUCH"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -6204,6 +6204,10 @@
           "level": 13
         },
         {
+          "moveId": 184,
+          "level": 16
+        },
+        {
           "moveId": 112,
           "level": 20
         },
@@ -6232,7 +6236,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["SOUNDPROOF"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -6259,6 +6263,10 @@
           "level": 13
         },
         {
+          "moveId": 184,
+          "level": 16
+        },
+        {
           "moveId": 112,
           "level": 20
         },
@@ -6280,7 +6288,7 @@
     "speed": 150,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["SOUNDPROOF"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -6995,7 +7003,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["POISON_POINT"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7298,7 +7306,7 @@
     "speed": 90,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["SOUNDPROOF","TECHNICIAN"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7535,7 +7543,7 @@
         }
       }
     ],
-    "abilities": ["VITAL_SPIRIT"],
+    "abilities": ["VITAL_SPIRIT","FLAME_BODY"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -8049,7 +8057,7 @@
     "speed": 65,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["GUTS"],
+    "abilities": ["GUTS","FLASH_FIRE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -8219,7 +8227,7 @@
     "speed": 130,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["ROCK_HEAD","PRESSURE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -8323,7 +8331,7 @@
     "speed": 95,
     "catchRate": 3,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["PRESSURE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -8369,7 +8377,7 @@
     "speed": 100,
     "catchRate": 3,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["PRESSURE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -8423,7 +8431,7 @@
     "speed": 90,
     "catchRate": 3,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["PRESSURE","FLAME_BODY"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -8837,7 +8845,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["KEEN_EYE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -8879,7 +8887,7 @@
     "speed": 90,
     "catchRate": 90,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["KEEN_EYE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -8945,7 +8953,7 @@
         }
       }
     ],
-    "abilities": ["INSOMNIA"],
+    "abilities": ["INSOMNIA","KEEN_EYE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -9004,7 +9012,7 @@
     "speed": 70,
     "catchRate": 90,
     "evolutions": [],
-    "abilities": ["INSOMNIA"],
+    "abilities": ["INSOMNIA","KEEN_EYE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -10367,7 +10375,7 @@
         }
       }
     ],
-    "abilities": ["MAGMA_ARMOR"],
+    "abilities": ["MAGMA_ARMOR","FLAME_BODY"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -10446,7 +10454,7 @@
     "speed": 30,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["MAGMA_ARMOR"],
+    "abilities": ["MAGMA_ARMOR","FLAME_BODY"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -10575,7 +10583,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["FLASH_FIRE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -10647,7 +10655,7 @@
     "speed": 95,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["FLASH_FIRE"],
     "expGaugeType":  "SLOW",
     "megaEvolutionData": {
       "type1": 2,
@@ -11000,7 +11008,7 @@
         }
       }
     ],
-    "abilities": ["VITAL_SPIRIT"],
+    "abilities": ["VITAL_SPIRIT","FLAME_BODY"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -11069,7 +11077,7 @@
     "catchRate": 3,
     "evolutions": [
     ],
-    "abilities": ["INNER_FOCUS"],
+    "abilities": ["INNER_FOCUS","PRESSURE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -11146,7 +11154,7 @@
     "catchRate": 3,
     "evolutions": [
     ],
-    "abilities": ["INNER_FOCUS"],
+    "abilities": ["INNER_FOCUS","PRESSURE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -11219,7 +11227,7 @@
     "catchRate": 3,
     "evolutions": [
     ],
-    "abilities": ["INNER_FOCUS"],
+    "abilities": ["INNER_FOCUS","PRESSURE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -11917,7 +11925,7 @@
     "speed": 90,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["NATURAL_CURE"],
+    "abilities": ["NATURAL_CURE","POISON_POINT","TECHNICIAN"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -12092,7 +12100,7 @@
     "speed": 35,
     "catchRate": 100,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["PRESSURE"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -12170,7 +12178,7 @@
     "speed": 85,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["POISON_TOUCH"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -12506,7 +12514,7 @@
     "speed": 83,
     "catchRate": 30,
     "evolutions": [],
-    "abilities": ["VITAL_SPIRIT"],
+    "abilities": ["VITAL_SPIRIT","FLAME_BODY"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -12694,7 +12702,7 @@
     "speed": 77,
     "catchRate": 3,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["FLASH_FIRE","FLAME_BODY"],
     "expGaugeType":  "SLOW"
   },
   {

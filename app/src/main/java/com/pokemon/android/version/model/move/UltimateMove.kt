@@ -14,8 +14,9 @@ class UltimateMove(
     priorityLevel: Int = 0,
     status: ArrayList<StatusMove>,
     highCritRate: Boolean = false,
-    description: String
-) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description) {
+    description: String,
+    characteristics : List<MoveCharacteristic> = listOf()
+) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description, characteristics) {
     companion object {
         fun of(ultimateMoveEntity: MoveEntity): UltimateMove {
             return UltimateMoveBuilder()
@@ -30,6 +31,7 @@ class UltimateMove(
                 .highCritRate(ultimateMoveEntity.highCritRate)
                 .status(ArrayList(ultimateMoveEntity.status.map(StatusMove::of)))
                 .description(ultimateMoveEntity.description)
+                .characteristics(ultimateMoveEntity.characteristics.map{MoveCharacteristic.valueOf(it)})
                 .build()
         }
     }
@@ -45,7 +47,8 @@ class UltimateMove(
         var priorityLevel: Int = 0,
         var status: ArrayList<StatusMove> = arrayListOf(),
         var highCritRate: Boolean = false,
-        var description: String = ""
+        var description: String = "",
+        var characteristics : List<MoveCharacteristic> = listOf()
     ) {
         fun id(id: Int) = apply { this.id = id }
         fun name(name: String) = apply { this.name = name }
@@ -57,6 +60,7 @@ class UltimateMove(
         fun priorityLevel(priorityLevel: Int) = apply { this.priorityLevel = priorityLevel }
         fun highCritRate(highCritRate: Boolean) = apply { this.highCritRate = highCritRate }
         fun description(description: String) = apply { this.description = description }
+        fun characteristics(characteristics : List<MoveCharacteristic>) = apply { this.characteristics = characteristics }
         fun status(status: ArrayList<StatusMove>) = apply { this.status = status }
 
         fun build() =

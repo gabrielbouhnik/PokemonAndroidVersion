@@ -4,10 +4,7 @@ import com.pokemon.android.version.model.Ability
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Type
-import com.pokemon.android.version.model.move.Move
-import com.pokemon.android.version.model.move.MoveCategory
-import com.pokemon.android.version.model.move.RecoilMove
-import com.pokemon.android.version.model.move.StatChangeMove
+import com.pokemon.android.version.model.move.*
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
@@ -51,11 +48,15 @@ class DamageCalculator {
         }
 
         fun computeDamage(attacker: Pokemon, move: Move, opponent: Pokemon, criticalMultiplicator: Float): Int {
+            if (move.characteristics.contains(MoveCharacteristic.SOUND) && opponent.hasAbility(Ability.SOUNDPROOF))
+                return 0
             if (move.type == Type.GROUND && opponent.hasAbility(Ability.LEVITATE))
                 return 0
             if (move.type == Type.WATER && opponent.hasAbility(Ability.WATER_ABSORB))
                 return 0
             if (move.type == Type.ELECTRIC && (opponent.hasAbility(Ability.LIGHTNING_ROD) || opponent.hasAbility(Ability.VOLT_ABSORB)))
+                return 0
+            if (move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE))
                 return 0
             var multiplicator = 1f
             var stab = if (attacker.data.type1 == move.type || attacker.data.type2 == move.type) 1.5f else 1f
@@ -79,8 +80,12 @@ class DamageCalculator {
             if ((attacker.currentHP / attacker.hp) < 0.4){
                 if (move.type == Type.GRASS && attacker.hasAbility(Ability.OVERGROW))
                     power *= 1.5f
-                if (move.type == Type.FIRE && attacker.hasAbility(Ability.BLAZE))
-                    power *= 1.5f
+                if (move.type == Type.FIRE) {
+                    if (attacker.hasAbility(Ability.BLAZE))
+                        power *= 1.5f
+                    if (attacker.battleData!!.battleStatus.contains(Status.FIRED_UP))
+                        power *= 1.5f
+                }
                 if (move.type == Type.WATER && attacker.hasAbility(Ability.TORRENT))
                     power *= 1.5f
                 if (move.type == Type.BUG && attacker.hasAbility(Ability.SWARM))

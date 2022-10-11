@@ -57,7 +57,7 @@ abstract class Battle {
         }
     }
 
-    fun turn(trainerPokemonMove: PokemonMove, megaEvolution : Boolean) {
+    fun turn(trainerPokemonMove: PokemonMove, megaEvolution: Boolean) {
         val sb = StringBuilder()
         if (megaEvolution) {
             sb.append("${pokemon.data.name} has Mega Evolved into Mega-${pokemon.data.name}\n")
@@ -65,15 +65,15 @@ abstract class Battle {
             trainerHasUsedMegaEvolution = true
         }
         if (this is TrainerBattle && opponent.canMegaEvolve()) {
-            when (levelData.id){
+            when (levelData.id) {
                 60 -> {
-                    if (opponent.data.id == 6){
+                    if (opponent.data.id == 6) {
                         opponent.megaEvolve()
                         sb.append("${opponent.data.name} has Mega Evolved into Mega-${opponent.data.name}\n")
                     }
                 }
-                65 ->  {
-                    if (opponent.data.id == 3){
+                65 -> {
+                    if (opponent.data.id == 3) {
                         opponent.megaEvolve()
                         sb.append("${opponent.data.name} has Mega Evolved into Mega-${opponent.data.name}\n")
                     }
@@ -93,7 +93,7 @@ abstract class Battle {
             }
         }
         endTurn(sb)
-        if (pokemon.currentHP > 0 && getBattleState() == State.IN_PROGRESS && pokemon.battleData!!.unableToMoveCounter == 1){
+        if (pokemon.currentHP > 0 && getBattleState() == State.IN_PROGRESS && pokemon.battleData!!.unableToMoveCounter == 1) {
             sb.append(pokemon.data.name + " needs to recharge!\n")
             sb.append(opponentTurn(opponent.ia(pokemon)))
             endTurn(sb)
@@ -122,7 +122,7 @@ abstract class Battle {
         val sb = StringBuilder()
         sb.append("${(pokemonToBeSent.trainer!! as Trainer).name} sends ${pokemonToBeSent.data.name}\n")
         switchPokemon(pokemonToBeSent)
-        sb.append(BattleUtils.abilitiesCheck(pokemon,opponent))
+        sb.append(BattleUtils.abilitiesCheck(pokemon, opponent))
         sb.append(opponentTurn(opponent.ia(pokemon)))
         endTurn(sb)
         dialogTextView.text = sb.toString()
@@ -212,33 +212,25 @@ abstract class Battle {
                 if (other.isMegaEvolved())
                     effectiveness = move.type.isEffectiveAgainst(other.data.megaEvolutionData!!.type1) *
                             move.type.isEffectiveAgainst(other.data.megaEvolutionData!!.type2)
-                if (move.type == Type.GROUND && other.hasAbility(Ability.LEVITATE))
-                    action += "Levitate: It does not affect ${other.data.name}!\n"
-                if (move.type == Type.ELECTRIC)
-                {
-                    if (other.hasAbility(Ability.VOLT_ABSORB))
-                        action += "Volt Absorb: ${other.data.name}'s HP was restored\n"
-                    if (other.hasAbility(Ability.LIGHTNING_ROD))
-                        action += "Lightning Rod: It does not affect ${other.data.name}!\n"
-                }
-                else if (move.type == Type.WATER && other.hasAbility(Ability.WATER_ABSORB))
-                    action += "Water Absorb: ${other.data.name}'s HP was restored\n"
-                else {
-                    if (effectiveness == 0f) {
+                if (move.type == Type.ELECTRIC && other.hasAbility(Ability.VOLT_ABSORB))
+                    return "Volt Absorb: ${other.data.name}'s HP was restored\n"
+                if (move.type == Type.WATER && other.hasAbility(Ability.WATER_ABSORB))
+                    return "Water Absorb: ${other.data.name}'s HP was restored\n"
+                when {
+                    effectiveness == 0f -> {
                         action += "It does not affect ${other.data.name}\n"
-                    } else if (effectiveness >= 2)
-                        action += "It's super effective!\n"
-                    else if (effectiveness < 1)
-                        action += "It's not very effective effective!\n"
+                    }
+                    effectiveness >= 2 -> action += "It's super effective!\n"
+                    effectiveness < 1 -> action += "It's not very effective effective!\n"
                 }
-            }
-            if (move is DrainMove)
-                action += "The opposing ${other.data.name} had its energy drained!\n"
-            else if (move is RecoilMove) {
-                action += if (attacker.hasAbility(Ability.ROCK_HEAD))
-                    "Rock Head: ${attacker.data.name} does not receive recoil damage!\n"
-                else
-                    "${attacker.data.name} is damaged by recoil!\n"
+                if (move is DrainMove)
+                    action += "The opposing ${other.data.name} had its energy drained!\n"
+                else if (move is RecoilMove) {
+                    action += if (attacker.hasAbility(Ability.ROCK_HEAD))
+                        "Rock Head: ${attacker.data.name} does not receive recoil damage!\n"
+                    else
+                        "${attacker.data.name} is damaged by recoil!\n"
+                }
             }
             return action
         }
@@ -253,7 +245,7 @@ abstract class Battle {
                 if (pokemon.battleData!!.trapCounter == 5) {
                     pokemon.battleData!!.battleStatus.remove(Status.TRAPPED)
                     pokemon.battleData!!.trapCounter = 0
-                } else {
+                } else if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
                     pokemon.currentHP =
                         if ((pokemon.hp / 8) >= pokemon.currentHP) 0 else pokemon.currentHP - (pokemon.hp / 8)
                 }
@@ -270,16 +262,14 @@ abstract class Battle {
                     details += pokemon.data.name + " fell asleep!\n"
                 }
             }
-            if (pokemon.battleData!!.battleStatus.contains(Status.UNABLE_TO_MOVE))
-            {
+            if (pokemon.battleData!!.battleStatus.contains(Status.UNABLE_TO_MOVE)) {
                 if (pokemon.battleData!!.unableToMoveCounter == 1) {
                     pokemon.battleData!!.battleStatus.remove(Status.UNABLE_TO_MOVE)
                     pokemon.battleData!!.unableToMoveCounter = 0
-                }
-                else
+                } else
                     pokemon.battleData!!.unableToMoveCounter++
             }
-            if (pokemon.status != Status.OK) {
+            if (pokemon.status != Status.OK && (!pokemon.hasAbility(Ability.MAGIC_GUARD) || pokemon.status != Status.OK)) {
                 when (pokemon.status) {
                     Status.POISON -> {
                         pokemon.currentHP -= pokemon.hp / 8

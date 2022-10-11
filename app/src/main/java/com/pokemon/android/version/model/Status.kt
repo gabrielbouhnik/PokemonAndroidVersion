@@ -15,7 +15,8 @@ enum class Status(var activeOutsideBattle: Boolean) {
     FLINCHED(false),
     TIRED(false),
     UNABLE_TO_MOVE(false),
-    TRAPPED(false);
+    TRAPPED(false),
+    FIRED_UP(false);
 
     fun toDetails(): String {
         return when (this) {

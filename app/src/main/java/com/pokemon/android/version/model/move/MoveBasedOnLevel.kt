@@ -14,8 +14,9 @@ open class MoveBasedOnLevel(
     priorityLevel: Int = 0,
     status: List<StatusMove>,
     highCritRate: Boolean = false,
-    description: String
-) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description) {
+    description: String,
+    characteristics : List<MoveCharacteristic> = listOf()
+) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description, characteristics) {
     companion object {
         fun of(moveBasedOnLevelEntity: MoveBasedOnLevelEntity): MoveBasedOnLevel {
             return MoveBasedOnLevelBuilder()
@@ -30,6 +31,7 @@ open class MoveBasedOnLevel(
                 .highCritRate(moveBasedOnLevelEntity.highCritRate)
                 .status(moveBasedOnLevelEntity.status.map(StatusMove::of))
                 .description(moveBasedOnLevelEntity.description)
+                .characteristics(moveBasedOnLevelEntity.characteristics.map{MoveCharacteristic.valueOf(it)})
                 .build()
         }
     }
@@ -45,7 +47,8 @@ open class MoveBasedOnLevel(
         var priorityLevel: Int = 0,
         var status: List<StatusMove> = arrayListOf(),
         var highCritRate: Boolean = false,
-        var description: String = ""
+        var description: String = "",
+        var characteristics : List<MoveCharacteristic> = listOf()
     ) {
         fun id(id: Int) = apply { this.id = id }
         fun name(name: String) = apply { this.name = name }
@@ -57,6 +60,7 @@ open class MoveBasedOnLevel(
         fun priorityLevel(priorityLevel: Int) = apply { this.priorityLevel = priorityLevel }
         fun highCritRate(highCritRate: Boolean) = apply { this.highCritRate = highCritRate }
         fun description(description: String) = apply { this.description = description }
+        fun characteristics(characteristics : List<MoveCharacteristic>) = apply { this.characteristics = characteristics }
         fun status(status: List<StatusMove>) = apply { this.status = status }
         fun build() =
             MoveBasedOnLevel(
@@ -70,7 +74,8 @@ open class MoveBasedOnLevel(
                 priorityLevel,
                 status,
                 highCritRate,
-                description
+                description,
+                characteristics
             )
     }
 }

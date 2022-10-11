@@ -4,11 +4,42 @@ import com.pokemon.android.version.model.Ability
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.move.Move
+import com.pokemon.android.version.model.move.MoveCharacteristic
+import kotlin.random.Random
 
 class BattleUtils {
     companion object {
+        fun contactMovesCheck(attacker: Pokemon, move: Move, opponent: Pokemon) : String{
+            val random: Int = Random.nextInt(100)
+            if (move.characteristics.contains(MoveCharacteristic.CONTACT) && random < 30){
+                if (attacker.hasAbility(Ability.POISON_TOUCH)
+                    && Status.isAffectedByStatus(0,Status.POISON, opponent)) {
+                        opponent.status = Status.POISON
+                        return "Poison Touch: ${opponent.data.name} is poisoned!\n"
+                }
+                if (opponent.hasAbility(Ability.POISON_POINT)
+                    && Status.isAffectedByStatus(0,Status.POISON, attacker)) {
+                    attacker.status = Status.POISON
+                    return "Poison Point: ${attacker.data.name} is poisoned!\n"
+                }
+                if (opponent.hasAbility(Ability.STATIC)
+                    && Status.isAffectedByStatus(0,Status.PARALYSIS, attacker)) {
+                    attacker.status = Status.PARALYSIS
+                    return "Static: ${attacker.data.name} is paralyzed!\n"
+                }
+                if (opponent.hasAbility(Ability.FLAME_BODY)
+                    && Status.isAffectedByStatus(0,Status.BURN, attacker)) {
+                    attacker.status = Status.BURN
+                    return "Flame Body: ${attacker.data.name} is burned!\n"
+                }
+            }
+            return ""
+        }
+
         fun abilitiesCheck(pokemon: Pokemon, opponent: Pokemon) : String{
             val sb = StringBuilder()
+            if (pokemon.hasAbility(Ability.PRESSURE))
+                sb.append("Pressure: ${pokemon.data.name} is exerting its pressure!\n")
             if (pokemon.hasAbility(Ability.INTIMIDATE)){
                 sb.append("Intimidate: ${opponent.data.name}'s attack fell!\n")
                 if (opponent.hasAbility(Ability.CLEAR_BODY))

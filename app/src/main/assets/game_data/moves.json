@@ -11,7 +11,8 @@
       "description": "Hard, pointed, sharp claws rake the target to inflict damage.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 2,
@@ -24,7 +25,8 @@
       "description": "A physical attack in which the user charges and slams into the target with its whole body.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 3,
@@ -37,7 +39,8 @@
       "description": "The user lunges at the target at a speed that makes it almost invisible. This move always goes first.",
       "priorityLevel": 1,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 4,
@@ -50,7 +53,8 @@
       "description": "A gust of wind is whipped up by wings and launched at the target to inflict damage.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 5,
@@ -63,7 +67,8 @@
       "description": "The target is struck with slender, whiplike vines to inflict damage.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 6,
@@ -76,7 +81,8 @@
       "description": "The target is blasted with a forceful shot of water.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 11,
@@ -89,7 +95,8 @@
       "description": "The target is jabbed with a sharply pointed beak or horn.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 14,
@@ -102,7 +109,8 @@
       "description": "The user throws a punch at blinding speed. This move always goes first.",
       "priorityLevel": 1,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 16,
@@ -115,7 +123,8 @@
       "description": "The target is struck with large, imposing wings spread wide to inflict damage.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 29,
@@ -128,7 +137,8 @@
       "description": "The user picks up and throws a small rock at the target to attack.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 36,
@@ -141,7 +151,8 @@
       "description": "The user picks up and throws a small rock at the target to attack.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 43,
@@ -154,7 +165,8 @@
       "description": "The user attacks everything around it by swamping its surroundings with a giant wave.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 44,
@@ -167,7 +179,8 @@
       "description": "The user damages opposing Pokémon by emitting a powerful flash.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 51,
@@ -180,7 +193,8 @@
       "description": "The user attacks with a ray of light that sparkles as if it were made of gemstones.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 56,
@@ -193,7 +207,8 @@
       "description": "The user slashes at the target by crossing its scythes or claws as if they were a pair of scissors. This move has a heightened chance of landing a critical hit.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": []
     },
     {
       "id": 64,
@@ -206,7 +221,8 @@
       "description": "The target is physically pounded with a long tail, a foreleg, or the like.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 69,
@@ -219,7 +235,8 @@
       "description": "The user attacks with a swift chop.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 75,
@@ -232,7 +249,8 @@
       "description": "The user charges the target at blinding speed. This move always goes first.",
       "priorityLevel": 2,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 79,
@@ -245,7 +263,8 @@
       "description": "The user attacks by swinging its tail as if it were a vicious wave in a raging storm.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 80,
@@ -258,7 +277,8 @@
       "description": "The target is blasted by a huge volume of water launched under great pressure.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 90,
@@ -271,7 +291,8 @@
       "description": "A corkscrewing attack that strikes the target with a sharp beak acting as a drill.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 93,
@@ -284,7 +305,8 @@
       "description": "The user sets off an earthquake that strikes every Pokémon around it.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 95,
@@ -297,7 +319,8 @@
       "description": "The user flash-freezes chunks of ice and hurls them at the target. This move always goes first.",
       "priorityLevel": 1,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 96,
@@ -310,7 +333,8 @@
       "description": "The user lunges at the target at a speed that makes it almost invisible. This move always goes first.",
       "priorityLevel": 1,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 104,
@@ -323,7 +347,8 @@
       "description": "The target is attacked with a shock wave generated by the user's gaping mouth.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 108,
@@ -336,7 +361,8 @@
       "description": "The user slashes the target with huge sharp claws.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 7,
@@ -354,7 +380,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 8,
@@ -372,7 +399,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 12,
@@ -390,7 +418,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 15,
@@ -408,7 +437,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 17,
@@ -426,7 +456,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 23,
@@ -444,7 +475,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 24,
@@ -462,7 +494,8 @@
           "probability": 20
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 25,
@@ -480,7 +513,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 28,
@@ -498,7 +532,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 31,
@@ -516,7 +551,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 34,
@@ -533,7 +569,8 @@
           "status": "POISON"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["POWDER"]
     },
     {
       "id": 35,
@@ -550,7 +587,8 @@
           "status": "ASLEEP"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["POWDER"]
     },
     {
       "id": 37,
@@ -568,7 +606,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 39,
@@ -586,7 +625,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 47,
@@ -604,7 +644,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 48,
@@ -621,7 +662,8 @@
           "status": "CONFUSED"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 50,
@@ -639,7 +681,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 52,
@@ -657,7 +700,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 53,
@@ -675,7 +719,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 54,
@@ -693,7 +738,8 @@
           "probability": 20
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 55,
@@ -710,7 +756,8 @@
           "status": "PARALYSIS"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 57,
@@ -728,7 +775,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 59,
@@ -746,7 +794,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 62,
@@ -764,7 +813,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 63,
@@ -782,7 +832,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 65,
@@ -800,7 +851,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 70,
@@ -818,7 +870,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 72,
@@ -836,7 +889,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 74,
@@ -854,7 +908,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 81,
@@ -872,7 +927,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 82,
@@ -890,7 +946,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 83,
@@ -907,7 +964,8 @@
           "status": "BADLY_POISON"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 85,
@@ -925,7 +983,8 @@
           "probability": 40
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 86,
@@ -943,7 +1002,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 88,
@@ -961,7 +1021,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 92,
@@ -979,7 +1040,8 @@
           "probability": 20
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 94,
@@ -996,7 +1058,8 @@
           "status": "ASLEEP"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 98,
@@ -1014,7 +1077,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 100,
@@ -1032,7 +1096,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 101,
@@ -1050,7 +1115,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 103,
@@ -1068,7 +1134,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 106,
@@ -1085,7 +1152,8 @@
           "status": "CONFUSED"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 107,
@@ -1103,7 +1171,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 109,
@@ -1116,7 +1185,8 @@
       "description": "Using its tough and impressive horn, the user rams into the target with no letup.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 110,
@@ -1134,7 +1204,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 9,
@@ -1147,7 +1218,8 @@
       "description": "The target is attacked with a sharp chop. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 18,
@@ -1160,7 +1232,8 @@
       "description": "Sharp-edged leaves are launched to slash at opposing Pokémon. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": []
     },
     {
       "id": 33,
@@ -1173,7 +1246,8 @@
       "description": "The user delivers a double chop with its forearms crossed. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 38,
@@ -1186,7 +1260,8 @@
       "description": "The target is attacked with a slash of claws or blades. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 49,
@@ -1199,7 +1274,8 @@
       "description": "The user launches razor-like wind to slash opposing Pokémon. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": []
     },
     {
       "id": 68,
@@ -1217,7 +1293,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 78,
@@ -1230,7 +1307,8 @@
       "description": "The user stabs the target from below with sharpened stones. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": []
     },
     {
       "id": 91,
@@ -1243,7 +1321,8 @@
       "description": "The user crashes into its target while rotating its body like a drill. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 112,
@@ -1255,7 +1334,8 @@
       "description": "Star-shaped rays are shot at opposing Pokémon. This attack never misses.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 113,
@@ -1267,7 +1347,8 @@
       "description": "The user confounds the target with speed, then slashes. This attack never misses.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 117,
@@ -1293,7 +1374,8 @@
           "probability": 7
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 118,
@@ -1315,7 +1397,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 119,
@@ -1337,7 +1420,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 120,
@@ -1359,7 +1443,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 121,
@@ -1372,7 +1457,8 @@
       "description": "The user handles a sharp leaf like a sword and attacks by cutting its target. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 123,
@@ -1385,7 +1471,8 @@
       "description": "The user slashes the target the instant an opportunity arises. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 124,
@@ -1397,7 +1484,8 @@
       "description": "The user lets loose a blast of aura power from deep within its body at the target. This attack never misses.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 127,
@@ -1410,7 +1498,8 @@
       "description": "The user strikes the target with tough punches as fast as bullets. This move always goes first.",
       "priorityLevel": 1,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 129,
@@ -1428,7 +1517,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": []
     },
     {
       "id": 130,
@@ -1445,7 +1535,8 @@
           "status": "TRAPPED"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 131,
@@ -1462,7 +1553,8 @@
           "status": "TRAPPED"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 136,
@@ -1480,7 +1572,8 @@
           "probability": 20
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 138,
@@ -1497,7 +1590,8 @@
           "status": "BURN"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 141,
@@ -1509,7 +1603,8 @@
       "description": "The user scatters curious leaves that chase the target. This attack never misses.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 143,
@@ -1522,7 +1617,8 @@
       "description": "The user violently whirls its vines, tentacles, or the like to harshly lash the target.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 146,
@@ -1539,7 +1635,8 @@
           "status": "TRAPPED"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 148,
@@ -1557,7 +1654,8 @@
           "probability": 20
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 152,
@@ -1570,7 +1668,8 @@
       "description": "The target is hammered with a large pincer. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 153,
@@ -1588,7 +1687,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 155,
@@ -1606,7 +1706,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 159,
@@ -1622,7 +1723,8 @@
           "status": "TIRED"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 160,
@@ -1639,7 +1741,8 @@
           "status": "TRAPPED"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 164,
@@ -1651,7 +1754,8 @@
       "description": "Letting out a charming cry, the user does emotional damage to opposing Pokémon. This attack never misses.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["SOUND"]
     },
     {
       "id": 165,
@@ -1668,7 +1772,8 @@
           "status": "ASLEEP"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["SOUND"]
     },
     {
       "id": 169,
@@ -1680,7 +1785,8 @@
       "description": "The user approaches the target disarmingly, then throws a sucker punch. This attack never misses.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 170,
@@ -1697,7 +1803,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "multipleHitMoves": [
@@ -1712,7 +1819,8 @@
       "description": "The target is quickly kicked twice in succession using both feet.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 162,
@@ -1725,7 +1833,8 @@
       "description": "The user slams the target with a long tail, vines, or a tentacle. The target is hit twice in a row.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 163,
@@ -1743,7 +1852,8 @@
           "probability": 20
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "movesBasedOnLevelEntity": [
@@ -1758,7 +1868,8 @@
       "description": "The target is thrown using the power of gravity. It inflicts damage equal to the user's level.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 168,
@@ -1771,7 +1882,8 @@
       "description": "The user makes the target see a frightening mirage. It inflicts damage equal to the user's level.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "variableHitMoves": [
@@ -1786,7 +1898,8 @@
       "description": "The target is jabbed repeatedly with a horn or beak two to five times in a row.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 61,
@@ -1799,7 +1912,8 @@
       "description": "Sharp spikes are shot at the target in rapid succession. They hit two to five times in a row.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 71,
@@ -1812,7 +1926,8 @@
       "description": "The user strikes the target with a hard bone two to five times in a row.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 77,
@@ -1825,7 +1940,8 @@
       "description": "The user hurls hard rocks at the target. Two to five rocks are launched in a row.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 99,
@@ -1838,7 +1954,8 @@
       "description": "The user launches sharp icicles at the target two to five times in a row.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 137,
@@ -1851,7 +1968,8 @@
       "description": "The user forcefully shoots seeds at the target two to five times in a row.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 151,
@@ -1864,7 +1982,8 @@
       "description": "The target is raked with sharp claws or scythes quickly two to five times in a row.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 174,
@@ -1882,7 +2001,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 180,
@@ -1894,7 +2014,8 @@
       "description": "The user attacks last. In return, this throw move never misses.",
       "priorityLevel": -1,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 181,
@@ -1907,7 +2028,8 @@
       "description": "The target is slugged with a punch thrown at maximum power.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 182,
@@ -1925,7 +2047,8 @@
           "probability": 50
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "statsChangesMoves": [
@@ -1946,7 +2069,8 @@
       "multiplicator": 1.5,
       "probability": 30,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 19,
@@ -1964,7 +2088,8 @@
       "target": "OPPONENT",
       "multiplicator": 0.75,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 20,
@@ -1981,7 +2106,8 @@
       "target": "SELF",
       "multiplicator": 1.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 21,
@@ -1998,7 +2124,8 @@
       "target": "SELF",
       "multiplicator": 2,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 22,
@@ -2015,7 +2142,8 @@
       "target": "SELF",
       "multiplicator": 2,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 26,
@@ -2033,7 +2161,8 @@
       "target": "OPPONENT",
       "multiplicator": 0.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 27,
@@ -2052,7 +2181,8 @@
       "multiplicator": 0.67,
       "probability": 20,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 32,
@@ -2069,7 +2199,8 @@
       "target": "SELF",
       "multiplicator": 1.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 40,
@@ -2088,7 +2219,8 @@
       "target": "SELF",
       "multiplicator": 0.67,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 41,
@@ -2106,7 +2238,8 @@
       "target": "OPPONENT",
       "multiplicator": 0.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 42,
@@ -2124,7 +2257,8 @@
       "target": "OPPONENT",
       "multiplicator": 0.75,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 45,
@@ -2143,7 +2277,8 @@
       "multiplicator": 0.67,
       "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 46,
@@ -2162,7 +2297,8 @@
       "multiplicator": 0.67,
       "probability": 20,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 30,
@@ -2180,7 +2316,8 @@
       "target": "OPPONENT",
       "multiplicator": 0.67,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 58,
@@ -2199,7 +2336,8 @@
       "multiplicator": 0.67,
       "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 60,
@@ -2218,7 +2356,8 @@
       "multiplicator": 0.67,
       "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["SOUND"]
     },
     {
       "id": 73,
@@ -2237,7 +2376,8 @@
       "multiplicator": 0.67,
       "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 84,
@@ -2256,7 +2396,8 @@
       "multiplicator": 0.67,
       "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 87,
@@ -2275,7 +2416,8 @@
       "multiplicator": 0.67,
       "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 89,
@@ -2294,7 +2436,8 @@
       "target": "SELF",
       "multiplicator": 0.67,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 97,
@@ -2312,7 +2455,8 @@
       "target": "OPPONENT",
       "multiplicator": 0.67,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 102,
@@ -2335,7 +2479,8 @@
       "multiplicator": 1.5,
       "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 105,
@@ -2354,7 +2499,8 @@
       "multiplicator": 0.67,
       "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 111,
@@ -2373,7 +2519,8 @@
       "multiplicator": 0.67,
       "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 114,
@@ -2390,7 +2537,8 @@
       "target": "SELF",
       "multiplicator": 2,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 122,
@@ -2410,7 +2558,8 @@
       "target": "SELF",
       "multiplicator": 1.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 125,
@@ -2429,7 +2578,8 @@
       "target": "SELF",
       "multiplicator": 1.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 126,
@@ -2448,7 +2598,8 @@
       "multiplicator": 0.67,
       "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 135,
@@ -2466,7 +2617,8 @@
       "target": "SELF",
       "multiplicator": 1.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 139,
@@ -2485,7 +2637,8 @@
       "multiplicator": 0.67,
       "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 140,
@@ -2503,7 +2656,8 @@
       "target": "SELF",
       "multiplicator": 1.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 142,
@@ -2521,7 +2675,8 @@
       "target": "SELF",
       "multiplicator": 0.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 144,
@@ -2538,7 +2693,8 @@
       "target": "SELF",
       "multiplicator": 2,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 145,
@@ -2556,7 +2712,8 @@
       "target": "OPPONENT",
       "multiplicator": 0.67,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 149,
@@ -2574,7 +2731,8 @@
       "target": "SELF",
       "multiplicator": 0.67,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 150,
@@ -2591,7 +2749,8 @@
       "target": "SELF",
       "multiplicator": 2,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 154,
@@ -2609,7 +2768,8 @@
       "target": "OPPONENT",
       "multiplicator": 0.75,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 156,
@@ -2626,7 +2786,8 @@
       "target": "SELF",
       "multiplicator": 2,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 157,
@@ -2643,7 +2804,8 @@
       "target": "SELF",
       "multiplicator": 2,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 158,
@@ -2662,7 +2824,8 @@
       "multiplicator": 1.5,
       "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 171,
@@ -2680,7 +2843,8 @@
       "target": "OPPONENT",
       "multiplicator": 0.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 172,
@@ -2698,7 +2862,8 @@
       "target": "SELF",
       "multiplicator": 1.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 173,
@@ -2715,7 +2880,8 @@
       "target": "SELF",
       "multiplicator": 2,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 175,
@@ -2733,7 +2899,8 @@
       "target": "OPPONENT",
       "multiplicator": 0.75,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 178,
@@ -2752,7 +2919,8 @@
       "multiplicator": 0.67,
       "probability": 30,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 179,
@@ -2771,7 +2939,28 @@
       "multiplicator": 1.5,
       "probability": 20,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 184,
+      "name": "Charge Beam",
+      "power": 50,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 4,
+      "accuracy": 90,
+      "description": "The user attacks the target with an electric charge. The user may use any remaining electricity to raise its Sp. Atk stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "probability": 70,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "drainMoves": [
@@ -2786,7 +2975,8 @@
       "description": "A nutrient-draining attack. The user's HP is restored by half the damage taken by the target.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 67,
@@ -2799,7 +2989,8 @@
       "description": "The user attacks by draining the target's nutrients. Some of the damage dealt to the target is absorbed by the user to restore their own HP.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 76,
@@ -2812,7 +3003,8 @@
       "description": "An energy-draining punch. The user's HP is restored by half the damage taken by the target.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 128,
@@ -2825,7 +3017,8 @@
       "description": "The user drains the target's blood. The user's HP is restored by half the damage taken by the target.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "recoilMoves": [
@@ -2841,7 +3034,8 @@
       "priorityLevel": 0,
       "recoil": "QUARTER",
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 116,
@@ -2860,7 +3054,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 147,
@@ -2874,7 +3069,8 @@
       "priorityLevel": 0,
       "recoil": "THIRD",
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "healMoves": [
@@ -2886,7 +3082,8 @@
       "pp": 10,
       "type": 5,
       "description": "The user recovers half of its maximum HP.",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "characteristics": []
     },
     {
       "id": 133,
@@ -2896,7 +3093,8 @@
       "pp": 5,
       "type": 1,
       "description": "The user recovers half of its maximum HP.",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "characteristics": []
     },
     {
       "id": 134,
@@ -2906,7 +3104,8 @@
       "pp": 10,
       "type": 5,
       "description": "The user recovers half of its maximum HP.",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "characteristics": []
     },
     {
       "id": 166,
@@ -2916,7 +3115,8 @@
       "pp": 5,
       "type": 18,
       "description": "The user recovers half of its maximum HP.",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "characteristics": []
     }
   ],
   "ultimateMoves": [
@@ -2931,7 +3131,8 @@
       "description": "The target is attacked with a powerful beam. The user can't move on the next turn.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 177,
@@ -2944,7 +3145,8 @@
       "description": "The user charges at the target using every bit of its power. The user can't move on the next turn.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 183,
@@ -2957,7 +3159,8 @@
       "description": "The user launches a huge boulder at the target to attack. The user can't move on the next turn.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     }
   ]
 }
