@@ -39,9 +39,9 @@ class DamageCalculator {
                 }
                 val random: Float = Random.nextInt(85, 100).toFloat() / 100f
                 val offensiveStat: Int =
-                    if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * attacker.battleData!!.spAtkMultiplicator).roundToInt()
+                    if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * if (attacker.hasAbility(Ability.UNAWARE)) 1f else attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * if (attacker.hasAbility(Ability.UNAWARE)) 1f else attacker.battleData!!.spAtkMultiplicator).roundToInt()
                 val defensiveStat: Int =
-                    if (move.category == MoveCategory.PHYSICAL) (opponent.defense.toFloat() * opponent.battleData!!.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * opponent.battleData!!.spDefMultiplicator).roundToInt()
+                    if (move.category == MoveCategory.PHYSICAL) (opponent.defense.toFloat() * if (attacker.hasAbility(Ability.UNAWARE)) 1f else opponent.battleData!!.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * if (attacker.hasAbility(Ability.UNAWARE)) 1f else opponent.battleData!!.spDefMultiplicator).roundToInt()
                 ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * power * offensiveStat) / (defensiveStat * 50)) + 2) * type * stab * multiplicator * random).roundToInt()
             } catch (e : Exception){
                 0

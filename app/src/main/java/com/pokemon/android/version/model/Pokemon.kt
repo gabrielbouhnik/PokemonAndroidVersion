@@ -162,8 +162,14 @@ class Pokemon(
         }
         if (this.battleData!!.battleStatus.contains(Status.UNABLE_TO_MOVE))
             return AttackResponse(false, "${this.data.name} needs to rest!\n")
-        if (this.battleData!!.battleStatus.contains(Status.FLINCHED))
-            return AttackResponse(false, "${this.data.name} flinched and couldn't move\n")
+        if (this.battleData!!.battleStatus.contains(Status.FLINCHED)) {
+            var reason = "${this.data.name} flinched and couldn't move\n"
+            if (this.hasAbility(Ability.STEADFAST)){
+                reason += "Steadfast: ${this.data.name}'s speed rose!\n"
+                this.battleData!!.speedMultiplicator *= 1.5f
+            }
+            return AttackResponse(false, reason)
+        }
         if (this.battleData!!.battleStatus.contains(Status.CONFUSED)) {
             if (Random.nextInt(100) < 33) {
                 val confusionDamage = DamageCalculator.computeConfusionDamage(this)

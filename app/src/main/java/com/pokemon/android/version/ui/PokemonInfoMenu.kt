@@ -50,6 +50,28 @@ class PokemonInfoMenu(var parentId: Int) {
         }
 
         val imageView: ImageView = activity.findViewById(R.id.pokemonSpriteDetailsView)
+
+        val abiltiesButton: Button = activity.findViewById(R.id.abilitiesButton)
+        abiltiesButton.setOnClickListener {
+            activity.setContentView(R.layout.ability_layout)
+            val recyclerView = activity.findViewById<RecyclerView>(R.id.abilityRecyclerView)
+            recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+            val adapter = AbilityRecyclerAdapter(activity, pokemon.data.abilities)
+            recyclerView.adapter = adapter
+            val backButton: Button = activity.findViewById(R.id.abilitiesMenuBackButton)
+            backButton.setOnClickListener {
+                if (moveDetailsMenu.parent == R.layout.battle_frontier_prep) {
+                    activity.mainMenu.battleFrontierMenu.loadPokemonInfoLayout(
+                        activity,
+                        pokemon,
+                        BattleFrontierArea.BATTLE_FACTORY
+                    )
+                } else {
+                    activity.mainMenu.pokemonMenu.pokemonInfoMenu.loadPokemonInfoLayout(activity, pokemon)
+                }
+            }
+        }
+
         activity.displayPokemon(pokemon.data.id, imageView)
     }
 

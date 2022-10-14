@@ -39,17 +39,17 @@ open class MoveBasedOnHP(
 
         fun getPower(pokemon: Pokemon): Int{
             val hpLeft : Float = pokemon.currentHP.toFloat()/pokemon.hp.toFloat()
-            if (hpLeft > 70)
+            if (hpLeft > 0.7f)
                 return 20
-            if (hpLeft > 36)
+            if (hpLeft > 0.36f)
                 return 40
-            if (hpLeft > 21)
+            if (hpLeft > 0.21f)
                 return 80
-            if (hpLeft > 11)
-                return 1000
-            if (hpLeft > 5)
+            if (hpLeft > 0.11f)
+                return 100
+            if (hpLeft > 0.05f)
                 return 150
-            return 200;
+            return 200
         }
     }
 

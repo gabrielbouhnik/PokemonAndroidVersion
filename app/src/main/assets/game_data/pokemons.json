@@ -2240,7 +2240,7 @@
     "speed": 60,
     "catchRate": 25,
     "evolutions": [],
-    "abilities": ["MAGIC_GUARD"],
+    "abilities": ["MAGIC_GUARD","UNAWARE"],
     "expGaugeType":  "FAST"
   },
   {
@@ -4126,7 +4126,7 @@
         }
       }
     ],
-    "abilities": ["GUTS","NO_GUARD"],
+    "abilities": ["GUTS","NO_GUARD","STEADFAST"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -4195,7 +4195,7 @@
         }
       }
     ],
-    "abilities": ["GUTS","NO_GUARD"],
+    "abilities": ["GUTS","NO_GUARD","STEADFAST"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -4257,7 +4257,7 @@
     "speed": 55,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["NO_GUARD","GUTS"],
+    "abilities": ["NO_GUARD","GUTS","STEADFAST"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -9045,7 +9045,7 @@
     "speed": 100,
     "catchRate": 3,
     "evolutions": [],
-    "abilities": ["PRESSURE"],
+    "abilities": ["PRESSURE","STATIC"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -10483,7 +10483,7 @@
     "speed": 35,
     "catchRate": 90,
     "evolutions": [],
-    "abilities": ["WATER_ABSORB"],
+    "abilities": ["WATER_ABSORB","UNAWARE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -11832,7 +11832,7 @@
     "speed": 70,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["TECHNICIAN"],
+    "abilities": ["TECHNICIAN","STEADFAST"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -13480,7 +13480,7 @@
     "speed": 80,
     "catchRate": 30,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["SUPER_LUCK"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
