@@ -15,7 +15,8 @@ enum class Status(var activeOutsideBattle: Boolean) {
     FLINCHED(false),
     TIRED(false),
     UNABLE_TO_MOVE(false),
-    TRAPPED(false),
+    TRAPPED_WITH_DAMAGE(false),
+    TRAPPED_WITHOUT_DAMAGE(false),
     FIRED_UP(false);
 
     fun toDetails(): String {
@@ -54,7 +55,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
                             if (opponent.hasAbility(Ability.GUTS))
                                 opponent.battleData!!.attackMultiplicator *= 1.5f
                             if (opponent.hasAbility(Ability.SYNCHRONIZE)
-                                && isAffectedByStatus(move.id, it.status, attacker)){
+                                && isAffectedByStatus(0, it.status, attacker)){
                                     attacker.status = it.status
                                     details += "Synchronize: ${attacker.data.name} " + it.status.toDetails() + "\n"
                                 }
@@ -75,7 +76,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
                             }
                             else {
                                 opponent.battleData!!.battleStatus.add(it.status)
-                                if (it.status == TRAPPED)
+                                if (it.status == TRAPPED_WITH_DAMAGE || it.status == TRAPPED_WITHOUT_DAMAGE)
                                     details = "${opponent.data.name} is trapped!\n"
                                 if (it.status == TIRED && opponent.status == OK)
                                     details = "${opponent.data.name} gets drowsy!\n"

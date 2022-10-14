@@ -1532,7 +1532,7 @@
       "priorityLevel": 0,
       "status": [
         {
-          "status": "TRAPPED"
+          "status": "TRAPPED_WITH_DAMAGE"
         }
       ],
       "highCritRate": false,
@@ -1550,7 +1550,7 @@
       "priorityLevel": 0,
       "status": [
         {
-          "status": "TRAPPED"
+          "status": "TRAPPED_WITH_DAMAGE"
         }
       ],
       "highCritRate": false,
@@ -1632,7 +1632,7 @@
       "priorityLevel": 0,
       "status": [
         {
-          "status": "TRAPPED"
+          "status": "TRAPPED_WITH_DAMAGE"
         }
       ],
       "highCritRate": false,
@@ -1738,7 +1738,7 @@
       "priorityLevel": 0,
       "status": [
         {
-          "status": "TRAPPED"
+          "status": "TRAPPED_WITH_DAMAGE"
         }
       ],
       "highCritRate": false,
@@ -1803,6 +1803,63 @@
           "probability": 30
         }
       ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 185,
+      "name": "Teleport",
+      "power": 0,
+      "pp": 20,
+      "type": 12,
+      "category": "OTHER",
+      "description": "The user switches places with a party Pokémon in waiting, if any. If a wild Pokémon uses this move, it flees.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 186,
+      "name": "Transform",
+      "power": 0,
+      "pp": 10,
+      "type": 5,
+      "category": "OTHER",
+      "description": "The user transforms into a copy of the target right down to having the same move set.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 188,
+      "name": "Mean Look",
+      "power": 0,
+      "pp": 5,
+      "type": 5,
+      "category": "OTHER",
+      "description": "The user affixes the foe with a dark, arresting look. The target becomes unable to flee.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "TRAPPED_WITHOUT_DAMAGE"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 189,
+      "name": "Fairy Wind",
+      "power": 40,
+      "pp": 30,
+      "type": 18,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user stirs up a fairy wind and strikes the target with it.",
+      "priorityLevel": 0,
+      "status": [],
       "highCritRate": false,
       "characteristics": []
     }
@@ -3117,6 +3174,17 @@
       "description": "The user recovers half of its maximum HP.",
       "priorityLevel": 0,
       "characteristics": []
+    },
+    {
+      "id": 187,
+      "name": "Soft-Boiled",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 10,
+      "type": 5,
+      "description": "The user recovers half of its maximum HP.",
+      "priorityLevel": 0,
+      "characteristics": []
     }
   ],
   "ultimateMoves": [
@@ -3161,6 +3229,36 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    }
+  ],
+  "movesBasedOnHPEntity": [
+    {
+      "id": 191,
+      "name": "Reversal",
+      "power": 1,
+      "pp": 15,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "An all-out attack that becomes more powerful the less HP the user has.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 190,
+      "name": "Flail",
+      "power": 1,
+      "pp": 15,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user flails about aimlessly to attack. The less HP the user has, the greater the move's power.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ]
 }

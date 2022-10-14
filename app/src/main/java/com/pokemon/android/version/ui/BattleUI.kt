@@ -425,7 +425,8 @@ class BattleUI {
         val bagButton: Button = activity.findViewById(R.id.bagButton)
         val switchButton: Button = activity.findViewById(R.id.switchPokemonButton)
         switchButton.setOnClickListener {
-            if (!battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED)) {
+            if (!battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
+                && !battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)) {
                 megaEvolve = false
                 val closeButton: Button = activity.findViewById(R.id.closeTeamButton)
                 closeButton.visibility = VISIBLE

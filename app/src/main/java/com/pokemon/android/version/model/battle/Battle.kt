@@ -5,9 +5,6 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.model.*
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.level.LevelData
-import com.pokemon.android.version.model.move.DrainMove
-import com.pokemon.android.version.model.move.Move
-import com.pokemon.android.version.model.move.RecoilMove
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.ItemUtils
@@ -35,9 +32,8 @@ abstract class Battle {
         return if (!opponentResponse.success)
             action + opponentResponse.reason
         else {
-            action +=
+            action +
                 "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}\n" + opponentResponse.reason
-            action + getTurnDescription(opponent, pokemon, opponentPokemonMove.move)
         }
     }
 
@@ -52,8 +48,7 @@ abstract class Battle {
         return if (!response.success)
             action + response.reason
         else {
-            action += "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n" + response.reason
-            action + getTurnDescription(pokemon, opponent, trainerPokemonMove.move)
+            action + "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n" + response.reason
         }
     }
 
@@ -159,17 +154,25 @@ abstract class Battle {
     protected fun endTurn(sb: StringBuilder) {
         if (opponent.currentHP > 0) {
             sb.append(checkStatus(opponent))
-            if (pokemon.currentHP == 0 && opponent.battleData!!.battleStatus.contains(Status.TRAPPED))
-                opponent.battleData!!.battleStatus.remove(Status.TRAPPED)
-            if (opponent.hasAbility(Ability.SPEED_BOOST)) {
+            if (pokemon.currentHP == 0){
+                if (opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE))
+                    opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
+                if (opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE))
+                    opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE)
+            }
+            if (opponent.hasAbility(Ability.SPEED_BOOST) && opponent.battleData != null) {
                 opponent.battleData!!.speedMultiplicator *= 1.5f
                 sb.append("Speed Boost: the opposing ${opponent.data.name}'s speed rose!\n")
             }
         }
         if (pokemon.currentHP > 0) {
+            if (opponent.currentHP == 0){
+                if (pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE))
+                    pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
+                if (pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE))
+                    pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE)
+            }
             sb.append(checkStatus(pokemon))
-            if (opponent.currentHP == 0 && pokemon.battleData!!.battleStatus.contains(Status.TRAPPED))
-                pokemon.battleData!!.battleStatus.remove(Status.TRAPPED)
             if (pokemon.hasAbility(Ability.SPEED_BOOST) && pokemon.battleData != null) {
                 pokemon.battleData!!.speedMultiplicator *= 1.5f
                 sb.append("Speed Boost: ${pokemon.data.name}'s speed rose!\n")
@@ -204,46 +207,16 @@ abstract class Battle {
     }
 
     companion object {
-        protected fun getTurnDescription(attacker: Pokemon, other: Pokemon, move: Move): String {
-            var action = ""
-            if (move.power > 0) {
-                var effectiveness = move.type.isEffectiveAgainst(other.data.type1) *
-                        move.type.isEffectiveAgainst(other.data.type2)
-                if (other.isMegaEvolved())
-                    effectiveness = move.type.isEffectiveAgainst(other.data.megaEvolutionData!!.type1) *
-                            move.type.isEffectiveAgainst(other.data.megaEvolutionData!!.type2)
-                if (move.type == Type.ELECTRIC && other.hasAbility(Ability.VOLT_ABSORB))
-                    return "Volt Absorb: ${other.data.name}'s HP was restored\n"
-                if (move.type == Type.WATER && other.hasAbility(Ability.WATER_ABSORB))
-                    return "Water Absorb: ${other.data.name}'s HP was restored\n"
-                when {
-                    effectiveness == 0f -> {
-                        action += "It does not affect ${other.data.name}\n"
-                    }
-                    effectiveness >= 2 -> action += "It's super effective!\n"
-                    effectiveness < 1 -> action += "It's not very effective effective!\n"
-                }
-                if (move is DrainMove)
-                    action += "The opposing ${other.data.name} had its energy drained!\n"
-                else if (move is RecoilMove) {
-                    action += if (attacker.hasAbility(Ability.ROCK_HEAD))
-                        "Rock Head: ${attacker.data.name} does not receive recoil damage!\n"
-                    else
-                        "${attacker.data.name} is damaged by recoil!\n"
-                }
-            }
-            return action
-        }
 
         fun checkStatus(pokemon: Pokemon): String {
             var details = ""
             if (pokemon.battleData!!.battleStatus.contains(Status.CONFUSED)) {
                 pokemon.battleData!!.confusionCounter++
             }
-            if (pokemon.battleData!!.battleStatus.contains(Status.TRAPPED)) {
+            if (pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)) {
                 pokemon.battleData!!.trapCounter++
                 if (pokemon.battleData!!.trapCounter == 5) {
-                    pokemon.battleData!!.battleStatus.remove(Status.TRAPPED)
+                    pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
                     pokemon.battleData!!.trapCounter = 0
                 } else if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
                     pokemon.currentHP =

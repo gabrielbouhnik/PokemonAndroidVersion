@@ -5,5 +5,5 @@ data class MovesEntity(
     var statsChangesMoves: List<StatChangeMoveEntity>, var drainMoves: List<DrainMoveEntity>,
     var recoilMoves: List<RecoilMoveEntity>, var healMoves: List<HealMoveEntity>,
     var multipleHitMoves : List<MultipleHitMoveEntity>, var movesBasedOnLevelEntity : List<MoveBasedOnLevelEntity>,
-    var ultimateMoves: List<MoveEntity>
+    var ultimateMoves: List<MoveEntity>, var movesBasedOnHPEntity: List<MoveEntity>
 )

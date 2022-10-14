@@ -3,6 +3,7 @@ package com.pokemon.android.version.utils
 import com.pokemon.android.version.model.Ability
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
+import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveCharacteristic
 import kotlin.random.Random
@@ -50,6 +51,26 @@ class BattleUtils {
             if (pokemon.hasAbility(Ability.SUPER_LUCK))
                 pokemon.battleData!!.criticalRate *= 1.5f
             return sb.toString()
+        }
+
+        fun getEffectiveness(move: Move, opponent: Pokemon) : String{
+            var effectiveness = move.type.isEffectiveAgainst(opponent.data.type1) *
+                    move.type.isEffectiveAgainst(opponent.data.type2)
+            if (opponent.isMegaEvolved())
+                effectiveness = move.type.isEffectiveAgainst(opponent.data.megaEvolutionData!!.type1) *
+                        move.type.isEffectiveAgainst(opponent.data.megaEvolutionData!!.type2)
+            if (move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))
+                return "Volt Absorb: ${opponent.data.name}'s HP was restored\n"
+            if (move.type == Type.WATER && opponent.hasAbility(Ability.WATER_ABSORB))
+                return "Water Absorb: ${opponent.data.name}'s HP was restored\n"
+            return when {
+                effectiveness == 0f -> {
+                    "It does not affect ${opponent.data.name}\n"
+                }
+                effectiveness >= 2 -> "It's super effective!\n"
+                effectiveness < 1f -> "It's not very effective effective!\n"
+                else -> ""
+            }
         }
 
         fun trainerStarts(pokemon: Pokemon, other: Pokemon, move: Move, opponentMove: Move): Boolean {

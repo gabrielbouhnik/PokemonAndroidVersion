@@ -10,6 +10,7 @@ import com.pokemon.android.version.model.banner.Banner
 import com.pokemon.android.version.model.banner.ItemBanner
 import com.pokemon.android.version.model.banner.PokemonBanner
 import com.pokemon.android.version.model.banner.Summonable
+import com.pokemon.android.version.ui.PokedexMenu.Companion.ADMIN
 import com.pokemon.android.version.utils.DateUtils
 import java.time.DayOfWeek
 import java.util.*
@@ -34,7 +35,7 @@ class BannerMenu {
             recyclerView.adapter =
                 BannerRecyclerAdapter(activity, (banners.filter { !it.image.contains("tm_banner") }).toMutableList())
         else
-            recyclerView.adapter = BannerRecyclerAdapter(activity, banners)
+            recyclerView.adapter = BannerRecyclerAdapter(activity, if (activity.trainer!!.name == ADMIN) activity.gameDataService.banners else banners)
     }
 
     fun loadSummonResultScreen(activity: MainActivity, banner: Banner, s: Summonable) {

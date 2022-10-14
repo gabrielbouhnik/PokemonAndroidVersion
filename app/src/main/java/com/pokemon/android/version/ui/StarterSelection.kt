@@ -12,6 +12,7 @@ import com.pokemon.android.version.R
 import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Trainer
+import com.pokemon.android.version.utils.ItemUtils
 import com.pokemon.android.version.utils.ItemUtils.Companion.POKEBALL_ID
 
 class StarterSelection {
@@ -34,12 +35,29 @@ class StarterSelection {
         submitButton.setOnClickListener {
             val gender: Gender = if (genderSwitch.isChecked) Gender.FEMALE else Gender.MALE
             activity.trainer = Trainer(characterName.text.toString(), gender)
-            activity.trainer!!.addItem(POKEBALL_ID, 3)
-            submitButton.visibility = GONE
-            genderSwitch.visibility = GONE
-            characterName.visibility = GONE
-            activity.displayStarters()
-            oakTextView.text = "Before starting your journey, choose one of these 3 pokemon"
+            if (characterName.text.toString() == PokedexMenu.ADMIN) {
+                for (pokemon in activity.gameDataService.pokemons) {
+                    if (pokemon.id < 151 || pokemon.movesByTM.size > 1)
+                        activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(pokemon.id,80))
+                }
+                activity.trainer!!.progression = 83
+                activity.trainer!!.coins = 25000
+                for (i in 1..75) {
+                    val quantity =  if (!ItemUtils.isBadge(i) && i != 30) 50 else 1
+                    activity.trainer!!.addItem(i, quantity)
+                }
+                SaveManager.save(activity)
+                activity.updateMusic(R.raw.main_menu)
+                activity.mainMenu.loadGameMenu(activity)
+            }
+            else {
+                activity.trainer!!.addItem(POKEBALL_ID, 3)
+                submitButton.visibility = GONE
+                genderSwitch.visibility = GONE
+                characterName.visibility = GONE
+                activity.displayStarters()
+                oakTextView.text = "Before starting your journey, choose one of these 3 pokemon"
+            }
         }
     }
 

@@ -149,7 +149,7 @@ class Pokemon(
             if (battleData!!.sleepCounter == 3) {
                 battleData!!.sleepCounter = 0
                 this.status = Status.OK
-            } else if (battleData!!.sleepCounter > 0){
+            } else if (battleData!!.sleepCounter > 1){
                 if (Random.nextInt(100) < 30){
                     battleData!!.sleepCounter = 0
                     this.status = Status.OK
@@ -296,6 +296,8 @@ class Pokemon(
 
             }
         }
+        if (move.move.power > 0)
+            details += BattleUtils.getEffectiveness(move.move,opponent)
         val damageDone: Int
         if (damage >= opponent.currentHP) {
             if (opponent.currentHP == opponent.hp && opponent.hasAbility(Ability.STURDY)) {
@@ -313,7 +315,7 @@ class Pokemon(
             opponent.currentHP = opponent.currentHP - damage
             if (move.move.type == Type.FIRE && opponent.status == Status.FROZEN)
                 opponent.status = Status.OK
-            if (!this.hasAbility(Ability.SHEER_FORCE) && move.move.power == 0 || damage > 0 && move.move.status.isNotEmpty()) {
+            if (!this.hasAbility(Ability.SHEER_FORCE) && (move.move.power == 0 || damage > 0 && move.move.status.isNotEmpty())) {
                 details += Status.updateStatus(this, opponent, move.move)
             }
             if (!this.hasAbility(Ability.SHEER_FORCE) && move.move is StatChangeMove && (move.move.power == 0 || damage > 0)) {
@@ -335,16 +337,24 @@ class Pokemon(
                 currentHP = if (damageDone / 2 > currentHP) 0 else currentHP - damageDone / 2
                 details += "Liquid Ooze: ${this.data.name} loses some hp.\n"
             }
-            else
+            else {
                 currentHP = if (currentHP + damageDone / 2 > hp) hp else currentHP + damageDone / 2
+                details += "The opposing ${opponent.data.name} had its energy drained!\n"
+            }
         }
-        if (move.move is RecoilMove && !this.hasAbility(Ability.ROCK_HEAD)) {
-            val recoil = (move.move as RecoilMove).recoil
-            if (currentHP > (damageDone * recoil.damage).toInt()) {
-                currentHP -= (damageDone * recoil.damage).toInt()
-            } else {
-                currentHP = 0
-                status = Status.OK
+        if (move.move is RecoilMove) {
+            if (!this.hasAbility(Ability.ROCK_HEAD)) {
+                val recoil = (move.move as RecoilMove).recoil
+                if (currentHP > (damageDone * recoil.damage).toInt()) {
+                    currentHP -= (damageDone * recoil.damage).toInt()
+                } else {
+                    currentHP = 0
+                    status = Status.OK
+                }
+                details += "${this.data.name} is damaged by recoil!\n"
+            }
+            else{
+                details += "Rock Head: ${this.data.name} does not receive recoil damage!\n"
             }
         }
         details += BattleUtils.contactMovesCheck(this, move.move, opponent)

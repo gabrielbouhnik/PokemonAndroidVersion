@@ -45,6 +45,97 @@
     ]
   },
   {
+    "image": "images/banners/marill_banner.JPG",
+    "description": "Get a special Marill with move Aqua Jet",
+    "cost": 100,
+    "pokemons": [
+      {
+        "id": 183,
+        "rate": 5,
+        "moveIds": [
+          2,
+          6,
+          96
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": 2,
+        "rate": 15
+      },
+      {
+        "id": 4,
+        "rate": 15
+      },
+      {
+        "id": 8,
+        "rate": 10
+      },
+      {
+        "id": 9,
+        "rate": 15
+      },
+      {
+        "id": 11,
+        "rate": 30
+      },
+      {
+        "id": 12,
+        "rate": 10
+      }
+    ],
+    "days": [
+      "TUESDAY",
+      "THURSDAY"
+    ]
+  },
+  {
+    "image": "images/banners/togepi_banner.JPG",
+    "description": "Get a special Togepi with the move Extrasensory",
+    "cost": 100,
+    "pokemons": [
+      {
+        "id": 175,
+        "rate": 5,
+        "moveIds": [
+          64,
+          81
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": 2,
+        "rate": 15
+      },
+      {
+        "id": 4,
+        "rate": 15
+      },
+      {
+        "id": 8,
+        "rate": 10
+      },
+      {
+        "id": 9,
+        "rate": 15
+      },
+      {
+        "id": 11,
+        "rate": 30
+      },
+      {
+        "id": 12,
+        "rate": 10
+      }
+    ],
+    "days": [
+      "MONDAY",
+      "THURSDAY"
+    ]
+  },
+  {
     "image": "images/banners/magby_banner.JPG",
     "description": "Get a special Magby with the moves Mach Punch and Cross Chop",
     "cost": 100,
@@ -220,7 +311,7 @@
     ],
     "days": [
       "TUESDAY",
-      "THURSDAY"
+      "SATURDAY"
     ]
   },
   {
@@ -473,7 +564,7 @@
       },
       {
         "id": 4,
-        "rate": 15
+        "rate": 10
       },
       {
         "id": 9,
@@ -493,6 +584,10 @@
       },
       {
         "id": 27,
+        "rate": 5
+      },
+      {
+        "id": 29,
         "rate": 5
       },
       {

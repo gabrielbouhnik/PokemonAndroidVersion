@@ -31,6 +31,7 @@ class DamageCalculator {
                 if (attacker.status == Status.BURN)
                     multiplicator *= 0.5f
             }
+            val power = if (move is MoveBasedOnHP) MoveBasedOnHP.getPower(attacker) else move.power
             return try {
                 var type: Float = move.type.isEffectiveAgainst(opponent.data.type2) * move.type.isEffectiveAgainst(opponent.data.type1)
                 if (opponent.isMegaEvolved()){
@@ -41,7 +42,7 @@ class DamageCalculator {
                     if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * attacker.battleData!!.spAtkMultiplicator).roundToInt()
                 val defensiveStat: Int =
                     if (move.category == MoveCategory.PHYSICAL) (opponent.defense.toFloat() * opponent.battleData!!.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * opponent.battleData!!.spDefMultiplicator).roundToInt()
-                ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * move.power * offensiveStat) / (defensiveStat * 50)) + 2) * type * stab * multiplicator * random).roundToInt()
+                ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * power * offensiveStat) / (defensiveStat * 50)) + 2) * type * stab * multiplicator * random).roundToInt()
             } catch (e : Exception){
                 0
             }
@@ -68,7 +69,7 @@ class DamageCalculator {
                 if (attacker.status == Status.BURN)
                     multiplicator *= 0.5f
             }
-            var power : Float = move.power.toFloat()
+            var power : Float = if (move is MoveBasedOnHP) MoveBasedOnHP.getPower(attacker).toFloat() else move.power.toFloat()
             if (attacker.hasAbility(Ability.SHEER_FORCE) && (move.status.isNotEmpty() || move is StatChangeMove))
                 power *= 1.3f
             if (move.power <= 60 && attacker.hasAbility(Ability.TECHNICIAN))
