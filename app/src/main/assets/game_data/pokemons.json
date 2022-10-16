@@ -3636,7 +3636,7 @@
         }
       }
     ],
-    "abilities": ["INTIMIDATE"],
+    "abilities": ["INTIMIDATE","FLASH_FIRE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -3711,7 +3711,7 @@
     "speed": 95,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["INTIMIDATE"],
+    "abilities": ["INTIMIDATE","FLASH_FIRE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -5007,7 +5007,7 @@
         }
       }
     ],
-    "abilities": ["OWN_TEMPO"],
+    "abilities": ["OWN_TEMPO","REGENERATOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -5081,7 +5081,7 @@
     "speed": 30,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["OWN_TEMPO"],
+    "abilities": ["OWN_TEMPO","REGENERATOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7139,7 +7139,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["REGENERATOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7723,7 +7723,7 @@
         }
       }
     ],
-    "abilities": ["TECHNICIAN","SWARM"],
+    "abilities": ["TECHNICIAN","SWARM","STEADFAST"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7759,7 +7759,11 @@
         },
         {
           "moveId": 188,
-          "level": 46
+          "level": 40
+        },
+        {
+          "moveId": 100,
+          "level": 48
         }
       ],
       "movesLearnWithTM": [45,46,69,100,105,107,135,139],
@@ -8309,7 +8313,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["ADAPTABILITY"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -9150,7 +9154,7 @@
       ],
       "bannerMoves": [
         15,
-        24
+        96
       ]
     },
     "hp": 41,
@@ -9219,7 +9223,7 @@
       ],
       "bannerMoves": [
         15,
-        24
+        96
       ]
     },
     "hp": 61,
@@ -9311,7 +9315,7 @@
       ],
       "bannerMoves": [
         15,
-        24
+        96
       ]
     },
     "hp": 91,
@@ -9771,6 +9775,67 @@
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
+    "id": 170,
+    "name": "Chinchou",
+    "type1": 3,
+    "type2": 4,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 6,
+          "level": 1
+        },
+        {
+          "moveId": 55,
+          "level": 8
+        },
+        {
+          "moveId": 126,
+          "level": 12
+        },
+        {
+          "moveId": 48,
+          "level": 16
+        },
+        {
+          "moveId": 52,
+          "level": 20
+        },
+        {
+          "moveId": 53,
+          "level": 28
+        },
+        {
+          "moveId": 115,
+          "level": 40
+        },
+        {
+          "moveId": 80,
+          "level": 44
+        }
+      ],
+      "movesLearnWithTM": [12,43,55,72,100,136],
+      "bannerMoves": []
+    },
+    "hp": 75,
+    "attack": 38,
+    "defense": 38,
+    "spAtk": 56,
+    "spDef": 56,
+    "speed": 67,
+    "catchRate": 100,
+    "evolutions": [
+      {
+        "evolutionId": 171,
+        "evolutionCondition": {
+          "level": 27
+        }
+      }
+    ],
+    "abilities": ["WATER_ABSORB","VOLT_ABSORB"],
+    "expGaugeType":  "SLOW"
+  },
+  {
     "id": 171,
     "name": "Lanturn",
     "type1": 3,
@@ -9780,9 +9845,37 @@
         {
           "moveId": 6,
           "level": 1
+        },
+        {
+          "moveId": 55,
+          "level": 8
+        },
+        {
+          "moveId": 126,
+          "level": 12
+        },
+        {
+          "moveId": 48,
+          "level": 16
+        },
+        {
+          "moveId": 52,
+          "level": 20
+        },
+        {
+          "moveId": 53,
+          "level": 30
+        },
+        {
+          "moveId": 115,
+          "level": 48
+        },
+        {
+          "moveId": 80,
+          "level": 54
         }
       ],
-      "movesLearnWithTM": [12,43],
+      "movesLearnWithTM": [12,43,55,72,100,136],
       "bannerMoves": []
     },
     "hp": 125,
@@ -10754,7 +10847,7 @@
     "speed": 30,
     "catchRate": 70,
     "evolutions": [],
-    "abilities": ["OWN_TEMPO"],
+    "abilities": ["OWN_TEMPO","REGENERATOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -11047,6 +11140,64 @@
     "evolutions": [],
     "abilities": ["INTIMIDATE"],
     "expGaugeType":  "FAST"
+  },
+  {
+    "id": 211,
+    "name": "Qwilfish",
+    "type1": 3,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 17,
+          "level": 1
+        },
+        {
+          "moveId": 32,
+          "level": 4
+        },
+        {
+          "moveId": 6,
+          "level": 8
+        },
+        {
+          "moveId": 61,
+          "level": 32
+        },
+        {
+          "moveId": 62,
+          "level": 40
+        },
+        {
+          "moveId": 115,
+          "level": 48
+        },
+        {
+          "moveId": 83,
+          "level": 52
+        },
+        {
+          "moveId": 79,
+          "level": 56
+        }
+      ],
+      "movesLearnWithTM": [43,37,62,72,100,136],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 95,
+    "defense": 85,
+    "spAtk": 55,
+    "spDef": 55,
+    "speed": 85,
+    "catchRate": 45,
+    "evolutions": [],
+    "abilities": ["INTIMIDATE","POISON_POINT"],
+    "expGaugeType":  "MEDIUM_FAST"
   },
   {
     "id": 212,
@@ -11416,7 +11567,7 @@
     "speed": 35,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": ["NATURAL_CURE"],
+    "abilities": ["NATURAL_CURE","REGENERATOR"],
     "expGaugeType":  "FAST"
   },
   {
@@ -11791,10 +11942,13 @@
         {
           "moveId": 2,
           "level": 1
+        },
+        {
+          "moveId": 22,
+          "level": 1
         }
       ],
-      "movesLearnWithTM": [
-      ],
+      "movesLearnWithTM": [25,69,72,140],
       "bannerMoves": []
     },
     "hp": 35,
@@ -11804,8 +11958,27 @@
     "spDef": 35,
     "speed": 35,
     "catchRate": 75,
-    "evolutions": [],
-    "abilities": [],
+    "evolutions": [
+      {
+        "evolutionId": 106,
+        "evolutionCondition": {
+          "level": 20
+        }
+      },
+      {
+        "evolutionId": 107,
+        "evolutionCondition": {
+          "level": 20
+        }
+      },
+      {
+        "evolutionId": 237,
+        "evolutionCondition": {
+          "level": 20
+        }
+      }
+    ],
+    "abilities": ["GUTS","STEADFAST","VITAL_SPIRIT"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -11818,10 +11991,25 @@
         {
           "moveId": 2,
           "level": 1
+        },
+        {
+          "moveId": 22,
+          "level": 1
+        },
+        {
+          "moveId": 3,
+          "level": 4
+        },
+        {
+          "moveId": 91,
+          "level": 32
+        },
+        {
+          "moveId": 40,
+          "level": 38
         }
       ],
-      "movesLearnWithTM": [
-      ],
+      "movesLearnWithTM": [25,69,72,140],
       "bannerMoves": []
     },
     "hp": 50,
@@ -11832,7 +12020,7 @@
     "speed": 70,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["TECHNICIAN","STEADFAST"],
+    "abilities": ["TECHNICIAN","STEADFAST","INTIMIDATE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -13277,7 +13465,7 @@
     "speed": 50,
     "catchRate": 30,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["REGENERATOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {

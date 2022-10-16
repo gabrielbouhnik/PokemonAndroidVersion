@@ -41,7 +41,7 @@ class BattleUtils {
             val sb = StringBuilder()
             if (pokemon.hasAbility(Ability.PRESSURE))
                 sb.append("Pressure: ${pokemon.data.name} is exerting its pressure!\n")
-            if (pokemon.hasAbility(Ability.INTIMIDATE)){
+            if (pokemon.hasAbility(Ability.INTIMIDATE) && !opponent.hasAbility(Ability.OWN_TEMPO)){
                 sb.append("Intimidate: ${opponent.data.name}'s attack fell!\n")
                 if (opponent.hasAbility(Ability.CLEAR_BODY))
                     sb.append("Clear Body: ${opponent.data.name}'s stats cannot be lowered!\n")

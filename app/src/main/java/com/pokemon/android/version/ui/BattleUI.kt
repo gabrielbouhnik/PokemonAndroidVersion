@@ -263,6 +263,9 @@ class BattleUI {
                     it.battleData = null
                     if (it.hasAbility(Ability.NATURAL_CURE))
                         it.status = Status.OK
+                    if (it.hasAbility(Ability.REGENERATOR) && it.currentHP > 0){
+                        it.currentHP = if (it.hp/3 + it.currentHP > it.hp) it.hp else it.hp/3 + it.currentHP
+                    }
                 }
                 val firstTime: Boolean = activity.trainer!!.progression == battle.levelData.id
                 if (activity.trainer!!.eliteProgression == 4)

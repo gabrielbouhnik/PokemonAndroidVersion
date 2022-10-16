@@ -233,6 +233,39 @@
       "mandatory": true
     },
     {
+      "id": 19,
+      "name": "\nRoute 6",
+      "description": "Guards are blocking your access to Saffron City. You decide to go through an underground and challenge the gym in the city south of Saffron City.",
+      "encounter": 4,
+      "possibleEncounters":
+      {
+        "minLevel": 18,
+        "maxLevel": 21,
+        "encounters": [
+          16,16,16,17,43,43,43,52,54,69,96,81,209
+        ]
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 30
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "music": 1,
+      "exp": 1000,
+      "mandatory": true
+    },
+    {
       "id": 23,
       "name": "\nDiglett’s Cave",
       "description": "You receive a call from Professor Oak that a powerful pokemon has appeared in Diglett's cave. You go there to find out more.",
@@ -474,7 +507,7 @@
         "minLevel": 15,
         "maxLevel": 17,
         "encounters": [
-          60,118,118,118,118,129,129,129,129,129
+          60,72,118,118,118,118,118,129,129,129,129,129,129,211
         ]
       },
       "rewards": [
@@ -494,7 +527,7 @@
       "mandatory": true
     },
     {
-      "id": 52,
+      "id": 53,
       "name": "\nSea Route 19",
       "description": "Before leaving Safrania, one of the Silph Co scientists will give you a Lapras to cross Sea Route 19 at the south of Fuschia City.",
       "encounter": 6,
@@ -503,7 +536,7 @@
         "minLevel": 35,
         "maxLevel": 37,
         "encounters": [
-          72,72,72,72,120,129,129,129,222
+          72,72,72,72,120,129,129,129,170,222
         ]
       },
       "rewards": [
@@ -523,7 +556,7 @@
       "mandatory": true
     },
     {
-      "id": 54,
+      "id": 55,
       "name": "\nSeafoam Islands",
       "description": "To reach Cinnabar Islands, you have to cross Seafoam Islands. Once in the cave, you feel the presence of a powerful pokemon.",
       "encounter": 6,
@@ -532,7 +565,7 @@
         "minLevel": 36,
         "maxLevel": 38,
         "encounters": [
-          41,41,42,54,54,54,55,79,79,79,79,86,86,86,86,87,90,98,98,98,116
+          41,41,42,54,54,54,55,79,79,79,79,86,86,86,86,87,90,98,98,98,116,124
         ]
       },
       "rewards": [
@@ -552,7 +585,7 @@
       "mandatory": true
     },
     {
-      "id": 56,
+      "id": 57,
       "name": "\nPokemon Mansion",
       "description": "Once you arrive at Cinnabar Island, you head to Cinnabar Gym but the door is locked but there is a note on that door indicating that the key is in the Pokemon Mansion.",
       "encounter": 8,
@@ -581,7 +614,7 @@
       "mandatory": true
     },
     {
-      "id": 64,
+      "id": 65,
       "name": "\nVictory Road",
       "description": "Having shown your 8 badges to the guard, you enter the Victory Road, the last step before the Pokemon League",
       "encounter": 15,
@@ -608,7 +641,7 @@
       "mandatory": true
     },
     {
-      "id": 72,
+      "id": 73,
       "name": "\nPower Plant",
       "description": "After defeating the Pokemon League, Professor Oak sends you to the abandoned Power Plant on Route 10 because something strange is happening with the wild Pokemon there.",
       "encounter": 5,
@@ -635,7 +668,7 @@
       "mandatory": true
     },
     {
-      "id": 73,
+      "id": 74,
       "name": "\nVS Electrodes",
       "description": "You advance in the Power Plant and several powerful Electrodes attack you.",
       "encounter": 5,
@@ -662,7 +695,7 @@
       "mandatory": true
     },
     {
-      "id": 75,
+      "id": 76,
       "name": "\nRoute 28",
       "description": "You receive a letter from the Sinnoh region's champion who wants to battle you on the top of Mt Silver. You decide to go there to face her.",
       "encounter": 8,
@@ -689,7 +722,7 @@
       "mandatory": true
     },
     {
-      "id": 76,
+      "id": 77,
       "name": "\nMt Silver",
       "description": "You finally reach Mt. Silver and you come across several wild Pokemon.",
       "encounter": 10,
@@ -716,7 +749,7 @@
       "mandatory": true
     },
     {
-      "id": 79,
+      "id": 80,
       "name": "\nCerulean Cave",
       "description": "After defeating Cynthia, you visit Professor Oak and he informs you that your rival Jackson has gone to Cerulean Cave and encountered the most powerful Pokemon he has ever seen. He ran away because his Pokemon were defeated by this creature. Be careful!",
       "encounter": 10,
@@ -745,7 +778,7 @@
       "mandatory": true
     },
     {
-      "id": 80,
+      "id": 81,
       "name": "\nCerulean Cave 1F",
       "description": "Pokemon in this cave are very powerful. Keep it up!",
       "encounter": 10,
@@ -774,7 +807,7 @@
       "mandatory": true
     },
     {
-      "id": 81,
+      "id": 82,
       "name": "\nCerulean Cave B1F",
       "description": "You find a ladder that takes you into the depths of the cave. You feel the presence of the powerful Pokemon.",
       "encounter": 10,
@@ -2224,8 +2257,8 @@
       "endDialogWin": "I could belly-bump you outta here!",
       "endDialogLoose": "Whew! Good workout!",
       "music": 2,
-      "icon": "images/battle_background/route_battle_background.png",
-      "background": "images/battle_background/route_battle_background.png",
+      "icon": "images/battle_background/cycling_road_battle_background.png",
+      "background": "images/battle_background/cycling_road_battle_background.png",
       "exp": 4700,
       "mandatory": true
     },
@@ -2855,7 +2888,7 @@
               "id": 34,
               "level": 57,
               "moveIds": [
-                62,93,12,31
+                62,87,12,31
               ]
             },
             {
@@ -2893,6 +2926,71 @@
     },
     {
       "id": 50,
+      "name": "\nFighting Dojo",
+      "description": "Before challenging the saffron gym, you decide to train to the fighting dojo",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Karateka.png",
+          "name" : "Karate Master Koichi",
+          "pokemons": [
+            {
+              "id": 67,
+              "level": 55,
+              "moveIds": [167,25,180,110]
+            },
+            {
+              "id": 237,
+              "level": 55,
+              "moveIds": [40,25,4,91]
+            },
+            {
+              "id": 62,
+              "level": 55,
+              "moveIds": [136,107,180,80]
+            },
+            {
+              "id": 57,
+              "level": 55,
+              "moveIds": [40,25,62,51]
+            },
+            {
+              "id": 106,
+              "level": 55,
+              "moveIds": [76,103,107,110]
+            },
+            {
+              "id": 107,
+              "level": 55,
+              "moveIds": [68,69,25,40]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 90
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "I am the KARATE MASTER! I am the LEADER here!",
+      "endDialogWin": "Indeed, I have lost! But, I beseech you, do not take our emblem as your trophy! In return, I will give you a prized fighting Pokemon: Tyrogue",
+      "endDialogLoose": "You need to train more!",
+      "music": 2,
+      "icon": "images/battle_background/dojo_battle_background.png",
+      "background": "images/battle_background/dojo_battle_background.png",
+      "exp": 7000,
+      "mandatory": true
+    },
+    {
+      "id": 51,
       "name": "\nSaffron Gym",
       "description": "After defeating Giovanni, you go to the gym to battle the gym leader.",
       "opponents": [
@@ -2957,7 +3055,7 @@
         },
         {
           "id": 2,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "id": 9,
@@ -2974,7 +3072,7 @@
       "mandatory": true
     },
     {
-      "id": 53,
+      "id": 54,
       "name": "\nSea Route 20",
       "description": "You are now heading to Cinnabar Island but there are pokemon trainers in the water.",
       "opponents": [
@@ -3050,7 +3148,7 @@
       "mandatory": true
     },
     {
-      "id": 57,
+      "id": 58,
       "name": "\nCinnabar Gym",
       "description": "After finding the key to the gym, you leave the mansion and head straight for the gym.",
       "opponents": [
@@ -3100,7 +3198,7 @@
       "mandatory": true
     },
     {
-      "id": 59,
+      "id": 60,
       "name": "\nSea Route 21",
       "description": "After obtaining your seventh badge, you decide to go to Viridian City to get your last badge.",
       "opponents": [
@@ -3187,7 +3285,7 @@
       "mandatory": true
     },
     {
-      "id": 60,
+      "id": 61,
       "name": "\nVS Professor Oak",
       "description": "You arrive in Pallet Town and visit Professor Oak",
       "opponents": [
@@ -3238,7 +3336,7 @@
       "mandatory": true
     },
     {
-      "id": 61,
+      "id": 62,
       "name": "\nViridian Gym",
       "description": "You are back in Viridian City, it's time to get your last badge.",
       "opponents": [
@@ -3340,7 +3438,7 @@
       "mandatory": true
     },
     {
-      "id": 62,
+      "id": 63,
       "name": "\nVS Giovanni 2",
       "description": "After defeating the guards, you go to the gym leader and you notice that it's Giovanni, the boss of Team Rocket!",
       "opponents": [
@@ -3422,7 +3520,7 @@
       "mandatory": true
     },
     {
-      "id": 63,
+      "id": 64,
       "name": "\nVS Rival 6",
       "description": "Now that you have 8 badges, you head for the Victory Road. However, on Route 22, you run into Jackson.",
       "opponents": [
@@ -3491,7 +3589,7 @@
       "mandatory": true
     },
     {
-      "id": 65,
+      "id": 66,
       "name": "\nVictory Road 2",
       "description": "Still in Victory Road, there are several trainers in your path. Take them down to get to the Pokemon League",
       "opponents": [
@@ -3582,7 +3680,7 @@
       "mandatory": true
     },
     {
-      "id": 67,
+      "id": 68,
       "name": "\nVS Lorelei",
       "description": "",
       "opponents": [
@@ -3637,7 +3735,7 @@
       "mandatory": true
     },
     {
-      "id": 68,
+      "id": 69,
       "name": "\nVS Bruno",
       "description": "",
       "opponents": [
@@ -3690,7 +3788,7 @@
       "mandatory": true
     },
     {
-      "id": 69,
+      "id": 70,
       "name": "\nVS Agatha",
       "description": "",
       "opponents": [
@@ -3743,7 +3841,7 @@
       "mandatory": true
     },
     {
-      "id": 70,
+      "id": 71,
       "name": "\nVS Lance",
       "description": "",
       "opponents": [
@@ -3796,7 +3894,7 @@
       "mandatory": true
     },
     {
-      "id": 71,
+      "id": 72,
       "name": "\nVS Champion",
       "description": "",
       "type": "Trainer Battle",
@@ -3857,7 +3955,7 @@
       "mandatory": true
     },
     {
-      "id": 78,
+      "id": 79,
       "name": "\nVS Cynthia",
       "description": "At the top of Mt. Silver, you come across the champion of the Sinnoh region.",
       "opponents": [
@@ -3932,7 +4030,7 @@
         "id": 51,
         "level": 40,
         "moveIds": [30,38,25,113],
-        "boostedStats": []
+        "boostedStats": ["SPEED"]
       },
       "rewards": [
         {
@@ -4005,15 +4103,15 @@
       "mandatory": true
     },
     {
-      "id": 55,
+      "id": 56,
       "name": "\nVs Articuno",
       "description": "In the depths of Seafoam Island, you come across a powerful looking bird. Upon closer inspection, you notice that it is the legendary bird Articuno!",
       "boss":
       {
         "id": 144,
         "level": 58,
-        "moveIds": [100,102,50,24],
-        "boostedStats": ["DEFENSE"]
+        "moveIds": [100,102,101,21],
+        "boostedStats": ["DEFENSE","SPDEF"]
       },
       "rewards": [
         {
@@ -4032,7 +4130,7 @@
       "mandatory": true
     },
     {
-      "id": 66,
+      "id": 67,
       "name": "\nVs Moltres",
       "description": "You finally see the exit of Victory Road but you feel the presence of a powerful pokemon near you. You head into a really hot room near the exit and come across the legendary bird Moltres.",
       "boss":
@@ -4059,7 +4157,7 @@
       "mandatory": true
     },
     {
-      "id": 74,
+      "id": 75,
       "name": "\nVs Zapdos",
       "description": "At the very bottom of the Power Plant, you come across the legendary bird Zapdos and he attacks you!",
       "boss":
@@ -4086,7 +4184,7 @@
       "mandatory": true
     },
     {
-      "id": 77,
+      "id": 78,
       "name": "\nVs Tyranitar",
       "description": "You can see the exit to the top of Mt Silver. However, a very powerful looking Tyranitar attacks you!",
       "boss":
@@ -4117,7 +4215,7 @@
       "mandatory": true
     },
     {
-      "id": 82,
+      "id": 83,
       "name": "\nVs Mewtwo",
       "description": "You finally come across the powerful Pokemon. It seems to want to fight you! Show him what you can do!",
       "boss":
@@ -4660,7 +4758,7 @@
       "mandatory": true
     },
     {
-      "id": 51,
+      "id": 52,
       "name": "\nVS Sabrina",
       "description": "After defeating the guards, you go to the gym leader.",
       "sprite": "images/Sprite_Morgane.png",
@@ -4754,7 +4852,7 @@
       "mandatory": true
     },
     {
-      "id": 58,
+      "id": 59,
       "name": "\nVS Blaine",
       "description": "After defeating the guard, you go to the gym leader.",
       "sprite": "images/Sprite_Auguste.png",

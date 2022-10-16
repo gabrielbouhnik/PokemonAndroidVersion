@@ -56,8 +56,11 @@ class RewardMenu {
             )
                 activity.trainer!!.achievements!!.leadersDefeatedAfterTheLeague.add(levelData.id)
         }
-        if (firstTime && levelData.id == LevelMenu.LAPRAS_LEVEL) {
-            activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(131, 25))
+        if (firstTime) {
+            if (levelData.id == LevelMenu.LAPRAS_LEVEL)
+                activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(131, 25))
+            if (levelData.id == LevelMenu.TYROGUE_LEVEL)
+                activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(236, 10))
         }
         val battleAgainButton: Button = activity.findViewById(R.id.battleAgainButton)
         if (levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID)

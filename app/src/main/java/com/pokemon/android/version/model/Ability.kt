@@ -28,6 +28,7 @@ enum class Ability(var description : String) {
     POISON_TOUCH("May poison a target when the Pokémon makes contact."),
     PRESSURE("By putting pressure on the opposing Pokémon,\n it raises their PP usage."),
     RECKLESS("Powers up moves that have recoil damage."),
+    REGENERATOR("Restores a little HP when withdrawn from battle."),
     ROCK_HEAD("Protects the Pokémon from recoil damage."),
     SHEER_FORCE("Removes additional effects to increase the power of moves when attacking."),
     SHELL_ARMOR("A hard shell protects the Pokémon from critical hits."),

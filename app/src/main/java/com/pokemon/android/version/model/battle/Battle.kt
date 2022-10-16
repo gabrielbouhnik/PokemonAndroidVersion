@@ -110,6 +110,8 @@ abstract class Battle {
         this.pokemon.battleData = PokemonBattleData()
         if (this.pokemon.hasAbility(Ability.NATURAL_CURE))
             this.pokemon.status = Status.OK
+        if (this.pokemon.hasAbility(Ability.REGENERATOR))
+            this.pokemon.currentHP = if (this.pokemon.hp/3 + this.pokemon.currentHP > this.pokemon.hp) this.pokemon.hp else this.pokemon.hp/3 + this.pokemon.currentHP
         this.pokemon = pokemonToBeSent
     }
 

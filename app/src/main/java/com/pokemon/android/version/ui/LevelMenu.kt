@@ -15,13 +15,14 @@ class LevelMenu {
     companion object {
         const val OTHER_BANNER_LEVEL = 19
         const val DUGTRIO_LEVEL = 24
-        const val LAPRAS_LEVEL = 51
-        const val ARTICUNO_LEVEL = 55
-        const val MOLTRES_LEVEL = 65
-        const val ZAPDOS_LEVEL = 74
-        const val MEWTWO_LEVEL = 82
-        const val ELITE_4_FIRST_LEVEL_ID = 67
-        const val ELITE_4_LAST_LEVEL_ID = 71
+        const val LAPRAS_LEVEL = 50
+        const val TYROGUE_LEVEL = 51
+        const val ARTICUNO_LEVEL = 56
+        const val MOLTRES_LEVEL = 66
+        const val ZAPDOS_LEVEL = 75
+        const val MEWTWO_LEVEL = 83
+        const val ELITE_4_FIRST_LEVEL_ID = 68
+        const val ELITE_4_LAST_LEVEL_ID = 72
     }
 
     var battleUI: BattleUI = BattleUI()
