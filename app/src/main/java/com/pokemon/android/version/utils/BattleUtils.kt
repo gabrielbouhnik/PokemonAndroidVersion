@@ -16,21 +16,33 @@ class BattleUtils {
                 if (attacker.hasAbility(Ability.POISON_TOUCH)
                     && Status.isAffectedByStatus(0,Status.POISON, opponent)) {
                         opponent.status = Status.POISON
-                        return "Poison Touch: ${opponent.data.name} is poisoned!\n"
+                    if (opponent.hasAbility(Ability.QUICK_FEET))
+                        opponent.battleData!!.speedMultiplicator *= 1.5f
+                    return "Poison Touch: ${opponent.data.name} is poisoned!\n"
+                }
+                if (opponent.hasAbility(Ability.ROUGH_SKIN)){
+                    attacker.currentHP = if (attacker.currentHP < attacker.hp/8) 0 else attacker.currentHP - attacker.hp/8
+                    return "Rough Skin: ${attacker.data.name} was hurt!\n"
                 }
                 if (opponent.hasAbility(Ability.POISON_POINT)
                     && Status.isAffectedByStatus(0,Status.POISON, attacker)) {
                     attacker.status = Status.POISON
+                    if (attacker.hasAbility(Ability.QUICK_FEET))
+                        attacker.battleData!!.speedMultiplicator *= 1.5f
                     return "Poison Point: ${attacker.data.name} is poisoned!\n"
                 }
                 if (opponent.hasAbility(Ability.STATIC)
                     && Status.isAffectedByStatus(0,Status.PARALYSIS, attacker)) {
                     attacker.status = Status.PARALYSIS
+                    if (attacker.hasAbility(Ability.QUICK_FEET))
+                        attacker.battleData!!.speedMultiplicator *= 1.5f
                     return "Static: ${attacker.data.name} is paralyzed!\n"
                 }
                 if (opponent.hasAbility(Ability.FLAME_BODY)
                     && Status.isAffectedByStatus(0,Status.BURN, attacker)) {
                     attacker.status = Status.BURN
+                    if (attacker.hasAbility(Ability.QUICK_FEET))
+                        attacker.battleData!!.speedMultiplicator *= 1.5f
                     return "Flame Body: ${attacker.data.name} is burned!\n"
                 }
             }
@@ -39,6 +51,10 @@ class BattleUtils {
 
         fun abilitiesCheck(pokemon: Pokemon, opponent: Pokemon) : String{
             val sb = StringBuilder()
+            if (pokemon.hasAbility(Ability.QUICK_FEET) && pokemon.status != Status.OK)
+                pokemon.battleData!!.speedMultiplicator *= 1.5f
+            if (pokemon.hasAbility(Ability.GUTS) && pokemon.status != Status.OK)
+                pokemon.battleData!!.attackMultiplicator *= 1.5f
             if (pokemon.hasAbility(Ability.PRESSURE))
                 sb.append("Pressure: ${pokemon.data.name} is exerting its pressure!\n")
             if (pokemon.hasAbility(Ability.INTIMIDATE) && !opponent.hasAbility(Ability.OWN_TEMPO)){

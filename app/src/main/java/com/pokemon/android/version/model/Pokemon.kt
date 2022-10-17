@@ -325,7 +325,10 @@ class Pokemon(
                 details += Status.updateStatus(this, opponent, move.move)
             }
             if (!this.hasAbility(Ability.SHEER_FORCE) && move.move is StatChangeMove && (move.move.power == 0 || damage > 0)) {
-                if ((move.move as StatChangeMove).probability == null || Random.nextInt(100) < (move.move as StatChangeMove).probability!!) {
+                var randomForStats: Int = Random.nextInt(100)
+                if (this.hasAbility(Ability.SERENE_GRACE))
+                    randomForStats /= 2
+                if ((move.move as StatChangeMove).probability == null || randomForStats <= (move.move as StatChangeMove).probability!!) {
                     val statChangeMove = move.move as StatChangeMove
                     details += if (statChangeMove.target == Target.SELF)
                         Stats.updateStat(this, move.move as StatChangeMove)

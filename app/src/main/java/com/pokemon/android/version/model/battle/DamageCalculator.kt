@@ -97,6 +97,8 @@ class DamageCalculator {
                 if (opponent.isMegaEvolved()){
                     type = move.type.isEffectiveAgainst(opponent.data.megaEvolutionData!!.type2) * move.type.isEffectiveAgainst(opponent.data.megaEvolutionData!!.type1)
                 }
+                if (attacker.hasAbility(Ability.FILTER))
+                    type *= 0.75f
                 val random: Float = Random.nextInt(85, 100).toFloat() / 100f
                 val offensiveStat: Int =
                     if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * attacker.battleData!!.spAtkMultiplicator).roundToInt()

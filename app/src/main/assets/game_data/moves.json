@@ -1862,6 +1862,20 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 192,
+      "name": "Hyper Voice",
+      "power": 90,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 5,
+      "accuracy": 100,
+      "description": "The user lets loose a horribly echoing shout with the power to inflict damage.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["SOUND"]
     }
   ],
   "multipleHitMoves": [

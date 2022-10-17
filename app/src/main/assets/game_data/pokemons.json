@@ -2401,6 +2401,10 @@
           "level": 24
         },
         {
+          "moveId": 192,
+          "level": 36
+        },
+        {
           "moveId": 73,
           "level": 40
         },
@@ -2451,6 +2455,10 @@
         },
         {
           "moveId": 88,
+          "level": 1
+        },
+        {
+          "moveId": 192,
           "level": 1
         },
         {
@@ -7057,6 +7065,10 @@
           "level": 16
         },
         {
+          "moveId": 115,
+          "level": 24
+        },
+        {
           "moveId": 147,
           "level": 40
         },
@@ -7066,7 +7078,7 @@
         }
       ],
       "movesLearnWithTM": [
-        72,31,44,45,55,82,100,103,107,110
+        72,31,44,45,55,82,100,103,107,110,135
       ],
       "bannerMoves": []
     },
@@ -7077,8 +7089,15 @@
     "spDef": 105,
     "speed": 50,
     "catchRate": 30,
-    "evolutions": [],
-    "abilities": ["NATURAL_CURE"],
+    "evolutions": [
+      {
+        "evolutionId": 242,
+        "evolutionCondition": {
+          "level": 36
+        }
+      }
+    ],
+    "abilities": ["SERENE_GRACE","NATURAL_CURE"],
     "expGaugeType":  "FAST"
   },
   {
@@ -7661,7 +7680,7 @@
     "speed": 90,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["SOUNDPROOF","TECHNICIAN"],
+    "abilities": ["SOUNDPROOF","TECHNICIAN","FILTER"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -8453,7 +8472,7 @@
     "speed": 130,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["VOLT_ABSORB"],
+    "abilities": ["VOLT_ABSORB","QUICK_FEET"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -9497,6 +9516,10 @@
         {
           "moveId": 191,
           "level": 42
+        },
+        {
+          "moveId": 192,
+          "level": 47
         }
       ],
       "movesLearnWithTM": [
@@ -9550,6 +9573,10 @@
         {
           "moveId": 191,
           "level": 50
+        },
+        {
+          "moveId": 192,
+          "level": 56
         }
       ],
       "movesLearnWithTM": [
@@ -9927,7 +9954,7 @@
         }
       }
     ],
-    "abilities": ["SUPER_LUCK"],
+    "abilities": ["SERENE_GRACE","SUPER_LUCK"],
     "expGaugeType":  "FAST"
   },
   {
@@ -9972,7 +9999,7 @@
         }
       }
     ],
-    "abilities": ["SUPER_LUCK"],
+    "abilities": ["SERENE_GRACE","SUPER_LUCK"],
     "expGaugeType":  "FAST"
   },
   {
@@ -10165,6 +10192,10 @@
     "type2": 0,
     "possibleMoves": {
       "movesLearnByLevel": [
+        {
+          "moveId": 192,
+          "level": 1
+        },
         {
           "moveId": 6,
           "level": 1
@@ -11138,7 +11169,7 @@
     "speed": 45,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["INTIMIDATE"],
+    "abilities": ["INTIMIDATE","QUICK_FEET"],
     "expGaugeType":  "FAST"
   },
   {
@@ -11344,7 +11375,7 @@
     "speed": 55,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": ["GUTS"],
+    "abilities": ["GUTS","QUICK_FEET"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -12108,6 +12139,54 @@
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
+    "id": 242,
+    "name": "Blissey",
+    "type1": 5,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 64,
+          "level": 1
+        },
+        {
+          "moveId": 164,
+          "level": 1
+        },
+        {
+          "moveId": 165,
+          "level": 16
+        },
+        {
+          "moveId": 115,
+          "level": 24
+        },
+        {
+          "moveId": 147,
+          "level": 40
+        },
+        {
+          "moveId": 187,
+          "level": 44
+        }
+      ],
+      "movesLearnWithTM": [
+        72,31,44,45,55,82,100,103,107,110,135
+      ],
+      "bannerMoves": []
+    },
+    "hp": 255,
+    "attack": 10,
+    "defense": 10,
+    "spAtk": 75,
+    "spDef": 135,
+    "speed": 55,
+    "catchRate": 30,
+    "evolutions": [],
+    "abilities": ["SERENE_GRACE","NATURAL_CURE"],
+    "expGaugeType":  "FAST"
+  },
+  {
     "id": 243,
     "name": "Raikou",
     "type1": 4,
@@ -12813,7 +12892,7 @@
     "speed": 95,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": ["SPEED_BOOST"],
+    "abilities": ["SPEED_BOOST","ROUGH_SKIN"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -13230,7 +13309,7 @@
     "speed": 102,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["ROUGH_SKIN"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -13668,7 +13747,7 @@
     "speed": 80,
     "catchRate": 30,
     "evolutions": [],
-    "abilities": ["SUPER_LUCK"],
+    "abilities": ["SERENE_GRACE","SUPER_LUCK"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {

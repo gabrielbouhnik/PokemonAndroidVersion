@@ -47,10 +47,14 @@ enum class Status(var activeOutsideBattle: Boolean) {
             var details = ""
             move.status.forEach {
                 if (isAffectedByStatus(move.id, it.status, opponent)) {
-                    val randomForStatus: Int = Random.nextInt(100)
+                    var randomForStatus: Int = Random.nextInt(100)
+                    if (attacker.hasAbility(Ability.SERENE_GRACE))
+                        randomForStatus /= 2
                     if (it.probability == null || randomForStatus <= it.probability!!) {
                         if (it.status.activeOutsideBattle) {
                             opponent.status = it.status
+                            if (opponent.hasAbility(Ability.QUICK_FEET))
+                                opponent.battleData!!.speedMultiplicator *= 1.5f
                             details += "${opponent.data.name} " + it.status.toDetails() + "\n"
                             if (opponent.hasAbility(Ability.GUTS))
                                 opponent.battleData!!.attackMultiplicator *= 1.5f
