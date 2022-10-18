@@ -1807,6 +1807,71 @@
       "characteristics": []
     },
     {
+      "id": 174,
+      "name": "Powder Snow",
+      "power": 40,
+      "pp": 25,
+      "type": 14,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user attacks with a chilling gust of powdery snow. This may also freeze opposing Pokémon.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "FROZEN",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 180,
+      "name": "Vital Throw",
+      "power": 70,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "description": "The user attacks last. In return, this throw move never misses.",
+      "priorityLevel": -1,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 181,
+      "name": "Strength",
+      "power": 80,
+      "pp": 15,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The target is slugged with a punch thrown at maximum power.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 182,
+      "name": "Poison Fang",
+      "power": 50,
+      "pp": 15,
+      "type": 8,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user bites the target with toxic fangs. This may also leave the target badly poisoned.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "BADLY_POISON",
+          "probability": 50
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
       "id": 185,
       "name": "Teleport",
       "power": 0,
@@ -2053,71 +2118,6 @@
       "description": "The target is raked with sharp claws or scythes quickly two to five times in a row.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false,
-      "characteristics": ["CONTACT"]
-    },
-    {
-      "id": 174,
-      "name": "Powder Snow",
-      "power": 40,
-      "pp": 25,
-      "type": 14,
-      "category": "SPECIAL",
-      "accuracy": 100,
-      "description": "The user attacks with a chilling gust of powdery snow. This may also freeze opposing Pokémon.",
-      "priorityLevel": 0,
-      "status": [
-        {
-          "status": "FROZEN",
-          "probability": 10
-        }
-      ],
-      "highCritRate": false,
-      "characteristics": []
-    },
-    {
-      "id": 180,
-      "name": "Vital Throw",
-      "power": 70,
-      "pp": 10,
-      "type": 11,
-      "category": "PHYSICAL",
-      "description": "The user attacks last. In return, this throw move never misses.",
-      "priorityLevel": -1,
-      "status": [],
-      "highCritRate": false,
-      "characteristics": ["CONTACT"]
-    },
-    {
-      "id": 181,
-      "name": "Strength",
-      "power": 80,
-      "pp": 15,
-      "type": 5,
-      "category": "PHYSICAL",
-      "accuracy": 100,
-      "description": "The target is slugged with a punch thrown at maximum power.",
-      "priorityLevel": 0,
-      "status": [],
-      "highCritRate": false,
-      "characteristics": ["CONTACT"]
-    },
-    {
-      "id": 182,
-      "name": "Poison Fang",
-      "power": 50,
-      "pp": 15,
-      "type": 8,
-      "category": "PHYSICAL",
-      "accuracy": 100,
-      "description": "The user bites the target with toxic fangs. This may also leave the target badly poisoned.",
-      "priorityLevel": 0,
-      "status": [
-        {
-          "status": "BADLY_POISON",
-          "probability": 50
-        }
-      ],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
     }

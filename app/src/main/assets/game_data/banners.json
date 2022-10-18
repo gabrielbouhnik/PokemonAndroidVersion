@@ -219,8 +219,7 @@
     ],
     "days": [
       "TUESDAY",
-      "FRIDAY",
-      "SUNDAY"
+      "FRIDAY"
     ]
   },
   {
@@ -441,7 +440,11 @@
     ],
     "days": [
       "MONDAY",
-      "FRIDAY"
+      "TUESDAY",
+      "THURSDAY",
+      "FRIDAY",
+      "SATURDAY",
+      "SUNDAY"
     ]
   },
   {
@@ -498,7 +501,6 @@
     ],
     "days": [
       "WEDNESDAY",
-      "SATURDAY",
       "SUNDAY"
     ]
   },

@@ -13486,7 +13486,7 @@
     "speed": 40,
     "catchRate": 30,
     "evolutions": [],
-    "abilities": ["RECKLESS"],
+    "abilities": ["RECKLESS","SOLID_ROCK"],
     "expGaugeType":  "SLOW"
   },
   {

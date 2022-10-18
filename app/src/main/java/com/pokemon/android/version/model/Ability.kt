@@ -38,6 +38,7 @@ enum class Ability(var description : String) {
     SHELL_ARMOR("A hard shell protects the Pokémon from critical hits."),
     SPEED_BOOST("Its Speed stat is boosted every turn."),
     SOUNDPROOF("Soundproofing of the Pokémon itself gives full immunity to all sound-based moves."),
+    SOLID_ROCK("Reduces the power of supereffective attacks taken."),
     STATIC("The Pokémon is charged with static electricity,\n so contact with it may cause paralysis."),
     STEADFAST("The Pokémon's determination boosts the Speed stat\n each time the Pokémon flinches."),
     STURDY("It cannot be knocked out with one hit.\n One-hit KO moves cannot knock it out, either."),

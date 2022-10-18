@@ -31,6 +31,7 @@ class TrainerBattle() : Battle() {
     }
 
     override fun updateOpponent() {
+        opponent.recomputeStat()
         if (opponentTrainer.canStillBattle())
             opponent = opponentTrainer.getFirstPokemonThatCanFight()!!
         else

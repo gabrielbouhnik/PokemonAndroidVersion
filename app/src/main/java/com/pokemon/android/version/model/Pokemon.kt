@@ -208,9 +208,9 @@ class Pokemon(
                 "Lightning Rod: ${opponent.data.name}'s Sp. Atk rose!\n"
             )
         }
-        if (move.move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE)
-            && !opponent.battleData!!.battleStatus.contains(Status.FIRED_UP)) {
-            opponent.battleData!!.battleStatus.add(Status.FIRED_UP)
+        if (move.move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE)) {
+            if(!opponent.battleData!!.battleStatus.contains(Status.FIRED_UP))
+                opponent.battleData!!.battleStatus.add(Status.FIRED_UP)
             return AttackResponse(
                 false,
                 "Flash Fire: ${opponent.data.name}'s fire power is increased!\n"
@@ -306,7 +306,10 @@ class Pokemon(
             details += BattleUtils.getEffectiveness(move.move,opponent)
         val damageDone: Int
         if (damage >= opponent.currentHP) {
-            if (opponent.currentHP == opponent.hp && opponent.hasAbility(Ability.STURDY)) {
+            if (opponent.currentHP == opponent.hp
+                && move.move !is MultipleHitMove
+                && move.move !is VariableHitMove
+                && opponent.hasAbility(Ability.STURDY)) {
                 damageDone = opponent.currentHP - 1
                 opponent.currentHP = 1
                 details += "Sturdy: ${opponent.data.name} endured the hit!\n"
