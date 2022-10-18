@@ -1,10 +1,41 @@
 package com.pokemon.android.version.ui
 
 import android.graphics.Color
+import com.pokemon.android.version.model.Pokemon
+import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Type
 
 class ColorUtils {
     companion object {
+        fun getColorByHP(pokemon: Pokemon): Int {
+            if (pokemon.currentHP == 0 || pokemon.hp/pokemon.currentHP > 5)
+                return Color.RED
+            if (pokemon.hp/pokemon.currentHP < 2)
+                return Color.GREEN
+            return Color.YELLOW
+        }
+
+        fun getColorByStatus(status: Status): Int {
+            when (status) {
+                Status.BURN -> {
+                    return Color.parseColor("#EE8130")
+                }
+                Status.PARALYSIS -> {
+                    return Color.parseColor("#F7D02C")
+                }
+                Status.POISON -> {
+                    return Color.parseColor("#8B008B")
+                }
+                Status.FROZEN -> {
+                    return Color.parseColor("#E0FFFF")
+                }
+                Status.ASLEEP -> {
+                    return Color.parseColor("#A8A77A")
+                }
+                else -> return Color.BLACK
+            }
+        }
+
         fun getColorByType(type: Type): Int {
             when (type) {
                 Type.GRASS -> {

@@ -1956,7 +1956,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 162,
@@ -1970,7 +1970,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 163,
@@ -1989,7 +1989,7 @@
         }
       ],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["CONTACT"]
     }
   ],
   "movesBasedOnLevelEntity": [

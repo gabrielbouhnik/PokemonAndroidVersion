@@ -16,6 +16,10 @@ enum class Stats(var value: String) {
         fun updateStat(pokemon: Pokemon, statChangeMove: StatChangeMove): String {
             val sb = StringBuilder()
             statChangeMove.statsAffected.forEach {
+                if (it == ATTACK && pokemon.hasAbility(Ability.HYPER_CUTTER) && statChangeMove.target == Target.OPPONENT) {
+                    sb.append("Hyper Cutter: ${pokemon.data.name}'s " + it.value + " cannot be lowered!\n")
+                    return@forEach
+                }
                 if (it == ACCURACY && pokemon.hasAbility(Ability.KEEN_EYE)) {
                     sb.append("Keen Eye: ${pokemon.data.name}'s " + it.value + " cannot be lowered!\n")
                     return@forEach

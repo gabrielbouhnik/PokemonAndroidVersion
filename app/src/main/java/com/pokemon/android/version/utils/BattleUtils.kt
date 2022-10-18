@@ -45,6 +45,12 @@ class BattleUtils {
                         attacker.battleData!!.speedMultiplicator *= 1.5f
                     return "Flame Body: ${attacker.data.name} is burned!\n"
                 }
+                if (opponent.hasAbility(Ability.EFFECT_SPORE)){
+                    if (random < 10 && Status.isAffectedByStatus(34,Status.POISON,attacker))
+                        attacker.status = Status.POISON
+                    else if (random < 20 && Status.isAffectedByStatus(35,Status.ASLEEP,attacker))
+                        attacker.status = Status.ASLEEP
+                }
             }
             return ""
         }
@@ -59,13 +65,18 @@ class BattleUtils {
                 sb.append("Pressure: ${pokemon.data.name} is exerting its pressure!\n")
             if (pokemon.hasAbility(Ability.INTIMIDATE) && !opponent.hasAbility(Ability.OWN_TEMPO)){
                 sb.append("Intimidate: ${opponent.data.name}'s attack fell!\n")
-                if (opponent.hasAbility(Ability.CLEAR_BODY))
-                    sb.append("Clear Body: ${opponent.data.name}'s stats cannot be lowered!\n")
-                else
-                    opponent.battleData!!.attackMultiplicator *= 0.75f
+                when {
+                    opponent.hasAbility(Ability.CLEAR_BODY) -> sb.append("Clear Body: ${opponent.data.name}'s stats cannot be lowered!\n")
+                    opponent.hasAbility(Ability.HYPER_CUTTER) -> sb.append("Hyper Cutter: ${opponent.data.name}'s attack cannot be lowered!\n")
+                    else -> opponent.battleData!!.attackMultiplicator *= 0.75f
+                }
             }
             if (pokemon.hasAbility(Ability.SUPER_LUCK))
                 pokemon.battleData!!.criticalRate *= 1.5f
+            if (pokemon.hasAbility(Ability.ARENA_TRAP))
+                opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
+            if (opponent.hasAbility(Ability.ARENA_TRAP))
+                pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
             return sb.toString()
         }
 
@@ -77,8 +88,12 @@ class BattleUtils {
                         move.type.isEffectiveAgainst(opponent.data.megaEvolutionData!!.type2)
             if (move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))
                 return "Volt Absorb: ${opponent.data.name}'s HP was restored\n"
-            if (move.type == Type.WATER && opponent.hasAbility(Ability.WATER_ABSORB))
-                return "Water Absorb: ${opponent.data.name}'s HP was restored\n"
+            if (move.type == Type.WATER){
+                if (opponent.hasAbility(Ability.WATER_ABSORB))
+                    return "Water Absorb: ${opponent.data.name}'s HP was restored\n"
+                if (opponent.hasAbility(Ability.DRY_SKIN))
+                    return "Water Absorb: ${opponent.data.name}'s HP was restored\n"
+            }
             return when {
                 effectiveness == 0f -> {
                     "It does not affect ${opponent.data.name}\n"

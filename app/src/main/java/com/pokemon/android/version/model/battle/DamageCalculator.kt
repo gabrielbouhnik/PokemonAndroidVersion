@@ -53,7 +53,7 @@ class DamageCalculator {
                 return 0
             if (move.type == Type.GROUND && opponent.hasAbility(Ability.LEVITATE))
                 return 0
-            if (move.type == Type.WATER && opponent.hasAbility(Ability.WATER_ABSORB))
+            if (move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(Ability.DRY_SKIN)))
                 return 0
             if (move.type == Type.ELECTRIC && (opponent.hasAbility(Ability.LIGHTNING_ROD) || opponent.hasAbility(Ability.VOLT_ABSORB)))
                 return 0
@@ -86,6 +86,8 @@ class DamageCalculator {
                         power *= 1.5f
                     if (attacker.battleData!!.battleStatus.contains(Status.FIRED_UP))
                         power *= 1.5f
+                    if (opponent.hasAbility(Ability.DRY_SKIN))
+                        power *= 2f
                 }
                 if (move.type == Type.WATER && attacker.hasAbility(Ability.TORRENT))
                     power *= 1.5f
@@ -97,8 +99,10 @@ class DamageCalculator {
                 if (opponent.isMegaEvolved()){
                     type = move.type.isEffectiveAgainst(opponent.data.megaEvolutionData!!.type2) * move.type.isEffectiveAgainst(opponent.data.megaEvolutionData!!.type1)
                 }
-                if (attacker.hasAbility(Ability.FILTER))
+                if (opponent.hasAbility(Ability.FILTER))
                     type *= 0.75f
+                if (attacker.hasAbility(Ability.TINTED_LENS) && type < 1)
+                    type *= 2f
                 val random: Float = Random.nextInt(85, 100).toFloat() / 100f
                 val offensiveStat: Int =
                     if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * attacker.battleData!!.spAtkMultiplicator).roundToInt()

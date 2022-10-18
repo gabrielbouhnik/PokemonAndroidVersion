@@ -53,11 +53,15 @@ enum class Status(var activeOutsideBattle: Boolean) {
                     if (it.probability == null || randomForStatus <= it.probability!!) {
                         if (it.status.activeOutsideBattle) {
                             opponent.status = it.status
-                            if (opponent.hasAbility(Ability.QUICK_FEET))
-                                opponent.battleData!!.speedMultiplicator *= 1.5f
                             details += "${opponent.data.name} " + it.status.toDetails() + "\n"
                             if (opponent.hasAbility(Ability.GUTS))
                                 opponent.battleData!!.attackMultiplicator *= 1.5f
+                            if (opponent.hasAbility(Ability.QUICK_FEET))
+                                opponent.battleData!!.speedMultiplicator *= 1.5f
+                            if (opponent.hasAbility(Ability.MARVEL_SCALE))
+                                opponent.battleData!!.defenseMultiplicator *= 1.5f
+                            if (opponent.hasAbility(Ability.COMPETITIVE))
+                                opponent.battleData!!.spAtkMultiplicator *= 1.5f
                             if (opponent.hasAbility(Ability.SYNCHRONIZE)
                                 && isAffectedByStatus(0, it.status, attacker)){
                                     attacker.status = it.status

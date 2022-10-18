@@ -816,7 +816,7 @@
     "speed": 70,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["TINTED_LENS"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -1578,7 +1578,7 @@
         }
       }
     ],
-    "abilities": ["LIGHTNING_ROD"],
+    "abilities": ["STATIC","LIGHTNING_ROD"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -1638,7 +1638,7 @@
     "speed": 110,
     "catchRate": 55,
     "evolutions": [],
-    "abilities": ["LIGHTNING_ROD"],
+    "abilities": ["STATIC","LIGHTNING_ROD"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -2431,7 +2431,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["COMPETITIVE"],
     "expGaugeType":  "FAST"
   },
   {
@@ -2481,7 +2481,7 @@
     "speed": 45,
     "catchRate": 50,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["COMPETITIVE"],
     "expGaugeType":  "FAST"
   },
   {
@@ -2886,7 +2886,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["DRY_SKIN"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -2938,7 +2938,7 @@
     "speed": 30,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["DRY_SKIN"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -2998,7 +2998,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["TINTED_LENS"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3064,7 +3064,7 @@
     "speed": 90,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["TINTED_LENS"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3122,7 +3122,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["ARENA_TRAP"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3181,7 +3181,7 @@
     "speed": 120,
     "catchRate": 50,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["ARENA_TRAP"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -6246,7 +6246,7 @@
           "level": 28
         }
       }],
-    "abilities": ["SHEER_FORCE","SHELL_ARMOR"],
+    "abilities": ["SHEER_FORCE","SHELL_ARMOR","HYPER_CUTTER"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -6310,7 +6310,7 @@
     "speed": 75,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": ["SHEER_FORCE","SHELL_ARMOR"],
+    "abilities": ["SHEER_FORCE","SHELL_ARMOR","HYPER_CUTTER"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -6369,7 +6369,7 @@
         }
       }
     ],
-    "abilities": ["SOUNDPROOF"],
+    "abilities": ["SOUNDPROOF","AFTERMATH","STATIC"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -6421,7 +6421,7 @@
     "speed": 150,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": ["SOUNDPROOF"],
+    "abilities": ["SOUNDPROOF","AFTERMATH","STATIC"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7796,7 +7796,7 @@
     "speed": 95,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["DRY_SKIN"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -8002,7 +8002,7 @@
     "speed": 85,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["MOXIE"],
+    "abilities": ["MOXIE","HYPER_CUTTER"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -9191,7 +9191,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["MARVEL_SCALE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -9260,7 +9260,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["MARVEL_SCALE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -9660,7 +9660,7 @@
         }
       }
     ],
-    "abilities": ["INSOMNIA","KEEN_EYE"],
+    "abilities": ["INSOMNIA","KEEN_EYE","TINTED_LENS"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -9719,7 +9719,7 @@
     "speed": 70,
     "catchRate": 90,
     "evolutions": [],
-    "abilities": ["INSOMNIA","KEEN_EYE"],
+    "abilities": ["INSOMNIA","KEEN_EYE","TINTED_LENS"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -12970,7 +12970,7 @@
     "speed": 81,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["COMPETITIVE","MARVEL_SCALE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -13126,7 +13126,7 @@
     "speed": 80,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["AFTERMATH"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -13361,7 +13361,7 @@
     "speed": 85,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["POISON_TOUCH"],
+    "abilities": ["POISON_TOUCH","DRY_SKIN"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -13768,7 +13768,7 @@
     "speed": 95,
     "catchRate": 30,
     "evolutions": [],
-    "abilities": ["SPEED_BOOST"],
+    "abilities": ["SPEED_BOOST","TINTED_LENS"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {

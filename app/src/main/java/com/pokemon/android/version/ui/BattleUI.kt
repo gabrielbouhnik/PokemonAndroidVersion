@@ -111,11 +111,12 @@ class BattleUI {
             battle.pokemon.currentHP,
             battle.pokemon.hp
         )
-
+        trainerPokemonHPLevel.setTextColor(ColorUtils.getColorByHP(battle.pokemon))
         val pokemonStatusTextView: TextView = activity.findViewById(R.id.pokemonBattleStatusTextView)
         if (battle.pokemon.status != Status.OK) {
             pokemonStatusTextView.visibility = VISIBLE
             pokemonStatusTextView.text = battle.pokemon.status.toBattleIcon()
+            pokemonStatusTextView.setTextColor(ColorUtils.getColorByStatus(battle.pokemon.status))
         } else {
             pokemonStatusTextView.visibility = GONE
         }
@@ -127,6 +128,7 @@ class BattleUI {
             battle.opponent.currentHP,
             battle.opponent.hp
         )
+        opponentPokemonHPLevel.setTextColor(ColorUtils.getColorByHP(battle.opponent))
 
         val opponentPokemonName: TextView = activity.findViewById(R.id.opponentPokemonNameTextView)
         opponentPokemonName.text = if (battle.opponent.isMegaEvolved()) "Mega " + battle.opponent.data.name else battle.opponent.data.name
@@ -135,6 +137,7 @@ class BattleUI {
         if (battle.opponent.status != Status.OK) {
             opponentStatusTextView.visibility = VISIBLE
             opponentStatusTextView.text = battle.opponent.status.toBattleIcon()
+            opponentStatusTextView.setTextColor(ColorUtils.getColorByStatus(battle.opponent.status))
         } else {
             opponentStatusTextView.visibility = GONE
         }

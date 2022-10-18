@@ -221,7 +221,7 @@ class Pokemon(
                 false,
                 "Levitate: It does not affect ${opponent.data.name}!\n"
             )
-        if ((move.move.type == Type.WATER && opponent.hasAbility(Ability.WATER_ABSORB))
+        if ((move.move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(Ability.DRY_SKIN)))
                     || (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))){
             val heal = DamageCalculator.computeDamageWithoutAbility(this, move.move, opponent)
             if (heal + this.currentHP > this.hp)
@@ -318,6 +318,10 @@ class Pokemon(
                 damageDone = opponent.currentHP
                 opponent.currentHP = 0
                 opponent.status = Status.OK
+                if (opponent.hasAbility(Ability.AFTERMATH) && move.move.characteristics.contains(MoveCharacteristic.CONTACT)) {
+                    details += "Aftermath: ${this.data.name} loses some hp!\n"
+                    currentHP = if (hp/4 > currentHP) 0 else currentHP - hp/4
+                }
             }
         } else {
             damageDone = damage

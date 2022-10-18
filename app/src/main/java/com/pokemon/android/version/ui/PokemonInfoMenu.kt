@@ -175,8 +175,10 @@ class PokemonInfoMenu(var parentId: Int) {
             loadMovesLayout(activity, pokemon)
         }
         val statusTextView: TextView = activity.findViewById(R.id.statusDetailsTextView)
-        if (pokemon.status != Status.OK)
-            statusTextView.text = pokemon.status.toString()
+        if (pokemon.status != Status.OK){
+            statusTextView.text = pokemon.status.toBattleIcon()
+            statusTextView.setTextColor(ColorUtils.getColorByStatus(pokemon.status))
+        }
         else
             statusTextView.visibility = View.GONE
         val healButton: Button = activity.findViewById(R.id.healButton)
