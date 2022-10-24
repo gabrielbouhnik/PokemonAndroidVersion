@@ -22,6 +22,21 @@ class DamageCalculator {
             return 1f
         }
 
+        fun getEffectiveness(move: Move, opponent: Pokemon): Float {
+            var type1 = if (opponent.isMegaEvolved()) opponent.data.megaEvolutionData!!.type1 else opponent.data.type1
+            var type2 = if (opponent.isMegaEvolved()) opponent.data.megaEvolutionData!!.type2 else opponent.data.type2
+            if (move.type == Type.GROUND && opponent.battleData!!.battleStatus.contains(Status.ROOSTED)){
+                if (type1 == Type.FLYING)
+                    type1 = Type.NORMAL
+                else
+                    type2 = Type.NORMAL
+            }
+            var type: Float = move.type.isEffectiveAgainst(type2) * move.type.isEffectiveAgainst(type1)
+            if (type > 1f && opponent.hasAbility(Ability.FILTER))
+                type *= 0.75f
+            return type
+        }
+
         fun computeDamageWithoutAbility(attacker: Pokemon, move: Move, opponent: Pokemon): Int {
             var multiplicator = 1f
             var stab = if (attacker.data.type1 == move.type || attacker.data.type2 == move.type) 1.5f else 1f
@@ -33,10 +48,7 @@ class DamageCalculator {
             }
             val power = if (move is MoveBasedOnHP) MoveBasedOnHP.getPower(attacker) else move.power
             return try {
-                var type: Float = move.type.isEffectiveAgainst(opponent.data.type2) * move.type.isEffectiveAgainst(opponent.data.type1)
-                if (opponent.isMegaEvolved()){
-                    type = move.type.isEffectiveAgainst(opponent.data.megaEvolutionData!!.type2) * move.type.isEffectiveAgainst(opponent.data.megaEvolutionData!!.type1)
-                }
+                val type = getEffectiveness(move, opponent)
                 val random: Float = Random.nextInt(85, 100).toFloat() / 100f
                 val offensiveStat: Int =
                     if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * if (attacker.hasAbility(Ability.UNAWARE)) 1f else attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * if (attacker.hasAbility(Ability.UNAWARE)) 1f else attacker.battleData!!.spAtkMultiplicator).roundToInt()
@@ -78,6 +90,12 @@ class DamageCalculator {
                 power *= 1.2f
             if ((move.type == Type.FIRE || move.type == Type.ICE) && opponent.hasAbility(Ability.THICK_FAT))
                 multiplicator *= 0.5f
+            if (move.type == Type.FIRE) {
+                if (attacker.battleData!!.battleStatus.contains(Status.FIRED_UP))
+                    power *= 1.5f
+                if (opponent.hasAbility(Ability.DRY_SKIN))
+                    power *= 2f
+            }
             if ((attacker.currentHP / attacker.hp) < 0.4){
                 if (move.type == Type.GRASS && attacker.hasAbility(Ability.OVERGROW))
                     power *= 1.5f
@@ -95,13 +113,8 @@ class DamageCalculator {
                     power *= 1.5f
             }
             return try {
-                var type: Float = move.type.isEffectiveAgainst(opponent.data.type2) * move.type.isEffectiveAgainst(opponent.data.type1)
-                if (opponent.isMegaEvolved()){
-                    type = move.type.isEffectiveAgainst(opponent.data.megaEvolutionData!!.type2) * move.type.isEffectiveAgainst(opponent.data.megaEvolutionData!!.type1)
-                }
-                if (opponent.hasAbility(Ability.FILTER))
-                    type *= 0.75f
-                if (attacker.hasAbility(Ability.TINTED_LENS) && type < 1)
+                var type = getEffectiveness(move, opponent)
+                if (attacker.hasAbility(Ability.TINTED_LENS) && type < 1f)
                     type *= 2f
                 val random: Float = Random.nextInt(85, 100).toFloat() / 100f
                 val offensiveStat: Int =

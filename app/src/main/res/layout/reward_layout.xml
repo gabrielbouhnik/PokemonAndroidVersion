@@ -18,7 +18,7 @@
             android:layout_width="309dp"
             android:layout_height="430dp"
             app:layout_constraintTop_toBottomOf="@+id/congratulationsTextView"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.414"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.106"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:id="@+id/rewardRecyclerView"/>
     <Button
@@ -36,6 +36,20 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/congratulationsTextView"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintVertical_bias="0.78"/>
+            app:layout_constraintVertical_bias="0.808"/>
+    <Button
+            android:text="Next Level"
+            android:layout_width="149dp"
+            android:layout_height="57dp" android:id="@+id/nextLevelButton"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/congratulationsTextView"
+            app:layout_constraintVertical_bias="0.916" app:layout_constraintBottom_toTopOf="@+id/battleAgainButton"/>
+    <Button
+            android:text="Heal Team"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/healTeamButton"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toEndOf="@+id/battleAgainButton"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="84dp"
+            android:backgroundTint="#E91E63"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,6 @@ class BossBattle() : Battle() {
 
     constructor(activity: MainActivity, bossBattleLevelData: BossBattleLevelData) : this() {
         this.activity = activity
-        this.dialogTextView = activity.findViewById(R.id.dialogTextView)
         this.levelData = bossBattleLevelData
         this.pokemon = activity.trainer!!.getFirstPokemonThatCanFight()!!
         this.pokemon.battleData = PokemonBattleData()

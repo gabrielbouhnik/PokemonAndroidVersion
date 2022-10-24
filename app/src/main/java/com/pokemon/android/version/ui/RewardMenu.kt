@@ -76,6 +76,37 @@ class RewardMenu {
                 else -> activity.mainMenu.levelMenu.battleUI.startBossBattle(activity, levelData as BossBattleLevelData)
             }
         }
+        val healTeamButton: Button = activity.findViewById(R.id.healTeamButton)
+        if (activity.trainer!!.progression < 9 || levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID)
+            healTeamButton.visibility = GONE
+        healTeamButton.setOnClickListener {
+            activity.trainer!!.team.forEach{activity.trainer!!.heal(it,false)}
+            healTeamButton.visibility = GONE
+        }
+        val nextLevelButton: Button = activity.findViewById(R.id.nextLevelButton)
+        if (activity.trainer!!.progression < 9 || levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID
+            || levelData.id == LevelMenu.ELITE_4_FIRST_LEVEL_ID - 1 || levelData.id == LevelMenu.ELITE_4_LAST_LEVEL_ID
+            || levelData.id == LevelMenu.MEWTWO_LEVEL)
+            nextLevelButton.visibility = GONE
+        nextLevelButton.setOnClickListener {
+            val nextLevelData : LevelData = activity.gameDataService.levels.findLast{ it.id == levelData.id + 1}!!
+            if (activity.trainer!!.progression == levelData.id + 1)
+                activity.mainMenu.levelMenu.loadLevelDescriptionMenu(activity, nextLevelData)
+            else {
+                when (nextLevelData) {
+                    is WildBattleLevelData -> activity.mainMenu.levelMenu.battleUI.startWildBattle(activity, nextLevelData)
+                    is TrainerBattleLevelData -> activity.mainMenu.levelMenu.battleUI.startTrainerBattle(
+                        activity,
+                        nextLevelData
+                    )
+                    is LeaderLevelData -> activity.mainMenu.levelMenu.battleUI.startGymLeaderBattle(activity, nextLevelData)
+                    else -> activity.mainMenu.levelMenu.battleUI.startBossBattle(
+                        activity,
+                        nextLevelData as BossBattleLevelData
+                    )
+                }
+            }
+        }
         val backButton: Button = activity.findViewById(R.id.rewardsBackButton)
         backButton.setOnClickListener {
             if (levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID) {

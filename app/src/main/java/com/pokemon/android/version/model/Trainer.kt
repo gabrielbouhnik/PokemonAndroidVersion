@@ -111,8 +111,8 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         return false
     }
 
-    fun heal(pokemon: Pokemon) {
-        if (items.contains(10) && ItemUtils.getItemById(10).isUsable(pokemon))
+    fun heal(pokemon: Pokemon, healPP: Boolean) {
+        if (healPP && items.contains(10) && ItemUtils.getItemById(10).isUsable(pokemon))
             useItem(10, pokemon)
         if (pokemon.currentHP == 0) {
             if (items.contains(9))

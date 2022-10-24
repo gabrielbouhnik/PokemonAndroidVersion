@@ -15,14 +15,17 @@ class LevelMenu {
     companion object {
         const val OTHER_BANNER_LEVEL = 19
         const val DUGTRIO_LEVEL = 24
-        const val LAPRAS_LEVEL = 50
-        const val TYROGUE_LEVEL = 51
+        const val TYROGUE_LEVEL = 50
+        const val LAPRAS_LEVEL = 52
         const val ARTICUNO_LEVEL = 56
         const val MOLTRES_LEVEL = 66
         const val ZAPDOS_LEVEL = 75
         const val MEWTWO_LEVEL = 83
+        const val MEGA_CHARIZARD_LEVEL_ID = 61
+        const val MEGA_VENUSAUR_LEVEL_ID = 66
         const val ELITE_4_FIRST_LEVEL_ID = 68
         const val ELITE_4_LAST_LEVEL_ID = 72
+        const val CYNTHIA_LEVEL_ID = 72
     }
 
     var battleUI: BattleUI = BattleUI()
@@ -73,7 +76,7 @@ class LevelMenu {
             activity.mainMenu.loadGameMenu(activity)
         }
         val levels =
-            activity.gameDataService.levels.filter { it.id <= activity.trainer!!.progression && it.id !in ELITE_4_FIRST_LEVEL_ID..ELITE_4_LAST_LEVEL_ID }
+            activity.gameDataService.levels.filter { it.id <= activity.trainer!!.progression && it.id !in ELITE_4_FIRST_LEVEL_ID..ELITE_4_LAST_LEVEL_ID }.reversed()
         val myItemClickListener = View.OnClickListener {
             val position = it.tag as Int
             val levelData: LevelData = levels[position]

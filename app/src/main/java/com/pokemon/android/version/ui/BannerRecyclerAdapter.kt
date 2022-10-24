@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
@@ -61,6 +62,9 @@ class BannerRecyclerAdapter(
                 activity.mainMenu.bannerMenu.coinsTextView.text = "${activity.trainer!!.coins} AndroCoins"
                 activity.mainMenu.bannerMenu.loadSummonResultScreen(activity, currentItem, s)
             }
+            else
+                Toast.makeText(activity, "You don't have enough AndroCoins.", Toast.LENGTH_SHORT).show()
+
         }
         val img: InputStream = activity.assets.open(currentItem.image)
         holder.spriteView.setImageDrawable(Drawable.createFromStream(img, currentItem.image))

@@ -1,6 +1,7 @@
 package com.pokemon.android.version.model.battle
 
 import com.pokemon.android.version.model.Status
+import com.pokemon.android.version.model.move.pokemon.PokemonMove
 
 class PokemonBattleData(
     var attackMultiplicator: Float = 1F,
@@ -15,5 +16,6 @@ class PokemonBattleData(
     var trapCounter: Int = 0,
     var poisonCounter: Int = 0,
     var unableToMoveCounter: Int = 0,
-    var battleStatus: ArrayList<Status> = arrayListOf()
+    var battleStatus: ArrayList<Status> = arrayListOf(),
+    var chargedMove: PokemonMove? = null
 )

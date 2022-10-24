@@ -2,6 +2,7 @@ package com.pokemon.android.version.ui
 
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
@@ -47,13 +48,15 @@ class BannerMenu {
             loadBannerMenu(activity)
         }
         val summonAgainButton: Button = activity.findViewById(R.id.summonAgainButton)
-        if (activity.trainer!!.coins >= banner.cost)
-        summonAgainButton.setOnClickListener {
-            val newSummonResult = banner.summon(activity)
-            if (newSummonResult != null) {
-                activity.mainMenu.bannerMenu.coinsTextView.text = "${activity.trainer!!.coins} AndroCoins"
-                activity.mainMenu.bannerMenu.loadSummonResultScreen(activity, banner, newSummonResult)
-                activity.playSoundEffect(R.raw.item_sound_effect)
+        if (activity.trainer!!.coins >= banner.cost) {
+            summonAgainButton.setOnClickListener {
+                val newSummonResult = banner.summon(activity)
+                if (newSummonResult != null) {
+                    activity.mainMenu.bannerMenu.coinsTextView.text = "${activity.trainer!!.coins} AndroCoins"
+                    activity.mainMenu.bannerMenu.loadSummonResultScreen(activity, banner, newSummonResult)
+                    activity.playSoundEffect(R.raw.item_sound_effect)
+                } else
+                    Toast.makeText(activity, "You don't have enough AndroCoins.", Toast.LENGTH_SHORT).show()
             }
         }
         val resultTextView: TextView = activity.findViewById(R.id.summonResultTextView)

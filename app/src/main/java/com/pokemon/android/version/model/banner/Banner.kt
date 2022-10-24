@@ -40,7 +40,6 @@ class Banner(
         if (activity.trainer!!.coins >= cost) {
             activity.trainer!!.coins -= cost
         } else {
-            Toast.makeText(activity, "You don't have enough AndroCoins.", Toast.LENGTH_SHORT).show()
             return null
         }
         val s: Summonable = summon()

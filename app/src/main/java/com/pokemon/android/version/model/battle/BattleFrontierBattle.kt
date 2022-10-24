@@ -53,7 +53,6 @@ class BattleFrontierBattle() : Battle() {
 
     constructor(activity: MainActivity, team: List<Pokemon>, area: BattleFrontierArea) : this() {
         this.activity = activity
-        this.dialogTextView = activity.findViewById(R.id.dialogTextView)
         this.team = team
         this.area = area
         this.pokemon = team[0]
@@ -62,14 +61,14 @@ class BattleFrontierBattle() : Battle() {
         this.opponent = this.opponentTrainer.getFirstPokemonThatCanFight()!!
     }
 
-    override fun turnWithSwitch(pokemonToBeSent: Pokemon) {
+    override fun turnWithSwitch(pokemonToBeSent: Pokemon) : String {
         val sb = StringBuilder()
         val previousPokemon = pokemon
         sb.append("${activity.trainer!!.name} sends ${pokemonToBeSent.data.name}\n")
         switchPokemon(pokemonToBeSent)
         sb.append(opponentTurn(opponent.ia(previousPokemon)))
         endTurn(sb)
-        dialogTextView.text = sb.toString()
+        return sb.toString()
     }
 
     override fun getBattleState(): State {

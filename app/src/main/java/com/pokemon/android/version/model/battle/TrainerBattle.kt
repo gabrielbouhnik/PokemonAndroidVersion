@@ -16,7 +16,6 @@ class TrainerBattle() : Battle() {
 
     constructor(activity: MainActivity, trainerBattleLevelData: TrainerBattleLevelData) : this() {
         this.activity = activity
-        this.dialogTextView = activity.findViewById(R.id.dialogTextView)
         this.opponentTrainerSprite = activity.findViewById(R.id.opponentTrainerSpriteView)
         this.levelData = trainerBattleLevelData
         this.numberOfTrainers = trainerBattleLevelData.opponentTrainerData.size

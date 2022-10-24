@@ -4,6 +4,7 @@ import com.pokemon.android.version.model.Ability
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Type
+import com.pokemon.android.version.model.battle.DamageCalculator
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveCharacteristic
 import kotlin.random.Random
@@ -81,11 +82,7 @@ class BattleUtils {
         }
 
         fun getEffectiveness(move: Move, opponent: Pokemon) : String{
-            var effectiveness = move.type.isEffectiveAgainst(opponent.data.type1) *
-                    move.type.isEffectiveAgainst(opponent.data.type2)
-            if (opponent.isMegaEvolved())
-                effectiveness = move.type.isEffectiveAgainst(opponent.data.megaEvolutionData!!.type1) *
-                        move.type.isEffectiveAgainst(opponent.data.megaEvolutionData!!.type2)
+            val effectiveness = DamageCalculator.getEffectiveness(move, opponent)
             if (move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))
                 return "Volt Absorb: ${opponent.data.name}'s HP was restored\n"
             if (move.type == Type.WATER){

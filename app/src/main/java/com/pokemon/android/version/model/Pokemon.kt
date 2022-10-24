@@ -106,16 +106,20 @@ class Pokemon(
         var maxDamage = 0
         var maxDamageIdx = 0
         for ((Idx, move) in usableMoves.withIndex()) {
-            val damage: Int = DamageCalculator.computeDamage(this, move.move, opponent, 1f)
-            if (damage >= opponent.currentHP)
-                return move
-            if (damage > 0 && hp / currentHP < 20 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
+            var damage: Int = DamageCalculator.computeDamage(this, move.move, opponent, 1f)
+            if (damage >= opponent.currentHP) {
+                if (move.move !is ChargedMove || hp / currentHP > 2)
+                    return move
+            }
+            if (move.move is MultipleHitMove || move.move is VariableHitMove)
+                damage *= 2
+            if (damage > 0 && hp / currentHP < 4 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
                 return move
             move.move.status.forEach {
                 if (Status.isAffectedByStatus(move.move.id, it.status, opponent) && it.probability == null)
                     return move
             }
-            if (move.move is HealMove && hp / currentHP > 40)
+            if (move.move is HealMove && hp / currentHP > 4)
                 return move
             if (move.move is StatChangeMove) {
                 val statChangeMove: StatChangeMove = move.move as StatChangeMove
@@ -188,7 +192,7 @@ class Pokemon(
         return AttackResponse(true, "")
     }
 
-    fun attack(move: PokemonMove, opponent: Pokemon): AttackResponse {
+    fun attack(move: PokemonMove, opponent: Pokemon, battle : Battle): AttackResponse {
         val attackResponse = canAttack(move)
         if (!attackResponse.success)
             return attackResponse
@@ -472,11 +476,14 @@ class Pokemon(
                 if (condition.dayTime == "DAY")
                     return currentHourIn24Format in 6..18
                 if (condition.dayTime == "NIGHT")
-                    return currentHourIn24Format in 18..24 || currentHourIn24Format in 0..6
+                    return currentHourIn24Format in 19..24 || currentHourIn24Format in 0..6
             }
             return true
         }
         if (condition.itemId != null && (this.trainer!! as Trainer).items.containsKey(condition.itemId))
+            return true
+        if (condition.moveId != null
+            && MoveUtils.getMoveList(this).map{it.move.id}.contains(condition.moveId))
             return true
         return false
     }

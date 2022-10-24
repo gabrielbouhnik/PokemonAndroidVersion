@@ -46,7 +46,6 @@ class StarterSelection {
                     val quantity =  if (!ItemUtils.isBadge(i) && i != 30) 50 else 1
                     activity.trainer!!.addItem(i, quantity)
                 }
-                SaveManager.save(activity)
                 activity.updateMusic(R.raw.main_menu)
                 activity.mainMenu.loadGameMenu(activity)
             }
@@ -62,7 +61,6 @@ class StarterSelection {
     }
 
     fun displayOakResponse(activity: MainActivity, starterName: String) {
-        SaveManager.save(activity)
         val nextButton: Button = activity.findViewById(R.id.nextButton)
         val oakTextView: TextView = activity.findViewById(R.id.oakTextView)
         oakTextView.movementMethod = ScrollingMovementMethod()
@@ -70,6 +68,7 @@ class StarterSelection {
             "So you chose $starterName.\nYou can now go on an adventure and become a great pokemon trainer."
         nextButton.visibility = VISIBLE
         nextButton.setOnClickListener {
+            SaveManager.save(activity)
             activity.updateMusic(R.raw.main_menu)
             activity.mainMenu.loadGameMenu(activity)
         }

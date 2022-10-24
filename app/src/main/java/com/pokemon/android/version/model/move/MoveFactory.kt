@@ -17,6 +17,8 @@ class MoveFactory {
                 movesEntity.movesBasedOnLevelEntity.forEach { res.add(MoveBasedOnLevel.of(it)) }
                 movesEntity.ultimateMoves.forEach { res.add(UltimateMove.of(it)) }
                 movesEntity.movesBasedOnHPEntity.forEach { res.add(MoveBasedOnHP.of(it)) }
+                movesEntity.chargedMovesEntity.forEach { res.add(ChargedMove.of(it)) }
+                movesEntity.rampageMovesEntity.forEach { res.add(RampageMove.of(it)) }
             }
             res.sortBy { it.id }
             return res

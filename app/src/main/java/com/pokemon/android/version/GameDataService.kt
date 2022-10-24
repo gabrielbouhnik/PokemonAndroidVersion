@@ -86,7 +86,9 @@ class GameDataService {
     }
 
     fun generatePokemonFromBanner(pokemonBanner: PokemonBanner): Pokemon {
-        return generatePokemonWithMoves(pokemonBanner.pokemonId, 5, pokemonBanner.moves)
+        val pokemon = generatePokemonWithMoves(pokemonBanner.pokemonId, 5, pokemonBanner.moves)
+        pokemon.isFromBanner = true
+        return pokemon
     }
 
     fun generatePokemonWithMoves(id: Int, level: Int, moves: List<Move>): Pokemon {

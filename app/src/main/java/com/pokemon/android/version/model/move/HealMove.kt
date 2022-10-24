@@ -2,6 +2,7 @@ package com.pokemon.android.version.model.move
 
 import com.pokemon.android.version.entity.move.HealMoveEntity
 import com.pokemon.android.version.model.Pokemon
+import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Type
 
 class HealMove(
@@ -13,8 +14,9 @@ class HealMove(
     pp: Int,
     accuracy: Int?,
     priorityLevel: Int,
-    description: String
-) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, listOf(), false, description) {
+    description: String,
+    status: List<StatusMove>
+) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, false, description) {
     companion object {
         fun of(healMoveEntity: HealMoveEntity): HealMove {
             return HealMove(
@@ -26,7 +28,8 @@ class HealMove(
                 healMoveEntity.pp,
                 healMoveEntity.accuracy,
                 healMoveEntity.priorityLevel,
-                healMoveEntity.description
+                healMoveEntity.description,
+                healMoveEntity.status.map{StatusMove.of(it)}
             )
         }
 

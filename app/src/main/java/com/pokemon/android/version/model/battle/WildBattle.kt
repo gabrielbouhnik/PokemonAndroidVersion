@@ -13,7 +13,6 @@ class WildBattle() : Battle() {
 
     constructor(activity: MainActivity, wildBattleLevelData: WildBattleLevelData) : this() {
         this.activity = activity
-        this.dialogTextView = activity.findViewById(R.id.dialogTextView)
         this.levelData = wildBattleLevelData
         this.encountersLeft = wildBattleLevelData.encounter
         this.pokemon = activity.trainer!!.getFirstPokemonThatCanFight()!!

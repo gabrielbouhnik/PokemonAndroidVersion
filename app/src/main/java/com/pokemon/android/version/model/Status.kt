@@ -1,5 +1,6 @@
 package com.pokemon.android.version.model
 
+import com.pokemon.android.version.model.move.HealMove
 import com.pokemon.android.version.model.move.Move
 import kotlin.random.Random
 
@@ -17,7 +18,8 @@ enum class Status(var activeOutsideBattle: Boolean) {
     UNABLE_TO_MOVE(false),
     TRAPPED_WITH_DAMAGE(false),
     TRAPPED_WITHOUT_DAMAGE(false),
-    FIRED_UP(false);
+    FIRED_UP(false),
+    ROOSTED(false);
 
     fun toDetails(): String {
         return when (this) {
@@ -81,6 +83,9 @@ enum class Status(var activeOutsideBattle: Boolean) {
                             else if (it.status == FLINCHED){
                                 if (!opponent.hasAbility(Ability.INNER_FOCUS))
                                     opponent.battleData!!.battleStatus.add(it.status)
+                            }
+                            else if (move is HealMove){
+                                attacker.battleData!!.battleStatus.add(it.status)
                             }
                             else {
                                 opponent.battleData!!.battleStatus.add(it.status)

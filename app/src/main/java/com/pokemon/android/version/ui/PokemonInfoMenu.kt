@@ -183,7 +183,7 @@ class PokemonInfoMenu(var parentId: Int) {
             statusTextView.visibility = View.GONE
         val healButton: Button = activity.findViewById(R.id.healButton)
         healButton.setOnClickListener {
-            activity.trainer!!.heal(pokemon)
+            activity.trainer!!.heal(pokemon,true)
             if (pokemon.status == Status.OK)
                 statusTextView.text = ""
             displayPokemonInfo(activity, pokemon)

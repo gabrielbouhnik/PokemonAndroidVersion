@@ -14,7 +14,6 @@ class LeaderBattle() : Battle() {
 
     constructor(activity: MainActivity, leaderLevelData: LeaderLevelData) : this() {
         this.activity = activity
-        this.dialogTextView = activity.findViewById(R.id.dialogTextView)
         this.opponentTrainerSprite = activity.findViewById(R.id.opponentTrainerSpriteView)
         this.levelData = leaderLevelData
         this.pokemon = if (leaderLevelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID)

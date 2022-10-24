@@ -98,6 +98,9 @@ class BattleUI {
                     }
                 }
             }
+            else{
+                megaEvolutionImageView.visibility = GONE
+            }
         }
         if (battle is BattleFrontierBattle && activity.trainer!!.battleFactoryProgression != null &&
             activity.trainer!!.battleFactoryProgression!!.team.contains(battle.pokemon))
@@ -379,11 +382,11 @@ class BattleUI {
                 if (megaEvolve && battle.pokemon.canMegaEvolve()){
                     val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
                     megaEvolutionImageView.visibility = GONE
-                    battle.turn(move,true)
+                    dialogTextView!!.text = battle.turn(move,true)
                 }
                 else{
                     megaEvolve = false
-                    battle.turn(move,false)
+                    dialogTextView!!.text = battle.turn(move,false)
                 }
                 ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
                 updateBattleUI(activity, battle)
@@ -408,11 +411,11 @@ class BattleUI {
                 if (megaEvolve && battle.pokemon.canMegaEvolve()){
                     val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
                     megaEvolutionImageView.visibility = GONE
-                    battle.turn(battle.pokemon.move1,true)
+                    dialogTextView!!.text = battle.turn(battle.pokemon.move1,true)
                 }
                 else{
                     megaEvolve = false
-                    battle.turn(battle.pokemon.move1,false)
+                    dialogTextView!!.text = battle.turn(battle.pokemon.move1,false)
                 }
                 ppTextView.text =
                     activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
@@ -451,7 +454,7 @@ class BattleUI {
                     if (clickedPokemon.currentHP > 0 && clickedPokemon != battle.pokemon) {
                         recyclerView.visibility = GONE
                         blackImageView.visibility = GONE
-                        battle.turnWithSwitch(clickedPokemon)
+                        dialogTextView!!.text = battle.turnWithSwitch(clickedPokemon)
                         closeButton.visibility = GONE
                         updateBattleUI(activity, battle)
                         setUpAttackButtons(activity, battle)
@@ -509,7 +512,7 @@ class BattleUI {
                         if (ItemUtils.getItemById(clickedItem.itemId)
                                 .isUsable(battle.pokemon) || (battle is WildBattle && ItemUtils.isBall(clickedItem.itemId))
                         ) {
-                            battle.turnWithItemUsed(clickedItem.itemId)
+                            dialogTextView!!.text = battle.turnWithItemUsed(clickedItem.itemId)
                             updateBattleUI(activity, battle)
                             if (battle.pokemon.currentHP > 0 && battle.getBattleState() == State.IN_PROGRESS) {
                                 setUpAttackButtons(activity, battle)
