@@ -25,7 +25,7 @@ class LevelMenu {
         const val MEGA_VENUSAUR_LEVEL_ID = 66
         const val ELITE_4_FIRST_LEVEL_ID = 68
         const val ELITE_4_LAST_LEVEL_ID = 72
-        const val CYNTHIA_LEVEL_ID = 72
+        const val CYNTHIA_LEVEL_ID = 79
     }
 
     var battleUI: BattleUI = BattleUI()

@@ -122,7 +122,7 @@ abstract class Battle {
                 sb.append(opponentTurn(opponent.ia(pokemon)))
                 endTurn(sb)
             }
-            if (pokemon.battleData!!.chargedMove != null) {
+            else if (pokemon.battleData!!.chargedMove != null) {
                 sb.append(trainerTurn(trainerPokemonMove))
                 pokemon.battleData!!.chargedMove = null
                 if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
@@ -130,7 +130,7 @@ abstract class Battle {
                 }
                 endTurn(sb)
             }
-            if (trainerPokemonMove.move is RampageMove) {
+            else if (trainerPokemonMove.move is RampageMove) {
                 sb.append(trainerTurn(trainerPokemonMove))
                 if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
                     sb.append(opponentTurn(opponent.ia(pokemon)))

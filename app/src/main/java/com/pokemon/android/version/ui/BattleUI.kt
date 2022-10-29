@@ -557,7 +557,11 @@ class BattleUI {
         val wildBattle = WildBattle(activity, level)
         buttonSetUp(activity, wildBattle)
         wildBattle.generateRandomEncounter()
-        dialogTextView!!.text = activity.getString(R.string.wild_encounter, wildBattle.opponent.data.name)
+        val sb = StringBuilder()
+        sb.append(activity.getString(R.string.boss_encounter, wildBattle.opponent.data.name))
+        sb.append(BattleUtils.abilitiesCheck(wildBattle.pokemon,wildBattle.opponent))
+        sb.append(BattleUtils.abilitiesCheck(wildBattle.opponent,wildBattle.pokemon))
+        dialogTextView!!.text = sb.toString()
         displayPokemonsInfos(activity, wildBattle)
     }
 
@@ -635,7 +639,11 @@ class BattleUI {
         loadBackgroundImage(level, activity)
         val bossBattle = BossBattle(activity, level)
         buttonSetUp(activity, bossBattle)
-        dialogTextView!!.text = activity.getString(R.string.boss_encounter, bossBattle.opponent.data.name)
+        val sb = StringBuilder()
+        sb.append(activity.getString(R.string.boss_encounter, bossBattle.opponent.data.name))
+        sb.append(BattleUtils.abilitiesCheck(bossBattle.pokemon,bossBattle.opponent))
+        sb.append(BattleUtils.abilitiesCheck(bossBattle.opponent,bossBattle.pokemon))
+        dialogTextView!!.text = sb.toString()
         displayPokemonsInfos(activity, bossBattle)
     }
 

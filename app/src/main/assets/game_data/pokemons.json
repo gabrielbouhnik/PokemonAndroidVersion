@@ -4400,6 +4400,7 @@
       "movesLearnWithTM": [
         105,
         37,
+        66,
         137
       ],
       "bannerMoves": []
@@ -4457,6 +4458,7 @@
       "movesLearnWithTM": [
         105,
         37,
+        66,
         137
       ],
       "bannerMoves": []
@@ -4522,6 +4524,7 @@
       "movesLearnWithTM": [
         105,
         37,
+        66,
         137
       ],
       "bannerMoves": []
@@ -10147,7 +10150,7 @@
       {
         "evolutionId": 176,
         "evolutionCondition": {
-          "level": 36
+          "level": 20
         }
       }
     ],
@@ -11581,12 +11584,20 @@
           "level": 8
         },
         {
+          "moveId": 73,
+          "level": 25
+        },
+        {
           "moveId": 38,
           "level": 29
         },
         {
           "moveId": 171,
           "level": 38
+        },
+        {
+          "moveId": 147,
+          "level": 49
         },
         {
           "moveId": 196,
