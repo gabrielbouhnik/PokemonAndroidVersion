@@ -15,6 +15,9 @@ import com.pokemon.android.version.ui.StarterSelection
 import kotlin.random.Random
 import kotlin.random.nextInt
 
+import androidx.fragment.app.Fragment
+import com.pokemon.android.version.databinding.MenuWithNavbarBinding
+
 class MainActivity : AppCompatActivity() {
     companion object {
         const val pokemonSpritesUrl: String =

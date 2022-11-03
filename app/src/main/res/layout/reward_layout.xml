@@ -31,16 +31,16 @@
             app:layout_constraintVertical_bias="0.0"/>
     <Button
             android:text="Battle Again"
-            android:layout_width="149dp"
-            android:layout_height="57dp" android:id="@+id/battleAgainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/battleAgainButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/congratulationsTextView"
             app:layout_constraintVertical_bias="0.808"/>
     <Button
             android:text="Next Level"
-            android:layout_width="149dp"
-            android:layout_height="57dp" android:id="@+id/nextLevelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/nextLevelButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/congratulationsTextView"
             app:layout_constraintVertical_bias="0.916" app:layout_constraintBottom_toTopOf="@+id/battleAgainButton"/>

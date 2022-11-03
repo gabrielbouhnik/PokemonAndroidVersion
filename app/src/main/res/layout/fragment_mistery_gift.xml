@@ -2,13 +2,24 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".MisteryGiftFragment">
+             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+             tools:context=".MisteryGiftFragment"
+             android:background="@drawable/banner_menu">
 
-    <!-- TODO: Update blank fragment layout -->
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="413dp"
+            android:clipToPadding="false"
+            android:layout_height="691dp"
+            android:id="@+id/bannerRecyclerView"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent">
+    </androidx.recyclerview.widget.RecyclerView>
     <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
-
+            android:text="0 AndroCoins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/coinBannerTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="36dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="4dp"
+            android:fontFamily="casual" android:textSize="18sp" android:textAlignment="textEnd"
+            android:textColor="#FF797979"/>
 </FrameLayout>
