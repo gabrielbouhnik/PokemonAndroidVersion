@@ -6,6 +6,7 @@ import android.view.View.GONE
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Trainer
@@ -14,6 +15,8 @@ import com.pokemon.android.version.ui.MainMenu
 import com.pokemon.android.version.ui.StarterSelection
 import kotlin.random.Random
 import kotlin.random.nextInt
+import com.pokemon.android.version.databinding.MenuWithNavbarBinding
+import com.pokemon.android.version.ui.fragment.*
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -30,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     var gameDataService: GameDataService = GameDataService()
     var mainMenu: MainMenu = MainMenu()
     var eliteMode: Boolean = false
+    private lateinit var binding : MenuWithNavbarBinding
 
     fun displayStarters() {
         val bulbasaur: Pokemon = gameDataService.generatePokemon(1, 5)
@@ -97,7 +101,19 @@ class MainActivity : AppCompatActivity() {
                     gameDataService.updateEliteMode()
                     gameDataService.updateGymLeaderExp()
                 }
-                mainMenu.loadGameMenu(this)
+                //mainMenu.loadGameMenu(this)
+                setContentView(binding.root)
+                replaceFragment(PokemonFragment())
+                binding.bottomNavigationView.setOnItemSelectedListener {
+                    when(it.itemId){
+                        R.id.page_pokemon -> replaceFragment(PokemonFragment())
+                        R.id.page_inventory -> replaceFragment(InventoryFragment())
+                        R.id.page_adventure -> replaceFragment(AdventureFragment())
+                        R.id.page_mistery_gift -> replaceFragment(MisteryGiftFragment())
+                        else ->{}
+                    }
+                    true
+                }
             }
         }
     }
@@ -127,6 +143,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         initGame()
         setContentView(R.layout.title_screen)
+        binding = MenuWithNavbarBinding.inflate(layoutInflater)
         titleScreen()
     }
 
@@ -139,5 +156,13 @@ class MainActivity : AppCompatActivity() {
         super.onRestart()
         mediaPlayer = MediaPlayer.create(this, currentMusicId!!)
         mediaPlayer?.start()
+    }
+
+    private fun replaceFragment(fragment : Fragment){
+
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout,fragment)
+        fragmentTransaction.commit()
     }
 }
