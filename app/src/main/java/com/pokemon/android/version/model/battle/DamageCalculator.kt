@@ -99,14 +99,8 @@ class DamageCalculator {
             if ((attacker.currentHP / attacker.hp) < 0.4){
                 if (move.type == Type.GRASS && attacker.hasAbility(Ability.OVERGROW))
                     power *= 1.5f
-                if (move.type == Type.FIRE) {
-                    if (attacker.hasAbility(Ability.BLAZE))
-                        power *= 1.5f
-                    if (attacker.battleData!!.battleStatus.contains(Status.FIRED_UP))
-                        power *= 1.5f
-                    if (opponent.hasAbility(Ability.DRY_SKIN))
-                        power *= 2f
-                }
+                if (move.type == Type.FIRE && attacker.hasAbility(Ability.BLAZE))
+                    power *= 1.5f
                 if (move.type == Type.WATER && attacker.hasAbility(Ability.TORRENT))
                     power *= 1.5f
                 if (move.type == Type.BUG && attacker.hasAbility(Ability.SWARM))

@@ -70,10 +70,17 @@ class WildBattle() : Battle() {
             (levelData as WildBattleLevelData).possibleEncounters.minLevel,
             (levelData as WildBattleLevelData).possibleEncounters.maxLevel
         )
-        opponent = activity.gameDataService.generatePokemon(
-            (levelData as WildBattleLevelData).possibleEncounters.encounters.random().id,
-            randomLevel
-        )
+        opponent = if (randomLevel < activity.trainer!!.getMaxLevel()) {
+            activity.gameDataService.generateWildPokemon(
+                (levelData as WildBattleLevelData).possibleEncounters.encounters.random().id,
+                randomLevel
+            )
+        } else {
+            activity.gameDataService.generatePokemon(
+                (levelData as WildBattleLevelData).possibleEncounters.encounters.random().id,
+                randomLevel
+            )
+        }
         activity.trainer!!.updatePokedex(opponent)
         return opponent
     }

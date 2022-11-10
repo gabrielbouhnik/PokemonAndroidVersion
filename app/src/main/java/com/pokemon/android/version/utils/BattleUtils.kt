@@ -89,7 +89,7 @@ class BattleUtils {
                 if (opponent.hasAbility(Ability.WATER_ABSORB))
                     return "Water Absorb: ${opponent.data.name}'s HP was restored\n"
                 if (opponent.hasAbility(Ability.DRY_SKIN))
-                    return "Water Absorb: ${opponent.data.name}'s HP was restored\n"
+                    return "Dry Skin: ${opponent.data.name}'s HP was restored\n"
             }
             return when {
                 effectiveness == 0f -> {

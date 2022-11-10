@@ -74,7 +74,7 @@ class BattleUI {
             opponentPokemonSprite.setImageDrawable(Drawable.createFromStream(img, filename))
         }
         else
-            activity.displayPokemon(battle.opponent.data.id, opponentPokemonSprite)
+            activity.displayPokemon(battle.opponent.data.id, battle.opponent.shiny, opponentPokemonSprite)
         val pokemonBackSprite: ImageView = activity.findViewById(R.id.pokemonBackSpriteView)
         val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
         pokemonBackSprite.visibility = VISIBLE
@@ -84,7 +84,7 @@ class BattleUI {
             pokemonBackSprite.setImageDrawable(Drawable.createFromStream(img, filename))
         }
         else {
-            activity.displayPokemonBack(battle.pokemon.data.id, pokemonBackSprite)
+            activity.displayPokemonBack(battle.pokemon.data.id, battle.pokemon.shiny, pokemonBackSprite)
             if (battle.pokemon.canMegaEvolve() && !battle.trainerHasUsedMegaEvolution){
                 megaEvolutionImageView.setImageDrawable(Drawable.createFromStream(activity.assets.open(MEGA_DISABLED_ICON), MEGA_DISABLED_ICON))
                 megaEvolutionImageView.setOnClickListener{
@@ -558,7 +558,9 @@ class BattleUI {
         buttonSetUp(activity, wildBattle)
         wildBattle.generateRandomEncounter()
         val sb = StringBuilder()
-        sb.append(activity.getString(R.string.boss_encounter, wildBattle.opponent.data.name))
+        sb.append(activity.getString(R.string.wild_encounter, wildBattle.opponent.data.name))
+        if (wildBattle.opponent.shiny)
+            sb.append("He looks shinier than usual!\n")
         sb.append(BattleUtils.abilitiesCheck(wildBattle.pokemon,wildBattle.opponent))
         sb.append(BattleUtils.abilitiesCheck(wildBattle.opponent,wildBattle.pokemon))
         dialogTextView!!.text = sb.toString()

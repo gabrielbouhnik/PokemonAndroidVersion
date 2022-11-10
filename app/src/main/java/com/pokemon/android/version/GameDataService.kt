@@ -19,6 +19,7 @@ import com.pokemon.android.version.repository.*
 import com.pokemon.android.version.ui.BattleFrontierMenu
 import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.StatUtils
+import kotlin.random.Random
 
 class GameDataService {
     var items: List<ItemData> = ArrayList()
@@ -85,6 +86,14 @@ class GameDataService {
         return generatePokemonWithMoves(id, level, moveSet)
     }
 
+    fun generateWildPokemon(id: Int, level: Int): Pokemon {
+        val pokemon = generatePokemon(id,level)
+        val random = Random.nextInt(100)
+        if (random == 50)
+            pokemon.shiny = true
+        return pokemon
+    }
+
     fun generatePokemonFromBanner(pokemonBanner: PokemonBanner): Pokemon {
         val pokemon = generatePokemonWithMoves(pokemonBanner.pokemonId, 5, pokemonBanner.moves)
         pokemon.isFromBanner = true
@@ -117,6 +126,7 @@ class GameDataService {
             .move2(move2)
             .move3(move3)
             .move4(move4)
+            .shiny(false)
             .build()
     }
 

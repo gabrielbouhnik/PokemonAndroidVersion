@@ -26,8 +26,8 @@
           "quantity": 2
         },
         {
-          "id": 5,
-          "quantity": 2
+          "id": 7,
+          "quantity": 1
         }
       ],
       "icon": "images/battle_background/route_battle_background.png",
@@ -66,7 +66,7 @@
         },
         {
           "id": 7,
-          "quantity": 2
+          "quantity": 1
         }
       ],
       "icon": "images/battle_background/route_battle_background.png",
@@ -95,7 +95,7 @@
         },
         {
           "id": 7,
-          "quantity": 3
+          "quantity": 1
         }
       ],
       "icon": "images/battle_background/route_battle_background.png",
@@ -4110,7 +4110,7 @@
       {
         "id": 144,
         "level": 58,
-        "moveIds": [100,102,101,21],
+        "moveIds": [100,102,50,24],
         "boostedStats": ["DEFENSE","SPDEF"]
       },
       "rewards": [

@@ -38,16 +38,16 @@
             android:layout_width="386dp"
             android:layout_height="304dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/learnsetRecyclerView"
-            app:layout_constraintHorizontal_bias="0.473" android:layout_marginBottom="60dp"/>
+            android:id="@+id/learnsetRecyclerView"
+            app:layout_constraintHorizontal_bias="0.473" android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/pokedexPageBackButton"/>
     <Button
             android:text="Back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/pokedexPageBackButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="13dp" app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintVertical_bias="0.0" app:layout_constraintTop_toBottomOf="@+id/itemRecyclerView"/>
+            android:layout_marginTop="13dp" app:layout_constraintHorizontal_bias="0.498"/>
     <RadioButton
             android:text="TM Moves"
             android:layout_width="128dp"

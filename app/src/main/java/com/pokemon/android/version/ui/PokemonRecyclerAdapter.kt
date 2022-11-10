@@ -56,9 +56,7 @@ class PokemonRecyclerAdapter(
         }
         else {
             holder.nameTextView.text = currentItem.data.name
-            Glide.with(activity)
-                .load(MainActivity.pokemonSpritesUrl + currentItem.data.id + ".png")
-                .into(holder.spriteView)
+            activity.displayPokemon(currentItem.data.id, currentItem.shiny, holder.spriteView)
         }
     }
 }

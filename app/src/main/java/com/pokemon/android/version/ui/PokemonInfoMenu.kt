@@ -72,7 +72,7 @@ class PokemonInfoMenu(var parentId: Int) {
             }
         }
 
-        activity.displayPokemon(pokemon.data.id, imageView)
+        activity.displayPokemon(pokemon.data.id, pokemon.shiny, imageView)
     }
 
     private fun displayMoveButton(

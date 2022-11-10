@@ -31,6 +31,7 @@ class Pokemon(
     var speed: Int = 0,
     var currentHP: Int = 0,
     var currentExp: Int = 0,
+    var shiny: Boolean,
     var battleData: PokemonBattleData?,
     var isFromBanner: Boolean = false,
     var movesLearnedByTM: ArrayList<Move> = arrayListOf(),
@@ -39,7 +40,8 @@ class Pokemon(
     constructor(
         data: PokemonData, trainer: Trainer?, level: Int,
         move1: PokemonMove, move2: PokemonMove?, move3: PokemonMove?, move4: PokemonMove?,
-        hp: Int, attack: Int, defense: Int, spAtk: Int, spDef: Int, speed: Int, currentHP: Int
+        hp: Int, attack: Int, defense: Int, spAtk: Int, spDef: Int, speed: Int, currentHP: Int,
+        shiny: Boolean
     )
             : this(
         data,
@@ -58,6 +60,7 @@ class Pokemon(
         speed,
         currentHP,
         0,
+        shiny,
         PokemonBattleData()
     )
 
@@ -95,24 +98,46 @@ class Pokemon(
                         pokemonSave.moveids[3].pp
                     ) else null
                 )
+                .shiny(pokemonSave.shiny)
                 .isFromBanner(pokemonSave.isFromBanner)
                 .movesLearnedByTM(arrayListOf())
                 .build()
         }
     }
 
+    private fun canBeKOdByOpponent(opponent: Pokemon): Boolean{
+        val offensiveMove = MoveUtils.getMoveList(opponent).filter { it.pp > 0 && it.move.power > 0}
+        for (move in offensiveMove){
+            var damage: Int = DamageCalculator.computeDamage(opponent, move.move, this, 1f)
+            if (move.move is MultipleHitMove || move.move is VariableHitMove)
+                damage *= 2
+            if (damage >= currentHP)
+                return true
+        }
+        return false
+    }
+
     fun ia(opponent: Pokemon): PokemonMove {
         val usableMoves = MoveUtils.getMoveList(this).filter { it.pp > 0 }
+        if (battleData!!.chargedMove != null) {
+            val move = battleData!!.chargedMove!!
+            battleData!!.chargedMove = null
+            return move
+        }
+        if (battleData!!.rampageMove != null)
+            return battleData!!.rampageMove!!
         var maxDamage = 0
         var maxDamageIdx = 0
         for ((Idx, move) in usableMoves.withIndex()) {
             var damage: Int = DamageCalculator.computeDamage(this, move.move, opponent, 1f)
+            if (move.move is MultipleHitMove || move.move is VariableHitMove)
+                damage *= 2
+            if (canBeKOdByOpponent(opponent) && move.move is ChargedMove)
+                continue
             if (damage >= opponent.currentHP) {
                 if (move.move !is ChargedMove || hp / currentHP > 2)
                     return move
             }
-            if (move.move is MultipleHitMove || move.move is VariableHitMove)
-                damage *= 2
             if (damage > 0 && hp / currentHP < 4 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
                 return move
             move.move.status.forEach {
@@ -192,7 +217,7 @@ class Pokemon(
         return AttackResponse(true, "")
     }
 
-    fun attack(move: PokemonMove, opponent: Pokemon, battle : Battle): AttackResponse {
+    fun attack(move: PokemonMove, opponent: Pokemon): AttackResponse {
         val attackResponse = canAttack(move)
         if (!attackResponse.success)
             return attackResponse
@@ -203,13 +228,13 @@ class Pokemon(
         if (move.move.characteristics.contains(MoveCharacteristic.SOUND) && opponent.hasAbility(Ability.SOUNDPROOF))
             return AttackResponse(
                 false,
-                "Soundproof: It does not affect ${opponent.data.name}!\n"
+                "${this.data.name} uses ${move.move.name}\nSoundproof: It does not affect ${opponent.data.name}!\n"
             )
         if (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.LIGHTNING_ROD)) {
             opponent.battleData!!.spAtkMultiplicator *= 1.5f
             return AttackResponse(
                 false,
-                "Lightning Rod: ${opponent.data.name}'s Sp. Atk rose!\n"
+                "${this.data.name} uses ${move.move.name}\nLightning Rod: ${opponent.data.name}'s Sp. Atk rose!\n"
             )
         }
         if (move.move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE)) {
@@ -217,13 +242,13 @@ class Pokemon(
                 opponent.battleData!!.battleStatus.add(Status.FIRED_UP)
             return AttackResponse(
                 false,
-                "Flash Fire: ${opponent.data.name}'s fire power is increased!\n"
+                "${this.data.name} uses ${move.move.name}\nFlash Fire: ${opponent.data.name}'s fire power is increased!\n"
             )
         }
         if (move.move.type == Type.GROUND && opponent.hasAbility(Ability.LEVITATE))
             return AttackResponse(
                 false,
-                "Levitate: It does not affect ${opponent.data.name}!\n"
+                "${this.data.name} uses ${move.move.name}\nLevitate: It does not affect ${opponent.data.name}!\n"
             )
         if ((move.move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(Ability.DRY_SKIN)))
                     || (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))){
@@ -540,6 +565,7 @@ class Pokemon(
         var speed: Int = 0,
         var currentHP: Int = 0,
         var currentExp: Int = 0,
+        var shiny: Boolean = false,
         var isFromBanner: Boolean = false,
         var movesLearnedByTM: ArrayList<Move> = arrayListOf()
     ) {
@@ -559,6 +585,7 @@ class Pokemon(
         fun speed(speed: Int) = apply { this.speed = speed }
         fun currentHP(currentHP: Int) = apply { this.currentHP = currentHP }
         fun currentExp(currentExp: Int) = apply { this.currentExp = currentExp }
+        fun shiny(shiny: Boolean) = apply { this.shiny = shiny }
         fun isFromBanner(isFromBanner: Boolean) = apply { this.isFromBanner = isFromBanner }
         fun movesLearnedByTM(movesLearnedByTM: ArrayList<Move>) = apply { this.movesLearnedByTM = movesLearnedByTM }
         fun build() = Pokemon(
@@ -578,6 +605,7 @@ class Pokemon(
             speed,
             currentHP,
             currentExp,
+            shiny,
             PokemonBattleData(),
             isFromBanner,
             movesLearnedByTM

@@ -1943,6 +1943,20 @@
       "status": [],
       "highCritRate": false,
       "characteristics": ["SOUND"]
+    },
+    {
+      "id": 206,
+      "name": "Shadow Claw",
+      "power": 70,
+      "pp": 15,
+      "type": 13,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user slashes with a sharp claw made from shadows. Critical hits land more easily.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true,
+      "characteristics": ["CONTACT"]
     }
   ],
   "multipleHitMoves": [
@@ -3034,6 +3048,83 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 201,
+      "name": "Power-Up Punch",
+      "power": 20,
+      "category": "PHYSICAL",
+      "pp": 10,
+      "type": 11,
+      "accuracy": 100,
+      "description": "Striking opponents over and over makes the user's fists harder. Hitting a target raises the Attack stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 202,
+      "name": "Mystical Fire",
+      "power": 75,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 2,
+      "accuracy": 100,
+      "description": "The user attacks by breathing a special, hot fire. This also lowers the target's Sp. Atk stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 204,
+      "name": "Snarl",
+      "power": 55,
+      "category": "SPECIAL",
+      "pp": 15,
+      "type": 17,
+      "accuracy": 100,
+      "description": "The user yells as if it's ranting about something, which lowers the Sp. Atk stats of opposing Pokémon.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 205,
+      "name": "Steel Wing",
+      "power": 70,
+      "pp": 25,
+      "type": 16,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The target is hit with wings of steel. This may also raise the user's Defense stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "probability": 10,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "drainMoves": [
@@ -3162,6 +3253,36 @@
           "probability": 10
         }
       ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 200,
+      "name": "Wild Charge",
+      "power": 90,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 4,
+      "accuracy": 100,
+      "description": "The user shrouds itself in electricity and smashes into its target. This also damages the user a little.",
+      "priorityLevel": 0,
+      "recoil": "QUARTER",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 203,
+      "name": "Brave Bird",
+      "power": 120,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 6,
+      "accuracy": 100,
+      "description": "The user tucks in its wings and charges from a low altitude. This also damages the user quite a lot.",
+      "priorityLevel": 0,
+      "recoil": "THIRD",
+      "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
     }

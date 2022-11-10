@@ -1,5 +1,6 @@
 package com.pokemon.android.version.model.item
 
+import com.pokemon.android.version.model.Ability
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 
@@ -16,7 +17,18 @@ class HealingStatusItem(val status: List<Status>) : Item {
 
 
     override fun apply(pokemon: Pokemon) {
-        if (status.contains(pokemon.status))
+        if (status.contains(pokemon.status)) {
             pokemon.status = Status.OK
+            if (pokemon.battleData != null) {
+                if (pokemon.hasAbility(Ability.GUTS))
+                    pokemon.battleData!!.attackMultiplicator /= 1.5f
+                if (pokemon.hasAbility(Ability.QUICK_FEET))
+                    pokemon.battleData!!.speedMultiplicator /= 1.5f
+                if (pokemon.hasAbility(Ability.MARVEL_SCALE))
+                    pokemon.battleData!!.defenseMultiplicator /= 1.5f
+                if (pokemon.hasAbility(Ability.COMPETITIVE))
+                    pokemon.battleData!!.spAtkMultiplicator /= 1.5f
+            }
+        }
     }
 }

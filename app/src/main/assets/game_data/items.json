@@ -338,8 +338,58 @@
     },
     {
       "id": 75,
-      "name": "TM35 Dark Pulse",
+      "name": "TM35 Wild Charge",
+      "moveId": 200
+    },
+    {
+      "id": 76,
+      "name": "TM36 Water Pulse",
+      "moveId": 24
+    },
+    {
+      "id": 77,
+      "name": "TM37 Steel Wing",
+      "moveId": 205
+    },
+    {
+      "id": 78,
+      "name": "TM38 Shadow Claw",
+      "moveId": 206
+    },
+    {
+      "id": 79,
+      "name": "TM39 Dark Pulse",
       "moveId": 92
+    },
+    {
+      "id": 80,
+      "name": "TM40 Bulldoze",
+      "moveId": 30
+    },
+    {
+      "id": 81,
+      "name": "TM41 Zen Headbutt",
+      "moveId": 148
+    },
+    {
+      "id": 82,
+      "name": "TM42 Air Slash",
+      "moveId": 50
+    },
+    {
+      "id": 83,
+      "name": "TM43 Solar Beam",
+      "moveId": 194
+    },
+    {
+      "id": 84,
+      "name": "TM44 Hyper Beam",
+      "moveId": 176
+    },
+    {
+      "id": 85,
+      "name": "TM45 Giga Impact",
+      "moveId": 177
     }
   ]
 }

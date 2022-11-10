@@ -62,21 +62,35 @@ class MainActivity : AppCompatActivity() {
             sprite1.visibility = GONE
             sprite2.visibility = GONE
         }
-        displayPokemon(1, sprite1)
-        displayPokemon(4, sprite2)
-        displayPokemon(7, sprite3)
+        displayPokemon(1,false, sprite1)
+        displayPokemon(4, false,sprite2)
+        displayPokemon(7, false,sprite3)
     }
 
-    fun displayPokemon(id: Int, imageView: ImageView) {
-        Glide.with(this)
-            .load("$pokemonSpritesUrl$id.png")
-            .into(imageView)
+    fun displayPokemon(id: Int, shiny: Boolean, imageView: ImageView) {
+        if (!shiny) {
+            Glide.with(this)
+                .load("$pokemonSpritesUrl$id.png")
+                .into(imageView)
+        }
+        else{
+            Glide.with(this)
+                .load("${pokemonSpritesUrl}shiny/$id.png")
+                .into(imageView)
+        }
     }
 
-    fun displayPokemonBack(id: Int, imageView: ImageView) {
-        Glide.with(this)
-            .load("$pokemonBackSpritesUrl$id.png")
-            .into(imageView)
+    fun displayPokemonBack(id: Int, shiny: Boolean, imageView: ImageView) {
+        if (!shiny) {
+            Glide.with(this)
+                .load("$pokemonBackSpritesUrl$id.png")
+                .into(imageView)
+        }
+        else{
+            Glide.with(this)
+                .load("${pokemonBackSpritesUrl}shiny/$id.png")
+                .into(imageView)
+        }
     }
 
     private fun titleScreen() {

@@ -36,7 +36,7 @@ abstract class Battle {
             opponent.battleData!!.chargedMove = opponentPokemonMove
             return "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}\nThe opposing " + opponent.data.name + (opponentPokemonMove.move as ChargedMove).chargeText
         }
-        val opponentResponse = opponent.attack(opponentPokemonMove, pokemon, this)
+        val opponentResponse = opponent.attack(opponentPokemonMove, pokemon)
         return if (!opponentResponse.success)
             action + opponentResponse.reason
         else {
@@ -56,11 +56,30 @@ abstract class Battle {
             pokemon.battleData!!.chargedMove = trainerPokemonMove
             return "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n" + pokemon.data.name + (trainerPokemonMove.move as ChargedMove).chargeText
         }
-        val response = pokemon.attack(trainerPokemonMove, opponent, this)
+        val response = pokemon.attack(trainerPokemonMove, opponent)
         return if (!response.success)
             action + response.reason
         else {
             action + "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n" + response.reason
+        }
+    }
+
+    private fun turn(trainerPokemonMove: PokemonMove, sb : StringBuilder)
+    {
+        val opponentMove: PokemonMove = opponent.ia(pokemon)
+        if (opponentMove.move is RampageMove){
+            opponent.battleData!!.rampageMove = opponentMove
+        }
+        if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move, opponentMove.move)) {
+            sb.append(trainerTurn(trainerPokemonMove))
+            if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
+                sb.append(opponentTurn(opponentMove))
+            }
+        } else {
+            sb.append(opponentTurn(opponentMove))
+            if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
+                sb.append(trainerTurn(trainerPokemonMove))
+            }
         }
     }
 
@@ -99,48 +118,33 @@ abstract class Battle {
                 }
             }
         }
-        var opponentMove: PokemonMove = opponent.ia(pokemon)
-        if (opponent.battleData!!.chargedMove != null) {
-            opponentMove = opponent.battleData!!.chargedMove!!
-            opponent.battleData!!.chargedMove = null
-        }
-        if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move, opponentMove.move)) {
-            sb.append(trainerTurn(trainerPokemonMove))
-            if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
-                sb.append(opponentTurn(opponentMove))
-            }
-        } else {
-            sb.append(opponentTurn(opponentMove))
-            if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
-                sb.append(trainerTurn(trainerPokemonMove))
-            }
-        }
+        turn(trainerPokemonMove, sb)
         endTurn(sb)
         if (pokemon.currentHP > 0 && getBattleState() == State.IN_PROGRESS) {
-            if (pokemon.battleData!!.unableToMoveCounter == 1) {
-                sb.append(pokemon.data.name + " needs to recharge!\n")
-                sb.append(opponentTurn(opponent.ia(pokemon)))
-                endTurn(sb)
+            val opponentMove: PokemonMove = opponent.ia(pokemon)
+            if (opponentMove.move is RampageMove){
+                opponent.battleData!!.rampageMove = opponentMove
             }
-            else if (pokemon.battleData!!.chargedMove != null) {
-                sb.append(trainerTurn(trainerPokemonMove))
-                pokemon.battleData!!.chargedMove = null
-                if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
-                    sb.append(opponentTurn(opponent.ia(pokemon)))
+            when {
+                pokemon.battleData!!.unableToMoveCounter == 1 -> {
+                    sb.append(pokemon.data.name + " needs to recharge!\n")
+                    sb.append(opponentTurn(opponentMove))
+                    endTurn(sb)
                 }
-                endTurn(sb)
-            }
-            else if (trainerPokemonMove.move is RampageMove) {
-                sb.append(trainerTurn(trainerPokemonMove))
-                if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
-                    sb.append(opponentTurn(opponent.ia(pokemon)))
+                pokemon.battleData!!.chargedMove != null -> {
+                    turn(trainerPokemonMove, sb)
+                    pokemon.battleData!!.chargedMove = null
+                    endTurn(sb)
                 }
-                if (pokemon.currentHP > 0 && !pokemon.hasAbility(Ability.OWN_TEMPO)
-                    && !pokemon.battleData!!.battleStatus.contains(Status.CONFUSED)) {
-                    pokemon.battleData!!.battleStatus.add(Status.CONFUSED)
-                    sb.append("${pokemon.data.name} is now confused!\n")
+                trainerPokemonMove.move is RampageMove -> {
+                    turn(trainerPokemonMove, sb)
+                    if (pokemon.currentHP > 0 && !pokemon.hasAbility(Ability.OWN_TEMPO)
+                        && !pokemon.battleData!!.battleStatus.contains(Status.CONFUSED)) {
+                        pokemon.battleData!!.battleStatus.add(Status.CONFUSED)
+                        sb.append("${pokemon.data.name} became confused due to fatigue!\n")
+                    }
+                    endTurn(sb)
                 }
-                endTurn(sb)
             }
         }
         return sb.toString()
@@ -205,6 +209,18 @@ abstract class Battle {
 
     protected fun endTurn(sb: StringBuilder) {
         if (opponent.currentHP > 0) {
+            if (opponent.battleData!!.rampageMove != null){
+                opponent.battleData!!.rampageCounter += 1
+                if (opponent.battleData!!.rampageCounter == 2){
+                    opponent.battleData!!.rampageCounter = 0
+                    opponent.battleData!!.rampageMove = null
+                }
+                if(!opponent.hasAbility(Ability.OWN_TEMPO)
+                    && !opponent.battleData!!.battleStatus.contains(Status.CONFUSED)) {
+                    opponent.battleData!!.battleStatus.add(Status.CONFUSED)
+                    sb.append("The opposing ${opponent.data.name} became confused due to fatigue!\n")
+                }
+            }
             sb.append(checkStatus(opponent))
             if (pokemon.currentHP == 0) {
                 if (opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE))
@@ -297,32 +313,38 @@ abstract class Battle {
                 } else
                     pokemon.battleData!!.unableToMoveCounter++
             }
-            if (pokemon.status != Status.OK && (!pokemon.hasAbility(Ability.MAGIC_GUARD) || pokemon.status != Status.OK)) {
+            if (pokemon.status != Status.OK) {
                 when (pokemon.status) {
                     Status.POISON -> {
-                        pokemon.currentHP -= pokemon.hp / 8
-                        if (pokemon.currentHP <= 0) {
-                            pokemon.currentHP = 0
-                            pokemon.status = Status.OK
+                        if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
+                            pokemon.currentHP -= pokemon.hp / 8
+                            if (pokemon.currentHP <= 0) {
+                                pokemon.currentHP = 0
+                                pokemon.status = Status.OK
+                            }
+                            details += pokemon.data.name + " suffers from the poison!\n"
                         }
-                        details += pokemon.data.name + " suffers from the poison!\n"
                     }
                     Status.BADLY_POISON -> {
-                        pokemon.currentHP -= pokemon.battleData!!.poisonCounter * (pokemon.hp / 16)
-                        pokemon.battleData!!.poisonCounter++
-                        if (pokemon.currentHP <= 0) {
-                            pokemon.currentHP = 0
-                            pokemon.status = Status.OK
+                        if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
+                            pokemon.currentHP -= pokemon.battleData!!.poisonCounter * (pokemon.hp / 16)
+                            pokemon.battleData!!.poisonCounter++
+                            if (pokemon.currentHP <= 0) {
+                                pokemon.currentHP = 0
+                                pokemon.status = Status.OK
+                            }
+                            details += pokemon.data.name + " suffers from the poison!\n"
                         }
-                        details += pokemon.data.name + " suffers from the poison!\n"
                     }
                     Status.BURN -> {
-                        pokemon.currentHP -= pokemon.hp / 16
-                        if (pokemon.currentHP <= 0) {
-                            pokemon.currentHP = 0
-                            pokemon.status = Status.OK
+                        if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
+                            pokemon.currentHP -= pokemon.hp / 16
+                            if (pokemon.currentHP <= 0) {
+                                pokemon.currentHP = 0
+                                pokemon.status = Status.OK
+                            }
+                            details += pokemon.data.name + " suffers from its burn!\n"
                         }
-                        details += pokemon.data.name + " suffers from its burn!\n"
                     }
                     Status.ASLEEP -> {
                         pokemon.battleData!!.sleepCounter++

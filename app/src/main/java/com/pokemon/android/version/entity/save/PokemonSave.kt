@@ -10,6 +10,7 @@ data class PokemonSave(
     var currentHP: Int,
     var currentExp: Int,
     var moveids: List<MoveSave>,
+    var shiny: Boolean = false,
     var isFromBanner: Boolean
 ) {
     companion object {
@@ -21,6 +22,7 @@ data class PokemonSave(
                 pokemon.currentHP,
                 pokemon.currentExp,
                 MoveUtils.getMoveList(pokemon).map { MoveSave(it.move.id, it.move.pp) },
+                pokemon.shiny,
                 pokemon.isFromBanner
             )
         }

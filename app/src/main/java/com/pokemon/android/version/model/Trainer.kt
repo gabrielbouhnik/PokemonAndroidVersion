@@ -42,6 +42,10 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         if (items[ballId] == 0) {
             items.remove(ballId)
         }
+        if (pokemon.shiny) {
+            receivePokemon(pokemon)
+            return true
+        }
         var status = 1f
         if (pokemon.status == Status.BURN || pokemon.status == Status.POISON || pokemon.status == Status.BADLY_POISON || pokemon.status == Status.PARALYSIS || pokemon.status == Status.FROZEN)
             status = 1.5f
@@ -55,7 +59,7 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
             successRate *= 3
         val catch: Int =
             (((1f - ((2f / 3f) * (pokemon.currentHP / pokemon.hp).toFloat())) * status) * pokemon.data.catchRate.toFloat() * successRate).toInt()
-        if (catch >= 255) {
+        if (catch >= 255 || pokemon.shiny) {
             receivePokemon(pokemon)
             if (ball is Ball.HealBall) {
                 pokemon.currentHP = pokemon.hp
