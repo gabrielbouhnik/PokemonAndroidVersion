@@ -46,7 +46,9 @@ class PokemonRecyclerAdapter(
         holder.itemView.tag = position
         holder.hpLevelTextView.text = "Level  ${currentItem.level}  ${currentItem.currentHP}/${currentItem.hp}"
         if (displayCanEvolve && currentItem.canEvolve())
-            holder.canEvolveTextView.visibility = VISIBLE
+            holder.canEvolveTextView.text = "CAN EVOLVE"
+        else
+            holder.canEvolveTextView.text = " "
         if (currentItem.isMegaEvolved())
         {
             val filename = "images/mega/" + currentItem.data.id + "_front.png"

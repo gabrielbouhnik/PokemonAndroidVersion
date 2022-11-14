@@ -35,6 +35,6 @@
             app:layout_constraintTop_toBottomOf="@+id/levelItemTextView"
             android:layout_marginTop="8dp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:textAlignment="center"
-            app:layout_constraintHorizontal_bias="0.701" android:textColor="#F44336" android:visibility="gone"
+            app:layout_constraintHorizontal_bias="0.701" android:textColor="#F44336"
             android:alpha="0.65" android:textStyle="bold"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

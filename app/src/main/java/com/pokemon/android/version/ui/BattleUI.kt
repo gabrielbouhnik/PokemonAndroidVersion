@@ -86,6 +86,7 @@ class BattleUI {
         else {
             activity.displayPokemonBack(battle.pokemon.data.id, battle.pokemon.shiny, pokemonBackSprite)
             if (battle.pokemon.canMegaEvolve() && !battle.trainerHasUsedMegaEvolution){
+                megaEvolutionImageView.visibility = VISIBLE
                 megaEvolutionImageView.setImageDrawable(Drawable.createFromStream(activity.assets.open(MEGA_DISABLED_ICON), MEGA_DISABLED_ICON))
                 megaEvolutionImageView.setOnClickListener{
                     if (megaEvolve) {
@@ -276,6 +277,8 @@ class BattleUI {
                 val firstTime: Boolean = activity.trainer!!.progression == battle.levelData.id
                 if (activity.trainer!!.eliteProgression == 4)
                     activity.updateMusic(R.raw.hall_of_fame)
+                else if (activity.trainer!!.eliteProgression > 0 || battle is LeaderBattle || battle.levelData.id == LevelMenu.CYNTHIA_LEVEL_ID)
+                    activity.updateMusic(R.raw.victory_theme2)
                 else
                     activity.updateMusic(R.raw.victory_theme)
                 if (activity.eliteMode)
@@ -642,7 +645,7 @@ class BattleUI {
         val bossBattle = BossBattle(activity, level)
         buttonSetUp(activity, bossBattle)
         val sb = StringBuilder()
-        sb.append(activity.getString(R.string.boss_encounter, bossBattle.opponent.data.name))
+        sb.append(activity.getString(R.string.boss_encounter, bossBattle.opponent.data.name) + '\n')
         sb.append(BattleUtils.abilitiesCheck(bossBattle.pokemon,bossBattle.opponent))
         sb.append(BattleUtils.abilitiesCheck(bossBattle.opponent,bossBattle.pokemon))
         dialogTextView!!.text = sb.toString()
