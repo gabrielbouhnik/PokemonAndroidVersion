@@ -8,6 +8,7 @@ import com.pokemon.android.version.model.Trainer
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.move.ChargedMove
+import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.RampageMove
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.ui.LevelMenu
@@ -25,7 +26,9 @@ abstract class Battle {
 
     abstract fun updateOpponent()
 
-    protected fun opponentTurn(opponentPokemonMove: PokemonMove): String {
+    protected fun opponentTurn(opponentPokemonMove: PokemonMove, opponentMoveIsOffensive: Boolean): String {
+        if (opponentPokemonMove.move.id == 208 && !opponentMoveIsOffensive)
+            return "${opponent.data.name} uses Sucker Punch!\nBut it failed!\n"
         var action = ""
         if (opponent.battleData!!.confusionCounter == 4) {
             opponent.battleData!!.battleStatus.remove(Status.CONFUSED)
@@ -71,12 +74,15 @@ abstract class Battle {
             opponent.battleData!!.rampageMove = opponentMove
         }
         if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move, opponentMove.move)) {
-            sb.append(trainerTurn(trainerPokemonMove))
+            if (trainerPokemonMove.move.id == 208 && opponentMove.move.category == MoveCategory.OTHER)
+                sb.append("${pokemon.data.name} uses Sucker Punch!\nBut it failed!\n")
+            else
+                sb.append(trainerTurn(trainerPokemonMove))
             if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
-                sb.append(opponentTurn(opponentMove))
+                sb.append(opponentTurn(opponentMove, trainerPokemonMove.move.category != MoveCategory.OTHER))
             }
         } else {
-            sb.append(opponentTurn(opponentMove))
+            sb.append(opponentTurn(opponentMove, trainerPokemonMove.move.category != MoveCategory.OTHER))
             if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
                 sb.append(trainerTurn(trainerPokemonMove))
             }
@@ -128,7 +134,7 @@ abstract class Battle {
             when {
                 pokemon.battleData!!.unableToMoveCounter == 1 -> {
                     sb.append(pokemon.data.name + " needs to recharge!\n")
-                    sb.append(opponentTurn(opponentMove))
+                    sb.append(opponentTurn(opponentMove, trainerPokemonMove.move.category != MoveCategory.OTHER))
                     endTurn(sb)
                 }
                 pokemon.battleData!!.chargedMove != null -> {
@@ -151,7 +157,7 @@ abstract class Battle {
     }
 
     fun itemIsUsable(itemId: Int): Boolean {
-        if (itemId < 15 && itemId != 8 && itemId != 9) {
+        if (itemId < 16 && itemId != 8 && itemId != 9) {
             if (itemId > 10)
                 return this is WildBattle
             return true
@@ -175,7 +181,7 @@ abstract class Battle {
         sb.append("${(pokemonToBeSent.trainer!! as Trainer).name} sends ${pokemonToBeSent.data.name}\n")
         switchPokemon(pokemonToBeSent)
         sb.append(BattleUtils.abilitiesCheck(pokemon, opponent))
-        sb.append(opponentTurn(opponent.ia(pokemon)))
+        sb.append(opponentTurn(opponent.ia(pokemon),false))
         endTurn(sb)
         return sb.toString()
     }
@@ -202,7 +208,7 @@ abstract class Battle {
             sb.append(activity.trainer!!.name + " uses " + activity.gameDataService.items.first { it.id == itemId }.name + "!\n")
             activity.trainer!!.useItem(itemId, pokemon)
         }
-        sb.append(opponentTurn(opponent.ia(pokemon)))
+        sb.append(opponentTurn(opponent.ia(pokemon),false))
         endTurn(sb)
         return sb.toString()
     }

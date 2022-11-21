@@ -1270,6 +1270,10 @@
           "level": 22
         },
         {
+          "moveId": 208,
+          "level": 25
+        },
+        {
           "moveId": 147,
           "level": 31
         },
@@ -1331,6 +1335,10 @@
         {
           "moveId": 27,
           "level": 24
+        },
+        {
+          "moveId": 208,
+          "level": 29
         },
         {
           "moveId": 147,
@@ -3070,6 +3078,10 @@
           "level": 1
         },
         {
+          "moveId": 207,
+          "level": 1
+        },
+        {
           "moveId": 39,
           "level": 11
         },
@@ -3135,6 +3147,10 @@
         },
         {
           "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 207,
           "level": 1
         },
         {
@@ -3215,6 +3231,10 @@
           "level": 16
         },
         {
+          "moveId": 208,
+          "level": 20
+        },
+        {
           "moveId": 38,
           "level": 24
         }
@@ -3276,6 +3296,10 @@
         {
           "moveId": 30,
           "level": 16
+        },
+        {
+          "moveId": 208,
+          "level": 20
         },
         {
           "moveId": 38,
@@ -5751,6 +5775,10 @@
           "level": 15
         },
         {
+          "moveId": 209,
+          "level": 21
+        },
+        {
           "moveId": 37,
           "level": 29
         },
@@ -5813,6 +5841,10 @@
         {
           "moveId": 86,
           "level": 15
+        },
+        {
+          "moveId": 209,
+          "level": 21
         },
         {
           "moveId": 37,
@@ -6080,6 +6112,10 @@
           "level": 8
         },
         {
+          "moveId": 209,
+          "level": 25
+        },
+        {
           "moveId": 168,
           "level": 30
         },
@@ -6150,6 +6186,10 @@
         {
           "moveId": 188,
           "level": 8
+        },
+        {
+          "moveId": 209,
+          "level": 25
         },
         {
           "moveId": 168,
@@ -7453,6 +7493,10 @@
         {
           "moveId": 22,
           "level": 20
+        },
+        {
+          "moveId": 208,
+          "level": 28
         },
         {
           "moveId": 162,
@@ -9855,6 +9899,10 @@
           "level": 13
         },
         {
+          "moveId": 208,
+          "level": 31
+        },
+        {
           "moveId": 150,
           "level": 36
         },
@@ -9910,6 +9958,10 @@
         {
           "moveId": 151,
           "level": 13
+        },
+        {
+          "moveId": 208,
+          "level": 36
         },
         {
           "moveId": 150,
@@ -11185,6 +11237,10 @@
         {
           "moveId": 188,
           "level": 41
+        },
+        {
+          "moveId": 208,
+          "level": 55
         }
       ],
       "movesLearnWithTM": [
@@ -12484,6 +12540,10 @@
           "level": 4
         },
         {
+          "moveId": 208,
+          "level": 24
+        },
+        {
           "moveId": 91,
           "level": 32
         },
@@ -13759,8 +13819,8 @@
           "level": 1
         },
         {
-          "moveId": 204,
-          "level": 26
+          "moveId": 208,
+          "level": 1
         },
         {
           "moveId": 169,
@@ -13769,6 +13829,10 @@
         {
           "moveId": 188,
           "level": 1
+        },
+        {
+          "moveId": 204,
+          "level": 26
         },
         {
           "moveId": 173,

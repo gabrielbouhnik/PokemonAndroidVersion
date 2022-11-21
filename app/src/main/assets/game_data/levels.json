@@ -985,7 +985,7 @@
     {
       "id": 8,
       "name": "\nPewter Gym",
-      "description": "You have arrived in Pewter City and are going straight to the arena. However, you can't face the gym leader yet.",
+      "description": "You have arrived in Pewter City and are going straight to the gym. However, you can't face the gym leader yet.",
       "opponents": [
         {
           "sprite": "images/Sprite_Campeur.png",
@@ -1264,10 +1264,10 @@
           "quantity": 1
         }
       ],
-      "startDialog": "We, TEAM ROCKET, are POKEMON gangsters",
+      "startDialog": "We, Team Rocket, are Pokemon gangsters",
       "endDialogWin": "I blew it!",
       "endDialogLoose": "You can't beat Team Rocket!",
-      "music": 2,
+      "music": 9,
       "icon": "images/battle_background/cave_battle_background.png",
       "background": "images/battle_background/cave_battle_background.png",
       "exp": 580,
@@ -1678,7 +1678,7 @@
         }
       ],
       "startDialog": "This is no place for kids!",
-      "endDialogWin": "Watch out for Lt. Surge's electric pokemon",
+      "endDialogWin": "Watch out for Lt. Surge's electric Pokemon",
       "endDialogLoose": "I told you...",
       "music": 2,
       "icon": "images/battle_background/building_battle_background.jpg",
@@ -1766,7 +1766,7 @@
               "id": 48,
               "level": 30,
               "moveIds": [
-                2,59,35,34
+                207,59,35,34
               ]
             }
           ]
@@ -2102,7 +2102,7 @@
       "startDialog": "What do you want? Why are you here?",
       "endDialogWin": "I give up!",
       "endDialogLoose": "You're not saving anyone, kid!",
-      "music": 2,
+      "music": 9,
       "icon": "images/battle_background/tower_battle_background.png",
       "background": "images/battle_background/tower_battle_background.png",
       "exp": 3570,
@@ -2393,8 +2393,8 @@
           "quantity": 1
         }
       ],
-      "startDialog": "My bird POKEMON should be ready for battle",
-      "endDialogWin": "It's cool you made your POKEMON so strong! Might is right!",
+      "startDialog": "My bird Pokemon should be ready for battle",
+      "endDialogWin": "It's cool you made your Pokemon so strong! Might is right!",
       "endDialogLoose": "Get lost!",
       "music": 2,
       "icon": "images/battle_background/route_battle_background.png",
@@ -2476,7 +2476,7 @@
           "quantity": 1
         }
       ],
-      "startDialog": "I always go with bird POKEMON!",
+      "startDialog": "I always go with bird Pokemon!",
       "endDialogWin": "Wow! You totally won!",
       "endDialogLoose": "It's over already?",
       "music": 2,
@@ -2704,7 +2704,7 @@
       "startDialog": "You broke into our operation?",
       "endDialogWin": "You're not going to get away with this, brat!",
       "endDialogLoose": "It's not smart to pick a fight with TEAM ROCKET",
-      "music": 2,
+      "music": 9,
       "icon": "images/battle_background/silphco_battle_background.png",
       "background": "images/battle_background/silphco_battle_background.png",
       "exp": 6000,
@@ -2768,7 +2768,7 @@
           "quantity": 1
         }
       ],
-      "startDialog": "I thought you would show up again if I waited here! I guess TEAM ROCKET slowed you down! I want to see what you're made of.",
+      "startDialog": "I thought you would show up again if I waited here! I guess Team Rocket slowed you down! I want to see what you're made of.",
       "endDialogWin": "You're ready to beat the boss of Team Rocket!",
       "endDialogLoose": "I knew I would win this time",
       "music": 2,
@@ -2841,7 +2841,7 @@
       "startDialog": "So you're fool enough to get in our way, is that it?",
       "endDialogWin": "Forgive me, Giovanni... For me to be defeated by a simple child...",
       "endDialogLoose": "I won't allow you to interfere with our plans!",
-      "music": 2,
+      "music": 9,
       "icon": "images/boss_icon/VS_Amos.png",
       "background": "images/battle_background/silphco_battle_background.png",
       "exp": 6800,
@@ -3074,7 +3074,7 @@
     {
       "id": 54,
       "name": "\nSea Route 20",
-      "description": "You are now heading to Cinnabar Island but there are pokemon trainers in the water.",
+      "description": "You are now heading to Cinnabar Island but there are Pokemon trainers in the water.",
       "opponents": [
         {
           "sprite": "images/Sprite_Swimmer.png",
@@ -3138,7 +3138,7 @@
           "quantity": 1
         }
       ],
-      "startDialog": "Why are you riding a POKEMON? Can't you swim?",
+      "startDialog": "Why are you riding a Pokemon? Can't you swim?",
       "endDialogWin": "There's a huge cavern underneath this island.",
       "endDialogLoose": "Now I'm ready for a swim!",
       "music": 2,
@@ -4078,7 +4078,7 @@
     {
       "id": 37,
       "name": "\nVs Snorlax",
-      "description": "After getting your fourth badge, you go to Route 16 and come across the sleeping pokemon. You wake him up with the flute that the old man gave you and it gets really angry!",
+      "description": "After getting your fourth badge, you go to Route 16 and come across the sleeping Pokemon. You wake him up with the flute that the old man gave you and it gets really angry!",
       "boss":
       {
         "id": 143,
@@ -4132,7 +4132,7 @@
     {
       "id": 67,
       "name": "\nVs Moltres",
-      "description": "You finally see the exit of Victory Road but you feel the presence of a powerful pokemon near you. You head into a really hot room near the exit and come across the legendary bird Moltres.",
+      "description": "You finally see the exit of Victory Road but you feel the presence of a powerful Pokemon near you. You head into a really hot room near the exit and come across the legendary bird Moltres.",
       "boss":
       {
         "id": 146,
