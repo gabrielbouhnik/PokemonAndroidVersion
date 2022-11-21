@@ -1984,6 +1984,20 @@
       "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 210,
+      "name": "High Jump Kick",
+      "power": 130,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The target is attacked with a knee kick from a jump. If it misses, the user is hurt instead.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "multipleHitMoves": [

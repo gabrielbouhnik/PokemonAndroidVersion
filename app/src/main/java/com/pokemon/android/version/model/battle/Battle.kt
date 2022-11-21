@@ -67,10 +67,9 @@ abstract class Battle {
         }
     }
 
-    private fun turn(trainerPokemonMove: PokemonMove, sb : StringBuilder)
-    {
+    private fun turn(trainerPokemonMove: PokemonMove, sb: StringBuilder) {
         val opponentMove: PokemonMove = opponent.ia(pokemon)
-        if (opponentMove.move is RampageMove){
+        if (opponentMove.move is RampageMove) {
             opponent.battleData!!.rampageMove = opponentMove
         }
         if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move, opponentMove.move)) {
@@ -128,7 +127,7 @@ abstract class Battle {
         endTurn(sb)
         if (pokemon.currentHP > 0 && getBattleState() == State.IN_PROGRESS) {
             val opponentMove: PokemonMove = opponent.ia(pokemon)
-            if (opponentMove.move is RampageMove){
+            if (opponentMove.move is RampageMove) {
                 opponent.battleData!!.rampageMove = opponentMove
             }
             when {
@@ -145,7 +144,8 @@ abstract class Battle {
                 trainerPokemonMove.move is RampageMove -> {
                     turn(trainerPokemonMove, sb)
                     if (pokemon.currentHP > 0 && !pokemon.hasAbility(Ability.OWN_TEMPO)
-                        && !pokemon.battleData!!.battleStatus.contains(Status.CONFUSED)) {
+                        && !pokemon.battleData!!.battleStatus.contains(Status.CONFUSED)
+                    ) {
                         pokemon.battleData!!.battleStatus.add(Status.CONFUSED)
                         sb.append("${pokemon.data.name} became confused due to fatigue!\n")
                     }
@@ -181,7 +181,7 @@ abstract class Battle {
         sb.append("${(pokemonToBeSent.trainer!! as Trainer).name} sends ${pokemonToBeSent.data.name}\n")
         switchPokemon(pokemonToBeSent)
         sb.append(BattleUtils.abilitiesCheck(pokemon, opponent))
-        sb.append(opponentTurn(opponent.ia(pokemon),false))
+        sb.append(opponentTurn(opponent.ia(pokemon), false))
         endTurn(sb)
         return sb.toString()
     }
@@ -208,21 +208,22 @@ abstract class Battle {
             sb.append(activity.trainer!!.name + " uses " + activity.gameDataService.items.first { it.id == itemId }.name + "!\n")
             activity.trainer!!.useItem(itemId, pokemon)
         }
-        sb.append(opponentTurn(opponent.ia(pokemon),false))
+        sb.append(opponentTurn(opponent.ia(pokemon), false))
         endTurn(sb)
         return sb.toString()
     }
 
     protected fun endTurn(sb: StringBuilder) {
         if (opponent.currentHP > 0) {
-            if (opponent.battleData!!.rampageMove != null){
+            if (opponent.battleData!!.rampageMove != null) {
                 opponent.battleData!!.rampageCounter += 1
-                if (opponent.battleData!!.rampageCounter == 2){
+                if (opponent.battleData!!.rampageCounter == 2) {
                     opponent.battleData!!.rampageCounter = 0
                     opponent.battleData!!.rampageMove = null
                 }
-                if(!opponent.hasAbility(Ability.OWN_TEMPO)
-                    && !opponent.battleData!!.battleStatus.contains(Status.CONFUSED)) {
+                if (!opponent.hasAbility(Ability.OWN_TEMPO)
+                    && !opponent.battleData!!.battleStatus.contains(Status.CONFUSED)
+                ) {
                     opponent.battleData!!.battleStatus.add(Status.CONFUSED)
                     sb.append("The opposing ${opponent.data.name} became confused due to fatigue!\n")
                 }

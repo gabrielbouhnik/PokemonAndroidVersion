@@ -13,10 +13,6 @@ import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.ui.MainMenu
 import com.pokemon.android.version.ui.StarterSelection
 import kotlin.random.Random
-import kotlin.random.nextInt
-
-import androidx.fragment.app.Fragment
-import com.pokemon.android.version.databinding.MenuWithNavbarBinding
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -62,9 +58,9 @@ class MainActivity : AppCompatActivity() {
             sprite1.visibility = GONE
             sprite2.visibility = GONE
         }
-        displayPokemon(1,false, sprite1)
-        displayPokemon(4, false,sprite2)
-        displayPokemon(7, false,sprite3)
+        displayPokemon(1, false, sprite1)
+        displayPokemon(4, false, sprite2)
+        displayPokemon(7, false, sprite3)
     }
 
     fun displayPokemon(id: Int, shiny: Boolean, imageView: ImageView) {
@@ -72,8 +68,7 @@ class MainActivity : AppCompatActivity() {
             Glide.with(this)
                 .load("$pokemonSpritesUrl$id.png")
                 .into(imageView)
-        }
-        else{
+        } else {
             Glide.with(this)
                 .load("${pokemonSpritesUrl}shiny/$id.png")
                 .into(imageView)
@@ -85,8 +80,7 @@ class MainActivity : AppCompatActivity() {
             Glide.with(this)
                 .load("$pokemonBackSpritesUrl$id.png")
                 .into(imageView)
-        }
-        else{
+        } else {
             Glide.with(this)
                 .load("${pokemonBackSpritesUrl}shiny/$id.png")
                 .into(imageView)
@@ -94,7 +88,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun titleScreen() {
-        val ids : List<Int> = listOf(3,6,9,25,26,59,76,94,95,112,115,121,123,125,126,130,131,143,149,229,248)
+        val ids: List<Int> =
+            listOf(3, 6, 9, 25, 26, 59, 76, 94, 95, 112, 115, 121, 123, 125, 126, 130, 131, 143, 149, 229, 248)
         val randomId = ids[Random.nextInt(ids.size)]
         val imageView: ImageView = findViewById(R.id.randomPokemonSpriteView)
         Glide.with(this)

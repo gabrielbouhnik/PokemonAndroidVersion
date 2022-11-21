@@ -23,8 +23,7 @@ enum class Stats(var value: String) {
                 if (it == ACCURACY && pokemon.hasAbility(Ability.KEEN_EYE)) {
                     sb.append("Keen Eye: ${pokemon.data.name}'s " + it.value + " cannot be lowered!\n")
                     return@forEach
-                }
-                else if (statChangeMove.multiplicator > 1)
+                } else if (statChangeMove.multiplicator > 1)
                     sb.append("${pokemon.data.name}'s " + it.value + " rose!\n")
                 else
                     sb.append("${pokemon.data.name}'s " + it.value + " fell!\n")

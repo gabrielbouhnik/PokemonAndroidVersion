@@ -2,11 +2,10 @@ package com.pokemon.android.version.model.battle
 
 import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.MainActivity
-import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.Type
-import java.util.List.of
+import com.pokemon.android.version.model.move.MoveCategory
 import kotlin.random.Random
 
 class BattleFrontierBattle() : Battle() {
@@ -26,20 +25,23 @@ class BattleFrontierBattle() : Battle() {
         }
 
         private fun haveSameTypes(data1: PokemonData, data2: PokemonData): Boolean {
-            val types : List<Type> = listOf(data1.type1, data1.type2, data2.type1, data2.type2)
+            val types: List<Type> = listOf(data1.type1, data1.type2, data2.type1, data2.type2)
             return types.toSet().size == 2
         }
 
         private fun haveATypeInCommon(data1: PokemonData, data2: PokemonData, data3: PokemonData): Boolean {
-            val types : List<Type> = listOf(data1.type1, data1.type2, data2.type1, data2.type2, data3.type1, data3.type2)
+            val types: List<Type> = listOf(data1.type1, data1.type2, data2.type1, data2.type2, data3.type1, data3.type2)
             return types.toSet().size == 4
         }
 
         fun generateTrainerTeam(gameDataService: GameDataService): List<Pokemon> {
             var team = generateTeam(gameDataService)
-            team.filter{it.speed > 70}.count()
-            while (team.filter{it.speed >= 80}.count() == 0 || ((haveSameTypes(team[0].data, team[1].data) || haveSameTypes(team[1].data, team[2].data))
-                || haveATypeInCommon(team[0].data, team[1].data, team[2].data))
+            team.filter { it.speed > 70 }.count()
+            while (team.filter { it.speed >= 80 }.count() == 0 || ((haveSameTypes(
+                    team[0].data,
+                    team[1].data
+                ) || haveSameTypes(team[1].data, team[2].data))
+                        || haveATypeInCommon(team[0].data, team[1].data, team[2].data))
             ) {
                 team = generateTeam(gameDataService)
             }
@@ -61,12 +63,13 @@ class BattleFrontierBattle() : Battle() {
         this.opponent = this.opponentTrainer.getFirstPokemonThatCanFight()!!
     }
 
-    override fun turnWithSwitch(pokemonToBeSent: Pokemon) : String {
+    override fun turnWithSwitch(pokemonToBeSent: Pokemon): String {
         val sb = StringBuilder()
         val previousPokemon = pokemon
         sb.append("${activity.trainer!!.name} sends ${pokemonToBeSent.data.name}\n")
         switchPokemon(pokemonToBeSent)
-        sb.append(opponentTurn(opponent.ia(previousPokemon)))
+        val move = opponent.ia(previousPokemon)
+        sb.append(opponentTurn(move, move.move.category != MoveCategory.OTHER))
         endTurn(sb)
         return sb.toString()
     }

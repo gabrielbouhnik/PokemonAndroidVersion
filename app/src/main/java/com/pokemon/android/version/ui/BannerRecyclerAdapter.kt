@@ -61,8 +61,7 @@ class BannerRecyclerAdapter(
                 activity.playSoundEffect(R.raw.item_sound_effect)
                 activity.mainMenu.bannerMenu.coinsTextView.text = "${activity.trainer!!.coins} AndroCoins"
                 activity.mainMenu.bannerMenu.loadSummonResultScreen(activity, currentItem, s)
-            }
-            else
+            } else
                 Toast.makeText(activity, "You don't have enough AndroCoins.", Toast.LENGTH_SHORT).show()
 
         }

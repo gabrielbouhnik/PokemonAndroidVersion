@@ -33,7 +33,7 @@ class AbilityRecyclerAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = data[position]
-        holder.nameTextView.text = currentItem.toString().replace("_"," ")
+        holder.nameTextView.text = currentItem.toString().replace("_", " ")
         holder.descriptionTextView.text = currentItem.description
         holder.itemView.tag = position
     }

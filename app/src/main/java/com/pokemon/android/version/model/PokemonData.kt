@@ -62,7 +62,7 @@ class PokemonData(
                         EvolutionCondition.of(it.evolutionCondition)
                     )
                 })
-                .abilities(pokemonDataEntity.abilities.map{Ability.valueOf(it)})
+                .abilities(pokemonDataEntity.abilities.map { Ability.valueOf(it) })
                 .expGaugeType(ExpGaugeType.valueOf(pokemonDataEntity.expGaugeType))
                 .megaEvolutionData(MegaEvolutionData.of(pokemonDataEntity.megaEvolutionData))
                 .build()
@@ -106,7 +106,9 @@ class PokemonData(
         fun evolutions(evolutions: List<Evolution>) = apply { this.evolutions = evolutions }
         fun abilities(abilities: List<Ability>) = apply { this.abilities = abilities }
         fun expGaugeType(expGaugeType: ExpGaugeType) = apply { this.expGaugeType = expGaugeType }
-        fun megaEvolutionData(megaEvolutionData: MegaEvolutionData?) = apply { this.megaEvolutionData = megaEvolutionData }
+        fun megaEvolutionData(megaEvolutionData: MegaEvolutionData?) =
+            apply { this.megaEvolutionData = megaEvolutionData }
+
         fun build() = PokemonData(
             id,
             name,

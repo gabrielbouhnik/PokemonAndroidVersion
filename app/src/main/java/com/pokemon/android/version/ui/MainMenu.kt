@@ -103,7 +103,7 @@ class MainMenu {
         }
         val pokedexButton: Button = activity.findViewById(R.id.pokedexButton)
         pokedexButton.setOnClickListener {
-                pokedexMenu.loadPokedexMenu(activity)
+            pokedexMenu.loadPokedexMenu(activity)
         }
     }
 

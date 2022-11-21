@@ -2,7 +2,10 @@ package com.pokemon.android.version.model
 
 import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.entity.save.PokemonSave
-import com.pokemon.android.version.model.battle.*
+import com.pokemon.android.version.model.battle.AttackResponse
+import com.pokemon.android.version.model.battle.DamageCalculator
+import com.pokemon.android.version.model.battle.OpponentTrainer
+import com.pokemon.android.version.model.battle.PokemonBattleData
 import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
@@ -10,7 +13,6 @@ import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.MoveUtils
 import com.pokemon.android.version.utils.StatUtils
 import java.util.*
-import kotlin.collections.ArrayList
 import kotlin.random.Random
 import kotlin.random.nextInt
 
@@ -105,9 +107,9 @@ class Pokemon(
         }
     }
 
-    private fun canBeKOdByOpponent(opponent: Pokemon): Boolean{
-        val offensiveMove = MoveUtils.getMoveList(opponent).filter { it.pp > 0 && it.move.power > 0}
-        for (move in offensiveMove){
+    private fun canBeKOdByOpponent(opponent: Pokemon): Boolean {
+        val offensiveMove = MoveUtils.getMoveList(opponent).filter { it.pp > 0 && it.move.power > 0 }
+        for (move in offensiveMove) {
             var damage: Int = DamageCalculator.computeDamage(opponent, move.move, this, 1f)
             if (move.move is MultipleHitMove || move.move is VariableHitMove)
                 damage *= 2
@@ -178,22 +180,20 @@ class Pokemon(
             if (battleData!!.sleepCounter == 3) {
                 battleData!!.sleepCounter = 0
                 this.status = Status.OK
-            } else if (battleData!!.sleepCounter > 1){
-                if (Random.nextInt(100) < 30){
+            } else if (battleData!!.sleepCounter > 1) {
+                if (Random.nextInt(100) < 30) {
                     battleData!!.sleepCounter = 0
                     this.status = Status.OK
-                }
-                else
+                } else
                     return AttackResponse(false, this.data.name + " is fast asleep!\n")
-            }
-            else
+            } else
                 return AttackResponse(false, this.data.name + " is fast asleep!\n")
         }
         if (this.battleData!!.battleStatus.contains(Status.UNABLE_TO_MOVE))
             return AttackResponse(false, "${this.data.name} needs to rest!\n")
         if (this.battleData!!.battleStatus.contains(Status.FLINCHED)) {
             var reason = "${this.data.name} flinched and couldn't move\n"
-            if (this.hasAbility(Ability.STEADFAST)){
+            if (this.hasAbility(Ability.STEADFAST)) {
                 reason += "Steadfast: ${this.data.name}'s speed rose!\n"
                 this.battleData!!.speedMultiplicator *= 1.5f
             }
@@ -228,17 +228,17 @@ class Pokemon(
         if (move.move.characteristics.contains(MoveCharacteristic.SOUND) && opponent.hasAbility(Ability.SOUNDPROOF))
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}\nSoundproof: It does not affect ${opponent.data.name}!\n"
+                "${this.data.name} uses ${move.move.name}!\nSoundproof: It does not affect ${opponent.data.name}!\n"
             )
         if (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.LIGHTNING_ROD)) {
             opponent.battleData!!.spAtkMultiplicator *= 1.5f
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}\nLightning Rod: ${opponent.data.name}'s Sp. Atk rose!\n"
+                "${this.data.name} uses ${move.move.name}!\nLightning Rod: ${opponent.data.name}'s Sp. Atk rose!\n"
             )
         }
         if (move.move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE)) {
-            if(!opponent.battleData!!.battleStatus.contains(Status.FIRED_UP))
+            if (!opponent.battleData!!.battleStatus.contains(Status.FIRED_UP))
                 opponent.battleData!!.battleStatus.add(Status.FIRED_UP)
             return AttackResponse(
                 false,
@@ -248,23 +248,41 @@ class Pokemon(
         if (move.move.type == Type.GROUND && opponent.hasAbility(Ability.LEVITATE))
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}\nLevitate: It does not affect ${opponent.data.name}!\n"
+                "${this.data.name} uses ${move.move.name}!\nLevitate: It does not affect ${opponent.data.name}!\n"
             )
         if ((move.move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(Ability.DRY_SKIN)))
-                    || (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))){
+            || (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))
+        ) {
             val heal = DamageCalculator.computeDamageWithoutAbility(this, move.move, opponent)
             if (heal + this.currentHP > this.hp)
                 this.currentHP = hp
             else
                 this.currentHP += heal
         }
+        if (move.move.id == 210 && (opponent.data.type1 == Type.GHOST || opponent.data.type1 == Type.GHOST )){
+            if (this.currentHP > this.hp / 2)
+                this.currentHP -= this.hp/2
+            else
+                this.currentHP = 0
+            return AttackResponse(false,
+            "${this.data.name} uses ${move.move.name}!\nIt does not affect ${opponent.data.name}!\n${this.data.name} kept going and crashed!\n")
+        }
         if (move.move.accuracy != null && !this.hasAbility(Ability.NO_GUARD)) {
             val random: Int = Random.nextInt(100)
-            if (random > move.move.accuracy!! * battleData!!.accuracyMultiplicator)
+            if (random > move.move.accuracy!! * battleData!!.accuracyMultiplicator) {
+                var reason = "${this.data.name} uses ${move.move.name}!\n${this.data.name}'s attack missed!\n"
+                if (move.move.id == 210) {
+                    reason += "${this.data.name} kept going and crashed!\n"
+                    if (this.currentHP > this.hp / 2)
+                        this.currentHP -= this.hp/2
+                    else
+                        this.currentHP = 0
+                }
                 return AttackResponse(
                     false,
-                    "${this.data.name} uses ${move.move.name}\n${this.data.name}'s attack missed!\n"
+                    reason
                 )
+            }
         }
         var details = ""
         if (move.move is HealMove)
@@ -273,13 +291,13 @@ class Pokemon(
             this.battleData!!.battleStatus.add(Status.UNABLE_TO_MOVE)
         var damage = 0
         if (move.move.power > 0) {
-            if (move.move is MoveBasedOnLevel){
+            if (move.move is MoveBasedOnLevel) {
                 damage = this.level
             } else if (move.move is VariableHitMove) {
                 val timesItHits = Random.nextInt(2..5)
                 var i = 0
                 while (i < timesItHits && opponent.currentHP > damage) {
-                    val crit = DamageCalculator.getCriticalMultiplicator(this, move.move,opponent)
+                    val crit = DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)
                     if (crit == 1.5f)
                         details += "A critical hit!\n"
                     damage += DamageCalculator.computeDamage(
@@ -292,8 +310,8 @@ class Pokemon(
                 }
                 details =
                     if (timesItHits > 1) "${opponent.data.name} was hit $timesItHits times!\n" else "${opponent.data.name} was hit 1 time!\n"
-            } else if (move.move is MultipleHitMove){
-                val crit = DamageCalculator.getCriticalMultiplicator(this, move.move,opponent)
+            } else if (move.move is MultipleHitMove) {
+                val crit = DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)
                 if (crit == 1.5f)
                     details += "A critical hit!\n"
                 damage += DamageCalculator.computeDamage(
@@ -302,11 +320,10 @@ class Pokemon(
                     opponent,
                     crit
                 )
-                if (damage >= opponent.currentHP){
+                if (damage >= opponent.currentHP) {
                     details += "${opponent.data.name} was hit 1 time!\n"
-                }
-                else{
-                    DamageCalculator.getCriticalMultiplicator(this, move.move,opponent)
+                } else {
+                    DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)
                     if (crit == 1.5f)
                         details += "A critical hit!\n"
                     damage += DamageCalculator.computeDamage(
@@ -317,9 +334,8 @@ class Pokemon(
                     )
                     details += "${opponent.data.name} was hit 2 times!\n"
                 }
-            }
-            else {
-                val crit = DamageCalculator.getCriticalMultiplicator(this, move.move,opponent)
+            } else {
+                val crit = DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)
                 if (crit == 1.5f)
                     details += "A critical hit!\n"
                 damage = DamageCalculator.computeDamage(
@@ -332,24 +348,24 @@ class Pokemon(
             }
         }
         if (move.move.power > 0)
-            details += BattleUtils.getEffectiveness(move.move,opponent)
+            details += BattleUtils.getEffectiveness(move.move, opponent)
         val damageDone: Int
         if (damage >= opponent.currentHP) {
             if (opponent.currentHP == opponent.hp
                 && move.move !is MultipleHitMove
                 && move.move !is VariableHitMove
-                && opponent.hasAbility(Ability.STURDY)) {
+                && opponent.hasAbility(Ability.STURDY)
+            ) {
                 damageDone = opponent.currentHP - 1
                 opponent.currentHP = 1
                 details += "Sturdy: ${opponent.data.name} endured the hit!\n"
-            }
-            else {
+            } else {
                 damageDone = opponent.currentHP
                 opponent.currentHP = 0
                 opponent.status = Status.OK
                 if (opponent.hasAbility(Ability.AFTERMATH) && move.move.characteristics.contains(MoveCharacteristic.CONTACT)) {
                     details += "Aftermath: ${this.data.name} loses some hp!\n"
-                    currentHP = if (hp/4 > currentHP) 0 else currentHP - hp/4
+                    currentHP = if (hp / 4 > currentHP) 0 else currentHP - hp / 4
                 }
             }
         } else {
@@ -378,11 +394,10 @@ class Pokemon(
             }
         }
         if (move.move is DrainMove) {
-            if (opponent.hasAbility(Ability.LIQUID_OOZE)){
+            if (opponent.hasAbility(Ability.LIQUID_OOZE)) {
                 currentHP = if (damageDone / 2 > currentHP) 0 else currentHP - damageDone / 2
                 details += "Liquid Ooze: ${this.data.name} loses some hp.\n"
-            }
-            else {
+            } else {
                 currentHP = if (currentHP + damageDone / 2 > hp) hp else currentHP + damageDone / 2
                 details += "The opposing ${opponent.data.name} had its energy drained!\n"
             }
@@ -397,8 +412,7 @@ class Pokemon(
                     status = Status.OK
                 }
                 details += "${this.data.name} is damaged by recoil!\n"
-            }
-            else{
+            } else {
                 details += "Rock Head: ${this.data.name} does not receive recoil damage!\n"
             }
         }
@@ -406,18 +420,18 @@ class Pokemon(
         return AttackResponse(true, details)
     }
 
-    fun isMegaEvolved() : Boolean{
+    fun isMegaEvolved(): Boolean {
         return data.megaEvolutionData != null && data.megaEvolutionData!!.isMegaEvolved
     }
-    
-    fun canMegaEvolve() : Boolean{
+
+    fun canMegaEvolve(): Boolean {
         return trainer != null && data.megaEvolutionData != null && !data.megaEvolutionData!!.isMegaEvolved
-                && trainer!!.getTrainerTeam().none { it.isMegaEvolved()}
+                && trainer!!.getTrainerTeam().none { it.isMegaEvolved() }
                 && (trainer is OpponentTrainer || (trainer as Trainer).items.containsKey(30))
     }
 
-    fun megaEvolve(){
-        if (data.megaEvolutionData != null && !data.megaEvolutionData!!.isMegaEvolved){
+    fun megaEvolve() {
+        if (data.megaEvolutionData != null && !data.megaEvolutionData!!.isMegaEvolved) {
             this.attack = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.ATTACK)
             this.defense = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.DEFENSE)
             this.spAtk = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.SPATK)
@@ -426,7 +440,7 @@ class Pokemon(
             data.megaEvolutionData!!.isMegaEvolved = true
         }
     }
-    
+
     fun recomputeStat() {
         if (isMegaEvolved())
             this.data.megaEvolutionData!!.isMegaEvolved = false
@@ -495,9 +509,9 @@ class Pokemon(
     private fun meetsEvolutionCondition(evolution: Evolution): Boolean {
         val condition = evolution.evolutionCondition
         if (condition.level != null && level >= condition.level!!) {
-            if (condition.dayTime != null){
+            if (condition.dayTime != null) {
                 val rightNow = Calendar.getInstance()
-                val currentHourIn24Format: Int =rightNow.get(Calendar.HOUR_OF_DAY)
+                val currentHourIn24Format: Int = rightNow.get(Calendar.HOUR_OF_DAY)
                 if (condition.dayTime == "DAY")
                     return currentHourIn24Format in 6..18
                 if (condition.dayTime == "NIGHT")
@@ -508,7 +522,8 @@ class Pokemon(
         if (condition.itemId != null && (this.trainer!! as Trainer).items.containsKey(condition.itemId))
             return true
         if (condition.moveId != null
-            && MoveUtils.getMoveList(this).map{it.move.id}.contains(condition.moveId))
+            && MoveUtils.getMoveList(this).map { it.move.id }.contains(condition.moveId)
+        )
             return true
         return false
     }
@@ -544,7 +559,7 @@ class Pokemon(
         }
     }
 
-    fun hasAbility(ability: Ability) : Boolean{
+    fun hasAbility(ability: Ability): Boolean {
         return data.abilities.contains(ability) && !isMegaEvolved()
     }
 

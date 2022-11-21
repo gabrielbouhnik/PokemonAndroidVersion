@@ -8,9 +8,9 @@ import com.pokemon.android.version.model.Type
 class ColorUtils {
     companion object {
         fun getColorByHP(pokemon: Pokemon): Int {
-            if (pokemon.currentHP == 0 || pokemon.hp/pokemon.currentHP > 5)
+            if (pokemon.currentHP == 0 || pokemon.hp / pokemon.currentHP > 5)
                 return Color.RED
-            if (pokemon.hp/pokemon.currentHP < 2)
+            if (pokemon.hp / pokemon.currentHP < 2)
                 return Color.GREEN
             return Color.YELLOW
         }

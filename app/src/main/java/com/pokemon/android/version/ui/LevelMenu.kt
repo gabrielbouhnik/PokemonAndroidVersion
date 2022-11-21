@@ -76,7 +76,8 @@ class LevelMenu {
             activity.mainMenu.loadGameMenu(activity)
         }
         val levels =
-            activity.gameDataService.levels.filter { it.id <= activity.trainer!!.progression && it.id !in ELITE_4_FIRST_LEVEL_ID..ELITE_4_LAST_LEVEL_ID }.reversed()
+            activity.gameDataService.levels.filter { it.id <= activity.trainer!!.progression && it.id !in ELITE_4_FIRST_LEVEL_ID..ELITE_4_LAST_LEVEL_ID }
+                .reversed()
         val myItemClickListener = View.OnClickListener {
             val position = it.tag as Int
             val levelData: LevelData = levels[position]

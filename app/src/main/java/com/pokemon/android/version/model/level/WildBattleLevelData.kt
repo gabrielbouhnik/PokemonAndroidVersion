@@ -12,10 +12,10 @@ class WildBattleLevelData(
     icon: String,
     background: String,
     exp: Int,
-    mandatory : Boolean,
+    mandatory: Boolean,
     var encounter: Int,
     var possibleEncounters: PossibleEncounters,
-    ) : LevelData(id, name, description, rewards, music, icon, background, exp, mandatory) {
+) : LevelData(id, name, description, rewards, music, icon, background, exp, mandatory) {
     companion object {
         fun of(wildBattleLevelEntity: WildBattleLevelEntity, gameDataService: GameDataService): WildBattleLevelData {
             return WildBattleLevelData(

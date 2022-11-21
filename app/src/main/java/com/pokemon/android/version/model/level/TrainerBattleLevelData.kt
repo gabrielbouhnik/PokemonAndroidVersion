@@ -12,7 +12,7 @@ class TrainerBattleLevelData(
     icon: String,
     background: String,
     exp: Int,
-    mandatory : Boolean,
+    mandatory: Boolean,
     var startDialog: String,
     var endDialogWin: String,
     var endDialogLoose: String,

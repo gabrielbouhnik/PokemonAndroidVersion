@@ -1,6 +1,6 @@
 package com.pokemon.android.version.model
 
-enum class Ability(var description : String) {
+enum class Ability(var description: String) {
     ADAPTABILITY("Powers up moves of the same type as the Pokémon."),
     AFTERMATH("Damages the attacker if it contacts the Pokémon with a finishing hit."),
     ARENA_TRAP("Prevents opposing Pokémon from fleeing."),

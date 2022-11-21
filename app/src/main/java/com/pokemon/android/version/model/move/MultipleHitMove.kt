@@ -15,8 +15,21 @@ open class MultipleHitMove(
     status: List<StatusMove>,
     highCritRate: Boolean = false,
     description: String,
-    characteristics : List<MoveCharacteristic> = listOf()
-) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description, characteristics) {
+    characteristics: List<MoveCharacteristic> = listOf()
+) : Move(
+    id,
+    name,
+    type,
+    category,
+    power,
+    pp,
+    accuracy,
+    priorityLevel,
+    status,
+    highCritRate,
+    description,
+    characteristics
+) {
     companion object {
         fun of(multipleHitMoveEntity: MultipleHitMoveEntity): MultipleHitMove {
             return MultipleHitMoveBuilder()
@@ -47,7 +60,7 @@ open class MultipleHitMove(
         var status: List<StatusMove> = arrayListOf(),
         var highCritRate: Boolean = false,
         var description: String = "",
-        var characteristics : List<MoveCharacteristic> = listOf()
+        var characteristics: List<MoveCharacteristic> = listOf()
     ) {
         fun id(id: Int) = apply { this.id = id }
         fun name(name: String) = apply { this.name = name }
@@ -60,7 +73,9 @@ open class MultipleHitMove(
         fun highCritRate(highCritRate: Boolean) = apply { this.highCritRate = highCritRate }
         fun description(description: String) = apply { this.description = description }
         fun status(status: List<StatusMove>) = apply { this.status = status }
-        fun characteristics(characteristics : List<MoveCharacteristic>) = apply { this.characteristics = characteristics }
+        fun characteristics(characteristics: List<MoveCharacteristic>) =
+            apply { this.characteristics = characteristics }
+
         fun build() =
             MultipleHitMove(
                 id,

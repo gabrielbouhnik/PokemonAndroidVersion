@@ -1,7 +1,6 @@
 package com.pokemon.android.version.model.battle
 
 import com.pokemon.android.version.MainActivity
-import com.pokemon.android.version.R
 import com.pokemon.android.version.model.level.BossBattleLevelData
 import com.pokemon.android.version.model.move.Stats
 import com.pokemon.android.version.utils.MoveUtils

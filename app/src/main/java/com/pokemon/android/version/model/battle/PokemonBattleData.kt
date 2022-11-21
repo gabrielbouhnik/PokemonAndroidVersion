@@ -1,7 +1,6 @@
 package com.pokemon.android.version.model.battle
 
 import com.pokemon.android.version.model.Status
-import com.pokemon.android.version.model.move.RampageMove
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 
 class PokemonBattleData(

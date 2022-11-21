@@ -6973,6 +6973,10 @@
         {
           "moveId": 191,
           "level": 40
+        },
+        {
+          "moveId": 210,
+          "level": 44
         }
       ],
       "movesLearnWithTM": [25,69,72,140,30,176,177],

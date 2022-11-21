@@ -1,6 +1,5 @@
 package com.pokemon.android.version.model.banner
 
-import android.widget.Toast
 import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.SaveManager

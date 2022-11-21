@@ -15,7 +15,7 @@ import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.Type
 
 class PokedexMenu {
-    companion object{
+    companion object {
         const val ADMIN = "admin"
     }
 
@@ -43,20 +43,20 @@ class PokedexMenu {
         } else
             recyclerView.adapter = LearnsetRecyclerAdapter(activity, listOf()) {}
 
-        val levelRadioButton : RadioButton = activity.findViewById(R.id.movesByLevelRadioButton)
+        val levelRadioButton: RadioButton = activity.findViewById(R.id.movesByLevelRadioButton)
         if (activity.trainer!!.name != ADMIN && activity.trainer!!.pokedex[data.id] == false)
             levelRadioButton.visibility = GONE
 
-        val tmRadioButton : RadioButton = activity.findViewById(R.id.tmMovesRadioButton)
+        val tmRadioButton: RadioButton = activity.findViewById(R.id.tmMovesRadioButton)
         if (activity.trainer!!.name != ADMIN && activity.trainer!!.pokedex[data.id] == false)
             tmRadioButton.visibility = GONE
 
-        levelRadioButton.setOnClickListener{
+        levelRadioButton.setOnClickListener {
             recyclerView.adapter = LearnsetRecyclerAdapter(activity, data.movesByLevel) {}
             tmRadioButton.isChecked = false
         }
-        tmRadioButton.setOnClickListener{
-            recyclerView.adapter = TMMovesRecyclerAdapter(activity, data.movesByTM){}
+        tmRadioButton.setOnClickListener {
+            recyclerView.adapter = TMMovesRecyclerAdapter(activity, data.movesByTM) {}
             levelRadioButton.isChecked = false
         }
 
@@ -68,7 +68,8 @@ class PokedexMenu {
         activity.setContentView(R.layout.pokedex_layout)
         val recyclerView = activity.findViewById<RecyclerView>(R.id.pokedexRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        val data = if (activity.trainer!!.name ==  ADMIN) activity.gameDataService.pokemons else activity.gameDataService.pokemons.filter { it.id < 252 }
+        val data =
+            if (activity.trainer!!.name == ADMIN) activity.gameDataService.pokemons else activity.gameDataService.pokemons.filter { it.id < 252 }
         val myItemClickListener = View.OnClickListener {
             val dexNumber = it.tag as Int
             val pokemonData = activity.gameDataService.pokemons[dexNumber]

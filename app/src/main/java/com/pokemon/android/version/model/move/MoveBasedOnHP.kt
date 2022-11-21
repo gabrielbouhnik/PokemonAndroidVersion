@@ -2,7 +2,6 @@ package com.pokemon.android.version.model.move
 
 import com.pokemon.android.version.entity.move.MoveEntity
 import com.pokemon.android.version.model.Pokemon
-import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.Type
 
 open class MoveBasedOnHP(
@@ -17,8 +16,21 @@ open class MoveBasedOnHP(
     status: List<StatusMove>,
     highCritRate: Boolean = false,
     description: String,
-    characteristics : List<MoveCharacteristic> = listOf()
-) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description, characteristics) {
+    characteristics: List<MoveCharacteristic> = listOf()
+) : Move(
+    id,
+    name,
+    type,
+    category,
+    power,
+    pp,
+    accuracy,
+    priorityLevel,
+    status,
+    highCritRate,
+    description,
+    characteristics
+) {
     companion object {
         fun of(moveEntity: MoveEntity): MoveBasedOnHP {
             return MoveBasedOnHPBuilder()
@@ -33,12 +45,12 @@ open class MoveBasedOnHP(
                 .highCritRate(moveEntity.highCritRate)
                 .status(moveEntity.status.map(StatusMove::of))
                 .description(moveEntity.description)
-                .characteristics(moveEntity.characteristics.map{MoveCharacteristic.valueOf(it)})
+                .characteristics(moveEntity.characteristics.map { MoveCharacteristic.valueOf(it) })
                 .build()
         }
 
-        fun getPower(pokemon: Pokemon): Int{
-            val hpLeft : Float = pokemon.currentHP.toFloat()/pokemon.hp.toFloat()
+        fun getPower(pokemon: Pokemon): Int {
+            val hpLeft: Float = pokemon.currentHP.toFloat() / pokemon.hp.toFloat()
             if (hpLeft > 0.7f)
                 return 20
             if (hpLeft > 0.36f)
@@ -65,7 +77,7 @@ open class MoveBasedOnHP(
         var status: List<StatusMove> = arrayListOf(),
         var highCritRate: Boolean = false,
         var description: String = "",
-        var characteristics : List<MoveCharacteristic> = listOf()
+        var characteristics: List<MoveCharacteristic> = listOf()
     ) {
         fun id(id: Int) = apply { this.id = id }
         fun name(name: String) = apply { this.name = name }
@@ -77,7 +89,9 @@ open class MoveBasedOnHP(
         fun priorityLevel(priorityLevel: Int) = apply { this.priorityLevel = priorityLevel }
         fun highCritRate(highCritRate: Boolean) = apply { this.highCritRate = highCritRate }
         fun description(description: String) = apply { this.description = description }
-        fun characteristics(characteristics : List<MoveCharacteristic>) = apply { this.characteristics = characteristics }
+        fun characteristics(characteristics: List<MoveCharacteristic>) =
+            apply { this.characteristics = characteristics }
+
         fun status(status: List<StatusMove>) = apply { this.status = status }
         fun build() =
             MoveBasedOnHP(

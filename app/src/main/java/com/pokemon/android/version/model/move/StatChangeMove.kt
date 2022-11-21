@@ -17,8 +17,21 @@ class StatChangeMove(
     status: List<StatusMove>,
     highCritRate: Boolean = false,
     description: String,
-    characteristics : List<MoveCharacteristic> = listOf()
-) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description, characteristics) {
+    characteristics: List<MoveCharacteristic> = listOf()
+) : Move(
+    id,
+    name,
+    type,
+    category,
+    power,
+    pp,
+    accuracy,
+    priorityLevel,
+    status,
+    highCritRate,
+    description,
+    characteristics
+) {
     companion object {
         fun of(statChangeMoveEntity: StatChangeMoveEntity): StatChangeMove {
             return StatChangeMove(
@@ -37,7 +50,7 @@ class StatChangeMove(
                 statChangeMoveEntity.status.map(StatusMove::of),
                 statChangeMoveEntity.highCritRate,
                 statChangeMoveEntity.description,
-                statChangeMoveEntity.characteristics.map{MoveCharacteristic.valueOf(it)}
+                statChangeMoveEntity.characteristics.map { MoveCharacteristic.valueOf(it) }
             )
         }
     }

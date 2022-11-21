@@ -65,13 +65,13 @@ enum class Status(var activeOutsideBattle: Boolean) {
                             if (opponent.hasAbility(Ability.COMPETITIVE))
                                 opponent.battleData!!.spAtkMultiplicator *= 1.5f
                             if (opponent.hasAbility(Ability.SYNCHRONIZE)
-                                && isAffectedByStatus(0, it.status, attacker)){
-                                    attacker.status = it.status
-                                    details += "Synchronize: ${attacker.data.name} " + it.status.toDetails() + "\n"
-                                }
+                                && isAffectedByStatus(0, it.status, attacker)
+                            ) {
+                                attacker.status = it.status
+                                details += "Synchronize: ${attacker.data.name} " + it.status.toDetails() + "\n"
+                            }
 
-                        }
-                        else {
+                        } else {
                             if (it.status == CONFUSED) {
                                 details = if (opponent.hasAbility(Ability.OWN_TEMPO))
                                     "Own Tempo: ${opponent.data.name} cannot be confused!\n"
@@ -79,15 +79,12 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                     opponent.battleData!!.battleStatus.add(it.status)
                                     "${opponent.data.name} became confused!\n"
                                 }
-                            }
-                            else if (it.status == FLINCHED){
+                            } else if (it.status == FLINCHED) {
                                 if (!opponent.hasAbility(Ability.INNER_FOCUS))
                                     opponent.battleData!!.battleStatus.add(it.status)
-                            }
-                            else if (move is HealMove){
+                            } else if (move is HealMove) {
                                 attacker.battleData!!.battleStatus.add(it.status)
-                            }
-                            else {
+                            } else {
                                 opponent.battleData!!.battleStatus.add(it.status)
                                 if (it.status == TRAPPED_WITH_DAMAGE || it.status == TRAPPED_WITHOUT_DAMAGE)
                                     details = "${opponent.data.name} is trapped!\n"
@@ -96,15 +93,14 @@ enum class Status(var activeOutsideBattle: Boolean) {
                             }
                         }
                     }
-                }
-                else if (opponent.status == OK){
+                } else if (opponent.status == OK) {
                     if (move.id == 83 && opponent.hasAbility(Ability.IMMUNITY))
                         details = "Immunity: It does not affect ${opponent.data.name}!\n"
                     if (move.id == 55 && opponent.hasAbility(Ability.LIMBER))
                         details = "Limber: It does not affect ${opponent.data.name}!\n"
                     if (move.id == 138 && opponent.hasAbility(Ability.WATER_VEIL))
                         details = "Water Veil: It does not affect ${opponent.data.name}!\n"
-                    if (it.status == ASLEEP){
+                    if (it.status == ASLEEP) {
                         if (opponent.hasAbility(Ability.INSOMNIA))
                             details = "Insomnia: It does not affect ${opponent.data.name}!\n"
                         if (opponent.hasAbility(Ability.VITAL_SPIRIT))
@@ -134,10 +130,14 @@ enum class Status(var activeOutsideBattle: Boolean) {
                 return true
             if (status == BURN && (type1 != Type.FIRE && type2 != Type.FIRE) && !opponent.hasAbility(Ability.WATER_VEIL))
                 return true
-            if (status == PARALYSIS && (type1 != Type.ELECTRIC && type2 != Type.ELECTRIC) && !opponent.hasAbility(Ability.LIMBER))
+            if (status == PARALYSIS && (type1 != Type.ELECTRIC && type2 != Type.ELECTRIC) && !opponent.hasAbility(
+                    Ability.LIMBER
+                )
+            )
                 return true
-            if ((status == POISON || status ==  BADLY_POISON) && (type1 != Type.POISON && type2 != Type.POISON) && (type1 != Type.STEEL && type2 != Type.STEEL)
-                && !opponent.hasAbility(Ability.IMMUNITY))
+            if ((status == POISON || status == BADLY_POISON) && (type1 != Type.POISON && type2 != Type.POISON) && (type1 != Type.STEEL && type2 != Type.STEEL)
+                && !opponent.hasAbility(Ability.IMMUNITY)
+            )
                 return true
             return false
         }

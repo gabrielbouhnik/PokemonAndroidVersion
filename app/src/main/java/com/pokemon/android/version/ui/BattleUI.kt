@@ -28,7 +28,6 @@ import com.pokemon.android.version.utils.HealUtils
 import com.pokemon.android.version.utils.ItemUtils
 import com.pokemon.android.version.utils.MusicUtils
 import java.io.InputStream
-import java.lang.StringBuilder
 
 class BattleUI {
     companion object {
@@ -68,12 +67,11 @@ class BattleUI {
     private fun displayPokemonsInfos(activity: MainActivity, battle: Battle) {
         val opponentPokemonSprite: ImageView = activity.findViewById(R.id.opponentPokemonImageView)
         opponentPokemonSprite.visibility = VISIBLE
-        if (battle.opponent.isMegaEvolved()){
+        if (battle.opponent.isMegaEvolved()) {
             val filename = "images/mega/" + battle.opponent.data.id + "_front.png"
             val img: InputStream = activity.assets.open(filename)
             opponentPokemonSprite.setImageDrawable(Drawable.createFromStream(img, filename))
-        }
-        else
+        } else
             activity.displayPokemon(battle.opponent.data.id, battle.opponent.shiny, opponentPokemonSprite)
         val pokemonBackSprite: ImageView = activity.findViewById(R.id.pokemonBackSpriteView)
         val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
@@ -82,32 +80,49 @@ class BattleUI {
             val filename = "images/mega/" + battle.pokemon.data.id + "_back.png"
             val img: InputStream = activity.assets.open(filename)
             pokemonBackSprite.setImageDrawable(Drawable.createFromStream(img, filename))
-        }
-        else {
+        } else {
             activity.displayPokemonBack(battle.pokemon.data.id, battle.pokemon.shiny, pokemonBackSprite)
-            if (battle.pokemon.canMegaEvolve() && !battle.trainerHasUsedMegaEvolution){
+            if (battle.pokemon.canMegaEvolve() && !battle.trainerHasUsedMegaEvolution) {
                 megaEvolutionImageView.visibility = VISIBLE
-                megaEvolutionImageView.setImageDrawable(Drawable.createFromStream(activity.assets.open(MEGA_DISABLED_ICON), MEGA_DISABLED_ICON))
-                megaEvolutionImageView.setOnClickListener{
+                megaEvolutionImageView.setImageDrawable(
+                    Drawable.createFromStream(
+                        activity.assets.open(
+                            MEGA_DISABLED_ICON
+                        ), MEGA_DISABLED_ICON
+                    )
+                )
+                megaEvolutionImageView.setOnClickListener {
                     if (megaEvolve) {
                         megaEvolve = false
-                        megaEvolutionImageView.setImageDrawable(Drawable.createFromStream(activity.assets.open(MEGA_DISABLED_ICON), MEGA_DISABLED_ICON))
-                    }
-                    else{
+                        megaEvolutionImageView.setImageDrawable(
+                            Drawable.createFromStream(
+                                activity.assets.open(
+                                    MEGA_DISABLED_ICON
+                                ), MEGA_DISABLED_ICON
+                            )
+                        )
+                    } else {
                         megaEvolve = true
-                        megaEvolutionImageView.setImageDrawable(Drawable.createFromStream(activity.assets.open(MEGA_ENABLED_ICON), MEGA_ENABLED_ICON))
+                        megaEvolutionImageView.setImageDrawable(
+                            Drawable.createFromStream(
+                                activity.assets.open(
+                                    MEGA_ENABLED_ICON
+                                ), MEGA_ENABLED_ICON
+                            )
+                        )
                     }
                 }
-            }
-            else{
+            } else {
                 megaEvolutionImageView.visibility = GONE
             }
         }
         if (battle is BattleFrontierBattle && activity.trainer!!.battleFactoryProgression != null &&
-            activity.trainer!!.battleFactoryProgression!!.team.contains(battle.pokemon))
-                megaEvolutionImageView.visibility = GONE
+            activity.trainer!!.battleFactoryProgression!!.team.contains(battle.pokemon)
+        )
+            megaEvolutionImageView.visibility = GONE
         val trainerPokemonName: TextView = activity.findViewById(R.id.myPokemonNameTextView)
-        trainerPokemonName.text = if (battle.pokemon.isMegaEvolved()) "Mega " + battle.pokemon.data.name else battle.pokemon.data.name
+        trainerPokemonName.text =
+            if (battle.pokemon.isMegaEvolved()) "Mega " + battle.pokemon.data.name else battle.pokemon.data.name
         val trainerPokemonHPLevel: TextView = activity.findViewById(R.id.myPokemonHPLevelTextView)
         trainerPokemonHPLevel.text = activity.getString(
             R.string.pokemon_battle_info,
@@ -135,7 +150,8 @@ class BattleUI {
         opponentPokemonHPLevel.setTextColor(ColorUtils.getColorByHP(battle.opponent))
 
         val opponentPokemonName: TextView = activity.findViewById(R.id.opponentPokemonNameTextView)
-        opponentPokemonName.text = if (battle.opponent.isMegaEvolved()) "Mega " + battle.opponent.data.name else battle.opponent.data.name
+        opponentPokemonName.text =
+            if (battle.opponent.isMegaEvolved()) "Mega " + battle.opponent.data.name else battle.opponent.data.name
 
         val opponentStatusTextView: TextView = activity.findViewById(R.id.opponentStatusTextView)
         if (battle.opponent.status != Status.OK) {
@@ -194,7 +210,7 @@ class BattleUI {
                 battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
                 rewardMenu.loadHallOfFameMenu(activity)
             }
-        } else{
+        } else {
             rewardsButton.text = activity.getString(R.string.go_forward)
             rewardsButton.setOnClickListener {
                 SaveManager.save(activity)
@@ -270,8 +286,8 @@ class BattleUI {
                     it.battleData = null
                     if (it.hasAbility(Ability.NATURAL_CURE))
                         it.status = Status.OK
-                    if (it.hasAbility(Ability.REGENERATOR) && it.currentHP > 0){
-                        it.currentHP = if (it.hp/3 + it.currentHP > it.hp) it.hp else it.hp/3 + it.currentHP
+                    if (it.hasAbility(Ability.REGENERATOR) && it.currentHP > 0) {
+                        it.currentHP = if (it.hp / 3 + it.currentHP > it.hp) it.hp else it.hp / 3 + it.currentHP
                     }
                 }
                 val firstTime: Boolean = activity.trainer!!.progression == battle.levelData.id
@@ -284,7 +300,7 @@ class BattleUI {
                 if (activity.eliteMode)
                     activity.trainer!!.eliteProgression++
                 else if (firstTime && battle.levelData.mandatory)
-                        activity.trainer!!.progression++
+                    activity.trainer!!.progression++
                 disableBattleButtons(activity)
                 val opponentPokemonSprite: ImageView = activity.findViewById(R.id.opponentPokemonImageView)
                 opponentPokemonSprite.visibility = GONE
@@ -382,14 +398,13 @@ class BattleUI {
             ppTextView.visibility = VISIBLE
             ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
             attackButton.setOnClickListener {
-                if (megaEvolve && battle.pokemon.canMegaEvolve()){
+                if (megaEvolve && battle.pokemon.canMegaEvolve()) {
                     val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
                     megaEvolutionImageView.visibility = GONE
-                    dialogTextView!!.text = battle.turn(move,true)
-                }
-                else{
+                    dialogTextView!!.text = battle.turn(move, true)
+                } else {
                     megaEvolve = false
-                    dialogTextView!!.text = battle.turn(move,false)
+                    dialogTextView!!.text = battle.turn(move, false)
                 }
                 ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
                 updateBattleUI(activity, battle)
@@ -411,14 +426,13 @@ class BattleUI {
             ppTextView.text =
                 activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
             attack1Button.setOnClickListener {
-                if (megaEvolve && battle.pokemon.canMegaEvolve()){
+                if (megaEvolve && battle.pokemon.canMegaEvolve()) {
                     val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
                     megaEvolutionImageView.visibility = GONE
-                    dialogTextView!!.text = battle.turn(battle.pokemon.move1,true)
-                }
-                else{
+                    dialogTextView!!.text = battle.turn(battle.pokemon.move1, true)
+                } else {
                     megaEvolve = false
-                    dialogTextView!!.text = battle.turn(battle.pokemon.move1,false)
+                    dialogTextView!!.text = battle.turn(battle.pokemon.move1, false)
                 }
                 ppTextView.text =
                     activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
@@ -438,7 +452,8 @@ class BattleUI {
         val switchButton: Button = activity.findViewById(R.id.switchPokemonButton)
         switchButton.setOnClickListener {
             if (!battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
-                && !battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)) {
+                && !battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
+            ) {
                 megaEvolve = false
                 val closeButton: Button = activity.findViewById(R.id.closeTeamButton)
                 closeButton.visibility = VISIBLE
@@ -492,7 +507,7 @@ class BattleUI {
         if (battle !is BattleFrontierBattle) {
             bagButton.setOnClickListener {
                 if (battle.levelData.id != FRONTIER_BRAIN_LEVEL_ID) {
-                    megaEvolve= false
+                    megaEvolve = false
                     val closeButton: Button = activity.findViewById(R.id.closeBagButton)
                     closeButton.visibility = VISIBLE
                     switchButton.visibility = GONE
@@ -564,8 +579,8 @@ class BattleUI {
         sb.append(activity.getString(R.string.wild_encounter, wildBattle.opponent.data.name))
         if (wildBattle.opponent.shiny)
             sb.append("He looks shinier than usual!\n")
-        sb.append(BattleUtils.abilitiesCheck(wildBattle.pokemon,wildBattle.opponent))
-        sb.append(BattleUtils.abilitiesCheck(wildBattle.opponent,wildBattle.pokemon))
+        sb.append(BattleUtils.abilitiesCheck(wildBattle.pokemon, wildBattle.opponent))
+        sb.append(BattleUtils.abilitiesCheck(wildBattle.opponent, wildBattle.pokemon))
         dialogTextView!!.text = sb.toString()
         displayPokemonsInfos(activity, wildBattle)
     }
@@ -590,8 +605,8 @@ class BattleUI {
             val sb = StringBuilder()
             sb.append(activity.getString(R.string.trainer_encounter, level.opponentTrainerData[0].name) + "\n")
             sb.append("${level.opponentTrainerData[0].name} sends out ${trainerBattle.opponent.data.name}\n")
-            sb.append(BattleUtils.abilitiesCheck(trainerBattle.pokemon,trainerBattle.opponent))
-            sb.append(BattleUtils.abilitiesCheck(trainerBattle.opponent,trainerBattle.pokemon))
+            sb.append(BattleUtils.abilitiesCheck(trainerBattle.pokemon, trainerBattle.opponent))
+            sb.append(BattleUtils.abilitiesCheck(trainerBattle.opponent, trainerBattle.pokemon))
             dialogTextView!!.text = sb.toString()
             buttonSetUp(activity, trainerBattle)
             displayPokemonsInfos(activity, trainerBattle)
@@ -625,8 +640,8 @@ class BattleUI {
             val sb = StringBuilder()
             sb.append(activity.getString(R.string.trainer_encounter, level.title) + "\n")
             sb.append("${level.title} sends out ${gymLeaderBattle.opponent.data.name}\n")
-            sb.append(BattleUtils.abilitiesCheck(gymLeaderBattle.pokemon,gymLeaderBattle.opponent))
-            sb.append(BattleUtils.abilitiesCheck(gymLeaderBattle.opponent,gymLeaderBattle.pokemon))
+            sb.append(BattleUtils.abilitiesCheck(gymLeaderBattle.pokemon, gymLeaderBattle.opponent))
+            sb.append(BattleUtils.abilitiesCheck(gymLeaderBattle.opponent, gymLeaderBattle.pokemon))
             dialogTextView!!.text = sb.toString()
             buttonSetUp(activity, gymLeaderBattle)
             displayPokemonsInfos(activity, gymLeaderBattle)
@@ -646,8 +661,8 @@ class BattleUI {
         buttonSetUp(activity, bossBattle)
         val sb = StringBuilder()
         sb.append(activity.getString(R.string.boss_encounter, bossBattle.opponent.data.name) + '\n')
-        sb.append(BattleUtils.abilitiesCheck(bossBattle.pokemon,bossBattle.opponent))
-        sb.append(BattleUtils.abilitiesCheck(bossBattle.opponent,bossBattle.pokemon))
+        sb.append(BattleUtils.abilitiesCheck(bossBattle.pokemon, bossBattle.opponent))
+        sb.append(BattleUtils.abilitiesCheck(bossBattle.opponent, bossBattle.pokemon))
         dialogTextView!!.text = sb.toString()
         displayPokemonsInfos(activity, bossBattle)
     }
@@ -675,8 +690,8 @@ class BattleUI {
             val sb = StringBuilder()
             sb.append(activity.getString(R.string.battle_frontier_encounter) + "\n")
             sb.append("The opposing trainer sends out ${battleFrontierBattle.opponent.data.name}\n")
-            sb.append(BattleUtils.abilitiesCheck(battleFrontierBattle.pokemon,battleFrontierBattle.opponent))
-            sb.append(BattleUtils.abilitiesCheck(battleFrontierBattle.opponent,battleFrontierBattle.pokemon))
+            sb.append(BattleUtils.abilitiesCheck(battleFrontierBattle.pokemon, battleFrontierBattle.opponent))
+            sb.append(BattleUtils.abilitiesCheck(battleFrontierBattle.opponent, battleFrontierBattle.pokemon))
             dialogTextView!!.text = sb.toString()
             buttonSetUp(activity, battleFrontierBattle)
             displayPokemonsInfos(activity, battleFrontierBattle)

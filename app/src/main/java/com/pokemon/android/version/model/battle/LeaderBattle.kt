@@ -37,7 +37,8 @@ class LeaderBattle() : Battle() {
                     it.id, it.level,
                     it.moves
                 )
-            }, leaderLevelData.sprite)
+            }, leaderLevelData.sprite
+        )
         this.opponent = this.opponentTrainer.getFirstPokemonThatCanFight()!!
         activity.trainer!!.updatePokedex(opponent)
     }

@@ -1,7 +1,6 @@
 package com.pokemon.android.version.model.move
 
 import com.pokemon.android.version.entity.move.ChargedMoveEntity
-import com.pokemon.android.version.entity.move.MoveEntity
 import com.pokemon.android.version.model.Type
 
 class ChargedMove(
@@ -16,9 +15,22 @@ class ChargedMove(
     status: ArrayList<StatusMove>,
     highCritRate: Boolean = false,
     description: String,
-    characteristics : List<MoveCharacteristic> = listOf(),
+    characteristics: List<MoveCharacteristic> = listOf(),
     val chargeText: String
-) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description, characteristics) {
+) : Move(
+    id,
+    name,
+    type,
+    category,
+    power,
+    pp,
+    accuracy,
+    priorityLevel,
+    status,
+    highCritRate,
+    description,
+    characteristics
+) {
     companion object {
         fun of(chargedMoveEntity: ChargedMoveEntity): ChargedMove {
             return ChargedMoveBuilder()
@@ -34,7 +46,7 @@ class ChargedMove(
                 .status(ArrayList(chargedMoveEntity.status.map(StatusMove::of)))
                 .description(chargedMoveEntity.description)
                 .chargeText(chargedMoveEntity.chargeText)
-                .characteristics(chargedMoveEntity.characteristics.map{MoveCharacteristic.valueOf(it)})
+                .characteristics(chargedMoveEntity.characteristics.map { MoveCharacteristic.valueOf(it) })
                 .build()
         }
     }
@@ -51,7 +63,7 @@ class ChargedMove(
         var status: ArrayList<StatusMove> = arrayListOf(),
         var highCritRate: Boolean = false,
         var description: String = "",
-        var characteristics : List<MoveCharacteristic> = listOf(),
+        var characteristics: List<MoveCharacteristic> = listOf(),
         var chargeText: String = "",
     ) {
         fun id(id: Int) = apply { this.id = id }
@@ -64,11 +76,27 @@ class ChargedMove(
         fun priorityLevel(priorityLevel: Int) = apply { this.priorityLevel = priorityLevel }
         fun highCritRate(highCritRate: Boolean) = apply { this.highCritRate = highCritRate }
         fun description(description: String) = apply { this.description = description }
-        fun characteristics(characteristics : List<MoveCharacteristic>) = apply { this.characteristics = characteristics }
+        fun characteristics(characteristics: List<MoveCharacteristic>) =
+            apply { this.characteristics = characteristics }
+
         fun status(status: ArrayList<StatusMove>) = apply { this.status = status }
         fun chargeText(chargeText: String) = apply { this.chargeText = chargeText }
 
         fun build() =
-            ChargedMove(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description, characteristics, chargeText)
+            ChargedMove(
+                id,
+                name,
+                type,
+                category,
+                power,
+                pp,
+                accuracy,
+                priorityLevel,
+                status,
+                highCritRate,
+                description,
+                characteristics,
+                chargeText
+            )
     }
 }

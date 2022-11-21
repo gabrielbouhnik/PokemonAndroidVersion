@@ -38,18 +38,17 @@ class StarterSelection {
             if (characterName.text.toString() == PokedexMenu.ADMIN) {
                 for (pokemon in activity.gameDataService.pokemons) {
                     if (pokemon.id < 151 || pokemon.movesByTM.size > 1)
-                        activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(pokemon.id,80))
+                        activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(pokemon.id, 80))
                 }
                 activity.trainer!!.progression = 83
                 activity.trainer!!.coins = 25000
                 for (i in 1..75) {
-                    val quantity =  if (!ItemUtils.isBadge(i) && i != 30) 50 else 1
+                    val quantity = if (!ItemUtils.isBadge(i) && i != 30) 50 else 1
                     activity.trainer!!.addItem(i, quantity)
                 }
                 activity.updateMusic(R.raw.main_menu)
                 activity.mainMenu.loadGameMenu(activity)
-            }
-            else {
+            } else {
                 activity.trainer!!.addItem(POKEBALL_ID, 3)
                 submitButton.visibility = GONE
                 genderSwitch.visibility = GONE

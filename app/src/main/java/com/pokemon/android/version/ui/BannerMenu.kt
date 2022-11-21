@@ -31,17 +31,23 @@ class BannerMenu {
         }
         val calendar: Calendar = Calendar.getInstance()
         val day: DayOfWeek = DateUtils.getDayOfWeek(calendar.get(Calendar.DAY_OF_WEEK))
-        val banners = if (activity.trainer!!.progression < LevelMenu.OTHER_BANNER_LEVEL) activity.gameDataService.banners.filter { it.description.contains("Hyper Ball") || it.description.contains("Pikachu")} else activity.gameDataService.banners.filter { it.days.contains(day) }
+        val banners =
+            if (activity.trainer!!.progression < LevelMenu.OTHER_BANNER_LEVEL) activity.gameDataService.banners.filter {
+                it.description.contains("Hyper Ball") || it.description.contains("Pikachu")
+            } else activity.gameDataService.banners.filter { it.days.contains(day) }
         if (activity.trainer!!.progression < LevelMenu.ELITE_4_FIRST_LEVEL_ID - 1)
             recyclerView.adapter =
                 BannerRecyclerAdapter(activity, (banners.filter { !it.image.contains("tm_banner") }).toMutableList())
         else
-            recyclerView.adapter = BannerRecyclerAdapter(activity, if (activity.trainer!!.name == ADMIN) activity.gameDataService.banners else banners)
+            recyclerView.adapter = BannerRecyclerAdapter(
+                activity,
+                if (activity.trainer!!.name == ADMIN) activity.gameDataService.banners else banners
+            )
     }
 
     fun loadSummonResultScreen(activity: MainActivity, banner: Banner, s: Summonable) {
         activity.setContentView(R.layout.summon_layout)
-        val coinsSummonAgainTextView : TextView = activity.findViewById(R.id.coinSummonResultTextView)
+        val coinsSummonAgainTextView: TextView = activity.findViewById(R.id.coinSummonResultTextView)
         coinsSummonAgainTextView.text = activity.getString(R.string.andro_coins, activity.trainer!!.coins)
         val backButton: Button = activity.findViewById(R.id.summonResultBackButton)
         backButton.setOnClickListener {

@@ -3,12 +3,10 @@ package com.pokemon.android.version.ui
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Pokemon
@@ -49,14 +47,12 @@ class PokemonRecyclerAdapter(
             holder.canEvolveTextView.text = "CAN EVOLVE"
         else
             holder.canEvolveTextView.text = " "
-        if (currentItem.isMegaEvolved())
-        {
+        if (currentItem.isMegaEvolved()) {
             val filename = "images/mega/" + currentItem.data.id + "_front.png"
             val img: InputStream = activity.assets.open(filename)
             holder.spriteView.setImageDrawable(Drawable.createFromStream(img, filename))
             holder.nameTextView.text = "Mega ${currentItem.data.name}"
-        }
-        else {
+        } else {
             holder.nameTextView.text = currentItem.data.name
             activity.displayPokemon(currentItem.data.id, currentItem.shiny, holder.spriteView)
         }

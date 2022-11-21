@@ -11,5 +11,5 @@ class WildBattleLevelEntity(
     var icon: String,
     var background: String,
     var exp: Int,
-    var mandatory : Boolean
+    var mandatory: Boolean
 )
