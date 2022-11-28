@@ -171,8 +171,7 @@ abstract class Battle {
         if (this.pokemon.hasAbility(Ability.NATURAL_CURE))
             this.pokemon.status = Status.OK
         if (this.pokemon.hasAbility(Ability.REGENERATOR) && this.pokemon.currentHP > 0)
-            this.pokemon.currentHP =
-                if (this.pokemon.hp / 3 + this.pokemon.currentHP > this.pokemon.hp) this.pokemon.hp else this.pokemon.hp / 3 + this.pokemon.currentHP
+            this.pokemon.heal(this.pokemon.hp / 3)
         this.pokemon = pokemonToBeSent
     }
 
@@ -324,32 +323,20 @@ abstract class Battle {
                 when (pokemon.status) {
                     Status.POISON -> {
                         if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
-                            pokemon.currentHP -= pokemon.hp / 8
-                            if (pokemon.currentHP <= 0) {
-                                pokemon.currentHP = 0
-                                pokemon.status = Status.OK
-                            }
+                            pokemon.takeDamage(pokemon.hp / 8)
                             details += pokemon.data.name + " suffers from the poison!\n"
                         }
                     }
                     Status.BADLY_POISON -> {
                         if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
-                            pokemon.currentHP -= pokemon.battleData!!.poisonCounter * (pokemon.hp / 16)
+                            pokemon.takeDamage(pokemon.battleData!!.poisonCounter * (pokemon.hp / 16))
                             pokemon.battleData!!.poisonCounter++
-                            if (pokemon.currentHP <= 0) {
-                                pokemon.currentHP = 0
-                                pokemon.status = Status.OK
-                            }
                             details += pokemon.data.name + " suffers from the poison!\n"
                         }
                     }
                     Status.BURN -> {
                         if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
-                            pokemon.currentHP -= pokemon.hp / 16
-                            if (pokemon.currentHP <= 0) {
-                                pokemon.currentHP = 0
-                                pokemon.status = Status.OK
-                            }
+                            pokemon.takeDamage(pokemon.hp / 16)
                             details += pokemon.data.name + " suffers from its burn!\n"
                         }
                     }

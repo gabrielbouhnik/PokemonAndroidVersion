@@ -131,6 +131,8 @@ class Pokemon(
         var maxDamage = 0
         var maxDamageIdx = 0
         for ((Idx, move) in usableMoves.withIndex()) {
+            if (move.move.id == 213 && opponent.status != Status.ASLEEP)
+                continue
             var damage: Int = DamageCalculator.computeDamage(this, move.move, opponent, 1f)
             if (move.move is MultipleHitMove || move.move is VariableHitMove)
                 damage *= 2
@@ -201,13 +203,7 @@ class Pokemon(
         }
         if (this.battleData!!.battleStatus.contains(Status.CONFUSED)) {
             if (Random.nextInt(100) < 33) {
-                val confusionDamage = DamageCalculator.computeConfusionDamage(this)
-                if (currentHP > confusionDamage) {
-                    currentHP -= confusionDamage
-                } else {
-                    currentHP = 0
-                    status = Status.OK
-                }
+                this.takeDamage(DamageCalculator.computeConfusionDamage(this))
                 return AttackResponse(
                     false,
                     "${this.data.name} uses ${move.move.name}\nBut ${this.data.name} hits hurt itself in its confusion\n"
@@ -253,30 +249,30 @@ class Pokemon(
         if ((move.move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(Ability.DRY_SKIN)))
             || (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))
         ) {
-            val heal = DamageCalculator.computeDamageWithoutAbility(this, move.move, opponent)
-            if (heal + this.currentHP > this.hp)
-                this.currentHP = hp
-            else
-                this.currentHP += heal
+            this.heal(DamageCalculator.computeDamageWithoutAbility(this, move.move, opponent))
         }
-        if (move.move.id == 210 && (opponent.data.type1 == Type.GHOST || opponent.data.type1 == Type.GHOST )){
-            if (this.currentHP > this.hp / 2)
-                this.currentHP -= this.hp/2
-            else
-                this.currentHP = 0
-            return AttackResponse(false,
-            "${this.data.name} uses ${move.move.name}!\nIt does not affect ${opponent.data.name}!\n${this.data.name} kept going and crashed!\n")
+        if (move.move.id == 210 && (opponent.data.type1 == Type.GHOST || opponent.data.type1 == Type.GHOST)) {
+            this.takeDamage(this.hp / 2)
+            return AttackResponse(
+                false,
+                "${this.data.name} uses ${move.move.name}!\nIt does not affect ${opponent.data.name}!\n${this.data.name} kept going and crashed!\n"
+            )
         }
+        if (move.move.id == 213 && opponent.status != Status.ASLEEP)
+            return AttackResponse(
+                false,
+                "${this.data.name} uses ${move.move.name}!\nBut it failed!\n")
+        if (move.move !is MoveBasedOnHP && DamageCalculator.getEffectiveness(move.move, opponent) == 0f)
+            return AttackResponse(
+                false,
+                "${this.data.name} uses ${move.move.name}!\nIt does not affect ${opponent.data.name}!\n")
         if (move.move.accuracy != null && !this.hasAbility(Ability.NO_GUARD)) {
             val random: Int = Random.nextInt(100)
             if (random > move.move.accuracy!! * battleData!!.accuracyMultiplicator) {
                 var reason = "${this.data.name} uses ${move.move.name}!\n${this.data.name}'s attack missed!\n"
                 if (move.move.id == 210) {
                     reason += "${this.data.name} kept going and crashed!\n"
-                    if (this.currentHP > this.hp / 2)
-                        this.currentHP -= this.hp/2
-                    else
-                        this.currentHP = 0
+                    this.takeDamage(this.hp / 2)
                 }
                 return AttackResponse(
                     false,
@@ -365,12 +361,12 @@ class Pokemon(
                 opponent.status = Status.OK
                 if (opponent.hasAbility(Ability.AFTERMATH) && move.move.characteristics.contains(MoveCharacteristic.CONTACT)) {
                     details += "Aftermath: ${this.data.name} loses some hp!\n"
-                    currentHP = if (hp / 4 > currentHP) 0 else currentHP - hp / 4
+                    this.takeDamage(hp / 4)
                 }
             }
         } else {
             damageDone = damage
-            opponent.currentHP = opponent.currentHP - damage
+            opponent.takeDamage(damage)
             if (move.move.type == Type.FIRE && opponent.status == Status.FROZEN)
                 opponent.status = Status.OK
             if (!this.hasAbility(Ability.SHEER_FORCE) && (move.move.power == 0 || damage > 0 && move.move.status.isNotEmpty())) {
@@ -394,26 +390,20 @@ class Pokemon(
             }
         }
         if (move.move is DrainMove) {
-            if (opponent.hasAbility(Ability.LIQUID_OOZE)) {
-                currentHP = if (damageDone / 2 > currentHP) 0 else currentHP - damageDone / 2
-                details += "Liquid Ooze: ${this.data.name} loses some hp.\n"
+            details += if (opponent.hasAbility(Ability.LIQUID_OOZE)) {
+                this.takeDamage(damageDone / 2)
+                "Liquid Ooze: ${this.data.name} loses some hp.\n"
             } else {
-                currentHP = if (currentHP + damageDone / 2 > hp) hp else currentHP + damageDone / 2
-                details += "The opposing ${opponent.data.name} had its energy drained!\n"
+                this.heal(damageDone / 2)
+                "The opposing ${opponent.data.name} had its energy drained!\n"
             }
         }
         if (move.move is RecoilMove) {
-            if (!this.hasAbility(Ability.ROCK_HEAD)) {
-                val recoil = (move.move as RecoilMove).recoil
-                if (currentHP > (damageDone * recoil.damage).toInt()) {
-                    currentHP -= (damageDone * recoil.damage).toInt()
-                } else {
-                    currentHP = 0
-                    status = Status.OK
-                }
-                details += "${this.data.name} is damaged by recoil!\n"
+            details += if (!this.hasAbility(Ability.ROCK_HEAD)) {
+                this.takeDamage((damageDone * (move.move as RecoilMove).recoil.damage).toInt())
+                "${this.data.name} is damaged by recoil!\n"
             } else {
-                details += "Rock Head: ${this.data.name} does not receive recoil damage!\n"
+                "Rock Head: ${this.data.name} does not receive recoil damage!\n"
             }
         }
         details += BattleUtils.contactMovesCheck(this, move.move, opponent)
@@ -561,6 +551,22 @@ class Pokemon(
 
     fun hasAbility(ability: Ability): Boolean {
         return data.abilities.contains(ability) && !isMegaEvolved()
+    }
+
+    fun takeDamage(damage: Int) {
+        if (this.currentHP > damage)
+            this.currentHP -= damage
+        else {
+            currentHP = 0
+            status = Status.OK
+        }
+    }
+
+    fun heal(quantity: Int) {
+        if (this.currentHP + quantity > this.hp)
+            this.currentHP = this.hp
+        else
+            currentHP += quantity
     }
 
     data class PokemonBuilder(

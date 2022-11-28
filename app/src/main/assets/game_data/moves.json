@@ -3183,6 +3183,25 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 214,
+      "name": "Lunge",
+      "power": 80,
+      "category": "SPECIAL",
+      "pp": 15,
+      "type": 7,
+      "accuracy": 100,
+      "description": "The user makes a lunge at the target, attacking with full force. This also lowers the target's Attack stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "drainMoves": [
@@ -3241,6 +3260,20 @@
       "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 213,
+      "name": "Dream Eater",
+      "power": 100,
+      "category": "SPECIAL",
+      "pp": 15,
+      "type": 12,
+      "accuracy": 100,
+      "description": "The user eats the dreams of a sleeping target. The user's HP is restored by half the damage taken by the target.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "recoilMoves": [
@@ -3480,7 +3513,8 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": ["CONTACT"]
+      "characteristics": ["CONTACT"],
+      "strongerWhenHPisLow": true
     },
     {
       "id": 190,
@@ -3494,7 +3528,38 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": ["CONTACT"]
+      "characteristics": ["CONTACT"],
+      "strongerWhenHPisLow": true
+    },
+    {
+      "id": 211,
+      "name": "Water Spout",
+      "power": 150,
+      "pp": 5,
+      "type": 3,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user spouts water to damage opposing Pokémon. The lower the user's HP, the lower the move's power.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": [],
+      "strongerWhenHPisLow": false
+    },
+    {
+      "id": 212,
+      "name": "Eruption",
+      "power": 150,
+      "pp": 5,
+      "type": 2,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user attacks opposing Pokémon with explosive fury. The lower the user's HP, the lower the move's power.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": [],
+      "strongerWhenHPisLow": false
     }
   ],
   "chargedMovesEntity": [

@@ -20,11 +20,12 @@ class BattleUtils {
                     opponent.status = Status.POISON
                     if (opponent.hasAbility(Ability.QUICK_FEET))
                         opponent.battleData!!.speedMultiplicator *= 1.5f
+                    if (opponent.hasAbility(Ability.GUTS))
+                        opponent.battleData!!.attackMultiplicator *= 1.5f
                     return "Poison Touch: ${opponent.data.name} is poisoned!\n"
                 }
                 if (opponent.hasAbility(Ability.ROUGH_SKIN)) {
-                    attacker.currentHP =
-                        if (attacker.currentHP < attacker.hp / 8) 0 else attacker.currentHP - attacker.hp / 8
+                    attacker.takeDamage(attacker.hp / 8)
                     return "Rough Skin: ${attacker.data.name} was hurt!\n"
                 }
                 if (opponent.hasAbility(Ability.POISON_POINT)
@@ -33,6 +34,8 @@ class BattleUtils {
                     attacker.status = Status.POISON
                     if (attacker.hasAbility(Ability.QUICK_FEET))
                         attacker.battleData!!.speedMultiplicator *= 1.5f
+                    if (attacker.hasAbility(Ability.GUTS))
+                        attacker.battleData!!.attackMultiplicator *= 1.5f
                     return "Poison Point: ${attacker.data.name} is poisoned!\n"
                 }
                 if (opponent.hasAbility(Ability.STATIC)
@@ -41,6 +44,8 @@ class BattleUtils {
                     attacker.status = Status.PARALYSIS
                     if (attacker.hasAbility(Ability.QUICK_FEET))
                         attacker.battleData!!.speedMultiplicator *= 1.5f
+                    if (attacker.hasAbility(Ability.GUTS))
+                        attacker.battleData!!.attackMultiplicator *= 1.5f
                     return "Static: ${attacker.data.name} is paralyzed!\n"
                 }
                 if (opponent.hasAbility(Ability.FLAME_BODY)
@@ -49,12 +54,18 @@ class BattleUtils {
                     attacker.status = Status.BURN
                     if (attacker.hasAbility(Ability.QUICK_FEET))
                         attacker.battleData!!.speedMultiplicator *= 1.5f
+                    if (attacker.hasAbility(Ability.GUTS))
+                        attacker.battleData!!.attackMultiplicator *= 1.5f
                     return "Flame Body: ${attacker.data.name} is burned!\n"
                 }
                 if (opponent.hasAbility(Ability.EFFECT_SPORE)) {
-                    if (random < 10 && Status.isAffectedByStatus(34, Status.POISON, attacker))
+                    if (random < 10 && Status.isAffectedByStatus(34, Status.POISON, attacker)) {
                         attacker.status = Status.POISON
-                    else if (random < 20 && Status.isAffectedByStatus(35, Status.ASLEEP, attacker))
+                        if (attacker.hasAbility(Ability.QUICK_FEET))
+                            attacker.battleData!!.speedMultiplicator *= 1.5f
+                        if (attacker.hasAbility(Ability.GUTS))
+                            attacker.battleData!!.attackMultiplicator *= 1.5f
+                    } else if (random < 20 && Status.isAffectedByStatus(35, Status.ASLEEP, attacker))
                         attacker.status = Status.ASLEEP
                 }
             }

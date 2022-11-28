@@ -46,7 +46,7 @@ class DamageCalculator {
                 if (attacker.status == Status.BURN)
                     multiplicator *= 0.5f
             }
-            val power = if (move is MoveBasedOnHP) MoveBasedOnHP.getPower(attacker) else move.power
+            val power = if (move is MoveBasedOnHP) move.getPower(attacker) else move.power
             return try {
                 val type = getEffectiveness(move, opponent)
                 val random: Float = Random.nextInt(85, 100).toFloat() / 100f
@@ -94,11 +94,11 @@ class DamageCalculator {
                     multiplicator *= 0.5f
             }
             var power: Float =
-                if (move is MoveBasedOnHP) MoveBasedOnHP.getPower(attacker).toFloat() else move.power.toFloat()
+                if (move is MoveBasedOnHP) move.getPower(attacker).toFloat() else move.power.toFloat()
             if (attacker.hasAbility(Ability.SHEER_FORCE) && (move.status.isNotEmpty() || move is StatChangeMove))
                 power *= 1.3f
             if (move.power <= 60 && attacker.hasAbility(Ability.TECHNICIAN))
-                power *= 2f
+                power *= 1.5f
             if (move is RecoilMove && attacker.hasAbility(Ability.RECKLESS))
                 power *= 1.2f
             if ((move.type == Type.FIRE || move.type == Type.ICE) && opponent.hasAbility(Ability.THICK_FAT))
