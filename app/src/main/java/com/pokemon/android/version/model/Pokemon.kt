@@ -16,7 +16,7 @@ import java.util.*
 import kotlin.random.Random
 import kotlin.random.nextInt
 
-class Pokemon(
+open class Pokemon(
     var data: PokemonData,
     var trainer: ITrainer?,
     var level: Int,
@@ -153,8 +153,7 @@ class Pokemon(
             if (move.move is StatChangeMove) {
                 val statChangeMove: StatChangeMove = move.move as StatChangeMove
                 if (move.move.power == 0 &&
-                    statChangeMove.statsAffected.contains(Stats.SPEED) && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator
-                )
+                    statChangeMove.statsAffected.contains(Stats.SPEED) && BattleUtils.isFaster(opponent, this))
                     return move
                 if (statChangeMove.statsAffected.contains(Stats.ACCURACY) && opponent.battleData!!.accuracyMultiplicator == 1f)
                     return move
@@ -196,7 +195,7 @@ class Pokemon(
         if (this.battleData!!.battleStatus.contains(Status.FLINCHED)) {
             var reason = "${this.data.name} flinched and couldn't move\n"
             if (this.hasAbility(Ability.STEADFAST)) {
-                reason += "Steadfast: ${this.data.name}'s speed rose!\n"
+                reason += "${data.name}'s Steadfast: ${this.data.name}'s speed rose!\n"
                 this.battleData!!.speedMultiplicator *= 1.5f
             }
             return AttackResponse(false, reason)
@@ -224,13 +223,13 @@ class Pokemon(
         if (move.move.characteristics.contains(MoveCharacteristic.SOUND) && opponent.hasAbility(Ability.SOUNDPROOF))
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}!\nSoundproof: It does not affect ${opponent.data.name}!\n"
+                "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Soundproof: It does not affect ${opponent.data.name}!\n"
             )
         if (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.LIGHTNING_ROD)) {
             opponent.battleData!!.spAtkMultiplicator *= 1.5f
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}!\nLightning Rod: ${opponent.data.name}'s Sp. Atk rose!\n"
+                "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Lightning Rod: ${opponent.data.name}'s Sp. Atk rose!\n"
             )
         }
         if (move.move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE)) {
@@ -238,13 +237,13 @@ class Pokemon(
                 opponent.battleData!!.battleStatus.add(Status.FIRED_UP)
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}\nFlash Fire: ${opponent.data.name}'s fire power is increased!\n"
+                "${this.data.name} uses ${move.move.name}\n${opponent.data.name}'s Flash Fire: ${opponent.data.name}'s fire power is increased!\n"
             )
         }
         if (move.move.type == Type.GROUND && opponent.hasAbility(Ability.LEVITATE))
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}!\nLevitate: It does not affect ${opponent.data.name}!\n"
+                "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Levitate: It does not affect ${opponent.data.name}!\n"
             )
         if ((move.move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(Ability.DRY_SKIN)))
             || (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))
@@ -354,13 +353,13 @@ class Pokemon(
             ) {
                 damageDone = opponent.currentHP - 1
                 opponent.currentHP = 1
-                details += "Sturdy: ${opponent.data.name} endured the hit!\n"
+                details += "${opponent.data.name}'s Sturdy: ${opponent.data.name} endured the hit!\n"
             } else {
                 damageDone = opponent.currentHP
                 opponent.currentHP = 0
                 opponent.status = Status.OK
                 if (opponent.hasAbility(Ability.AFTERMATH) && move.move.characteristics.contains(MoveCharacteristic.CONTACT)) {
-                    details += "Aftermath: ${this.data.name} loses some hp!\n"
+                    details += "${opponent.data.name}'s Aftermath: ${this.data.name} loses some hp!\n"
                     this.takeDamage(hp / 4)
                 }
             }
@@ -369,10 +368,10 @@ class Pokemon(
             opponent.takeDamage(damage)
             if (move.move.type == Type.FIRE && opponent.status == Status.FROZEN)
                 opponent.status = Status.OK
-            if (!this.hasAbility(Ability.SHEER_FORCE) && (move.move.power == 0 || damage > 0 && move.move.status.isNotEmpty())) {
+            if ((!this.hasAbility(Ability.SHEER_FORCE) || move.move.category == MoveCategory.OTHER) && (move.move.power == 0 || damage > 0 && move.move.status.isNotEmpty())) {
                 details += Status.updateStatus(this, opponent, move.move)
             }
-            if (!this.hasAbility(Ability.SHEER_FORCE) && move.move is StatChangeMove && (move.move.power == 0 || damage > 0)) {
+            if ((!this.hasAbility(Ability.SHEER_FORCE) || move.move.category == MoveCategory.OTHER) && move.move is StatChangeMove && (move.move.power == 0 || damage > 0)) {
                 var randomForStats: Int = Random.nextInt(100)
                 if (this.hasAbility(Ability.SERENE_GRACE))
                     randomForStats /= 2
@@ -382,7 +381,7 @@ class Pokemon(
                         Stats.updateStat(this, move.move as StatChangeMove)
                     else {
                         if ((move.move as StatChangeMove).multiplicator < 0 && hasAbility(Ability.CLEAR_BODY))
-                            details += "Clear Body: ${data.name}'s stats cannot be lowered!\n"
+                            details += "${data.name}'s Clear Body: ${data.name}'s stats cannot be lowered!\n"
                         else
                             Stats.updateStat(opponent, move.move as StatChangeMove)
                     }
@@ -392,7 +391,7 @@ class Pokemon(
         if (move.move is DrainMove) {
             details += if (opponent.hasAbility(Ability.LIQUID_OOZE)) {
                 this.takeDamage(damageDone / 2)
-                "Liquid Ooze: ${this.data.name} loses some hp.\n"
+                "${opponent.data.name}'s Liquid Ooze: ${this.data.name} loses some hp.\n"
             } else {
                 this.heal(damageDone / 2)
                 "The opposing ${opponent.data.name} had its energy drained!\n"
@@ -403,7 +402,7 @@ class Pokemon(
                 this.takeDamage((damageDone * (move.move as RecoilMove).recoil.damage).toInt())
                 "${this.data.name} is damaged by recoil!\n"
             } else {
-                "Rock Head: ${this.data.name} does not receive recoil damage!\n"
+                "${this.data.name}'s Rock Head: ${this.data.name} does not receive recoil damage!\n"
             }
         }
         details += BattleUtils.contactMovesCheck(this, move.move, opponent)
@@ -415,9 +414,9 @@ class Pokemon(
     }
 
     fun canMegaEvolve(): Boolean {
-        return trainer != null && data.megaEvolutionData != null && !data.megaEvolutionData!!.isMegaEvolved
+        return data.megaEvolutionData != null && !data.megaEvolutionData!!.isMegaEvolved && (data.id == 150 || (trainer != null
                 && trainer!!.getTrainerTeam().none { it.isMegaEvolved() }
-                && (trainer is OpponentTrainer || (trainer as Trainer).items.containsKey(30))
+                && (trainer is OpponentTrainer || (trainer as Trainer).items.containsKey(30))))
     }
 
     fun megaEvolve() {

@@ -1998,6 +1998,62 @@
       "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 215,
+      "name": "High Horsepower",
+      "power": 95,
+      "pp": 10,
+      "type": 10,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The user fiercely attacks the target using its entire body.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 217,
+      "name": "Psycho Cut",
+      "power": 70,
+      "pp": 20,
+      "type": 12,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user tears at the target with blades formed by psychic power. This move has a heightened chance of landing a critical hit.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true,
+      "characteristics": []
+    },
+    {
+      "id": 218,
+      "name": "Psystrike",
+      "power": 100,
+      "pp": 10,
+      "type": 12,
+      "category": "SPECIAL_AND_PHYSICAL",
+      "accuracy": 100,
+      "description": "The user materializes an odd psychic wave to attack the target. This attack does physical damage.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 219,
+      "name": "Psyshock",
+      "power": 80,
+      "pp": 10,
+      "type": 12,
+      "category": "SPECIAL_AND_PHYSICAL",
+      "accuracy": 100,
+      "description": "The user materializes an odd psychic wave to attack the target. This attack does physical damage.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "multipleHitMoves": [
@@ -3641,6 +3697,20 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 216,
+      "name": "Raging Fury",
+      "power": 120,
+      "pp": 10,
+      "type": 2,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user rampages around spewing flames for two to three turns. The user then becomes confused.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ]
 }

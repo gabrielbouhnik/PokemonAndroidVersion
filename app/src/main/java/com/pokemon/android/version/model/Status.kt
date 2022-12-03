@@ -68,13 +68,13 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                 && isAffectedByStatus(0, it.status, attacker)
                             ) {
                                 attacker.status = it.status
-                                details += "Synchronize: ${attacker.data.name} " + it.status.toDetails() + "\n"
+                                details += "${opponent.data.name}'s Synchronize: ${attacker.data.name} " + it.status.toDetails() + "\n"
                             }
 
                         } else {
                             if (it.status == CONFUSED) {
                                 details = if (opponent.hasAbility(Ability.OWN_TEMPO))
-                                    "Own Tempo: ${opponent.data.name} cannot be confused!\n"
+                                    "${opponent.data.name}'s Own Tempo: ${opponent.data.name} cannot be confused!\n"
                                 else {
                                     opponent.battleData!!.battleStatus.add(it.status)
                                     "${opponent.data.name} became confused!\n"
@@ -95,16 +95,16 @@ enum class Status(var activeOutsideBattle: Boolean) {
                     }
                 } else if (opponent.status == OK) {
                     if (move.id == 83 && opponent.hasAbility(Ability.IMMUNITY))
-                        details = "Immunity: It does not affect ${opponent.data.name}!\n"
+                        details = "${opponent.data.name}'s Immunity: It does not affect ${opponent.data.name}!\n"
                     if (move.id == 55 && opponent.hasAbility(Ability.LIMBER))
-                        details = "Limber: It does not affect ${opponent.data.name}!\n"
+                        details = "${opponent.data.name}'s Limber: It does not affect ${opponent.data.name}!\n"
                     if (move.id == 138 && opponent.hasAbility(Ability.WATER_VEIL))
-                        details = "Water Veil: It does not affect ${opponent.data.name}!\n"
+                        details = "${opponent.data.name}'s Water Veil: It does not affect ${opponent.data.name}!\n"
                     if (it.status == ASLEEP) {
                         if (opponent.hasAbility(Ability.INSOMNIA))
-                            details = "Insomnia: It does not affect ${opponent.data.name}!\n"
+                            details = "${opponent.data.name}'s Insomnia: It does not affect ${opponent.data.name}!\n"
                         if (opponent.hasAbility(Ability.VITAL_SPIRIT))
-                            details = "Vital Spirit: It does not affect ${opponent.data.name}!\n"
+                            details = "${opponent.data.name}'s Vital Spirit: It does not affect ${opponent.data.name}!\n"
                     }
                 }
             }
@@ -117,6 +117,10 @@ enum class Status(var activeOutsideBattle: Boolean) {
             if (id == 55 && (opponent.data.type1 == Type.GROUND || opponent.data.type2 == Type.GROUND))
                 return false
             if (status == TIRED && opponent.status != OK)
+                return false
+            if (status == TRAPPED_WITH_DAMAGE && id == 130 && opponent.hasAbility(Ability.FLASH_FIRE))
+                return false
+            if (status == TRAPPED_WITH_DAMAGE && id == 131 && opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(Ability.DRY_SKIN))
                 return false
             if (!status.activeOutsideBattle && !opponent.battleData!!.battleStatus.contains(status))
                 return true

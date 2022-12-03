@@ -95,7 +95,7 @@ abstract class Battle {
             pokemon.megaEvolve()
             trainerHasUsedMegaEvolution = true
         }
-        if (this is TrainerBattle && opponent.canMegaEvolve()) {
+        if ((this is TrainerBattle || this is BossBattle) && opponent.canMegaEvolve()) {
             when (levelData.id) {
                 LevelMenu.MEGA_CHARIZARD_LEVEL_ID -> {
                     if (opponent.data.id == 6) {
@@ -119,6 +119,11 @@ abstract class Battle {
                     if (opponent.data.id == 445) {
                         opponent.megaEvolve()
                         sb.append("${opponent.data.name} has Mega Evolved into Mega-${opponent.data.name}\n")
+                    }
+                }
+                84 -> {
+                    if (opponent.data.id == 150) {
+                        opponent.megaEvolve()
                     }
                 }
             }
@@ -236,7 +241,7 @@ abstract class Battle {
             }
             if (opponent.hasAbility(Ability.SPEED_BOOST) && opponent.battleData != null) {
                 opponent.battleData!!.speedMultiplicator *= 1.5f
-                sb.append("Speed Boost: the opposing ${opponent.data.name}'s speed rose!\n")
+                sb.append("${opponent.data.name}'s Speed Boost: the opposing ${opponent.data.name}'s speed rose!\n")
             }
         }
         if (pokemon.currentHP > 0) {
@@ -249,7 +254,7 @@ abstract class Battle {
             sb.append(checkStatus(pokemon))
             if (pokemon.hasAbility(Ability.SPEED_BOOST) && pokemon.battleData != null) {
                 pokemon.battleData!!.speedMultiplicator *= 1.5f
-                sb.append("Speed Boost: ${pokemon.data.name}'s speed rose!\n")
+                sb.append("${pokemon.data.name}'s Speed Boost: ${pokemon.data.name}'s speed rose!\n")
             }
         }
         if (pokemon.currentHP == 0) {
@@ -261,7 +266,7 @@ abstract class Battle {
             }
             if (opponent.currentHP > 0 && opponent.hasAbility(Ability.MOXIE)) {
                 opponent.battleData!!.attackMultiplicator *= 1.5f
-                sb.append("Moxie: the opposing ${opponent.data.name}'s attack rose!\n")
+                sb.append("${opponent.data.name}'s Moxie: the opposing ${opponent.data.name}'s attack rose!\n")
             }
         }
         if (opponent.currentHP == 0) {
@@ -271,7 +276,7 @@ abstract class Battle {
             }
             if (pokemon.currentHP > 0 && pokemon.hasAbility(Ability.MOXIE)) {
                 pokemon.battleData!!.attackMultiplicator *= 1.5f
-                sb.append("Moxie: ${pokemon.data.name}'s attack rose!\n")
+                sb.append("${pokemon.data.name}'s Moxie: ${pokemon.data.name}'s attack rose!\n")
             }
             updateOpponent()
             if (getBattleState() == State.IN_PROGRESS) {

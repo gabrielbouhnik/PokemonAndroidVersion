@@ -20,7 +20,7 @@ class LevelMenu {
         const val ARTICUNO_LEVEL = 56
         const val MOLTRES_LEVEL = 66
         const val ZAPDOS_LEVEL = 75
-        const val MEWTWO_LEVEL = 83
+        const val MEWTWO_LEVEL = 84
         const val MEGA_CHARIZARD_LEVEL_ID = 61
         const val MEGA_VENUSAUR_LEVEL_ID = 66
         const val ELITE_4_FIRST_LEVEL_ID = 68

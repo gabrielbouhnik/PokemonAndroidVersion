@@ -3887,6 +3887,10 @@
         {
           "moveId": 191,
           "level": 1
+        },
+        {
+          "moveId": 216,
+          "level": 64
         }
       ],
       "movesLearnWithTM": [
@@ -6397,6 +6401,10 @@
         {
           "moveId": 173,
           "level": 53
+        },
+        {
+          "moveId": 219,
+          "level": 57
         }
       ],
       "movesLearnWithTM": [45,46,103,107,110,135,148],
@@ -6466,6 +6474,10 @@
         {
           "moveId": 173,
           "level": 53
+        },
+        {
+          "moveId": 219,
+          "level": 57
         }
       ],
       "movesLearnWithTM": [45,46,103,107,110,135,148,176,177],
@@ -9340,6 +9352,10 @@
           "level": 36
         },
         {
+          "moveId": 215,
+          "level": 40
+        },
+        {
           "moveId": 149,
           "level": 44
         },
@@ -9800,6 +9816,10 @@
           "level": 48
         },
         {
+          "moveId": 218,
+          "level": 72
+        },
+        {
           "moveId": 132,
           "level": 80
         }
@@ -9845,7 +9865,16 @@
     "catchRate": 3,
     "evolutions": [],
     "abilities": [],
-    "expGaugeType":  "SLOW"
+    "expGaugeType":  "SLOW",
+    "megaEvolutionData": {
+      "type1": 12,
+      "type2": 0,
+      "attack": 150,
+      "defense": 70,
+      "spAtk": 194,
+      "spDef": 120,
+      "speed": 140
+    }
   },
   {
     "id": 151,
@@ -12318,6 +12347,56 @@
     "expGaugeType":  "SLOW"
   },
   {
+    "id": 216,
+    "name": "Teddiursa",
+    "type1": 5,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 65,
+          "level": 1
+        },
+        {
+          "moveId": 151,
+          "level": 8
+        },
+        {
+          "moveId": 73,
+          "level": 25
+        },
+        {
+          "moveId": 38,
+          "level": 29
+        },
+        {
+          "moveId": 171,
+          "level": 38
+        },
+        {
+          "moveId": 196,
+          "level": 41
+        }
+      ],
+      "movesLearnWithTM": [72,69,103,107,110,114,140,206],
+      "bannerMoves": []
+    },
+    "hp": 60,
+    "attack": 80,
+    "defense": 50,
+    "spAtk": 50,
+    "spDef": 50,
+    "speed": 40,
+    "catchRate": 120,
+    "evolutions": [],
+    "abilities": ["QUICK_FEET"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
     "id": 217,
     "name": "Ursaring",
     "type1": 5,
@@ -12354,7 +12433,11 @@
         },
         {
           "moveId": 147,
-          "level": 49
+          "level": 41
+        },
+        {
+          "moveId": 215,
+          "level": 48
         },
         {
           "moveId": 196,
@@ -12835,6 +12918,57 @@
     "speed": 85,
     "catchRate": 45,
     "evolutions": [],
+    "abilities": [],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 231,
+    "name": "Phanpy",
+    "type1": 10,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 30,
+          "level": 15
+        },
+        {
+          "moveId": 115,
+          "level": 28
+        },
+        {
+          "moveId": 147,
+          "level": 42
+        }
+      ],
+      "movesLearnWithTM": [
+        72,
+        25,
+        30,
+        62,
+        93
+      ],
+      "bannerMoves": []
+    },
+    "hp": 90,
+    "attack": 60,
+    "defense": 60,
+    "spAtk": 40,
+    "spDef": 40,
+    "speed": 40,
+    "catchRate": 120,
+    "evolutions": [
+      {
+        "evolutionId": 232,
+        "evolutionCondition": {
+          "level": 25
+        }
+      }
+    ],
     "abilities": [],
     "expGaugeType":  "MEDIUM_FAST"
   },
@@ -14492,6 +14626,27 @@
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
+    "id": 461,
+    "name": "Weavile",
+    "type1": 14,
+    "type2": 17,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 70,
+    "attack": 120,
+    "defense": 65,
+    "spAtk": 45,
+    "spDef": 85,
+    "speed": 125,
+    "catchRate": 45,
+    "evolutions": [],
+    "abilities": ["PRESSURE"],
+    "expGaugeType":  "MEDIUM_SLOW"
+  },
+  {
     "id": 462,
     "name": "Magnezone",
     "type1": 4,
@@ -15047,6 +15202,27 @@
     "evolutions": [],
     "abilities": ["ADAPTABILITY"],
     "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 475,
+    "name": "Gallade",
+    "type1": 11,
+    "type2": 12,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 68,
+    "attack": 125,
+    "defense": 65,
+    "spAtk": 65,
+    "spDef": 115,
+    "speed": 80,
+    "catchRate": 45,
+    "evolutions": [],
+    "abilities": ["STEADFAST"],
+    "expGaugeType":  "MEDIUM_SLOW"
   },
   {
     "id": 485,

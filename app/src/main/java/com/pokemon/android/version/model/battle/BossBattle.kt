@@ -12,7 +12,7 @@ class BossBattle() : Battle() {
         this.levelData = bossBattleLevelData
         this.pokemon = activity.trainer!!.getFirstPokemonThatCanFight()!!
         this.pokemon.battleData = PokemonBattleData()
-        this.opponent = activity.gameDataService.generatePokemonWithMoves(
+        this.opponent = activity.gameDataService.generateBoss(
             bossBattleLevelData.boss.id,
             bossBattleLevelData.boss.level,
             bossBattleLevelData.boss.moves

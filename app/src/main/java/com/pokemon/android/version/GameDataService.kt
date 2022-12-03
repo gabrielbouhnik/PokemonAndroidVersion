@@ -7,10 +7,7 @@ import com.pokemon.android.version.model.banner.Banner
 import com.pokemon.android.version.model.banner.PokemonBanner
 import com.pokemon.android.version.model.item.ItemData
 import com.pokemon.android.version.model.item.ItemFactory
-import com.pokemon.android.version.model.level.LeaderLevelData
-import com.pokemon.android.version.model.level.LevelData
-import com.pokemon.android.version.model.level.LevelFactory
-import com.pokemon.android.version.model.level.TrainerBattleLevelData
+import com.pokemon.android.version.model.level.*
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveFactory
 import com.pokemon.android.version.model.move.Stats
@@ -127,6 +124,29 @@ class GameDataService {
             .move3(move3)
             .move4(move4)
             .shiny(false)
+            .build()
+    }
+
+    fun generateBoss(id: Int, level: Int, moves: List<Move>): PokemonBoss {
+        val pokemon = generatePokemonWithMoves(id,level,moves)
+        val move5: PokemonMove? = if (moves.size < 5) null else PokemonMove(moves[4])
+        val move6: PokemonMove? = if (moves.size < 6) null else PokemonMove(moves[5])
+        return PokemonBoss.PokemonBossBuilder()
+            .data(pokemon.data)
+            .level(level)
+            .hp(pokemon.hp)
+            .attack(pokemon.attack)
+            .defense(pokemon.defense)
+            .spAtk(pokemon.spAtk)
+            .spDef(pokemon.spDef)
+            .speed(pokemon.speed)
+            .currentHP(pokemon.hp)
+            .move1(pokemon.move1)
+            .move2(pokemon.move2)
+            .move3(pokemon.move3)
+            .move4(pokemon.move4)
+            .move5(move5)
+            .move6(move6)
             .build()
     }
 

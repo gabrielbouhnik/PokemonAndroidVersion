@@ -127,7 +127,7 @@ class DamageCalculator {
                 val offensiveStat: Int =
                     if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * attacker.battleData!!.spAtkMultiplicator).roundToInt()
                 val defensiveStat: Int =
-                    if (move.category == MoveCategory.PHYSICAL) (opponent.defense.toFloat() * opponent.battleData!!.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * opponent.battleData!!.spDefMultiplicator).roundToInt()
+                    if (move.category == MoveCategory.PHYSICAL || move.category == MoveCategory.SPECIAL_AND_PHYSICAL) (opponent.defense.toFloat() * opponent.battleData!!.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * opponent.battleData!!.spDefMultiplicator).roundToInt()
                 ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * power * offensiveStat) / (defensiveStat * 50)) + 2) * type * criticalMultiplicator * stab * multiplicator * random).roundToInt()
             } catch (e: Exception) {
                 0

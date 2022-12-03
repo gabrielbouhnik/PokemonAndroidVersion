@@ -147,7 +147,7 @@
         "minLevel": 10,
         "maxLevel": 12,
         "encounters": [
-          35,41,41,41,74,74,74,27,27,27,46,46,46
+          35,41,41,41,74,74,74,27,27,27,46,46,46,216,231
         ]
       },
       "rewards": [
@@ -4083,7 +4083,7 @@
       {
         "id": 143,
         "level": 50,
-        "moveIds": [88,30,25,27],
+        "moveIds": [88,25,27,107,30,159],
         "boostedStats": ["DEFENSE"]
       },
       "rewards": [
@@ -4191,7 +4191,7 @@
       {
         "id": 248,
         "level": 82,
-        "moveIds": [25,27,93,57],
+        "moveIds": [25,27,93,57,120],
         "boostedStats": ["DEFENSE","SPDEF"]
       },
       "rewards": [
@@ -4232,6 +4232,41 @@
         },
         {
           "id": 3,
+          "quantity": 3
+        },
+        {
+          "id": 9,
+          "quantity": 3
+        },
+        {
+          "id": 10,
+          "quantity": 3
+        }
+      ],
+      "icon": "images/boss_icon/mewtwo_boss_icon.PNG",
+      "background": "images/battle_background/cerulean_cave_background.png",
+      "music": 1,
+      "exp": 15000,
+      "mandatory": true
+    },
+    {
+      "id": 84,
+      "name": "\nVs Mega Mewtwo",
+      "description": "Mewtwo is about to faint but he gets up and shows you his true power. Give it all you've got and use the inventive strategies that got you this far!",
+      "boss":
+      {
+        "id": 150,
+        "level": 80,
+        "moveIds": [46,176,124,12,100,218],
+        "boostedStats": []
+      },
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 200
+        },
+        {
+          "id": 3,
           "quantity": 5
         },
         {
@@ -4243,10 +4278,10 @@
           "quantity": 5
         }
       ],
-      "icon": "images/boss_icon/mewtwo_boss_icon.PNG",
+      "icon": "images/boss_icon/mega_mewtwo_boss_icon.JPG",
       "background": "images/battle_background/mewtwo_background_battle.png",
       "music": 6,
-      "exp": 15000,
+      "exp": 20000,
       "mandatory": true
     }
   ],
