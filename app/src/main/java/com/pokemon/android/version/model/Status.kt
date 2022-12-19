@@ -18,6 +18,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
     UNABLE_TO_MOVE(false),
     TRAPPED_WITH_DAMAGE(false),
     TRAPPED_WITHOUT_DAMAGE(false),
+    LEECH_SEEDED(false),
     FIRED_UP(false),
     ROOSTED(false);
 
@@ -131,6 +132,8 @@ enum class Status(var activeOutsideBattle: Boolean) {
             val type1 = if (opponent.isMegaEvolved()) opponent.data.megaEvolutionData!!.type1 else opponent.data.type1
             val type2 = if (opponent.isMegaEvolved()) opponent.data.megaEvolutionData!!.type2 else opponent.data.type2
             if (status == FROZEN && (type1 != Type.ICE && type2 != Type.ICE) && !opponent.hasAbility(Ability.MAGMA_ARMOR))
+                return true
+            if (status == LEECH_SEEDED && (type1 != Type.GRASS && type2 != Type.GRASS))
                 return true
             if (status == BURN && (type1 != Type.FIRE && type2 != Type.FIRE) && !opponent.hasAbility(Ability.WATER_VEIL))
                 return true

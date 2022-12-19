@@ -163,233 +163,298 @@
     {
       "id": 40,
       "name": "Dusk Stone"
+    },
+    {
+      "id": 41,
+      "name": "Zephyr Badge"
+    },
+    {
+      "id": 42,
+      "name": "Hive Badge"
+    },
+    {
+      "id": 43,
+      "name": "Plain Badge"
+    },
+    {
+      "id": 44,
+      "name": "Fog Badge"
+    },
+    {
+      "id": 45,
+      "name": "Storm Badge"
+    },
+    {
+      "id": 46,
+      "name": "Mineral Badge"
+    },
+    {
+      "id": 47,
+      "name": "Glacier Badge"
+    },
+    {
+      "id": 48,
+      "name": "Rising Badge"
+    },
+    {
+      "id": 49,
+      "name": "Razor Fang"
+    },
+    {
+      "id": 50,
+      "name": "Razor Claw"
     }
   ],
   "TMs": [
     {
-      "id": 41,
+      "id": 51,
       "name": "TM01 Headbutt",
       "moveId": 72
     },
     {
-      "id": 42,
-      "name": "TM02 Rock Slide",
-      "moveId": 25
-    },
-    {
-      "id": 43,
-      "name": "TM03 Thunder Punch",
-      "moveId": 103
-    },
-    {
-      "id": 44,
-      "name": "TM04 Poison Jab",
-      "moveId": 62
-    },
-    {
-      "id": 45,
-      "name": "TM05 Fire Punch",
-      "moveId": 110
-    },
-    {
-      "id": 46,
-      "name": "TM06 Dazzling Gleam",
-      "moveId": 44
-    },
-    {
-      "id": 47,
-      "name": "TM07 Dragon Pulse",
-      "moveId": 104
-    },
-    {
-      "id": 48,
-      "name": "TM08 Ice Punch",
-      "moveId": 107
-    },
-    {
-      "id": 49,
-      "name": "TM09 Thunderbolt",
-      "moveId": 12
-    },
-    {
-      "id": 50,
-      "name": "TM10 Flamethrower",
-      "moveId": 31
-    },
-    {
-      "id": 51,
-      "name": "TM11 Psychic",
-      "moveId": 45
-    },
-    {
       "id": 52,
-      "name": "TM12 Earthquake",
-      "moveId": 93
+      "name": "TM02 Rock Tomb",
+      "moveId": 221
     },
     {
       "id": 53,
-      "name": "TM13 Shadow Ball",
-      "moveId": 46
+      "name": "TM03 Water Pulse",
+      "moveId": 24
     },
     {
       "id": 54,
-      "name": "TM14 Fire Blast",
-      "moveId": 82
+      "name": "TM04 Charge Beam",
+      "moveId": 184
     },
     {
       "id": 55,
-      "name": "TM15 Surf",
-      "moveId": 43
+      "name": "TM05 Giga Drain",
+      "moveId": 66
     },
     {
       "id": 56,
-      "name": "TM16 Sludge Bomb",
+      "name": "TM06 Sludge Bomb",
       "moveId": 37
     },
     {
       "id": 57,
-      "name": "TM17 Ice Beam",
-      "moveId": 100
+      "name": "TM07 Psychic",
+      "moveId": 45
     },
     {
       "id": 58,
-      "name": "TM18 Energy Ball",
-      "moveId": 105
+      "name": "TM08 Fire Blast",
+      "moveId": 82
     },
     {
       "id": 59,
-      "name": "TM19 Iron Tail",
-      "moveId": 13
+      "name": "TM09 Earthquake",
+      "moveId": 93
     },
     {
       "id": 60,
-      "name": "TM20 Brick Break",
-      "moveId": 69
-    },
-    {
-      "id": 61,
-      "name": "TM21 Thunder Wave",
-      "moveId": 55
-    },
-    {
-      "id": 62,
-      "name": "TM22 Calm Mind",
-      "moveId": 135
-    },
-    {
-      "id": 63,
-      "name": "TM23 Sword Dance",
-      "moveId": 114
-    },
-    {
-      "id": 64,
-      "name": "TM24 Waterfall",
-      "moveId": 136
-    },
-    {
-      "id": 65,
-      "name": "TM25 Aerial Ace",
-      "moveId": 113
-    },
-    {
-      "id": 66,
-      "name": "TM26 Flash Cannon",
-      "moveId": 111
-    },
-    {
-      "id": 67,
-      "name": "TM27 Giga Drain",
-      "moveId": 66
-    },
-    {
-      "id": 68,
-      "name": "TM28 Drain Punch",
-      "moveId": 76
-    },
-    {
-      "id": 69,
-      "name": "TM29 Dragon Claw",
-      "moveId": 108
-    },
-    {
-      "id": 70,
-      "name": "TM30 Will-O-Wisp",
-      "moveId": 138
-    },
-    {
-      "id": 71,
-      "name": "TM31 Bulk Up",
-      "moveId": 140
-    },
-    {
-      "id": 72,
-      "name": "TM32 X-Scissor",
-      "moveId": 56
-    },
-    {
-      "id": 73,
-      "name": "TM33 Focus Blast",
-      "moveId": 139
-    },
-    {
-      "id": 74,
-      "name": "TM34 Bullet Seed",
+      "name": "TM10 Bullet Seed",
       "moveId": 137
     },
     {
-      "id": 75,
-      "name": "TM35 Wild Charge",
-      "moveId": 200
+      "id": 61,
+      "name": "TM11 Flame Charge",
+      "moveId": 172
     },
     {
-      "id": 76,
-      "name": "TM36 Water Pulse",
-      "moveId": 24
+      "id": 62,
+      "name": "TM12 Will-O-Wisp",
+      "moveId": 138
     },
     {
-      "id": 77,
-      "name": "TM37 Steel Wing",
-      "moveId": 205
+      "id": 63,
+      "name": "TM13 Thunder Wave",
+      "moveId": 55
     },
     {
-      "id": 78,
-      "name": "TM38 Shadow Claw",
-      "moveId": 206
+      "id": 64,
+      "name": "TM14 Aerial Ace",
+      "moveId": 113
     },
     {
-      "id": 79,
-      "name": "TM39 Dark Pulse",
-      "moveId": 92
+      "id": 65,
+      "name": "TM15 Struggle Bug",
+      "moveId": 207
     },
     {
-      "id": 80,
-      "name": "TM40 Bulldoze",
+      "id": 66,
+      "name": "TM16 Bulldoze",
       "moveId": 30
     },
     {
-      "id": 81,
-      "name": "TM41 Zen Headbutt",
-      "moveId": 148
+      "id": 67,
+      "name": "TM17 Brick Break",
+      "moveId": 69
     },
     {
-      "id": 82,
-      "name": "TM42 Air Slash",
-      "moveId": 50
+      "id": 68,
+      "name": "TM18 Bulk Up",
+      "moveId": 140
     },
     {
-      "id": 83,
-      "name": "TM43 Solar Beam",
+      "id": 69,
+      "name": "TM19 Drain Punch",
+      "moveId": 76
+    },
+    {
+      "id": 70,
+      "name": "TM20 Steel Wing",
+      "moveId": 205
+    },
+    {
+      "id": 71,
+      "name": "TM21 Iron Tail",
+      "moveId": 13
+    },
+    {
+      "id": 72,
+      "name": "TM22 Snarl",
+      "moveId": 204
+    },
+    {
+      "id": 73,
+      "name": "TM23 Energy Ball",
+      "moveId": 105
+    },
+    {
+      "id": 74,
+      "name": "TM24 Solar Beam",
       "moveId": 194
     },
     {
-      "id": 84,
-      "name": "TM44 Hyper Beam",
+      "id": 75,
+      "name": "TM25 Fire Punch",
+      "moveId": 110
+    },
+    {
+      "id": 76,
+      "name": "TM26 Flamethrower",
+      "moveId": 31
+    },
+    {
+      "id": 77,
+      "name": "TM27 Waterfall",
+      "moveId": 136
+    },
+    {
+      "id": 78,
+      "name": "TM28 Surf",
+      "moveId": 43
+    },
+    {
+      "id": 79,
+      "name": "TM29 Thunder Punch",
+      "moveId": 103
+    },
+    {
+      "id": 80,
+      "name": "TM30 Thunderbolt",
+      "moveId": 12
+    },
+    {
+      "id": 81,
+      "name": "TM31 Wild Charge",
+      "moveId": 200
+    },
+    {
+      "id": 82,
+      "name": "TM32 Swords Dance",
+      "moveId": 114
+    },
+    {
+      "id": 83,
+      "name": "TM33 Hyper Beam",
       "moveId": 176
     },
     {
-      "id": 85,
-      "name": "TM45 Giga Impact",
+      "id": 84,
+      "name": "TM34 Giga Impact",
       "moveId": 177
+    },
+    {
+      "id": 85,
+      "name": "TM35 Air Slash",
+      "moveId": 50
+    },
+    {
+      "id": 86,
+      "name": "TM36 X-Scissor",
+      "moveId": 56
+    },
+    {
+      "id": 87,
+      "name": "TM37 Poison Jab",
+      "moveId": 62
+    },
+    {
+      "id": 88,
+      "name": "TM38 Rock Slide",
+      "moveId": 25
+    },
+    {
+      "id": 89,
+      "name": "TM39 Focus Blast",
+      "moveId": 139
+    },
+    {
+      "id": 90,
+      "name": "TM40 Ice Punch",
+      "moveId": 107
+    },
+    {
+      "id": 91,
+      "name": "TM41 Ice Beam",
+      "moveId": 100
+    },
+    {
+      "id": 92,
+      "name": "TM42 Zen Headbutt",
+      "moveId": 148
+    },
+    {
+      "id": 93,
+      "name": "TM43 Calm Mind",
+      "moveId": 135
+    },
+    {
+      "id": 94,
+      "name": "TM44 Shadow Claw",
+      "moveId": 206
+    },
+    {
+      "id": 95,
+      "name": "TM45 Shadow Ball",
+      "moveId": 46
+    },
+    {
+      "id": 96,
+      "name": "TM46 Dragon Pulse",
+      "moveId": 104
+    },
+    {
+      "id": 97,
+      "name": "TM47 Dragon Claw",
+      "moveId": 108
+    },
+    {
+      "id": 98,
+      "name": "TM48 Flash Cannon",
+      "moveId": 111
+    },
+    {
+      "id": 99,
+      "name": "TM49 Dark Pulse",
+      "moveId": 92
+    },
+    {
+      "id": 100,
+      "name": "TM50 Dazzling Gleam",
+      "moveId": 44
     }
   ]
 }

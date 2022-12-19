@@ -574,7 +574,7 @@
       },
       {
         "id": 11,
-        "rate": 30
+        "rate": 25
       },
       {
         "id": 25,
@@ -595,6 +595,10 @@
       {
         "id": 39,
         "rate": 5
+      },
+      {
+        "id": 50,
+        "rate": 5
       }
     ],
     "days": [
@@ -610,206 +614,225 @@
     ],
     "items": [
       {
-        "id": 41,
-        "rate": 56
-      },
-      {
-        "id": 43,
-        "rate": 2
-      },
-      {
-        "id": 45,
-        "rate": 2
-      },
-      {
-        "id": 47,
-        "rate": 2
-      },
-      {
-        "id": 49,
-        "rate": 2
-      },
-      {
         "id": 51,
-        "rate": 2
+        "rate": 20
+      },
+      {
+        "id": 52,
+        "rate": 5
       },
       {
         "id": 53,
-        "rate": 2
+        "rate": 5
       },
       {
-        "id": 55,
-        "rate": 2
+        "id": 54,
+        "rate": 5
       },
       {
-        "id": 57,
-        "rate": 2
-      },
-      {
-        "id": 59,
-        "rate": 2
+        "id": 60,
+        "rate": 5
       },
       {
         "id": 61,
-        "rate": 2
+        "rate": 5
+      },
+      {
+        "id": 62,
+        "rate": 5
       },
       {
         "id": 63,
-        "rate": 2
+        "rate": 5
+      },
+      {
+        "id": 64,
+        "rate": 5
       },
       {
         "id": 65,
-        "rate": 2
+        "rate": 5
+      },
+      {
+        "id": 66,
+        "rate": 5
       },
       {
         "id": 67,
-        "rate": 2
+        "rate": 5
+      },
+      {
+        "id": 68,
+        "rate": 5
       },
       {
         "id": 69,
-        "rate": 2
+        "rate": 5
+      },
+      {
+        "id": 70,
+        "rate": 5
       },
       {
         "id": 71,
-        "rate": 2
+        "rate": 5
       },
       {
-        "id": 73,
-        "rate": 2
-      },
-      {
-        "id": 75,
-        "rate": 2
-      },
-      {
-        "id": 77,
-        "rate": 2
-      },
-      {
-        "id": 79,
-        "rate": 2
-      },
-      {
-        "id": 81,
-        "rate": 2
-      },
-      {
-        "id": 83,
-        "rate": 2
-      },
-      {
-        "id": 85,
-        "rate": 2
+        "id": 72,
+        "rate": 5
       }
     ],
     "days": [
       "MONDAY",
       "TUESDAY",
       "WEDNESDAY",
-      "THURSDAY"
+      "THURSDAY",
+      "FRIDAY",
+      "SATURDAY",
+      "SUNDAY"
     ]
   },
   {
     "image": "images/banners/tm_banner.png",
-    "description": "Get a single-use TM that can teach a move to some Pokemon.",
-    "cost": 100,
+    "description": "Get a single-use TM that can teach a strong move to some Pokemon.",
+    "cost": 400,
     "pokemons": [
     ],
     "items": [
       {
-        "id": 41,
-        "rate": 56
-      },
-      {
-        "id": 42,
-        "rate": 2
-      },
-      {
-        "id": 44,
-        "rate": 2
-      },
-      {
-        "id": 46,
-        "rate": 2
-      },
-      {
-        "id": 48,
-        "rate": 2
-      },
-      {
-        "id": 50,
-        "rate": 2
-      },
-      {
-        "id": 52,
-        "rate": 2
-      },
-      {
-        "id": 54,
-        "rate": 2
+        "id": 55,
+        "rate": 3
       },
       {
         "id": 56,
-        "rate": 2
+        "rate": 3
+      },
+      {
+        "id": 57,
+        "rate": 3
       },
       {
         "id": 58,
-        "rate": 2
+        "rate": 3
       },
       {
-        "id": 60,
-        "rate": 2
-      },
-      {
-        "id": 62,
-        "rate": 2
-      },
-      {
-        "id": 64,
-        "rate": 2
-      },
-      {
-        "id": 66,
-        "rate": 2
-      },
-      {
-        "id": 68,
-        "rate": 2
-      },
-      {
-        "id": 70,
-        "rate": 2
-      },
-      {
-        "id": 72,
-        "rate": 2
+        "id": 73,
+        "rate": 3
       },
       {
         "id": 74,
-        "rate": 2
+        "rate": 3
+      },
+      {
+        "id": 75,
+        "rate": 3
       },
       {
         "id": 76,
-        "rate": 2
+        "rate": 3
+      },
+      {
+        "id": 77,
+        "rate": 3
       },
       {
         "id": 78,
-        "rate": 2
+        "rate": 3
+      },
+      {
+        "id": 79,
+        "rate": 3
       },
       {
         "id": 80,
-        "rate": 2
+        "rate": 3
+      },
+      {
+        "id": 81,
+        "rate": 3
       },
       {
         "id": 82,
-        "rate": 2
+        "rate": 3
+      },
+      {
+        "id": 83,
+        "rate": 3
       },
       {
         "id": 84,
-        "rate": 2
+        "rate": 3
+      },
+      {
+        "id": 85,
+        "rate": 3
+      },
+      {
+        "id": 86,
+        "rate": 3
+      },
+      {
+        "id": 87,
+        "rate": 3
+      },
+      {
+        "id": 88,
+        "rate": 3
+      },
+      {
+        "id": 89,
+        "rate": 3
+      },
+      {
+        "id": 90,
+        "rate": 3
+      },
+      {
+        "id": 91,
+        "rate": 3
+      },
+      {
+        "id": 92,
+        "rate": 3
+      },
+      {
+        "id": 93,
+        "rate": 3
+      },
+      {
+        "id": 94,
+        "rate": 3
+      },
+      {
+        "id": 95,
+        "rate": 3
+      },
+      {
+        "id": 96,
+        "rate": 3
+      },
+      {
+        "id": 97,
+        "rate": 3
+      },
+      {
+        "id": 98,
+        "rate": 3
+      },
+      {
+        "id": 99,
+        "rate": 3
+      },
+      {
+        "id": 100,
+        "rate": 4
       }
     ],
     "days": [
+      "MONDAY",
+      "TUESDAY",
+      "WEDNESDAY",
+      "THURSDAY",
       "FRIDAY",
       "SATURDAY",
       "SUNDAY"

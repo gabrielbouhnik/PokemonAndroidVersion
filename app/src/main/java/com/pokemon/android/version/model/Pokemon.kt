@@ -248,7 +248,11 @@ open class Pokemon(
         if ((move.move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(Ability.DRY_SKIN)))
             || (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))
         ) {
-            this.heal(DamageCalculator.computeDamageWithoutAbility(this, move.move, opponent))
+            opponent.heal(DamageCalculator.computeDamageWithoutAbility(this, move.move, opponent))
+            return AttackResponse(
+                false,
+                "${this.data.name} uses ${move.move.name}!\n"
+            )
         }
         if (move.move.id == 210 && (opponent.data.type1 == Type.GHOST || opponent.data.type1 == Type.GHOST)) {
             this.takeDamage(this.hp / 2)
@@ -261,7 +265,7 @@ open class Pokemon(
             return AttackResponse(
                 false,
                 "${this.data.name} uses ${move.move.name}!\nBut it failed!\n")
-        if (move.move !is MoveBasedOnHP && DamageCalculator.getEffectiveness(move.move, opponent) == 0f)
+        if (move.move !is MoveBasedOnHP && move.move.category != MoveCategory.OTHER && DamageCalculator.getEffectiveness(move.move, opponent) == 0f)
             return AttackResponse(
                 false,
                 "${this.data.name} uses ${move.move.name}!\nIt does not affect ${opponent.data.name}!\n")
@@ -289,7 +293,7 @@ open class Pokemon(
             if (move.move is MoveBasedOnLevel) {
                 damage = this.level
             } else if (move.move is VariableHitMove) {
-                val timesItHits = Random.nextInt(2..5)
+                val timesItHits = if (this.hasAbility(Ability.SKILL_LINK)) 5 else Random.nextInt(2..5)
                 var i = 0
                 while (i < timesItHits && opponent.currentHP > damage) {
                     val crit = DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)

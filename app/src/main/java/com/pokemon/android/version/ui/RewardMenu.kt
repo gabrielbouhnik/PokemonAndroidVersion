@@ -130,7 +130,7 @@ class RewardMenu {
         )
         recyclerView.adapter = adapter
         levelData.rewards.forEach {
-            if (ItemUtils.isBadge(it.itemId) || it.itemId == 30) {
+            if (ItemUtils.isBadge(it.itemId) || it.itemId == 30 || it.itemId > 50) {
                 if (!activity.trainer!!.items.contains(it.itemId))
                     activity.trainer!!.addItem(it.itemId, it.quantity)
             } else if (it.itemId == 0) {

@@ -300,10 +300,8 @@ abstract class Battle {
                 if (pokemon.battleData!!.trapCounter == 5) {
                     pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
                     pokemon.battleData!!.trapCounter = 0
-                } else if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
-                    pokemon.currentHP =
-                        if ((pokemon.hp / 8) >= pokemon.currentHP) 0 else pokemon.currentHP - (pokemon.hp / 8)
-                }
+                } else if (!pokemon.hasAbility(Ability.MAGIC_GUARD))
+                    pokemon.takeDamage(pokemon.hp / 8)
             }
             if (pokemon.battleData!!.battleStatus.contains(Status.FLINCHED))
                 pokemon.battleData!!.battleStatus.remove(Status.FLINCHED)

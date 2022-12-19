@@ -2054,6 +2054,20 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 220,
+      "name": "Shadow Sneak",
+      "power": 40,
+      "pp": 30,
+      "type": 13,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user extends its shadow and attacks the target from behind. This move always goes first.",
+      "priorityLevel": 1,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "multipleHitMoves": [
@@ -2101,6 +2115,20 @@
           "probability": 20
         }
       ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 222,
+      "name": "Dual Wingbeat",
+      "power": 40,
+      "pp": 10,
+      "type": 6,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The user slams the target with its wings to inflict damage. The target is hit twice in a row.",
+      "priorityLevel": 0,
+      "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
     }
@@ -3244,7 +3272,7 @@
       "id": 214,
       "name": "Lunge",
       "power": 80,
-      "category": "SPECIAL",
+      "category": "PHYSICAL",
       "pp": 15,
       "type": 7,
       "accuracy": 100,
@@ -3258,6 +3286,25 @@
       "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 221,
+      "name": "Rock Tomb",
+      "power": 60,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 9,
+      "accuracy": 95,
+      "description": "Boulders are hurled at the target. This also lowers the target's Speed stat by preventing its movement.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "drainMoves": [

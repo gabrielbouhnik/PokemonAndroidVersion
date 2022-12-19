@@ -703,7 +703,7 @@
       {
         "minLevel": 60,
         "maxLevel": 63,
-        "encounters": [61,61,77,77,77,78,84,84,84,85,114,114,114,217,232]
+        "encounters": [61,61,77,77,77,78,84,84,84,85,114,114,114,215,217,232]
       },
       "rewards": [
         {
@@ -3508,6 +3508,10 @@
         {
           "id": 38,
           "quantity": 1
+        },
+        {
+          "id": 93,
+          "quantity": 1
         }
       ],
       "startDialog": "This is my hideout! I planned to resurrect TEAM ROCKET here! But, you have caught me again! So be it! This time, I'm not holding back!",
@@ -4368,6 +4372,10 @@
         {
           "id": 31,
           "quantity": 1
+        },
+        {
+          "id": 52,
+          "quantity": 1
         }
       ],
       "startDialog1": "I am Brock, the gym leader of Pewter City ! I believe in the great power of rock! That's why my Pokémon are of the Rock type! Do you still want to fight with me?  All right!",
@@ -4470,6 +4478,10 @@
         {
           "id": 32,
           "quantity": 1
+        },
+        {
+          "id": 53,
+          "quantity": 1
         }
       ],
       "startDialog1": "Hi, you're a new face! Only those Trainers who have a policy about Pokémon can turn pro. What is your approach when you catch and train Pokémon? My policy is an all out offensive with Water-type Pokémon!",
@@ -4571,6 +4583,10 @@
         },
         {
           "id": 33,
+          "quantity": 1
+        },
+        {
+          "id": 54,
           "quantity": 1
         }
       ],
@@ -4681,6 +4697,10 @@
         {
           "id": 34,
           "quantity": 1
+        },
+        {
+          "id": 55,
+          "quantity": 1
         }
       ],
       "startDialog1": "Welcome. My name is Erika. I am the Gym Leader of the Celadon Gym. I am a student of the art of flower arranging. My Pokémon are all of the Grass type. Did you perhaps wish to challenge me? Very well but I shall not lose",
@@ -4779,6 +4799,10 @@
         {
           "id": 35,
           "quantity": 1
+        },
+        {
+          "id": 56,
+          "quantity": 1
         }
       ],
       "startDialog1": "A mere child like you dares to challenge me? Very well, I shall show you true terror as a ninja master!",
@@ -4873,6 +4897,10 @@
         {
           "id": 36,
           "quantity": 1
+        },
+        {
+          "id": 56,
+          "quantity": 1
         }
       ],
       "startDialog1": "I had a vision of your arrival! I have had psychic powers since I was a child. I dislike battling, but if you wish, I will show you my powers!",
@@ -4966,6 +4994,10 @@
         },
         {
           "id": 37,
+          "quantity": 1
+        },
+        {
+          "id": 57,
           "quantity": 1
         }
       ],

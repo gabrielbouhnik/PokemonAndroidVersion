@@ -43,6 +43,7 @@ enum class Ability(var description: String) {
     SERENE_GRACE("Boosts the likelihood of additional effects occurring when attacking."),
     SHEER_FORCE("Removes additional effects to increase the power of moves when attacking."),
     SHELL_ARMOR("A hard shell protects the Pokémon from critical hits."),
+    SKILL_LINK("Maximizes the number of times multi-strike moves hit."),
     SPEED_BOOST("Its Speed stat is boosted every turn."),
     SOUNDPROOF("Soundproofing of the Pokémon itself gives full immunity to all sound-based moves."),
     SOLID_ROCK("Reduces the power of supereffective attacks taken."),

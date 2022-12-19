@@ -23,7 +23,7 @@ class ColorUtils {
                 Status.PARALYSIS -> {
                     return Color.parseColor("#F7D02C")
                 }
-                Status.POISON -> {
+                Status.POISON, Status.BADLY_POISON -> {
                     return Color.parseColor("#8B008B")
                 }
                 Status.FROZEN -> {
