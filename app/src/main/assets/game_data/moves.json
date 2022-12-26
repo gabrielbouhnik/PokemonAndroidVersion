@@ -208,7 +208,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": true,
-      "characteristics": []
+      "characteristics": ["SLICE"]
     },
     {
       "id": 64,
@@ -1277,7 +1277,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": true,
-      "characteristics": []
+      "characteristics": ["SLICE"]
     },
     {
       "id": 68,
@@ -1460,7 +1460,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": true,
-      "characteristics": ["CONTACT"]
+      "characteristics": ["CONTACT","SLICE"]
     },
     {
       "id": 123,
@@ -1474,7 +1474,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": true,
-      "characteristics": ["CONTACT"]
+      "characteristics": ["CONTACT","SLICE"]
     },
     {
       "id": 124,
@@ -1520,7 +1520,7 @@
         }
       ],
       "highCritRate": true,
-      "characteristics": []
+      "characteristics": ["SLICE"]
     },
     {
       "id": 130,
@@ -2025,7 +2025,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": true,
-      "characteristics": []
+      "characteristics": ["SLICE"]
     },
     {
       "id": 218,

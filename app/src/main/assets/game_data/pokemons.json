@@ -3854,7 +3854,7 @@
         }
       }
     ],
-    "abilities": ["INTIMIDATE","FLASH_FIRE"],
+    "abilities": ["INTIMIDATE","FLASH_FIRE","JUSTIFIED"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -3938,7 +3938,7 @@
     "speed": 95,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["INTIMIDATE","FLASH_FIRE"],
+    "abilities": ["INTIMIDATE","FLASH_FIRE","JUSTIFIED"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -14942,6 +14942,32 @@
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
+    "id": 310,
+    "name": "Manectric",
+    "type1": 4,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 70,
+    "attack": 75,
+    "defense": 60,
+    "spAtk": 105,
+    "spDef": 60,
+    "speed": 105,
+    "catchRate": 45,
+    "evolutions": [],
+    "abilities": ["STATIC","LIGHTNING_ROD"],
+    "expGaugeType":  "SLOW"
+  },
+  {
     "id": 319,
     "name": "Sharpedo",
     "type1": 3,
@@ -15465,7 +15491,7 @@
     "speed": 90,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["INNER_FOCUS"],
+    "abilities": ["INNER_FOCUS","JUSTIFIED"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -16140,7 +16166,7 @@
     "speed": 80,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["STEADFAST"],
+    "abilities": ["STEADFAST","SHARPNESS"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {

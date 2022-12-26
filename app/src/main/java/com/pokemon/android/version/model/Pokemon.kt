@@ -392,6 +392,13 @@ open class Pokemon(
                 }
             }
         }
+        if (opponent.currentHP > 0 && move.move.type == Type.DARK && move.move.category != MoveCategory.OTHER && opponent.hasAbility(Ability.JUSTIFIED)) {
+            details += "${opponent.data.name}'s Justified: ${opponent.data.name}'s attack rose!\n"
+            if (opponent.battleData!!.attackMultiplicator > 4)
+                details += "But ${opponent.data.name}'s attack cannot go higher!\n"
+            else
+                opponent.battleData!!.attackMultiplicator *= 1.5f
+        }
         if (move.move is DrainMove) {
             details += if (opponent.hasAbility(Ability.LIQUID_OOZE)) {
                 this.takeDamage(damageDone / 2)

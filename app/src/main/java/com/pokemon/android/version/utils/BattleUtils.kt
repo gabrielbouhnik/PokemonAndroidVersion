@@ -6,6 +6,7 @@ import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.battle.DamageCalculator
 import com.pokemon.android.version.model.move.Move
+import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.MoveCharacteristic
 import kotlin.random.Random
 

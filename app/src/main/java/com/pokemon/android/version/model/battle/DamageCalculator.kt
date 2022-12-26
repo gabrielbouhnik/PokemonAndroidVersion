@@ -101,6 +101,8 @@ class DamageCalculator {
                 power *= 1.5f
             if (move is RecoilMove && attacker.hasAbility(Ability.RECKLESS))
                 power *= 1.2f
+            if (attacker.hasAbility(Ability.SHARPNESS))
+                power *= 1.5f
             if ((move.type == Type.FIRE || move.type == Type.ICE) && opponent.hasAbility(Ability.THICK_FAT))
                 multiplicator *= 0.5f
             if (move.type == Type.FIRE) {
