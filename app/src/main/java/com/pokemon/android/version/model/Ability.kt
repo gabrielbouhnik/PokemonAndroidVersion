@@ -46,6 +46,7 @@ enum class Ability(var description: String) {
     SKILL_LINK("Maximizes the number of times multi-strike moves hit."),
     SPEED_BOOST("Its Speed stat is boosted every turn."),
     SOUNDPROOF("Soundproofing of the Pokémon itself gives full immunity to all sound-based moves."),
+    SNIPER("Powers up moves if they become critical hits when attacking."),
     SOLID_ROCK("Reduces the power of supereffective attacks taken."),
     STATIC("The Pokémon is charged with static electricity,\n so contact with it may cause paralysis."),
     STEADFAST("The Pokémon's determination boosts the Speed stat\n each time the Pokémon flinches."),

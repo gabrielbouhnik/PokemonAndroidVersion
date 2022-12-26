@@ -1022,7 +1022,7 @@
     "speed": 75,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["SWARM"],
+    "abilities": ["SWARM","SNIPER"],
     "expGaugeType":  "MEDIUM_FAST",
     "megaEvolutionData": {
       "type1": 7,
@@ -1444,7 +1444,7 @@
         }
       }
     ],
-    "abilities": ["KEEN_EYE"],
+    "abilities": ["KEEN_EYE","SNIPER"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -1503,7 +1503,7 @@
     "speed": 100,
     "catchRate": 90,
     "evolutions": [],
-    "abilities": ["KEEN_EYE"],
+    "abilities": ["KEEN_EYE","SNIPER"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7711,7 +7711,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["SNIPER"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7787,7 +7787,7 @@
         }
       }
     ],
-    "abilities": ["POISON_POINT"],
+    "abilities": ["POISON_POINT","SNIPER"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -11037,7 +11037,7 @@
         }
       }
     ],
-    "abilities": ["SWARM","INSOMNIA"],
+    "abilities": ["SWARM","INSOMNIA","SNIPER"],
     "expGaugeType":  "FAST"
   },
   {
@@ -11105,7 +11105,7 @@
     "speed": 40,
     "catchRate": 255,
     "evolutions": [],
-    "abilities": ["SWARM","INSOMNIA"],
+    "abilities": ["SWARM","INSOMNIA","SNIPER"],
     "expGaugeType":  "FAST"
   },
   {
@@ -11307,6 +11307,84 @@
     "expGaugeType":  "SLOW"
   },
   {
+    "id": 173,
+    "name": "Cleffa",
+    "type1": 18,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 64,
+          "level": 1
+        },
+        {
+          "moveId": 164,
+          "level": 1
+        },
+        {
+          "moveId": 165,
+          "level": 7
+        }
+      ],
+      "movesLearnWithTM": [72,12,24,31,44,45,46,69,76,82,100,103,107,110,135,148],
+      "bannerMoves": []
+    },
+    "hp": 50,
+    "attack": 25,
+    "defense": 28,
+    "spAtk": 45,
+    "spDef": 55,
+    "speed": 15,
+    "catchRate": 150,
+    "evolutions": [
+      {
+        "evolutionId": 35,
+        "evolutionCondition": {
+          "level": 20
+        }
+      }
+    ],
+    "abilities": ["MAGIC_GUARD"],
+    "expGaugeType":  "FAST"
+  },
+  {
+    "id": 174,
+    "name": "Igglybuff",
+    "type1": 5,
+    "type2": 18,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 165,
+          "level": 1
+        },
+        {
+          "moveId": 64,
+          "level": 5
+        }
+      ],
+      "movesLearnWithTM": [72,12,24,31,44,45,46,69,76,100],
+      "bannerMoves": []
+    },
+    "hp": 90,
+    "attack": 30,
+    "defense": 15,
+    "spAtk": 40,
+    "spDef": 20,
+    "speed": 15,
+    "catchRate": 170,
+    "evolutions": [
+      {
+        "evolutionId": 39,
+        "evolutionCondition": {
+          "level": 20
+        }
+      }
+    ],
+    "abilities": ["COMPETITIVE"],
+    "expGaugeType": "FAST"
+  },
+  {
     "id": 175,
     "name": "Togepi",
     "type1": 18,
@@ -11391,128 +11469,6 @@
     ],
     "abilities": ["SERENE_GRACE","SUPER_LUCK"],
     "expGaugeType":  "FAST"
-  },
-  {
-    "id": 179,
-    "name": "Mareep",
-    "type1": 4,
-    "type2": 0,
-    "possibleMoves": {
-      "movesLearnByLevel": [
-        {
-          "moveId": 2,
-          "level": 1
-        },
-        {
-          "moveId": 55,
-          "level": 4
-        },
-        {
-          "moveId": 8,
-          "level": 8
-        },
-        {
-          "moveId": 115,
-          "level": 18
-        },
-        {
-          "moveId": 48,
-          "level": 25
-        },
-        {
-          "moveId": 51,
-          "level": 29
-        },
-        {
-          "moveId": 53,
-          "level": 32
-        },
-        {
-          "moveId": 44,
-          "level": 39
-        }
-      ],
-      "movesLearnWithTM": [72,12,13,44,55],
-      "bannerMoves": []
-    },
-    "hp": 55,
-    "attack": 40,
-    "defense": 40,
-    "spAtk": 65,
-    "spDef": 45,
-    "speed": 35,
-    "catchRate": 235,
-    "evolutions": [
-      {
-        "evolutionId": 180,
-        "evolutionCondition": {
-          "level": 15
-        }
-      }
-    ],
-    "abilities": ["STATIC"],
-    "expGaugeType":  "MEDIUM_SLOW"
-  },
-  {
-    "id": 180,
-    "name": "Flaaffy",
-    "type1": 4,
-    "type2": 0,
-    "possibleMoves": {
-      "movesLearnByLevel": [
-        {
-          "moveId": 2,
-          "level": 1
-        },
-        {
-          "moveId": 55,
-          "level": 4
-        },
-        {
-          "moveId": 8,
-          "level": 8
-        },
-        {
-          "moveId": 115,
-          "level": 18
-        },
-        {
-          "moveId": 48,
-          "level": 29
-        },
-        {
-          "moveId": 51,
-          "level": 34
-        },
-        {
-          "moveId": 53,
-          "level": 38
-        },
-        {
-          "moveId": 44,
-          "level": 47
-        }
-      ],
-      "movesLearnWithTM": [72,12,13,44,55],
-      "bannerMoves": []
-    },
-    "hp": 70,
-    "attack": 55,
-    "defense": 55,
-    "spAtk": 80,
-    "spDef": 60,
-    "speed": 45,
-    "catchRate": 120,
-    "evolutions": [
-      {
-        "evolutionId": 181,
-        "evolutionCondition": {
-          "level": 30
-        }
-      }
-    ],
-    "abilities": ["STATIC"],
-    "expGaugeType":  "MEDIUM_SLOW"
   },
   {
     "id": 179,
@@ -13817,7 +13773,7 @@
     "speed": 85,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["SNIPER"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {

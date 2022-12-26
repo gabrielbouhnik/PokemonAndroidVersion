@@ -42,7 +42,7 @@ class StarterSelection {
                 }
                 activity.trainer!!.progression = 83
                 activity.trainer!!.coins = 25000
-                for (i in 1..75) {
+                for (i in 1..100) {
                     val quantity = if (!ItemUtils.isBadge(i) && i != 30) 50 else 1
                     activity.trainer!!.addItem(i, quantity)
                 }

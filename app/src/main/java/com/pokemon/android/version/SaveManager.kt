@@ -8,6 +8,7 @@ import com.google.gson.reflect.TypeToken
 import com.pokemon.android.version.entity.save.TrainerSave
 import com.pokemon.android.version.model.*
 import com.pokemon.android.version.ui.LevelMenu
+import com.pokemon.android.version.ui.PokedexMenu
 import com.pokemon.android.version.utils.JsonFileToString
 import java.text.SimpleDateFormat
 
@@ -25,6 +26,8 @@ class SaveManager {
             if (trainerSave.pokedex != null)
                 trainerSave.pokedex!!.forEach { trainer.pokedex[it.id] = it.caught }
             trainer.coins = trainerSave.coins
+            if (trainer.name == PokedexMenu.ADMIN)
+                trainer.coins += 1000
             trainer.progression = trainerSave.progression
             trainer.eliteProgression = trainerSave.eliteProgression
             trainerSave.items.forEach { trainer.items[it.itemId] = it.quantity }

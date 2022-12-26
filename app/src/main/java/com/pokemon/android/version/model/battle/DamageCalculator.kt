@@ -16,9 +16,9 @@ class DamageCalculator {
             val random = Random.nextInt(100)
             if (move.highCritRate) {
                 if (random < 13 * attacker.battleData!!.criticalRate)
-                    return 1.5f
+                return if (attacker.hasAbility(Ability.SNIPER)) 2.25f else 1.5f
             } else if (random < 6 * attacker.battleData!!.criticalRate)
-                return 1.5f
+                return if (attacker.hasAbility(Ability.SNIPER)) 2.25f else 1.5f
             return 1f
         }
 
@@ -89,7 +89,7 @@ class DamageCalculator {
                 stab = 1.5f
             if (stab == 1.5f && attacker.hasAbility(Ability.ADAPTABILITY))
                 stab = 2f
-            if (move.category == MoveCategory.PHYSICAL && !attacker.hasAbility(Ability.GUTS)) {
+            if (move.category == MoveCategory.PHYSICAL && criticalMultiplicator == 1f && !attacker.hasAbility(Ability.GUTS)) {
                 if (attacker.status == Status.BURN)
                     multiplicator *= 0.5f
             }
@@ -124,10 +124,19 @@ class DamageCalculator {
                 if (attacker.hasAbility(Ability.TINTED_LENS) && type < 1f)
                     type *= 2f
                 val random: Float = Random.nextInt(85, 100).toFloat() / 100f
-                val offensiveStat: Int =
+                var offensiveStat: Int =
                     if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * attacker.battleData!!.spAtkMultiplicator).roundToInt()
-                val defensiveStat: Int =
+                var defensiveStat: Int =
                     if (move.category == MoveCategory.PHYSICAL || move.category == MoveCategory.SPECIAL_AND_PHYSICAL) (opponent.defense.toFloat() * opponent.battleData!!.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * opponent.battleData!!.spDefMultiplicator).roundToInt()
+                if (criticalMultiplicator >= 1.5f) {
+                    if (move.category == MoveCategory.PHYSICAL){
+                        offensiveStat = if (move.category == MoveCategory.PHYSICAL) attacker.attack else attacker.spAtk
+                        defensiveStat = if (move.category == MoveCategory.PHYSICAL || move.category == MoveCategory.SPECIAL_AND_PHYSICAL) (opponent.defense.toFloat()).roundToInt() else (opponent.spDef.toFloat()).roundToInt()
+                    } else {
+                        offensiveStat = if (move.category == MoveCategory.PHYSICAL) attacker.attack else attacker.spAtk
+                        defensiveStat = if (move.category == MoveCategory.PHYSICAL || move.category == MoveCategory.SPECIAL_AND_PHYSICAL) opponent.defense else opponent.spDef
+                    }
+                }
                 ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * power * offensiveStat) / (defensiveStat * 50)) + 2) * type * criticalMultiplicator * stab * multiplicator * random).roundToInt()
             } catch (e: Exception) {
                 0
