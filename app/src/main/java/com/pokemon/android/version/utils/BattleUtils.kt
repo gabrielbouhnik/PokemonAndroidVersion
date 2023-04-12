@@ -6,6 +6,7 @@ import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.battle.DamageCalculator
 import com.pokemon.android.version.model.move.Move
+import com.pokemon.android.version.model.move.MoveBasedOnLevel
 import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.MoveCharacteristic
 import kotlin.random.Random
@@ -99,7 +100,9 @@ class BattleUtils {
         }
 
         fun getEffectiveness(move: Move, opponent: Pokemon): String {
-            val effectiveness = DamageCalculator.getEffectiveness(move, opponent)
+            var effectiveness = DamageCalculator.getEffectiveness(move, opponent)
+            if (move is MoveBasedOnLevel)
+                effectiveness = 1f
             if (move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))
                 return "${opponent.data.name}'s Volt Absorb: ${opponent.data.name}'s HP was restored\n"
             if (move.type == Type.WATER) {

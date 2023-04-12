@@ -19,5 +19,6 @@ class PokemonBattleData(
     var battleStatus: ArrayList<Status> = arrayListOf(),
     var chargedMove: PokemonMove? = null,
     var rampageMove: PokemonMove? = null,
-    var rampageCounter: Int = 0
+    var rampageCounter: Int = 0,
+    var isMegaEvolved: Boolean = false
 )

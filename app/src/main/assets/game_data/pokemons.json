@@ -4623,7 +4623,7 @@
   },
   {
     "id": 71,
-    "name": "Victreebell",
+    "name": "Victreebel",
     "type1": 1,
     "type2": 8,
     "possibleMoves": {
@@ -4714,6 +4714,10 @@
           "level": 24
         },
         {
+          "moveId": 224,
+          "level": 28
+        },
+        {
           "moveId": 156,
           "level": 32
         },
@@ -4791,6 +4795,10 @@
         {
           "moveId": 126,
           "level": 24
+        },
+        {
+          "moveId": 224,
+          "level": 28
         },
         {
           "moveId": 156,
@@ -5355,7 +5363,16 @@
     "catchRate": 75,
     "evolutions": [],
     "abilities": ["OWN_TEMPO","REGENERATOR"],
-    "expGaugeType":  "MEDIUM_FAST"
+    "expGaugeType":  "MEDIUM_FAST",
+    "megaEvolutionData": {
+      "type1": 3,
+      "type2": 12,
+      "attack": 75,
+      "defense": 180,
+      "spAtk": 130,
+      "spDef": 80,
+      "speed": 30
+    }
   },
   {
     "id": 81,
@@ -6105,6 +6122,10 @@
           "level": 8
         },
         {
+          "moveId": 224,
+          "level": 24
+        },
+        {
           "moveId": 168,
           "level": 28
         },
@@ -6178,6 +6199,10 @@
         {
           "moveId": 188,
           "level": 8
+        },
+        {
+          "moveId": 224,
+          "level": 24
         },
         {
           "moveId": 209,
@@ -6260,6 +6285,10 @@
           "level": 8
         },
         {
+          "moveId": 224,
+          "level": 24
+        },
+        {
           "moveId": 209,
           "level": 25
         },
@@ -6314,7 +6343,16 @@
     "catchRate": 45,
     "evolutions": [],
     "abilities": [],
-    "expGaugeType":  "MEDIUM_SLOW"
+    "expGaugeType":  "MEDIUM_SLOW",
+    "megaEvolutionData": {
+      "type1": 13,
+      "type2": 8,
+      "attack": 65,
+      "defense": 80,
+      "spAtk": 170,
+      "spDef": 95,
+      "speed": 130
+    }
   },
   {
     "id": 95,
@@ -11471,6 +11509,27 @@
     "expGaugeType":  "FAST"
   },
   {
+    "id": 178,
+    "name": "Xatu",
+    "type1": 6,
+    "type2": 12,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 75,
+    "defense": 70,
+    "spAtk": 95,
+    "spDef": 70,
+    "speed": 95,
+    "catchRate": 75,
+    "evolutions": [],
+    "abilities": ["SYNCHRONIZE"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
     "id": 179,
     "name": "Mareep",
     "type1": 4,
@@ -11656,7 +11715,7 @@
   },
   {
     "id": 182,
-    "name": "Belossom",
+    "name": "Bellossom",
     "type1": 1,
     "type2": 0,
     "possibleMoves": {
@@ -12440,6 +12499,10 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
+          "moveId": 223,
+          "level": 1
+        },
+        {
           "moveId": 2,
           "level": 1
         },
@@ -12538,6 +12601,10 @@
         {
           "moveId": 169,
           "level": 35
+        },
+        {
+          "moveId": 223,
+          "level": 40
         },
         {
           "moveId": 188,
@@ -12685,6 +12752,10 @@
         {
           "moveId": 188,
           "level": 19
+        },
+        {
+          "moveId": 224,
+          "level": 23
         },
         {
           "moveId": 59,
@@ -13569,6 +13640,10 @@
           "level": 37
         },
         {
+          "moveId": 223,
+          "level": 40
+        },
+        {
           "moveId": 31,
           "level": 44
         },
@@ -13648,6 +13723,10 @@
         {
           "moveId": 172,
           "level": 41
+        },
+        {
+          "moveId": 223,
+          "level": 45
         },
         {
           "moveId": 31,
@@ -15020,6 +15099,27 @@
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
+    "id": 342,
+    "name": "Crawdaunt",
+    "type1": 3,
+    "type2": 17,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 63,
+    "attack": 120,
+    "defense": 85,
+    "spAtk": 90,
+    "spDef": 55,
+    "speed": 55,
+    "catchRate": 155,
+    "evolutions": [],
+    "abilities": ["ADAPTABILITY","HYPER_CUTTER","SHELL_ARMOR"],
+    "expGaugeType":  "SLOW"
+  },
+  {
     "id": 346,
     "name": "Cradily",
     "type1": 9,
@@ -15281,6 +15381,10 @@
           "level": 1
         },
         {
+          "moveId": 224,
+          "level": 1
+        },
+        {
           "moveId": 59,
           "level": 1
         },
@@ -15370,6 +15474,10 @@
         {
           "moveId": 173,
           "level": 35
+        },
+        {
+          "moveId": 223,
+          "level": 45
         },
         {
           "moveId": 203,
@@ -15856,7 +15964,7 @@
     "speed": 95,
     "catchRate": 30,
     "evolutions": [],
-    "abilities": ["VITAL_SPIRIT"],
+    "abilities": ["MOTOR_DRIVE","VITAL_SPIRIT"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {

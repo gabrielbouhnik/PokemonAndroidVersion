@@ -68,16 +68,14 @@ class BattleUI {
         val opponentPokemonSprite: ImageView = activity.findViewById(R.id.opponentPokemonImageView)
         opponentPokemonSprite.visibility = VISIBLE
         if (battle.opponent.isMegaEvolved()) {
-            val filename = "images/mega/" + battle.opponent.data.id + "_front.png"
-            val img: InputStream = activity.assets.open(filename)
-            opponentPokemonSprite.setImageDrawable(Drawable.createFromStream(img, filename))
+            activity.displayMegaPokemon(battle.opponent.data.id, battle.opponent.shiny, opponentPokemonSprite)
         } else
             activity.displayPokemon(battle.opponent.data.id, battle.opponent.shiny, opponentPokemonSprite)
         val pokemonBackSprite: ImageView = activity.findViewById(R.id.pokemonBackSpriteView)
         val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
         pokemonBackSprite.visibility = VISIBLE
         if (battle.pokemon.isMegaEvolved()) {
-            val filename = "images/mega/" + battle.pokemon.data.id + "_back.png"
+            val filename = if (battle.pokemon.shiny) "images/mega/" + battle.pokemon.data.id + "_back_shiny.png" else "images/mega/" + battle.pokemon.data.id + "_back.png"
             val img: InputStream = activity.assets.open(filename)
             pokemonBackSprite.setImageDrawable(Drawable.createFromStream(img, filename))
         } else {
@@ -576,7 +574,7 @@ class BattleUI {
         buttonSetUp(activity, wildBattle)
         wildBattle.generateRandomEncounter()
         val sb = StringBuilder()
-        sb.append(activity.getString(R.string.wild_encounter, wildBattle.opponent.data.name))
+        sb.append(activity.getString(R.string.wild_encounter, wildBattle.opponent.data.name) + '\n')
         if (wildBattle.opponent.shiny)
             sb.append("He looks shinier than usual!\n")
         sb.append(BattleUtils.abilitiesCheck(wildBattle.pokemon, wildBattle.opponent))

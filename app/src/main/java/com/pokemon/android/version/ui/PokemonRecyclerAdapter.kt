@@ -48,10 +48,8 @@ class PokemonRecyclerAdapter(
         else
             holder.canEvolveTextView.text = " "
         if (currentItem.isMegaEvolved()) {
-            val filename = "images/mega/" + currentItem.data.id + "_front.png"
-            val img: InputStream = activity.assets.open(filename)
-            holder.spriteView.setImageDrawable(Drawable.createFromStream(img, filename))
             holder.nameTextView.text = "Mega ${currentItem.data.name}"
+            activity.displayMegaPokemon(currentItem.data.id, currentItem.shiny, holder.spriteView)
         } else {
             holder.nameTextView.text = currentItem.data.name
             activity.displayPokemon(currentItem.data.id, currentItem.shiny, holder.spriteView)

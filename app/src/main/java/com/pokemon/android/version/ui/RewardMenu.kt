@@ -17,13 +17,25 @@ import java.io.InputStream
 class RewardMenu {
     private fun updateAchievements(activity: MainActivity, levelData: LevelData) {
         when (levelData.id) {
+            LevelMenu.MISTY_LEVEL -> {
+                if (activity.trainer!!.team.all { it.data.id in 152..251 })
+                    activity.trainer!!.achievements!!.ceruleanGymAchievement = true
+            }
             LevelMenu.DUGTRIO_LEVEL -> {
                 if (activity.trainer!!.team.none { it.level > 35 })
                     activity.trainer!!.achievements!!.dugtrioAchievement = true
             }
+            LevelMenu.ERIKA_LEVEL -> {
+                if (activity.trainer!!.team.all { it.data.id in 152..251 })
+                    activity.trainer!!.achievements!!.celadonGymAchievement = true
+            }
             LevelMenu.ARTICUNO_LEVEL -> {
                 if (activity.trainer!!.team.none { it.level > 55 })
                     activity.trainer!!.achievements!!.articunoAchievement = true
+            }
+            LevelMenu.BLAINE_LEVEL -> {
+                if (activity.trainer!!.team.all { it.data.id in 152..251 })
+                    activity.trainer!!.achievements!!.cinnbarGymAchievement = true
             }
             LevelMenu.MOLTRES_LEVEL -> {
                 if (activity.trainer!!.team.none { it.level > 70 })

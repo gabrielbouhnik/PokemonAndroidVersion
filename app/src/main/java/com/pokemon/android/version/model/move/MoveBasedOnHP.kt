@@ -3,6 +3,7 @@ package com.pokemon.android.version.model.move
 import com.pokemon.android.version.entity.move.MoveBasedOnHPEntity
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Type
+import kotlin.math.roundToInt
 
 open class MoveBasedOnHP(
     id: Int,
@@ -68,7 +69,7 @@ open class MoveBasedOnHP(
             return 200
         }
         else
-            return hpLeft.toInt() * 150
+            return (hpLeft * 150f).roundToInt()
     }
 
     data class MoveBasedOnHPBuilder(

@@ -35,6 +35,9 @@ class Achievement(var id: Int, var description: String, var pokemonRewards: List
                 13 -> return activity.trainer!!.achievements!!.winstreak25Factory
                 14 -> return activity.trainer!!.achievements!!.leadersDefeatedAfterTheLeague.size == 7
                 15 -> return activity.trainer!!.achievements!!.mewtwoAchievement
+                16 -> return activity.trainer!!.achievements!!.celadonGymAchievement
+                17 -> return activity.trainer!!.achievements!!.cinnbarGymAchievement
+                18 -> return activity.trainer!!.achievements!!.ceruleanGymAchievement
             }
             return false
         }

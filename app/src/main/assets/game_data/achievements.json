@@ -134,5 +134,38 @@
     "pokemonReward": [
     ],
     "itemRewards": [51]
+  },
+  {
+    "id": 16,
+    "description": "Beat the Celadon Gym Leader with only Pokémon from the Johto region",
+    "pokemonReward": [
+      {
+        "id": 152,
+        "level": 10
+      }
+    ],
+    "itemRewards": []
+  },
+  {
+    "id": 17,
+    "description": "Beat the Cinnabar Gym Leader with only Pokémon from the Johto region",
+    "pokemonReward": [
+      {
+        "id": 155,
+        "level": 10
+      }
+    ],
+    "itemRewards": []
+  },
+  {
+    "id": 18,
+    "description": "Beat the Cerulean Gym Leader with only Pokémon from the Johto region",
+    "pokemonReward": [
+      {
+        "id": 158,
+        "level": 10
+      }
+    ],
+    "itemRewards": []
   }
 ]

@@ -12,12 +12,15 @@ import com.pokemon.android.version.model.Trainer
 import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.ui.MainMenu
 import com.pokemon.android.version.ui.StarterSelection
+import com.pokemon.android.version.utils.SpriteUtils
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     companion object {
         const val pokemonSpritesUrl: String =
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
+            "https://www.serebii.net/swordshield/pokemon/"
+        const val megaPokemonSpritesUrl: String =
+            "https://www.serebii.net/pokemongo/pokemon/"
         const val pokemonBackSpritesUrl: String =
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/"
     }
@@ -64,13 +67,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun displayPokemon(id: Int, shiny: Boolean, imageView: ImageView) {
+        val idForUrl = SpriteUtils.getThreeDigitId(id)
         if (!shiny) {
             Glide.with(this)
-                .load("$pokemonSpritesUrl$id.png")
+                .load("$pokemonSpritesUrl$idForUrl.png")
                 .into(imageView)
         } else {
             Glide.with(this)
-                .load("${pokemonSpritesUrl}shiny/$id.png")
+                .load("https://www.serebii.net/Shiny/SWSH/$idForUrl.png")
+                .into(imageView)
+        }
+    }
+
+    fun displayMegaPokemon(id: Int, shiny: Boolean, imageView: ImageView) {
+        val idForUrl = SpriteUtils.getThreeDigitId(id)
+        var filename = "${idForUrl}-m.png"
+        if (id == 6)
+            filename = "${idForUrl}-mx.png"
+        if (!shiny) {
+            Glide.with(this)
+                .load(megaPokemonSpritesUrl + filename)
+                .into(imageView)
+        } else {
+            Glide.with(this)
+                .load("${pokemonSpritesUrl}shiny/" + filename)
                 .into(imageView)
         }
     }
@@ -92,9 +112,7 @@ class MainActivity : AppCompatActivity() {
             listOf(3, 6, 9, 25, 26, 59, 76, 94, 95, 112, 115, 121, 123, 125, 126, 130, 131, 143, 149, 229, 248)
         val randomId = ids[Random.nextInt(ids.size)]
         val imageView: ImageView = findViewById(R.id.randomPokemonSpriteView)
-        Glide.with(this)
-            .load("$pokemonSpritesUrl$randomId.png")
-            .into(imageView)
+        displayPokemon(randomId, false, imageView)
         val startButton: Button = findViewById(R.id.startButton)
         startButton.setOnClickListener {
             mediaPlayer?.stop()

@@ -12,6 +12,7 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.Type
+import com.pokemon.android.version.utils.SpriteUtils
 import java.io.InputStream
 
 class PokedexRecyclerAdapter(
@@ -46,7 +47,7 @@ class PokedexRecyclerAdapter(
             if (activity.trainer!!.name == PokedexMenu.ADMIN || activity.trainer!!.pokedex[currentItem.id] == true)
                 holder.nameTextView.setTextColor(ColorUtils.getColorByType(currentItem.type1))
             Glide.with(activity)
-                .load(MainActivity.pokemonSpritesUrl + currentItem.id + ".png")
+                .load(MainActivity.pokemonSpritesUrl + SpriteUtils.getThreeDigitId(currentItem.id) + ".png")
                 .into(holder.spriteView)
         } else {
             holder.nameTextView.text = "???"

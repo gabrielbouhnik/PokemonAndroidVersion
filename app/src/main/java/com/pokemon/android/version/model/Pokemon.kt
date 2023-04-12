@@ -121,6 +121,8 @@ open class Pokemon(
 
     fun ia(opponent: Pokemon): PokemonMove {
         val usableMoves = MoveUtils.getMoveList(this).filter { it.pp > 0 }
+        if (opponent.currentHP == 0)
+            return usableMoves[0]
         if (battleData!!.chargedMove != null) {
             val move = battleData!!.chargedMove!!
             battleData!!.chargedMove = null
@@ -225,12 +227,21 @@ open class Pokemon(
                 false,
                 "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Soundproof: It does not affect ${opponent.data.name}!\n"
             )
-        if (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.LIGHTNING_ROD)) {
-            opponent.battleData!!.spAtkMultiplicator *= 1.5f
-            return AttackResponse(
-                false,
-                "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Lightning Rod: ${opponent.data.name}'s Sp. Atk rose!\n"
-            )
+        if (move.move.type == Type.ELECTRIC) {
+            if (opponent.hasAbility(Ability.LIGHTNING_ROD)) {
+                opponent.battleData!!.spAtkMultiplicator *= 1.5f
+                return AttackResponse(
+                    false,
+                    "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Lightning Rod: ${opponent.data.name}'s Sp. Atk rose!\n"
+                )
+            }
+            if (opponent.hasAbility(Ability.MOTOR_DRIVE)) {
+                opponent.battleData!!.speedMultiplicator *= 1.5f
+                return AttackResponse(
+                    false,
+                    "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Motor Drive: ${opponent.data.name}'s speed rose!\n"
+                )
+            }
         }
         if (move.move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE)) {
             if (!opponent.battleData!!.battleStatus.contains(Status.FIRED_UP))
@@ -251,10 +262,10 @@ open class Pokemon(
             opponent.heal(DamageCalculator.computeDamageWithoutAbility(this, move.move, opponent))
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}!\n"
+                "${this.data.name} uses ${move.move.name}!\n" +  BattleUtils.getEffectiveness(move.move, opponent)
             )
         }
-        if (move.move.id == 210 && (opponent.data.type1 == Type.GHOST || opponent.data.type1 == Type.GHOST)) {
+        if (move.move.id == 210 && (opponent.data.type1 == Type.GHOST || opponent.data.type2 == Type.GHOST)) {
             this.takeDamage(this.hp / 2)
             return AttackResponse(
                 false,
@@ -421,29 +432,29 @@ open class Pokemon(
     }
 
     fun isMegaEvolved(): Boolean {
-        return data.megaEvolutionData != null && data.megaEvolutionData!!.isMegaEvolved
+        return data.megaEvolutionData != null && battleData != null && battleData!!.isMegaEvolved
     }
 
     fun canMegaEvolve(): Boolean {
-        return data.megaEvolutionData != null && !data.megaEvolutionData!!.isMegaEvolved && (data.id == 150 || (trainer != null
+        return data.megaEvolutionData != null && battleData != null && !battleData!!.isMegaEvolved && (data.id == 150 || (trainer != null
                 && trainer!!.getTrainerTeam().none { it.isMegaEvolved() }
                 && (trainer is OpponentTrainer || (trainer as Trainer).items.containsKey(30))))
     }
 
     fun megaEvolve() {
-        if (data.megaEvolutionData != null && !data.megaEvolutionData!!.isMegaEvolved) {
+        if (data.megaEvolutionData != null && !battleData!!.isMegaEvolved) {
             this.attack = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.ATTACK)
             this.defense = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.DEFENSE)
             this.spAtk = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.SPATK)
             this.spDef = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.SPDEF)
             this.speed = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.SPEED)
-            data.megaEvolutionData!!.isMegaEvolved = true
+            battleData!!.isMegaEvolved = true
         }
     }
 
     fun recomputeStat() {
         if (isMegaEvolved())
-            this.data.megaEvolutionData!!.isMegaEvolved = false
+            this.battleData!!.isMegaEvolved = false
         val addHP: Boolean = hp == currentHP
         this.hp = StatUtils.computeHP(data, level)
         this.attack = StatUtils.computeStat(data, level, Stats.ATTACK)

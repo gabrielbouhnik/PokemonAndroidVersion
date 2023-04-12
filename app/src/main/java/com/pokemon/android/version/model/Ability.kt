@@ -28,6 +28,7 @@ enum class Ability(var description: String) {
     MAGIC_GUARD("The Pokémon only takes damage from attacks."),
     MAGMA_ARMOR("The Pokémon is covered with hot magma,\n which prevents the Pokémon from becoming frozen."),
     MARVEL_SCALE("The Pokémon's marvelous scales boost the Defense stat\n if it has a status condition."),
+    MOTOR_DRIVE("The Pokémon takes no damage from Electric-type attacks and Speed raises by one level."),
     MOXIE("The Pokémon shows moxie, and that boosts the Attack stat\n after knocking out any Pokémon."),
     NATURAL_CURE("All status conditions heal when the Pokémon switches out."),
     NO_GUARD("The Pokémon employs no-guard tactics to ensure\n incoming and outgoing attacks always land."),

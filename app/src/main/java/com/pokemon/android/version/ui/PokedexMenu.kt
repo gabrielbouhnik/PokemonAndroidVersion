@@ -13,6 +13,7 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.Type
+import com.pokemon.android.version.utils.SpriteUtils
 
 class PokedexMenu {
     companion object {
@@ -23,7 +24,7 @@ class PokedexMenu {
         activity.setContentView(R.layout.pokedex_page)
         val spriteView: ImageView = activity.findViewById(R.id.pokedexPageSpriteView)
         Glide.with(activity)
-            .load(MainActivity.pokemonSpritesUrl + data.id + ".png")
+            .load(MainActivity.pokemonSpritesUrl + SpriteUtils.getThreeDigitId(data.id) + ".png")
             .into(spriteView)
         val nameTextView: TextView = activity.findViewById(R.id.pokedexPageNameTextView)
         nameTextView.text = data.name
