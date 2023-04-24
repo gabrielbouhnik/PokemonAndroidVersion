@@ -2,10 +2,7 @@ package com.pokemon.android.version.model
 
 import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.entity.save.PokemonSave
-import com.pokemon.android.version.model.battle.AttackResponse
-import com.pokemon.android.version.model.battle.DamageCalculator
-import com.pokemon.android.version.model.battle.OpponentTrainer
-import com.pokemon.android.version.model.battle.PokemonBattleData
+import com.pokemon.android.version.model.battle.*
 import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
@@ -160,6 +157,11 @@ open class Pokemon(
                 if (statChangeMove.statsAffected.contains(Stats.ACCURACY) && opponent.battleData!!.accuracyMultiplicator == 1f)
                     return move
             }
+            if (move.move is RemoveStatChangesMove && (opponent.battleData!!.attackMultiplicator > 1f
+                || opponent.battleData!!.spAtkMultiplicator > 1f
+                || opponent.battleData!!.speedMultiplicator > 1f)
+                && opponent.data.type1 != Type.STEEL && opponent.data.type2 != Type.STEEL)
+                return move
             if (damage > maxDamage) {
                 maxDamageIdx = Idx
                 maxDamage = damage
@@ -271,6 +273,9 @@ open class Pokemon(
                 false,
                 "${this.data.name} uses ${move.move.name}!\nIt does not affect ${opponent.data.name}!\n${this.data.name} kept going and crashed!\n"
             )
+        }
+        if (move.move is RetaliationMove && (this.battleData!!.lastHitReceived == null || move.move.category != this.battleData!!.lastHitReceived!!.category)){
+            return AttackResponse(false, "${this.data.name} uses ${move.move.name}!\nBut it failed!\n")
         }
         if (move.move.id == 213 && opponent.status != Status.ASLEEP)
             return AttackResponse(
@@ -403,6 +408,8 @@ open class Pokemon(
                 }
             }
         }
+        if (damage > 0 && move.move.category != MoveCategory.OTHER)
+            opponent.battleData!!.lastHitReceived = LastHitReceived(damage, move.move.category)
         if (opponent.currentHP > 0 && move.move.type == Type.DARK && move.move.category != MoveCategory.OTHER && opponent.hasAbility(Ability.JUSTIFIED)) {
             details += "${opponent.data.name}'s Justified: ${opponent.data.name}'s attack rose!\n"
             if (opponent.battleData!!.attackMultiplicator > 4)
@@ -425,6 +432,17 @@ open class Pokemon(
                 "${this.data.name} is damaged by recoil!\n"
             } else {
                 "${this.data.name}'s Rock Head: ${this.data.name} does not receive recoil damage!\n"
+            }
+        }
+        if (move.move is RemoveStatChangesMove){
+            if (damage > 0 || move.move.category == MoveCategory.OTHER) {
+                opponent.battleData!!.attackMultiplicator = 1f
+                opponent.battleData!!.defenseMultiplicator = 1f
+                opponent.battleData!!.spAtkMultiplicator = 1f
+                opponent.battleData!!.spDefMultiplicator = 1f
+                opponent.battleData!!.speedMultiplicator = 1f
+                opponent.battleData!!.accuracyMultiplicator = 1f
+                details += "${opponent.data.name}'s stats changes were removed!\n"
             }
         }
         details += BattleUtils.contactMovesCheck(this, move.move, opponent)

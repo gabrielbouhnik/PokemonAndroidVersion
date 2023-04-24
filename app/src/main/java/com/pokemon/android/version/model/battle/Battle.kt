@@ -257,6 +257,8 @@ abstract class Battle {
                 sb.append("${pokemon.data.name}'s Speed Boost: ${pokemon.data.name}'s speed rose!\n")
             }
         }
+        pokemon.battleData!!.lastHitReceived = null
+        opponent.battleData!!.lastHitReceived = null
         if (pokemon.currentHP == 0) {
             sb.append(pokemon.data.name + " fainted\n")
             pokemon.status = Status.OK

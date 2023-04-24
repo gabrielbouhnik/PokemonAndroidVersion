@@ -3787,5 +3787,65 @@
       "highCritRate": false,
       "characteristics": ["CONTACT"]
     }
+  ],
+  "movesThatRemoveStatChangesEntity": [
+    {
+      "id": 225,
+      "name": "Clear Smog",
+      "power": 50,
+      "pp": 15,
+      "type": 8,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user attacks the target by throwing a clump of special mud. All stat changes are returned to normal.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 226,
+      "name": "Haze",
+      "power": 0,
+      "pp": 30,
+      "type": 14,
+      "category": "OTHER",
+      "accuracy": 100,
+      "description": "The user creates a haze that eliminates every stat change among all the Pokémon engaged in battle.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    }
+  ],
+  "retalationMovesEntity": [
+    {
+      "id": 227,
+      "name": "Counter",
+      "power": 1,
+      "pp": 20,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "A retaliation move that counters any physical attack, inflicting double the damage taken.",
+      "priorityLevel": -5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 228,
+      "name": "Mirror Coat",
+      "power": 1,
+      "pp": 20,
+      "type": 12,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "A retaliation move that counters any special attack, inflicting double the damage taken.",
+      "priorityLevel": -5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    }
   ]
 }

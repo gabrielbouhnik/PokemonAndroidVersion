@@ -6,5 +6,6 @@ data class MovesEntity(
     var recoilMoves: List<RecoilMoveEntity>, var healMoves: List<HealMoveEntity>,
     var multipleHitMoves: List<MultipleHitMoveEntity>, var movesBasedOnLevelEntity: List<MoveBasedOnLevelEntity>,
     var ultimateMoves: List<MoveEntity>, var movesBasedOnHPEntity: List<MoveBasedOnHPEntity>,
-    var chargedMovesEntity: List<ChargedMoveEntity>, var rampageMovesEntity: List<MoveEntity>
+    var chargedMovesEntity: List<ChargedMoveEntity>, var rampageMovesEntity: List<MoveEntity>,
+    var movesThatRemoveStatChangesEntity: List<MoveEntity>, var retalationMovesEntity: List<MoveEntity>
 )

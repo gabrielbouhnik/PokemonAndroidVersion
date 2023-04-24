@@ -85,6 +85,11 @@ class DamageCalculator {
                 return 0
             if (move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE))
                 return 0
+            if (move is RetaliationMove) {
+                if (attacker.battleData!!.lastHitReceived != null && move.category == attacker.battleData!!.lastHitReceived!!.category)
+                    return attacker.battleData!!.lastHitReceived!!.damage * 2
+                return 0
+            }
             var multiplicator = 1f
             var stab = if (attacker.data.type1 == move.type || attacker.data.type2 == move.type) 1.5f else 1f
             if (attacker.isMegaEvolved() && (attacker.data.megaEvolutionData!!.type1 == move.type || attacker.data.megaEvolutionData!!.type2 == move.type))
