@@ -23,8 +23,8 @@ class DamageCalculator {
         }
 
         fun getEffectiveness(move: Move, opponent: Pokemon): Float {
-            var type1 = if (opponent.isMegaEvolved()) opponent.data.megaEvolutionData!!.type1 else opponent.data.type1
-            var type2 = if (opponent.isMegaEvolved()) opponent.data.megaEvolutionData!!.type2 else opponent.data.type2
+            var type1 = if (opponent.isMegaEvolved) opponent.data.megaEvolutionData!!.type1 else opponent.data.type1
+            var type2 = if (opponent.isMegaEvolved) opponent.data.megaEvolutionData!!.type2 else opponent.data.type2
             if (move.type == Type.GROUND && opponent.battleData!!.battleStatus.contains(Status.ROOSTED)) {
                 if (type1 == Type.FLYING)
                     type1 = Type.NORMAL
@@ -40,7 +40,7 @@ class DamageCalculator {
         fun computeDamageWithoutAbility(attacker: Pokemon, move: Move, opponent: Pokemon): Int {
             var multiplicator = 1f
             var stab = if (attacker.data.type1 == move.type || attacker.data.type2 == move.type) 1.5f else 1f
-            if (attacker.isMegaEvolved() && (attacker.data.megaEvolutionData!!.type1 == move.type || attacker.data.megaEvolutionData!!.type2 == move.type))
+            if (attacker.isMegaEvolved && (attacker.data.megaEvolutionData!!.type1 == move.type || attacker.data.megaEvolutionData!!.type2 == move.type))
                 stab = 1.5f
             if (move.category == MoveCategory.PHYSICAL && !attacker.hasAbility(Ability.GUTS)) {
                 if (attacker.status == Status.BURN)
@@ -92,7 +92,7 @@ class DamageCalculator {
             }
             var multiplicator = 1f
             var stab = if (attacker.data.type1 == move.type || attacker.data.type2 == move.type) 1.5f else 1f
-            if (attacker.isMegaEvolved() && (attacker.data.megaEvolutionData!!.type1 == move.type || attacker.data.megaEvolutionData!!.type2 == move.type))
+            if (attacker.isMegaEvolved && (attacker.data.megaEvolutionData!!.type1 == move.type || attacker.data.megaEvolutionData!!.type2 == move.type))
                 stab = 1.5f
             if (stab == 1.5f && attacker.hasAbility(Ability.ADAPTABILITY))
                 stab = 2f
@@ -108,7 +108,9 @@ class DamageCalculator {
                 power *= 1.5f
             if (move is RecoilMove && attacker.hasAbility(Ability.RECKLESS))
                 power *= 1.2f
-            if (attacker.hasAbility(Ability.SHARPNESS))
+            if (move.characteristics.contains(MoveCharacteristic.PUNCH) && attacker.hasAbility(Ability.IRON_FIST))
+                power *= 1.2f
+            if (move.characteristics.contains(MoveCharacteristic.SLICE) && attacker.hasAbility(Ability.SHARPNESS))
                 power *= 1.5f
             if ((move.type == Type.FIRE || move.type == Type.ICE) && opponent.hasAbility(Ability.THICK_FAT))
                 multiplicator *= 0.5f
@@ -119,6 +121,9 @@ class DamageCalculator {
                     power *= 2f
             }
             if (move.id == 224 && (opponent.status != Status.OK || opponent.battleData!!.battleStatus.contains(Status.CONFUSED))) {
+                power *= 2f
+            }
+            if (move.id == 232 && (opponent.status == Status.POISON || opponent.status == Status.BADLY_POISON)) {
                 power *= 2f
             }
             if ((attacker.currentHP / attacker.hp) < 0.4) {

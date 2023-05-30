@@ -7,12 +7,14 @@ import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Trainer
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.level.LevelData
+import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.move.ChargedMove
 import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.RampageMove
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.BattleUtils
+import com.pokemon.android.version.utils.IAUtils
 import com.pokemon.android.version.utils.ItemUtils
 
 abstract class Battle {
@@ -68,9 +70,19 @@ abstract class Battle {
     }
 
     private fun turn(trainerPokemonMove: PokemonMove, sb: StringBuilder) {
-        val opponentMove: PokemonMove = opponent.ia(pokemon)
+        val opponentMove: PokemonMove = IAUtils.ia(opponent, pokemon)
         if (opponentMove.move is RampageMove) {
             opponent.battleData!!.rampageMove = opponentMove
+        }
+        if (this is TrainerBattle || this is BattleFrontierBattle){
+            val opponentTrainer = opponent.trainer!! as OpponentTrainer
+            if (opponentTrainer.iaLevel == 3){
+                 val pokemonToSend = IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam())
+                 if (pokemonToSend != null) {
+                     sb.append(turnWithOpponentSwitch(opponentTrainer, pokemonToSend, trainerPokemonMove))
+                     return
+                 }
+            }
         }
         if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move, opponentMove.move)) {
             if (trainerPokemonMove.move.id == 208 && opponentMove.move.category == MoveCategory.OTHER)
@@ -131,7 +143,7 @@ abstract class Battle {
         turn(trainerPokemonMove, sb)
         endTurn(sb)
         if (pokemon.currentHP > 0 && getBattleState() == State.IN_PROGRESS) {
-            val opponentMove: PokemonMove = opponent.ia(pokemon)
+            val opponentMove: PokemonMove = IAUtils.ia(opponent, pokemon)
             if (opponentMove.move is RampageMove) {
                 opponent.battleData!!.rampageMove = opponentMove
             }
@@ -180,12 +192,34 @@ abstract class Battle {
         this.pokemon = pokemonToBeSent
     }
 
+    fun switchOppoent(pokemonToBeSent: Pokemon) {
+        pokemonToBeSent.battleData = PokemonBattleData()
+        this.opponent.battleData = PokemonBattleData()
+        if (this.opponent.hasAbility(Ability.NATURAL_CURE))
+            this.opponent.status = Status.OK
+        if (this.opponent.hasAbility(Ability.REGENERATOR) && this.opponent.currentHP > 0)
+            this.opponent.heal(this.pokemon.hp / 3)
+        this.opponent = pokemonToBeSent
+    }
+
+    private fun turnWithOpponentSwitch(trainer: OpponentTrainer, pokemonToBeSent: Pokemon, trainerPokemonMove: PokemonMove): String {
+        val sb = StringBuilder()
+        sb.append("${trainer.name} withdrew ${opponent.data.name}!\n${trainer.name} sends out ${pokemonToBeSent.data.name}!\n")
+        switchOppoent(pokemonToBeSent)
+        sb.append(BattleUtils.abilitiesCheck(opponent,pokemon))
+        if (trainerPokemonMove.move.id == 208)
+            sb.append("${pokemon.data.name} uses Sucker Punch!\nBut it failed!\n")
+        else
+            sb.append(trainerTurn(trainerPokemonMove))
+        return sb.toString()
+    }
+
     open fun turnWithSwitch(pokemonToBeSent: Pokemon): String {
         val sb = StringBuilder()
         sb.append("${(pokemonToBeSent.trainer!! as Trainer).name} sends ${pokemonToBeSent.data.name}\n")
         switchPokemon(pokemonToBeSent)
         sb.append(BattleUtils.abilitiesCheck(pokemon, opponent))
-        sb.append(opponentTurn(opponent.ia(pokemon), false))
+        sb.append(opponentTurn(IAUtils.ia(opponent, pokemon), false))
         endTurn(sb)
         return sb.toString()
     }
@@ -212,7 +246,7 @@ abstract class Battle {
             sb.append(activity.trainer!!.name + " uses " + activity.gameDataService.items.first { it.id == itemId }.name + "!\n")
             activity.trainer!!.useItem(itemId, pokemon)
         }
-        sb.append(opponentTurn(opponent.ia(pokemon), false))
+        sb.append(opponentTurn(IAUtils.ia(opponent, pokemon), false))
         endTurn(sb)
         return sb.toString()
     }
@@ -263,7 +297,7 @@ abstract class Battle {
             sb.append(pokemon.data.name + " fainted\n")
             pokemon.status = Status.OK
             pokemon.battleData = null
-            if (pokemon.isMegaEvolved()) {
+            if (pokemon.isMegaEvolved) {
                 pokemon.recomputeStat()
             }
             if (opponent.currentHP > 0 && opponent.hasAbility(Ability.MOXIE)) {
@@ -273,7 +307,7 @@ abstract class Battle {
         }
         if (opponent.currentHP == 0) {
             sb.append("The opposing " + opponent.data.name + " fainted\n")
-            if (opponent.isMegaEvolved()) {
+            if (opponent.isMegaEvolved) {
                 opponent.recomputeStat()
             }
             if (pokemon.currentHP > 0 && pokemon.hasAbility(Ability.MOXIE)) {

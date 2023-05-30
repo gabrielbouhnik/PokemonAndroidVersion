@@ -13,5 +13,6 @@ data class TrainerBattleLevelEntity(
     var icon: String,
     var background: String,
     var exp: Int,
-    var mandatory: Boolean
+    var mandatory: Boolean,
+    var iaLevel: Int,
 )

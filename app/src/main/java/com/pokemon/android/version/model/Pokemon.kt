@@ -7,6 +7,7 @@ import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.BattleUtils
+import com.pokemon.android.version.utils.IAUtils
 import com.pokemon.android.version.utils.MoveUtils
 import com.pokemon.android.version.utils.StatUtils
 import java.util.*
@@ -34,6 +35,7 @@ open class Pokemon(
     var battleData: PokemonBattleData?,
     var isFromBanner: Boolean = false,
     var movesLearnedByTM: ArrayList<Move> = arrayListOf(),
+    var isMegaEvolved: Boolean = false
 ) {
 
     constructor(
@@ -104,72 +106,6 @@ open class Pokemon(
         }
     }
 
-    private fun canBeKOdByOpponent(opponent: Pokemon): Boolean {
-        val offensiveMove = MoveUtils.getMoveList(opponent).filter { it.pp > 0 && it.move.power > 0 }
-        for (move in offensiveMove) {
-            var damage: Int = DamageCalculator.computeDamage(opponent, move.move, this, 1f)
-            if (move.move is MultipleHitMove || move.move is VariableHitMove)
-                damage *= 2
-            if (damage >= currentHP)
-                return true
-        }
-        return false
-    }
-
-    fun ia(opponent: Pokemon): PokemonMove {
-        val usableMoves = MoveUtils.getMoveList(this).filter { it.pp > 0 }
-        if (opponent.currentHP == 0)
-            return usableMoves[0]
-        if (battleData!!.chargedMove != null) {
-            val move = battleData!!.chargedMove!!
-            battleData!!.chargedMove = null
-            return move
-        }
-        if (battleData!!.rampageMove != null)
-            return battleData!!.rampageMove!!
-        var maxDamage = 0
-        var maxDamageIdx = 0
-        for ((Idx, move) in usableMoves.withIndex()) {
-            if (move.move.id == 213 && opponent.status != Status.ASLEEP)
-                continue
-            var damage: Int = DamageCalculator.computeDamage(this, move.move, opponent, 1f)
-            if (move.move is MultipleHitMove || move.move is VariableHitMove)
-                damage *= 2
-            if (canBeKOdByOpponent(opponent) && move.move is ChargedMove)
-                continue
-            if (damage >= opponent.currentHP) {
-                if (move.move !is ChargedMove || hp / currentHP > 2)
-                    return move
-            }
-            if (damage > 0 && hp / currentHP < 4 && move.move.priorityLevel > 0 && speed * battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
-                return move
-            move.move.status.forEach {
-                if (Status.isAffectedByStatus(move.move.id, it.status, opponent) && it.probability == null)
-                    return move
-            }
-            if (move.move is HealMove && hp / currentHP > 4)
-                return move
-            if (move.move is StatChangeMove) {
-                val statChangeMove: StatChangeMove = move.move as StatChangeMove
-                if (move.move.power == 0 &&
-                    statChangeMove.statsAffected.contains(Stats.SPEED) && BattleUtils.isFaster(opponent, this))
-                    return move
-                if (statChangeMove.statsAffected.contains(Stats.ACCURACY) && opponent.battleData!!.accuracyMultiplicator == 1f)
-                    return move
-            }
-            if (move.move is RemoveStatChangesMove && (opponent.battleData!!.attackMultiplicator > 1f
-                || opponent.battleData!!.spAtkMultiplicator > 1f
-                || opponent.battleData!!.speedMultiplicator > 1f)
-                && opponent.data.type1 != Type.STEEL && opponent.data.type2 != Type.STEEL)
-                return move
-            if (damage > maxDamage) {
-                maxDamageIdx = Idx
-                maxDamage = damage
-            }
-        }
-        return usableMoves[maxDamageIdx]
-    }
-
     private fun canAttack(move: PokemonMove): AttackResponse {
         if (this.status == Status.FROZEN) {
             if (Random.nextInt(100) > 20)
@@ -182,7 +118,7 @@ open class Pokemon(
                 return AttackResponse(false, "${this.data.name} can't move because it is paralysed!\n")
         }
         if (this.status == Status.ASLEEP) {
-            if (battleData!!.sleepCounter == 3) {
+            if (battleData!!.sleepCounter == 3 || (hasAbility(Ability.EARLY_BIRD) && battleData!!.sleepCounter == 2)) {
                 battleData!!.sleepCounter = 0
                 this.status = Status.OK
             } else if (battleData!!.sleepCounter > 1) {
@@ -281,7 +217,7 @@ open class Pokemon(
             return AttackResponse(
                 false,
                 "${this.data.name} uses ${move.move.name}!\nBut it failed!\n")
-        if (move.move !is MoveBasedOnHP && move.move.category != MoveCategory.OTHER && DamageCalculator.getEffectiveness(move.move, opponent) == 0f)
+        if (move.move !is MoveBasedOnLevel && move.move.category != MoveCategory.OTHER && DamageCalculator.getEffectiveness(move.move, opponent) == 0f)
             return AttackResponse(
                 false,
                 "${this.data.name} uses ${move.move.name}!\nIt does not affect ${opponent.data.name}!\n")
@@ -388,7 +324,7 @@ open class Pokemon(
             opponent.takeDamage(damage)
             if (move.move.type == Type.FIRE && opponent.status == Status.FROZEN)
                 opponent.status = Status.OK
-            if ((!this.hasAbility(Ability.SHEER_FORCE) || move.move.category == MoveCategory.OTHER) && (move.move.power == 0 || damage > 0 && move.move.status.isNotEmpty())) {
+            if (move.move.category == MoveCategory.OTHER || (!this.hasAbility(Ability.SHEER_FORCE) && damage > 0) && move.move.status.isNotEmpty()) {
                 details += Status.updateStatus(this, opponent, move.move)
             }
             if ((!this.hasAbility(Ability.SHEER_FORCE) || move.move.category == MoveCategory.OTHER) && move.move is StatChangeMove && (move.move.power == 0 || damage > 0)) {
@@ -397,14 +333,16 @@ open class Pokemon(
                     randomForStats /= 2
                 if ((move.move as StatChangeMove).probability == null || randomForStats <= (move.move as StatChangeMove).probability!!) {
                     val statChangeMove = move.move as StatChangeMove
-                    details += if (statChangeMove.target == Target.SELF)
-                        Stats.updateStat(this, move.move as StatChangeMove)
-                    else {
-                        if ((move.move as StatChangeMove).multiplicator < 0 && hasAbility(Ability.CLEAR_BODY))
-                            details += "${data.name}'s Clear Body: ${data.name}'s stats cannot be lowered!\n"
-                        else
-                            Stats.updateStat(opponent, move.move as StatChangeMove)
-                    }
+                    details +=
+                        if (statChangeMove.target == Target.SELF)
+                            Stats.updateStat(this, statChangeMove, Target.SELF)
+                        else {
+                            if (move.move.category == MoveCategory.OTHER && opponent.hasAbility(Ability.MAGIC_BOUNCE)){
+                                "${opponent.data.name}'s Magic Bounce: ${opponent.data.name} bounced the attack back!\n"+ Stats.updateStat(this, statChangeMove, Target.OPPONENT)
+                            } else {
+                                Stats.updateStat(opponent, statChangeMove, Target.OPPONENT)
+                            }
+                        }
                 }
             }
         }
@@ -427,11 +365,15 @@ open class Pokemon(
             }
         }
         if (move.move is RecoilMove) {
-            details += if (!this.hasAbility(Ability.ROCK_HEAD)) {
-                this.takeDamage((damageDone * (move.move as RecoilMove).recoil.damage).toInt())
-                "${this.data.name} is damaged by recoil!\n"
+            if ((move.move as RecoilMove).recoil == Recoil.ALL){
+                this.currentHP = 0;
             } else {
-                "${this.data.name}'s Rock Head: ${this.data.name} does not receive recoil damage!\n"
+                details += if (!this.hasAbility(Ability.ROCK_HEAD)) {
+                    this.takeDamage((damageDone * (move.move as RecoilMove).recoil.damage).toInt())
+                    "${this.data.name} is damaged by recoil!\n"
+                } else {
+                    "${this.data.name}'s Rock Head: ${this.data.name} does not receive recoil damage!\n"
+                }
             }
         }
         if (move.move is RemoveStatChangesMove){
@@ -449,30 +391,26 @@ open class Pokemon(
         return AttackResponse(true, details)
     }
 
-    fun isMegaEvolved(): Boolean {
-        return data.megaEvolutionData != null && battleData != null && battleData!!.isMegaEvolved
-    }
-
     fun canMegaEvolve(): Boolean {
-        return data.megaEvolutionData != null && battleData != null && !battleData!!.isMegaEvolved && (data.id == 150 || (trainer != null
-                && trainer!!.getTrainerTeam().none { it.isMegaEvolved() }
+        return data.megaEvolutionData != null && battleData != null && !isMegaEvolved && (data.id == 150 || (trainer != null
+                && trainer!!.getTrainerTeam().none { it.isMegaEvolved }
                 && (trainer is OpponentTrainer || (trainer as Trainer).items.containsKey(30))))
     }
 
     fun megaEvolve() {
-        if (data.megaEvolutionData != null && !battleData!!.isMegaEvolved) {
+        if (data.megaEvolutionData != null && !isMegaEvolved) {
             this.attack = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.ATTACK)
             this.defense = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.DEFENSE)
             this.spAtk = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.SPATK)
             this.spDef = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.SPDEF)
             this.speed = StatUtils.computeMegaEvolutionStat(data.megaEvolutionData!!, level, Stats.SPEED)
-            battleData!!.isMegaEvolved = true
+            isMegaEvolved = true
         }
     }
 
     fun recomputeStat() {
-        if (isMegaEvolved())
-            this.battleData!!.isMegaEvolved = false
+        if (isMegaEvolved)
+            this.isMegaEvolved = false
         val addHP: Boolean = hp == currentHP
         this.hp = StatUtils.computeHP(data, level)
         this.attack = StatUtils.computeStat(data, level, Stats.ATTACK)
@@ -589,7 +527,7 @@ open class Pokemon(
     }
 
     fun hasAbility(ability: Ability): Boolean {
-        return data.abilities.contains(ability) && !isMegaEvolved()
+        return data.abilities.contains(ability) && !isMegaEvolved
     }
 
     fun takeDamage(damage: Int) {

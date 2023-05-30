@@ -112,9 +112,7 @@ class BattleUtils {
                     return "${opponent.data.name}'s Dry Skin: ${opponent.data.name}'s HP was restored\n"
             }
             return when {
-                effectiveness == 0f -> {
-                    "It does not affect ${opponent.data.name}\n"
-                }
+                effectiveness == 0f -> "It does not affect ${opponent.data.name}\n"
                 effectiveness >= 2 -> "It's super effective!\n"
                 effectiveness < 1f -> "It's not very effective effective!\n"
                 else -> ""

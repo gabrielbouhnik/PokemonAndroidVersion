@@ -2,6 +2,7 @@ package com.pokemon.android.version.model
 
 import com.pokemon.android.version.model.move.HealMove
 import com.pokemon.android.version.model.move.Move
+import com.pokemon.android.version.model.move.MoveCategory
 import kotlin.random.Random
 
 enum class Status(var activeOutsideBattle: Boolean) {
@@ -48,6 +49,10 @@ enum class Status(var activeOutsideBattle: Boolean) {
     companion object {
         fun updateStatus(attacker: Pokemon, opponent: Pokemon, move: Move): String {
             var details = ""
+            if (move.category == MoveCategory.OTHER && opponent.hasAbility(Ability.MAGIC_BOUNCE)) {
+                details += "${opponent.data.name}'s Magic Bounce: ${opponent.data.name} bounces the attack back!\n";
+                return details + updateStatus(opponent, attacker, move)
+            }
             move.status.forEach {
                 if (isAffectedByStatus(move.id, it.status, opponent)) {
                     var randomForStatus: Int = Random.nextInt(100)
@@ -71,7 +76,6 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                 attacker.status = it.status
                                 details += "${opponent.data.name}'s Synchronize: ${attacker.data.name} " + it.status.toDetails() + "\n"
                             }
-
                         } else {
                             if (it.status == CONFUSED) {
                                 details = if (opponent.hasAbility(Ability.OWN_TEMPO))
@@ -94,59 +98,75 @@ enum class Status(var activeOutsideBattle: Boolean) {
                             }
                         }
                     }
-                } else if (opponent.status == OK) {
-                    if (move.id == 83 && opponent.hasAbility(Ability.IMMUNITY))
-                        details = "${opponent.data.name}'s Immunity: It does not affect ${opponent.data.name}!\n"
-                    if (move.id == 55 && opponent.hasAbility(Ability.LIMBER))
-                        details = "${opponent.data.name}'s Limber: It does not affect ${opponent.data.name}!\n"
-                    if (move.id == 138 && opponent.hasAbility(Ability.WATER_VEIL))
-                        details = "${opponent.data.name}'s Water Veil: It does not affect ${opponent.data.name}!\n"
-                    if (it.status == ASLEEP) {
-                        if (opponent.hasAbility(Ability.INSOMNIA))
-                            details = "${opponent.data.name}'s Insomnia: It does not affect ${opponent.data.name}!\n"
-                        if (opponent.hasAbility(Ability.VITAL_SPIRIT))
-                            details = "${opponent.data.name}'s Vital Spirit: It does not affect ${opponent.data.name}!\n"
+                } else if (it.probability == null) {
+                    if (opponent.status == OK) {
+                        if (move.id == 83 && opponent.hasAbility(Ability.IMMUNITY))
+                            details = "${opponent.data.name}'s Immunity: It does not affect ${opponent.data.name}!\n"
+                        if (move.id == 55 && opponent.hasAbility(Ability.LIMBER))
+                            details = "${opponent.data.name}'s Limber: It does not affect ${opponent.data.name}!\n"
+                        if (move.id == 138 && opponent.hasAbility(Ability.WATER_VEIL))
+                            details = "${opponent.data.name}'s Water Veil: It does not affect ${opponent.data.name}!\n"
+                        if (it.status == ASLEEP) {
+                            if (opponent.hasAbility(Ability.INSOMNIA))
+                                details =
+                                    "${opponent.data.name}'s Insomnia: It does not affect ${opponent.data.name}!\n"
+                            if (opponent.hasAbility(Ability.VITAL_SPIRIT))
+                                details =
+                                    "${opponent.data.name}'s Vital Spirit: It does not affect ${opponent.data.name}!\n"
+                        }
                     }
+                    details = if (it.status == CONFUSED && opponent.battleData!!.battleStatus.contains(CONFUSED))
+                        "But ${opponent.data.name} is already confused\n"
+                    else
+                        "But it failed!\n"
                 }
+                }
+                return details
             }
-            return details
-        }
 
-        fun isAffectedByStatus(id: Int, status: Status, opponent: Pokemon): Boolean {
-            if ((id == 34 || id == 35) && (opponent.data.type1 == Type.GRASS || opponent.data.type2 == Type.GRASS))
-                return false
-            if (id == 55 && (opponent.data.type1 == Type.GROUND || opponent.data.type2 == Type.GROUND))
-                return false
-            if (status == TIRED && opponent.status != OK)
-                return false
-            if (status == TRAPPED_WITH_DAMAGE && id == 130 && opponent.hasAbility(Ability.FLASH_FIRE))
-                return false
-            if (status == TRAPPED_WITH_DAMAGE && id == 131 && opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(Ability.DRY_SKIN))
-                return false
-            if (!status.activeOutsideBattle && !opponent.battleData!!.battleStatus.contains(status))
-                return true
-            if (opponent.status != OK)
-                return false
-            if (status == ASLEEP && !opponent.hasAbility(Ability.INSOMNIA) && !opponent.hasAbility(Ability.VITAL_SPIRIT))
-                return true
-            val type1 = if (opponent.isMegaEvolved()) opponent.data.megaEvolutionData!!.type1 else opponent.data.type1
-            val type2 = if (opponent.isMegaEvolved()) opponent.data.megaEvolutionData!!.type2 else opponent.data.type2
-            if (status == FROZEN && (type1 != Type.ICE && type2 != Type.ICE) && !opponent.hasAbility(Ability.MAGMA_ARMOR))
-                return true
-            if (status == LEECH_SEEDED && (type1 != Type.GRASS && type2 != Type.GRASS))
-                return true
-            if (status == BURN && (type1 != Type.FIRE && type2 != Type.FIRE) && !opponent.hasAbility(Ability.WATER_VEIL))
-                return true
-            if (status == PARALYSIS && (type1 != Type.ELECTRIC && type2 != Type.ELECTRIC) && !opponent.hasAbility(
-                    Ability.LIMBER
+            fun isAffectedByStatus(id: Int, status: Status, opponent: Pokemon): Boolean {
+                if ((id == 34 || id == 35) && (opponent.data.type1 == Type.GRASS || opponent.data.type2 == Type.GRASS || opponent.hasAbility(
+                        Ability.MAGIC_BOUNCE
+                    ))
                 )
-            )
-                return true
-            if ((status == POISON || status == BADLY_POISON) && (type1 != Type.POISON && type2 != Type.POISON) && (type1 != Type.STEEL && type2 != Type.STEEL)
-                && !opponent.hasAbility(Ability.IMMUNITY)
-            )
-                return true
-            return false
+                    return false
+                if (id == 55 && (opponent.data.type1 == Type.GROUND || opponent.data.type2 == Type.GROUND))
+                    return false
+                if (status == TIRED && opponent.status != OK)
+                    return false
+                if (status == TRAPPED_WITH_DAMAGE && id == 130 && opponent.hasAbility(Ability.FLASH_FIRE))
+                    return false
+                if (status == TRAPPED_WITH_DAMAGE && id == 131 && opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(
+                        Ability.DRY_SKIN
+                    )
+                )
+                    return false
+                if (!status.activeOutsideBattle && !opponent.battleData!!.battleStatus.contains(status))
+                    return true
+                if (opponent.status != OK)
+                    return false
+                if (status == ASLEEP && !opponent.hasAbility(Ability.INSOMNIA) && !opponent.hasAbility(Ability.VITAL_SPIRIT))
+                    return true
+                val type1 =
+                    if (opponent.isMegaEvolved) opponent.data.megaEvolutionData!!.type1 else opponent.data.type1
+                val type2 =
+                    if (opponent.isMegaEvolved) opponent.data.megaEvolutionData!!.type2 else opponent.data.type2
+                if (status == FROZEN && (type1 != Type.ICE && type2 != Type.ICE) && !opponent.hasAbility(Ability.MAGMA_ARMOR))
+                    return true
+                if (status == LEECH_SEEDED && (type1 != Type.GRASS && type2 != Type.GRASS))
+                    return true
+                if (status == BURN && (type1 != Type.FIRE && type2 != Type.FIRE) && !opponent.hasAbility(Ability.WATER_VEIL))
+                    return true
+                if (status == PARALYSIS && (type1 != Type.ELECTRIC && type2 != Type.ELECTRIC) && !opponent.hasAbility(
+                        Ability.LIMBER
+                    )
+                )
+                    return true
+                if ((status == POISON || status == BADLY_POISON) && (type1 != Type.POISON && type2 != Type.POISON) && (type1 != Type.STEEL && type2 != Type.STEEL)
+                    && !opponent.hasAbility(Ability.IMMUNITY)
+                )
+                    return true
+                return false
+            }
         }
     }
-}

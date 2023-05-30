@@ -470,6 +470,32 @@
     },
     {
       "id": 42,
+      "name": "\nSafari Zone",
+      "description": "Welcome to the Safari Zone! This parks features many wild Pokemon! Try to catch as many as you can!",
+      "encounter": 10,
+      "possibleEncounters":
+      {
+        "minLevel": 25,
+        "maxLevel": 30,
+        "encounters": [
+          30,30,30,30,33,33,33,33,44,44,44,46,46,46,54,54,54,84,84,102,102,111,111,113,115,127,128,
+          177,177,177,203,203,216,216,216,231,231,231
+        ]
+      },
+      "rewards": [
+        {
+          "id": 2,
+          "quantity": 1
+        }
+      ],
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "music": 1,
+      "exp": 4000,
+      "mandatory": false
+    },
+    {
+      "id": 42,
       "name": "\nRoute 15",
       "description": "After obtaining your fifth badge, you head to the next gym which is located in Saffron City.",
       "encounter": 4,
@@ -881,7 +907,8 @@
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 60,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 4,
@@ -924,7 +951,8 @@
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
       "exp": 100,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 7,
@@ -980,7 +1008,8 @@
       "icon": "images/battle_background/forest_battle_background.jpg",
       "background": "images/battle_background/forest_battle_background.jpg",
       "exp": 120,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 8,
@@ -1022,7 +1051,8 @@
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 140,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 10,
@@ -1118,7 +1148,8 @@
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
       "exp": 420,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 11,
@@ -1201,7 +1232,8 @@
       "icon": "images/battle_background/cave_battle_background.png",
       "background": "images/battle_background/cave_battle_background.png",
       "exp": 570,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 13,
@@ -1271,7 +1303,8 @@
       "icon": "images/battle_background/cave_battle_background.png",
       "background": "images/battle_background/cave_battle_background.png",
       "exp": 580,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 15,
@@ -1332,7 +1365,8 @@
       "icon": "images/battle_background/city_battle_background.png",
       "background": "images/battle_background/city_battle_background.png",
       "exp": 800,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 16,
@@ -1488,7 +1522,8 @@
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
       "exp": 1100,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 17,
@@ -1537,7 +1572,8 @@
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 800,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 20,
@@ -1599,7 +1635,8 @@
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
       "exp": 1000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 21,
@@ -1684,7 +1721,8 @@
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 1110,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 25,
@@ -1839,7 +1877,8 @@
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
       "exp": 2100,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 26,
@@ -1963,7 +2002,8 @@
       "icon": "images/battle_background/cave_battle_background.png",
       "background": "images/battle_background/cave_battle_background.png",
       "exp": 2200,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 29,
@@ -2023,7 +2063,8 @@
       "icon": "images/battle_background/tower_battle_background.png",
       "background": "images/battle_background/tower_battle_background.png",
       "exp": 4000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 2
     },
     {
       "id": 32,
@@ -2106,7 +2147,8 @@
       "icon": "images/battle_background/tower_battle_background.png",
       "background": "images/battle_background/tower_battle_background.png",
       "exp": 3570,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 35,
@@ -2198,7 +2240,8 @@
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 3900,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 38,
@@ -2260,7 +2303,8 @@
       "icon": "images/battle_background/cycling_road_battle_background.png",
       "background": "images/battle_background/cycling_road_battle_background.png",
       "exp": 4700,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 40,
@@ -2310,7 +2354,8 @@
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 5000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 43,
@@ -2400,7 +2445,8 @@
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
       "exp": 5000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 44,
@@ -2483,7 +2529,8 @@
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
       "exp": 5160,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 46,
@@ -2708,7 +2755,8 @@
       "icon": "images/battle_background/silphco_battle_background.png",
       "background": "images/battle_background/silphco_battle_background.png",
       "exp": 6000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 47,
@@ -2775,7 +2823,8 @@
       "icon": "images/battle_background/silphco_battle_background.png",
       "background": "images/battle_background/silphco_battle_background.png",
       "exp": 6300,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 2
     },
     {
       "id": 48,
@@ -2845,7 +2894,8 @@
       "icon": "images/boss_icon/VS_Amos.png",
       "background": "images/battle_background/silphco_battle_background.png",
       "exp": 6800,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 3
     },
     {
       "id": 49,
@@ -2922,7 +2972,8 @@
       "icon": "images/boss_icon/VS_Giovanni.png",
       "background": "images/battle_background/giovanni_battle_background.png",
       "exp": 6800,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 3
     },
     {
       "id": 50,
@@ -2987,7 +3038,8 @@
       "icon": "images/battle_background/dojo_battle_background.png",
       "background": "images/battle_background/dojo_battle_background.png",
       "exp": 7000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 51,
@@ -3069,7 +3121,8 @@
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 6900,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 54,
@@ -3145,7 +3198,8 @@
       "icon": "images/battle_background/sea_battle_background.png",
       "background": "images/battle_background/sea_battle_background.png",
       "exp": 6400,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 58,
@@ -3195,7 +3249,8 @@
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 7400,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 60,
@@ -3282,7 +3337,8 @@
       "icon": "images/battle_background/sea_battle_background.png",
       "background": "images/battle_background/sea_battle_background.png",
       "exp": 7600,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 61,
@@ -3333,7 +3389,8 @@
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 120,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 62,
@@ -3435,7 +3492,8 @@
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 7900,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 63,
@@ -3521,7 +3579,8 @@
       "icon": "images/boss_icon/VS_Giovanni.png",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 10000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 3
     },
     {
       "id": 64,
@@ -3590,7 +3649,8 @@
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
       "exp": 10000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 3
     },
     {
       "id": 66,
@@ -3681,7 +3741,8 @@
       "icon": "images/battle_background/cave_battle_background.png",
       "background": "images/battle_background/cave_battle_background.png",
       "exp": 10000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 3
     },
     {
       "id": 68,
@@ -3736,7 +3797,8 @@
       "icon": "images/boss_icon/VS_Olga.PNG",
       "background": "images/battle_background/elite_background1.png",
       "exp": 10000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 69,
@@ -3789,7 +3851,8 @@
       "icon": "images/boss_icon/VS_Aldo.PNG",
       "background": "images/battle_background/elite_background2.jpg",
       "exp": 10000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 70,
@@ -3842,7 +3905,8 @@
       "icon": "images/boss_icon/VS_Agatha.PNG",
       "background": "images/battle_background/elite_background3.jpg",
       "exp": 10000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 71,
@@ -3895,7 +3959,8 @@
       "icon": "images/boss_icon/VS_Peter.PNG",
       "background": "images/battle_background/elite_background4.jpg",
       "exp": 10000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 72,
@@ -3956,7 +4021,8 @@
       "icon": "images/battle_background/champion_battle_background.png",
       "background": "images/battle_background/champion_battle_background.png",
       "exp": 10000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 3
     },
     {
       "id": 79,
@@ -4021,7 +4087,8 @@
       "icon": "images/boss_icon/VS_Cynthia.png",
       "background": "images/battle_background/mt_silver_background.png",
       "exp": 15000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 3
     }
   ],
   "bossBattles": [

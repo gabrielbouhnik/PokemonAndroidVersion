@@ -1,5 +1,6 @@
 package com.pokemon.android.version
 
+import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View.GONE
@@ -13,6 +14,7 @@ import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.ui.MainMenu
 import com.pokemon.android.version.ui.StarterSelection
 import com.pokemon.android.version.utils.SpriteUtils
+import java.io.InputStream
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -84,14 +86,20 @@ class MainActivity : AppCompatActivity() {
         var filename = "${idForUrl}-m.png"
         if (id == 6)
             filename = "${idForUrl}-mx.png"
-        if (!shiny) {
-            Glide.with(this)
-                .load(megaPokemonSpritesUrl + filename)
-                .into(imageView)
+        if (id == 150){
+            val filename = "images/mega/150_front.png"
+            val img: InputStream = this.assets.open(filename)
+            imageView.setImageDrawable(Drawable.createFromStream(img, filename))
         } else {
-            Glide.with(this)
-                .load("${pokemonSpritesUrl}shiny/" + filename)
-                .into(imageView)
+            if (!shiny) {
+                Glide.with(this)
+                    .load(megaPokemonSpritesUrl + filename)
+                    .into(imageView)
+            } else {
+                Glide.with(this)
+                    .load("${pokemonSpritesUrl}shiny/" + filename)
+                    .into(imageView)
+            }
         }
     }
 

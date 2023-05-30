@@ -14,10 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.SaveManager
-import com.pokemon.android.version.model.Ability
-import com.pokemon.android.version.model.Gender
-import com.pokemon.android.version.model.Pokemon
-import com.pokemon.android.version.model.Status
+import com.pokemon.android.version.model.*
 import com.pokemon.android.version.model.battle.*
 import com.pokemon.android.version.model.item.ItemQuantity
 import com.pokemon.android.version.model.level.*
@@ -67,14 +64,14 @@ class BattleUI {
     private fun displayPokemonsInfos(activity: MainActivity, battle: Battle) {
         val opponentPokemonSprite: ImageView = activity.findViewById(R.id.opponentPokemonImageView)
         opponentPokemonSprite.visibility = VISIBLE
-        if (battle.opponent.isMegaEvolved()) {
+        if (battle.opponent.isMegaEvolved) {
             activity.displayMegaPokemon(battle.opponent.data.id, battle.opponent.shiny, opponentPokemonSprite)
         } else
             activity.displayPokemon(battle.opponent.data.id, battle.opponent.shiny, opponentPokemonSprite)
         val pokemonBackSprite: ImageView = activity.findViewById(R.id.pokemonBackSpriteView)
         val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
         pokemonBackSprite.visibility = VISIBLE
-        if (battle.pokemon.isMegaEvolved()) {
+        if (battle.pokemon.isMegaEvolved) {
             val filename = if (battle.pokemon.shiny) "images/mega/" + battle.pokemon.data.id + "_back_shiny.png" else "images/mega/" + battle.pokemon.data.id + "_back.png"
             val img: InputStream = activity.assets.open(filename)
             pokemonBackSprite.setImageDrawable(Drawable.createFromStream(img, filename))
@@ -120,7 +117,7 @@ class BattleUI {
             megaEvolutionImageView.visibility = GONE
         val trainerPokemonName: TextView = activity.findViewById(R.id.myPokemonNameTextView)
         trainerPokemonName.text =
-            if (battle.pokemon.isMegaEvolved()) "Mega " + battle.pokemon.data.name else battle.pokemon.data.name
+            if (battle.pokemon.isMegaEvolved) "Mega " + battle.pokemon.data.name else battle.pokemon.data.name
         val trainerPokemonHPLevel: TextView = activity.findViewById(R.id.myPokemonHPLevelTextView)
         trainerPokemonHPLevel.text = activity.getString(
             R.string.pokemon_battle_info,
@@ -149,7 +146,7 @@ class BattleUI {
 
         val opponentPokemonName: TextView = activity.findViewById(R.id.opponentPokemonNameTextView)
         opponentPokemonName.text =
-            if (battle.opponent.isMegaEvolved()) "Mega " + battle.opponent.data.name else battle.opponent.data.name
+            if (battle.opponent.isMegaEvolved) "Mega " + battle.opponent.data.name else battle.opponent.data.name
 
         val opponentStatusTextView: TextView = activity.findViewById(R.id.opponentStatusTextView)
         if (battle.opponent.status != Status.OK) {
@@ -201,6 +198,7 @@ class BattleUI {
                 if (activity.trainer!!.team.size <= 4)
                     activity.trainer!!.achievements!!.leagueWithTeamOfFourAchievement = true
             }
+            activity.trainer!!.achievements = Achievements();
             HealUtils.healTeam(activity.trainer!!.team)
             rewardsButton.setOnClickListener {
                 SaveManager.save(activity)

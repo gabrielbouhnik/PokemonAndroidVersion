@@ -5,6 +5,7 @@ import android.widget.ImageView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
+import com.pokemon.android.version.utils.IAUtils
 import com.pokemon.android.version.utils.MoveUtils
 import java.io.InputStream
 
@@ -31,8 +32,12 @@ class TrainerBattle() : Battle() {
 
     override fun updateOpponent() {
         opponent.recomputeStat()
-        if (opponentTrainer.canStillBattle())
-            opponent = opponentTrainer.getFirstPokemonThatCanFight()!!
+        if (opponentTrainer.canStillBattle()) {
+            opponent = if (opponentTrainer.iaLevel != 1 && pokemon.currentHP > 0)
+                IAUtils.getBestPokemonToSentAfterKo(pokemon, opponentTrainer.getTrainerTeam())!!
+            else
+                opponentTrainer.getFirstPokemonThatCanFight()!!
+        }
         else
             nextTrainer()
         activity.trainer!!.updatePokedex(opponent)

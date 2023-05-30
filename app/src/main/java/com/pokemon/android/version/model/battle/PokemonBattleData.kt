@@ -20,6 +20,5 @@ class PokemonBattleData(
     var chargedMove: PokemonMove? = null,
     var rampageMove: PokemonMove? = null,
     var rampageCounter: Int = 0,
-    var lastHitReceived: LastHitReceived? = null,
-    var isMegaEvolved: Boolean = false
+    var lastHitReceived: LastHitReceived? = null
 )

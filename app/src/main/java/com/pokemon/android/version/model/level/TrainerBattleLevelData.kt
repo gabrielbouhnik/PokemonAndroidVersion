@@ -36,7 +36,7 @@ class TrainerBattleLevelData(
                 trainerBattleLevelEntity.startDialog,
                 trainerBattleLevelEntity.endDialogWin,
                 trainerBattleLevelEntity.endDialogLoose,
-                trainerBattleLevelEntity.opponents.map { OpponentTrainerData.of(it, gameDataService) },
+                trainerBattleLevelEntity.opponents.map { OpponentTrainerData.of(it, gameDataService, trainerBattleLevelEntity.iaLevel) },
             )
         }
     }

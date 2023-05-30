@@ -3,7 +3,7 @@ package com.pokemon.android.version.model.battle
 import com.pokemon.android.version.model.ITrainer
 import com.pokemon.android.version.model.Pokemon
 
-class OpponentTrainer(var team: List<Pokemon>, var sprite: String) : ITrainer {
+class OpponentTrainer(var name: String, var team: List<Pokemon>, var sprite: String, var iaLevel: Number) : ITrainer {
 
     override fun canStillBattle(): Boolean {
         for (pokemon in team) {

@@ -5,7 +5,7 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.Type
-import com.pokemon.android.version.model.move.MoveCategory
+import com.pokemon.android.version.utils.IAUtils
 import kotlin.random.Random
 
 class BattleFrontierBattle() : Battle() {
@@ -24,27 +24,15 @@ class BattleFrontierBattle() : Battle() {
             }
         }
 
-        private fun haveSameTypes(data1: PokemonData, data2: PokemonData): Boolean {
-            val types: List<Type> = listOf(data1.type1, data1.type2, data2.type1, data2.type2)
-            return types.toSet().size == 2
-        }
-
-        private fun haveATypeInCommon(data1: PokemonData, data2: PokemonData, data3: PokemonData): Boolean {
-            val types: List<Type> = listOf(data1.type1, data1.type2, data2.type1, data2.type2, data3.type1, data3.type2)
-            return types.toSet().size == 4
+        private fun validateTeamTypes(data1: PokemonData, data2: PokemonData, data3: PokemonData): Boolean {
+            val types: List<Type> = listOf(data1.type1, data1.type2, data2.type1, data2.type2, data3.type1, data3.type2).filter { it != Type.NONE}
+            return types.distinct().size == types.size
         }
 
         fun generateTrainerTeam(gameDataService: GameDataService): List<Pokemon> {
             var team = generateTeam(gameDataService)
-            team.filter { it.speed > 70 }.count()
-            while (team.filter { it.speed >= 80 }.count() == 0 || ((haveSameTypes(
-                    team[0].data,
-                    team[1].data
-                ) || haveSameTypes(team[1].data, team[2].data))
-                        || haveATypeInCommon(team[0].data, team[1].data, team[2].data))
-            ) {
+            while (team.none { it.speed > 80 } || !validateTeamTypes(team[0].data,team[1].data,team[2].data))
                 team = generateTeam(gameDataService)
-            }
             return team
         }
     }
@@ -59,7 +47,13 @@ class BattleFrontierBattle() : Battle() {
         this.area = area
         this.pokemon = team[0]
         this.pokemon.battleData = PokemonBattleData()
-        this.opponentTrainer = OpponentTrainer(generateTeam(activity.gameDataService), "images/Sprite_Topdresseuse.png")
+        val opponentTeam = generateTeam(activity.gameDataService)
+        for (pokemon in opponentTeam){
+            if (Random.nextInt(200) == 70)
+                pokemon.shiny = true;
+        }
+        this.opponentTrainer = OpponentTrainer("Elite Trainer", opponentTeam, "images/Sprite_Topdresseuse.png",3)
+        opponentTeam.forEach {it.trainer = this.opponentTrainer}
         this.opponent = this.opponentTrainer.getFirstPokemonThatCanFight()!!
     }
 
@@ -68,8 +62,8 @@ class BattleFrontierBattle() : Battle() {
         val previousPokemon = pokemon
         sb.append("${activity.trainer!!.name} sends ${pokemonToBeSent.data.name}\n")
         switchPokemon(pokemonToBeSent)
-        val move = opponent.ia(previousPokemon)
-        sb.append(opponentTurn(move, move.move.category != MoveCategory.OTHER))
+        val move = IAUtils.ia(opponent,previousPokemon)
+        sb.append(opponentTurn(move, false))
         endTurn(sb)
         return sb.toString()
     }
@@ -84,7 +78,10 @@ class BattleFrontierBattle() : Battle() {
     }
 
     override fun updateOpponent() {
-        val pokemon = opponentTrainer.getFirstPokemonThatCanFight()
+        val pokemon = if (pokemon.currentHP > 0)
+            IAUtils.getBestPokemonToSentAfterKo(pokemon, opponentTrainer.getTrainerTeam())
+        else
+            opponentTrainer.getFirstPokemonThatCanFight()
         if (pokemon != null)
             opponent = pokemon
     }

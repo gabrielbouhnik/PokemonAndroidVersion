@@ -32,12 +32,13 @@ class LeaderBattle() : Battle() {
                 leaderLevelData.battle2
         }
         this.opponentTrainer = OpponentTrainer(
+            "",
             team.map {
                 activity.gameDataService.generatePokemonWithMoves(
                     it.id, it.level,
                     it.moves
                 )
-            }, leaderLevelData.sprite
+            }, leaderLevelData.sprite, 1
         )
         this.opponent = this.opponentTrainer.getFirstPokemonThatCanFight()!!
         activity.trainer!!.updatePokedex(opponent)

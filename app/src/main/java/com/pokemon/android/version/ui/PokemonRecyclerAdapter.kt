@@ -47,7 +47,7 @@ class PokemonRecyclerAdapter(
             holder.canEvolveTextView.text = "CAN EVOLVE"
         else
             holder.canEvolveTextView.text = " "
-        if (currentItem.isMegaEvolved()) {
+        if (currentItem.isMegaEvolved) {
             holder.nameTextView.text = "Mega ${currentItem.data.name}"
             activity.displayMegaPokemon(currentItem.data.id, currentItem.shiny, holder.spriteView)
         } else {

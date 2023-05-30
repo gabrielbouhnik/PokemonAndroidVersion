@@ -110,7 +110,7 @@
       "priorityLevel": 1,
       "status": [],
       "highCritRate": false,
-      "characteristics": ["CONTACT"]
+      "characteristics": ["CONTACT","PUNCH"]
     },
     {
       "id": 16,
@@ -1137,7 +1137,7 @@
         }
       ],
       "highCritRate": false,
-      "characteristics": ["CONTACT"]
+      "characteristics": ["CONTACT","PUNCH"]
     },
     {
       "id": 106,
@@ -1155,7 +1155,7 @@
         }
       ],
       "highCritRate": false,
-      "characteristics": ["CONTACT"]
+      "characteristics": ["CONTACT","PUNCH"]
     },
     {
       "id": 107,
@@ -1174,7 +1174,7 @@
         }
       ],
       "highCritRate": false,
-      "characteristics": ["CONTACT"]
+      "characteristics": ["CONTACT","PUNCH"]
     },
     {
       "id": 109,
@@ -1207,7 +1207,7 @@
         }
       ],
       "highCritRate": false,
-      "characteristics": ["CONTACT"]
+      "characteristics": ["CONTACT","PUNCH"]
     },
     {
       "id": 9,
@@ -1501,7 +1501,7 @@
       "priorityLevel": 1,
       "status": [],
       "highCritRate": false,
-      "characteristics": ["CONTACT"]
+      "characteristics": ["CONTACT","PUNCH"]
     },
     {
       "id": 129,
@@ -2092,6 +2092,20 @@
       "category": "SPECIAL",
       "accuracy": 100,
       "description": "This relentless attack does massive damage to a target affected by status conditions.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 232,
+      "name": "Venoshock",
+      "power": 65,
+      "pp": 10,
+      "type": 8,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user drenches the target in a special poisonous liquid. This move's power is doubled if the target is poisoned.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
@@ -3219,7 +3233,7 @@
       "multiplicator": 1.5,
       "status": [],
       "highCritRate": false,
-      "characteristics": ["CONTACT"]
+      "characteristics": ["CONTACT","PUNCH"]
     },
     {
       "id": 202,
@@ -3333,6 +3347,25 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 231,
+      "name": "Overheat",
+      "power": 130,
+      "category": "SPECIAL",
+      "pp": 5,
+      "type": 2,
+      "accuracy": 90,
+      "description": "The user attacks the target with all its might. The recoil from this move harshly lowers the user's Sp. Atk stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK"
+      ],
+      "target": "SELF",
+      "multiplicator": 0.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "drainMoves": [
@@ -3376,7 +3409,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": ["CONTACT"]
+      "characteristics": ["CONTACT","PUNCH"]
     },
     {
       "id": 128,
@@ -3504,6 +3537,36 @@
       "description": "The user tucks in its wings and charges from a low altitude. This also damages the user quite a lot.",
       "priorityLevel": 0,
       "recoil": "THIRD",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 229,
+      "name": "Self Destruct",
+      "power": 200,
+      "category": "PHYSICAL",
+      "pp": 5,
+      "type": 5,
+      "accuracy": 100,
+      "description": "The user attacks everything around it by causing an explosion. The user faints upon using this move.",
+      "priorityLevel": 0,
+      "recoil": "ALL",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 230,
+      "name": "Explosion",
+      "power": 250,
+      "category": "PHYSICAL",
+      "pp": 5,
+      "type": 5,
+      "accuracy": 100,
+      "description": "The user attacks everything around it by causing a tremendous explosion. The user faints upon using this move.",
+      "priorityLevel": 0,
+      "recoil": "ALL",
       "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]

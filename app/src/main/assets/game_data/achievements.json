@@ -26,7 +26,7 @@
     "description": "Beat Dugtrio with a team of Pokemon below level 35",
     "pokemonReward": [],
     "itemRewards": [
-      52
+      59
     ]
   },
   {
@@ -67,7 +67,7 @@
     "description": "Catch Raikou",
     "pokemonReward": [],
     "itemRewards": [
-      49
+      80
     ]
   },
   {
@@ -75,7 +75,7 @@
     "description": "Catch Entei",
     "pokemonReward": [],
     "itemRewards": [
-      50
+      76
     ]
   },
   {
@@ -83,7 +83,7 @@
     "description": "Catch Suicune",
     "pokemonReward": [],
     "itemRewards": [
-      55
+      78
     ]
   },
   {
@@ -102,7 +102,7 @@
     "description": "Beat the Tower Tycoon",
     "pokemonReward": [],
     "itemRewards": [
-      73
+      89
     ]
   },
   {
@@ -133,7 +133,7 @@
     "description": "Beat the last level of the game with only 3 Pokemons in your team",
     "pokemonReward": [
     ],
-    "itemRewards": [51]
+    "itemRewards": [57]
   },
   {
     "id": 16,

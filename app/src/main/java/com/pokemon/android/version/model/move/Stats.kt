@@ -13,20 +13,22 @@ enum class Stats(var value: String) {
     CRITICAL_RATE("Crit Rate");
 
     companion object {
-        fun updateStat(pokemon: Pokemon, statChangeMove: StatChangeMove): String {
-            val sb = StringBuilder()
+        fun updateStat(pokemon: Pokemon, statChangeMove: StatChangeMove, target: Target): String {
+            var details = ""
+            if (target == Target.OPPONENT && statChangeMove.multiplicator < 0 && pokemon.hasAbility(Ability.CLEAR_BODY))
+                return "${pokemon.data.name}'s Clear Body: ${pokemon.data.name}'s stats cannot be lowered!\n"
             statChangeMove.statsAffected.forEach {
-                if (it == ATTACK && pokemon.hasAbility(Ability.HYPER_CUTTER) && statChangeMove.target == Target.OPPONENT) {
-                    sb.append("Hyper Cutter: ${pokemon.data.name}'s " + it.value + " cannot be lowered!\n")
+                if (target == Target.OPPONENT && it == ATTACK && pokemon.hasAbility(Ability.HYPER_CUTTER) && statChangeMove.target == Target.OPPONENT) {
+                    details += "Hyper Cutter: ${pokemon.data.name}'s " + it.value + " cannot be lowered!\n"
                     return@forEach
                 }
-                if (it == ACCURACY && pokemon.hasAbility(Ability.KEEN_EYE)) {
-                    sb.append("Keen Eye: ${pokemon.data.name}'s " + it.value + " cannot be lowered!\n")
+                else if (it == ACCURACY && pokemon.hasAbility(Ability.KEEN_EYE)) {
+                    details += "Keen Eye: ${pokemon.data.name}'s " + it.value + " cannot be lowered!\n"
                     return@forEach
                 } else if (statChangeMove.multiplicator > 1)
-                    sb.append("${pokemon.data.name}'s " + it.value + " rose!\n")
+                    details += "${pokemon.data.name}'s " + it.value + " rose!\n"
                 else
-                    sb.append("${pokemon.data.name}'s " + it.value + " fell!\n")
+                    details += "${pokemon.data.name}'s " + it.value + " fell!\n"
                 when (it) {
                     ATTACK -> {
                         if (pokemon.battleData!!.attackMultiplicator < 4 && pokemon.battleData!!.attackMultiplicator > 0.25f)
@@ -58,7 +60,7 @@ enum class Stats(var value: String) {
                     }
                 }
             }
-            return sb.toString()
+            return details
         }
 
         fun increaseBossStats(pokemon: Pokemon, stats: List<Stats>) {
