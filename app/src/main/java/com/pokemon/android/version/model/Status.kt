@@ -3,6 +3,7 @@ package com.pokemon.android.version.model
 import com.pokemon.android.version.model.move.HealMove
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveCategory
+import com.pokemon.android.version.utils.BattleUtils
 import kotlin.random.Random
 
 enum class Status(var activeOutsideBattle: Boolean) {
@@ -49,10 +50,6 @@ enum class Status(var activeOutsideBattle: Boolean) {
     companion object {
         fun updateStatus(attacker: Pokemon, opponent: Pokemon, move: Move): String {
             var details = ""
-            if (move.category == MoveCategory.OTHER && opponent.hasAbility(Ability.MAGIC_BOUNCE)) {
-                details += "${opponent.data.name}'s Magic Bounce: ${opponent.data.name} bounces the attack back!\n";
-                return details + updateStatus(opponent, attacker, move)
-            }
             move.status.forEach {
                 if (isAffectedByStatus(move.id, it.status, opponent)) {
                     var randomForStatus: Int = Random.nextInt(100)
@@ -62,14 +59,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
                         if (it.status.activeOutsideBattle) {
                             opponent.status = it.status
                             details += "${opponent.data.name} " + it.status.toDetails() + "\n"
-                            if (opponent.hasAbility(Ability.GUTS))
-                                opponent.battleData!!.attackMultiplicator *= 1.5f
-                            if (opponent.hasAbility(Ability.QUICK_FEET))
-                                opponent.battleData!!.speedMultiplicator *= 1.5f
-                            if (opponent.hasAbility(Ability.MARVEL_SCALE))
-                                opponent.battleData!!.defenseMultiplicator *= 1.5f
-                            if (opponent.hasAbility(Ability.COMPETITIVE))
-                                opponent.battleData!!.spAtkMultiplicator *= 1.5f
+                            BattleUtils.checkForStatsRaiseAbility(opponent)
                             if (opponent.hasAbility(Ability.SYNCHRONIZE)
                                 && isAffectedByStatus(0, it.status, attacker)
                             ) {

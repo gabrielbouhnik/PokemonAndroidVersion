@@ -5,6 +5,7 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.Type
+import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.IAUtils
 import kotlin.random.Random
 
@@ -49,8 +50,8 @@ class BattleFrontierBattle() : Battle() {
         this.pokemon.battleData = PokemonBattleData()
         val opponentTeam = generateTeam(activity.gameDataService)
         for (pokemon in opponentTeam){
-            if (Random.nextInt(200) == 70)
-                pokemon.shiny = true;
+            if (Random.nextInt(50) == 10)
+                pokemon.shiny = true
         }
         this.opponentTrainer = OpponentTrainer("Elite Trainer", opponentTeam, "images/Sprite_Topdresseuse.png",3)
         opponentTeam.forEach {it.trainer = this.opponentTrainer}
@@ -61,8 +62,9 @@ class BattleFrontierBattle() : Battle() {
         val sb = StringBuilder()
         val previousPokemon = pokemon
         sb.append("${activity.trainer!!.name} sends ${pokemonToBeSent.data.name}\n")
-        switchPokemon(pokemonToBeSent)
         val move = IAUtils.ia(opponent,previousPokemon)
+        switchPokemon(pokemonToBeSent)
+        sb.append(BattleUtils.abilitiesCheck(pokemon,opponent))
         sb.append(opponentTurn(move, false))
         endTurn(sb)
         return sb.toString()

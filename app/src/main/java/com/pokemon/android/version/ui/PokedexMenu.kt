@@ -23,9 +23,15 @@ class PokedexMenu {
     private fun loadPokedexPage(activity: MainActivity, data: PokemonData) {
         activity.setContentView(R.layout.pokedex_page)
         val spriteView: ImageView = activity.findViewById(R.id.pokedexPageSpriteView)
-        Glide.with(activity)
+        if (MainActivity.idForSVsprites.contains(data.id))
+            Glide.with(activity)
+                .load(MainActivity.pokemonSVspritesUrl + SpriteUtils.getThreeDigitId(data.id) + ".png")
+                .into(spriteView)
+        else
+            Glide.with(activity)
             .load(MainActivity.pokemonSpritesUrl + SpriteUtils.getThreeDigitId(data.id) + ".png")
             .into(spriteView)
+
         val nameTextView: TextView = activity.findViewById(R.id.pokedexPageNameTextView)
         nameTextView.text = data.name
         val recyclerView = activity.findViewById<RecyclerView>(R.id.learnsetRecyclerView)

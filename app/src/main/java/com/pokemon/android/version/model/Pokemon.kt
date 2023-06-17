@@ -181,6 +181,9 @@ open class Pokemon(
                 )
             }
         }
+        if (move.move is RecoilMove && (move.move as RecoilMove).recoil == Recoil.ALL && opponent.hasAbility(Ability.DAMP)){
+            return AttackResponse(false, "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Damp: ${this.data.name} cannot use ${move.move.name}!")
+        }
         if (move.move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE)) {
             if (!opponent.battleData!!.battleStatus.contains(Status.FIRED_UP))
                 opponent.battleData!!.battleStatus.add(Status.FIRED_UP)
@@ -189,7 +192,7 @@ open class Pokemon(
                 "${this.data.name} uses ${move.move.name}\n${opponent.data.name}'s Flash Fire: ${opponent.data.name}'s fire power is increased!\n"
             )
         }
-        if (move.move.type == Type.GROUND && opponent.hasAbility(Ability.LEVITATE))
+        if (move.move.power > 0 && move.move.type == Type.GROUND && opponent.hasAbility(Ability.LEVITATE))
             return AttackResponse(
                 false,
                 "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Levitate: It does not affect ${opponent.data.name}!\n"
@@ -324,26 +327,35 @@ open class Pokemon(
             opponent.takeDamage(damage)
             if (move.move.type == Type.FIRE && opponent.status == Status.FROZEN)
                 opponent.status = Status.OK
-            if (move.move.category == MoveCategory.OTHER || (!this.hasAbility(Ability.SHEER_FORCE) && damage > 0) && move.move.status.isNotEmpty()) {
-                details += Status.updateStatus(this, opponent, move.move)
-            }
-            if ((!this.hasAbility(Ability.SHEER_FORCE) || move.move.category == MoveCategory.OTHER) && move.move is StatChangeMove && (move.move.power == 0 || damage > 0)) {
-                var randomForStats: Int = Random.nextInt(100)
-                if (this.hasAbility(Ability.SERENE_GRACE))
-                    randomForStats /= 2
-                if ((move.move as StatChangeMove).probability == null || randomForStats <= (move.move as StatChangeMove).probability!!) {
-                    val statChangeMove = move.move as StatChangeMove
-                    details +=
-                        if (statChangeMove.target == Target.SELF)
-                            Stats.updateStat(this, statChangeMove, Target.SELF)
-                        else {
-                            if (move.move.category == MoveCategory.OTHER && opponent.hasAbility(Ability.MAGIC_BOUNCE)){
-                                "${opponent.data.name}'s Magic Bounce: ${opponent.data.name} bounced the attack back!\n"+ Stats.updateStat(this, statChangeMove, Target.OPPONENT)
-                            } else {
-                                Stats.updateStat(opponent, statChangeMove, Target.OPPONENT)
-                            }
-                        }
+            if (move.move.status.isNotEmpty()) {
+                if (!this.hasAbility(Ability.SHEER_FORCE) && damage > 0) {
+                    details += Status.updateStatus(this, opponent, move.move)
                 }
+                else if (move.move.category == MoveCategory.OTHER) {
+                    if (opponent.hasAbility(Ability.MAGIC_BOUNCE)){
+                        details += "${opponent.data.name}'s Magic Bounce: ${opponent.data.name} bounces the attack back!\n";
+                        details += Status.updateStatus(opponent, this, move.move)
+                    } else
+                        details += Status.updateStatus(this, opponent, move.move)
+                }
+            }
+        }
+        if ((!this.hasAbility(Ability.SHEER_FORCE) || move.move.category == MoveCategory.OTHER) && move.move is StatChangeMove && (move.move.power == 0 || damage > 0)) {
+            var randomForStats: Int = Random.nextInt(100)
+            if (this.hasAbility(Ability.SERENE_GRACE))
+                randomForStats /= 2
+            if ((move.move as StatChangeMove).probability == null || randomForStats <= (move.move as StatChangeMove).probability!!) {
+                val statChangeMove = move.move as StatChangeMove
+                details +=
+                    if (statChangeMove.target == Target.SELF)
+                        Stats.updateStat(this, statChangeMove, Target.SELF)
+                    else {
+                        if (move.move.category == MoveCategory.OTHER && opponent.hasAbility(Ability.MAGIC_BOUNCE)){
+                            "${opponent.data.name}'s Magic Bounce: ${opponent.data.name} bounced the attack back!\n"+ Stats.updateStat(this, statChangeMove, Target.OPPONENT)
+                        } else if (opponent.currentHP > 0) {
+                            Stats.updateStat(opponent, statChangeMove, Target.OPPONENT)
+                        } else ""
+                    }
             }
         }
         if (damage > 0 && move.move.category != MoveCategory.OTHER)
@@ -366,7 +378,7 @@ open class Pokemon(
         }
         if (move.move is RecoilMove) {
             if ((move.move as RecoilMove).recoil == Recoil.ALL){
-                this.currentHP = 0;
+                this.currentHP = 0
             } else {
                 details += if (!this.hasAbility(Ability.ROCK_HEAD)) {
                     this.takeDamage((damageDone * (move.move as RecoilMove).recoil.damage).toInt())

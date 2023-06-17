@@ -7,7 +7,6 @@ import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.battle.DamageCalculator
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveBasedOnLevel
-import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.MoveCharacteristic
 import kotlin.random.Random
 
@@ -20,10 +19,7 @@ class BattleUtils {
                     && Status.isAffectedByStatus(0, Status.POISON, opponent)
                 ) {
                     opponent.status = Status.POISON
-                    if (opponent.hasAbility(Ability.QUICK_FEET))
-                        opponent.battleData!!.speedMultiplicator *= 1.5f
-                    if (opponent.hasAbility(Ability.GUTS))
-                        opponent.battleData!!.attackMultiplicator *= 1.5f
+                    checkForStatsRaiseAbility(attacker)
                     return "${attacker.data.name}'s Poison Touch: ${opponent.data.name} is poisoned!\n"
                 }
                 if (opponent.hasAbility(Ability.ROUGH_SKIN)) {
@@ -34,39 +30,27 @@ class BattleUtils {
                     && Status.isAffectedByStatus(0, Status.POISON, attacker)
                 ) {
                     attacker.status = Status.POISON
-                    if (attacker.hasAbility(Ability.QUICK_FEET))
-                        attacker.battleData!!.speedMultiplicator *= 1.5f
-                    if (attacker.hasAbility(Ability.GUTS))
-                        attacker.battleData!!.attackMultiplicator *= 1.5f
+                    checkForStatsRaiseAbility(attacker)
                     return "${opponent.data.name}'s Poison Point: ${attacker.data.name} is poisoned!\n"
                 }
                 if (opponent.hasAbility(Ability.STATIC)
                     && Status.isAffectedByStatus(0, Status.PARALYSIS, attacker)
                 ) {
                     attacker.status = Status.PARALYSIS
-                    if (attacker.hasAbility(Ability.QUICK_FEET))
-                        attacker.battleData!!.speedMultiplicator *= 1.5f
-                    if (attacker.hasAbility(Ability.GUTS))
-                        attacker.battleData!!.attackMultiplicator *= 1.5f
+                    checkForStatsRaiseAbility(attacker)
                     return "${opponent.data.name}'s Static: ${attacker.data.name} is paralyzed!\n"
                 }
                 if (opponent.hasAbility(Ability.FLAME_BODY)
                     && Status.isAffectedByStatus(0, Status.BURN, attacker)
                 ) {
                     attacker.status = Status.BURN
-                    if (attacker.hasAbility(Ability.QUICK_FEET))
-                        attacker.battleData!!.speedMultiplicator *= 1.5f
-                    if (attacker.hasAbility(Ability.GUTS))
-                        attacker.battleData!!.attackMultiplicator *= 1.5f
+                    checkForStatsRaiseAbility(attacker)
                     return "${opponent.data.name}'s Flame Body: ${attacker.data.name} is burned!\n"
                 }
                 if (opponent.hasAbility(Ability.EFFECT_SPORE)) {
                     if (random < 10 && Status.isAffectedByStatus(34, Status.POISON, attacker)) {
                         attacker.status = Status.POISON
-                        if (attacker.hasAbility(Ability.QUICK_FEET))
-                            attacker.battleData!!.speedMultiplicator *= 1.5f
-                        if (attacker.hasAbility(Ability.GUTS))
-                            attacker.battleData!!.attackMultiplicator *= 1.5f
+                        checkForStatsRaiseAbility(attacker)
                     } else if (random < 20 && Status.isAffectedByStatus(35, Status.ASLEEP, attacker))
                         attacker.status = Status.ASLEEP
                 }
@@ -76,10 +60,8 @@ class BattleUtils {
 
         fun abilitiesCheck(pokemon: Pokemon, opponent: Pokemon): String {
             val sb = StringBuilder()
-            if (pokemon.hasAbility(Ability.QUICK_FEET) && pokemon.status != Status.OK)
-                pokemon.battleData!!.speedMultiplicator *= 1.5f
-            if (pokemon.hasAbility(Ability.GUTS) && pokemon.status != Status.OK)
-                pokemon.battleData!!.attackMultiplicator *= 1.5f
+            if (pokemon.status != Status.OK)
+                checkForStatsRaiseAbility(pokemon)
             if (pokemon.hasAbility(Ability.PRESSURE))
                 sb.append("${pokemon.data.name}'s Pressure: ${pokemon.data.name} is exerting its pressure!\n")
             if (pokemon.hasAbility(Ability.INTIMIDATE) && !opponent.hasAbility(Ability.OWN_TEMPO)) {
@@ -139,6 +121,17 @@ class BattleUtils {
             val paralysisMultiplicator: Float = if (pokemon.status == Status.PARALYSIS) 0.5f else 1f
             val opponentParalysisMultiplicator: Float = if (other.status == Status.PARALYSIS) 0.5f else 1f
             return pokemonSpeed * paralysisMultiplicator >= otherSpeed * opponentParalysisMultiplicator
+        }
+
+        fun checkForStatsRaiseAbility(pokemon: Pokemon){
+            if (pokemon.hasAbility(Ability.QUICK_FEET))
+                pokemon.battleData!!.speedMultiplicator *= 1.5f
+            if (pokemon.hasAbility(Ability.GUTS))
+                pokemon.battleData!!.attackMultiplicator *= 1.5f
+            if (pokemon.hasAbility(Ability.COMPETITIVE))
+                pokemon.battleData!!.spAtkMultiplicator *= 1.5f
+            if (pokemon.hasAbility(Ability.MARVEL_SCALE))
+                pokemon.battleData!!.defenseMultiplicator *= 1.5f
         }
     }
 }

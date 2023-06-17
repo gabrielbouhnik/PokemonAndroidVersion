@@ -233,7 +233,7 @@
       "mandatory": true
     },
     {
-      "id": 19,
+      "id": 20,
       "name": "\nRoute 6",
       "description": "Guards are blocking your access to Saffron City. You decide to go through an underground and challenge the gym in the city south of Saffron City.",
       "encounter": 4,
@@ -382,35 +382,6 @@
       "mandatory": true
     },
     {
-      "id": 33,
-      "name": "\nRoute 8",
-      "description": "After saving the old man, he gives you a flute to wake up the sleeping pokemon on Route 16. Therefore, you're going there.",
-      "encounter": 3,
-      "possibleEncounters":
-      {
-        "minLevel": 28,
-        "maxLevel": 31,
-        "encounters": [
-          16,16,23,27,37,52,52,58,164
-        ]
-      },
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 20
-        },
-        {
-          "id": 2,
-          "quantity": 1
-        }
-      ],
-      "icon": "images/battle_background/route_battle_background.png",
-      "background": "images/battle_background/route_battle_background.png",
-      "music": 1,
-      "exp": 3000,
-      "mandatory": true
-    },
-    {
       "id": 34,
       "name": "\nRoute 7",
       "description": "A guard blocks your access to Saffron City, so you take an underground passage that leads you to Route 7.",
@@ -420,7 +391,7 @@
         "minLevel": 28,
         "maxLevel": 31,
         "encounters": [
-          21,37,52,58,198,209,228
+          20,21,37,43,52,52,58,69,198,209,228
         ]
       },
       "rewards": [
@@ -479,7 +450,7 @@
         "maxLevel": 30,
         "encounters": [
           30,30,30,30,33,33,33,33,44,44,44,46,46,46,54,54,54,84,84,102,102,111,111,113,115,127,128,
-          177,177,177,203,203,216,216,216,231,231,231
+          177,177,177,203,203,204,204,204,207,213,213,216,216,216,231,231,231
         ]
       },
       "rewards": [
@@ -1593,9 +1564,42 @@
             },
             {
               "id": 21,
-              "level": 20,
+              "level": 21,
               "moveIds": [
                 10,113
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Pokefan.png",
+          "name" : "Pokefan Allan",
+          "pokemons": [
+            {
+              "id": 231,
+              "level": 20,
+              "moveIds": [
+                2,221,95,30
+              ]
+            },
+            {
+              "id": 216,
+              "level": 20,
+              "moveIds": [
+                1,65
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Campeur.png",
+          "name" : "Camper Ricky",
+          "pokemons": [
+            {
+              "id": 8,
+              "level": 20,
+              "moveIds": [
+                2,23,24,221
               ]
             }
           ]
@@ -1824,6 +1828,19 @@
               "level": 32,
               "moveIds": [
                 30,38,19,17
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Picnicker.png",
+          "name" : "Picnicker Heidi",
+          "pokemons": [
+            {
+              "id": 188,
+              "level": 33,
+              "moveIds": [
+                189,137,35,133
               ]
             }
           ]
@@ -2147,6 +2164,100 @@
       "icon": "images/battle_background/tower_battle_background.png",
       "background": "images/battle_background/tower_battle_background.png",
       "exp": 3570,
+      "mandatory": true,
+      "iaLevel": 1
+    },
+    {
+      "id": 33,
+      "name": "\nRoute 8",
+      "description": "After saving the old man from Team Rocket, he gives you a flute to wake up a Pokemon on Route 16. Therefore, you go west from Lavender Town to wake up this Pokemon",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Intello.png",
+          "name" : "Super Nerd Glenn",
+          "pokemons": [
+            {
+              "id": 89,
+              "level": 38,
+              "moveIds": [
+                153,154,221,83
+              ]
+            },
+            {
+              "id": 89,
+              "level": 38,
+              "moveIds": [
+                153,154,221,83
+              ]
+            },
+            {
+              "id": 89,
+              "level": 38,
+              "moveIds": [
+                62,69,209,83
+              ]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Fillette.png",
+          "name" : "Lass Megan",
+          "pokemons": [
+            {
+              "id": 18,
+              "level": 37,
+              "moveIds": [
+                3,16,205,19
+              ]
+            },
+            {
+              "id": 20,
+              "level": 38,
+              "moveIds": [
+                3,27,28,208
+              ]
+            },
+            {
+              "id": 33,
+              "level": 38,
+              "moveIds": [
+                17,161,37,11
+              ]
+            },
+            {
+              "id": 53,
+              "level": 38,
+              "moveIds": [
+                151,51,113,169
+              ]
+            },
+            {
+              "id": 26,
+              "level": 39,
+              "moveIds": [
+                3,12,69,21
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 60
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        }
+      ],
+      "startDialog": "School is fun, but so are POKEMON.",
+      "endDialogWin": "Saffron's gate keeper won't let us through. He's so mean!",
+      "endDialogLoose": "You need a strategy to win at this!",
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "music": 2,
+      "exp": 3600,
       "mandatory": true,
       "iaLevel": 1
     },

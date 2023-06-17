@@ -30,7 +30,7 @@ class RewardMenu {
                     activity.trainer!!.achievements!!.celadonGymAchievement = true
             }
             LevelMenu.ARTICUNO_LEVEL -> {
-                if (activity.trainer!!.team.none { it.level > 55 })
+                if (activity.trainer!!.team.none { it.data.type1 == Type.STEEL || it.data.type2 == Type.STEEL })
                     activity.trainer!!.achievements!!.articunoAchievement = true
             }
             LevelMenu.BLAINE_LEVEL -> {
@@ -38,7 +38,7 @@ class RewardMenu {
                     activity.trainer!!.achievements!!.cinnbarGymAchievement = true
             }
             LevelMenu.MOLTRES_LEVEL -> {
-                if (activity.trainer!!.team.none { it.level > 70 })
+                if (activity.trainer!!.team.none { it.data.type1 == Type.WATER || it.data.type2 == Type.WATER})
                     activity.trainer!!.achievements!!.moltresAchievement = true
             }
             LevelMenu.ZAPDOS_LEVEL -> {

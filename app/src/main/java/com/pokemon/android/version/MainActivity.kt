@@ -21,10 +21,14 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val pokemonSpritesUrl: String =
             "https://www.serebii.net/swordshield/pokemon/"
+        const val pokemonSVspritesUrl : String = "https://www.serebii.net/scarletviolet/pokemon/new/";
+        const val pokemonSVshinySpriteUrl : String = "https://www.serebii.net/Shiny/SV/new/"
         const val megaPokemonSpritesUrl: String =
             "https://www.serebii.net/pokemongo/pokemon/"
         const val pokemonBackSpritesUrl: String =
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/"
+        val idForSVsprites = listOf(6,25,26,39,40,48,49,54,55,58,59,79,80,81,82,90,91,93,94,113,123,128,129,130,133,134,135,136,144,145,146,147,148,149,150,151,155,156,157,
+            181,183,184,187,188,189,195,196,197,198,199,203,204,205,211,212,214,215,216,217,228,229,231,232,242,246,247,248,282,286,297,308,373,398,405,426,429,430,442,448,461,462,475,488)
     }
 
     private var currentMusicId: Int? = null
@@ -71,13 +75,27 @@ class MainActivity : AppCompatActivity() {
     fun displayPokemon(id: Int, shiny: Boolean, imageView: ImageView) {
         val idForUrl = SpriteUtils.getThreeDigitId(id)
         if (!shiny) {
-            Glide.with(this)
-                .load("$pokemonSpritesUrl$idForUrl.png")
-                .into(imageView)
+            if (idForSVsprites.contains(id))
+            {
+                Glide.with(this)
+                    .load("$pokemonSVspritesUrl$idForUrl.png")
+                    .into(imageView)
+            } else {
+                Glide.with(this)
+                    .load("$pokemonSpritesUrl$idForUrl.png")
+                    .into(imageView)
+            }
         } else {
-            Glide.with(this)
-                .load("https://www.serebii.net/Shiny/SWSH/$idForUrl.png")
-                .into(imageView)
+            if (idForSVsprites.contains(id)) {
+                Glide.with(this)
+                    .load("$pokemonSVshinySpriteUrl$idForUrl.png")
+                    .into(imageView)
+            } else {
+                Glide.with(this)
+                    .load("https://www.serebii.net/Shiny/SWSH/$idForUrl.png")
+                    .into(imageView)
+            }
+
         }
     }
 

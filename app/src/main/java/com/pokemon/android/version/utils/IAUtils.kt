@@ -9,12 +9,15 @@ import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 
 class IAUtils {
-    companion object{
+    companion object {
         fun canBeKOdByOpponent(attacker: Pokemon, opponent: Pokemon): Boolean {
-            val offensiveMove = MoveUtils.getMoveList(opponent).filter { it.pp > 0 && it.move.power > 0  && it.move !is ChargedMove}
+            val offensiveMove =
+                MoveUtils.getMoveList(opponent).filter { it.pp > 0 && it.move.power > 0 && it.move !is ChargedMove }
             for (move in offensiveMove) {
                 var damage: Int = DamageCalculator.computeDamage(opponent, move.move, attacker, 1f)
-                if (move.move is MultipleHitMove || move.move is VariableHitMove)
+                if (move.move is VariableHitMove) {
+                    damage *= if (opponent.hasAbility(Ability.SKILL_LINK)) 5 else 3
+                } else if (move.move is MultipleHitMove)
                     damage *= 2
                 if (damage >= attacker.currentHP)
                     return true
@@ -28,9 +31,9 @@ class IAUtils {
                 var damage: Int = DamageCalculator.computeDamage(opponent, move.move, attacker, 1f)
                 if (move.move !is ChargedMove && move.move !is UltimateMove)
                     damage *= 2
-                if (move.move is VariableHitMove)
-                    damage *= 3
-                else if (move.move is MultipleHitMove)
+                if (move.move is VariableHitMove) {
+                    damage *= if (opponent.hasAbility(Ability.SKILL_LINK)) 5 else 3
+                } else if (move.move is MultipleHitMove)
                     damage *= 2
                 if (damage >= attacker.currentHP)
                     return true
@@ -38,7 +41,7 @@ class IAUtils {
             return false
         }
 
-        fun ia(attacker: Pokemon,opponent: Pokemon): PokemonMove {
+        fun ia(attacker: Pokemon, opponent: Pokemon): PokemonMove {
             val usableMoves = MoveUtils.getMoveList(attacker).filter { it.pp > 0 }
             if (opponent.currentHP == 0)
                 return usableMoves[0]
@@ -55,6 +58,8 @@ class IAUtils {
                 if (move.move.id == 213 && opponent.status != Status.ASLEEP)
                     continue
                 var damage: Int = DamageCalculator.computeDamage(attacker, move.move, opponent, 1f)
+                if (damage == 0 && move.move.category != MoveCategory.OTHER)
+                    continue
                 if (move.move is MultipleHitMove || move.move is VariableHitMove)
                     damage *= 2
                 if (canBeKOdByOpponent(attacker, opponent) && move.move is ChargedMove)
@@ -66,25 +71,35 @@ class IAUtils {
                 if (damage > 0 && attacker.hp / attacker.currentHP < 4 && move.move.priorityLevel > 0 && attacker.speed * attacker.battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
                     return move
                 move.move.status.forEach {
-                    if (Status.isAffectedByStatus(move.move.id, it.status, opponent) && it.probability == null && !opponent.hasAbility(
-                            Ability.MAGIC_BOUNCE))
+                    if (Status.isAffectedByStatus(
+                            move.move.id,
+                            it.status,
+                            opponent
+                        ) && it.probability == null && !opponent.hasAbility(
+                            Ability.MAGIC_BOUNCE
+                        )
+                    )
                         return move
                 }
                 if (move.move is HealMove && attacker.hp / attacker.currentHP > 4)
                     return move
                 if (move.move is StatChangeMove) {
                     val statChangeMove: StatChangeMove = move.move as StatChangeMove
-                    if (move.move.power == 0  && !opponent.hasAbility(Ability.MAGIC_BOUNCE) &&
-                        statChangeMove.statsAffected.contains(Stats.SPEED) && BattleUtils.isFaster(opponent, attacker))
+                    if (move.move.power == 0 && !opponent.hasAbility(Ability.MAGIC_BOUNCE) &&
+                        statChangeMove.statsAffected.contains(Stats.SPEED) && BattleUtils.isFaster(opponent, attacker)
+                    )
                         return move
                     if (statChangeMove.statsAffected.contains(Stats.ACCURACY) && opponent.battleData!!.accuracyMultiplicator == 1f && !opponent.hasAbility(
-                            Ability.MAGIC_BOUNCE))
+                            Ability.MAGIC_BOUNCE
+                        ) && !opponent.hasAbility(Ability.KEEN_EYE)
+                    )
                         return move
                 }
                 if (move.move is RemoveStatChangesMove && (opponent.battleData!!.attackMultiplicator > 1f
                             || opponent.battleData!!.spAtkMultiplicator > 1f
                             || opponent.battleData!!.speedMultiplicator > 1f)
-                    && opponent.data.type1 != Type.STEEL && opponent.data.type2 != Type.STEEL)
+                    && opponent.data.type1 != Type.STEEL && opponent.data.type2 != Type.STEEL
+                )
                     return move
                 if (damage > maxDamage) {
                     maxDamageIdx = Idx
@@ -94,36 +109,40 @@ class IAUtils {
             return usableMoves[maxDamageIdx]
         }
 
-        fun shouldSwitch(attacker: Pokemon,opponent: Pokemon, trainerTeam: List<Pokemon>): Pokemon?{
-            val team = trainerTeam.filter { it.currentHP > 0 && it != attacker}
-            if (canBeKOdByOpponent(attacker, opponent) && opponent.currentHP > opponent.hp * 0.6f){
-                for (pokemon in team){
+        fun shouldSwitch(attacker: Pokemon, opponent: Pokemon, trainerTeam: List<Pokemon>): Pokemon? {
+            val team = trainerTeam.filter { it.currentHP > 0 && it != attacker }
+            if (opponent.battleData!!.battleStatus.contains(Status.TIRED) || (canBeKOdByOpponent(
+                    attacker,
+                    opponent
+                ) && opponent.currentHP >= opponent.hp * 0.6f)
+            ) {
+                for (pokemon in team) {
                     if ((pokemon.speed > opponent.speed * opponent.battleData!!.speedMultiplicator
                                 || canTakeTwoHits(pokemon, opponent))
                         && canBeKOdByOpponent(
                             opponent, pokemon
                         )
-                        && !canBeKOdByOpponent(pokemon, opponent))
-                    return pokemon
+                        && !canBeKOdByOpponent(pokemon, opponent)
+                    )
+                        return pokemon
                 }
             }
             return null
         }
 
-        fun getBestPokemonToSentAfterKo(opponent: Pokemon, trainerTeam: List<Pokemon>): Pokemon?{
-            val team = trainerTeam.filter { it.currentHP > 0}
+        fun getBestPokemonToSentAfterKo(opponent: Pokemon, trainerTeam: List<Pokemon>): Pokemon? {
+            val team = trainerTeam.filter { it.currentHP > 0 }
             if (team.isEmpty())
                 return null
-            val scores : List<Int> = team.map{
+            val scores: List<Int> = team.map {
                 var score = 0
-                if (it.speed > opponent.speed * opponent.battleData!!.speedMultiplicator){
+                if (it.speed > opponent.speed * opponent.battleData!!.speedMultiplicator) {
                     score += 1
                     if (canBeKOdByOpponent(opponent, it))
                         score += 3
                     if (canTakeTwoHits(it, opponent))
                         score += 1
-                }
-                else if (!canBeKOdByOpponent(it, opponent) && canBeKOdByOpponent(opponent, it))
+                } else if (!canBeKOdByOpponent(it, opponent) && canBeKOdByOpponent(opponent, it))
                     score += 2
                 if (canTakeTwoHits(it, opponent))
                     score += 1

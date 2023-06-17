@@ -7,7 +7,6 @@ import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Trainer
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.level.LevelData
-import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.move.ChargedMove
 import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.RampageMove
@@ -76,7 +75,9 @@ abstract class Battle {
         }
         if (this is TrainerBattle || this is BattleFrontierBattle){
             val opponentTrainer = opponent.trainer!! as OpponentTrainer
-            if (opponentTrainer.iaLevel == 3){
+            if (opponentTrainer.iaLevel == 3
+                && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
+                && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)){
                  val pokemonToSend = IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam())
                  if (pokemonToSend != null) {
                      sb.append(turnWithOpponentSwitch(opponentTrainer, pokemonToSend, trainerPokemonMove))
@@ -192,7 +193,7 @@ abstract class Battle {
         this.pokemon = pokemonToBeSent
     }
 
-    fun switchOppoent(pokemonToBeSent: Pokemon) {
+    fun switchOpponent(pokemonToBeSent: Pokemon) {
         pokemonToBeSent.battleData = PokemonBattleData()
         this.opponent.battleData = PokemonBattleData()
         if (this.opponent.hasAbility(Ability.NATURAL_CURE))
@@ -205,7 +206,7 @@ abstract class Battle {
     private fun turnWithOpponentSwitch(trainer: OpponentTrainer, pokemonToBeSent: Pokemon, trainerPokemonMove: PokemonMove): String {
         val sb = StringBuilder()
         sb.append("${trainer.name} withdrew ${opponent.data.name}!\n${trainer.name} sends out ${pokemonToBeSent.data.name}!\n")
-        switchOppoent(pokemonToBeSent)
+        switchOpponent(pokemonToBeSent)
         sb.append(BattleUtils.abilitiesCheck(opponent,pokemon))
         if (trainerPokemonMove.move.id == 208)
             sb.append("${pokemon.data.name} uses Sucker Punch!\nBut it failed!\n")
@@ -361,16 +362,22 @@ abstract class Battle {
             if (pokemon.status != Status.OK) {
                 when (pokemon.status) {
                     Status.POISON -> {
-                        if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
-                            pokemon.takeDamage(pokemon.hp / 8)
-                            details += pokemon.data.name + " suffers from the poison!\n"
+                        if (pokemon.hasAbility(Ability.POISON_HEAL)){
+                            pokemon.heal(pokemon.hp/8)
+                            details += "${pokemon.data.name}'s Poison Heal: ${pokemon.data.name} had its hp restored.\n"
+                        } else if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
+                                pokemon.takeDamage(pokemon.hp / 8)
+                                details += pokemon.data.name + " suffers from the poison!\n"
                         }
                     }
                     Status.BADLY_POISON -> {
-                        if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
-                            pokemon.takeDamage(pokemon.battleData!!.poisonCounter * (pokemon.hp / 16))
+                        if (pokemon.hasAbility(Ability.POISON_HEAL)){
+                            pokemon.heal(pokemon.hp/8)
+                            details += "${pokemon.data.name}'s Poison Heal: ${pokemon.data.name} had its hp restored.\n"
+                        } else if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
                             pokemon.battleData!!.poisonCounter++
-                            details += pokemon.data.name + " suffers from the poison!\n"
+                            pokemon.takeDamage(pokemon.battleData!!.poisonCounter * (pokemon.hp / 16))
+                            pokemon.data.name + " suffers from the poison!\n"
                         }
                     }
                     Status.BURN -> {

@@ -394,16 +394,18 @@ class BattleUI {
             ppTextView.visibility = VISIBLE
             ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
             attackButton.setOnClickListener {
-                if (megaEvolve && battle.pokemon.canMegaEvolve()) {
-                    val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
-                    megaEvolutionImageView.visibility = GONE
-                    dialogTextView!!.text = battle.turn(move, true)
-                } else {
-                    megaEvolve = false
-                    dialogTextView!!.text = battle.turn(move, false)
+                if (battle.pokemon.currentHP > 0 && battle.opponent.currentHP > 0) {
+                    if (megaEvolve && battle.pokemon.canMegaEvolve()) {
+                        val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
+                        megaEvolutionImageView.visibility = GONE
+                        dialogTextView!!.text = battle.turn(move, true)
+                    } else {
+                        megaEvolve = false
+                        dialogTextView!!.text = battle.turn(move, false)
+                    }
+                    ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
+                    updateBattleUI(activity, battle)
                 }
-                ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
-                updateBattleUI(activity, battle)
             }
         } else {
             attackButton.visibility = GONE
@@ -422,17 +424,19 @@ class BattleUI {
             ppTextView.text =
                 activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
             attack1Button.setOnClickListener {
-                if (megaEvolve && battle.pokemon.canMegaEvolve()) {
-                    val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
-                    megaEvolutionImageView.visibility = GONE
-                    dialogTextView!!.text = battle.turn(battle.pokemon.move1, true)
-                } else {
-                    megaEvolve = false
-                    dialogTextView!!.text = battle.turn(battle.pokemon.move1, false)
+                if (battle.pokemon.currentHP > 0 && battle.opponent.currentHP > 0) {
+                    if (megaEvolve && battle.pokemon.canMegaEvolve()) {
+                        val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
+                        megaEvolutionImageView.visibility = GONE
+                        dialogTextView!!.text = battle.turn(battle.pokemon.move1, true)
+                    } else {
+                        megaEvolve = false
+                        dialogTextView!!.text = battle.turn(battle.pokemon.move1, false)
+                    }
+                    ppTextView.text =
+                        activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
+                    updateBattleUI(activity, battle)
                 }
-                ppTextView.text =
-                    activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
-                updateBattleUI(activity, battle)
             }
         } else {
             attack1Button.visibility = GONE

@@ -46,9 +46,17 @@ class PokedexRecyclerAdapter(
             holder.nameTextView.text = currentItem.name
             if (activity.trainer!!.name == PokedexMenu.ADMIN || activity.trainer!!.pokedex[currentItem.id] == true)
                 holder.nameTextView.setTextColor(ColorUtils.getColorByType(currentItem.type1))
-            Glide.with(activity)
-                .load(MainActivity.pokemonSpritesUrl + SpriteUtils.getThreeDigitId(currentItem.id) + ".png")
-                .into(holder.spriteView)
+            val idForUrl = SpriteUtils.getThreeDigitId(currentItem.id)
+            if (MainActivity.idForSVsprites.contains(currentItem.id))
+            {
+                Glide.with(activity)
+                    .load("${MainActivity.pokemonSVspritesUrl}$idForUrl.png")
+                    .into(holder.spriteView)
+            } else {
+                Glide.with(activity)
+                    .load("${MainActivity.pokemonSpritesUrl}$idForUrl.png")
+                    .into(holder.spriteView)
+            }
         } else {
             holder.nameTextView.text = "???"
             holder.nameTextView.setTextColor(ColorUtils.getColorByType(Type.NONE))

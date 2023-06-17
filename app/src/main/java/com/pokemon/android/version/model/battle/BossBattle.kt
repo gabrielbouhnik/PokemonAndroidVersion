@@ -3,6 +3,7 @@ package com.pokemon.android.version.model.battle
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.model.level.BossBattleLevelData
 import com.pokemon.android.version.model.move.Stats
+import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.MoveUtils
 
 class BossBattle() : Battle() {
@@ -14,7 +15,7 @@ class BossBattle() : Battle() {
         this.pokemon.battleData = PokemonBattleData()
         this.opponent = activity.gameDataService.generateBoss(
             bossBattleLevelData.boss.id,
-            bossBattleLevelData.boss.level,
+            if ((bossBattleLevelData.boss.id == 144 || bossBattleLevelData.boss.id == 146) && activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID) 90 else bossBattleLevelData.boss.level,
             bossBattleLevelData.boss.moves
         )
         this.opponent.hp *= 3

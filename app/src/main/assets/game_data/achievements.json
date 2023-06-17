@@ -31,7 +31,7 @@
   },
   {
     "id": 4,
-    "description": "Beat Articuno with a team of Pokemon below level 55",
+    "description": "Beat Articuno without using a Steel-type Pokemon",
     "pokemonReward": [
       {
         "id": 144,
@@ -42,7 +42,7 @@
   },
   {
     "id": 5,
-    "description": "Beat Moltres with a team of Pokemon below level 70",
+    "description": "Beat Moltres without using a Water-type Pokemon",
     "pokemonReward": [
       {
         "id": 146,
