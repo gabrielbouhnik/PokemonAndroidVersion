@@ -7,6 +7,7 @@ import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Trainer
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.level.LevelData
+import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.move.ChargedMove
 import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.RampageMove
@@ -69,7 +70,7 @@ abstract class Battle {
     }
 
     private fun turn(trainerPokemonMove: PokemonMove, sb: StringBuilder) {
-        val opponentMove: PokemonMove = IAUtils.ia(opponent, pokemon)
+        val opponentMove: PokemonMove = if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
         if (opponentMove.move is RampageMove) {
             opponent.battleData!!.rampageMove = opponentMove
         }
@@ -144,7 +145,7 @@ abstract class Battle {
         turn(trainerPokemonMove, sb)
         endTurn(sb)
         if (pokemon.currentHP > 0 && getBattleState() == State.IN_PROGRESS) {
-            val opponentMove: PokemonMove = IAUtils.ia(opponent, pokemon)
+            val opponentMove: PokemonMove = if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
             if (opponentMove.move is RampageMove) {
                 opponent.battleData!!.rampageMove = opponentMove
             }
@@ -215,12 +216,18 @@ abstract class Battle {
         return sb.toString()
     }
 
-    open fun turnWithSwitch(pokemonToBeSent: Pokemon): String {
+    fun turnWithSwitch(pokemonToBeSent: Pokemon): String {
         val sb = StringBuilder()
-        sb.append("${(pokemonToBeSent.trainer!! as Trainer).name} sends ${pokemonToBeSent.data.name}\n")
+        sb.append("${activity.trainer!!.name} withdrew ${pokemon.data.name}!\n${activity.trainer!!.name} sends ${pokemonToBeSent.data.name}\n")
+        var opponentMove: PokemonMove = if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
         switchPokemon(pokemonToBeSent)
         sb.append(BattleUtils.abilitiesCheck(pokemon, opponent))
-        sb.append(opponentTurn(IAUtils.ia(opponent, pokemon), false))
+        if (this is BossBattle)
+            opponentMove = IAUtils.ia(opponent, pokemon)
+        if (opponentMove.move.id == 208)
+            sb.append("${opponent.data.name} uses Sucker Punch!\nBut it failed!\n")
+        else
+            sb.append(opponentTurn(opponentMove, false))
         endTurn(sb)
         return sb.toString()
     }
@@ -247,7 +254,8 @@ abstract class Battle {
             sb.append(activity.trainer!!.name + " uses " + activity.gameDataService.items.first { it.id == itemId }.name + "!\n")
             activity.trainer!!.useItem(itemId, pokemon)
         }
-        sb.append(opponentTurn(IAUtils.ia(opponent, pokemon), false))
+        val opponentMove: PokemonMove = if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
+        sb.append(opponentTurn(opponentMove, false))
         endTurn(sb)
         return sb.toString()
     }

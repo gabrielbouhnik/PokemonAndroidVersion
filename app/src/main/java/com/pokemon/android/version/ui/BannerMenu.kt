@@ -35,7 +35,7 @@ class BannerMenu {
             if (activity.trainer!!.progression < LevelMenu.OTHER_BANNER_LEVEL) activity.gameDataService.banners.filter {
                 it.description.contains("Hyper Ball") || it.description.contains("Pikachu")
             } else activity.gameDataService.banners.filter { it.days.contains(day) }
-        if (activity.trainer!!.progression < LevelMenu.ELITE_4_FIRST_LEVEL_ID - 1)
+        if (activity.trainer!!.progression < LevelMenu.ELITE_4_FIRST_LEVEL_ID)
             recyclerView.adapter =
                 BannerRecyclerAdapter(activity, (banners.filter { !it.description.contains(" a strong move") }).toMutableList())
         else

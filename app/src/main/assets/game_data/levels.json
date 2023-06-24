@@ -449,8 +449,8 @@
         "minLevel": 25,
         "maxLevel": 30,
         "encounters": [
-          30,30,30,30,33,33,33,33,44,44,44,46,46,46,54,54,54,84,84,102,102,111,111,113,115,127,128,
-          177,177,177,203,203,204,204,204,207,213,213,216,216,216,231,231,231
+          30,30,30,30,33,33,33,33,44,44,44,46,46,46,54,54,54,84,84,102,102,111,111,113,114,115,127,128,
+          177,177,177,190,193,203,203,204,204,204,207,213,213,216,216,216,231,231,231
         ]
       },
       "rewards": [
@@ -611,7 +611,7 @@
       "mandatory": true
     },
     {
-      "id": 65,
+      "id": 66,
       "name": "\nVictory Road",
       "description": "Having shown your 8 badges to the guard, you enter the Victory Road, the last step before the Pokemon League",
       "encounter": 15,
@@ -638,7 +638,7 @@
       "mandatory": true
     },
     {
-      "id": 73,
+      "id": 74,
       "name": "\nPower Plant",
       "description": "After defeating the Pokemon League, Professor Oak sends you to the abandoned Power Plant on Route 10 because something strange is happening with the wild Pokemon there.",
       "encounter": 5,
@@ -665,7 +665,7 @@
       "mandatory": true
     },
     {
-      "id": 74,
+      "id": 75,
       "name": "\nVS Electrodes",
       "description": "You advance in the Power Plant and several powerful Electrodes attack you.",
       "encounter": 5,
@@ -692,7 +692,7 @@
       "mandatory": true
     },
     {
-      "id": 76,
+      "id": 77,
       "name": "\nRoute 28",
       "description": "You receive a letter from the Sinnoh region's champion who wants to battle you on the top of Mt Silver. You decide to go there to face her.",
       "encounter": 8,
@@ -719,7 +719,7 @@
       "mandatory": true
     },
     {
-      "id": 77,
+      "id": 78,
       "name": "\nMt Silver",
       "description": "You finally reach Mt. Silver and you come across several wild Pokemon.",
       "encounter": 10,
@@ -746,7 +746,7 @@
       "mandatory": true
     },
     {
-      "id": 80,
+      "id": 81,
       "name": "\nCerulean Cave",
       "description": "After defeating Cynthia, you visit Professor Oak and he informs you that your rival Jackson has gone to Cerulean Cave and encountered the most powerful Pokemon he has ever seen. He ran away because his Pokemon were defeated by this creature. Be careful!",
       "encounter": 10,
@@ -775,7 +775,7 @@
       "mandatory": true
     },
     {
-      "id": 81,
+      "id": 82,
       "name": "\nCerulean Cave 1F",
       "description": "Pokemon in this cave are very powerful. Keep it up!",
       "encounter": 10,
@@ -804,7 +804,7 @@
       "mandatory": true
     },
     {
-      "id": 82,
+      "id": 83,
       "name": "\nCerulean Cave B1F",
       "description": "You find a ladder that takes you into the depths of the cave. You feel the presence of the powerful Pokemon.",
       "encounter": 10,
@@ -2032,13 +2032,6 @@
           "name" : "Jackson",
           "pokemons": [
             {
-              "id": 106,
-              "level": 40,
-              "moveIds": [
-                68,69,25,14
-              ]
-            },
-            {
               "id": 18,
               "level": 35,
               "moveIds": [
@@ -2046,10 +2039,24 @@
               ]
             },
             {
+              "id": 58,
+              "level": 35,
+              "moveIds": [
+                72,74,27,138
+              ]
+            },
+            {
               "id": 117,
               "level": 35,
               "moveIds": [
                 15,43,100,111
+              ]
+            },
+            {
+              "id": 106,
+              "level": 40,
+              "moveIds": [
+                68,69,25,14
               ]
             }
           ]
@@ -2879,13 +2886,6 @@
           "name" : "Jackson",
           "pokemons": [
             {
-              "id": 106,
-              "level": 57,
-              "moveIds": [
-                68,210,25,14
-              ]
-            },
-            {
               "id": 18,
               "level": 54,
               "moveIds": [
@@ -2900,10 +2900,24 @@
               ]
             },
             {
+              "id": 59,
+              "level": 54,
+              "moveIds": [
+                116,75,27,120
+              ]
+            },
+            {
               "id": 64,
               "level": 54,
               "moveIds": [
                 44,45,46,105
+              ]
+            },
+            {
+              "id": 106,
+              "level": 57,
+              "moveIds": [
+                68,210,25,14
               ]
             }
           ]
@@ -3675,16 +3689,12 @@
           "quantity": 1
         },
         {
-          "id": 38,
-          "quantity": 1
-        },
-        {
           "id": 59,
           "quantity": 1
         }
       ],
       "startDialog": "This is my hideout! I planned to resurrect TEAM ROCKET here! But, you have caught me again! So be it! This time, I'm not holding back!",
-      "endDialogWin": "That was a truly intense fight! You have won! As proof, here is the Earth Badge. Having lost, I cannot face my underlings! TEAM ROCKET is finished forever!",
+      "endDialogWin": "No, this is not over.  But nothing will prepare you for my secret weapon",
       "endDialogLoose": "Fwahahaha! You got defeated by me, Giovanni, the greatest trainer!",
       "music": 3,
       "icon": "images/boss_icon/VS_Giovanni.png",
@@ -3695,6 +3705,57 @@
     },
     {
       "id": 64,
+      "name": "\nVS ???",
+      "description": "Giovanni has called his secret weapon which looks like an armored Pokémon",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Giovanni.png",
+          "name" : "Gym Leader Giovanni",
+          "pokemons": [
+            {
+              "id": -1,
+              "level": 70,
+              "moveIds": [
+                132,39,93,25
+              ]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 38,
+          "quantity": 1
+        },
+        {
+          "id": 59,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Go, my secret weapon!",
+      "endDialogWin": "That was a truly intense fight! You have won! As proof, here is the Earth Badge. Having lost, I cannot face my underlings! TEAM ROCKET is finished forever!",
+      "endDialogLoose": "Fwahahaha! You got defeated by me, Giovanni, the greatest trainer!",
+      "music": 4,
+      "icon": "images/boss_icon/armored_mewtwo.JPG",
+      "background": "images/battle_background/building_battle_background.jpg",
+      "exp": 10000,
+      "mandatory": true,
+      "iaLevel": 3
+    },
+    {
+      "id": 65,
       "name": "\nVS Rival 6",
       "description": "Now that you have 8 badges, you head for the Victory Road. However, on Route 22, you run into Jackson.",
       "opponents": [
@@ -3718,14 +3779,14 @@
               "moveIds": [44,45,46,105]
             },
             {
-              "id": 126,
+              "id": 125,
               "level": 70,
-              "moveIds": [82,103,69,45]
+              "moveIds": [12,110,107,45]
             },
             {
-              "id": 247,
+              "id": 59,
               "level": 70,
-              "moveIds": [25,93,27,171]
+              "moveIds": [116,75,27,200]
             },
             {
               "id": 106,
@@ -3764,7 +3825,7 @@
       "iaLevel": 3
     },
     {
-      "id": 66,
+      "id": 67,
       "name": "\nVictory Road 2",
       "description": "Still in Victory Road, there are several trainers in your path. Take them down to get to the Pokemon League",
       "opponents": [
@@ -3856,7 +3917,7 @@
       "iaLevel": 3
     },
     {
-      "id": 68,
+      "id": 69,
       "name": "\nVS Lorelei",
       "description": "",
       "opponents": [
@@ -3912,7 +3973,7 @@
       "iaLevel": 1
     },
     {
-      "id": 69,
+      "id": 70,
       "name": "\nVS Bruno",
       "description": "",
       "opponents": [
@@ -3966,7 +4027,7 @@
       "iaLevel": 1
     },
     {
-      "id": 70,
+      "id": 71,
       "name": "\nVS Agatha",
       "description": "",
       "opponents": [
@@ -4020,7 +4081,7 @@
       "iaLevel": 1
     },
     {
-      "id": 71,
+      "id": 72,
       "name": "\nVS Lance",
       "description": "",
       "opponents": [
@@ -4074,7 +4135,7 @@
       "iaLevel": 1
     },
     {
-      "id": 72,
+      "id": 73,
       "name": "\nVS Champion",
       "description": "",
       "type": "Trainer Battle",
@@ -4105,14 +4166,14 @@
               ]
             },
             {
-              "id": 467,
-              "level": 75,
-              "moveIds": [82,12,69,45]
+              "id": 59,
+              "level": 73,
+              "moveIds": [116,75,200,138]
             },
             {
-              "id": 248,
+              "id": 466,
               "level": 75,
-              "moveIds": [25,93,27,120]
+              "moveIds": [107,110,93,200]
             },
             {
               "id": 106,
@@ -4136,7 +4197,7 @@
       "iaLevel": 3
     },
     {
-      "id": 79,
+      "id": 80,
       "name": "\nVS Cynthia",
       "description": "At the top of Mt. Silver, you come across the champion of the Sinnoh region.",
       "opponents": [
@@ -4312,7 +4373,7 @@
       "mandatory": true
     },
     {
-      "id": 67,
+      "id": 68,
       "name": "\nVs Moltres",
       "description": "You finally see the exit of Victory Road but you feel the presence of a powerful Pokemon near you. You head into a really hot room near the exit and come across the legendary bird Moltres.",
       "boss":
@@ -4339,7 +4400,7 @@
       "mandatory": true
     },
     {
-      "id": 75,
+      "id": 76,
       "name": "\nVs Zapdos",
       "description": "At the very bottom of the Power Plant, you come across the legendary bird Zapdos and he attacks you!",
       "boss":
@@ -4366,7 +4427,7 @@
       "mandatory": true
     },
     {
-      "id": 78,
+      "id": 79,
       "name": "\nVs Tyranitar",
       "description": "You can see the exit to the top of Mt Silver. However, a very powerful looking Tyranitar attacks you!",
       "boss":
@@ -4374,7 +4435,7 @@
         "id": 248,
         "level": 82,
         "moveIds": [25,27,93,57,120],
-        "boostedStats": ["DEFENSE","SPDEF"]
+        "boostedStats": ["DEFENSE","SPDEF","SPEED"]
       },
       "rewards": [
         {
@@ -4397,7 +4458,7 @@
       "mandatory": true
     },
     {
-      "id": 83,
+      "id": 84,
       "name": "\nVs Mewtwo",
       "description": "You finally come across the powerful Pokemon. It seems to want to fight you! Show him what you can do!",
       "boss":
@@ -4432,7 +4493,7 @@
       "mandatory": true
     },
     {
-      "id": 84,
+      "id": 85,
       "name": "\nVs Mega Mewtwo",
       "description": "Mewtwo is about to faint but he gets up and shows you his true power. Give it all you've got and use the inventive strategies that got you this far!",
       "boss":

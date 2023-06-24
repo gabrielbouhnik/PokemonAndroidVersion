@@ -58,18 +58,6 @@ class BattleFrontierBattle() : Battle() {
         this.opponent = this.opponentTrainer.getFirstPokemonThatCanFight()!!
     }
 
-    override fun turnWithSwitch(pokemonToBeSent: Pokemon): String {
-        val sb = StringBuilder()
-        val previousPokemon = pokemon
-        sb.append("${activity.trainer!!.name} sends ${pokemonToBeSent.data.name}\n")
-        val move = IAUtils.ia(opponent,previousPokemon)
-        switchPokemon(pokemonToBeSent)
-        sb.append(BattleUtils.abilitiesCheck(pokemon,opponent))
-        sb.append(opponentTurn(move, false))
-        endTurn(sb)
-        return sb.toString()
-    }
-
     override fun getBattleState(): State {
         if (!team.any { it.currentHP > 0 })
             return State.TRAINER_LOSS

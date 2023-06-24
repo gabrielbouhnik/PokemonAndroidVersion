@@ -21,14 +21,14 @@ class LevelMenu {
         const val LAPRAS_LEVEL = 52
         const val ARTICUNO_LEVEL = 56
         const val BLAINE_LEVEL = 59
-        const val MOLTRES_LEVEL = 66
-        const val ZAPDOS_LEVEL = 75
-        const val MEWTWO_LEVEL = 84
         const val MEGA_CHARIZARD_LEVEL_ID = 61
-        const val MEGA_VENUSAUR_LEVEL_ID = 66
-        const val ELITE_4_FIRST_LEVEL_ID = 68
-        const val ELITE_4_LAST_LEVEL_ID = 72
-        const val CYNTHIA_LEVEL_ID = 79
+        const val MEGA_VENUSAUR_LEVEL_ID = 67
+        const val MOLTRES_LEVEL = 68
+        const val ELITE_4_FIRST_LEVEL_ID = 69
+        const val ELITE_4_LAST_LEVEL_ID = 73
+        const val ZAPDOS_LEVEL = 76
+        const val CYNTHIA_LEVEL_ID = 80
+        const val MEWTWO_LEVEL = 85
     }
 
     var battleUI: BattleUI = BattleUI()

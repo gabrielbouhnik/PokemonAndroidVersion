@@ -41,6 +41,18 @@ class IAUtils {
             return false
         }
 
+        fun iaWildPokemon(attacker: Pokemon): PokemonMove {
+            val usableMoves = MoveUtils.getMoveList(attacker).filter { it.pp > 0 }
+            if (attacker.battleData!!.chargedMove != null) {
+                val move = attacker.battleData!!.chargedMove!!
+                attacker.battleData!!.chargedMove = null
+                return move
+            }
+            if (attacker.battleData!!.rampageMove != null)
+                return attacker.battleData!!.rampageMove!!
+            return usableMoves.random()
+        }
+
         fun ia(attacker: Pokemon, opponent: Pokemon): PokemonMove {
             val usableMoves = MoveUtils.getMoveList(attacker).filter { it.pp > 0 }
             if (opponent.currentHP == 0)
@@ -81,7 +93,7 @@ class IAUtils {
                     )
                         return move
                 }
-                if (move.move is HealMove && attacker.hp / attacker.currentHP > 4)
+                if (move.move is HealMove && attacker.hp / attacker.currentHP > 3)
                     return move
                 if (move.move is StatChangeMove) {
                     val statChangeMove: StatChangeMove = move.move as StatChangeMove
