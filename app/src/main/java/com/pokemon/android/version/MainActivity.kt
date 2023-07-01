@@ -1,5 +1,6 @@
 package com.pokemon.android.version
 
+import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View.GONE
@@ -9,17 +10,26 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Trainer
+import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.ui.MainMenu
 import com.pokemon.android.version.ui.StarterSelection
+import com.pokemon.android.version.utils.SpriteUtils
+import java.io.InputStream
 import kotlin.random.Random
-import kotlin.random.nextInt
 
 class MainActivity : AppCompatActivity() {
     companion object {
         const val pokemonSpritesUrl: String =
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
+            "https://www.serebii.net/swordshield/pokemon/"
+        const val pokemonSVspritesUrl : String = "https://www.serebii.net/scarletviolet/pokemon/new/";
+        const val pokemonSVshinySpriteUrl : String = "https://www.serebii.net/Shiny/SV/new/"
+        const val megaPokemonSpritesUrl: String =
+            "https://www.serebii.net/pokemongo/pokemon/"
         const val pokemonBackSpritesUrl: String =
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/"
+        const val armoredMewtwoUrl: String = "https://www.serebii.net/pokemongo/pokemon/150-armored.png"
+        val idForSVsprites = listOf(6,25,26,39,40,48,49,54,55,58,59,79,80,81,82,90,91,93,94,100,101,113,123,128,129,130,133,134,135,136,144,145,146,147,148,149,150,151,155,156,157,
+            181,183,184,187,188,189,195,196,197,198,199,203,204,205,211,212,214,215,216,217,228,229,231,232,242,246,247,248,282,286,297,308,373,398,405,426,429,430,442,448,461,462,475,488)
     }
 
     private var currentMusicId: Int? = null
@@ -58,29 +68,85 @@ class MainActivity : AppCompatActivity() {
             sprite1.visibility = GONE
             sprite2.visibility = GONE
         }
-        displayPokemon(1, sprite1)
-        displayPokemon(4, sprite2)
-        displayPokemon(7, sprite3)
+        displayPokemon(1, false, sprite1)
+        displayPokemon(4, false, sprite2)
+        displayPokemon(7, false, sprite3)
     }
 
-    fun displayPokemon(id: Int, imageView: ImageView) {
-        Glide.with(this)
-            .load("$pokemonSpritesUrl$id.png")
-            .into(imageView)
+    fun displayPokemon(id: Int, shiny: Boolean, imageView: ImageView) {
+        val idForUrl = SpriteUtils.getThreeDigitId(id)
+        if (!shiny) {
+            when {
+                id == -1 -> {
+                    Glide.with(this)
+                        .load(armoredMewtwoUrl)
+                        .into(imageView)
+                }
+                idForSVsprites.contains(id) -> {
+                    Glide.with(this)
+                        .load("$pokemonSVspritesUrl$idForUrl.png")
+                        .into(imageView)
+                }
+                else -> {
+                    Glide.with(this)
+                        .load("$pokemonSpritesUrl$idForUrl.png")
+                        .into(imageView)
+                }
+            }
+        } else {
+            if (idForSVsprites.contains(id)) {
+                Glide.with(this)
+                    .load("$pokemonSVshinySpriteUrl$idForUrl.png")
+                    .into(imageView)
+            } else {
+                Glide.with(this)
+                    .load("https://www.serebii.net/Shiny/SWSH/$idForUrl.png")
+                    .into(imageView)
+            }
+
+        }
     }
 
-    fun displayPokemonBack(id: Int, imageView: ImageView) {
-        Glide.with(this)
-            .load("$pokemonBackSpritesUrl$id.png")
-            .into(imageView)
+    fun displayMegaPokemon(id: Int, shiny: Boolean, imageView: ImageView) {
+        val idForUrl = SpriteUtils.getThreeDigitId(id)
+        var filename = "${idForUrl}-m.png"
+        if (id == 6)
+            filename = "${idForUrl}-mx.png"
+        if (id == 150){
+            val filename = "images/mega/150_front.png"
+            val img: InputStream = this.assets.open(filename)
+            imageView.setImageDrawable(Drawable.createFromStream(img, filename))
+        } else {
+            if (!shiny) {
+                Glide.with(this)
+                    .load(megaPokemonSpritesUrl + filename)
+                    .into(imageView)
+            } else {
+                Glide.with(this)
+                    .load("${pokemonSpritesUrl}shiny/" + filename)
+                    .into(imageView)
+            }
+        }
+    }
+
+    fun displayPokemonBack(id: Int, shiny: Boolean, imageView: ImageView) {
+        if (!shiny) {
+            Glide.with(this)
+                .load("$pokemonBackSpritesUrl$id.png")
+                .into(imageView)
+        } else {
+            Glide.with(this)
+                .load("${pokemonBackSpritesUrl}shiny/$id.png")
+                .into(imageView)
+        }
     }
 
     private fun titleScreen() {
-        val random = Random.nextInt(1..251)
+        val ids: List<Int> =
+            listOf(3, 6, 9, 25, 26, 59, 76, 94, 95, 112, 115, 121, 123, 125, 126, 130, 131, 143, 149, 229, 248)
+        val randomId = ids[Random.nextInt(ids.size)]
         val imageView: ImageView = findViewById(R.id.randomPokemonSpriteView)
-        Glide.with(this)
-            .load("$pokemonSpritesUrl$random.png")
-            .into(imageView)
+        displayPokemon(randomId, false, imageView)
         val startButton: Button = findViewById(R.id.startButton)
         startButton.setOnClickListener {
             mediaPlayer?.stop()
@@ -91,7 +157,7 @@ class MainActivity : AppCompatActivity() {
                 starterSelection = StarterSelection()
                 starterSelection?.startNewGame(this)
             } else {
-                if (trainer!!.progression >= 67) {
+                if (trainer!!.progression >= LevelMenu.ELITE_4_LAST_LEVEL_ID) {
                     gameDataService.updateEliteMode()
                     gameDataService.updateGymLeaderExp()
                 }

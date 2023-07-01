@@ -1,6 +1,7 @@
 package com.pokemon.android.version.utils
 
 import com.pokemon.android.version.model.Pokemon
+import com.pokemon.android.version.model.level.PokemonBoss
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 
@@ -14,6 +15,12 @@ class MoveUtils {
                 res.add(pokemon.move3!!)
             if (pokemon.move4 != null)
                 res.add(pokemon.move4!!)
+            if (pokemon is PokemonBoss) {
+                if (pokemon.move5 != null)
+                    res.add(pokemon.move5!!)
+                if (pokemon.move6 != null)
+                    res.add(pokemon.move6!!)
+            }
             return res
         }
 

@@ -4,4 +4,6 @@ interface ITrainer {
     fun canStillBattle(): Boolean
 
     fun getFirstPokemonThatCanFight(): Pokemon?
+
+    fun getTrainerTeam(): List<Pokemon>
 }

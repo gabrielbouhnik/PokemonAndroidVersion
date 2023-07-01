@@ -1,22 +1,22 @@
 package com.pokemon.android.version.ui
 
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Pokemon
+import java.io.InputStream
 
 class PokemonRecyclerAdapter(
     val activity: MainActivity,
     val data: MutableList<Pokemon>,
     private val onItemClickListener: View.OnClickListener,
-    private val displayCanEvolve : Boolean
+    private val displayCanEvolve: Boolean
 ) :
     RecyclerView.Adapter<PokemonRecyclerAdapter.ViewHolder>() {
 
@@ -42,12 +42,17 @@ class PokemonRecyclerAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = data[position]
         holder.itemView.tag = position
-        holder.nameTextView.text = currentItem.data.name
         holder.hpLevelTextView.text = "Level  ${currentItem.level}  ${currentItem.currentHP}/${currentItem.hp}"
         if (displayCanEvolve && currentItem.canEvolve())
-            holder.canEvolveTextView.visibility = VISIBLE
-        Glide.with(activity)
-            .load(MainActivity.pokemonSpritesUrl + currentItem.data.id + ".png")
-            .into(holder.spriteView)
+            holder.canEvolveTextView.text = "CAN EVOLVE"
+        else
+            holder.canEvolveTextView.text = " "
+        if (currentItem.isMegaEvolved) {
+            holder.nameTextView.text = "Mega ${currentItem.data.name}"
+            activity.displayMegaPokemon(currentItem.data.id, currentItem.shiny, holder.spriteView)
+        } else {
+            holder.nameTextView.text = currentItem.data.name
+            activity.displayPokemon(currentItem.data.id, currentItem.shiny, holder.spriteView)
+        }
     }
 }

@@ -14,7 +14,8 @@ open class Move(
     var priorityLevel: Int = 0,
     var status: List<StatusMove>,
     var highCritRate: Boolean = false,
-    var description: String
+    var description: String,
+    var characteristics: List<MoveCharacteristic> = listOf()
 ) {
     companion object {
         fun of(moveEntity: MoveEntity): Move {
@@ -30,6 +31,7 @@ open class Move(
                 .highCritRate(moveEntity.highCritRate)
                 .status(moveEntity.status.map(StatusMove::of))
                 .description(moveEntity.description)
+                .characteristics(moveEntity.characteristics.map { MoveCharacteristic.valueOf(it) })
                 .build()
         }
     }
@@ -45,7 +47,8 @@ open class Move(
         var priorityLevel: Int = 0,
         var status: List<StatusMove> = arrayListOf(),
         var highCritRate: Boolean = false,
-        var description: String = ""
+        var description: String = "",
+        var characteristics: List<MoveCharacteristic> = listOf()
     ) {
         fun id(id: Int) = apply { this.id = id }
         fun name(name: String) = apply { this.name = name }
@@ -58,6 +61,23 @@ open class Move(
         fun highCritRate(highCritRate: Boolean) = apply { this.highCritRate = highCritRate }
         fun description(description: String) = apply { this.description = description }
         fun status(status: List<StatusMove>) = apply { this.status = status }
-        fun build() = Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description)
+        fun characteristics(characteristics: List<MoveCharacteristic>) =
+            apply { this.characteristics = characteristics }
+
+        fun build() =
+            Move(
+                id,
+                name,
+                type,
+                category,
+                power,
+                pp,
+                accuracy,
+                priorityLevel,
+                status,
+                highCritRate,
+                description,
+                characteristics
+            )
     }
 }

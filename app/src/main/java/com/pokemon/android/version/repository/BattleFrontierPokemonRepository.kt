@@ -7,7 +7,7 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.entity.battlefrontier.BattleFrontierPokemonEntity
 import com.pokemon.android.version.utils.JsonFileToString
 
-class BattleFrontierPokemonRepository : Repository<BattleFrontierPokemonEntity>  {
+class BattleFrontierPokemonRepository : Repository<BattleFrontierPokemonEntity> {
     override fun loadData(activity: MainActivity): List<BattleFrontierPokemonEntity> {
         val pokemonsJsonString: String = JsonFileToString.loadJsonStringFromAssets(
             activity,

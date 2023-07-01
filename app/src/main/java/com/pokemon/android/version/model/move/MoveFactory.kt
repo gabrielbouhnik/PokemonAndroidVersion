@@ -13,6 +13,14 @@ class MoveFactory {
                 movesEntity.drainMoves.forEach { res.add(DrainMove.of(it)) }
                 movesEntity.recoilMoves.forEach { res.add(RecoilMove.of(it)) }
                 movesEntity.healMoves.forEach { res.add(HealMove.of(it)) }
+                movesEntity.multipleHitMoves.forEach { res.add(MultipleHitMove.of(it)) }
+                movesEntity.movesBasedOnLevelEntity.forEach { res.add(MoveBasedOnLevel.of(it)) }
+                movesEntity.ultimateMoves.forEach { res.add(UltimateMove.of(it)) }
+                movesEntity.movesBasedOnHPEntity.forEach { res.add(MoveBasedOnHP.of(it)) }
+                movesEntity.chargedMovesEntity.forEach { res.add(ChargedMove.of(it)) }
+                movesEntity.rampageMovesEntity.forEach { res.add(RampageMove.of(it)) }
+                movesEntity.movesThatRemoveStatChangesEntity.forEach { res.add(RemoveStatChangesMove.of(it)) }
+                movesEntity.retalationMovesEntity.forEach { res.add(RetaliationMove.of(it)) }
             }
             res.sortBy { it.id }
             return res

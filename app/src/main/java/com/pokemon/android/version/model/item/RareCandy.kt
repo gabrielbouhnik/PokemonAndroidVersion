@@ -1,6 +1,7 @@
 package com.pokemon.android.version.model.item
 
 import com.pokemon.android.version.model.Pokemon
+import com.pokemon.android.version.model.Trainer
 
 class RareCandy : Item {
     companion object {
@@ -8,7 +9,7 @@ class RareCandy : Item {
     }
 
     override fun isUsable(pokemon: Pokemon): Boolean {
-        return pokemon.level < pokemon.trainer!!.getMaxLevel()
+        return pokemon.level < (pokemon.trainer!! as Trainer).getMaxLevel()
     }
 
     override fun apply(pokemon: Pokemon) {

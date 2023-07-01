@@ -29,7 +29,7 @@ class HealUtils {
                 pokemon.move4!!.pp = pokemon.move4!!.move.pp
         }
 
-        fun healTeam(team: List<Pokemon>){
+        fun healTeam(team: List<Pokemon>) {
             team.forEach {
                 it.currentHP = it.hp
                 it.status = Status.OK

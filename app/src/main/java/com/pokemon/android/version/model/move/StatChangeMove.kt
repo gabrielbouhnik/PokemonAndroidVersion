@@ -16,26 +16,41 @@ class StatChangeMove(
     var multiplicator: Float, var probability: Int?,
     status: List<StatusMove>,
     highCritRate: Boolean = false,
-    description: String
-) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description) {
+    description: String,
+    characteristics: List<MoveCharacteristic> = listOf()
+) : Move(
+    id,
+    name,
+    type,
+    category,
+    power,
+    pp,
+    accuracy,
+    priorityLevel,
+    status,
+    highCritRate,
+    description,
+    characteristics
+) {
     companion object {
-        fun of(StatChangeMoveEntity: StatChangeMoveEntity): StatChangeMove {
+        fun of(statChangeMoveEntity: StatChangeMoveEntity): StatChangeMove {
             return StatChangeMove(
-                StatChangeMoveEntity.id,
-                StatChangeMoveEntity.name,
-                Type.of(StatChangeMoveEntity.type),
-                MoveCategory.valueOf(StatChangeMoveEntity.category),
-                StatChangeMoveEntity.power,
-                StatChangeMoveEntity.pp,
-                StatChangeMoveEntity.accuracy,
-                StatChangeMoveEntity.priorityLevel,
-                StatChangeMoveEntity.statsAffected.map { Stats.valueOf(it) },
-                Target.valueOf(StatChangeMoveEntity.target),
-                StatChangeMoveEntity.multiplicator,
-                StatChangeMoveEntity.probability,
-                StatChangeMoveEntity.status.map(StatusMove::of),
-                StatChangeMoveEntity.highCritRate,
-                StatChangeMoveEntity.description
+                statChangeMoveEntity.id,
+                statChangeMoveEntity.name,
+                Type.of(statChangeMoveEntity.type),
+                MoveCategory.valueOf(statChangeMoveEntity.category),
+                statChangeMoveEntity.power,
+                statChangeMoveEntity.pp,
+                statChangeMoveEntity.accuracy,
+                statChangeMoveEntity.priorityLevel,
+                statChangeMoveEntity.statsAffected.map { Stats.valueOf(it) },
+                Target.valueOf(statChangeMoveEntity.target),
+                statChangeMoveEntity.multiplicator,
+                statChangeMoveEntity.probability,
+                statChangeMoveEntity.status.map(StatusMove::of),
+                statChangeMoveEntity.highCritRate,
+                statChangeMoveEntity.description,
+                statChangeMoveEntity.characteristics.map { MoveCharacteristic.valueOf(it) }
             )
         }
     }

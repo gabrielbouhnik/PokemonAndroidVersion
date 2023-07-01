@@ -14,15 +14,15 @@
             android:visibility="visible" app:srcCompat="@mipmap/oak_foreground"
             app:layout_constraintHorizontal_bias="0.562"/>
     <TextView
-            android:layout_width="406dp"
-            android:layout_height="168dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Welcome to the magical world of Pokémon! My name is Oak! People often call me Professor Pokémon! This world is populated by creatures called Pokémon! For some people, Pokémon are pets, for others, they are a way to fight. For me, the study of Pokémon is my profession. "
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" android:id="@+id/oakTextView"
             app:layout_constraintHorizontal_bias="0.63" app:layout_constraintVertical_bias="0.707"
-            android:textSize="20sp" android:textAlignment="center" android:textColor="#000000"
+            android:textSize="18sp" android:textAlignment="center" android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent" android:backgroundTint="#DCDCDC"
             android:background="#FFFFFF"/>
     <Button

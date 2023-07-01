@@ -1,6 +1,5 @@
 package com.pokemon.android.version.model.banner
 
-import android.widget.Toast
 import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.SaveManager
@@ -40,12 +39,14 @@ class Banner(
         if (activity.trainer!!.coins >= cost) {
             activity.trainer!!.coins -= cost
         } else {
-            Toast.makeText(activity, "You don't have enough AndroCoins.", Toast.LENGTH_SHORT).show()
             return null
         }
         val s: Summonable = summon()
         if (s is ItemBanner) {
-            activity.trainer!!.addItem(s.id, 1)
+            if (activity.trainer!!.items.contains(s.id) && ((description.contains("TM") && activity.trainer!!.items[s.id] == 10) || activity.trainer!!.items[s.id] == 99))
+                activity.trainer!!.coins += cost
+            else
+                activity.trainer!!.addItem(s.id, 1)
         } else {
             val pokemonBanner = s as PokemonBanner
             activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemonFromBanner(pokemonBanner))

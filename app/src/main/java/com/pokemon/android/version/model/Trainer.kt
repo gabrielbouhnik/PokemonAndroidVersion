@@ -20,7 +20,8 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
     var battleTowerProgression: BattleFrontierProgression? = null
     var battleFactoryProgression: BattleFrontierProgression? = null
     var successfulAchievements: ArrayList<Int> = arrayListOf()
-    var achievements : Achievements? = null
+    var achievements: Achievements? = null
+    var pokedex: HashMap<Int, Boolean> = HashMap()
 
     override fun getFirstPokemonThatCanFight(): Pokemon? {
         for (pokemon in team) {
@@ -30,6 +31,10 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         return null
     }
 
+    override fun getTrainerTeam(): List<Pokemon> {
+        return team
+    }
+
     fun catchPokemon(pokemon: Pokemon, ballId: Int): Boolean {
         if (pokemon.trainer != null)
             return false
@@ -37,8 +42,12 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         if (items[ballId] == 0) {
             items.remove(ballId)
         }
+        if (pokemon.shiny) {
+            receivePokemon(pokemon)
+            return true
+        }
         var status = 1f
-        if (pokemon.status == Status.BURN || pokemon.status == Status.POISON || pokemon.status == Status.PARALYSIS || pokemon.status == Status.FROZEN)
+        if (pokemon.status == Status.BURN || pokemon.status == Status.POISON || pokemon.status == Status.BADLY_POISON || pokemon.status == Status.PARALYSIS || pokemon.status == Status.FROZEN)
             status = 1.5f
         if (pokemon.status == Status.ASLEEP)
             status = 2.5f
@@ -50,7 +59,7 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
             successRate *= 3
         val catch: Int =
             (((1f - ((2f / 3f) * (pokemon.currentHP / pokemon.hp).toFloat())) * status) * pokemon.data.catchRate.toFloat() * successRate).toInt()
-        if (catch >= 255) {
+        if (catch >= 255 || pokemon.shiny) {
             receivePokemon(pokemon)
             if (ball is Ball.HealBall) {
                 pokemon.currentHP = pokemon.hp
@@ -72,6 +81,7 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
 
     fun receivePokemon(pokemon: Pokemon) {
         pokemon.trainer = this
+        pokedex[pokemon.data.id] = true
         pokemon.currentExp = ExpGaugeType.getExpGauge(pokemon)
         pokemons.add(pokemon)
         if (this.team.size < 6)
@@ -105,8 +115,8 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         return false
     }
 
-    fun heal(pokemon: Pokemon) {
-        if (items.contains(10) && ItemUtils.getItemById(10).isUsable(pokemon))
+    fun heal(pokemon: Pokemon, healPP: Boolean) {
+        if (healPP && items.contains(10) && ItemUtils.getItemById(10).isUsable(pokemon))
             useItem(10, pokemon)
         if (pokemon.currentHP == 0) {
             if (items.contains(9))
@@ -162,5 +172,10 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         if (items.contains(31))
             return 30
         return 20
+    }
+
+    fun updatePokedex(pokemon: Pokemon) {
+        if (!pokedex.containsKey(pokemon.data.id))
+            pokedex[pokemon.data.id] = false
     }
 }

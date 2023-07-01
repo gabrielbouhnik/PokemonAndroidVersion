@@ -13,8 +13,22 @@ import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAI
 
 class LevelMenu {
     companion object {
-        const val ELITE_4_FIRST_LEVEL_ID = 64
-        const val ELITE_4_LAST_LEVEL_ID = 68
+        const val MISTY_LEVEL = 18
+        const val OTHER_BANNER_LEVEL = 19
+        const val DUGTRIO_LEVEL = 24
+        const val ERIKA_LEVEL = 36
+        const val TYROGUE_LEVEL = 50
+        const val LAPRAS_LEVEL = 52
+        const val ARTICUNO_LEVEL = 56
+        const val BLAINE_LEVEL = 59
+        const val MEGA_CHARIZARD_LEVEL_ID = 61
+        const val MEGA_VENUSAUR_LEVEL_ID = 67
+        const val MOLTRES_LEVEL = 68
+        const val ELITE_4_FIRST_LEVEL_ID = 69
+        const val ELITE_4_LAST_LEVEL_ID = 73
+        const val ZAPDOS_LEVEL = 76
+        const val CYNTHIA_LEVEL_ID = 80
+        const val MEWTWO_LEVEL = 85
     }
 
     var battleUI: BattleUI = BattleUI()
@@ -50,7 +64,8 @@ class LevelMenu {
             val position = it.tag as Int
             val levelData: LevelData = levels[position]
             if (activity.trainer!!.canStillBattle())
-                startBattle(activity, levelData)}
+                startBattle(activity, levelData)
+        }
         val adapter = LevelRecyclerAdapter(activity, levels, myItemClickListener)
         recyclerView.adapter = adapter
     }
@@ -65,19 +80,19 @@ class LevelMenu {
         }
         val levels =
             activity.gameDataService.levels.filter { it.id <= activity.trainer!!.progression && it.id !in ELITE_4_FIRST_LEVEL_ID..ELITE_4_LAST_LEVEL_ID }
+                .reversed()
         val myItemClickListener = View.OnClickListener {
             val position = it.tag as Int
             val levelData: LevelData = levels[position]
-            if (activity.trainer!!.canStillBattle())
-            {
+            if (activity.trainer!!.canStillBattle()) {
                 if (activity.trainer!!.progression == levelData.id) {
                     loadLevelDescriptionMenu(activity, levelData)
                 } else if (activity.trainer!!.progression > levelData.id) {
                     startBattle(activity, levels[position])
                 }
-            }
-            else
-                Toast.makeText(activity, "You need to heal your Pokemon before starting a battle.", Toast.LENGTH_SHORT).show()
+            } else
+                Toast.makeText(activity, "You need to heal your Pokemon before starting a battle.", Toast.LENGTH_SHORT)
+                    .show()
 
         }
         val adapter = LevelRecyclerAdapter(activity, levels, myItemClickListener)
