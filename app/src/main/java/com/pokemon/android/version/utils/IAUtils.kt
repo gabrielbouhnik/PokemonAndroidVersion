@@ -43,13 +43,13 @@ class IAUtils {
 
         fun iaWildPokemon(attacker: Pokemon): PokemonMove {
             val usableMoves = MoveUtils.getMoveList(attacker).filter { it.pp > 0 }
+            if (attacker.battleData!!.rampageMove != null)
+                return attacker.battleData!!.rampageMove!!
             if (attacker.battleData!!.chargedMove != null) {
                 val move = attacker.battleData!!.chargedMove!!
                 attacker.battleData!!.chargedMove = null
                 return move
             }
-            if (attacker.battleData!!.rampageMove != null)
-                return attacker.battleData!!.rampageMove!!
             return usableMoves.random()
         }
 

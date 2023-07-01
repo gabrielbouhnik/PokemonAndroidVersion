@@ -182,7 +182,7 @@ open class Pokemon(
             }
         }
         if (move.move is RecoilMove && (move.move as RecoilMove).recoil == Recoil.ALL && opponent.hasAbility(Ability.DAMP)){
-            return AttackResponse(false, "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Damp: ${this.data.name} cannot use ${move.move.name}!")
+            return AttackResponse(false, "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Damp: ${this.data.name} cannot use ${move.move.name}!\n")
         }
         if (move.move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE)) {
             if (!opponent.battleData!!.battleStatus.contains(Status.FIRED_UP))

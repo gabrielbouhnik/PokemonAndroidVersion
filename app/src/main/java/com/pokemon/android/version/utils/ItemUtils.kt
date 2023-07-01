@@ -31,6 +31,7 @@ class ItemUtils {
                 13 -> return Ball.HYPERBALL
                 14 -> return Ball.NETBALL
                 15 -> return Ball.HEALBALL
+                in 16..29,in 38..39 -> return EvolutionItem(itemId)
                 51 -> return TMItem(72)
                 52 -> return TMItem(221)
                 53 -> return TMItem(24)

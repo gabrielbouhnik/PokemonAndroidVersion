@@ -256,9 +256,12 @@ class BattleUI {
                 }
             }
             State.TRAINER_VICTORY -> {
-                activity.trainer!!.team.forEach { it.recomputeStat() }
                 if (battle is BattleFrontierBattle) {
                     HealUtils.healTeam(team)
+                    team.forEach {
+                        it.recomputeStat()
+                        it.battleData = null
+                    }
                     activity.updateMusic(R.raw.victory_theme)
                     if (battle.area == BattleFrontierArea.BATTLE_FACTORY) {
                         activity.trainer!!.battleFactoryProgression!!.progression += 1
@@ -279,6 +282,7 @@ class BattleUI {
                     return
                 }
                 activity.trainer!!.team.forEach {
+                    it.recomputeStat()
                     it.battleData = null
                     if (it.hasAbility(Ability.NATURAL_CURE))
                         it.status = Status.OK

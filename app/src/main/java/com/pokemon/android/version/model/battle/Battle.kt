@@ -261,6 +261,30 @@ abstract class Battle {
     }
 
     protected fun endTurn(sb: StringBuilder) {
+        if (pokemon.currentHP > 0 && opponent.currentHP > 0) {
+            if (opponent.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
+                val damage = if (opponent.currentHP < 16) 1 else opponent.currentHP / 8
+                if (opponent.hasAbility(Ability.LIQUID_OOZE)) {
+                    sb.append("${opponent.data.name}'s Liquid Ooze: ${pokemon.data.name} loses some hp.\n")
+                    pokemon.takeDamage(damage)
+                } else {
+                    sb.append("The opposing ${opponent.data.name}'s health is sapped by Leech Seed\n")
+                    opponent.takeDamage(damage)
+                    pokemon.heal(damage)
+                }
+            }
+            if (pokemon.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
+                val damage = if (pokemon.currentHP < 16) 1 else pokemon.currentHP / 8
+                if (pokemon.hasAbility(Ability.LIQUID_OOZE)) {
+                    sb.append("${pokemon.data.name}'s Liquid Ooze: ${opponent.data.name} loses some hp.\n")
+                    opponent.takeDamage(damage)
+                } else {
+                    sb.append("${pokemon.data.name}'s health is sapped by Leech Seed\n")
+                    pokemon.takeDamage(damage)
+                    opponent.heal(damage)
+                }
+            }
+        }
         if (opponent.currentHP > 0) {
             if (opponent.battleData!!.rampageMove != null) {
                 opponent.battleData!!.rampageCounter += 1

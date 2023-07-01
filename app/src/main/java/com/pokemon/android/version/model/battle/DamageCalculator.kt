@@ -103,11 +103,14 @@ class DamageCalculator {
             }
             var power: Float =
                 if (move is MoveBasedOnHP) move.getPower(attacker).toFloat() else move.power.toFloat()
+            if (move.id == 233){
+                power *= (1 + (opponent.speed * opponent.battleData!!.speedMultiplicator) / (attacker.speed * attacker.battleData!!.speedMultiplicator)).roundToInt()
+            }
             if (attacker.hasAbility(Ability.SHEER_FORCE) && (move.status.isNotEmpty() || move is StatChangeMove))
                 power *= 1.3f
             if (move.power <= 60 && attacker.hasAbility(Ability.TECHNICIAN))
                 power *= 1.5f
-            if (move is RecoilMove && attacker.hasAbility(Ability.RECKLESS))
+            if ((move is RecoilMove || move.id == 210) && attacker.hasAbility(Ability.RECKLESS))
                 power *= 1.2f
             if (move.characteristics.contains(MoveCharacteristic.PUNCH) && attacker.hasAbility(Ability.IRON_FIST))
                 power *= 1.2f

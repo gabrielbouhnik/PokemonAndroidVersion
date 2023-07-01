@@ -4125,7 +4125,7 @@
       "rewards": [
       ],
       "startDialog": "Ah! I heard about you! I lead the Elite Four! You can call me Lance the dragon trainer! Well, are you ready to lose? Your League challenge ends with me",
-      "endDialogWin": "That's it! I hate to admit it, but you are a Pokémon master!",
+      "endDialogWin": "I still can't believe my dragons lost to you! You're now the Pokémon League Champion! Or, you would have been, but you have one more challenge ahead. You have to face another trainer!",
       "endDialogLoose": "I never give up, no matter what",
       "music": 3,
       "icon": "images/boss_icon/VS_Peter.PNG",
@@ -4188,7 +4188,7 @@
       "rewards": [],
       "startDialog": "Hey! I was looking forward to seeing you! My rival should be strong to keep me sharp! I looked all over for powerful Pokemon and I assembled a team that would beat any Pokemon type! And now! I'm the Pokemon League Champion! Do you know what that means? I'll tell you! I am the most powerful trainer in the world!",
       "endDialogWin": "NO! That can't be! You beat my best! After all that work to become the champion? My reign is over already? It's not fair!",
-      "endDialogLoose": "Sorry to say it, but this is it for you",
+      "endDialogLoose": "Hahah, this is so great! No one can defeat me!",
       "music": 5,
       "icon": "images/battle_background/champion_battle_background.png",
       "background": "images/battle_background/champion_battle_background.png",

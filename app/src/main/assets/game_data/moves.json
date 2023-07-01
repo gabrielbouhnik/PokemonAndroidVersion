@@ -2110,6 +2110,57 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 233,
+      "name": "Gyro Ball",
+      "power": 25,
+      "pp": 5,
+      "type": 16,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user tackles the target with a high-speed spin. The slower the user is than the target, the greater the move's power.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 234,
+      "name": "Leech Seed",
+      "power": 0,
+      "pp": 10,
+      "type": 1,
+      "category": "OTHER",
+      "accuracy": 90,
+      "description": "A seed is planted on the target. It steals some HP from the target every turn.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "LEECH_SEEDED"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 235,
+      "name": "Dragon Rush",
+      "power": 100,
+      "pp": 10,
+      "type": 15,
+      "category": "PHYSICAL",
+      "accuracy": 75,
+      "description": "The user tackles the target while exhibiting overwhelming menace. This may also make the target flinch.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 20
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "multipleHitMoves": [
