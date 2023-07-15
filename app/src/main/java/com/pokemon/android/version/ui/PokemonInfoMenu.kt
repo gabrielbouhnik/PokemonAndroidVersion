@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
+import com.pokemon.android.version.model.Ability
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Type
@@ -56,7 +57,11 @@ class PokemonInfoMenu(var parentId: Int) {
             activity.setContentView(R.layout.ability_layout)
             val recyclerView = activity.findViewById<RecyclerView>(R.id.abilityRecyclerView)
             recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-            val adapter = AbilityRecyclerAdapter(activity, pokemon.data.abilities)
+            val abilities = mutableListOf<Ability>()
+            abilities.addAll(pokemon.data.abilities)
+            if (pokemon.data.megaEvolutionData != null && pokemon.data.megaEvolutionData!!.ability != null)
+                abilities.add(pokemon.data.megaEvolutionData!!.ability!!)
+            val adapter = AbilityRecyclerAdapter(activity, abilities, pokemon.data)
             recyclerView.adapter = adapter
             val backButton: Button = activity.findViewById(R.id.abilitiesMenuBackButton)
             backButton.setOnClickListener {

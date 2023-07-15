@@ -8,10 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Ability
+import com.pokemon.android.version.model.PokemonData
 
 class AbilityRecyclerAdapter(
     var activity: MainActivity,
-    val data: List<Ability>
+    val data: List<Ability>,
+    val pokemonData: PokemonData
 ) :
     RecyclerView.Adapter<AbilityRecyclerAdapter.ViewHolder>() {
 
@@ -34,6 +36,11 @@ class AbilityRecyclerAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = data[position]
         holder.nameTextView.text = currentItem.toString().replace("_", " ")
+        if (pokemonData.megaEvolutionData?.ability != null
+            && position == data.size - 1){
+            holder.nameTextView.text = currentItem.toString().replace("_", " ") + " (Mega Evolution)"
+        }
+
         holder.descriptionTextView.text = currentItem.description
         holder.itemView.tag = position
     }

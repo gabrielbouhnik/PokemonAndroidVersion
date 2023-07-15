@@ -32,6 +32,4 @@
         accuracy: %4$s\n
         category: %5$s\n
     </string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

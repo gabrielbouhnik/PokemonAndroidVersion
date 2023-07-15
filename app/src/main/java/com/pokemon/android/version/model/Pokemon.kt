@@ -239,11 +239,15 @@ open class Pokemon(
             }
         }
         var details = ""
-        if (move.move is HealMove)
+        if (move.move is HealMove) {
+            if (move.move.id == 193)
+                this.battleData!!.battleStatus.add(Status.ROOSTED)
             HealMove.heal(this)
+        }
         if (move.move is UltimateMove)
             this.battleData!!.battleStatus.add(Status.UNABLE_TO_MOVE)
         var damage = 0
+        var crit = 1f
         if (move.move.power > 0) {
             if (move.move is MoveBasedOnLevel) {
                 damage = this.level
@@ -251,7 +255,7 @@ open class Pokemon(
                 val timesItHits = if (this.hasAbility(Ability.SKILL_LINK)) 5 else Random.nextInt(2..5)
                 var i = 0
                 while (i < timesItHits && opponent.currentHP > damage) {
-                    val crit = DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)
+                    crit = DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)
                     if (crit == 1.5f)
                         details += "A critical hit!\n"
                     damage += DamageCalculator.computeDamage(
@@ -265,7 +269,7 @@ open class Pokemon(
                 details =
                     if (timesItHits > 1) "${opponent.data.name} was hit $timesItHits times!\n" else "${opponent.data.name} was hit 1 time!\n"
             } else if (move.move is MultipleHitMove) {
-                val crit = DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)
+                crit = DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)
                 if (crit == 1.5f)
                     details += "A critical hit!\n"
                 damage += DamageCalculator.computeDamage(
@@ -289,7 +293,7 @@ open class Pokemon(
                     details += "${opponent.data.name} was hit 2 times!\n"
                 }
             } else {
-                val crit = DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)
+                crit = DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)
                 if (crit == 1.5f)
                     details += "A critical hit!\n"
                 damage = DamageCalculator.computeDamage(
@@ -325,6 +329,10 @@ open class Pokemon(
         } else {
             damageDone = damage
             opponent.takeDamage(damage)
+            if (crit == 1.5f && opponent.hasAbility(Ability.ANGER_POINT)){
+                details += "${opponent.data.name}'s Anger Point: ${this.data.name} maxed its Attack!\n"
+                opponent.battleData!!.attackMultiplicator = 4f
+            }
             if (move.move.type == Type.FIRE && opponent.status == Status.FROZEN)
                 opponent.status = Status.OK
             if (move.move.status.isNotEmpty()) {
@@ -369,10 +377,10 @@ open class Pokemon(
         }
         if (move.move is DrainMove) {
             details += if (opponent.hasAbility(Ability.LIQUID_OOZE)) {
-                this.takeDamage(damageDone / 2)
+                this.takeDamage(if (move.move.id == 238) damage*3/4 else damageDone / 2)
                 "${opponent.data.name}'s Liquid Ooze: ${this.data.name} loses some hp.\n"
             } else {
-                this.heal(damageDone / 2)
+                this.heal(if (move.move.id == 238) damage*3/4 else damageDone / 2)
                 "The opposing ${opponent.data.name} had its energy drained!\n"
             }
         }
@@ -539,7 +547,7 @@ open class Pokemon(
     }
 
     fun hasAbility(ability: Ability): Boolean {
-        return data.abilities.contains(ability) && !isMegaEvolved
+        return if (isMegaEvolved) data.megaEvolutionData!!.ability == ability else data.abilities.contains(ability)
     }
 
     fun takeDamage(damage: Int) {

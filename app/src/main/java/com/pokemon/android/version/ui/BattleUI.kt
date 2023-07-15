@@ -20,10 +20,7 @@ import com.pokemon.android.version.model.item.ItemQuantity
 import com.pokemon.android.version.model.level.*
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAIN_LEVEL_ID
-import com.pokemon.android.version.utils.BattleUtils
-import com.pokemon.android.version.utils.HealUtils
-import com.pokemon.android.version.utils.ItemUtils
-import com.pokemon.android.version.utils.MusicUtils
+import com.pokemon.android.version.utils.*
 import java.io.InputStream
 
 class BattleUI {
@@ -398,6 +395,14 @@ class BattleUI {
             ppTextView.visibility = VISIBLE
             ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
             attackButton.setOnClickListener {
+                if (activity.trainer!!.name == PokedexMenu.ADMIN) {
+                    Toast.makeText(
+                        activity,
+                        MoveUtils.getMoveList(battle.opponent).map{it.move.name}.toString(),
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
                 if (battle.pokemon.currentHP > 0 && battle.opponent.currentHP > 0) {
                     if (megaEvolve && battle.pokemon.canMegaEvolve()) {
                         val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
@@ -428,6 +433,14 @@ class BattleUI {
             ppTextView.text =
                 activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
             attack1Button.setOnClickListener {
+                if (activity.trainer!!.name == PokedexMenu.ADMIN) {
+                    Toast.makeText(
+                        activity,
+                        MoveUtils.getMoveList(battle.opponent).map{it.move.name}.toString(),
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
                 if (battle.pokemon.currentHP > 0 && battle.opponent.currentHP > 0) {
                     if (megaEvolve && battle.pokemon.canMegaEvolve()) {
                         val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)

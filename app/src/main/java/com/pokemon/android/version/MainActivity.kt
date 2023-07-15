@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/"
         const val armoredMewtwoUrl: String = "https://www.serebii.net/pokemongo/pokemon/150-armored.png"
         val idForSVsprites = listOf(6,25,26,39,40,48,49,54,55,58,59,79,80,81,82,90,91,93,94,100,101,113,123,128,129,130,133,134,135,136,144,145,146,147,148,149,150,151,155,156,157,
-            181,183,184,187,188,189,195,196,197,198,199,203,204,205,211,212,214,215,216,217,228,229,231,232,242,246,247,248,282,286,297,308,373,398,405,426,429,430,442,448,461,462,475,488)
+            181,183,184,187,188,189,195,196,197,198,199,203,204,205,211,212,214,215,216,217,228,229,231,232,242,246,247,248,282,286,297,308,373,398,405,426,429,430,442,448,461,462,475,488,700,715)
     }
 
     private var currentMusicId: Int? = null
@@ -130,14 +130,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun displayPokemonBack(id: Int, shiny: Boolean, imageView: ImageView) {
-        if (!shiny) {
-            Glide.with(this)
-                .load("$pokemonBackSpritesUrl$id.png")
-                .into(imageView)
-        } else {
-            Glide.with(this)
-                .load("${pokemonBackSpritesUrl}shiny/$id.png")
-                .into(imageView)
+        if (id < 650) {
+            if (!shiny) {
+                Glide.with(this)
+                    .load("$pokemonBackSpritesUrl$id.png")
+                    .into(imageView)
+            } else {
+                Glide.with(this)
+                    .load("${pokemonBackSpritesUrl}shiny/$id.png")
+                    .into(imageView)
+            }
+        } else{
+            val filename = if (shiny) "images/pokemon/${id}_back_shiny.png" else "images/pokemon/${id}_back.png"
+            val img: InputStream = this.assets.open(filename)
+            imageView.setImageDrawable(Drawable.createFromStream(img, filename))
         }
     }
 

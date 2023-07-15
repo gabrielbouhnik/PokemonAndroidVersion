@@ -2161,6 +2161,20 @@
       ],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 237,
+      "name": "Boomburst",
+      "power": 140,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 5,
+      "accuracy": 100,
+      "description": "The user attacks everything around it with the destructive power of a terrible explosive sound.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["SOUND"]
     }
   ],
   "multipleHitMoves": [
@@ -3417,6 +3431,25 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 236,
+      "name": "Baby-Doll Eyes",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 30,
+      "type": 18,
+      "accuracy": 100,
+      "description": "The user stares at the target with its baby-doll eyes, which lowers the target's Attack stat. This move always goes first.",
+      "priorityLevel": 1,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "drainMoves": [
@@ -3489,6 +3522,20 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 238,
+      "name": "Draining Kiss",
+      "power": 50,
+      "pp": 10,
+      "type": 18,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user steals the target's HP with a kiss. The user's HP is restored by over half the damage taken by the target.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "recoilMoves": [
@@ -3693,11 +3740,7 @@
       "type": 6,
       "description": "The user lands and rests its body. This move restores the user's HP by up to half of its max HP.",
       "priorityLevel": 0,
-      "status": [
-        {
-          "status": "ROOSTED"
-        }
-      ],
+      "status": [],
       "characteristics": []
     }
   ],

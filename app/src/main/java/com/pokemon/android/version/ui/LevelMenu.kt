@@ -27,8 +27,9 @@ class LevelMenu {
         const val ELITE_4_FIRST_LEVEL_ID = 69
         const val ELITE_4_LAST_LEVEL_ID = 73
         const val ZAPDOS_LEVEL = 76
-        const val CYNTHIA_LEVEL_ID = 80
-        const val MEWTWO_LEVEL = 85
+        const val STEVEN_LEVEL_ID = 77
+        const val CYNTHIA_LEVEL_ID = 81
+        const val MEWTWO_LEVEL = 86
     }
 
     var battleUI: BattleUI = BattleUI()

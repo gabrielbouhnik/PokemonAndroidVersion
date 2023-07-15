@@ -168,9 +168,9 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         if (items.contains(33))
             return 40
         if (items.contains(32))
-            return 35
-        if (items.contains(31))
             return 30
+        if (items.contains(31))
+            return 25
         return 20
     }
 

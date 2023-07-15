@@ -114,7 +114,7 @@
         "minLevel": 3,
         "maxLevel": 6,
         "encounters": [
-          10,11,13,14
+          10,10,10,11,13,13,13,14
         ]
       },
       "rewards": [
@@ -147,7 +147,7 @@
         "minLevel": 10,
         "maxLevel": 12,
         "encounters": [
-          35,41,41,41,74,74,74,27,27,27,46,46,46,216,231
+          27,27,27,27,35,41,41,41,41,41,41,41,46,46,46,46,46,46,74,74,74,216,231,714
         ]
       },
       "rewards": [
@@ -362,7 +362,7 @@
         "minLevel": 24,
         "maxLevel": 27,
         "encounters": [
-          104,92,104,92,104,92,104,92,93
+          104,92,104,92,104,92,104,92,104,92,104,92,104,92,93,93,607
         ]
       },
       "rewards": [
@@ -692,7 +692,7 @@
       "mandatory": true
     },
     {
-      "id": 77,
+      "id": 78,
       "name": "\nRoute 28",
       "description": "You receive a letter from the Sinnoh region's champion who wants to battle you on the top of Mt Silver. You decide to go there to face her.",
       "encounter": 8,
@@ -719,7 +719,7 @@
       "mandatory": true
     },
     {
-      "id": 78,
+      "id": 79,
       "name": "\nMt Silver",
       "description": "You finally reach Mt. Silver and you come across several wild Pokemon.",
       "encounter": 10,
@@ -746,7 +746,7 @@
       "mandatory": true
     },
     {
-      "id": 81,
+      "id": 82,
       "name": "\nCerulean Cave",
       "description": "After defeating Cynthia, you visit Professor Oak and he informs you that your rival Jackson has gone to Cerulean Cave and encountered the most powerful Pokemon he has ever seen. He ran away because his Pokemon were defeated by this creature. Be careful!",
       "encounter": 10,
@@ -775,7 +775,7 @@
       "mandatory": true
     },
     {
-      "id": 82,
+      "id": 83,
       "name": "\nCerulean Cave 1F",
       "description": "Pokemon in this cave are very powerful. Keep it up!",
       "encounter": 10,
@@ -804,7 +804,7 @@
       "mandatory": true
     },
     {
-      "id": 83,
+      "id": 84,
       "name": "\nCerulean Cave B1F",
       "description": "You find a ladder that takes you into the depths of the cave. You feel the presence of the powerful Pokemon.",
       "encounter": 10,
@@ -3508,8 +3508,8 @@
         }
       ],
       "startDialog": "Hello, it's been a long time! I'd like to show you an item from the Kalos region that can increase the strength of your Pokemon.",
-      "endDialogWin": "Here, it's yours! Try using it on the Pokemon I gave you when you started your journey!",
-      "endDialogLoose": "I can give it to you if you can defeat me.",
+      "endDialogWin": "Here, it's yours! Try using it on the Pokemon I gave you when you started your journey! There are many more Pokémon capable of Mega Evolution",
+      "endDialogLoose": "I will give this item to you if you can defeat me.",
       "music": 2,
       "icon": "images/battle_background/building_battle_background.jpg",
       "background": "images/battle_background/building_battle_background.jpg",
@@ -4138,7 +4138,6 @@
       "id": 73,
       "name": "\nVS Champion",
       "description": "",
-      "type": "Trainer Battle",
       "opponents": [
         {
           "sprite": "images/Spr_Rival.png",
@@ -4148,7 +4147,7 @@
               "id": 18,
               "level": 73,
               "moveIds": [
-                3,16,54,19
+                3,101,176,205
               ]
             },
             {
@@ -4197,7 +4196,73 @@
       "iaLevel": 3
     },
     {
-      "id": 80,
+      "id": 77,
+      "name": "\nVS Steven Stone",
+      "description": "After hearing about your victory in the league, a trainer invites you to Pewter City for a ",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Steven.png",
+          "name" : "Champion Steven Stone",
+          "pokemons": [
+            {
+              "id": 227,
+              "level": 80,
+              "moveIds": [193,205,19,203]
+            },
+            {
+              "id": 142,
+              "level": 80,
+              "moveIds": [25,27,93,57]
+            },
+            {
+              "id": 344,
+              "level": 80,
+              "moveIds": [93,45,100,230]
+            },
+            {
+              "id": 346,
+              "level": 80,
+              "moveIds": [234,132,48,66]
+            },
+            {
+              "id": 306,
+              "level": 80,
+              "moveIds": [57,25,93,147]
+            },
+            {
+              "id": 376,
+              "level": 83,
+              "moveIds": [179,148,107,21]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 100
+        },
+        {
+          "id": 3,
+          "quantity": 2
+        },
+        {
+          "id": 9,
+          "quantity": 2
+        }
+      ],
+      "startDialog": "Hi! My name is Steven. The Champion from the Hoenn region. I'm interested in rare Stones, so I travel here and there. Let's battle!",
+      "endDialogWin": "You are a truly noble Pokémon Trainer!",
+      "endDialogLoose": "When it comes down to it, I'm still the strongest!",
+      "music": 2,
+      "icon": "images/boss_icon/VS_Steven.PNG",
+      "background": "images/battle_background/city_battle_background.png",
+      "exp": 15000,
+      "mandatory": true,
+      "iaLevel": 3
+    },
+    {
+      "id": 81,
       "name": "\nVS Cynthia",
       "description": "At the top of Mt. Silver, you come across the champion of the Sinnoh region.",
       "opponents": [
@@ -4223,7 +4288,7 @@
             {
               "id": 350,
               "level": 83,
-              "moveIds": [43,100,164,132]
+              "moveIds": [43,100,228,132]
             },
             {
               "id": 468,
@@ -4427,7 +4492,7 @@
       "mandatory": true
     },
     {
-      "id": 79,
+      "id": 80,
       "name": "\nVs Tyranitar",
       "description": "You can see the exit to the top of Mt Silver. However, a very powerful looking Tyranitar attacks you!",
       "boss":
@@ -4458,7 +4523,7 @@
       "mandatory": true
     },
     {
-      "id": 84,
+      "id": 85,
       "name": "\nVs Mewtwo",
       "description": "You finally come across the powerful Pokemon. It seems to want to fight you! Show him what you can do!",
       "boss":
@@ -4493,7 +4558,7 @@
       "mandatory": true
     },
     {
-      "id": 85,
+      "id": 86,
       "name": "\nVs Mega Mewtwo",
       "description": "Mewtwo is about to faint but he gets up and shows you his true power. Give it all you've got and use the inventive strategies that got you this far!",
       "boss":
@@ -4540,14 +4605,14 @@
           "id": 74,
           "level": 12,
           "moveIds": [
-            2,29,144,32
+            72,221,144
           ]
         },
         {
           "id": 95,
           "level": 14,
           "moveIds": [
-            2,15,29,32
+            72,15,221
           ]
         }
       ],
@@ -4639,21 +4704,21 @@
           "id": 120,
           "level": 20,
           "moveIds": [
-            2,6,32,48
+            2,112,24,48
           ]
         },
         {
           "id": 54,
           "level": 20,
           "moveIds": [
-            1,6,24,39
+            1,24,39,148
           ]
         },
         {
           "id": 121,
           "level": 22,
           "moveIds": [
-            43,12,45,44
+            43,12,45,100
           ]
         }
       ],
@@ -4743,23 +4808,30 @@
       "battle1": [
         {
           "id": 25,
-          "level": 22,
+          "level": 25,
           "moveIds": [
-            3,13,52
+            3,25,13,52
           ]
         },
         {
           "id": 100,
-          "level": 22,
+          "level": 27,
           "moveIds": [
             2,12,52,112
           ]
         },
         {
-          "id": 26,
-          "level": 28,
+          "id": 81,
+          "level": 27,
           "moveIds": [
-            43,12,13,52
+            2,12,111,52
+          ]
+        },
+        {
+          "id": 26,
+          "level": 30,
+          "moveIds": [
+            43,12,103,69
           ]
         }
       ],
@@ -5058,7 +5130,7 @@
     {
       "id": 52,
       "name": "\nVS Sabrina",
-      "description": "After defeating the guards, you go to the gym leader.",
+      "description": "After defeating the guards, you can finally battle against the gym leader.",
       "sprite": "images/Sprite_Morgane.png",
       "title" : "Gym Leader Sabrina",
       "battle1": [
@@ -5081,6 +5153,11 @@
           "id": 49,
           "level": 55,
           "moveIds": [35,37,45,60]
+        },
+        {
+          "id": 196,
+          "level": 55,
+          "moveIds": [112,44,45,46]
         },
         {
           "id": 65,
@@ -5166,24 +5243,24 @@
           "moveIds": [82,81,48,130]
         },
         {
-          "id": 59,
-          "level": 59,
-          "moveIds": [116,27,120,75]
-        },
-        {
           "id": 219,
           "level": 59,
           "moveIds": [31,25,87,225]
         },
         {
           "id": 126,
-          "level": 60,
+          "level": 59,
           "moveIds": [82,103,69,110]
         },
         {
           "id": 78,
-          "level": 62,
+          "level": 60,
           "moveIds": [82,3,116,62]
+        },
+        {
+          "id": 59,
+          "level": 65,
+          "moveIds": [116,27,120,75]
         }
       ],
       "battle2": [
@@ -5193,14 +5270,9 @@
           "moveIds": [82,81,48,130]
         },
         {
-          "id": 59,
+          "id": 6,
           "level": 80,
-          "moveIds": [116,27,120,75]
-        },
-        {
-          "id": 219,
-          "level": 80,
-          "moveIds": [31,25,87,225]
+          "moveIds": [50,31,104,92]
         },
         {
           "id": 136,
@@ -5216,6 +5288,11 @@
           "id": 78,
           "level": 80,
           "moveIds": [82,109,116,62]
+        },
+        {
+          "id": 59,
+          "level": 80,
+          "moveIds": [116,27,120,75]
         }
       ],
       "rewards": [

@@ -109,7 +109,15 @@ abstract class Battle {
             pokemon.megaEvolve()
             trainerHasUsedMegaEvolution = true
         }
-        if ((this is TrainerBattle || this is BossBattle) && opponent.canMegaEvolve()) {
+        var shouldMegaEvolve = true
+        if (this is TrainerBattle){
+            val opponentTrainer = opponent.trainer!! as OpponentTrainer
+             shouldMegaEvolve = !(opponentTrainer.iaLevel == 3
+                     && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
+                     && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
+                     && IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam()) != null)
+        }
+        if ((this is TrainerBattle || this is BossBattle) && opponent.canMegaEvolve() && shouldMegaEvolve) {
             when (levelData.id) {
                 LevelMenu.MEGA_CHARIZARD_LEVEL_ID -> {
                     if (opponent.data.id == 6) {
@@ -129,13 +137,19 @@ abstract class Battle {
                         sb.append("${opponent.data.name} has Mega Evolved into Mega-${opponent.data.name}\n")
                     }
                 }
+                LevelMenu.STEVEN_LEVEL_ID -> {
+                    if (opponent.data.id == 376) {
+                        opponent.megaEvolve()
+                        sb.append("${opponent.data.name} has Mega Evolved into Mega-${opponent.data.name}\n")
+                    }
+                }
                 LevelMenu.CYNTHIA_LEVEL_ID -> {
                     if (opponent.data.id == 445) {
                         opponent.megaEvolve()
                         sb.append("${opponent.data.name} has Mega Evolved into Mega-${opponent.data.name}\n")
                     }
                 }
-                84 -> {
+                LevelMenu.MEWTWO_LEVEL -> {
                     if (opponent.data.id == 150) {
                         opponent.megaEvolve()
                     }

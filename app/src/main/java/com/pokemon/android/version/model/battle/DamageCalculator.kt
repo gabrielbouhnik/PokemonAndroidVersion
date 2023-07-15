@@ -108,6 +108,8 @@ class DamageCalculator {
             }
             if (attacker.hasAbility(Ability.SHEER_FORCE) && (move.status.isNotEmpty() || move is StatChangeMove))
                 power *= 1.3f
+            if (attacker.hasAbility(Ability.TOUGH_CLAW) && move.characteristics.contains(MoveCharacteristic.CONTACT))
+                power *= 1.3f
             if (move.power <= 60 && attacker.hasAbility(Ability.TECHNICIAN))
                 power *= 1.5f
             if ((move is RecoilMove || move.id == 210) && attacker.hasAbility(Ability.RECKLESS))
@@ -142,6 +144,8 @@ class DamageCalculator {
             }
             return try {
                 var type = getEffectiveness(move, opponent)
+                if (type >= 2f && opponent.hasAbility(Ability.SOLID_ROCK))
+                    type *= 0.25f
                 if (attacker.hasAbility(Ability.TINTED_LENS) && type < 1f)
                     type *= 2f
                 val random: Float = Random.nextInt(85, 100).toFloat() / 100f

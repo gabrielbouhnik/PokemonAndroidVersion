@@ -51,8 +51,16 @@ class BattleUtils {
                     if (random < 10 && Status.isAffectedByStatus(34, Status.POISON, attacker)) {
                         attacker.status = Status.POISON
                         checkForStatsRaiseAbility(attacker)
-                    } else if (random < 20 && Status.isAffectedByStatus(35, Status.ASLEEP, attacker))
+                        return "${opponent.data.name}'s Effect Spore: ${attacker.data.name} is poisoned!\n"
+                    } else if (random < 20 && Status.isAffectedByStatus(35, Status.ASLEEP, attacker)) {
                         attacker.status = Status.ASLEEP
+                        return "${opponent.data.name}'s Effect Spore: ${attacker.data.name} fell asleep!\n"
+                    }
+                    else if (random >= 20 && Status.isAffectedByStatus(-1, Status.PARALYSIS, attacker)){
+                        attacker.status = Status.PARALYSIS
+                        checkForStatsRaiseAbility(attacker)
+                        return "${opponent.data.name}'s Effect Spore: ${attacker.data.name} is paralysed\n"
+                    }
                 }
             }
             return ""
@@ -69,14 +77,17 @@ class BattleUtils {
                 when {
                     opponent.hasAbility(Ability.CLEAR_BODY) -> sb.append("${opponent.data.name}'s Clear Body: ${opponent.data.name}'s stats cannot be lowered!\n")
                     opponent.hasAbility(Ability.HYPER_CUTTER) -> sb.append("${opponent.data.name}'s Hyper Cutter: ${opponent.data.name}'s attack cannot be lowered!\n")
-                    else -> opponent.battleData!!.attackMultiplicator *= 0.75f
+                    else -> {
+                        if (opponent.battleData != null)
+                            opponent.battleData!!.attackMultiplicator *= 0.75f
+                    }
                 }
             }
             if (pokemon.hasAbility(Ability.SUPER_LUCK))
                 pokemon.battleData!!.criticalRate *= 1.5f
-            if (pokemon.hasAbility(Ability.ARENA_TRAP))
+            if (pokemon.hasAbility(Ability.ARENA_TRAP) && !opponent.hasAbility(Ability.LEVITATE))
                 opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
-            if (opponent.hasAbility(Ability.ARENA_TRAP))
+            if (opponent.hasAbility(Ability.ARENA_TRAP) && !pokemon.hasAbility(Ability.LEVITATE))
                 pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
             return sb.toString()
         }
