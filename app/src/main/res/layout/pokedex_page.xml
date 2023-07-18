@@ -10,7 +10,7 @@
             android:layout_height="188dp" tools:srcCompat="@color/white" android:id="@+id/pokedexPageSpriteView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="40dp" app:layout_constraintHorizontal_bias="0.497"/>
+            android:layout_marginTop="5dp" app:layout_constraintHorizontal_bias="0.497"/>
     <TextView
             android:text=""
             android:layout_width="wrap_content"
@@ -60,4 +60,10 @@
             android:layout_height="46dp" android:id="@+id/movesByLevelRadioButton"
             app:layout_constraintBottom_toTopOf="@+id/learnsetRecyclerView"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="50dp" android:checked="true"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/locationTextView"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/learnsetRecyclerView"
+            app:layout_constraintTop_toBottomOf="@+id/pokedexPageNameTextView"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -154,6 +154,7 @@ open class Pokemon(
 
     fun attack(move: PokemonMove, opponent: Pokemon): AttackResponse {
         val attackResponse = canAttack(move)
+        this.battleData!!.lastMoveFailed = attackResponse.success
         if (!attackResponse.success)
             return attackResponse
         if (move.move.category != MoveCategory.OTHER && opponent.hasAbility(Ability.PRESSURE))
@@ -239,6 +240,7 @@ open class Pokemon(
             }
         }
         var details = ""
+        this.battleData!!.lastMoveFailed = false
         if (move.move is HealMove) {
             if (move.move.id == 193)
                 this.battleData!!.battleStatus.add(Status.ROOSTED)

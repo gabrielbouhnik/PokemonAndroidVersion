@@ -103,7 +103,13 @@ class DamageCalculator {
             }
             var power: Float =
                 if (move is MoveBasedOnHP) move.getPower(attacker).toFloat() else move.power.toFloat()
-            if (move.id == 233){
+            if (move.id == 240 && attacker.battleData!!.lastMoveFailed) {
+                power *= 2
+            }
+            if (move.id == 241 && opponent.hp/opponent.currentHP >= 2) {
+                power *= 2
+            }
+            if (move.id == 233) {
                 power *= (1 + (opponent.speed * opponent.battleData!!.speedMultiplicator) / (attacker.speed * attacker.battleData!!.speedMultiplicator)).roundToInt()
             }
             if (attacker.hasAbility(Ability.SHEER_FORCE) && (move.status.isNotEmpty() || move is StatChangeMove))
@@ -145,7 +151,7 @@ class DamageCalculator {
             return try {
                 var type = getEffectiveness(move, opponent)
                 if (type >= 2f && opponent.hasAbility(Ability.SOLID_ROCK))
-                    type *= 0.25f
+                    type *= 0.75f
                 if (attacker.hasAbility(Ability.TINTED_LENS) && type < 1f)
                     type *= 2f
                 val random: Float = Random.nextInt(85, 100).toFloat() / 100f

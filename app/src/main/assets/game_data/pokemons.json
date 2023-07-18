@@ -3758,6 +3758,10 @@
           "level": 36
         },
         {
+          "moveId": 230,
+          "level": 43
+        },
+        {
           "moveId": 197,
           "level": 47
         }
@@ -3828,6 +3832,10 @@
         {
           "moveId": 40,
           "level": 39
+        },
+        {
+          "moveId": 230,
+          "level": 48
         },
         {
           "moveId": 197,
@@ -5833,6 +5841,10 @@
           "level": 31
         },
         {
+          "moveId": 241,
+          "level": 33
+        },
+        {
           "moveId": 115,
           "level": 37
         },
@@ -5902,6 +5914,10 @@
         {
           "moveId": 96,
           "level": 31
+        },
+        {
+          "moveId": 241,
+          "level": 33
         },
         {
           "moveId": 115,
@@ -8171,6 +8187,10 @@
           "level": 20
         },
         {
+          "moveId": 241,
+          "level": 28
+        },
+        {
           "moveId": 51,
           "level": 36
         },
@@ -8245,6 +8265,14 @@
           "level": 1
         },
         {
+          "moveId": 112,
+          "level": 1
+        },
+        {
+          "moveId": 241,
+          "level": 28
+        },
+        {
           "moveId": 51,
           "level": 1
         },
@@ -8262,10 +8290,6 @@
         },
         {
           "moveId": 80,
-          "level": 1
-        },
-        {
-          "moveId": 112,
           "level": 1
         }
       ],
@@ -8792,28 +8816,44 @@
           "level": 1
         },
         {
+          "moveId": 54,
+          "level": 1
+        },
+        {
+          "moveId": 131,
+          "level": 4
+        },
+        {
+          "moveId": 119,
+          "level": 8
+        },
+        {
+          "moveId": 241,
+          "level": 12
+        },
+        {
+          "moveId": 171,
+          "level": 16
+        },
+        {
           "moveId": 23,
           "level": 20
         },
         {
-          "moveId": 54,
+          "moveId": 136,
+          "level": 21
+        },
+        {
+          "moveId": 27,
           "level": 24
         },
         {
-          "moveId": 119,
-          "level": 27
-        },
-        {
           "moveId": 79,
-          "level": 30
+          "level": 32
         },
         {
           "moveId": 125,
           "level": 36
-        },
-        {
-          "moveId": 27,
-          "level": 39
         },
         {
           "moveId": 80,
@@ -8835,6 +8875,7 @@
       "movesLearnWithTM": [
         72,
         25,
+        31,
         93,
         43,
         100,
@@ -8891,6 +8932,10 @@
         {
           "moveId": 24,
           "level": 30
+        },
+        {
+          "moveId": 241,
+          "level": 35
         },
         {
           "moveId": 88,
@@ -13298,7 +13343,7 @@
         }
       }
     ],
-    "abilities": ["SUPER_LUCK","INSOMNIA"],
+    "abilities": ["SUPER_LUCK","INSOMNIA","PRANKSTER"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -13968,6 +14013,10 @@
           "level": 8
         },
         {
+          "moveId": 241,
+          "level": 24
+        },
+        {
           "moveId": 61,
           "level": 32
         },
@@ -14149,8 +14198,53 @@
     "type1": 11,
     "type2": 7,
     "possibleMoves": {
-      "movesLearnByLevel": [],
-      "movesLearnWithTM": [],
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 239,
+          "level": 1
+        },
+        {
+          "moveId": 10,
+          "level": 5
+        },
+        {
+          "moveId": 113,
+          "level": 15
+        },
+        {
+          "moveId": 227,
+          "level": 25
+        },
+        {
+          "moveId": 69,
+          "level": 30
+        },
+        {
+          "moveId": 61,
+          "level": 35
+        },
+        {
+          "moveId": 196,
+          "level": 45
+        },
+        {
+          "moveId": 114,
+          "level": 50
+        },
+        {
+          "moveId": 109,
+          "level": 55
+        },
+        {
+          "moveId": 40,
+          "level": 60
+        }
+      ],
+      "movesLearnWithTM": [72,25,69,93,113,137,176,177,206,221],
       "bannerMoves": []
     },
     "hp": 80,
@@ -14162,7 +14256,17 @@
     "catchRate": 45,
     "evolutions": [],
     "abilities": ["SWARM","MOXIE","GUTS"],
-    "expGaugeType":  "SLOW"
+    "expGaugeType":  "SLOW",
+    "megaEvolutionData": {
+      "type1": 11,
+      "type2": 7,
+      "attack": 185,
+      "defense": 115,
+      "spAtk": 40,
+      "spDef": 105,
+      "speed": 75,
+      "ability": "SKILL_LINK"
+    }
   },
   {
     "id": 215,
@@ -15577,6 +15681,10 @@
           "level": 15
         },
         {
+          "moveId": 230,
+          "level": 18
+        },
+        {
           "moveId": 27,
           "level": 27
         },
@@ -15659,6 +15767,10 @@
         {
           "moveId": 25,
           "level": 15
+        },
+        {
+          "moveId": 230,
+          "level": 18
         },
         {
           "moveId": 27,
@@ -15755,6 +15867,10 @@
         {
           "moveId": 25,
           "level": 15
+        },
+        {
+          "moveId": 230,
+          "level": 18
         },
         {
           "moveId": 27,

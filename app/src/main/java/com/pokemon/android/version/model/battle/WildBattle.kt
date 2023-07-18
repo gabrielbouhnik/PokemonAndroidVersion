@@ -42,7 +42,7 @@ class WildBattle() : Battle() {
         if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID
             && levelData.name.startsWith("\nRoute")
         ) {
-            when (Random.nextInt(150)) {
+            when (Random.nextInt(100)) {
                 1 -> {
                     if (!activity.trainer!!.pokemons.map { it.data.id }.contains(243)) {
                         opponent = activity.gameDataService.generatePokemon(243, 70)

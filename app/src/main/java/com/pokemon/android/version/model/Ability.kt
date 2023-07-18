@@ -43,6 +43,7 @@ enum class Ability(var description: String) {
     POISON_POINT("Contact with the Pokémon may poison the attacker."),
     POISON_TOUCH("May poison a target when the Pokémon makes contact."),
     PRESSURE("By putting pressure on the opposing Pokémon, it raises their PP usage."),
+    PRANKSTER("Gives priority to a status move."),
     QUICK_FEET("Boosts the Speed stat if the Pokémon has a status condition."),
     RECKLESS("Powers up moves that have recoil damage."),
     REGENERATOR("Restores a little HP when withdrawn from battle."),

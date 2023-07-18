@@ -595,7 +595,7 @@ class BattleUI {
         val sb = StringBuilder()
         sb.append(activity.getString(R.string.wild_encounter, wildBattle.opponent.data.name) + '\n')
         if (wildBattle.opponent.shiny)
-            sb.append("He looks shinier than usual!\n")
+            sb.append("It looks shinier than usual!\n")
         sb.append(BattleUtils.abilitiesCheck(wildBattle.pokemon, wildBattle.opponent))
         sb.append(BattleUtils.abilitiesCheck(wildBattle.opponent, wildBattle.pokemon))
         dialogTextView!!.text = sb.toString()

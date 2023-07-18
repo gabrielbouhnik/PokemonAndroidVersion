@@ -323,15 +323,15 @@
     ]
   },
   {
-    "image": "images/banners/scyther_banner.JPG",
-    "description": "Get a Scyther",
-    "cost": 100,
+    "image": "images/banners/heracross_banner.JPG",
+    "description": "Get a Heracross",
+    "cost": 120,
     "pokemons": [
       {
-        "id": 123,
+        "id": 214,
         "rate": 5,
         "moveIds": [
-          3
+          2,239
         ]
       }
     ],

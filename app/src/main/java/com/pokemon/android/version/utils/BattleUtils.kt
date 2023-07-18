@@ -7,6 +7,7 @@ import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.battle.DamageCalculator
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveBasedOnLevel
+import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.MoveCharacteristic
 import kotlin.random.Random
 
@@ -114,10 +115,12 @@ class BattleUtils {
 
         fun trainerStarts(pokemon: Pokemon, other: Pokemon, move: Move, opponentMove: Move): Boolean {
             return when {
-                move.priorityLevel > opponentMove.priorityLevel -> {
+                move.priorityLevel > opponentMove.priorityLevel
+                        || (pokemon.hasAbility(Ability.PRANKSTER) && move.category == MoveCategory.OTHER) -> {
                     true
                 }
-                move.priorityLevel < opponentMove.priorityLevel -> {
+                move.priorityLevel < opponentMove.priorityLevel
+                        || (other.hasAbility(Ability.PRANKSTER) && opponentMove.category == MoveCategory.OTHER) -> {
                     false
                 }
                 else -> {

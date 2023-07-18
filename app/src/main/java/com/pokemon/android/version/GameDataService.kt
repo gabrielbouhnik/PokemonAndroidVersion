@@ -128,7 +128,7 @@ class GameDataService {
     }
 
     fun generateBoss(id: Int, level: Int, moves: List<Move>): PokemonBoss {
-        val pokemon = generatePokemonWithMoves(id,level,moves)
+        val pokemon = generatePokemonWithMoves(id, level, moves)
         val move5: PokemonMove? = if (moves.size < 5) null else PokemonMove(moves[4])
         val move6: PokemonMove? = if (moves.size < 6) null else PokemonMove(moves[5])
         return PokemonBoss.PokemonBossBuilder()
@@ -148,6 +148,13 @@ class GameDataService {
             .move5(move5)
             .move6(move6)
             .build()
+    }
+
+    fun getPokemonLocation(id: Int, progression: Int): String {
+        return this.levels.filter { it is WildBattleLevelData
+                && it.id < progression
+                && it.possibleEncounters.encounters.map{data->data.id}.contains(id) }
+            .map { it.name }.toString()
     }
 
     fun updateGymLeaderExp() {

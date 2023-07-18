@@ -26,7 +26,7 @@ class StarterSelection {
         val oakTextView: TextView = activity.findViewById(R.id.oakTextView)
         oakTextView.movementMethod = ScrollingMovementMethod()
         nextButton.setOnClickListener {
-            oakTextView.text = "Now you can introduce yourself to me"
+            oakTextView.text = "What's your name?"
             nextButton.visibility = GONE
             submitButton.visibility = VISIBLE
             genderSwitch.visibility = VISIBLE

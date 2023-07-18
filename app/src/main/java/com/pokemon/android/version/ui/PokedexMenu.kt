@@ -29,14 +29,16 @@ class PokedexMenu {
                 .into(spriteView)
         else
             Glide.with(activity)
-            .load(MainActivity.pokemonSpritesUrl + SpriteUtils.getThreeDigitId(data.id) + ".png")
-            .into(spriteView)
+                .load(MainActivity.pokemonSpritesUrl + SpriteUtils.getThreeDigitId(data.id) + ".png")
+                .into(spriteView)
 
         val nameTextView: TextView = activity.findViewById(R.id.pokedexPageNameTextView)
         nameTextView.text = data.name
         val recyclerView = activity.findViewById<RecyclerView>(R.id.learnsetRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
+        val locationTextView: TextView = activity.findViewById(R.id.locationTextView)
+        locationTextView.text = activity.gameDataService.getPokemonLocation(data.id, activity.trainer!!.progression)
         if (activity.trainer!!.name == ADMIN || activity.trainer!!.pokedex[data.id] == true) {
             val type1TextView: TextView = activity.findViewById(R.id.pokedexType1TextView)
             type1TextView.setTextColor(ColorUtils.getColorByType(data.type1))
@@ -76,7 +78,7 @@ class PokedexMenu {
         val recyclerView = activity.findViewById<RecyclerView>(R.id.pokedexRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         val data =
-            if (activity.trainer!!.name == ADMIN) activity.gameDataService.pokemons else activity.gameDataService.pokemons.filter { it.id > 0 && it.id < 252 }
+            if (activity.trainer!!.name == ADMIN) activity.gameDataService.pokemons else activity.gameDataService.pokemons.filter { it.id > 0 && (it.id < 252 || it.id > 606) }
         val myItemClickListener = View.OnClickListener {
             val dexNumber = it.tag as Int
             val pokemonData = activity.gameDataService.pokemons[dexNumber]
