@@ -37,8 +37,6 @@ class PokedexMenu {
         val recyclerView = activity.findViewById<RecyclerView>(R.id.learnsetRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
-        val locationTextView: TextView = activity.findViewById(R.id.locationTextView)
-        locationTextView.text = activity.gameDataService.getPokemonLocation(data.id, activity.trainer!!.progression)
         if (activity.trainer!!.name == ADMIN || activity.trainer!!.pokedex[data.id] == true) {
             val type1TextView: TextView = activity.findViewById(R.id.pokedexType1TextView)
             type1TextView.setTextColor(ColorUtils.getColorByType(data.type1))
@@ -49,8 +47,11 @@ class PokedexMenu {
                 type2TextView.text = data.type2.toString()
             val adapter = LearnsetRecyclerAdapter(activity, data.movesByLevel) {}
             recyclerView.adapter = adapter
-        } else
+        } else {
+            val locationTextView: TextView = activity.findViewById(R.id.locationTextView)
+            locationTextView.text = activity.gameDataService.getPokemonLocation(data.id, activity.trainer!!.progression)
             recyclerView.adapter = LearnsetRecyclerAdapter(activity, listOf()) {}
+        }
 
         val levelRadioButton: RadioButton = activity.findViewById(R.id.movesByLevelRadioButton)
         if (activity.trainer!!.name != ADMIN && activity.trainer!!.pokedex[data.id] == false)
