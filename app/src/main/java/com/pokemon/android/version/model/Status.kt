@@ -135,6 +135,8 @@ enum class Status(var activeOutsideBattle: Boolean) {
                 )
             )
                 return false
+            if (opponent.hasAbility(Ability.OWN_TEMPO) && status == CONFUSED)
+                return false
             if (!status.activeOutsideBattle && !opponent.battleData!!.battleStatus.contains(status))
                 return true
             if (opponent.status != OK)

@@ -2,10 +2,7 @@ package com.pokemon.android.version.ui
 
 import android.view.View
 import android.view.View.GONE
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.RadioButton
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -79,10 +76,10 @@ class PokedexMenu {
         val recyclerView = activity.findViewById<RecyclerView>(R.id.pokedexRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         val data =
-            if (activity.trainer!!.name == ADMIN) activity.gameDataService.pokemons else activity.gameDataService.pokemons.filter { it.id > 0 && (it.id < 252 || it.id > 606) }
+            if (activity.trainer!!.name == ADMIN) activity.gameDataService.pokemons else activity.gameDataService.pokemons.filter { it.movesByLevel.isNotEmpty() }
         val myItemClickListener = View.OnClickListener {
             val dexNumber = it.tag as Int
-            val pokemonData = activity.gameDataService.pokemons[dexNumber]
+            val pokemonData = data[dexNumber]
             if (activity.trainer!!.name == ADMIN || activity.trainer!!.pokedex.containsKey(pokemonData.id))
                 loadPokedexPage(activity, pokemonData)
         }

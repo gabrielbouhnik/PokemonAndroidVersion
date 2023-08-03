@@ -16,50 +16,45 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:id="@+id/pokemonHOFspriteView"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="230dp" app:layout_constraintHorizontal_bias="0.166"
-            android:layout_marginStart="30dp"/>
+            android:layout_marginTop="230dp"
+            android:layout_marginStart="72dp"/>
     <ImageView
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:id="@+id/pokemonHOFspriteView2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="20dp" app:layout_constraintHorizontal_bias="0.908"
-            android:layout_marginEnd="30dp" app:layout_constraintTop_toBottomOf="@+id/pokemonHOFspriteView4"/>
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/pokemonHOFspriteView4" android:layout_marginEnd="64dp"/>
     <ImageView
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:id="@+id/pokemonHOFspriteView3"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="20dp" app:layout_constraintHorizontal_bias="0.106"
-            android:layout_marginStart="30dp" app:layout_constraintTop_toBottomOf="@+id/pokemonHOFspriteView5"/>
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="64dp" app:layout_constraintTop_toBottomOf="@+id/pokemonHOFspriteView5"/>
     <ImageView
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:id="@+id/pokemonHOFspriteView4"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="20dp" app:layout_constraintHorizontal_bias="0.908"
-            android:layout_marginEnd="30dp" app:layout_constraintTop_toBottomOf="@+id/pokemonHOFspriteView6"/>
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="64dp" app:layout_constraintTop_toBottomOf="@+id/pokemonHOFspriteView6"/>
     <ImageView
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:id="@+id/pokemonHOFspriteView5"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="20dp" app:layout_constraintHorizontal_bias="0.106"
-            android:layout_marginStart="30dp" app:layout_constraintTop_toBottomOf="@+id/pokemonHOFspriteView"/>
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="64dp" app:layout_constraintTop_toBottomOf="@+id/pokemonHOFspriteView"/>
     <ImageView
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:id="@+id/pokemonHOFspriteView6"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="230dp" app:layout_constraintHorizontal_bias="0.826"
-            android:layout_marginEnd="30dp"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="230dp"
+            android:layout_marginEnd="72dp"/>
     <Button
             android:text="Leave the Hall of Fame"
             android:layout_width="wrap_content"

@@ -17,8 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/bannerMenuBackButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/bannerRecyclerView"
-            app:layout_constraintHorizontal_bias="0.501"/>
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="32dp"/>
     <TextView
             android:text="0 AndroCoins"
             android:layout_width="185dp"

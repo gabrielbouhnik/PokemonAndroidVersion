@@ -5,7 +5,7 @@
                                                    android:background="@drawable/pokemon_background">
 
     <TextView
-            android:text="INVENTORY"
+            android:text="BAG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/bagTextView"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"

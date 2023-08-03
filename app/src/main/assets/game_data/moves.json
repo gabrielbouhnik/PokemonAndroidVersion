@@ -1881,7 +1881,7 @@
       "type": 12,
       "category": "OTHER",
       "description": "The user switches places with a party Pokémon in waiting, if any. If a wild Pokémon uses this move, it flees.",
-      "priorityLevel": 0,
+      "priorityLevel": -6,
       "status": [],
       "highCritRate": false,
       "characteristics": []

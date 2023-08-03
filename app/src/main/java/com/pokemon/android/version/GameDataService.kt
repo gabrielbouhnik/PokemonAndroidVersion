@@ -84,7 +84,12 @@ class GameDataService {
     }
 
     fun generateWildPokemon(id: Int, level: Int): Pokemon {
-        val pokemon = generatePokemon(id, if (id == 92 || id == 228) 21 else level)
+        var adjustedLevel = level
+        if (id == 92 || id == 228)
+            adjustedLevel = 21
+        if (id == 633)
+            adjustedLevel = 40
+        val pokemon = generatePokemon(id, adjustedLevel)
         val random = Random.nextInt(250)
         if (random == 50 && id < 650)
             pokemon.shiny = true

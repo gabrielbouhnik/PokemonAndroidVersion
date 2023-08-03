@@ -39,6 +39,7 @@ enum class Ability(var description: String) {
     NO_GUARD("The Pokémon employs no-guard tactics to ensure incoming and outgoing attacks always land."),
     OVERGROW("Powers up Grass-type moves when the Pokémon's HP is low."),
     OWN_TEMPO("This Pokémon has its own tempo, and that prevents it from becoming confused."),
+    PICKUP("The Pokémon will pick up an item after a battle."),
     POISON_HEAL("Restores HP if the Pokémon is poisoned, instead of losing HP."),
     POISON_POINT("Contact with the Pokémon may poison the attacker."),
     POISON_TOUCH("May poison a target when the Pokémon makes contact."),

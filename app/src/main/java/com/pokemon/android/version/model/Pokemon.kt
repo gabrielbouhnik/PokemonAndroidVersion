@@ -332,7 +332,7 @@ open class Pokemon(
             damageDone = damage
             opponent.takeDamage(damage)
             if (crit == 1.5f && opponent.hasAbility(Ability.ANGER_POINT)){
-                details += "${opponent.data.name}'s Anger Point: ${this.data.name} maxed its Attack!\n"
+                details += "${opponent.data.name}'s Anger Point: ${opponent.data.name} maxed its Attack!\n"
                 opponent.battleData!!.attackMultiplicator = 4f
             }
             if (move.move.type == Type.FIRE && opponent.status == Status.FROZEN)

@@ -4,10 +4,8 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.model.Ability
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
-import com.pokemon.android.version.model.Trainer
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.level.LevelData
-import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.move.ChargedMove
 import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.RampageMove
@@ -28,10 +26,19 @@ abstract class Battle {
 
     abstract fun updateOpponent()
 
-    protected fun opponentTurn(opponentPokemonMove: PokemonMove, opponentMoveIsOffensive: Boolean): String {
+    private fun opponentTurn(opponentPokemonMove: PokemonMove, opponentMoveIsOffensive: Boolean): String {
         if (opponentPokemonMove.move.id == 208 && !opponentMoveIsOffensive)
             return "${opponent.data.name} uses Sucker Punch!\nBut it failed!\n"
         var action = ""
+        if (opponentPokemonMove.move.id == 185){
+             action += "${opponent.data.name} uses Teleport!\n"
+            action += if (opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
+                || opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE))
+                "But it failed!\n"
+            else
+                "He teleported behind you, keep on battling!\n"
+            return action
+        }
         if (opponent.battleData!!.confusionCounter == 4) {
             opponent.battleData!!.battleStatus.remove(Status.CONFUSED)
             opponent.battleData!!.confusionCounter = 0
@@ -208,7 +215,7 @@ abstract class Battle {
         this.pokemon = pokemonToBeSent
     }
 
-    fun switchOpponent(pokemonToBeSent: Pokemon) {
+    private fun switchOpponent(pokemonToBeSent: Pokemon) {
         pokemonToBeSent.battleData = PokemonBattleData()
         this.opponent.battleData = PokemonBattleData()
         if (this.opponent.hasAbility(Ability.NATURAL_CURE))
@@ -274,7 +281,7 @@ abstract class Battle {
         return sb.toString()
     }
 
-    protected fun endTurn(sb: StringBuilder) {
+    private fun endTurn(sb: StringBuilder) {
         if (pokemon.currentHP > 0 && opponent.currentHP > 0) {
             if (opponent.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
                 val damage = if (opponent.currentHP < 16) 1 else opponent.currentHP / 8

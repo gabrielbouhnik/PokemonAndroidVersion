@@ -22,6 +22,7 @@ import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAIN_LEVEL_ID
 import com.pokemon.android.version.utils.*
 import java.io.InputStream
+import kotlin.random.Random
 
 class BattleUI {
     companion object {
@@ -190,12 +191,12 @@ class BattleUI {
             if (activity.trainer!!.progression == LevelMenu.ELITE_4_FIRST_LEVEL_ID) {
                 activity.trainer!!.progression += 5
                 activity.trainer!!.coins += 5000
+                activity.trainer!!.achievements = Achievements()
             } else {
                 activity.trainer!!.achievements!!.leagueDefeatedSecondTime = true
                 if (activity.trainer!!.team.size <= 4)
                     activity.trainer!!.achievements!!.leagueWithTeamOfFourAchievement = true
             }
-            activity.trainer!!.achievements = Achievements();
             HealUtils.healTeam(activity.trainer!!.team)
             rewardsButton.setOnClickListener {
                 SaveManager.save(activity)
@@ -264,9 +265,11 @@ class BattleUI {
                         activity.trainer!!.battleFactoryProgression!!.progression += 1
                         if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID && activity.trainer!!.battleFactoryProgression!!.progression >= 25)
                             activity.trainer!!.achievements!!.winstreak25Factory = true
-                    } else
+                        activity.trainer!!.coins += 30 * (1 + (activity.trainer!!.battleFactoryProgression!!.progression/5))
+                    } else {
                         activity.trainer!!.battleTowerProgression!!.progression += 1
-                    activity.trainer!!.coins += 30
+                        activity.trainer!!.coins += 30 * (1 + (activity.trainer!!.battleTowerProgression!!.progression/5))
+                    }
                     SaveManager.save(activity)
                     val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
                     rewardsButton.visibility = VISIBLE
@@ -278,14 +281,24 @@ class BattleUI {
                     disableBattleButtons(activity)
                     return
                 }
-                activity.trainer!!.team.forEach {
-                    it.recomputeStat()
-                    it.battleData = null
-                    if (it.hasAbility(Ability.NATURAL_CURE))
-                        it.status = Status.OK
-                    if (it.hasAbility(Ability.REGENERATOR) && it.currentHP > 0) {
-                        it.currentHP = if (it.hp / 3 + it.currentHP > it.hp) it.hp else it.hp / 3 + it.currentHP
+                activity.trainer!!.team.forEach { it.recomputeStat()
+                    if (it.hasAbility(Ability.PICKUP) && it.currentHP > 0){
+                        val random = Random.nextInt(10)
+                        when {
+                            random < 7 -> activity.trainer!!.addItem(11,1)
+                            random < 4 -> activity.trainer!!.addItem(1,1)
+                            random == 3 -> activity.trainer!!.addItem(2,1)
+                            random == 2 -> activity.trainer!!.addItem(4,1)
+                            random == 1 -> activity.trainer!!.addItem(9,1)
+                            random == 0 -> activity.trainer!!.addItem(12,1)
+                        }
                     }
+                }
+                battle.pokemon.battleData = null
+                if (battle.pokemon.hasAbility(Ability.NATURAL_CURE))
+                    battle.pokemon.status = Status.OK
+                if (battle.pokemon.hasAbility(Ability.REGENERATOR) && battle.pokemon.currentHP > 0) {
+                    battle.pokemon.heal(battle.pokemon.hp/3)
                 }
                 val firstTime: Boolean = activity.trainer!!.progression == battle.levelData.id
                 if (activity.trainer!!.eliteProgression == 4)
@@ -322,7 +335,7 @@ class BattleUI {
                     }
                 }
                 if (battle.levelData.id == 99) {
-                    activity.trainer!!.coins += 500
+                    activity.trainer!!.coins += 5000
                     activity.trainer!!.battleTowerProgression!!.progression += 1
                 }
                 if (activity.eliteMode)
@@ -395,15 +408,20 @@ class BattleUI {
             ppTextView.visibility = VISIBLE
             ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
             attackButton.setOnClickListener {
-                if (activity.trainer!!.name == PokedexMenu.ADMIN) {
+                /*if (activity.trainer!!.name == PokedexMenu.ADMIN) {
                     Toast.makeText(
                         activity,
                         MoveUtils.getMoveList(battle.opponent).map{it.move.name}.toString(),
                         Toast.LENGTH_SHORT
                     )
                         .show()
+                }*/
+                if (move.move.id == 185){
+                    activity.trainer!!.team.forEach { it.recomputeStat() }
+                    battle.pokemon.battleData = null
+                    activity.mainMenu.loadGameMenu(activity)
                 }
-                if (battle.pokemon.currentHP > 0 && battle.opponent.currentHP > 0) {
+                else if (battle.pokemon.currentHP > 0 && battle.opponent.currentHP > 0) {
                     if (megaEvolve && battle.pokemon.canMegaEvolve()) {
                         val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
                         megaEvolutionImageView.visibility = GONE

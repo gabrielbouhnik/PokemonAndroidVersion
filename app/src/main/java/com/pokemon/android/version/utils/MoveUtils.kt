@@ -28,7 +28,7 @@ class MoveUtils {
             val possibleMoves: MutableList<Move> =
                 pokemon.data.movesByLevel.filter { it.level <= pokemon.level }.map { it.move }.toMutableList()
             if (pokemon.isFromBanner)
-                possibleMoves += pokemon.data.bannerMoves.map { it.move }
+                possibleMoves += pokemon.data.bannerMoves.map { it.move }.filter{!possibleMoves.contains(it)}
             val currentMoves: List<Int> = getMoveList(pokemon).map { it.move.id }
             pokemon.movesLearnedByTM.forEach {
                 if (!possibleMoves.contains(it))

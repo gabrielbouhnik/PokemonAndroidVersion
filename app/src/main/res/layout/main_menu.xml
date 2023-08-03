@@ -10,7 +10,7 @@
             android:layout_width="305dp"
             android:layout_height="wrap_content" android:id="@+id/adventureDescriptionTextView"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:text="Face trainers and wild pokemon that stand in your way" android:textSize="18sp"
+            android:text="Explore the Kanto region to become the League Champion" android:textSize="18sp"
             android:textAlignment="center" app:layout_constraintTop_toBottomOf="@+id/adventureButton"
             android:backgroundTint="#FFFFFF" android:textColor="@color/black"/>
     <TextView
@@ -54,7 +54,7 @@
             android:textAlignment="center" app:layout_constraintTop_toBottomOf="@+id/pokemonsButton"
             android:textColor="@color/black"/>
     <Button
-            android:text="INVENTORY"
+            android:text="BAG"
             android:layout_width="225dp"
             android:layout_height="60dp" android:id="@+id/itemsButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/itemsTextView"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:text="Check out your inventory" android:textSize="18sp"
+            android:text="Check out the items in your bag" android:textSize="18sp"
             android:textAlignment="center" app:layout_constraintTop_toBottomOf="@+id/itemsButton"
             android:layout_marginTop="8dp" app:layout_constraintHorizontal_bias="0.522"
             android:textColor="@color/black"/>
