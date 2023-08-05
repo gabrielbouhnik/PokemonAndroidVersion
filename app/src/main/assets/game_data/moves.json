@@ -2203,6 +2203,24 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 242,
+      "name": "Taunt",
+      "power": 0,
+      "pp": 20,
+      "type": 17,
+      "category": "OTHER",
+      "accuracy": 100,
+      "description": "The target is taunted into a rage that allows it to use only attack moves for three turns.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "TAUNTED"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "multipleHitMoves": [

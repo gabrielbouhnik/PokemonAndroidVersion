@@ -3455,6 +3455,10 @@
           "level": 16
         },
         {
+          "moveId": 242,
+          "level": 20
+        },
+        {
           "moveId": 169,
           "level": 22
         },
@@ -3518,6 +3522,10 @@
         {
           "moveId": 23,
           "level": 16
+        },
+        {
+          "moveId": 242,
+          "level": 20
         },
         {
           "moveId": 169,
@@ -13338,6 +13346,10 @@
           "level": 26
         },
         {
+          "moveId": 242,
+          "level": 31
+        },
+        {
           "moveId": 169,
           "level": 35
         },
@@ -13922,6 +13934,10 @@
           "level": 19
         },
         {
+          "moveId": 242,
+          "level": 31
+        },
+        {
           "moveId": 73,
           "level": 37
         },
@@ -13993,6 +14009,10 @@
         {
           "moveId": 72,
           "level": 19
+        },
+        {
+          "moveId": 242,
+          "level": 31
         },
         {
           "moveId": 73,
@@ -14331,6 +14351,10 @@
         {
           "moveId": 3,
           "level": 1
+        },
+        {
+          "moveId": 242,
+          "level": 6
         },
         {
           "moveId": 158,
@@ -14942,6 +14966,10 @@
           "level": 16
         },
         {
+          "moveId": 242,
+          "level": 20
+        },
+        {
           "moveId": 118,
           "level": 28
         },
@@ -15026,6 +15054,10 @@
         {
           "moveId": 23,
           "level": 16
+        },
+        {
+          "moveId": 242,
+          "level": 20
         },
         {
           "moveId": 118,
@@ -16904,6 +16936,10 @@
           "level": 1
         },
         {
+          "moveId": 242,
+          "level": 1
+        },
+        {
           "moveId": 169,
           "level": 1
         },
@@ -17116,6 +17152,10 @@
         },
         {
           "moveId": 3,
+          "level": 1
+        },
+        {
+          "moveId": 242,
           "level": 1
         },
         {

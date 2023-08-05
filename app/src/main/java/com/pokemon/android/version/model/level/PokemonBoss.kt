@@ -47,6 +47,7 @@ class PokemonBoss(
     currentExp,
     false,
     battleData,
+    null,
     false,
     arrayListOf()
 ) {

@@ -5,6 +5,7 @@ import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.battle.DamageCalculator
+import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveBasedOnLevel
 import com.pokemon.android.version.model.move.MoveCategory
@@ -26,6 +27,10 @@ class BattleUtils {
                 if (opponent.hasAbility(Ability.ROUGH_SKIN)) {
                     attacker.takeDamage(attacker.hp / 8)
                     return "${opponent.data.name}'s Rough Skin: ${attacker.data.name} was hurt!\n"
+                }
+                if (opponent.hasItem(HoldItem.ROCKY_HELMET)) {
+                    attacker.takeDamage(attacker.hp / 8)
+                    return "${opponent.data.name}'s Rocky Helmet: ${attacker.data.name} was hurt!\n"
                 }
                 if (opponent.hasAbility(Ability.POISON_POINT)
                     && Status.isAffectedByStatus(0, Status.POISON, attacker)
@@ -83,6 +88,14 @@ class BattleUtils {
                             opponent.battleData!!.attackMultiplicator *= 0.75f
                     }
                 }
+            }
+            if (pokemon.hasItem(HoldItem.AIR_BALLOON))
+                sb.append("${pokemon.data.name} floats in the air with its Air Balloon\n")
+            if (pokemon.hasItem(HoldItem.ASSAULT_VEST) && !MoveUtils.getMoveList(pokemon).map{it.move.category}.contains(MoveCategory.OTHER))
+                pokemon.battleData!!.spDefMultiplicator *= 1.5f
+            if (pokemon.hasItem(HoldItem.EVIOLITE) && pokemon.data.evolutions.isNotEmpty()) {
+                pokemon.battleData!!.spDefMultiplicator *= 1.5f
+                pokemon.battleData!!.defenseMultiplicator *= 1.5f
             }
             if (pokemon.hasAbility(Ability.SUPER_LUCK))
                 pokemon.battleData!!.criticalRate *= 1.5f

@@ -42,7 +42,10 @@ class IAUtils {
         }
 
         fun iaWildPokemon(attacker: Pokemon): PokemonMove {
-            val usableMoves = MoveUtils.getMoveList(attacker).filter { it.pp > 0 }
+            var usableMoves = MoveUtils.getMoveList(attacker).filter { it.pp > 0 }
+            if (attacker.battleData!!.battleStatus.contains(Status.TAUNTED)){
+                usableMoves = usableMoves.filter { it.move.category != MoveCategory.OTHER}
+            }
             if (attacker.battleData!!.rampageMove != null)
                 return attacker.battleData!!.rampageMove!!
             if (attacker.battleData!!.chargedMove != null) {
@@ -54,7 +57,10 @@ class IAUtils {
         }
 
         fun ia(attacker: Pokemon, opponent: Pokemon): PokemonMove {
-            val usableMoves = MoveUtils.getMoveList(attacker).filter { it.pp > 0 }
+            var usableMoves = MoveUtils.getMoveList(attacker).filter { it.pp > 0 }
+            if (attacker.battleData!!.battleStatus.contains(Status.TAUNTED)){
+                usableMoves = usableMoves.filter { it.move.category != MoveCategory.OTHER}
+            }
             if (opponent.currentHP == 0)
                 return usableMoves[0]
             if (attacker.battleData!!.chargedMove != null) {

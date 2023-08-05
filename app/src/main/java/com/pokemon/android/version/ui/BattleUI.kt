@@ -18,6 +18,7 @@ import com.pokemon.android.version.model.*
 import com.pokemon.android.version.model.battle.*
 import com.pokemon.android.version.model.item.ItemQuantity
 import com.pokemon.android.version.model.level.*
+import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAIN_LEVEL_ID
 import com.pokemon.android.version.utils.*
@@ -281,7 +282,8 @@ class BattleUI {
                     disableBattleButtons(activity)
                     return
                 }
-                activity.trainer!!.team.forEach { it.recomputeStat()
+                activity.trainer!!.team.forEach {
+                    it.recomputeStat()
                     if (it.hasAbility(Ability.PICKUP) && it.currentHP > 0){
                         val random = Random.nextInt(10)
                         when {
@@ -416,22 +418,30 @@ class BattleUI {
                     )
                         .show()
                 }*/
-                if (move.move.id == 185){
-                    activity.trainer!!.team.forEach { it.recomputeStat() }
-                    battle.pokemon.battleData = null
-                    activity.mainMenu.loadGameMenu(activity)
-                }
-                else if (battle.pokemon.currentHP > 0 && battle.opponent.currentHP > 0) {
-                    if (megaEvolve && battle.pokemon.canMegaEvolve()) {
-                        val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
-                        megaEvolutionImageView.visibility = GONE
-                        dialogTextView!!.text = battle.turn(move, true)
+                if (battle.pokemon.move1.move.category == MoveCategory.OTHER && battle.pokemon.battleData!!.battleStatus.contains(Status.TAUNTED)) {
+                    Toast.makeText(
+                        activity,
+                        "${battle.pokemon.data.name} can't use ${battle.pokemon.move1.move.name} afterthe taunt",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                } else if (battle.pokemon.currentHP > 0 && battle.opponent.currentHP > 0) {
+                    if (move.move.id == 185){
+                        activity.trainer!!.team.forEach { it.recomputeStat() }
+                        battle.pokemon.battleData = null
+                        activity.mainMenu.loadGameMenu(activity)
                     } else {
-                        megaEvolve = false
-                        dialogTextView!!.text = battle.turn(move, false)
+                        if (megaEvolve && battle.pokemon.canMegaEvolve()) {
+                            val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
+                            megaEvolutionImageView.visibility = GONE
+                            dialogTextView!!.text = battle.turn(move, true)
+                        } else {
+                            megaEvolve = false
+                            dialogTextView!!.text = battle.turn(move, false)
+                        }
+                        ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
+                        updateBattleUI(activity, battle)
                     }
-                    ppTextView.text = activity.getString(R.string.move_pp, move.pp, move.move.pp)
-                    updateBattleUI(activity, battle)
                 }
             }
         } else {
@@ -451,22 +461,27 @@ class BattleUI {
             ppTextView.text =
                 activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
             attack1Button.setOnClickListener {
-                if (activity.trainer!!.name == PokedexMenu.ADMIN) {
+                if (battle.pokemon.move1.move.category == MoveCategory.OTHER && battle.pokemon.battleData!!.battleStatus.contains(Status.TAUNTED)) {
                     Toast.makeText(
                         activity,
-                        MoveUtils.getMoveList(battle.opponent).map{it.move.name}.toString(),
+                        "${battle.pokemon.data.name} can't use ${battle.pokemon.move1.move.name} afterthe taunt",
                         Toast.LENGTH_SHORT
                     )
                         .show()
-                }
-                if (battle.pokemon.currentHP > 0 && battle.opponent.currentHP > 0) {
-                    if (megaEvolve && battle.pokemon.canMegaEvolve()) {
-                        val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
-                        megaEvolutionImageView.visibility = GONE
-                        dialogTextView!!.text = battle.turn(battle.pokemon.move1, true)
+                } else if (battle.pokemon.currentHP > 0 && battle.opponent.currentHP > 0) {
+                    if (battle.pokemon.move1.move.id == 185){
+                        activity.trainer!!.team.forEach { it.recomputeStat() }
+                        battle.pokemon.battleData = null
+                        activity.mainMenu.loadGameMenu(activity)
                     } else {
-                        megaEvolve = false
-                        dialogTextView!!.text = battle.turn(battle.pokemon.move1, false)
+                        if (megaEvolve && battle.pokemon.canMegaEvolve()) {
+                            val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
+                            megaEvolutionImageView.visibility = GONE
+                            dialogTextView!!.text = battle.turn(battle.pokemon.move1, true)
+                        } else {
+                            megaEvolve = false
+                            dialogTextView!!.text = battle.turn(battle.pokemon.move1, false)
+                        }
                     }
                     ppTextView.text =
                         activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)

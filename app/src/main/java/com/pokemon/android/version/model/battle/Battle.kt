@@ -4,7 +4,9 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.model.Ability
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
+import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.item.Ball
+import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.move.ChargedMove
 import com.pokemon.android.version.model.move.MoveCategory
@@ -376,7 +378,6 @@ abstract class Battle {
     }
 
     companion object {
-
         fun checkStatus(pokemon: Pokemon): String {
             var details = ""
             if (pokemon.battleData!!.battleStatus.contains(Status.CONFUSED)) {
@@ -443,6 +444,23 @@ abstract class Battle {
                         pokemon.battleData!!.sleepCounter++
                     }
                     else -> {}
+                }
+            }
+            if (pokemon.hasItem(HoldItem.LIFE_ORB) && !pokemon.hasAbility(Ability.SHEER_FORCE)){
+                pokemon.takeDamage(pokemon.hp / 10)
+                details += pokemon.data.name + " lost some of its hp!\n"
+            }
+            if (pokemon.hasItem(HoldItem.LEFTOVERS)){
+                pokemon.heal(pokemon.hp / 16)
+                details += pokemon.data.name + " restored a little of its hp using its Leftovers!\n"
+            }
+            if (pokemon.hasItem(HoldItem.BLACK_SLUDGE)){
+                if (pokemon.data.type1 == Type.POISON||pokemon.data.type2 == Type.POISON) {
+                    pokemon.heal(pokemon.hp / 16)
+                    details += pokemon.data.name + " restored a little of its hp using its Black Sludge!\n"
+                } else{
+                    pokemon.takeDamage(pokemon.hp / 8)
+                    details += pokemon.data.name + " lost some of its hp!\n"
                 }
             }
             return details

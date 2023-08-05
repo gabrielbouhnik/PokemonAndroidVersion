@@ -132,7 +132,7 @@ class BattleFrontierMenu {
                 teamRecyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                 val pokemons = activity.trainer!!.pokemons.filter { it.level >= 50 }.map {
                     activity.gameDataService.generatePokemonWithMoves(it.data.id, 50, MoveUtils.getMoveList(it)
-                        .map { m -> m.move })
+                        .map { m -> m.move },null)
                 }.toMutableList()
                 val team = arrayListOf<Pokemon>()
                 val itemClickListener = View.OnClickListener {

@@ -3,11 +3,11 @@ package com.pokemon.android.version.model
 import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.entity.save.PokemonSave
 import com.pokemon.android.version.model.battle.*
+import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.BattleUtils
-import com.pokemon.android.version.utils.IAUtils
 import com.pokemon.android.version.utils.MoveUtils
 import com.pokemon.android.version.utils.StatUtils
 import java.util.*
@@ -33,6 +33,7 @@ open class Pokemon(
     var currentExp: Int = 0,
     var shiny: Boolean,
     var battleData: PokemonBattleData?,
+    var heldItem: HoldItem?,
     var isFromBanner: Boolean = false,
     var movesLearnedByTM: ArrayList<Move> = arrayListOf(),
     var isMegaEvolved: Boolean = false
@@ -62,13 +63,15 @@ open class Pokemon(
         currentHP,
         0,
         shiny,
-        PokemonBattleData()
+        PokemonBattleData(),
+        null
     )
 
     companion object {
         fun of(pokemonSave: PokemonSave, gameDataService: GameDataService, trainer: Trainer): Pokemon {
             val data = gameDataService.getPokemonDataById(pokemonSave.id)
-            return PokemonBuilder().data(data)
+            return PokemonBuilder()
+                .data(data)
                 .level(pokemonSave.level)
                 .trainer(trainer)
                 .status(Status.valueOf(pokemonSave.status))
@@ -100,6 +103,7 @@ open class Pokemon(
                     ) else null
                 )
                 .shiny(pokemonSave.shiny)
+                .holdItem(if (pokemonSave.holdItem == null || pokemonSave.holdItem == "") null else HoldItem.valueOf(pokemonSave.holdItem))
                 .isFromBanner(pokemonSave.isFromBanner)
                 .movesLearnedByTM(arrayListOf())
                 .build()
@@ -161,6 +165,12 @@ open class Pokemon(
             move.pp = if (move.pp > 1) move.pp - 2 else 0
         else
             move.pp = move.pp - 1
+        if (move.move.category == MoveCategory.OTHER && battleData!!.battleStatus.contains(Status.TAUNTED)) {
+            return AttackResponse(
+                false,
+                "${this.data.name} can't use ${move.move.name} after the taunt!\n"
+            )
+        }
         if (move.move.characteristics.contains(MoveCharacteristic.SOUND) && opponent.hasAbility(Ability.SOUNDPROOF))
             return AttackResponse(
                 false,
@@ -193,11 +203,14 @@ open class Pokemon(
                 "${this.data.name} uses ${move.move.name}\n${opponent.data.name}'s Flash Fire: ${opponent.data.name}'s fire power is increased!\n"
             )
         }
-        if (move.move.power > 0 && move.move.type == Type.GROUND && opponent.hasAbility(Ability.LEVITATE))
+        if (move.move.power > 0 && move.move.type == Type.GROUND
+            && (opponent.hasAbility(Ability.LEVITATE) || opponent.hasItem(HoldItem.AIR_BALLOON))) {
+                val causeOfImmunity = if (opponent.hasAbility(Ability.LEVITATE)) "Levitate" else "Air Balloon"
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Levitate: It does not affect ${opponent.data.name}!\n"
+                "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s ${causeOfImmunity}: It does not affect ${opponent.data.name}!\n"
             )
+        }
         if ((move.move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(Ability.DRY_SKIN)))
             || (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))
         ) {
@@ -314,11 +327,16 @@ open class Pokemon(
             if (opponent.currentHP == opponent.hp
                 && move.move !is MultipleHitMove
                 && move.move !is VariableHitMove
-                && opponent.hasAbility(Ability.STURDY)
+                && (opponent.hasAbility(Ability.STURDY) || opponent.hasItem(HoldItem.FOCUS_SASH))
             ) {
                 damageDone = opponent.currentHP - 1
                 opponent.currentHP = 1
-                details += "${opponent.data.name}'s Sturdy: ${opponent.data.name} endured the hit!\n"
+                if (opponent.hasAbility(Ability.STURDY))
+                    details += "${opponent.data.name}'s Sturdy: ${opponent.data.name} endured the hit!\n"
+                else{
+                    details += "${opponent.data.name} hung on thanks to his Focus Sash!\n"
+                    opponent.heldItem = null
+                }
             } else {
                 damageDone = opponent.currentHP
                 opponent.currentHP = 0
@@ -331,6 +349,10 @@ open class Pokemon(
         } else {
             damageDone = damage
             opponent.takeDamage(damage)
+            if (opponent.hasItem(HoldItem.AIR_BALLOON)){
+                details += "${opponent.data.name}'s Air Balloon popped out!"
+                opponent.heldItem = null
+            }
             if (crit == 1.5f && opponent.hasAbility(Ability.ANGER_POINT)){
                 details += "${opponent.data.name}'s Anger Point: ${opponent.data.name} maxed its Attack!\n"
                 opponent.battleData!!.attackMultiplicator = 4f
@@ -552,6 +574,10 @@ open class Pokemon(
         return if (isMegaEvolved) data.megaEvolutionData!!.ability == ability else data.abilities.contains(ability)
     }
 
+    fun hasItem(item: HoldItem): Boolean {
+        return heldItem != null && heldItem == item
+    }
+
     fun takeDamage(damage: Int) {
         if (this.currentHP > damage)
             this.currentHP -= damage
@@ -587,7 +613,8 @@ open class Pokemon(
         var currentExp: Int = 0,
         var shiny: Boolean = false,
         var isFromBanner: Boolean = false,
-        var movesLearnedByTM: ArrayList<Move> = arrayListOf()
+        var movesLearnedByTM: ArrayList<Move> = arrayListOf(),
+        var holdItem: HoldItem? = null,
     ) {
         fun data(data: PokemonData) = apply { this.data = data }
         fun trainer(trainer: Trainer) = apply { this.trainer = trainer }
@@ -608,6 +635,7 @@ open class Pokemon(
         fun shiny(shiny: Boolean) = apply { this.shiny = shiny }
         fun isFromBanner(isFromBanner: Boolean) = apply { this.isFromBanner = isFromBanner }
         fun movesLearnedByTM(movesLearnedByTM: ArrayList<Move>) = apply { this.movesLearnedByTM = movesLearnedByTM }
+        fun holdItem(holdItem: HoldItem?) = apply { this.holdItem = holdItem }
         fun build() = Pokemon(
             data!!,
             trainer,
@@ -627,6 +655,7 @@ open class Pokemon(
             currentExp,
             shiny,
             PokemonBattleData(),
+            holdItem,
             isFromBanner,
             movesLearnedByTM
         )

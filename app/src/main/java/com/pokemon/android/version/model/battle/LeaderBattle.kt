@@ -36,7 +36,8 @@ class LeaderBattle() : Battle() {
             team.map {
                 activity.gameDataService.generatePokemonWithMoves(
                     it.id, it.level,
-                    it.moves
+                    it.moves,
+                    it.holdItem
                 )
             }, leaderLevelData.sprite, 1
         )

@@ -1,5 +1,6 @@
 package com.pokemon.android.version.model
 
+import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.move.HealMove
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveCategory
@@ -22,6 +23,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
     TRAPPED_WITHOUT_DAMAGE(false),
     LEECH_SEEDED(false),
     FIRED_UP(false),
+    TAUNTED(false),
     ROOSTED(false);
 
     fun toDetails(): String {
@@ -66,19 +68,28 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                 attacker.status = it.status
                                 details += "${opponent.data.name}'s Synchronize: ${attacker.data.name} " + it.status.toDetails() + "\n"
                             }
+                            if (opponent.hasItem(HoldItem.LUM_BERRY)){
+                                details += "${opponent.data.name}'s Lum Berry cured its status\n"
+                                opponent.status = OK
+                                opponent.heldItem = null
+                            }
                         } else {
                             if (it.status == CONFUSED) {
-                                details = if (opponent.hasAbility(Ability.OWN_TEMPO))
-                                    "${opponent.data.name}'s Own Tempo: ${opponent.data.name} cannot be confused!\n"
+                                if (opponent.hasAbility(Ability.OWN_TEMPO))
+                                    details += "${opponent.data.name}'s Own Tempo: ${opponent.data.name} cannot be confused!\n"
                                 else {
                                     opponent.battleData!!.battleStatus.add(it.status)
-                                    "${opponent.data.name} became confused!\n"
+                                    details +="${opponent.data.name} became confused!\n"
+                                    if (opponent.hasItem(HoldItem.LUM_BERRY)){
+                                        details += "${opponent.data.name}'s Lum Berry cured its status\n"
+                                        opponent.status = OK
+                                        opponent.heldItem = null
+                                    }
                                 }
+
                             } else if (it.status == FLINCHED) {
                                 if (!opponent.hasAbility(Ability.INNER_FOCUS))
                                     opponent.battleData!!.battleStatus.add(it.status)
-                            } else if (move is HealMove) {
-                                attacker.battleData!!.battleStatus.add(it.status)
                             } else {
                                 opponent.battleData!!.battleStatus.add(it.status)
                                 if (it.status == TRAPPED_WITH_DAMAGE || it.status == TRAPPED_WITHOUT_DAMAGE)
@@ -87,6 +98,8 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                     details = "${opponent.data.name} gets drowsy!\n"
                                 if (it.status == LEECH_SEEDED)
                                     details = "${opponent.data.name} was seeded!\n"
+                                if (it.status == TAUNTED)
+                                    details = "${opponent.data.name} fell for the taunt!\n"
                             }
                         }
                     }
@@ -139,17 +152,17 @@ enum class Status(var activeOutsideBattle: Boolean) {
                 return false
             if (!status.activeOutsideBattle && !opponent.battleData!!.battleStatus.contains(status))
                 return true
-            if (opponent.status != OK)
-                return false
-            if (status == ASLEEP && !opponent.hasAbility(Ability.INSOMNIA) && !opponent.hasAbility(Ability.VITAL_SPIRIT))
-                return true
             val type1 =
                 if (opponent.isMegaEvolved) opponent.data.megaEvolutionData!!.type1 else opponent.data.type1
             val type2 =
                 if (opponent.isMegaEvolved) opponent.data.megaEvolutionData!!.type2 else opponent.data.type2
-            if (status == FROZEN && (type1 != Type.ICE && type2 != Type.ICE) && !opponent.hasAbility(Ability.MAGMA_ARMOR))
-                return true
             if (status == LEECH_SEEDED && (type1 != Type.GRASS && type2 != Type.GRASS))
+                return true
+            if (opponent.status != OK)
+                return false
+            if (status == ASLEEP && !opponent.hasAbility(Ability.INSOMNIA) && !opponent.hasAbility(Ability.VITAL_SPIRIT))
+                return true
+            if (status == FROZEN && (type1 != Type.ICE && type2 != Type.ICE) && !opponent.hasAbility(Ability.MAGMA_ARMOR))
                 return true
             if (status == BURN && (type1 != Type.FIRE && type2 != Type.FIRE) && !opponent.hasAbility(Ability.WATER_VEIL))
                 return true

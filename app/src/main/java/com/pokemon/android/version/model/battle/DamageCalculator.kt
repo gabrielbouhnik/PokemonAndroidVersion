@@ -4,12 +4,32 @@ import com.pokemon.android.version.model.Ability
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Type
+import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.move.*
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
 class DamageCalculator {
     companion object {
+        val TYPE_ITEM_BOOST = mapOf(
+            Type.GRASS to HoldItem.MIRACLE_SEED,
+            Type.FIRE to HoldItem.CHARCOAL,
+            Type.WATER to HoldItem.MYSTIC_WATER,
+            Type.ELECTRIC to HoldItem.MAGNET,
+            Type.NORMAL to HoldItem.SILK_SCARF,
+            Type.FLYING to HoldItem.SHARP_BEAK,
+            Type.BUG to HoldItem.SILVER_POWDER,
+            Type.POISON to HoldItem.POISON_BARB,
+            Type.ROCK to HoldItem.HARD_STONE,
+            Type.GROUND to HoldItem.SOFT_SAND,
+            Type.FIGHTING to HoldItem.EXPERT_BELT,
+            Type.PSYCHIC to HoldItem.TWISTED_SPOON,
+            Type.GHOST to HoldItem.SPELL_TAG,
+            Type.ICE to HoldItem.NEVER_MELT_ICE,
+            Type.DRAGON to HoldItem.DRAGON_FANG,
+            Type.DARK to HoldItem.BLACK_GLASSES,
+        )
+
         fun getCriticalMultiplicator(attacker: Pokemon, move: Move, opponent: Pokemon): Float {
             if (opponent.hasAbility(Ability.BATTLE_ARMOR) || opponent.hasAbility(Ability.SHELL_ARMOR))
                 return 1f
@@ -68,6 +88,60 @@ class DamageCalculator {
             return ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * power * offensiveStat) / (defensiveStat * 50)) + 2) * type * stab * multiplicator * random).roundToInt()
         }
 
+        private fun computePower(attacker: Pokemon, move: Move, opponent: Pokemon): Float{
+            var power: Float =
+                if (move is MoveBasedOnHP) move.getPower(attacker).toFloat() else move.power.toFloat()
+            if (move.id == 240 && attacker.battleData!!.lastMoveFailed) {
+                power *= 2
+            }
+            if (move.id == 241 && opponent.hp/opponent.currentHP >= 2) {
+                power *= 2
+            }
+            if (move.id == 233) {
+                power *= (1 + (opponent.speed * opponent.battleData!!.speedMultiplicator) / (attacker.speed * attacker.battleData!!.speedMultiplicator)).roundToInt()
+            }
+            if (attacker.hasAbility(Ability.SHEER_FORCE) && (move.status.isNotEmpty() || move is StatChangeMove))
+                power *= 1.3f
+            if (attacker.hasAbility(Ability.TOUGH_CLAW) && move.characteristics.contains(MoveCharacteristic.CONTACT))
+                power *= 1.3f
+            if (move.power <= 60 && attacker.hasAbility(Ability.TECHNICIAN))
+                power *= 1.5f
+            if ((move is RecoilMove || move.id == 210) && attacker.hasAbility(Ability.RECKLESS))
+                power *= 1.2f
+            if (move.characteristics.contains(MoveCharacteristic.PUNCH) && attacker.hasAbility(Ability.IRON_FIST))
+                power *= 1.2f
+            if (move.characteristics.contains(MoveCharacteristic.SLICE) && attacker.hasAbility(Ability.SHARPNESS))
+                power *= 1.5f
+            if (move.type == Type.FIRE) {
+                if (attacker.battleData!!.battleStatus.contains(Status.FIRED_UP))
+                    power *= 1.5f
+                if (opponent.hasAbility(Ability.DRY_SKIN))
+                    power *= 2f
+            }
+            if (move.id == 224 && (opponent.status != Status.OK || opponent.battleData!!.battleStatus.contains(Status.CONFUSED))) {
+                power *= 2f
+            }
+            if (move.id == 232 && (opponent.status == Status.POISON || opponent.status == Status.BADLY_POISON)) {
+                power *= 2f
+            }
+            val typeBoostItem = TYPE_ITEM_BOOST[move.type]
+            if (typeBoostItem != null && attacker.hasItem(typeBoostItem))
+                power *= 1.2f
+            if (attacker.hasItem(HoldItem.LIFE_ORB) || (move is DrainMove && attacker.hasItem(HoldItem.BIG_ROOT)))
+                power *= 1.3f
+            if ((attacker.currentHP / attacker.hp) < 0.4) {
+                if (move.type == Type.GRASS && attacker.hasAbility(Ability.OVERGROW))
+                    power *= 1.5f
+                if (move.type == Type.FIRE && attacker.hasAbility(Ability.BLAZE))
+                    power *= 1.5f
+                if (move.type == Type.WATER && attacker.hasAbility(Ability.TORRENT))
+                    power *= 1.5f
+                if (move.type == Type.BUG && attacker.hasAbility(Ability.SWARM))
+                    power *= 1.5f
+            }
+            return power
+        }
+
         fun computeDamage(attacker: Pokemon, move: Move, opponent: Pokemon, criticalMultiplicator: Float): Int {
             if (opponent.currentHP == 0)
                 return 0
@@ -101,57 +175,16 @@ class DamageCalculator {
                 if (attacker.status == Status.BURN)
                     multiplicator *= 0.5f
             }
-            var power: Float =
-                if (move is MoveBasedOnHP) move.getPower(attacker).toFloat() else move.power.toFloat()
-            if (move.id == 240 && attacker.battleData!!.lastMoveFailed) {
-                power *= 2
-            }
-            if (move.id == 241 && opponent.hp/opponent.currentHP >= 2) {
-                power *= 2
-            }
-            if (move.id == 233) {
-                power *= (1 + (opponent.speed * opponent.battleData!!.speedMultiplicator) / (attacker.speed * attacker.battleData!!.speedMultiplicator)).roundToInt()
-            }
-            if (attacker.hasAbility(Ability.SHEER_FORCE) && (move.status.isNotEmpty() || move is StatChangeMove))
-                power *= 1.3f
-            if (attacker.hasAbility(Ability.TOUGH_CLAW) && move.characteristics.contains(MoveCharacteristic.CONTACT))
-                power *= 1.3f
-            if (move.power <= 60 && attacker.hasAbility(Ability.TECHNICIAN))
-                power *= 1.5f
-            if ((move is RecoilMove || move.id == 210) && attacker.hasAbility(Ability.RECKLESS))
-                power *= 1.2f
-            if (move.characteristics.contains(MoveCharacteristic.PUNCH) && attacker.hasAbility(Ability.IRON_FIST))
-                power *= 1.2f
-            if (move.characteristics.contains(MoveCharacteristic.SLICE) && attacker.hasAbility(Ability.SHARPNESS))
-                power *= 1.5f
             if ((move.type == Type.FIRE || move.type == Type.ICE) && opponent.hasAbility(Ability.THICK_FAT))
                 multiplicator *= 0.5f
-            if (move.type == Type.FIRE) {
-                if (attacker.battleData!!.battleStatus.contains(Status.FIRED_UP))
-                    power *= 1.5f
-                if (opponent.hasAbility(Ability.DRY_SKIN))
-                    power *= 2f
-            }
-            if (move.id == 224 && (opponent.status != Status.OK || opponent.battleData!!.battleStatus.contains(Status.CONFUSED))) {
-                power *= 2f
-            }
-            if (move.id == 232 && (opponent.status == Status.POISON || opponent.status == Status.BADLY_POISON)) {
-                power *= 2f
-            }
-            if ((attacker.currentHP / attacker.hp) < 0.4) {
-                if (move.type == Type.GRASS && attacker.hasAbility(Ability.OVERGROW))
-                    power *= 1.5f
-                if (move.type == Type.FIRE && attacker.hasAbility(Ability.BLAZE))
-                    power *= 1.5f
-                if (move.type == Type.WATER && attacker.hasAbility(Ability.TORRENT))
-                    power *= 1.5f
-                if (move.type == Type.BUG && attacker.hasAbility(Ability.SWARM))
-                    power *= 1.5f
-            }
             return try {
                 var type = getEffectiveness(move, opponent)
-                if (type >= 2f && opponent.hasAbility(Ability.SOLID_ROCK))
-                    type *= 0.75f
+                if (type >= 2f){
+                    if(opponent.hasAbility(Ability.SOLID_ROCK))
+                        type *= 0.75f
+                    if(attacker.hasItem(HoldItem.EXPERT_BELT))
+                        type *= 1.2f
+                }
                 if (attacker.hasAbility(Ability.TINTED_LENS) && type < 1f)
                     type *= 2f
                 val random: Float = Random.nextInt(85, 100).toFloat() / 100f
@@ -176,7 +209,7 @@ class DamageCalculator {
                             if (move.category == MoveCategory.PHYSICAL || move.category == MoveCategory.SPECIAL_AND_PHYSICAL) opponent.defense else opponent.spDef
                     }
                 }
-                ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * power * offensiveStat) / (defensiveStat * 50)) + 2) * type * criticalMultiplicator * stab * multiplicator * random).roundToInt()
+                ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * computePower(attacker,move,opponent) * offensiveStat) / (defensiveStat * 50)) + 2) * type * criticalMultiplicator * stab * multiplicator * random).roundToInt()
             } catch (e: Exception) {
                 0
             }

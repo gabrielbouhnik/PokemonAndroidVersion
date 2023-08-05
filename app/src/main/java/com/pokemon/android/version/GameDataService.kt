@@ -5,6 +5,7 @@ import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.banner.Banner
 import com.pokemon.android.version.model.banner.PokemonBanner
+import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.item.ItemData
 import com.pokemon.android.version.model.item.ItemFactory
 import com.pokemon.android.version.model.level.*
@@ -80,7 +81,7 @@ class GameDataService {
             moveSet.add(possibleMoves[2])
         if (possibleMoves.size > 3)
             moveSet.add(possibleMoves[3])
-        return generatePokemonWithMoves(id, level, moveSet)
+        return generatePokemonWithMoves(id, level, moveSet,null)
     }
 
     fun generateWildPokemon(id: Int, level: Int): Pokemon {
@@ -97,12 +98,12 @@ class GameDataService {
     }
 
     fun generatePokemonFromBanner(pokemonBanner: PokemonBanner): Pokemon {
-        val pokemon = generatePokemonWithMoves(pokemonBanner.pokemonId, 5, pokemonBanner.moves)
+        val pokemon = generatePokemonWithMoves(pokemonBanner.pokemonId, 5, pokemonBanner.moves,null)
         pokemon.isFromBanner = true
         return pokemon
     }
 
-    fun generatePokemonWithMoves(id: Int, level: Int, moves: List<Move>): Pokemon {
+    fun generatePokemonWithMoves(id: Int, level: Int, moves: List<Move>, holdItem: HoldItem?): Pokemon {
         val pokemonData: PokemonData = pokemons.first { it.id == id }
         val hp: Int = StatUtils.computeHP(pokemonData, level)
         val attack: Int = StatUtils.computeStat(pokemonData, level, Stats.ATTACK)
@@ -129,11 +130,12 @@ class GameDataService {
             .move3(move3)
             .move4(move4)
             .shiny(false)
+            .holdItem(holdItem)
             .build()
     }
 
     fun generateBoss(id: Int, level: Int, moves: List<Move>): PokemonBoss {
-        val pokemon = generatePokemonWithMoves(id, level, moves)
+        val pokemon = generatePokemonWithMoves(id, level, moves,null)
         val move5: PokemonMove? = if (moves.size < 5) null else PokemonMove(moves[4])
         val move6: PokemonMove? = if (moves.size < 6) null else PokemonMove(moves[5])
         return PokemonBoss.PokemonBossBuilder()

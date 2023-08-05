@@ -13,7 +13,8 @@ class OpponentTrainerFactory {
                 gameDataService.generatePokemonWithMoves(
                     it.id,
                     it.level,
-                    it.moves
+                    it.moves,
+                    it.holdItem
                 )
             }, opponentTrainerData.sprite, opponentTrainerData.iaLevel)
             opponentTrainer.team.forEach { it.trainer = opponentTrainer }

@@ -13,6 +13,7 @@ data class PokemonSave(
     var shiny: Boolean = false,
     var isFromBanner: Boolean,
     var movesLearnedByTM: List<Int>,
+    var holdItem: String
 ) {
     companion object {
         fun of(pokemon: Pokemon): PokemonSave {
@@ -25,7 +26,8 @@ data class PokemonSave(
                 MoveUtils.getMoveList(pokemon).map { MoveSave(it.move.id, it.move.pp) },
                 pokemon.shiny,
                 pokemon.isFromBanner,
-                pokemon.movesLearnedByTM.map{it.id}
+                pokemon.movesLearnedByTM.map{it.id},
+                if(pokemon.heldItem == null) "" else pokemon.heldItem.toString()
             )
         }
     }

@@ -20,7 +20,8 @@ class BattleFrontierBattle() : Battle() {
                 gameDataService.generatePokemonWithMoves(
                     id,
                     50,
-                    moveSets[Random.nextInt(moveSets.size)]
+                    moveSets[Random.nextInt(moveSets.size)],
+                    null
                 )
             }
         }

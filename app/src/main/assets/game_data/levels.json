@@ -2050,14 +2050,16 @@
               "level": 35,
               "moveIds": [
                 15,43,100,111
-              ]
+              ],
+              "itemHeld": "MYSTIC_WATER"
             },
             {
               "id": 106,
               "level": 40,
               "moveIds": [
                 68,69,25,14
-              ]
+              ],
+              "itemHeld": "BLACK_BELT"
             }
           ]
         }
@@ -2909,28 +2911,32 @@
               "level": 54,
               "moveIds": [
                 104,43,100,111
-              ]
+              ],
+              "itemHeld": "MYSTIC_WATER"
             },
             {
               "id": 59,
               "level": 54,
               "moveIds": [
                 116,75,27,120
-              ]
+              ],
+              "itemHeld": "CHARCOAL"
             },
             {
               "id": 64,
               "level": 54,
               "moveIds": [
                 44,45,46,105
-              ]
+              ],
+              "itemHeld": "TWISTED_SPOON"
             },
             {
               "id": 106,
               "level": 57,
               "moveIds": [
                 68,210,25,14
-              ]
+              ],
+              "itemHeld": "BLACK_BELT"
             }
           ]
         }
@@ -2977,35 +2983,40 @@
               "level": 56,
               "moveIds": [
                 50,37,23,48
-              ]
+              ],
+              "itemHeld": "BLACK_SLUDGE"
             },
             {
               "id": 101,
               "level": 56,
               "moveIds": [
                 53,2,112
-              ]
+              ],
+              "itemHeld": "MAGNET"
             },
             {
               "id": 126,
               "level": 57,
               "moveIds": [
                 31,103,225,69
-              ]
+              ],
+              "itemHeld": "CHARCOAL"
             },
             {
               "id": 110,
               "level": 56,
               "moveIds": [
                 37,31,12,92
-              ]
+              ],
+              "itemHeld": "BLACK_SLUDGE"
             },
             {
               "id": 229,
               "level": 57,
               "moveIds": [
                 37,31,92,120
-              ]
+              ],
+              "itemHeld": "CHARCOAL"
             }
           ]
         }
@@ -3052,14 +3063,16 @@
               "level": 60,
               "moveIds": [
                 38,123,51,12
-              ]
+              ],
+              "itemHeld": "EXPERT_BELT"
             },
             {
               "id": 115,
               "level": 57,
               "moveIds": [
                 63,25,27,76
-              ]
+              ],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 51,
@@ -3073,21 +3086,24 @@
               "level": 57,
               "moveIds": [
                 62,93,27,89
-              ]
+              ],
+              "itemHeld": "BLACK_SLUDGE"
             },
             {
               "id": 34,
               "level": 57,
               "moveIds": [
                 62,87,12,31
-              ]
+              ],
+              "itemHeld": "LIFE_ORB"
             },
             {
               "id": 112,
               "level": 59,
               "moveIds": [
                 93,25,149,109
-              ]
+              ],
+              "itemHeld": "EVIOLITE"
             }
           ]
         }
@@ -3132,32 +3148,38 @@
             {
               "id": 67,
               "level": 55,
-              "moveIds": [167,25,180,110]
+              "moveIds": [167,25,180,110],
+              "itemHeld": "BLACK_BELT"
             },
             {
               "id": 237,
               "level": 55,
-              "moveIds": [40,25,3,227]
+              "moveIds": [40,25,3,227],
+              "itemHeld": "BLACK_BELT"
             },
             {
               "id": 62,
               "level": 55,
-              "moveIds": [136,107,180,80]
+              "moveIds": [136,107,180,80],
+              "itemHeld": "BLACK_BELT"
             },
             {
               "id": 57,
               "level": 55,
-              "moveIds": [40,25,62,51]
+              "moveIds": [40,25,62,51],
+              "itemHeld": "BLACK_BELT"
             },
             {
               "id": 106,
               "level": 55,
-              "moveIds": [191,68,25,210]
+              "moveIds": [191,68,25,210],
+              "itemHeld": "BLACK_BELT"
             },
             {
               "id": 107,
               "level": 55,
-              "moveIds": [76,103,107,110]
+              "moveIds": [76,103,107,110],
+              "itemHeld": "BLACK_BELT"
             }
           ]
         }
@@ -3358,17 +3380,20 @@
             {
               "id": 37,
               "level": 58,
-              "moveIds": [82,81,130,3]
+              "moveIds": [82,81,130,3],
+              "itemHeld": "CHARCOAL"
             },
             {
               "id": 218,
               "level": 58,
-              "moveIds": [31,87,88,102]
+              "moveIds": [31,87,88,102],
+              "itemHeld": "CHARCOAL"
             },
             {
               "id": 58,
               "level": 58,
-              "moveIds": [82,27,73,115]
+              "moveIds": [82,27,73,115],
+              "itemHeld": "CHARCOAL"
             }
           ]
         }
@@ -3409,7 +3434,8 @@
             {
               "id": 8,
               "level": 57,
-              "moveIds": [43,100,79,23]
+              "moveIds": [43,100,79,23],
+              "itemHeld": "EVIOLITE"
             },
             {
               "id": 121,
@@ -3497,12 +3523,14 @@
             {
               "id": 128,
               "level": 66,
-              "moveIds": [147,93,148,25]
+              "moveIds": [147,93,148,25],
+              "itemHeld": "LUM_BERRY"
             },
             {
               "id": 103,
               "level": 67,
-              "moveIds": [105,45,133,37]
+              "moveIds": [105,45,133,37],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 130,
@@ -3654,44 +3682,49 @@
               "level": 70,
               "moveIds": [
                 38,73,51,12
-              ]
+              ],
+              "itemHeld": "SILK_SCARF"
             },
             {
               "id": 112,
               "level": 67,
               "moveIds": [
                 93,25,62,109
-              ]
+              ],
+              "itemHeld": "EVIOLITE"
             },
             {
               "id": 51,
               "level": 67,
               "moveIds": [
                 30,25,123,113
-              ]
+              ],
+              "itemHeld": "FOCUS_SASH"
             },
             {
               "id": 31,
               "level": 67,
               "moveIds": [
                 62,93,27,89
-              ]
+              ],
+              "itemHeld": "LIFE_ORB"
             },
             {
               "id": 34,
               "level": 67,
               "moveIds": [
                 62,93,12,31
-              ]
+              ],
+              "itemHeld": "LIFE_ORB"
             },
             {
               "id": 464,
               "level": 69,
               "moveIds": [
                 93,183,109,149
-              ]
+              ],
+              "itemHeld": "ASSAULT_VEST"
             }
-
           ]
         }
       ],
@@ -3790,32 +3823,38 @@
             {
               "id": 18,
               "level": 70,
-              "moveIds": [3,16,54,19]
+              "moveIds": [3,16,205,19],
+              "itemHeld": "LIFE_ORB"
             },
             {
               "id": 230,
               "level": 70,
-              "moveIds": [104,43,100,111]
+              "moveIds": [104,43,100,111],
+              "itemHeld": "MYSTIC_WATER"
             },
             {
               "id": 65,
               "level": 70,
-              "moveIds": [44,45,46,105]
+              "moveIds": [44,45,46,105],
+              "itemHeld": "TWISTED_SPOON"
             },
             {
               "id": 125,
               "level": 70,
-              "moveIds": [12,110,107,45]
+              "moveIds": [12,110,107,45],
+              "itemHeld": "AIR_BALLOON"
             },
             {
               "id": 59,
               "level": 70,
-              "moveIds": [116,75,27,200]
+              "moveIds": [116,75,27,200],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 106,
               "level": 73,
-              "moveIds": [68,210,25,14]
+              "moveIds": [68,210,25,14],
+              "itemHeld": "BLACK_BELT"
             }
           ]
         }
@@ -3869,14 +3908,16 @@
               "level": 72,
               "moveIds": [
                 31,50,104,93
-              ]
+              ],
+              "itemHeld": "LIFE_ORB"
             },
             {
               "id": 9,
               "level": 72,
               "moveIds": [
                 43,100,69,93
-              ]
+              ],
+              "itemHeld": "LEFTOVERS"
             }
           ]
         },
@@ -3887,27 +3928,32 @@
             {
               "id": 78,
               "level": 72,
-              "moveIds": [82,3,63,130]
+              "moveIds": [82,3,63,130],
+              "itemHeld": "CHARCOAL"
             },
             {
               "id": 71,
               "level": 72,
-              "moveIds": [62,18,66,35]
+              "moveIds": [62,18,66,35],
+              "itemHeld": "BIG_ROOT"
             },
             {
               "id": 87,
               "level": 72,
-              "moveIds": [100,95,43,72]
+              "moveIds": [100,95,43,72],
+              "itemHeld": "NEVER_MELT_ICE"
             },
             {
               "id": 28,
               "level": 72,
-              "moveIds": [30,93,69,38]
+              "moveIds": [30,93,69,38],
+              "itemHeld": "SOFT_SAND"
             },
             {
               "id": 101,
               "level": 72,
-              "moveIds": [12,2,112]
+              "moveIds": [12,2,112],
+              "itemHeld": "AIR_BALLOON"
             }
           ]
         }
@@ -3952,34 +3998,40 @@
             {
               "id": 87,
               "level": 73,
-              "moveIds": [100,95,43,72]
+              "moveIds": [100,95,43,72],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 80,
               "level": 73,
-              "moveIds": [43,45,100,134]
+              "moveIds": [43,45,100,134],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 124,
               "level": 73,
-              "moveIds": [100,45,46,105]
+              "moveIds": [100,45,46,105],
+              "itemHeld": "NEVER_MELT_ICE"
             },
             {
               "id": 473,
               "level": 73,
-              "moveIds": [25,93,98,95]
+              "moveIds": [25,93,98,95],
+              "itemHeld": "NEVER_MELT_ICE"
             },
             {
               "id": 91,
               "level": 73,
-              "moveIds": [43,98,131,95]
+              "moveIds": [43,98,131,95],
+              "itemHeld": "NEVER_MELT_ICE"
             },
             {
               "id": 131,
               "level": 75,
               "moveIds": [
                 100,12,43,45
-              ]
+              ],
+              "itemHeld": "LEFTOVERS"
             }
           ]
         }
@@ -4008,32 +4060,38 @@
             {
               "id": 107,
               "level": 73,
-              "moveIds": [103,76,14,107]
+              "moveIds": [103,76,14,107],
+              "itemHeld": "EXPERT_BELT"
             },
             {
               "id": 62,
               "level": 73,
-              "moveIds": [106,80,25,30]
+              "moveIds": [106,80,25,30],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 208,
               "level": 73,
-              "moveIds": [25,93,27,13]
+              "moveIds": [25,93,27,13],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 237,
               "level": 73,
-              "moveIds": [14,78,40,91]
+              "moveIds": [14,78,40,91],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 57,
               "level": 73,
-              "moveIds": [25,40,62,30]
+              "moveIds": [25,40,62,30],
+              "itemHeld": "BLACK_BELT"
             },
             {
               "id": 68,
               "level": 75,
-              "moveIds": [33,25,127,93]
+              "moveIds": [106,25,127,93],
+              "itemHeld": "LEFTOVERS"
             }
           ]
         }
@@ -4062,32 +4120,38 @@
             {
               "id": 93,
               "level": 73,
-              "moveIds": [46,44,37,48]
+              "moveIds": [46,44,37,48],
+              "itemHeld": "LIFE_ORB"
             },
             {
               "id": 94,
               "level": 73,
-              "moveIds": [213,46,37,94]
+              "moveIds": [213,46,37,94],
+              "itemHeld": "LIFE_ORB"
             },
             {
               "id": 24,
               "level": 73,
-              "moveIds": [37,27,25,83]
+              "moveIds": [37,27,25,83],
+              "itemHeld": "BLACK_SLUDGE"
             },
             {
               "id": 169,
               "level": 73,
-              "moveIds": [129,50,46,48]
+              "moveIds": [129,50,46,48],
+              "itemHeld": "BLACK_SLUDGE"
             },
             {
               "id": 429,
               "level": 73,
-              "moveIds": [46,44,12,48]
+              "moveIds": [46,44,12,48],
+              "itemHeld": "LIFE_ORB"
             },
             {
               "id": 94,
               "level": 75,
-              "moveIds": [46,44,37,12]
+              "moveIds": [46,44,37,12],
+              "itemHeld": "LIFE_ORB"
             }
           ]
         }
@@ -4116,32 +4180,38 @@
             {
               "id": 148,
               "level": 73,
-              "moveIds": [79,104,12,31]
+              "moveIds": [79,104,12,31],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 149,
               "level": 73,
-              "moveIds": [104,12,31,101]
+              "moveIds": [104,12,31,101],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 142,
               "level": 73,
-              "moveIds": [57,27,25,16]
+              "moveIds": [57,27,25,16],
+              "itemHeld": "LIFE_ORB"
             },
             {
               "id": 6,
               "level": 73,
-              "moveIds": [50,31,104,103]
+              "moveIds": [50,31,104,103],
+              "itemHeld": "CHARCOAL"
             },
             {
               "id": 130,
               "level": 73,
-              "moveIds": [79,27,93,125]
+              "moveIds": [79,27,93,125],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 149,
               "level": 77,
-              "moveIds": [108,16,103,93]
+              "moveIds": [108,16,103,93],
+              "itemHeld": "LUM_BERRY"
             }
           ]
         }
@@ -4179,31 +4249,36 @@
               "level": 75,
               "moveIds": [
                 104,43,100,101
-              ]
+              ],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 65,
               "level": 73,
               "moveIds": [
                 44,45,46,105
-              ]
+              ],
+              "itemHeld": "TWISTED_SPOON"
             },
             {
               "id": 59,
               "level": 73,
-              "moveIds": [116,75,200,138]
+              "moveIds": [116,75,200,138],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 466,
               "level": 75,
-              "moveIds": [107,110,93,200]
+              "moveIds": [107,110,93,200],
+              "itemHeld": "EXPERT_BELT"
             },
             {
               "id": 106,
               "level": 80,
               "moveIds": [
                 68,25,14,40
-              ]
+              ],
+              "itemHeld": "LUM_BERRY"
             }
           ]
         }
@@ -4231,27 +4306,32 @@
             {
               "id": 227,
               "level": 80,
-              "moveIds": [193,205,19,203]
+              "moveIds": [193,205,19,203],
+              "itemHeld": "ROCKY_HELMET"
             },
             {
               "id": 142,
               "level": 80,
-              "moveIds": [25,27,93,57]
+              "moveIds": [25,27,93,57],
+              "itemHeld": "LIFE_ORB"
             },
             {
               "id": 344,
               "level": 80,
-              "moveIds": [93,45,100,230]
+              "moveIds": [93,45,100,230],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 346,
               "level": 80,
-              "moveIds": [234,132,48,66]
+              "moveIds": [234,132,48,66],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 306,
               "level": 80,
-              "moveIds": [57,25,93,147]
+              "moveIds": [57,25,93,147],
+              "itemHeld": "AIR_BALLOON"
             },
             {
               "id": 376,
@@ -4297,27 +4377,32 @@
             {
               "id": 442,
               "level": 83,
-              "moveIds": [46,92,138,94]
+              "moveIds": [46,92,138,94],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 448,
               "level": 83,
-              "moveIds": [124,75,111,92]
+              "moveIds": [124,75,111,92],
+              "itemHeld": "LIFE_ORB"
             },
             {
               "id": 474,
               "level": 83,
-              "moveIds": [176,12,46,100]
+              "moveIds": [176,12,46,100],
+              "itemHeld": "SILK_SCARF"
             },
             {
               "id": 350,
               "level": 83,
-              "moveIds": [43,100,228,132]
+              "moveIds": [43,100,228,132],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 468,
               "level": 83,
-              "moveIds": [50,44,31,124]
+              "moveIds": [50,44,31,124],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 445,
@@ -4637,7 +4722,8 @@
           "level": 14,
           "moveIds": [
             72,15,221
-          ]
+          ],
+          "itemHeld": "HARD_STONE"
         }
       ],
       "battle2": [
@@ -4653,7 +4739,8 @@
           "level": 80,
           "moveIds": [
             93,136,38,25
-          ]
+          ],
+          "itemHeld": "LIFE_ORB"
         },
         {
           "id": 139,
@@ -4667,21 +4754,24 @@
           "level": 80,
           "moveIds": [
             25,93,109,62
-          ]
+          ],
+          "itemHeld": "EVIOLITE"
         },
         {
           "id": 248,
           "level": 80,
           "moveIds": [
             25,27,93,120
-          ]
+          ],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 95,
           "level": 80,
           "moveIds": [
             25,93,13,15
-          ]
+          ],
+          "itemHeld": "EVIOLITE"
         }
       ],
       "rewards": [
@@ -4743,7 +4833,8 @@
           "level": 22,
           "moveIds": [
             43,12,45,100
-          ]
+          ],
+          "itemHeld": "MYSTIC_WATER"
         }
       ],
       "battle2": [
@@ -4759,35 +4850,40 @@
           "level": 80,
           "moveIds": [
             43,12,100,55
-          ]
+          ],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 131,
           "level": 80,
           "moveIds": [
             43,12,100,104
-          ]
+          ],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 195,
           "level": 80,
           "moveIds": [
             93,79,82,132
-          ]
+          ],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 134,
           "level": 80,
           "moveIds": [
             43,100,46,3
-          ]
+          ],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 121,
           "level": 80,
           "moveIds": [
             43,12,45,100
-          ]
+          ],
+          "itemHeld": "EXPERT_BELT"
         }
       ],
       "rewards": [
@@ -4835,28 +4931,32 @@
           "level": 25,
           "moveIds": [
             3,25,13,52
-          ]
+          ],
+          "itemHeld": "MAGNET"
         },
         {
           "id": 100,
           "level": 27,
           "moveIds": [
             2,12,52,112
-          ]
+          ],
+          "itemHeld": "MAGNET"
         },
         {
           "id": 81,
           "level": 27,
           "moveIds": [
             2,12,111,52
-          ]
+          ],
+          "itemHeld": "MAGNET"
         },
         {
           "id": 26,
           "level": 30,
           "moveIds": [
             43,12,103,69
-          ]
+          ],
+          "itemHeld": "AIR_BALLOON"
         }
       ],
       "battle2": [
@@ -4865,42 +4965,48 @@
           "level": 80,
           "moveIds": [
             12,52,112
-          ]
+          ],
+          "itemHeld": "AIR_BALLOON"
         },
         {
           "id": 101,
           "level": 80,
           "moveIds": [
             2,12,52,112
-          ]
+          ],
+          "itemHeld": "AIR_BALLOON"
         },
         {
           "id": 82,
           "level": 80,
           "moveIds": [
             12,111,117,55
-          ]
+          ],
+          "itemHeld": "AIR_BALLOON"
         },
         {
           "id": 125,
           "level": 80,
           "moveIds": [
             12,110,107,69
-          ]
+          ],
+          "itemHeld": "EXPERT_BELT"
         },
         {
           "id": 135,
           "level": 80,
           "moveIds": [
             3,61,12,46
-          ]
+          ],
+          "itemHeld": "MAGNET"
         },
         {
           "id": 26,
           "level": 80,
           "moveIds": [
             3,12,13,52
-          ]
+          ],
+          "itemHeld": "AIR_BALLOON"
         }
       ],
       "rewards": [
@@ -4948,28 +5054,32 @@
           "level": 41,
           "moveIds": [
             66,44,133,35
-          ]
+          ],
+          "itemHeld": "MIRACLE_SEED"
         },
         {
           "id": 114,
           "level": 42,
           "moveIds": [
             66,102,37,35
-          ]
+          ],
+          "itemHeld": "BIG_ROOT"
         },
         {
           "id": 71,
           "level": 45,
           "moveIds": [
             66,62,18,121
-          ]
+          ],
+          "itemHeld": "MIRACLE_SEED"
         },
         {
           "id": 45,
           "level": 46,
           "moveIds": [
             66,84,37,76
-          ]
+          ],
+          "itemHeld": "BIG_ROOT"
         }
       ],
       "battle2": [
@@ -4978,42 +5088,48 @@
           "level": 40,
           "moveIds": [
             66,113,35,133
-          ]
+          ],
+          "itemHeld": "MIRACLE_SEED"
         },
         {
           "id": 71,
           "level": 80,
           "moveIds": [
             66,62,142,121
-          ]
+          ],
+          "itemHeld": "MIRACLE_SEED"
         },
         {
           "id": 182,
           "level": 80,
           "moveIds": [
             66,84,122,133
-          ]
+          ],
+          "itemHeld": "BIG_ROOT"
         },
         {
           "id": 465,
           "level": 80,
           "moveIds": [
             66,25,93,37
-          ]
+          ],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 470,
           "level": 80,
           "moveIds": [
             3,121,13,56
-          ]
+          ],
+          "itemHeld": "LIFE_ORB"
         },
         {
           "id": 45,
           "level": 80,
           "moveIds": [
             66,84,37,76
-          ]
+          ],
+          "itemHeld": "BLACK_SLUDGE"
         }
       ],
       "rewards": [
@@ -5073,17 +5189,20 @@
         {
           "id": 89,
           "level": 50,
-          "moveIds": [37,62,69,25]
+          "moveIds": [37,62,69,25],
+          "itemHeld": "BLACK_SLUDGE"
         },
         {
           "id": 49,
           "level": 50,
-          "moveIds": [45,37,60,122]
+          "moveIds": [45,37,60,122],
+          "itemHeld": "BLACK_SLUDGE"
         },
         {
           "id": 169,
           "level": 51,
-          "moveIds": [129,50,66,46]
+          "moveIds": [129,50,66,46],
+          "itemHeld": "BLACK_SLUDGE"
         }
       ],
       "battle2": [
@@ -5100,7 +5219,8 @@
         {
           "id": 89,
           "level": 80,
-          "moveIds": [155,107,69,25]
+          "moveIds": [155,107,69,25],
+          "itemHeld": "BLACK_SLUDGE"
         },
         {
           "id": 49,
@@ -5110,12 +5230,14 @@
         {
           "id": 73,
           "level": 80,
-          "moveIds": [43,37,66,62]
+          "moveIds": [43,37,66,62],
+          "itemHeld": "BLACK_SLUDGE"
         },
         {
           "id": 169,
           "level": 80,
-          "moveIds": [129,50,66,46]
+          "moveIds": [129,50,66,46],
+          "itemHeld": "BLACK_SLUDGE"
         }
       ],
       "rewards": [
@@ -5165,64 +5287,76 @@
         {
           "id": 122,
           "level": 55,
-          "moveIds": [45,44,46]
+          "moveIds": [45,44,46],
+          "itemHeld": "TWISTED_SPOON"
         },
         {
           "id": 64,
           "level": 55,
-          "moveIds": [45,44,46,184]
+          "moveIds": [45,44,46,184],
+          "itemHeld": "EVIOLITE"
         },
         {
           "id": 97,
           "level": 55,
-          "moveIds": [45,44,76,83]
+          "moveIds": [45,44,76,83],
+          "itemHeld": "TWISTED_SPOON"
         },
         {
           "id": 49,
           "level": 55,
-          "moveIds": [35,37,45,60]
+          "moveIds": [35,37,45,60],
+          "itemHeld": "TWISTED_SPOON"
         },
         {
           "id": 196,
           "level": 55,
-          "moveIds": [112,44,45,46]
+          "moveIds": [112,44,45,46],
+          "itemHeld": "TWISTED_SPOON"
         },
         {
           "id": 65,
           "level": 57,
-          "moveIds": [45,44,46,105]
+          "moveIds": [45,44,46,105],
+          "itemHeld": "TWISTED_SPOON"
         }
       ],
       "battle2": [
         {
           "id": 122,
           "level": 80,
-          "moveIds": [45,44,46,139]
+          "moveIds": [45,44,46,139],
+          "itemHeld": "TWISTED_SPOON"
         },
         {
           "id": 196,
           "level": 80,
-          "moveIds": [45,44,46,3]
+          "moveIds": [45,44,46,3],
+          "itemHeld": "TWISTED_SPOON"
         },
         {
           "id": 199,
           "level": 80,
-          "moveIds": [45,43,31,134]
+          "moveIds": [45,43,31,134],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 124,
           "level": 80,
-          "moveIds": [100,45,46,105]
+          "moveIds": [100,45,46,105],
+          "itemHeld": "TWISTED_SPOON"
         },
         {
           "id": 97,
           "level": 80,
-          "moveIds": [45,44,76,83]
+          "moveIds": [45,44,76,83],
+          "itemHeld": "TWISTED_SPOON"
         },
         {
           "id": 65,
           "level": 80,
-          "moveIds": [45,44,46,105]
+          "moveIds": [45,44,46,105],
+          "itemHeld": "TWISTED_SPOON"
         }
       ],
       "rewards": [
@@ -5272,59 +5406,70 @@
         {
           "id": 38,
           "level": 59,
-          "moveIds": [82,81,48,130]
+          "moveIds": [82,81,48,130],
+          "itemHeld": "CHARCOAL"
         },
         {
           "id": 219,
           "level": 59,
-          "moveIds": [31,25,87,225]
+          "moveIds": [31,25,87,225],
+          "itemHeld": "CHARCOAL"
         },
         {
           "id": 126,
           "level": 59,
-          "moveIds": [82,103,69,110]
+          "moveIds": [82,103,69,110],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 78,
           "level": 60,
-          "moveIds": [82,3,116,62]
+          "moveIds": [82,3,116,62],
+          "itemHeld": "CHARCOAL"
         },
         {
           "id": 59,
           "level": 65,
-          "moveIds": [116,27,120,75]
+          "moveIds": [116,27,120,75],
+          "itemHeld": "CHARCOAL"
         }
       ],
       "battle2": [
         {
           "id": 38,
           "level": 80,
-          "moveIds": [82,81,48,130]
+          "moveIds": [82,81,48,130],
+          "itemHeld": "CHARCOAL"
         },
         {
           "id": 6,
           "level": 80,
-          "moveIds": [50,31,104,92]
+          "moveIds": [50,31,104,92],
+          "itemHeld": "CHARCOAL"
         },
         {
           "id": 136,
           "level": 80,
-          "moveIds": [31,3,116,46]
+          "moveIds": [31,3,116,46],
+          "itemHeld": "CHARCOAL"
         },
         {
           "id": 467,
           "level": 80,
-          "moveIds": [82,12,69,45]
+          "moveIds": [82,12,69,45],
+          "itemHeld": "CHARCOAL"
         },
         {
           "id": 78,
           "level": 80,
-          "moveIds": [82,109,116,62]
+          "moveIds": [82,109,116,62],
+          "itemHeld": "CHARCOAL"
         },
         {
           "id": 59,
           "level": 80,
-          "moveIds": [116,27,120,75]
+          "moveIds": [116,27,120,75],
+          "itemHeld": "LEFTOVERS"
         }
       ],
       "rewards": [
@@ -5376,21 +5521,24 @@
           "level": 50,
           "moveIds": [
             108,125,79,93
-          ]
+          ],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 350,
           "level": 50,
           "moveIds": [
             43,132,94,100
-          ]
+          ],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 464,
           "level": 50,
           "moveIds": [
             25,93,107,110
-          ]
+          ],
+          "itemHeld": "ASSAULT_VEST"
         }
       ],
       "battle2": [
@@ -5399,21 +5547,24 @@
           "level": 50,
           "moveIds": [
             108,110,103,93
-          ]
+          ],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 488,
           "level": 50,
           "moveIds": [
             45,100,135,55
-          ]
+          ],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 485,
           "level": 50,
           "moveIds": [
             31,111,87,104
-          ]
+          ],
+          "itemHeld": "AIR_BALLOON"
         }
       ],
       "rewards": [
