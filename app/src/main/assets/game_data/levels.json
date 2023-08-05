@@ -85,7 +85,7 @@
         "minLevel": 3,
         "maxLevel": 5,
         "encounters": [
-          10,13
+          10,13,16,163
         ]
       },
       "rewards": [
@@ -114,7 +114,7 @@
         "minLevel": 3,
         "maxLevel": 6,
         "encounters": [
-          10,10,10,11,13,13,13,14
+          10,10,10,10,10,10,11,11,13,13,13,13,13,13,14,14,165,167
         ]
       },
       "rewards": [
@@ -3553,6 +3553,18 @@
         {
           "id": 30,
           "quantity": 1
+        },
+        {
+          "id": 101,
+          "quantity": 30
+        },
+        {
+          "id": 102,
+          "quantity": 30
+        },
+        {
+          "id": 103,
+          "quantity": 30
         }
       ],
       "startDialog": "Hello, it's been a long time! I'd like to show you an item from the Kalos region that can increase the strength of your Pokemon.",

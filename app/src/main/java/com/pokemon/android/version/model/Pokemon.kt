@@ -437,8 +437,10 @@ open class Pokemon(
 
     fun canMegaEvolve(): Boolean {
         return data.megaEvolutionData != null && battleData != null && !isMegaEvolved && (data.id == 150 || (trainer != null
-                && trainer!!.getTrainerTeam().none { it.isMegaEvolved }
-                && (trainer is OpponentTrainer || (trainer as Trainer).items.containsKey(30))))
+                && trainer!!.getTrainerTeam().none { it.isMegaEvolved } && (trainer is OpponentTrainer ||
+                (heldItem == null && (trainer as Trainer).items.containsKey(30) && (trainer as Trainer).items.containsKey(
+                    this.data.megaEvolutionData!!.stoneId
+                )))))
     }
 
     fun megaEvolve() {

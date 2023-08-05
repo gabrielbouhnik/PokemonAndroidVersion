@@ -1,0 +1,94 @@
+{
+  "items": [
+    {
+      "itemId": 11,
+      "cost": 200
+    },
+    {
+      "itemId": 1,
+      "cost": 300
+    },
+    {
+      "itemId": 4,
+      "cost": 400
+    },
+    {
+      "itemId": 2,
+      "cost": 600,
+      "badgeCountNeeded": 3
+    },
+    {
+      "itemId": 9,
+      "cost": 1200
+    },
+    {
+      "itemId": 10,
+      "cost": 1200
+    },
+    {
+      "itemId": 3,
+      "cost": 1200,
+      "badgeCountNeeded": 8
+    },
+    {
+      "itemId": 104,
+      "cost": 2000,
+      "badgeCountNeeded": 8
+    },
+    {
+      "itemId": 105,
+      "cost": 2000,
+      "badgeCountNeeded": 8
+    },
+    {
+      "itemId": 106,
+      "cost": 4000,
+      "badgeCountNeeded": 8
+    },
+    {
+      "itemId": 107,
+      "cost": 4000,
+      "badgeCountNeeded": 8
+    },
+    {
+      "itemId": 108,
+      "cost": 4000,
+      "badgeCountNeeded": 8
+    },
+    {
+      "itemId": 109,
+      "cost": 4000,
+      "badgeCountNeeded": 8
+    },
+    {
+      "itemId": 110,
+      "cost": 4000,
+      "badgeCountNeeded": 8
+    },
+    {
+      "itemId": 111,
+      "cost": 4000,
+      "badgeCountNeeded": 8
+    },
+    {
+      "itemId": 112,
+      "cost": 4000,
+      "badgeCountNeeded": 8
+    },
+    {
+      "itemId": 113,
+      "cost": 4000,
+      "badgeCountNeeded": 8
+    },
+    {
+      "itemId": 114,
+      "cost": 4000,
+      "badgeCountNeeded": 8
+    },
+    {
+      "itemId": 115,
+      "cost": 4000,
+      "badgeCountNeeded": 8
+    }
+  ]
+}

@@ -455,12 +455,12 @@ abstract class Battle {
                 details += pokemon.data.name + " restored a little of its hp using its Leftovers!\n"
             }
             if (pokemon.hasItem(HoldItem.BLACK_SLUDGE)){
-                if (pokemon.data.type1 == Type.POISON||pokemon.data.type2 == Type.POISON) {
+                details += if (pokemon.data.type1 == Type.POISON||pokemon.data.type2 == Type.POISON) {
                     pokemon.heal(pokemon.hp / 16)
-                    details += pokemon.data.name + " restored a little of its hp using its Black Sludge!\n"
+                    pokemon.data.name + " restored a little of its hp using its Black Sludge!\n"
                 } else{
                     pokemon.takeDamage(pokemon.hp / 8)
-                    details += pokemon.data.name + " lost some of its hp!\n"
+                    pokemon.data.name + " lost some of its hp!\n"
                 }
             }
             return details

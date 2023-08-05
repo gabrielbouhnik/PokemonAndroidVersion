@@ -250,7 +250,8 @@
       "spAtk": 122,
       "spDef": 120,
       "speed": 80,
-      "ability": "THICK_FAT"
+      "ability": "THICK_FAT",
+      "stoneId": 101
     }
   },
   {
@@ -514,7 +515,8 @@
       "spAtk": 130,
       "spDef": 85,
       "speed": 100,
-      "ability": "TOUGH_CLAW"
+      "ability": "TOUGH_CLAW",
+      "stoneId": 102
     }
   },
   {
@@ -747,7 +749,8 @@
       "defense": 111,
       "spAtk": 135,
       "spDef": 115,
-      "speed": 78
+      "speed": 78,
+      "stoneId": 103
     }
   },
   {
@@ -1049,7 +1052,8 @@
       "spAtk": 15,
       "spDef": 80,
       "speed": 145,
-      "ability": "ADAPTABILITY"
+      "ability": "ADAPTABILITY",
+      "stoneId": 104
     }
   },
   {
@@ -1277,7 +1281,8 @@
       "spAtk": 135,
       "spDef": 80,
       "speed": 121,
-      "ability": "NO_GUARD"
+      "ability": "NO_GUARD",
+      "stoneId": 105
     }
   },
   {
@@ -4398,7 +4403,8 @@
       "spAtk": 175,
       "spDef": 105,
       "speed": 150,
-      "ability": "MAGIC_GUARD"
+      "ability": "MAGIC_GUARD",
+      "stoneId": 106
     }
   },
   {
@@ -5510,7 +5516,8 @@
       "spAtk": 130,
       "spDef": 80,
       "speed": 30,
-      "ability": "SHELL_ARMOR"
+      "ability": "SHELL_ARMOR",
+      "stoneId": 107
     }
   },
   {
@@ -6508,7 +6515,8 @@
       "defense": 80,
       "spAtk": 170,
       "spDef": 95,
-      "speed": 130
+      "speed": 130,
+      "stoneId": 108
     }
   },
   {
@@ -8738,7 +8746,8 @@
       "defense": 120,
       "spAtk": 65,
       "spDef": 90,
-      "speed": 105
+      "speed": 105,
+      "stoneId": 109
     }
   },
   {
@@ -8932,7 +8941,8 @@
       "defense": 109,
       "spAtk": 70,
       "spDef": 130,
-      "speed": 81
+      "speed": 81,
+      "stoneId": 110
     }
   },
   {
@@ -10300,7 +10310,7 @@
     "speed": 130,
     "catchRate": 3,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["PRESSURE"],
     "expGaugeType":  "SLOW",
     "megaEvolutionData": {
       "type1": 12,
@@ -11574,7 +11584,7 @@
     "expGaugeType":  "FAST"
   },
   {
-    "id": 166,
+    "id": 168,
     "name": "Ariados",
     "type1": 7,
     "type2": 8,
@@ -13903,7 +13913,8 @@
       "defense": 230,
       "spAtk": 55,
       "spDef": 95,
-      "speed": 30
+      "speed": 30,
+      "stoneId": 111
     }
   },
   {
@@ -14208,7 +14219,8 @@
       "spAtk": 65,
       "spDef": 100,
       "speed": 75,
-      "ability": "TECHNICIAN"
+      "ability": "TECHNICIAN",
+      "stoneId": 112
     }
   },
   {
@@ -14293,6 +14305,10 @@
           "level": 35
         },
         {
+          "moveId": 123,
+          "level": 40
+        },
+        {
           "moveId": 196,
           "level": 45
         },
@@ -14330,7 +14346,8 @@
       "spAtk": 40,
       "spDef": 105,
       "speed": 75,
-      "ability": "SKILL_LINK"
+      "ability": "SKILL_LINK",
+      "stoneId": 113
     }
   },
   {
@@ -15123,7 +15140,8 @@
       "defense": 90,
       "spAtk": 140,
       "spDef": 90,
-      "speed": 115
+      "speed": 115,
+      "stoneId": 114
     }
   },
   {
@@ -16227,7 +16245,8 @@
       "defense": 150,
       "spAtk": 95,
       "spDef": 120,
-      "speed": 71
+      "speed": 71,
+      "stoneId": 115
     }
   },
   {

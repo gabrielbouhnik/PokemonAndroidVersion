@@ -482,10 +482,10 @@ class BattleUI {
                             megaEvolve = false
                             dialogTextView!!.text = battle.turn(battle.pokemon.move1, false)
                         }
+                        ppTextView.text =
+                            activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
+                        updateBattleUI(activity, battle)
                     }
-                    ppTextView.text =
-                        activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
-                    updateBattleUI(activity, battle)
                 }
             }
         } else {

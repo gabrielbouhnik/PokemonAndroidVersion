@@ -6,7 +6,7 @@ import com.pokemon.android.version.model.Type
 
 class MegaEvolutionData(
     var type1: Type, var type2: Type, var attack: Int,
-    var defense: Int, var spAtk: Int, var spDef: Int, var speed: Int, var ability: Ability?) {
+    var defense: Int, var spAtk: Int, var spDef: Int, var speed: Int, var ability: Ability?, var stoneId: Int) {
     companion object {
         fun of(megaEvolutionDataEntity: MegaEvolutionDataEntity?): MegaEvolutionData? {
             if (megaEvolutionDataEntity == null)
@@ -19,7 +19,8 @@ class MegaEvolutionData(
                 megaEvolutionDataEntity.spAtk,
                 megaEvolutionDataEntity.spDef,
                 megaEvolutionDataEntity.speed,
-                if (megaEvolutionDataEntity.ability == null) null else Ability.valueOf(megaEvolutionDataEntity.ability!!)
+                if (megaEvolutionDataEntity.ability == null) null else Ability.valueOf(megaEvolutionDataEntity.ability!!),
+                megaEvolutionDataEntity.stoneId
             )
         }
     }

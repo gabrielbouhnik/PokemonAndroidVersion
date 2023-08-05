@@ -28,5 +28,5 @@ enum class HoldItem(consumable: Boolean) {
     SOFT_SAND(false),
     SPELL_TAG(false),
     TOXIC_ORB(false),
-    TWISTED_SPOON(false),
+    TWISTED_SPOON(false)
 }

@@ -203,6 +203,66 @@
     {
       "id": 50,
       "name": "Razor Claw"
+    },
+    {
+      "id": 101,
+      "name": "Venusaurite"
+    },
+    {
+      "id": 102,
+      "name": "Charizardite"
+    },
+    {
+      "id": 103,
+      "name": "Blastoisinite"
+    },
+    {
+      "id": 104,
+      "name": "Beedrillite"
+    },
+    {
+      "id": 105,
+      "name": "Pidgeotite"
+    },
+    {
+      "id": 106,
+      "name": "Alakazite"
+    },
+    {
+      "id": 107,
+      "name": "Slowbronite"
+    },
+    {
+      "id": 108,
+      "name": "Gengarite"
+    },
+    {
+      "id": 109,
+      "name": "Pinsirite"
+    },
+    {
+      "id": 110,
+      "name": "Gyaradosite"
+    },
+    {
+      "id": 111,
+      "name": "Steelixite"
+    },
+    {
+      "id": 112,
+      "name": "Scizorite"
+    },
+    {
+      "id": 113,
+      "name": "Heracronite"
+    },
+    {
+      "id": 114,
+      "name": "Houndoominite"
+    },
+    {
+      "id": 115,
+      "name": "Tyranitarite"
     }
   ]
 }

@@ -113,7 +113,7 @@ class MainActivity : AppCompatActivity() {
         if (id == 6)
             filename = "${idForUrl}-mx.png"
         if (id == 150){
-            val filename = "images/mega/150_front.png"
+            filename = "images/mega/150_front.png"
             val img: InputStream = this.assets.open(filename)
             imageView.setImageDrawable(Drawable.createFromStream(img, filename))
         } else {

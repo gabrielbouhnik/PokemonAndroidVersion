@@ -73,6 +73,19 @@ class RewardMenu {
                 activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(131, 25))
             if (levelData.id == LevelMenu.TYROGUE_LEVEL)
                 activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(236, 10))
+            if (levelData.id == LevelMenu.MEGA_CHARIZARD_LEVEL_ID){
+                when {
+                    activity.trainer!!.pokedex[1] == true -> {
+                        activity.trainer!!.addItem(101,1)
+                    }
+                    activity.trainer!!.pokedex[4] == true -> {
+                        activity.trainer!!.addItem(102,1)
+                    }
+                    activity.trainer!!.pokedex[7] == true -> {
+                        activity.trainer!!.addItem(103,1)
+                    }
+                }
+            }
         }
         val battleAgainButton: Button = activity.findViewById(R.id.battleAgainButton)
         if (levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID)

@@ -178,4 +178,24 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         if (!pokedex.containsKey(pokemon.data.id))
             pokedex[pokemon.data.id] = false
     }
+
+    fun getBadgeCount(): Int {
+        if (items.contains(38))
+            return 8
+        if (items.contains(37))
+            return 7
+        if (items.contains(36))
+            return 6
+        if (items.contains(35))
+            return 5
+        if (items.contains(34))
+            return 4
+        if (items.contains(33))
+            return 3
+        if (items.contains(32))
+            return 2
+        if (items.contains(31))
+            return 1
+        return 0
+    }
 }
