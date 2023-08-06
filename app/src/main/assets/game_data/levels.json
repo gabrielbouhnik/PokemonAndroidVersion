@@ -526,7 +526,7 @@
     {
       "id": 53,
       "name": "\nSea Route 19",
-      "description": "Before leaving Safrania, one of the Silph Co scientists will give you a Lapras to cross Sea Route 19 at the south of Fuschia City.",
+      "description": "Before leaving Safrania, one of the Silph Co scientists has given you a Lapras to cross Sea Route 19 at the south of Fuschia City.",
       "encounter": 6,
       "possibleEncounters":
       {

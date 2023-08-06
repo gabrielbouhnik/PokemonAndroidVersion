@@ -13,6 +13,7 @@ import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.level.*
 import com.pokemon.android.version.utils.ItemUtils
 import java.io.InputStream
+import kotlin.random.Random
 
 class RewardMenu {
     private fun updateAchievements(activity: MainActivity, levelData: LevelData) {
@@ -38,7 +39,7 @@ class RewardMenu {
                     activity.trainer!!.achievements!!.cinnbarGymAchievement = true
             }
             LevelMenu.MOLTRES_LEVEL -> {
-                if (activity.trainer!!.team.none { it.data.type1 == Type.WATER || it.data.type2 == Type.WATER})
+                if (activity.trainer!!.team.none { it.data.type1 == Type.WATER || it.data.type2 == Type.WATER })
                     activity.trainer!!.achievements!!.moltresAchievement = true
             }
             LevelMenu.ZAPDOS_LEVEL -> {
@@ -73,16 +74,16 @@ class RewardMenu {
                 activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(131, 25))
             if (levelData.id == LevelMenu.TYROGUE_LEVEL)
                 activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(236, 10))
-            if (levelData.id == LevelMenu.MEGA_CHARIZARD_LEVEL_ID){
+            if (levelData.id == LevelMenu.MEGA_CHARIZARD_LEVEL_ID) {
                 when {
                     activity.trainer!!.pokedex[1] == true -> {
-                        activity.trainer!!.addItem(101,1)
+                        activity.trainer!!.addItem(101, 1)
                     }
                     activity.trainer!!.pokedex[4] == true -> {
-                        activity.trainer!!.addItem(102,1)
+                        activity.trainer!!.addItem(102, 1)
                     }
                     activity.trainer!!.pokedex[7] == true -> {
-                        activity.trainer!!.addItem(103,1)
+                        activity.trainer!!.addItem(103, 1)
                     }
                 }
             }
@@ -147,16 +148,23 @@ class RewardMenu {
             } else
                 activity.mainMenu.loadGameMenu(activity)
         }
+        val rewards = if (firstTime) levelData.rewards else ArrayList(levelData.rewards.filter { it.itemId != 0 })
+        if ((levelData is WildBattleLevelData || levelData is BossBattleLevelData) && Random.nextInt(10) == 1) {
+            rewards.add(BonusReward(Random.nextInt(150, 167), 1))
+        }
         val recyclerView = activity.findViewById<RecyclerView>(R.id.rewardRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         val adapter = RewardRecyclerAdapter(
             activity,
-            if (firstTime) levelData.rewards else ArrayList(levelData.rewards.filter { it.itemId != 0 })
+            rewards
         )
         recyclerView.adapter = adapter
-        levelData.rewards.forEach {
-            if (ItemUtils.isBadge(it.itemId) || it.itemId == 30 || it.itemId > 50) {
+        rewards.forEach {
+            if (ItemUtils.isBadge(it.itemId) || it.itemId == 30) {
                 if (!activity.trainer!!.items.contains(it.itemId))
+                    activity.trainer!!.addItem(it.itemId, it.quantity)
+            } else if (it.itemId in 50..100) {
+                if (firstTime)
                     activity.trainer!!.addItem(it.itemId, it.quantity)
             } else if (it.itemId == 0) {
                 if (levelData is LeaderLevelData

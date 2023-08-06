@@ -99,6 +99,10 @@ class GameDataService {
         val random = Random.nextInt(250)
         if (random == 50 && id < 650)
             pokemon.shiny = true
+        if ((id == 84 || id == 22) && random % 4 == 0)
+            pokemon.heldItem = HoldItem.SHARP_BEAK
+        if (id == 50 && random % 4 == 0)
+            pokemon.heldItem = HoldItem.SOFT_SAND
         return pokemon
     }
 
@@ -143,7 +147,7 @@ class GameDataService {
         val pokemon = generatePokemonWithMoves(id, level, moves,null)
         val move5: PokemonMove? = if (moves.size < 5) null else PokemonMove(moves[4])
         val move6: PokemonMove? = if (moves.size < 6) null else PokemonMove(moves[5])
-        return PokemonBoss.PokemonBossBuilder()
+        val boss = PokemonBoss.PokemonBossBuilder()
             .data(pokemon.data)
             .level(level)
             .hp(pokemon.hp)
@@ -160,6 +164,9 @@ class GameDataService {
             .move5(move5)
             .move6(move6)
             .build()
+        if (boss.data.id == 143)
+            boss.heldItem = HoldItem.LEFTOVERS
+        return boss
     }
 
     fun getPokemonLocation(id: Int, progression: Int): String {

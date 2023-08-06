@@ -102,7 +102,7 @@
     "description": "Beat the Tower Tycoon",
     "pokemonReward": [],
     "itemRewards": [
-      89
+      170
     ]
   },
   {
@@ -120,13 +120,13 @@
     "id": 13,
     "description": "Win 25 times in a row in the Battle Factory",
     "pokemonReward": [],
-    "itemRewards": []
+    "itemRewards": [176]
   },
   {
     "id": 14,
     "description": "Face all the gym leaders a second time",
     "pokemonReward": [],
-    "itemRewards": []
+    "itemRewards": [167]
   },
   {
     "id": 15,

@@ -34,9 +34,8 @@ class ItemRecyclerAdapter(
         return ViewHolder(rowView)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentItem = data[position]
-        val name = activity.gameDataService.items[currentItem.itemId].name
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {val currentItem = data[position]
+        val name = activity.gameDataService.items.first{it.id == currentItem.itemId}.name
         holder.nameTextView.text = name
         if (!ItemUtils.isBadge(currentItem.itemId)) {
             holder.quantityTextView.text = "x ${currentItem.quantity}"

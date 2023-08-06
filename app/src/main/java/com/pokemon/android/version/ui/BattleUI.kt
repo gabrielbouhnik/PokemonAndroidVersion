@@ -501,8 +501,9 @@ class BattleUI {
         val bagButton: Button = activity.findViewById(R.id.bagButton)
         val switchButton: Button = activity.findViewById(R.id.switchPokemonButton)
         switchButton.setOnClickListener {
-            if (!battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
+            if ((!battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
                 && !battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
+                        || (battle.pokemon.data.type1 == Type.GHOST || battle.pokemon.data.type2 == Type.GHOST))
             ) {
                 megaEvolve = false
                 val closeButton: Button = activity.findViewById(R.id.closeTeamButton)

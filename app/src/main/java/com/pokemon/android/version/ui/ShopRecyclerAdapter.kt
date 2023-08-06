@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
+import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.item.ShopItem
 
 class ShopRecyclerAdapter(
@@ -41,6 +42,8 @@ class ShopRecyclerAdapter(
             if (activity.trainer!!.coins >= currentItem.cost) {
                 activity.trainer!!.addItem(currentItem.itemId,1)
                 activity.trainer!!.coins -= currentItem.cost
+                activity.playSoundEffect(R.raw.item_sound_effect)
+                SaveManager.save(activity)
                 val coinsTextView = activity.findViewById<TextView>(R.id.coinsShopTextView)
                 coinsTextView.text = activity.getString(R.string.andro_coins, activity.trainer!!.coins)
             } else

@@ -99,9 +99,9 @@ class BattleUtils {
             }
             if (pokemon.hasAbility(Ability.SUPER_LUCK))
                 pokemon.battleData!!.criticalRate *= 1.5f
-            if (pokemon.hasAbility(Ability.ARENA_TRAP) && !opponent.hasAbility(Ability.LEVITATE))
+            if (pokemon.hasAbility(Ability.ARENA_TRAP) && !opponent.hasAbility(Ability.LEVITATE) && pokemon.data.type2 != Type.GHOST && pokemon.data.type2 != Type.FLYING && pokemon.data.type1 != Type.GHOST && pokemon.data.type1 != Type.FLYING)
                 opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
-            if (opponent.hasAbility(Ability.ARENA_TRAP) && !pokemon.hasAbility(Ability.LEVITATE))
+            if (opponent.hasAbility(Ability.ARENA_TRAP) && !pokemon.hasAbility(Ability.LEVITATE) && opponent.data.type1 != Type.GHOST && opponent.data.type1 != Type.FLYING && opponent.data.type2 != Type.GHOST && opponent.data.type2 != Type.FLYING)
                 pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
             return sb.toString()
         }

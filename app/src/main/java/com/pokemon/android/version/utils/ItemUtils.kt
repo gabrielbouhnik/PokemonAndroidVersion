@@ -84,6 +84,7 @@ class ItemUtils {
                 15 -> return Ball.HEALBALL
                 in 16..29,in 38..39 -> return EvolutionItem(itemId)
                 in 51..100 -> return TMItem(TM_MOVE_ID[itemId - 51])
+                in 150..176 -> return ItemToHold(HoldItem.values().first { it.id == itemId })
             }
             return Revive.MAX_REVIVE
         }

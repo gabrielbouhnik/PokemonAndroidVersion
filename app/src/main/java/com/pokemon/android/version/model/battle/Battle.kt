@@ -450,7 +450,7 @@ abstract class Battle {
                 pokemon.takeDamage(pokemon.hp / 10)
                 details += pokemon.data.name + " lost some of its hp!\n"
             }
-            if (pokemon.hasItem(HoldItem.LEFTOVERS)){
+            if (pokemon.hp > pokemon.currentHP && pokemon.hasItem(HoldItem.LEFTOVERS)){
                 pokemon.heal(pokemon.hp / 16)
                 details += pokemon.data.name + " restored a little of its hp using its Leftovers!\n"
             }
