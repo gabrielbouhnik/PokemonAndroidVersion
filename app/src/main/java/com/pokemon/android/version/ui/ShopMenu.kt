@@ -22,7 +22,8 @@ class ShopMenu {
         backButton.setOnClickListener {
             activity.mainMenu.loadGameMenu(activity)
         }
-        val items = ArrayList(activity.gameDataService.shop.filter { it.badgeCountNeeded <= activity.trainer!!.getBadgeCount()})
+        val items = ArrayList(activity.gameDataService.shop.filter { it.badgeCountNeeded <= activity.trainer!!.getBadgeCount()
+                && (it.itemId < 30 || !activity.trainer!!.items.contains(it.itemId))})
         val recyclerView = activity.findViewById<RecyclerView>(R.id.shopRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = ShopRecyclerAdapter(activity,items)

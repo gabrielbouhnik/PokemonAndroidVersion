@@ -86,6 +86,8 @@ abstract class Battle {
         if (this is TrainerBattle || this is BattleFrontierBattle){
             val opponentTrainer = opponent.trainer!! as OpponentTrainer
             if (opponentTrainer.iaLevel == 3
+                && !opponent.battleData!!.battleStatus.contains(Status.UNABLE_TO_MOVE)
+                && opponent.battleData!!.chargedMove != null
                 && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
                 && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)){
                  val pokemonToSend = IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam())
@@ -214,6 +216,10 @@ abstract class Battle {
             this.pokemon.status = Status.OK
         if (this.pokemon.hasAbility(Ability.REGENERATOR) && this.pokemon.currentHP > 0)
             this.pokemon.heal(this.pokemon.hp / 3)
+        if (opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE))
+            opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
+        if (opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE))
+            opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE)
         this.pokemon = pokemonToBeSent
     }
 
@@ -224,6 +230,10 @@ abstract class Battle {
             this.opponent.status = Status.OK
         if (this.opponent.hasAbility(Ability.REGENERATOR) && this.opponent.currentHP > 0)
             this.opponent.heal(this.pokemon.hp / 3)
+        if (pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE))
+            pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
+        if (pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE))
+            pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE)
         this.opponent = pokemonToBeSent
     }
 

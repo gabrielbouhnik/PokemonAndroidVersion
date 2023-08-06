@@ -3553,18 +3553,6 @@
         {
           "id": 30,
           "quantity": 1
-        },
-        {
-          "id": 101,
-          "quantity": 30
-        },
-        {
-          "id": 102,
-          "quantity": 30
-        },
-        {
-          "id": 103,
-          "quantity": 30
         }
       ],
       "startDialog": "Hello, it's been a long time! I'd like to show you an item from the Kalos region that can increase the strength of your Pokemon.",
@@ -3756,10 +3744,6 @@
         {
           "id": 10,
           "quantity": 2
-        },
-        {
-          "id": 59,
-          "quantity": 1
         }
       ],
       "startDialog": "This is my hideout! I planned to resurrect TEAM ROCKET here! But, you have caught me again! So be it! This time, I'm not holding back!",
@@ -4506,6 +4490,7 @@
     },
     {
       "id": 37,
+      "name": "\nVs Snorlax",
       "name": "\nVs Snorlax",
       "description": "After getting your fourth badge, you go to Route 16 and come across the sleeping Pokemon. You wake him up with the flute that the old man gave you and it gets really angry!",
       "boss":
