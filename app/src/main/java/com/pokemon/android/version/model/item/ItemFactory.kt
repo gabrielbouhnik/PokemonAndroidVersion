@@ -16,11 +16,7 @@ class ItemFactory {
                 idx++
                 res.add(ItemData.of(idx,moves[it - 1]))
             }
-            HoldItem.values().forEach{ item ->
-                res.add(ItemData(item.id,
-                    item.toString().replace("_", " ").lowercase()
-                        .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }))
-            }
+            HoldItem.values().forEach{ res.add(ItemData(it.id, it.heldItemToString()))}
             res.sortBy { it.id }
             return res
         }

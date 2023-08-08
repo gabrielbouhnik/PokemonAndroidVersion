@@ -106,7 +106,7 @@ class DamageCalculator {
                 power *= 1.3f
             if (move.power <= 60 && attacker.hasAbility(Ability.TECHNICIAN))
                 power *= 1.5f
-            if ((move is RecoilMove || move.id == 210) && attacker.hasAbility(Ability.RECKLESS))
+            if ((move is RecoilMove || move.id == 210 || move.id == 244) && attacker.hasAbility(Ability.RECKLESS))
                 power *= 1.2f
             if (move.characteristics.contains(MoveCharacteristic.PUNCH) && attacker.hasAbility(Ability.IRON_FIST))
                 power *= 1.2f

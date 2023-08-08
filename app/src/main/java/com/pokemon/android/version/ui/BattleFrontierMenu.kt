@@ -31,6 +31,8 @@ class BattleFrontierMenu {
         backButton.setOnClickListener {
             loadBattlePrepLayout(activity, area)
         }
+        val itemTextView: TextView = activity.findViewById(R.id.heldItemTextView)
+        itemTextView.visibility = GONE
         val useItemButton: Button = activity.findViewById(R.id.useItemButton)
         useItemButton.visibility = GONE
         val movesButton: Button = activity.findViewById(R.id.movesButton)

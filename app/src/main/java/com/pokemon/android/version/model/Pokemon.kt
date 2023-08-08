@@ -220,7 +220,7 @@ open class Pokemon(
                 "${this.data.name} uses ${move.move.name}!\n" +  BattleUtils.getEffectiveness(move.move, opponent)
             )
         }
-        if (move.move.id == 210 && (opponent.data.type1 == Type.GHOST || opponent.data.type2 == Type.GHOST)) {
+        if ((move.move.id == 210 || move.move.id == 214) && (opponent.data.type1 == Type.GHOST || opponent.data.type2 == Type.GHOST)) {
             this.takeDamage(this.hp / 2)
             return AttackResponse(
                 false,
@@ -242,7 +242,7 @@ open class Pokemon(
             val random: Int = Random.nextInt(100)
             if (random > move.move.accuracy!! * battleData!!.accuracyMultiplicator) {
                 var reason = "${this.data.name} uses ${move.move.name}!\n${this.data.name}'s attack missed!\n"
-                if (move.move.id == 210) {
+                if (move.move.id == 210 || move.move.id == 244) {
                     reason += "${this.data.name} kept going and crashed!\n"
                     this.takeDamage(this.hp / 2)
                 }
@@ -350,7 +350,7 @@ open class Pokemon(
             damageDone = damage
             opponent.takeDamage(damage)
             if (opponent.hasItem(HoldItem.AIR_BALLOON)){
-                details += "${opponent.data.name}'s Air Balloon popped out!"
+                details += "${opponent.data.name}'s Air Balloon popped out!\n"
                 opponent.heldItem = null
             }
             if (crit == 1.5f && opponent.hasAbility(Ability.ANGER_POINT)){
@@ -365,7 +365,7 @@ open class Pokemon(
                 }
                 else if (move.move.category == MoveCategory.OTHER) {
                     if (opponent.hasAbility(Ability.MAGIC_BOUNCE)){
-                        details += "${opponent.data.name}'s Magic Bounce: ${opponent.data.name} bounces the attack back!\n";
+                        details += "${opponent.data.name}'s Magic Bounce: ${opponent.data.name} bounces the attack back!\n"
                         details += Status.updateStatus(opponent, this, move.move)
                     } else
                         details += Status.updateStatus(this, opponent, move.move)

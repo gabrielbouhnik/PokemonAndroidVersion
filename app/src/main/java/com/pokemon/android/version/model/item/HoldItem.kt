@@ -1,5 +1,7 @@
 package com.pokemon.android.version.model.item
 
+import java.util.*
+
 enum class HoldItem(var id: Int) {
     AIR_BALLOON(172),
     ASSAULT_VEST(176),
@@ -27,5 +29,10 @@ enum class HoldItem(var id: Int) {
     SILVER_POWDER(156),
     SOFT_SAND(159),
     SPELL_TAG(162),
-    TWISTED_SPOON(161)
+    TWISTED_SPOON(161);
+
+    fun heldItemToString(): String {
+        return this.toString().replace("_", " ").lowercase()
+            .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+    }
 }

@@ -1676,6 +1676,10 @@
           "level": 4
         },
         {
+          "moveId": 243,
+          "level": 12
+        },
+        {
           "moveId": 52,
           "level": 20
         },
@@ -1746,6 +1750,10 @@
         {
           "moveId": 55,
           "level": 4
+        },
+        {
+          "moveId": 243,
+          "level": 12
         },
         {
           "moveId": 52,
@@ -2664,7 +2672,7 @@
     "speed": 45,
     "catchRate": 50,
     "evolutions": [],
-    "abilities": ["COMPETITIVE"],
+    "abilities": ["COMPETITIVE","FRISK"],
     "expGaugeType":  "FAST"
   },
   {
@@ -3802,7 +3810,7 @@
         }
       }
     ],
-    "abilities": ["VITAL_SPIRIT","ANGER_POINT"],
+    "abilities": ["VITAL_SPIRIT","ANGER_POINT","DEFIANT"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3874,7 +3882,7 @@
     "speed": 95,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["VITAL_SPIRIT","ANGER_POINT"],
+    "abilities": ["VITAL_SPIRIT","ANGER_POINT","DEFIANT"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -5707,7 +5715,7 @@
     "speed": 60,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["KEEN_EYE","INNER_FOCUS"],
+    "abilities": ["KEEN_EYE","INNER_FOCUS","DEFIANT"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -5818,7 +5826,7 @@
           "level": 47
         },
         {
-          "moveId": 210,
+          "moveId": 244,
           "level": 52
         },
         {
@@ -6165,6 +6173,10 @@
           "level": 36
         },
         {
+          "moveId": 245,
+          "level": 44
+        },
+        {
           "moveId": 80,
           "level": 48
         }
@@ -6228,6 +6240,10 @@
         {
           "moveId": 157,
           "level": 36
+        },
+        {
+          "moveId": 245,
+          "level": 44
         },
         {
           "moveId": 80,
@@ -7285,6 +7301,10 @@
         {
           "moveId": 161,
           "level": 4
+        },
+        {
+          "moveId": 244,
+          "level": 13
         },
         {
           "moveId": 69,
@@ -11165,7 +11185,7 @@
         }
       }
     ],
-    "abilities": ["KEEN_EYE"],
+    "abilities": ["KEEN_EYE","FRISK"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -11225,7 +11245,7 @@
     "speed": 90,
     "catchRate": 90,
     "evolutions": [],
-    "abilities": ["KEEN_EYE"],
+    "abilities": ["KEEN_EYE","FRISK"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -13024,7 +13044,7 @@
         }
       }
     ],
-    "abilities": ["SPEED_BOOST"],
+    "abilities": ["SPEED_BOOST","FRISK"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -17719,7 +17739,7 @@
     "speed": 95,
     "catchRate": 30,
     "evolutions": [],
-    "abilities": ["SPEED_BOOST","TINTED_LENS"],
+    "abilities": ["SPEED_BOOST","TINTED_LENS","FRISK"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -18077,7 +18097,7 @@
     "speed": 45,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["PRESSURE"],
+    "abilities": ["PRESSURE","FRISK"],
     "expGaugeType":  "FAST"
   },
   {
@@ -18704,7 +18724,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["FRISK"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -18774,7 +18794,298 @@
     "speed": 123,
     "catchRate": 190,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["FRISK"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 856,
+    "name": "Hatenna",
+    "type1": 12,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 39,
+          "level": 1
+        },
+        {
+          "moveId": 164,
+          "level": 10
+        },
+        {
+          "moveId": 59,
+          "level": 20
+        },
+        {
+          "moveId": 243,
+          "level": 25
+        },
+        {
+          "moveId": 44,
+          "level": 30
+        },
+        {
+          "moveId": 135,
+          "level": 35
+        },
+        {
+          "moveId": 45,
+          "level": 40
+        }
+      ],
+      "movesLearnWithTM": [44,45,55,66],
+      "bannerMoves": []
+    },
+    "hp": 42,
+    "attack": 30,
+    "defense": 56,
+    "spAtk": 75,
+    "spDef": 53,
+    "speed": 39,
+    "catchRate": 235,
+    "evolutions": [
+      {
+        "evolutionId": 857,
+        "evolutionCondition": {
+          "level": 32
+        }
+      }
+    ],
+    "abilities": ["MAGIC_BOUNCE"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 857,
+    "name": "Hattrem",
+    "type1": 12,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 39,
+          "level": 1
+        },
+        {
+          "moveId": 164,
+          "level": 10
+        },
+        {
+          "moveId": 59,
+          "level": 20
+        },
+        {
+          "moveId": 243,
+          "level": 25
+        },
+        {
+          "moveId": 44,
+          "level": 30
+        },
+        {
+          "moveId": 135,
+          "level": 37
+        },
+        {
+          "moveId": 45,
+          "level": 44
+        }
+      ],
+      "movesLearnWithTM": [44,45,55,66,92],
+      "bannerMoves": []
+    },
+    "hp": 57,
+    "attack": 40,
+    "defense": 65,
+    "spAtk": 86,
+    "spDef": 73,
+    "speed": 49,
+    "catchRate": 120,
+    "evolutions": [
+      {
+        "evolutionId": 858,
+        "evolutionCondition": {
+          "level": 42
+        }
+      }
+    ],
+    "abilities": ["MAGIC_BOUNCE"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 858,
+    "name": "Hatterene",
+    "type1": 12,
+    "type2": 18,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 202,
+          "level": 1
+        },
+        {
+          "moveId": 39,
+          "level": 1
+        },
+        {
+          "moveId": 164,
+          "level": 10
+        },
+        {
+          "moveId": 59,
+          "level": 20
+        },
+        {
+          "moveId": 243,
+          "level": 25
+        },
+        {
+          "moveId": 44,
+          "level": 30
+        },
+        {
+          "moveId": 135,
+          "level": 37
+        },
+        {
+          "moveId": 45,
+          "level": 46
+        }
+      ],
+      "movesLearnWithTM": [44,45,46,55,66,92,176,177,206],
+      "bannerMoves": []
+    },
+    "hp": 57,
+    "attack": 90,
+    "defense": 95,
+    "spAtk": 136,
+    "spDef": 103,
+    "speed": 29,
+    "catchRate": 45,
+    "evolutions": [],
+    "abilities": ["MAGIC_BOUNCE"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 878,
+    "name": "Cufant",
+    "type1": 16,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 30,
+          "level": 15
+        },
+        {
+          "moveId": 63,
+          "level": 20
+        },
+        {
+          "moveId": 157,
+          "level": 25
+        },
+        {
+          "moveId": 181,
+          "level": 35
+        },
+        {
+          "moveId": 57,
+          "level": 40
+        },
+        {
+          "moveId": 73,
+          "level": 45
+        },
+        {
+          "moveId": 215,
+          "level": 50
+        },
+        {
+          "moveId": 89,
+          "level": 55
+        }
+      ],
+      "movesLearnWithTM": [72,25,30,93,111],
+      "bannerMoves": []
+    },
+    "hp": 72,
+    "attack": 80,
+    "defense": 49,
+    "spAtk": 40,
+    "spDef": 49,
+    "speed": 40,
+    "catchRate": 190,
+    "evolutions": [
+      {
+        "evolutionId": 879,
+        "evolutionCondition": {
+          "level": 34
+        }
+      }
+    ],
+    "abilities": ["SHEER_FORCE"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 879,
+    "name": "Copperajah",
+    "type1": 16,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 30,
+          "level": 15
+        },
+        {
+          "moveId": 63,
+          "level": 20
+        },
+        {
+          "moveId": 157,
+          "level": 25
+        },
+        {
+          "moveId": 181,
+          "level": 37
+        },
+        {
+          "moveId": 57,
+          "level": 44
+        },
+        {
+          "moveId": 73,
+          "level": 51
+        },
+        {
+          "moveId": 215,
+          "level": 58
+        },
+        {
+          "moveId": 89,
+          "level": 65
+        }
+      ],
+      "movesLearnWithTM": [72,25,30,69,93,111,148],
+      "bannerMoves": []
+    },
+    "hp": 122,
+    "attack": 130,
+    "defense": 69,
+    "spAtk": 80,
+    "spDef": 69,
+    "speed": 30,
+    "catchRate": 90,
+    "evolutions": [],
+    "abilities": ["SHEER_FORCE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {

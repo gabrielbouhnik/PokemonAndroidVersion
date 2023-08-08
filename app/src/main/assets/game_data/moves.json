@@ -2221,6 +2221,39 @@
       ],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 243,
+      "name": "Nuzzle",
+      "power": 20,
+      "pp": 20,
+      "type": 4,
+      "category": "OTHER",
+      "accuracy": 90,
+      "description": "The user attacks by nuzzling its electrified cheeks against the target. This also leaves the target with paralysis.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "PARALYSIS"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+
+    {
+      "id": 244,
+      "name": "Jump Kick",
+      "power": 100,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 95,
+      "description": "The user jumps up high, then strikes with a kick. If it misses, the user is hurt instead.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "multipleHitMoves": [
@@ -3507,6 +3540,24 @@
       ],
       "target": "OPPONENT",
       "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 245,
+      "name": "Shell Smash",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 15,
+      "type": 5,
+      "description": "The user breaks its shell, which lowers its Defense and Sp. Def stats but sharply boosts its Attack, Sp. Atk, and Speed stats.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK", "SPATK","SPEED"
+      ],
+      "target": "SELF",
+      "multiplicator": 2,
       "status": [],
       "highCritRate": false,
       "characteristics": []

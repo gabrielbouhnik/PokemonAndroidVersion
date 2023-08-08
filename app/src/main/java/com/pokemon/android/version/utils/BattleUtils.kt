@@ -83,7 +83,11 @@ class BattleUtils {
                 when {
                     opponent.hasAbility(Ability.CLEAR_BODY) -> sb.append("${opponent.data.name}'s Clear Body: ${opponent.data.name}'s stats cannot be lowered!\n")
                     opponent.hasAbility(Ability.HYPER_CUTTER) -> sb.append("${opponent.data.name}'s Hyper Cutter: ${opponent.data.name}'s attack cannot be lowered!\n")
-                    else -> {
+                    opponent.hasAbility(Ability.DEFIANT) -> {
+                        opponent.battleData!!.attackMultiplicator *= 1.5f
+                        sb.append("${opponent.data.name}'s Defiant: ${opponent.data.name}'s attack rose!\n")
+                    }
+                        else -> {
                         if (opponent.battleData != null)
                             opponent.battleData!!.attackMultiplicator *= 0.75f
                     }
@@ -91,6 +95,12 @@ class BattleUtils {
             }
             if (pokemon.hasItem(HoldItem.AIR_BALLOON))
                 sb.append("${pokemon.data.name} floats in the air with its Air Balloon\n")
+            if (opponent.heldItem != null && pokemon.hasAbility(Ability.FRISK)){
+                sb.append("${pokemon.data.name}'s Frisk: ${pokemon.data.name} frisked ${opponent.data.name} and found its ${opponent.heldItem!!.heldItemToString()}!\n")
+            }
+            if (pokemon.heldItem != null && opponent.hasAbility(Ability.FRISK)){
+                sb.append("${opponent.data.name}'s Frisk: ${opponent.data.name} frisked ${pokemon.data.name} and found its ${pokemon.heldItem!!.heldItemToString()}!\n")
+            }
             if (pokemon.hasItem(HoldItem.ASSAULT_VEST) && !MoveUtils.getMoveList(pokemon).map{it.move.category}.contains(MoveCategory.OTHER))
                 pokemon.battleData!!.spDefMultiplicator *= 1.5f
             if (pokemon.hasItem(HoldItem.EVIOLITE) && pokemon.data.evolutions.isNotEmpty()) {

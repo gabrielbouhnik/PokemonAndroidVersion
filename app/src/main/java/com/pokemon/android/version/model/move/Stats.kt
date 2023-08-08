@@ -19,16 +19,23 @@ enum class Stats(var value: String) {
                 return "${pokemon.data.name}'s Clear Body: ${pokemon.data.name}'s stats cannot be lowered!\n"
             statChangeMove.statsAffected.forEach {
                 if (target == Target.OPPONENT && it == ATTACK && pokemon.hasAbility(Ability.HYPER_CUTTER) && statChangeMove.target == Target.OPPONENT) {
-                    details += "Hyper Cutter: ${pokemon.data.name}'s " + it.value + " cannot be lowered!\n"
+                    details += "${pokemon.data.name}'s Hyper Cutter: ${pokemon.data.name}'s " + it.value + " cannot be lowered!\n"
                     return@forEach
                 }
                 else if (it == ACCURACY && pokemon.hasAbility(Ability.KEEN_EYE)) {
-                    details += "Keen Eye: ${pokemon.data.name}'s " + it.value + " cannot be lowered!\n"
+                    details += "${pokemon.data.name}'s Keen Eye: ${pokemon.data.name}'s " + it.value + " cannot be lowered!\n"
                     return@forEach
                 } else if (statChangeMove.multiplicator > 1)
                     details += "${pokemon.data.name}'s " + it.value + " rose!\n"
-                else
+                else {
                     details += "${pokemon.data.name}'s " + it.value + " fell!\n"
+                    if (target == Target.OPPONENT && pokemon.hasAbility(Ability.DEFIANT)) {
+                        pokemon.battleData!!.attackMultiplicator *= 1.5f
+                        details += "${pokemon.data.name}'s Defiant: ${pokemon.data.name}'s attack rose!\n"
+                        if (it == ATTACK)
+                            return@forEach
+                    }
+                }
                 when (it) {
                     ATTACK -> {
                         if (pokemon.battleData!!.attackMultiplicator < 4 && pokemon.battleData!!.attackMultiplicator > 0.25f)
@@ -59,6 +66,12 @@ enum class Stats(var value: String) {
                             pokemon.battleData!!.criticalRate *= statChangeMove.multiplicator
                     }
                 }
+            }
+            if (statChangeMove.id == 245){
+                details += "${pokemon.data.name}'s Defense fell!\n"
+                details += "${pokemon.data.name}'s Sp. Def fell!\n"
+                pokemon.battleData!!.spDefMultiplicator *= 0.75f
+                pokemon.battleData!!.spDefMultiplicator *= 0.75f
             }
             return details
         }

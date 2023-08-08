@@ -205,8 +205,7 @@ class PokemonInfoMenu(var parentId: Int) {
                 takeItemButton.visibility = GONE
                 itemTextView.visibility = GONE
             }
-            val itemName = pokemon.heldItem.toString().replace("_", " ").lowercase()
-            .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+            val itemName: String = pokemon.heldItem!!.heldItemToString()
             itemTextView.text = "Item:\n${itemName}"
         }
         val evolveButton: Button = activity.findViewById(R.id.evolveButton)
