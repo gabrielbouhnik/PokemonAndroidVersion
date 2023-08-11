@@ -113,6 +113,10 @@ class BattleUtils {
                 opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
             if (opponent.hasAbility(Ability.ARENA_TRAP) && !pokemon.hasAbility(Ability.LEVITATE) && opponent.data.type1 != Type.GHOST && opponent.data.type1 != Type.FLYING && opponent.data.type2 != Type.GHOST && opponent.data.type2 != Type.FLYING)
                 pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
+            if (pokemon.hasAbility(Ability.SHADOW_TAG) && pokemon.data.type2 != Type.GHOST && pokemon.data.type1 != Type.GHOST)
+                opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
+            if (opponent.hasAbility(Ability.SHADOW_TAG) && opponent.data.type1 != Type.GHOST && opponent.data.type2 != Type.GHOST)
+                pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
             return sb.toString()
         }
 

@@ -15,6 +15,10 @@
           "level": 3
         },
         {
+          "moveId": 86,
+          "level": 6
+        },
+        {
           "moveId": 234,
           "level": 9
         },
@@ -94,6 +98,10 @@
         {
           "moveId": 5,
           "level": 3
+        },
+        {
+          "moveId": 86,
+          "level": 6
         },
         {
           "moveId": 234,
@@ -179,6 +187,10 @@
         {
           "moveId": 5,
           "level": 3
+        },
+        {
+          "moveId": 86,
+          "level": 6
         },
         {
           "moveId": 234,
@@ -298,6 +310,10 @@
           "level": 32
         },
         {
+          "moveId": 125,
+          "level": 36
+        },
+        {
           "moveId": 116,
           "level": 40
         }
@@ -377,6 +393,10 @@
         {
           "moveId": 130,
           "level": 42
+        },
+        {
+          "moveId": 125,
+          "level": 48
         },
         {
           "moveId": 116,
@@ -466,6 +486,10 @@
         {
           "moveId": 130,
           "level": 46
+        },
+        {
+          "moveId": 125,
+          "level": 54
         },
         {
           "moveId": 116,
@@ -1128,7 +1152,7 @@
         }
       }
     ],
-    "abilities": ["KEEN_EYE"],
+    "abilities": ["KEEN_EYE","BIG_PECKS"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -1203,7 +1227,7 @@
         }
       }
     ],
-    "abilities": ["KEEN_EYE"],
+    "abilities": ["KEEN_EYE","BIG_PECKS"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -1271,7 +1295,7 @@
     "speed": 101,
     "catchRate": 40,
     "evolutions": [],
-    "abilities": ["KEEN_EYE"],
+    "abilities": ["KEEN_EYE","BIG_PECKS"],
     "expGaugeType":  "MEDIUM_SLOW",
     "megaEvolutionData": {
       "type1": 6,
@@ -2973,7 +2997,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["STENCH"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -3301,7 +3325,7 @@
     "speed": 90,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["TINTED_LENS"],
+    "abilities": ["TINTED_LENS","WONDER_SKIN"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3464,6 +3488,10 @@
           "level": 1
         },
         {
+          "moveId": 246,
+          "level": 1
+        },
+        {
           "moveId": 23,
           "level": 16
         },
@@ -3530,6 +3558,10 @@
       "movesLearnByLevel": [
         {
           "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 246,
           "level": 1
         },
         {
@@ -4435,6 +4467,10 @@
           "level": 8
         },
         {
+          "moveId": 247,
+          "level": 16
+        },
+        {
           "moveId": 171,
           "level": 20
         },
@@ -4508,6 +4544,10 @@
           "level": 8
         },
         {
+          "moveId": 247,
+          "level": 16
+        },
+        {
           "moveId": 171,
           "level": 20
         },
@@ -4579,6 +4619,10 @@
         {
           "moveId": 127,
           "level": 8
+        },
+        {
+          "moveId": 247,
+          "level": 16
         },
         {
           "moveId": 171,
@@ -4655,6 +4699,10 @@
           "level": 23
         },
         {
+          "moveId": 247,
+          "level": 27
+        },
+        {
           "moveId": 18,
           "level": 39
         }
@@ -4714,6 +4762,10 @@
           "level": 24
         },
         {
+          "moveId": 247,
+          "level": 29
+        },
+        {
           "moveId": 18,
           "level": 39
         }
@@ -4770,6 +4822,10 @@
         },
         {
           "moveId": 58,
+          "level": 1
+        },
+        {
+          "moveId": 247,
           "level": 1
         },
         {
@@ -5682,6 +5738,10 @@
           "level": 25
         },
         {
+          "moveId": 247,
+          "level": 30
+        },
+        {
           "moveId": 38,
           "level": 40
         },
@@ -6064,7 +6124,7 @@
         }
       }
     ],
-    "abilities": ["POISON_TOUCH"],
+    "abilities": ["POISON_TOUCH","STENCH"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -6134,7 +6194,7 @@
     "speed": 50,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["POISON_TOUCH"],
+    "abilities": ["POISON_TOUCH","STENCH"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7299,6 +7359,10 @@
           "level": 1
         },
         {
+          "moveId": 246,
+          "level": 1
+        },
+        {
           "moveId": 161,
           "level": 4
         },
@@ -7350,6 +7414,10 @@
       "movesLearnByLevel": [
         {
           "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 246,
           "level": 1
         },
         {
@@ -7421,6 +7489,10 @@
         {
           "moveId": 63,
           "level": 30
+        },
+        {
+          "moveId": 247,
+          "level": 36
         },
         {
           "moveId": 41,
@@ -7518,7 +7590,7 @@
         }
       }
     ],
-    "abilities": ["LEVITATE"],
+    "abilities": ["LEVITATE","STENCH"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7593,7 +7665,7 @@
     "speed": 60,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": ["LEVITATE"],
+    "abilities": ["LEVITATE","STENCH"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7823,6 +7895,10 @@
           "level": 24
         },
         {
+          "moveId": 247,
+          "level": 28
+        },
+        {
           "moveId": 66,
           "level": 32
         },
@@ -7875,6 +7951,10 @@
         {
           "moveId": 64,
           "level": 1
+        },
+        {
+          "moveId": 246,
+          "level": 8
         },
         {
           "moveId": 23,
@@ -13590,6 +13670,36 @@
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
+    "id": 202,
+    "name": "Wobbuffet",
+    "type1": 12,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 227,
+          "level": 1
+        },
+        {
+          "moveId": 228,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 190,
+    "attack": 33,
+    "defense": 58,
+    "spAtk": 33,
+    "spDef": 58,
+    "speed": 33,
+    "catchRate": 45,
+    "evolutions": [],
+    "abilities": ["SHADOW_TAG"],
+    "expGaugeType":  "SLOW"
+  },
+  {
     "id": 203,
     "name": "Girafarig",
     "type1": 5,
@@ -13784,6 +13894,10 @@
         {
           "moveId": 32,
           "level": 7
+        },
+        {
+          "moveId": 247,
+          "level": 10
         },
         {
           "moveId": 3,
@@ -15334,6 +15448,10 @@
           "level": 1
         },
         {
+          "moveId": 247,
+          "level": 19
+        },
+        {
           "moveId": 73,
           "level": 33
         },
@@ -15453,6 +15571,10 @@
           "level": 1
         },
         {
+          "moveId": 246,
+          "level": 1
+        },
+        {
           "moveId": 22,
           "level": 1
         }
@@ -15499,6 +15621,10 @@
       "movesLearnByLevel": [
         {
           "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 246,
           "level": 1
         },
         {
@@ -17053,7 +17179,7 @@
     "speed": 84,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": ["AFTERMATH","KEEN_EYE"],
+    "abilities": ["AFTERMATH","KEEN_EYE","STENCH"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -17150,13 +17276,131 @@
     "expGaugeType":  "SLOW"
   },
   {
+    "id": 453,
+    "name": "Croagunk",
+    "type1": 11,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 17,
+          "level": 1
+        },
+        {
+          "moveId": 154,
+          "level": 1
+        },
+        {
+          "moveId": 47,
+          "level": 4
+        },
+        {
+          "moveId": 242,
+          "level": 8
+        },
+        {
+          "moveId": 232,
+          "level": 20
+        },
+        {
+          "moveId": 208,
+          "level": 24
+        },
+        {
+          "moveId": 62,
+          "level": 32
+        },
+        {
+          "moveId": 83,
+          "level": 36
+        },
+        {
+          "moveId": 173,
+          "level": 40
+        },
+        {
+          "moveId": 37,
+          "level": 44
+        },
+        {
+          "moveId": 33,
+          "level": 48
+        }
+      ],
+      "movesLearnWithTM": [72,25,30,37,46,56,62,69,76,103,107,110,139,140,221],
+      "bannerMoves": []
+    },
+    "hp": 83,
+    "attack": 106,
+    "defense": 65,
+    "spAtk": 86,
+    "spDef": 65,
+    "speed": 85,
+    "catchRate": 140,
+    "evolutions": [
+      {
+        "evolutionId": 454,
+        "evolutionCondition": {
+          "level": 37
+        }
+      }
+    ],
+    "abilities": ["POISON_TOUCH","DRY_SKIN"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
     "id": 454,
     "name": "Toxicroak",
     "type1": 11,
     "type2": 8,
     "possibleMoves": {
-      "movesLearnByLevel": [],
-      "movesLearnWithTM": [],
+      "movesLearnByLevel": [
+        {
+          "moveId": 17,
+          "level": 1
+        },
+        {
+          "moveId": 154,
+          "level": 1
+        },
+        {
+          "moveId": 47,
+          "level": 4
+        },
+        {
+          "moveId": 242,
+          "level": 8
+        },
+        {
+          "moveId": 232,
+          "level": 20
+        },
+        {
+          "moveId": 208,
+          "level": 24
+        },
+        {
+          "moveId": 62,
+          "level": 32
+        },
+        {
+          "moveId": 83,
+          "level": 36
+        },
+        {
+          "moveId": 173,
+          "level": 42
+        },
+        {
+          "moveId": 37,
+          "level": 48
+        },
+        {
+          "moveId": 33,
+          "level": 54
+        }
+      ],
+      "movesLearnWithTM": [72,25,30,37,46,56,62,69,76,92,93,103,107,110,114,139,140,176,177,221],
       "bannerMoves": []
     },
     "hp": 83,
@@ -17401,6 +17645,10 @@
         {
           "moveId": 102,
           "level": 24
+        },
+        {
+          "moveId": 247,
+          "level": 28
         },
         {
           "moveId": 66,
@@ -17841,6 +18089,10 @@
         {
           "moveId": 32,
           "level": 7
+        },
+        {
+          "moveId": 247,
+          "level": 10
         },
         {
           "moveId": 3,

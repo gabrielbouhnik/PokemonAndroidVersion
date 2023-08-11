@@ -6,6 +6,7 @@ enum class Ability(var description: String) {
     ANGER_POINT("Increases Attack to maximum level upon taking a critical hit."),
     ARENA_TRAP("Prevents opposing Pokémon from fleeing."),
     BATTLE_ARMOR("Hard armor protects the Pokémon from critical hits."),
+    BIG_PECKS("Protects the Pokémon from Defense-lowering effects."),
     BLAZE("Powers up Fire-type moves when the Pokémon's HP is low."),
     FLASH_FIRE("Powers up the Pokémon's Fire-type moves if it's hit by one."),
     CLEAR_BODY("Prevents other Pokémon's moves or Abilities from lowering the Pokémon's stats."),
@@ -53,6 +54,7 @@ enum class Ability(var description: String) {
     ROCK_HEAD("Protects the Pokémon from recoil damage."),
     ROUGH_SKIN("This Pokémon inflicts damage with its rough skin to the attacker on contact."),
     SERENE_GRACE("Boosts the likelihood of additional effects occurring when attacking."),
+    SHADOW_TAG("This Pokémon steps on the opposing Pokémon's shadow to prevent it from escaping."),
     SHARPNESS("Powers up slicing moves."),
     SHEER_FORCE("Removes additional effects to increase the power of moves when attacking."),
     SHELL_ARMOR("A hard shell protects the Pokémon from critical hits."),
@@ -63,6 +65,7 @@ enum class Ability(var description: String) {
     SPEED_BOOST("Its Speed stat is boosted every turn."),
     STATIC("The Pokémon is charged with static electricity, so contact with it may cause paralysis."),
     STEADFAST("The Pokémon's determination boosts the Speed stat each time the Pokémon flinches."),
+    STENCH("By releasing stench when attacking, this Pokémon may cause the target to flinch."),
     STURDY("It cannot be knocked out with one hit. One-hit KO moves cannot knock it out, either."),
     SUPER_LUCK("The Pokémon is so lucky that the critical-hit ratios of its moves are boosted."),
     SWARM("Powers up Bug-type moves when the Pokémon's HP is low."),
@@ -76,5 +79,6 @@ enum class Ability(var description: String) {
     VITAL_SPIRIT("The Pokémon is full of vitality, and that prevents it from falling asleep."),
     VOLT_ABSORB("Restores HP if hit by an Electric-type move instead of taking damage."),
     WATER_ABSORB("Restores HP if hit by a Water-type move instead of taking damage."),
-    WATER_VEIL("The Pokémon is covered with a water veil, which prevents the Pokémon from getting a burn.")
+    WATER_VEIL("The Pokémon is covered with a water veil, which prevents the Pokémon from getting a burn."),
+    WONDER_SKIN("Makes status moves more likely to miss.");
 }

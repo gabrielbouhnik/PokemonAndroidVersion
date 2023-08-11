@@ -25,6 +25,9 @@ enum class Stats(var value: String) {
                 else if (it == ACCURACY && pokemon.hasAbility(Ability.KEEN_EYE)) {
                     details += "${pokemon.data.name}'s Keen Eye: ${pokemon.data.name}'s " + it.value + " cannot be lowered!\n"
                     return@forEach
+                } else if (it == DEFENSE && pokemon.hasAbility(Ability.BIG_PECKS)) {
+                    details += "${pokemon.data.name}'s Big Pecks: ${pokemon.data.name}'s " + it.value + " cannot be lowered!\n"
+                    return@forEach
                 } else if (statChangeMove.multiplicator > 1)
                     details += "${pokemon.data.name}'s " + it.value + " rose!\n"
                 else {

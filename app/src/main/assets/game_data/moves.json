@@ -2254,6 +2254,38 @@
       "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 246,
+      "name": "Fake Out",
+      "power": 40,
+      "pp": 10,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "This attack hits first and makes the target flinch. It works only on the first turn each time the user enters battle.",
+      "priorityLevel": 3,
+      "status": [
+        {
+          "status": "FLINCHED"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 247,
+      "name": "Knock Off",
+      "power": 65,
+      "pp": 20,
+      "type": 17,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user slaps down the target's held item, making it unusable for that battle. This move does more damage if the target has a held item.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "multipleHitMoves": [

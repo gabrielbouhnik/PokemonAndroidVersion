@@ -39,7 +39,10 @@ class ShopRecyclerAdapter(
         holder.buyButton.text = "Buy for ${currentItem.cost} AndroCoins"
         holder.itemView.tag = position
         holder.buyButton.setOnClickListener {
-            if (activity.trainer!!.coins >= currentItem.cost) {
+            if (activity.trainer!!.items.containsKey(currentItem.itemId) && activity.trainer!!.items[currentItem.itemId] == 99){
+                Toast.makeText(activity, "You can't have more of this item.", Toast.LENGTH_SHORT).show()
+            }
+            else if (activity.trainer!!.coins >= currentItem.cost){
                 activity.trainer!!.addItem(currentItem.itemId,1)
                 activity.trainer!!.coins -= currentItem.cost
                 activity.playSoundEffect(R.raw.item_sound_effect)

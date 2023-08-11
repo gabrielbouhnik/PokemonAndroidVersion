@@ -139,6 +139,8 @@ class DamageCalculator {
                 if (move.type == Type.BUG && attacker.hasAbility(Ability.SWARM))
                     power *= 1.5f
             }
+            if (move.id == 247 && opponent.heldItem != null)
+                power *= 1.5f
             return power
         }
 
