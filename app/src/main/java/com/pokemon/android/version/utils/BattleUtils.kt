@@ -117,6 +117,10 @@ class BattleUtils {
                 opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
             if (opponent.hasAbility(Ability.SHADOW_TAG) && opponent.data.type1 != Type.GHOST && opponent.data.type2 != Type.GHOST)
                 pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
+            if (pokemon.hasAbility(Ability.MAGNET_PULL) && pokemon.data.type2 == Type.STEEL && pokemon.data.type1 == Type.STEEL)
+                opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
+            if (opponent.hasAbility(Ability.MAGNET_PULL) && opponent.data.type1 == Type.STEEL && opponent.data.type2 == Type.STEEL)
+                pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
             return sb.toString()
         }
 

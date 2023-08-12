@@ -16,6 +16,7 @@ import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.IAUtils
 import com.pokemon.android.version.utils.ItemUtils
+import kotlin.random.Random
 
 abstract class Battle {
     lateinit var activity: MainActivity
@@ -294,6 +295,14 @@ abstract class Battle {
     }
 
     private fun endTurn(sb: StringBuilder) {
+        if (pokemon.status != Status.OK && pokemon.hasAbility(Ability.SHED_SKIN) && Random.nextInt(2) == 0){
+            sb.append("${pokemon.data.name}'s Shed Skin: ${pokemon.data.name} cured its status!\n")
+            pokemon.status = Status.OK
+        }
+        if (opponent.status != Status.OK && opponent.hasAbility(Ability.SHED_SKIN) && Random.nextInt(2) == 0){
+            sb.append("${opponent.data.name}'s Shed Skin: ${opponent.data.name} cured its status!\n")
+            opponent.status = Status.OK
+        }
         if (pokemon.currentHP > 0 && opponent.currentHP > 0) {
             if (opponent.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
                 val damage = if (opponent.currentHP < 16) 1 else opponent.currentHP / 8

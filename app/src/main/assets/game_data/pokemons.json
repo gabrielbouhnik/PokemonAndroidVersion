@@ -854,7 +854,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["SHED_SKIN"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -1002,7 +1002,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["SHED_SKIN"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -1609,7 +1609,7 @@
         }
       }
     ],
-    "abilities": ["INTIMIDATE"],
+    "abilities": ["INTIMIDATE","SHED_SKIN"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -1677,7 +1677,7 @@
     "speed": 80,
     "catchRate": 90,
     "evolutions": [],
-    "abilities": ["INTIMIDATE"],
+    "abilities": ["INTIMIDATE","SHED_SKIN"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3126,7 +3126,7 @@
         }
       }
     ],
-    "abilities": ["DRY_SKIN","DAMP"],
+    "abilities": ["DRY_SKIN","DAMP","EFFECT_SPORE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3186,7 +3186,7 @@
     "speed": 30,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["DRY_SKIN","DAMP"],
+    "abilities": ["DRY_SKIN","DAMP","EFFECT_SPORE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -5644,7 +5644,7 @@
         }
       }
     ],
-    "abilities": ["STURDY"],
+    "abilities": ["STURDY","MAGNET_PULL"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -5711,7 +5711,7 @@
         }
       }
     ],
-    "abilities": ["STURDY"],
+    "abilities": ["STURDY","MAGNET_PULL"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -6124,7 +6124,7 @@
         }
       }
     ],
-    "abilities": ["POISON_TOUCH","STENCH"],
+    "abilities": ["POISON_TOUCH","STICKY_HOLD","STENCH"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -6194,7 +6194,7 @@
     "speed": 50,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["POISON_TOUCH","STENCH"],
+    "abilities": ["POISON_TOUCH","STICKY_HOLD","STENCH"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -10149,7 +10149,7 @@
         }
       }
     ],
-    "abilities": ["MARVEL_SCALE"],
+    "abilities": ["SHED_SKIN","MARVEL_SCALE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -10227,7 +10227,7 @@
         }
       }
     ],
-    "abilities": ["MARVEL_SCALE"],
+    "abilities": ["SHED_SKIN","MARVEL_SCALE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -10419,7 +10419,8 @@
       "defense": 70,
       "spAtk": 194,
       "spDef": 120,
-      "speed": 140
+      "speed": 140,
+      "ability": "INSOMNIA"
     }
   },
   {
@@ -16278,7 +16279,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["SHED_SKIN"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -17545,7 +17546,7 @@
     "speed": 70,
     "catchRate": 30,
     "evolutions": [],
-    "abilities": ["STURDY"],
+    "abilities": ["STURDY","MAGNET_PULL"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -18328,7 +18329,7 @@
     "speed": 40,
     "catchRate": 60,
     "evolutions": [],
-    "abilities": ["STURDY"],
+    "abilities": ["STURDY","MAGNET_PULL"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {

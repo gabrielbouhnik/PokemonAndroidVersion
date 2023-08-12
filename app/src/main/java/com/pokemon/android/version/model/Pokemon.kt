@@ -240,7 +240,7 @@ open class Pokemon(
         if (move.move is RetaliationMove && (this.battleData!!.lastHitReceived == null || move.move.category != this.battleData!!.lastHitReceived!!.category)) {
             return AttackResponse(false, "${this.data.name} uses ${move.move.name}!\nBut it failed!\n")
         }
-        if ((move.move.id == 246 && !hadATurn) || (move.move.id == 213 && opponent.status != Status.ASLEEP))
+        if ((move.move.id == 246 && hadATurn) || (move.move.id == 213 && opponent.status != Status.ASLEEP))
             return AttackResponse(
                 false,
                 "${this.data.name} uses ${move.move.name}!\nBut it failed!\n"
@@ -377,7 +377,7 @@ open class Pokemon(
             }
             if (move.move.type == Type.FIRE && opponent.status == Status.FROZEN)
                 opponent.status = Status.OK
-            if (this.hasAbility(Ability.STENCH) && !opponent.hasAbility(Ability.INNER_FOCUS))
+            if (this.hasAbility(Ability.STENCH) && Random.nextInt(10) < 2 && !opponent.hasAbility(Ability.INNER_FOCUS))
                     opponent.battleData!!.battleStatus.add(Status.FLINCHED)
             if (move.move.status.isNotEmpty()) {
                 if (!this.hasAbility(Ability.SHEER_FORCE) && damage > 0) {
@@ -457,7 +457,7 @@ open class Pokemon(
                 details += "${opponent.data.name}'s stats changes were removed!\n"
             }
         }
-        if (move.move.id == 247 && opponent.heldItem != null){
+        if (move.move.id == 247 && opponent.heldItem != null && !opponent.hasAbility(Ability.STICKY_HOLD)){
             details += "${this.data.name} knocked off ${opponent.data.name}'s item!\n"
             opponent.heldItem = null
         }

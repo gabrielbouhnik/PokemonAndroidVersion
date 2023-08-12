@@ -82,6 +82,10 @@ class IAUtils {
                     damage *= 2
                 if (canBeKOdByOpponent(attacker, opponent) && move.move is ChargedMove)
                     continue
+                if (move.move.id == 246 && attacker.battleData!!.hadATurn)
+                    continue
+                if (move.move is RecoilMove && attacker.currentHP == attacker.hp && (move.move as RecoilMove).recoil == Recoil.ALL)
+                    continue
                 if (damage >= opponent.currentHP) {
                     if (move.move !is ChargedMove || attacker.hp / attacker.currentHP > 2)
                         return move
