@@ -16,60 +16,79 @@ class BattleUtils {
     companion object {
         fun contactMovesCheck(attacker: Pokemon, move: Move, opponent: Pokemon): String {
             val random: Int = Random.nextInt(100)
+            var details = ""
+            var statusByContact = false
             if (move.characteristics.contains(MoveCharacteristic.CONTACT) && random < 30) {
                 if (attacker.hasAbility(Ability.POISON_TOUCH)
+                    && attacker.status != Status.OK
                     && Status.isAffectedByStatus(0, Status.POISON, opponent)
                 ) {
                     opponent.status = Status.POISON
+                    statusByContact = true
                     checkForStatsRaiseAbility(attacker)
-                    return "${attacker.data.name}'s Poison Touch: ${opponent.data.name} is poisoned!\n"
+                    details += "${attacker.data.name}'s Poison Touch: ${opponent.data.name} is poisoned!\n"
                 }
                 if (opponent.hasAbility(Ability.ROUGH_SKIN)) {
                     attacker.takeDamage(attacker.hp / 8)
-                    return "${opponent.data.name}'s Rough Skin: ${attacker.data.name} was hurt!\n"
+                    details += "${opponent.data.name}'s Rough Skin: ${attacker.data.name} was hurt!\n"
                 }
                 if (opponent.hasItem(HoldItem.ROCKY_HELMET)) {
                     attacker.takeDamage(attacker.hp / 8)
-                    return "${opponent.data.name}'s Rocky Helmet: ${attacker.data.name} was hurt!\n"
+                    details += "${opponent.data.name}'s Rocky Helmet: ${attacker.data.name} was hurt!\n"
                 }
                 if (opponent.hasAbility(Ability.POISON_POINT)
+                    && attacker.status != Status.OK
                     && Status.isAffectedByStatus(0, Status.POISON, attacker)
                 ) {
                     attacker.status = Status.POISON
+                    statusByContact = true
                     checkForStatsRaiseAbility(attacker)
-                    return "${opponent.data.name}'s Poison Point: ${attacker.data.name} is poisoned!\n"
+                    details += "${opponent.data.name}'s Poison Point: ${attacker.data.name} is poisoned!\n"
                 }
                 if (opponent.hasAbility(Ability.STATIC)
+                    && attacker.status != Status.OK
                     && Status.isAffectedByStatus(0, Status.PARALYSIS, attacker)
                 ) {
                     attacker.status = Status.PARALYSIS
+                    statusByContact = true
                     checkForStatsRaiseAbility(attacker)
-                    return "${opponent.data.name}'s Static: ${attacker.data.name} is paralyzed!\n"
+                    details +=  "${opponent.data.name}'s Static: ${attacker.data.name} is paralyzed!\n"
                 }
                 if (opponent.hasAbility(Ability.FLAME_BODY)
+                    && attacker.status != Status.OK
                     && Status.isAffectedByStatus(0, Status.BURN, attacker)
                 ) {
                     attacker.status = Status.BURN
+                    statusByContact = true
                     checkForStatsRaiseAbility(attacker)
-                    return "${opponent.data.name}'s Flame Body: ${attacker.data.name} is burned!\n"
+                    details +=  "${opponent.data.name}'s Flame Body: ${attacker.data.name} is burned!\n"
                 }
-                if (opponent.hasAbility(Ability.EFFECT_SPORE)) {
+                if (opponent.hasAbility(Ability.EFFECT_SPORE)
+                    && attacker.status != Status.OK) {
                     if (random < 10 && Status.isAffectedByStatus(34, Status.POISON, attacker)) {
                         attacker.status = Status.POISON
+                        statusByContact = true
                         checkForStatsRaiseAbility(attacker)
-                        return "${opponent.data.name}'s Effect Spore: ${attacker.data.name} is poisoned!\n"
+                        details +=  "${opponent.data.name}'s Effect Spore: ${attacker.data.name} is poisoned!\n"
                     } else if (random < 20 && Status.isAffectedByStatus(35, Status.ASLEEP, attacker)) {
                         attacker.status = Status.ASLEEP
-                        return "${opponent.data.name}'s Effect Spore: ${attacker.data.name} fell asleep!\n"
+                        statusByContact = true
+                        details +=  "${opponent.data.name}'s Effect Spore: ${attacker.data.name} fell asleep!\n"
                     }
                     else if (random >= 20 && Status.isAffectedByStatus(-1, Status.PARALYSIS, attacker)){
                         attacker.status = Status.PARALYSIS
+                        statusByContact = true
                         checkForStatsRaiseAbility(attacker)
-                        return "${opponent.data.name}'s Effect Spore: ${attacker.data.name} is paralysed\n"
+                        details +=  "${opponent.data.name}'s Effect Spore: ${attacker.data.name} is paralysed\n"
                     }
                 }
             }
-            return ""
+            if (statusByContact && opponent.hasItem(HoldItem.LUM_BERRY)){
+                details += "${opponent.data.name}'s Lum Berry cured its status\n"
+                opponent.status = Status.OK
+                opponent.heldItem = null
+            }
+            return details
         }
 
         fun abilitiesCheck(pokemon: Pokemon, opponent: Pokemon): String {

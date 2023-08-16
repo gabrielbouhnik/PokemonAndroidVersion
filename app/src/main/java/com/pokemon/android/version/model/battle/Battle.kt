@@ -423,6 +423,11 @@ abstract class Battle {
                     pokemon.battleData!!.sleepCounter = 0
                     pokemon.status = Status.ASLEEP
                     details += pokemon.data.name + " fell asleep!\n"
+                    if (pokemon.hasItem(HoldItem.LUM_BERRY)){
+                        details += "${pokemon.data.name}'s Lum Berry cured its status\n"
+                        pokemon.status = Status.OK
+                        pokemon.heldItem = null
+                    }
                 }
             }
             if (pokemon.battleData!!.battleStatus.contains(Status.UNABLE_TO_MOVE)) {

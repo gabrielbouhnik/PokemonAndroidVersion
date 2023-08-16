@@ -200,18 +200,18 @@ class BattleUI {
             }
             HealUtils.healTeam(activity.trainer!!.team)
             rewardsButton.setOnClickListener {
-                SaveManager.save(activity)
                 activity.trainer!!.receiveExp((battle.levelData.exp * 0.5).toInt())
                 battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
+                SaveManager.save(activity)
                 rewardMenu.loadHallOfFameMenu(activity)
             }
         } else {
             rewardsButton.text = activity.getString(R.string.go_forward)
             rewardsButton.setOnClickListener {
-                SaveManager.save(activity)
                 activity.trainer!!.coins += 150
                 activity.trainer!!.receiveExp((battle.levelData.exp * 0.5).toInt())
                 battle.pokemon.gainExp((battle.levelData.exp * 0.5).toInt())
+                SaveManager.save(activity)
                 if (activity.eliteMode)
                     activity.mainMenu.levelMenu.loadEliteLevels(activity)
                 else

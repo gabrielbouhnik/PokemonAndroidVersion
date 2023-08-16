@@ -2697,23 +2697,30 @@
           "pokemons": [
             {
               "id": 42,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 50,23,182,48
               ]
             },
             {
               "id": 20,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 3,23,28,27
               ]
             },
             {
               "id": 109,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 225,37,2,83
+              ]
+            },
+            {
+              "id": 67,
+              "level": 45,
+              "moveIds": [
+                180,181,127,30
               ]
             }
           ]
@@ -2724,23 +2731,30 @@
           "pokemons": [
             {
               "id": 42,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 50,23,226,48
               ]
             },
             {
               "id": 20,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 3,23,28,27
               ]
             },
             {
               "id": 109,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 225,37,2,83
+              ]
+            },
+            {
+              "id": 96,
+              "level": 45,
+              "moveIds": [
+                83,72,59,219
               ]
             }
           ]
@@ -2751,23 +2765,30 @@
           "pokemons": [
             {
               "id": 42,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 50,23,226,48
               ]
             },
             {
               "id": 20,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 3,23,28,27
               ]
             },
             {
               "id": 109,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 225,37,2,83
+              ]
+            },
+            {
+              "id": 228,
+              "level": 45,
+              "moveIds": [
+                204,23,85,172
               ]
             }
           ]
@@ -2778,23 +2799,30 @@
           "pokemons": [
             {
               "id": 42,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 50,23,182,48
               ]
             },
             {
               "id": 20,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 3,23,28,27
               ]
             },
             {
               "id": 24,
-              "level": 52,
+              "level": 45,
               "moveIds": [
                 37,27,83,120
+              ]
+            },
+            {
+              "id": 27,
+              "level": 50,
+              "moveIds": [
+                30,38,19,112
               ]
             }
           ]
@@ -2805,21 +2833,28 @@
           "pokemons": [
             {
               "id": 42,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 50,23,182,48
               ]
             },
             {
               "id": 20,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 3,23,28,27
+              ]
+            },
+            {
+              "id": 67,
+              "level": 45,
+              "moveIds": [
+              180,181,127,30
               ]
             },
             {
               "id": 110,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 225,37,2,83
               ]
@@ -2831,31 +2866,31 @@
           "name" : "Team Rocket Grunt",
           "pokemons": [
             {
-              "id": 27,
-              "level": 53,
-              "moveIds": [
-                30,38,19,112
-              ]
-            },
-            {
               "id": 42,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 50,23,182,48
               ]
             },
             {
               "id": 20,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 3,23,28,27
               ]
             },
             {
-              "id": 27,
-              "level": 53,
+              "id": 28,
+              "level": 50,
               "moveIds": [
                 30,38,19,112
+              ]
+            },
+            {
+              "id": 110,
+              "level": 50,
+              "moveIds": [
+                225,37,2,83
               ]
             }
           ]
@@ -2865,24 +2900,31 @@
           "name" : "Team Rocket Grunt",
           "pokemons": [
             {
+              "id": 97,
+              "level": 45,
+              "moveIds": [
+                83,72,219,76
+              ]
+            },
+            {
               "id": 42,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 50,23,182,48
               ]
             },
             {
               "id": 20,
-              "level": 51,
+              "level": 45,
               "moveIds": [
                 3,23,28,27
               ]
             },
             {
               "id": 24,
-              "level": 52,
+              "level": 47,
               "moveIds": [
-                37,27,83
+                37,27,120,118
               ]
             }
           ]
@@ -2895,15 +2937,7 @@
         },
         {
           "id": 2,
-          "quantity": 2
-        },
-        {
-          "id": 9,
-          "quantity": 1
-        },
-        {
-          "id": 2,
-          "quantity": 1
+          "quantity": 3
         },
         {
           "id": 9,
@@ -4769,7 +4803,7 @@
           "id": 141,
           "level": 80,
           "moveIds": [
-            93,136,38,25
+            128,248,123,25
           ],
           "itemHeld": "LIFE_ORB"
         },

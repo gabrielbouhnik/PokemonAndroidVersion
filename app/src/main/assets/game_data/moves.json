@@ -3593,6 +3593,64 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 248,
+      "name": "Liquidation",
+      "power": 85,
+      "category": "PHYSICAL",
+      "pp": 10,
+      "type": 3,
+      "accuracy": 100,
+      "description": "The user slams into the target using a full-force blast of water. This may also lower the target's Defense stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE"
+      ],
+      "probability": 20,
+      "target": "OPPONENT",
+      "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 249,
+      "name": "Rapid Spin",
+      "power": 50,
+      "pp": 40,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "A spin attack that can also eliminate such moves as Bind, Wrap, and Leech Seed. This also raises the user's Speed stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 250,
+      "name": "Cosmic Power",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 12,
+      "description": "The user absorbs a mystical power from space to raise its Defense and Sp. Def stats.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE",
+        "SPDEF"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "drainMoves": [

@@ -18,7 +18,7 @@ class LevelMenu {
         const val DUGTRIO_LEVEL = 24
         const val ERIKA_LEVEL = 36
         const val TYROGUE_LEVEL = 50
-        const val LAPRAS_LEVEL = 52
+        const val LAPRAS_LEVEL = 46
         const val ARTICUNO_LEVEL = 56
         const val BLAINE_LEVEL = 59
         const val MEGA_CHARIZARD_LEVEL_ID = 61

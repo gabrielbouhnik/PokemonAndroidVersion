@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable
 import android.view.View.GONE
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
@@ -70,10 +71,23 @@ class RewardMenu {
                 activity.trainer!!.achievements!!.leadersDefeatedAfterTheLeague.add(levelData.id)
         }
         if (firstTime) {
-            if (levelData.id == LevelMenu.LAPRAS_LEVEL)
-                activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(131, 25))
+            if (levelData.id == LevelMenu.LAPRAS_LEVEL) {
+                activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(131, 45))
+                Toast.makeText(
+                    activity,
+                    "To thank you, one of the Silph Co scientist gave you a Lapras!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
             if (levelData.id == LevelMenu.TYROGUE_LEVEL)
+            {
                 activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(236, 10))
+                Toast.makeText(
+                    activity,
+                    "You received a level 10 Tyrogue!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
             if (levelData.id == LevelMenu.MEGA_CHARIZARD_LEVEL_ID) {
                 when {
                     activity.trainer!!.pokedex[1] == true -> {

@@ -455,11 +455,25 @@ open class Pokemon(
                 opponent.battleData!!.speedMultiplicator = 1f
                 opponent.battleData!!.accuracyMultiplicator = 1f
                 details += "${opponent.data.name}'s stats changes were removed!\n"
+                if (opponent.hasItem(HoldItem.ASSAULT_VEST)) {
+                    opponent.battleData!!.spDefMultiplicator = 1.5f
+                }
+                BattleUtils.checkForStatsRaiseAbility(opponent)
             }
         }
         if (move.move.id == 247 && opponent.heldItem != null && !opponent.hasAbility(Ability.STICKY_HOLD)){
             details += "${this.data.name} knocked off ${opponent.data.name}'s item!\n"
             opponent.heldItem = null
+        }
+        if (damage > 0 && move.move.id == 249){
+            if (this.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
+                this.battleData!!.battleStatus.remove(Status.LEECH_SEEDED)
+                details += "${this.data.name} is no longer seeded!\n"
+            }
+            if (this.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)) {
+                this.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
+                details += "${this.data.name} is no longer trapped!\n"
+            }
         }
         details += BattleUtils.contactMovesCheck(this, move.move, opponent)
         return AttackResponse(true, details)
