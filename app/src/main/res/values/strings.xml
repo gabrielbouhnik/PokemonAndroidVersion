@@ -32,4 +32,12 @@
         accuracy: %4$s\n
         category: %5$s\n
     </string>
+    <string name="tutorial_game">a</string>
+    <string name="tutorial_after_first_fight">a</string>
+    <string name="tutorial_wild_battle">a</string>
+    <string name="tutorial_gym_leader">a</string>
+    <string name="tutorial_trainer_battles">a</string>
+    <string name="tutorial_boss_battle">a</string>
+    <string name="tutorial_elite_mode">a</string>
+    <string name="tutorial_post_game">a</string>
 </resources>

@@ -1880,7 +1880,7 @@
       "pp": 20,
       "type": 12,
       "category": "OTHER",
-      "description": "The user switches places with a party Pokémon in waiting, if any. If a wild Pokémon uses this move, it flees.",
+      "description": "The user teleports to another place.",
       "priorityLevel": -6,
       "status": [],
       "highCritRate": false,
@@ -2286,6 +2286,111 @@
       "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 251,
+      "name": "Assurance",
+      "power": 60,
+      "pp": 10,
+      "type": 17,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "This move's power is doubled if the target has already taken some damage in the same turn.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 252,
+      "name": "Force Palm",
+      "power": 60,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The target is attacked with a shock wave. This may also leave the target with paralysis.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "PARALYSIS",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 253,
+      "name": "Stun Spore",
+      "power": 0,
+      "pp": 30,
+      "type": 1,
+      "category": "OTHER",
+      "accuracy": 75,
+      "description": "The user scatters a cloud of numbing powder that paralyzes the target.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "PARALYSIS"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["POWDER"]
+    },
+    {
+      "id": 255,
+      "name": "Spore",
+      "power": 0,
+      "pp": 15,
+      "type": 1,
+      "category": "OTHER",
+      "accuracy": 75,
+      "description": "The user scatters bursts of spores that induce sleep.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "ASLEEP"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["POWDER"]
+    },
+    {
+      "id": 256,
+      "name": "Glare",
+      "power": 0,
+      "pp": 30,
+      "type": 5,
+      "category": "OTHER",
+      "accuracy": 100,
+      "description": "The user intimidates the target with the pattern on its belly to cause paralysis.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "PARALYSIS"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 257,
+      "name": "Infestation",
+      "power": 20,
+      "pp": 20,
+      "type": 7,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The target is infested and attacked for four to five turns. The target can't flee during this time.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "TRAPPED_WITH_DAMAGE"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "multipleHitMoves": [
@@ -2349,6 +2454,20 @@
       "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 258,
+      "name": "Dragon Darts",
+      "power": 50,
+      "pp": 10,
+      "type": 15,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user attacks twice using Dreepy.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "movesBasedOnLevelEntity": [
@@ -3671,7 +3790,7 @@
     {
       "id": 67,
       "name": "Absorb",
-      "power": 30,
+      "power": 20,
       "pp": 25,
       "type": 1,
       "category": "SPECIAL",
@@ -3737,6 +3856,20 @@
       "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 254,
+      "name": "Mega Drain",
+      "power": 40,
+      "pp": 15,
+      "type": 1,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user attacks by draining the target's nutrients. Some of the damage dealt to the target is absorbed by the user to restore their own HP.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "recoilMoves": [

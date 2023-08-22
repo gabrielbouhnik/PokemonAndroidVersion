@@ -21,7 +21,10 @@ import com.pokemon.android.version.model.level.*
 import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAIN_LEVEL_ID
-import com.pokemon.android.version.utils.*
+import com.pokemon.android.version.utils.BattleUtils
+import com.pokemon.android.version.utils.HealUtils
+import com.pokemon.android.version.utils.ItemUtils
+import com.pokemon.android.version.utils.MusicUtils
 import java.io.InputStream
 import kotlin.random.Random
 
@@ -71,7 +74,8 @@ class BattleUI {
         val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
         pokemonBackSprite.visibility = VISIBLE
         if (battle.pokemon.isMegaEvolved) {
-            val filename = if (battle.pokemon.shiny) "images/mega/" + battle.pokemon.data.id + "_back_shiny.png" else "images/mega/" + battle.pokemon.data.id + "_back.png"
+            val filename =
+                if (battle.pokemon.shiny) "images/mega/" + battle.pokemon.data.id + "_back_shiny.png" else "images/mega/" + battle.pokemon.data.id + "_back.png"
             val img: InputStream = activity.assets.open(filename)
             pokemonBackSprite.setImageDrawable(Drawable.createFromStream(img, filename))
         } else {
@@ -266,10 +270,10 @@ class BattleUI {
                         activity.trainer!!.battleFactoryProgression!!.progression += 1
                         if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID && activity.trainer!!.battleFactoryProgression!!.progression >= 25)
                             activity.trainer!!.achievements!!.winstreak25Factory = true
-                        activity.trainer!!.coins += 30 * (1 + (activity.trainer!!.battleFactoryProgression!!.progression/5))
+                        activity.trainer!!.coins += 30 * (1 + (activity.trainer!!.battleFactoryProgression!!.progression / 5))
                     } else {
                         activity.trainer!!.battleTowerProgression!!.progression += 1
-                        activity.trainer!!.coins += 30 * (1 + (activity.trainer!!.battleTowerProgression!!.progression/5))
+                        activity.trainer!!.coins += 30 * (1 + (activity.trainer!!.battleTowerProgression!!.progression / 5))
                     }
                     SaveManager.save(activity)
                     val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)
@@ -284,15 +288,15 @@ class BattleUI {
                 }
                 activity.trainer!!.team.forEach {
                     it.recomputeStat()
-                    if (it.hasAbility(Ability.PICKUP) && it.currentHP > 0){
+                    if (it.hasAbility(Ability.PICKUP) && it.currentHP > 0) {
                         val random = Random.nextInt(10)
                         when {
-                            random < 7 -> activity.trainer!!.addItem(11,1)
-                            random < 4 -> activity.trainer!!.addItem(1,1)
-                            random == 3 -> activity.trainer!!.addItem(2,1)
-                            random == 2 -> activity.trainer!!.addItem(4,1)
-                            random == 1 -> activity.trainer!!.addItem(9,1)
-                            random == 0 -> activity.trainer!!.addItem(12,1)
+                            random < 7 -> activity.trainer!!.addItem(11, 1)
+                            random < 4 -> activity.trainer!!.addItem(1, 1)
+                            random == 3 -> activity.trainer!!.addItem(2, 1)
+                            random == 2 -> activity.trainer!!.addItem(4, 1)
+                            random == 1 -> activity.trainer!!.addItem(9, 1)
+                            random == 0 -> activity.trainer!!.addItem(12, 1)
                         }
                     }
                 }
@@ -300,7 +304,7 @@ class BattleUI {
                 if (battle.pokemon.hasAbility(Ability.NATURAL_CURE))
                     battle.pokemon.status = Status.OK
                 if (battle.pokemon.hasAbility(Ability.REGENERATOR) && battle.pokemon.currentHP > 0) {
-                    battle.pokemon.heal(battle.pokemon.hp/3)
+                    battle.pokemon.heal(battle.pokemon.hp / 3)
                 }
                 val firstTime: Boolean = activity.trainer!!.progression == battle.levelData.id
                 if (activity.trainer!!.eliteProgression == 4)
@@ -418,7 +422,16 @@ class BattleUI {
                     )
                         .show()
                 }*/
-                if (battle.pokemon.move1.move.category == MoveCategory.OTHER && battle.pokemon.battleData!!.battleStatus.contains(Status.TAUNTED)) {
+                if (move.disabled) {
+                    Toast.makeText(
+                        activity,
+                        "${move.move.name} is disabled.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else if (battle.pokemon.move1.move.category == MoveCategory.OTHER && battle.pokemon.battleData!!.battleStatus.contains(
+                        Status.TAUNTED
+                    )
+                ) {
                     Toast.makeText(
                         activity,
                         "${battle.pokemon.data.name} can't use ${battle.pokemon.move1.move.name} afterthe taunt",
@@ -426,7 +439,7 @@ class BattleUI {
                     )
                         .show()
                 } else if (battle.pokemon.currentHP > 0 && battle.opponent.currentHP > 0) {
-                    if (move.move.id == 185){
+                    if (move.move.id == 185) {
                         activity.trainer!!.team.forEach { it.recomputeStat() }
                         battle.pokemon.battleData = null
                         activity.mainMenu.loadGameMenu(activity)
@@ -461,7 +474,16 @@ class BattleUI {
             ppTextView.text =
                 activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
             attack1Button.setOnClickListener {
-                if (battle.pokemon.move1.move.category == MoveCategory.OTHER && battle.pokemon.battleData!!.battleStatus.contains(Status.TAUNTED)) {
+                if (battle.pokemon.move1.disabled) {
+                    Toast.makeText(
+                        activity,
+                        "${battle.pokemon.move1.move.name} is disabled.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else if (battle.pokemon.move1.move.category == MoveCategory.OTHER && battle.pokemon.battleData!!.battleStatus.contains(
+                        Status.TAUNTED
+                    )
+                ) {
                     Toast.makeText(
                         activity,
                         "${battle.pokemon.data.name} can't use ${battle.pokemon.move1.move.name} afterthe taunt",
@@ -469,7 +491,7 @@ class BattleUI {
                     )
                         .show()
                 } else if (battle.pokemon.currentHP > 0 && battle.opponent.currentHP > 0) {
-                    if (battle.pokemon.move1.move.id == 185){
+                    if (battle.pokemon.move1.move.id == 185) {
                         activity.trainer!!.team.forEach { it.recomputeStat() }
                         battle.pokemon.battleData = null
                         activity.mainMenu.loadGameMenu(activity)
@@ -502,7 +524,7 @@ class BattleUI {
         val switchButton: Button = activity.findViewById(R.id.switchPokemonButton)
         switchButton.setOnClickListener {
             if ((!battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
-                && !battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
+                        && !battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
                         || (battle.pokemon.data.type1 == Type.GHOST || battle.pokemon.data.type2 == Type.GHOST))
             ) {
                 megaEvolve = false

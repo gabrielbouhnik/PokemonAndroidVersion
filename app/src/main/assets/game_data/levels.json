@@ -362,7 +362,7 @@
         "minLevel": 24,
         "maxLevel": 27,
         "encounters": [
-          104,92,104,92,104,92,104,92,104,92,104,92,104,92,93,93,607
+          104,92,104,92,104,92,104,92,104,92,104,92,104,92,93,93,607,885
         ]
       },
       "rewards": [
@@ -440,7 +440,7 @@
       "mandatory": true
     },
     {
-      "id": 42,
+      "id": 40,
       "name": "\nSafari Zone",
       "description": "Welcome to the Safari Zone! This parks features many wild Pokemon! Try to catch as many as you can!",
       "encounter": 10,
@@ -4086,8 +4086,8 @@
             {
               "id": 91,
               "level": 73,
-              "moveIds": [43,98,131,95],
-              "itemHeld": "NEVER_MELT_ICE"
+              "moveIds": [245,98,77,136],
+              "itemHeld": "FOCUS_SASH"
             },
             {
               "id": 131,
@@ -4558,7 +4558,6 @@
     },
     {
       "id": 37,
-      "name": "\nVs Snorlax",
       "name": "\nVs Snorlax",
       "description": "After getting your fourth badge, you go to Route 16 and come across the sleeping Pokemon. You wake him up with the flute that the old man gave you and it gets really angry!",
       "boss":

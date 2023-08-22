@@ -2,32 +2,33 @@
   "items": [
     {
       "itemId": 11,
-      "cost": 100
+      "cost": 50
     },
     {
       "itemId": 1,
-      "cost": 120
+      "cost": 50
     },
     {
       "itemId": 4,
-      "cost": 150
+      "cost": 75,
+      "badgeCountNeeded": 3
     },
     {
       "itemId": 2,
-      "cost": 200,
+      "cost": 75,
       "badgeCountNeeded": 3
     },
     {
       "itemId": 9,
-      "cost": 200
+      "cost": 75
     },
     {
       "itemId": 10,
-      "cost": 200
+      "cost": 75
     },
     {
       "itemId": 3,
-      "cost": 300,
+      "cost": 100,
       "badgeCountNeeded": 8
     },
     {

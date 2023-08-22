@@ -37,7 +37,7 @@ class StarterSelection {
             activity.trainer = Trainer(characterName.text.toString(), gender)
             if (characterName.text.toString() == PokedexMenu.ADMIN) {
                 for (pokemon in activity.gameDataService.pokemons) {
-                    if (pokemon.id < 151 || pokemon.movesByTM.size > 1)
+                    if (pokemon.movesByLevel.isNotEmpty())
                         activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(pokemon.id, 80))
                 }
                 activity.trainer!!.progression = 83
@@ -54,7 +54,7 @@ class StarterSelection {
                 genderSwitch.visibility = GONE
                 characterName.visibility = GONE
                 activity.displayStarters()
-                oakTextView.text = "Before starting your journey, choose one of these 3 pokemon"
+                oakTextView.text = "Now, which Pokémon do you want?"
             }
         }
     }
@@ -64,7 +64,7 @@ class StarterSelection {
         val oakTextView: TextView = activity.findViewById(R.id.oakTextView)
         oakTextView.movementMethod = ScrollingMovementMethod()
         oakTextView.text =
-            "So you chose $starterName.\nYou can now go on an adventure and become a great pokemon trainer."
+            "So $starterName is your choice.\n Your own Pokémon legend is about to unfold!\n A world of dreams and adventures awaits!"
         nextButton.visibility = VISIBLE
         nextButton.setOnClickListener {
             SaveManager.save(activity)

@@ -62,7 +62,7 @@ class AchievementRecyclerAdapter(
                         currentItem.itemRewards.isNotEmpty() -> {
                             Toast.makeText(
                                 activity,
-                                "You earn a " + activity.gameDataService.items[currentItem.itemRewards[0]].name + "!",
+                                "You earn a " + activity.gameDataService.items.first{it.id == currentItem.itemRewards[0]}.name + "!",
                                 Toast.LENGTH_SHORT
                             )
                                 .show()

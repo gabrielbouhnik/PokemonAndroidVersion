@@ -51,6 +51,8 @@ enum class Status(var activeOutsideBattle: Boolean) {
 
     companion object {
         fun updateStatus(attacker: Pokemon, opponent: Pokemon, move: Move): String {
+            if ((move.id == 34 || move.id == 35) && opponent.hasAbility(Ability.OVERCOAT))
+                return "${opponent.data.name}'s Overcoat: It does not affect ${opponent.data.name}!\n"
             var details = ""
             move.status.forEach {
                 if (isAffectedByStatus(move.id, it.status, opponent)) {
@@ -132,10 +134,13 @@ enum class Status(var activeOutsideBattle: Boolean) {
         }
 
         fun isAffectedByStatus(id: Int, status: Status, opponent: Pokemon): Boolean {
-            if ((id == 34 || id == 35) && (opponent.data.type1 == Type.GRASS || opponent.data.type2 == Type.GRASS || opponent.hasAbility(
-                    Ability.MAGIC_BOUNCE
-                ))
+            if ((id == 35 || id == 253 || id == 255) && (
+                        opponent.data.type1 == Type.GRASS || opponent.data.type2 == Type.GRASS
+                                || opponent.hasAbility(Ability.MAGIC_BOUNCE)
+                                || opponent.hasAbility(Ability.OVERCOAT))
             )
+                return false
+            if (id == 34 && (opponent.hasAbility(Ability.MAGIC_BOUNCE) || opponent.hasAbility(Ability.OVERCOAT)))
                 return false
             if (id == 55 && (opponent.data.type1 == Type.GROUND || opponent.data.type2 == Type.GROUND))
                 return false

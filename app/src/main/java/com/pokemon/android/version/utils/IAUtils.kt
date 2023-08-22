@@ -42,7 +42,7 @@ class IAUtils {
         }
 
         fun iaWildPokemon(attacker: Pokemon): PokemonMove {
-            var usableMoves = MoveUtils.getMoveList(attacker).filter { it.pp > 0 }
+            var usableMoves = MoveUtils.getMoveList(attacker).filter { it.pp > 0  && !it.disabled}
             if (attacker.battleData!!.battleStatus.contains(Status.TAUNTED)){
                 usableMoves = usableMoves.filter { it.move.category != MoveCategory.OTHER}
             }
@@ -57,7 +57,7 @@ class IAUtils {
         }
 
         fun ia(attacker: Pokemon, opponent: Pokemon): PokemonMove {
-            var usableMoves = MoveUtils.getMoveList(attacker).filter { it.pp > 0 }
+            var usableMoves = MoveUtils.getMoveList(attacker).filter {!it.disabled && it.pp > 0}
             if (attacker.battleData!!.battleStatus.contains(Status.TAUNTED)){
                 usableMoves = usableMoves.filter { it.move.category != MoveCategory.OTHER}
             }

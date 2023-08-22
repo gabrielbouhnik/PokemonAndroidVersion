@@ -141,6 +141,8 @@ class DamageCalculator {
             }
             if (move.id == 247 && opponent.heldItem != null)
                 power *= 1.5f
+            if (attacker.battleData!!.lastHitReceived != null && move.id ==  251)
+                power *= 2f
             return power
         }
 

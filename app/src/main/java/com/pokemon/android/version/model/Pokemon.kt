@@ -4,6 +4,7 @@ import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.entity.save.PokemonSave
 import com.pokemon.android.version.model.battle.*
 import com.pokemon.android.version.model.item.HoldItem
+import com.pokemon.android.version.model.level.PokemonBoss
 import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
@@ -83,23 +84,26 @@ open class Pokemon(
                 .speed(StatUtils.computeStat(data, pokemonSave.level, Stats.SPEED))
                 .currentHP(pokemonSave.currentHP)
                 .currentExp(pokemonSave.currentExp)
-                .move1(PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[0].id), pokemonSave.moveids[0].pp))
+                .move1(PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[0].id), pokemonSave.moveids[0].pp, false))
                 .move2(
                     if (pokemonSave.moveids.size > 1) PokemonMove(
                         gameDataService.getMoveById(pokemonSave.moveids[1].id),
-                        pokemonSave.moveids[1].pp
+                        pokemonSave.moveids[1].pp,
+                        false
                     ) else null
                 )
                 .move3(
                     if (pokemonSave.moveids.size > 2) PokemonMove(
                         gameDataService.getMoveById(pokemonSave.moveids[2].id),
-                        pokemonSave.moveids[2].pp
+                        pokemonSave.moveids[2].pp,
+                        false
                     ) else null
                 )
                 .move4(
                     if (pokemonSave.moveids.size > 3) PokemonMove(
                         gameDataService.getMoveById(pokemonSave.moveids[3].id),
-                        pokemonSave.moveids[3].pp
+                        pokemonSave.moveids[3].pp,
+                        false
                     ) else null
                 )
                 .shiny(pokemonSave.shiny)
@@ -447,7 +451,9 @@ open class Pokemon(
             }
         }
         if (move.move is RemoveStatChangesMove) {
-            if (damage > 0 || move.move.category == MoveCategory.OTHER) {
+            if (opponent is PokemonBoss)
+                details += "${opponent.data.name}'s stats changes can't be removed!\n"
+            else if (damage > 0 || move.move.category == MoveCategory.OTHER) {
                 opponent.battleData!!.attackMultiplicator = 1f
                 opponent.battleData!!.defenseMultiplicator = 1f
                 opponent.battleData!!.spAtkMultiplicator = 1f
@@ -476,6 +482,10 @@ open class Pokemon(
             }
         }
         details += BattleUtils.contactMovesCheck(this, move.move, opponent)
+        if (opponent.hasAbility(Ability.CURSED_BODY) && Random.nextInt(100) < 30){
+            details += "${opponent.data.name}'s Cursed Body: ${this.data.name}'s ${move.move.name} is disabled!\n"
+            move.disabled = true
+        }
         return AttackResponse(true, details)
     }
 
@@ -510,6 +520,13 @@ open class Pokemon(
         this.speed = StatUtils.computeStat(data, level, Stats.SPEED)
         if (addHP)
             currentHP = hp
+        this.move1.disabled = false
+        if (this.move2 != null)
+            this.move2!!.disabled = false
+        if (this.move3 != null)
+            this.move3!!.disabled = false
+        if (this.move4 != null)
+            this.move4!!.disabled = false
     }
 
     fun learnMove(moveToLearn: Move, moveToDeleteNumber: Int) {
@@ -525,15 +542,15 @@ open class Pokemon(
         if (MoveUtils.getMoveList(this).map { it.move }.contains(move))
             return false
         if (move2 == null) {
-            this.move2 = PokemonMove(move, move.pp)
+            this.move2 = PokemonMove(move, move.pp, false)
             return true
         }
         if (move3 == null) {
-            this.move3 = PokemonMove(move, move.pp)
+            this.move3 = PokemonMove(move, move.pp, false)
             return true
         }
         if (move4 == null) {
-            this.move4 = PokemonMove(move, move.pp)
+            this.move4 = PokemonMove(move, move.pp, false)
             return true
         }
         return false
