@@ -70,6 +70,7 @@ class StarterSelection {
             SaveManager.save(activity)
             activity.updateMusic(R.raw.main_menu)
             activity.mainMenu.loadGameMenu(activity)
+            activity.showCustomDialog(activity.getString(R.string.tutorial_game))
         }
     }
 }

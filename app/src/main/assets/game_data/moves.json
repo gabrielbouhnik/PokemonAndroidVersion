@@ -2228,7 +2228,7 @@
       "power": 20,
       "pp": 20,
       "type": 4,
-      "category": "OTHER",
+      "category": "PHYSICAL",
       "accuracy": 90,
       "description": "The user attacks by nuzzling its electrified cheeks against the target. This also leaves the target with paralysis.",
       "priorityLevel": 0,

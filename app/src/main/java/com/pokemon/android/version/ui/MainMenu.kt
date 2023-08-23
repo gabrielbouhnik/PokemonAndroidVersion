@@ -35,8 +35,6 @@ class MainMenu {
         activity.setContentView(R.layout.main_menu)
         if (activity.eliteMode) {
             activity.updateMusic(R.raw.elite4_music)
-            /*val bannerTextView: TextView = activity.findViewById(R.id.MysteryGiftTextView)
-            bannerTextView.visibility = GONE*/
         } else
             activity.updateMusic(R.raw.main_menu)
         val pokemonsButton: Button = activity.findViewById(R.id.pokemonsButton)
@@ -106,8 +104,6 @@ class MainMenu {
             }
         } else {
             battleFrontierButton.visibility = GONE
-            /*val battleFrontierTextView: TextView = activity.findViewById(R.id.BattleFrontierTextView)
-            battleFrontierTextView.visibility = GONE*/
         }
         val pokedexButton: Button = activity.findViewById(R.id.pokedexButton)
         pokedexButton.setOnClickListener {

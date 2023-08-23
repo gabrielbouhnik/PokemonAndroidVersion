@@ -638,6 +638,8 @@ class BattleUI {
     }
 
     fun startWildBattle(activity: MainActivity, level: WildBattleLevelData) {
+        if (activity.trainer!!.progression == 2)
+            activity.showCustomDialog(activity.getString(R.string.tutorial_wild_battle))
         team = activity.trainer!!.team
         activity.updateMusic(R.raw.wild_battle)
         activity.setContentView(R.layout.battle_layout)
@@ -651,7 +653,7 @@ class BattleUI {
         val sb = StringBuilder()
         sb.append(activity.getString(R.string.wild_encounter, wildBattle.opponent.data.name) + '\n')
         if (wildBattle.opponent.shiny)
-            sb.append("It looks shinier than usual!\n")
+            activity.showCustomDialog("It's shiny!\n")
         sb.append(BattleUtils.abilitiesCheck(wildBattle.pokemon, wildBattle.opponent))
         sb.append(BattleUtils.abilitiesCheck(wildBattle.opponent, wildBattle.pokemon))
         dialogTextView!!.text = sb.toString()
@@ -659,6 +661,8 @@ class BattleUI {
     }
 
     fun startTrainerBattle(activity: MainActivity, level: TrainerBattleLevelData) {
+        if (activity.trainer!!.progression == 10 && level.id == 10)
+            activity.showCustomDialog(activity.getString(R.string.tutorial_trainer_battle))
         this.team = activity.trainer!!.team
         MusicUtils.playMusic(activity, level.music)
         activity.setContentView(R.layout.battle_layout)
@@ -688,6 +692,8 @@ class BattleUI {
     }
 
     fun startGymLeaderBattle(activity: MainActivity, level: LeaderLevelData) {
+        if (activity.trainer!!.progression == 9)
+            activity.showCustomDialog(activity.getString(R.string.tutorial_gym_leader))
         this.team = if (level.id == FRONTIER_BRAIN_LEVEL_ID)
             activity.trainer!!.battleTowerProgression!!.team.toMutableList()
         else
@@ -723,6 +729,8 @@ class BattleUI {
     }
 
     fun startBossBattle(activity: MainActivity, level: BossBattleLevelData) {
+        if (activity.trainer!!.progression == LevelMenu.DUGTRIO_LEVEL)
+            activity.showCustomDialog(activity.getString(R.string.tutorial_boss_battle))
         team = activity.trainer!!.team
         MusicUtils.playMusic(activity, level.music)
         activity.setContentView(R.layout.battle_layout)

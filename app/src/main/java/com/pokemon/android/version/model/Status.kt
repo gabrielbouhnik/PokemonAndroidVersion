@@ -107,7 +107,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
                     }
                 } else if (it.probability == null) {
                     if (opponent.status == OK) {
-                        if (move.id == 83 && opponent.hasAbility(Ability.IMMUNITY))
+                        if ((move.id ==34 || move.id == 83) && opponent.hasAbility(Ability.IMMUNITY))
                             details = "${opponent.data.name}'s Immunity: It does not affect ${opponent.data.name}!\n"
                         if (move.id == 55 && opponent.hasAbility(Ability.LIMBER))
                             details = "${opponent.data.name}'s Limber: It does not affect ${opponent.data.name}!\n"

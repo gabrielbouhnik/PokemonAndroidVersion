@@ -71,33 +71,37 @@ class RewardMenu {
                 activity.trainer!!.achievements!!.leadersDefeatedAfterTheLeague.add(levelData.id)
         }
         if (firstTime) {
-            if (levelData.id == LevelMenu.LAPRAS_LEVEL) {
-                activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(131, 45))
-                Toast.makeText(
-                    activity,
-                    "To thank you, one of the Silph Co scientist gave you a Lapras!",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-            if (levelData.id == LevelMenu.TYROGUE_LEVEL)
-            {
-                activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(236, 10))
-                Toast.makeText(
-                    activity,
-                    "You received a level 10 Tyrogue!",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-            if (levelData.id == LevelMenu.MEGA_CHARIZARD_LEVEL_ID) {
-                when {
-                    activity.trainer!!.pokedex[1] == true -> {
-                        activity.trainer!!.addItem(101, 1)
-                    }
-                    activity.trainer!!.pokedex[4] == true -> {
-                        activity.trainer!!.addItem(102, 1)
-                    }
-                    activity.trainer!!.pokedex[7] == true -> {
-                        activity.trainer!!.addItem(103, 1)
+            when (levelData.id) {
+                1 -> {
+                    activity.showCustomDialog(activity.getString(R.string.tutorial_after_first_fight))
+                }
+                LevelMenu.LAPRAS_LEVEL -> {
+                    activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(131, 45))
+                    Toast.makeText(
+                        activity,
+                        "To thank you, one of the Silph Co scientist gave you a Lapras!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                LevelMenu.TYROGUE_LEVEL -> {
+                    activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(236, 10))
+                    Toast.makeText(
+                        activity,
+                        "You received a level 10 Tyrogue!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                LevelMenu.MEGA_CHARIZARD_LEVEL_ID -> {
+                    when {
+                        activity.trainer!!.pokedex[1] == true -> {
+                            activity.trainer!!.addItem(101, 1)
+                        }
+                        activity.trainer!!.pokedex[4] == true -> {
+                            activity.trainer!!.addItem(102, 1)
+                        }
+                        activity.trainer!!.pokedex[7] == true -> {
+                            activity.trainer!!.addItem(103, 1)
+                        }
                     }
                 }
             }
@@ -159,10 +163,14 @@ class RewardMenu {
             if (levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID) {
                 activity.updateMusic(R.raw.main_menu)
                 activity.mainMenu.battleFrontierMenu.loadMenu(activity)
-            } else
+            } else {
+                if (firstTime && levelData.id == LevelMenu.MOLTRES_LEVEL)
+                    activity.showCustomDialog(activity.getString(R.string.tutorial_elite_mode))
                 activity.mainMenu.loadGameMenu(activity)
+            }
         }
-        val rewards = if (firstTime) levelData.rewards else ArrayList(levelData.rewards.filter { it.itemId != 0 })
+        val rewards =
+            if (firstTime) levelData.rewards else ArrayList(levelData.rewards.filter { it.itemId != 0 && it.itemId !in 50..100 })
         if ((levelData is WildBattleLevelData || levelData is BossBattleLevelData) && Random.nextInt(10) == 1) {
             rewards.add(BonusReward(Random.nextInt(150, 167), 1))
         }
@@ -173,21 +181,24 @@ class RewardMenu {
             rewards
         )
         recyclerView.adapter = adapter
+        if (levelData is LeaderLevelData
+            && activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID
+            && levelData.id != BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID
+        )
+            activity.trainer!!.coins += 200
+        else if (!firstTime
+            && !activity.eliteMode
+            && levelData.id != BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID) {
+            val coinsReward = levelData.rewards.find { it.itemId == 0 }
+            if (coinsReward != null)
+                activity.trainer!!.coins += coinsReward.quantity / 10
+        }
         rewards.forEach {
             if (ItemUtils.isBadge(it.itemId) || it.itemId == 30) {
                 if (!activity.trainer!!.items.contains(it.itemId))
                     activity.trainer!!.addItem(it.itemId, it.quantity)
-            } else if (it.itemId in 50..100) {
-                if (firstTime)
-                    activity.trainer!!.addItem(it.itemId, it.quantity)
             } else if (it.itemId == 0) {
-                if (levelData is LeaderLevelData
-                    && activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID
-                    && levelData.id != BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID
-                )
-                    activity.trainer!!.coins += 100
-                else
-                    activity.trainer!!.coins += if (firstTime) it.quantity else it.quantity / 10
+                activity.trainer!!.coins += it.quantity
             } else
                 activity.trainer!!.addItem(it.itemId, it.quantity)
         }
@@ -240,6 +251,7 @@ class RewardMenu {
             )
         val backButton: Button = activity.findViewById(R.id.HOFBackButton)
         backButton.setOnClickListener {
+            activity.showCustomDialog(activity.getString(R.string.tutorial_post_game))
             activity.mainMenu.loadGameMenu(activity)
         }
     }

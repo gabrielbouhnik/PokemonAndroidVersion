@@ -4819,8 +4819,20 @@
           "level": 27
         },
         {
+          "moveId": 133,
+          "level": 35
+        },
+        {
           "moveId": 18,
           "level": 39
+        },
+        {
+          "moveId": 62,
+          "level": 41
+        },
+        {
+          "moveId": 143,
+          "level": 47
         }
       ],
       "movesLearnWithTM": [
@@ -4886,8 +4898,20 @@
           "level": 29
         },
         {
-          "moveId": 18,
+          "moveId": 133,
           "level": 39
+        },
+        {
+          "moveId": 18,
+          "level": 44
+        },
+        {
+          "moveId": 62,
+          "level": 47
+        },
+        {
+          "moveId": 143,
+          "level": 54
         }
       ],
       "movesLearnWithTM": [
@@ -4953,7 +4977,15 @@
           "level": 1
         },
         {
+          "moveId": 133,
+          "level": 1
+        },
+        {
           "moveId": 18,
+          "level": 1
+        },
+        {
+          "moveId": 62,
           "level": 1
         },
         {
@@ -4963,6 +4995,10 @@
         {
           "moveId": 121,
           "level": 44
+        },
+        {
+          "moveId": 143,
+          "level": 54
         }
       ],
       "movesLearnWithTM": [
@@ -12666,6 +12702,10 @@
           "level": 6
         },
         {
+          "moveId": 165,
+          "level": 12
+        },
+        {
           "moveId": 79,
           "level": 19
         },
@@ -12690,7 +12730,7 @@
       "bannerMoves": [96]
     },
     "hp": 70,
-    "attack": 40,
+    "attack": 50,
     "defense": 50,
     "spAtk": 20,
     "spDef": 50,
@@ -12725,6 +12765,10 @@
         {
           "moveId": 126,
           "level": 6
+        },
+        {
+          "moveId": 165,
+          "level": 12
         },
         {
           "moveId": 79,
@@ -13364,6 +13408,10 @@
         {
           "moveId": 93,
           "level": 40
+        },
+        {
+          "moveId": 132,
+          "level": 44
         }
       ],
       "movesLearnWithTM": [
@@ -13441,6 +13489,10 @@
         {
           "moveId": 93,
           "level": 52
+        },
+        {
+          "moveId": 132,
+          "level": 58
         }
       ],
       "movesLearnWithTM": [

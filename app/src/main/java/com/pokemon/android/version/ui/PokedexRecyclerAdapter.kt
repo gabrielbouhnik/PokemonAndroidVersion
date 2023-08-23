@@ -1,5 +1,6 @@
 package com.pokemon.android.version.ui
 
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
@@ -46,6 +47,8 @@ class PokedexRecyclerAdapter(
             holder.nameTextView.text = currentItem.name
             if (activity.trainer!!.name == PokedexMenu.ADMIN || activity.trainer!!.pokedex[currentItem.id] == true)
                 holder.nameTextView.setTextColor(ColorUtils.getColorByType(currentItem.type1))
+            else
+                holder.nameTextView.setTextColor(Color.GRAY)
             val idForUrl = SpriteUtils.getThreeDigitId(currentItem.id)
             if (MainActivity.idForSVsprites.contains(currentItem.id))
             {

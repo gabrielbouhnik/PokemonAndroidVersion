@@ -133,8 +133,16 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         while (pokemon.currentHP < pokemon.hp && items.contains(3)) {
             useItem(3, pokemon)
         }
-        if (items.contains(4) && pokemon.status != Status.OK)
-            useItem(4, pokemon)
+        if (pokemon.status != Status.OK) {
+            if (items.contains(5) && pokemon.status == Status.PARALYSIS)
+                useItem(5, pokemon)
+            else if (items.contains(6) && pokemon.status == Status.BURN)
+                useItem(6, pokemon)
+            else if (items.contains(7) && pokemon.status == Status.BADLY_POISON || pokemon.status == Status.POISON)
+                useItem(7, pokemon)
+            else if (items.contains(4))
+                useItem(4, pokemon)
+        }
     }
 
     override fun canStillBattle(): Boolean {

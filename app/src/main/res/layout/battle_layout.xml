@@ -95,14 +95,14 @@
             android:layout_marginTop="48dp" android:backgroundTint="#FFFFFF" android:textStyle="bold"
             android:textSize="16sp" android:textColor="#FF5722"/>
     <TextView
-            android:layout_width="139dp"
-            android:layout_height="29dp" android:id="@+id/myPokemonNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/myPokemonNameTextView"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="20dp" android:backgroundTint="#FFFFFF" android:textStyle="bold"
             android:textSize="18sp" android:textColor="#FF5722"/>
     <TextView
-            android:layout_width="139dp"
-            android:layout_height="29dp" android:id="@+id/opponentPokemonNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/opponentPokemonNameTextView"
             android:backgroundTint="#FFFFFF" android:textStyle="bold"
             android:textSize="18sp" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/battleBackgroundImageView" android:layout_marginTop="20dp"

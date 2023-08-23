@@ -1,5 +1,7 @@
 package com.pokemon.android.version
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -21,16 +23,20 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val pokemonSpritesUrl: String =
             "https://www.serebii.net/swordshield/pokemon/"
-        const val pokemonSVspritesUrl : String = "https://www.serebii.net/scarletviolet/pokemon/new/";
-        const val pokemonSVshinySpriteUrl : String = "https://www.serebii.net/Shiny/SV/new/"
+        const val pokemonSVspritesUrl: String = "https://www.serebii.net/scarletviolet/pokemon/new/";
+        const val pokemonSVshinySpriteUrl: String = "https://www.serebii.net/Shiny/SV/new/"
         const val megaPokemonSpritesUrl: String =
             "https://www.serebii.net/pokemongo/pokemon/"
         const val pokemonBackSpritesUrl: String =
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/"
         const val armoredMewtwoUrl: String = "https://www.serebii.net/pokemongo/pokemon/150-armored.png"
-        val idForSVsprites = listOf(6,25,26,39,40,48,49,54,55,58,59,79,80,81,82,90,91,93,94,100,101,113,123,128,129,130,133,134,135,136,144,145,146,147,148,149,150,151,155,156,157,
-            181,183,184,187,188,189,195,196,197,198,199,203,204,205,211,212,214,215,216,217,228,229,231,232,242,246,247,248,282,285,286,296,297,308,373,398,405,426,429,430,442,448,
-            453,454,461,462,470,475,488,633,634,635,700,715,856,857,858,878,879,885,886,887)
+        val idForSVsprites = listOf(6, 25, 26, 39, 40, 48, 49, 52, 53, 54, 55, 58, 59, 79, 80, 81, 82,
+            90, 91, 93, 94, 100, 101, 113, 123, 128, 129, 130, 133, 134, 135, 136, 144, 145, 146, 147, 148,
+            149, 150, 151, 155, 156, 157, 181, 183, 184, 187, 188, 189, 195, 196, 197, 198, 199, 203, 204,
+            205, 211, 212, 214, 215, 216, 217, 228, 229, 231, 232, 242, 246, 247, 248, 282, 285, 286, 296,
+            297, 308, 373, 398, 405, 426, 429, 430, 442, 448, 453, 454, 461, 462, 470, 475, 488, 633, 634,
+            635, 700, 715, 856, 857, 858, 878, 879, 885, 886,887
+        )
     }
 
     private var currentMusicId: Int? = null
@@ -113,7 +119,7 @@ class MainActivity : AppCompatActivity() {
         var filename = "${idForUrl}-m.png"
         if (id == 6)
             filename = "${idForUrl}-mx.png"
-        if (id == 150){
+        if (id == 150) {
             filename = "images/mega/150_front.png"
             val img: InputStream = this.assets.open(filename)
             imageView.setImageDrawable(Drawable.createFromStream(img, filename))
@@ -141,7 +147,7 @@ class MainActivity : AppCompatActivity() {
                     .load("${pokemonBackSpritesUrl}shiny/$id.png")
                     .into(imageView)
             }
-        } else{
+        } else {
             val filename = if (shiny) "images/pokemon/${id}_back_shiny.png" else "images/pokemon/${id}_back.png"
             val img: InputStream = this.assets.open(filename)
             imageView.setImageDrawable(Drawable.createFromStream(img, filename))
@@ -185,6 +191,20 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer = MediaPlayer.create(this, id)
         mediaPlayer?.isLooping = true
         mediaPlayer?.start()
+    }
+
+    fun showCustomDialog(message: String) {
+        val builder: AlertDialog.Builder = this.let {
+            AlertDialog.Builder(it)
+        }
+        builder.setMessage(message)
+            .setTitle("Info")
+            .setCancelable(false)
+            .setPositiveButton("OK, got it!") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+            .show()
     }
 
     private fun initGame() {
