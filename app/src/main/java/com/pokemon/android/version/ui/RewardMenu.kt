@@ -94,13 +94,13 @@ class RewardMenu {
                 LevelMenu.MEGA_CHARIZARD_LEVEL_ID -> {
                     when {
                         activity.trainer!!.pokedex[1] == true -> {
-                            activity.trainer!!.addItem(101, 1)
+                            activity.trainer!!.addItem(110, 1)
                         }
                         activity.trainer!!.pokedex[4] == true -> {
-                            activity.trainer!!.addItem(102, 1)
+                            activity.trainer!!.addItem(111, 1)
                         }
                         activity.trainer!!.pokedex[7] == true -> {
-                            activity.trainer!!.addItem(103, 1)
+                            activity.trainer!!.addItem(112, 1)
                         }
                     }
                 }

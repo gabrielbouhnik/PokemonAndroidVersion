@@ -333,7 +333,7 @@
         "minLevel": 21,
         "maxLevel": 23,
         "encounters": [
-          20,20,20,20,21,21,21,21,22,22,23,23,23,23,27,27,27,27,100,100,100,100,100,878
+          20,20,20,20,21,21,21,21,22,22,23,23,23,23,27,27,27,27,48,48,48,100,100,100,100,100,878
         ]
       },
       "rewards": [
@@ -440,7 +440,7 @@
       "mandatory": true
     },
     {
-      "id": 40,
+      "id": 42,
       "name": "\nSafari Zone",
       "description": "Welcome to the Safari Zone! This parks features many wild Pokemon! Try to catch as many as you can!",
       "encounter": 10,
@@ -533,7 +533,7 @@
         "minLevel": 35,
         "maxLevel": 37,
         "encounters": [
-          72,72,72,72,120,129,129,129,170,222
+          72,72,72,72,120,120,129,129,129,170,170,222,222,602
         ]
       },
       "rewards": [
@@ -1511,7 +1511,7 @@
               "id": 116,
               "level": 19,
               "moveIds": [
-                6,54,42
+                6,54,42,97
               ]
             },
             {
@@ -1601,7 +1601,7 @@
               "id": 8,
               "level": 20,
               "moveIds": [
-                2,23,24,221
+                23,24,97,221
               ]
             }
           ]
@@ -1829,7 +1829,7 @@
               "id": 28,
               "level": 32,
               "moveIds": [
-                30,38,19,17
+                30,38,19,259
               ]
             }
           ]
@@ -2045,7 +2045,8 @@
               "level": 35,
               "moveIds": [
                 72,74,27,138
-              ]
+              ],
+              "itemHeld": "CHARCOAL"
             },
             {
               "id": 117,
@@ -2295,7 +2296,7 @@
         },
         {
           "sprite": "images/Sprite_Topdresseuse.png",
-          "name" : "Cooltrainer Mary",
+          "name" : "Ace Trainer Mary",
           "pokemons": [
             {
               "id": 69,
@@ -2649,7 +2650,7 @@
               "id": 28,
               "level": 47,
               "moveIds": [
-                30,38,146,56
+                30,259,146,56
               ]
             },
             {
@@ -2883,7 +2884,7 @@
               "id": 28,
               "level": 50,
               "moveIds": [
-                30,38,19,112
+                30,259,19,112
               ]
             },
             {
@@ -3519,12 +3520,7 @@
             {
               "id": 130,
               "level": 58,
-              "moveIds": [79,27,119,54]
-            },
-            {
-              "id": 130,
-              "level": 58,
-              "moveIds": [79,27,119,125]
+              "moveIds": [79,27,119,57]
             },
             {
               "id": 130,
@@ -3640,7 +3636,7 @@
       "opponents": [
         {
           "sprite": "images/Sprite_Topdresseur.png",
-          "name" : "CoolTrainer Yuji",
+          "name" : "Ace Trainer Yuji",
           "pokemons": [
             {
               "id": 105,
@@ -3682,7 +3678,7 @@
         },
         {
           "sprite": "images/Sprite_Topdresseur.png",
-          "name" : "CoolTrainer Warren",
+          "name" : "Ace Trainer Warren",
           "pokemons": [
             {
               "id": 105,
@@ -3877,6 +3873,78 @@
     },
     {
       "id": 65,
+      "name": "\nTrainer House",
+      "description": "You heard that a very powerful trainer is looking for challengers in Viridian City's Trainer House. You decide to go there",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Topdresseur.png",
+          "name" : "Ace Trainer Cal",
+          "pokemons": [
+            {
+              "id": 160,
+              "level": 70,
+              "moveIds": [136,27,107,93],
+              "itemHeld": "MYSTIC_WATER"
+            },
+            {
+              "id": 154,
+              "level": 70,
+              "moveIds": [105,88,133,93],
+              "itemHeld": "LEFTOVERS"
+            },
+            {
+              "id": 157,
+              "level": 70,
+              "moveIds": [212,31,3,93],
+              "itemHeld": "CHARCOAL"
+            },
+            {
+              "id": 178,
+              "level": 70,
+              "moveIds": [45,46,50,261],
+              "itemHeld": "TWISTED_SPOON"
+            },
+            {
+              "id": 212,
+              "level": 70,
+              "moveIds": [127,56,3,113],
+              "itemHeld": "SILVER_POWDER"
+            },
+            {
+              "id": 233,
+              "level": 70,
+              "moveIds": [117,100,12,132],
+              "itemHeld": "EVIOLITE"
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity":10
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Welcome to the trainer house, let's battle!",
+      "endDialogWin": "Nice battle!",
+      "endDialogLoose": "We can have a rematch whenever you want!",
+      "music": 2,
+      "icon": "images/battle_background/building_battle_background.jpg",
+      "background": "images/battle_background/building_battle_background.jpg",
+      "exp": 9000,
+      "mandatory": false,
+      "iaLevel": 3
+    },
+    {
+      "id": 65,
       "name": "\nVS Rival 6",
       "description": "Now that you have 8 badges, you head for the Victory Road. However, on Route 22, you run into Jackson.",
       "opponents": [
@@ -3958,13 +4026,13 @@
       "opponents": [
         {
           "sprite": "images/Sprite_Topdresseur.png",
-          "name" : "CoolTrainer Rolando",
+          "name" : "Ace Trainer Rolando",
           "pokemons": [
             {
               "id": 3,
               "level": 72,
               "moveIds": [
-                133,37,93,36
+                133,37,87,36
               ]
             },
             {
@@ -3987,7 +4055,7 @@
         },
         {
           "sprite": "images/Sprite_Topdresseuse.png",
-          "name" : "CoolTrainer Alexa",
+          "name" : "Ace Trainer Alexa",
           "pokemons": [
             {
               "id": 78,
@@ -4305,14 +4373,14 @@
               "id": 18,
               "level": 73,
               "moveIds": [
-                3,101,176,205
+                3,101,261,176
               ]
             },
             {
               "id": 230,
               "level": 75,
               "moveIds": [
-                104,43,100,101
+                104,43,100,111
               ],
               "itemHeld": "LEFTOVERS"
             },
@@ -4645,7 +4713,7 @@
       {
         "id": 145,
         "level": 82,
-        "moveIds": [90,53,102,21],
+        "moveIds": [90,53,102,21,261],
         "boostedStats": ["ATTACK","DEFENSE"]
       },
       "rewards": [
@@ -5630,7 +5698,7 @@
           "id": 488,
           "level": 50,
           "moveIds": [
-            45,100,135,55
+            55,166,100,45
           ],
           "itemHeld": "LEFTOVERS"
         },
@@ -5638,7 +5706,7 @@
           "id": 485,
           "level": 50,
           "moveIds": [
-            31,111,87,104
+            31,111,87,27
           ],
           "itemHeld": "AIR_BALLOON"
         }

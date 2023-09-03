@@ -91,7 +91,7 @@ class GameDataService {
 
     fun generateWildPokemon(id: Int, level: Int): Pokemon {
         var adjustedLevel = level
-        if (id == 92 || id == 228)
+        if (id == 92 || id == 228 || id == 602)
             adjustedLevel = 21
         if (id == 633)
             adjustedLevel = 40
@@ -99,10 +99,12 @@ class GameDataService {
         val random = Random.nextInt(250)
         if (random == 50 && id < 650)
             pokemon.shiny = true
-        if ((id == 84 || id == 22) && random % 4 == 0)
+        if ((id == 21 || id == 22 || id == 84) && random % 4 == 0)
             pokemon.heldItem = HoldItem.SHARP_BEAK
         if (id == 50 && random % 4 == 0)
             pokemon.heldItem = HoldItem.SOFT_SAND
+        if ((id == 88 || id == 89) && random % 4 == 0)
+            pokemon.heldItem = HoldItem.BLACK_SLUDGE
         return pokemon
     }
 

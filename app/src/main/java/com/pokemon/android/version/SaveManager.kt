@@ -27,7 +27,7 @@ class SaveManager {
                 trainerSave.pokedex!!.forEach { trainer.pokedex[it.id] = it.caught }
             trainer.coins = trainerSave.coins
             if (trainer.name == PokedexMenu.ADMIN)
-                trainer.coins += 1000
+                trainer.coins += 5000
             trainer.progression = trainerSave.progression
             trainer.eliteProgression = trainerSave.eliteProgression
             trainerSave.items.forEach { trainer.items[it.itemId] = it.quantity }

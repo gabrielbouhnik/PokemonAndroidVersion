@@ -296,6 +296,7 @@ open class Pokemon(
                     crit = DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)
                     if (crit == 1.5f)
                         details += "A critical hit!\n"
+                    details += BattleUtils.contactMovesCheck(this, move.move, opponent)
                     damage += DamageCalculator.computeDamage(
                         this,
                         move.move,
@@ -316,12 +317,14 @@ open class Pokemon(
                     opponent,
                     crit
                 )
+                details += BattleUtils.contactMovesCheck(this, move.move, opponent)
                 if (damage >= opponent.currentHP) {
                     details += "${opponent.data.name} was hit 1 time!\n"
                 } else {
                     DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)
                     if (crit == 1.5f)
                         details += "A critical hit!\n"
+                    details += BattleUtils.contactMovesCheck(this, move.move, opponent)
                     damage += DamageCalculator.computeDamage(
                         this,
                         move.move,
@@ -334,6 +337,7 @@ open class Pokemon(
                 crit = DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)
                 if (crit == 1.5f)
                     details += "A critical hit!\n"
+                details += BattleUtils.contactMovesCheck(this, move.move, opponent)
                 damage = DamageCalculator.computeDamage(
                     this,
                     move.move,
@@ -342,7 +346,7 @@ open class Pokemon(
                 )
             }
         }
-        if (move.move.power > 0)
+        if (move.move.power > 1)
             details += BattleUtils.getEffectiveness(move.move, opponent)
         val damageDone: Int
         if (damage >= opponent.currentHP) {
@@ -430,11 +434,14 @@ open class Pokemon(
                 opponent.battleData!!.attackMultiplicator *= 1.5f
         }
         if (move.move is DrainMove) {
+            var drainedDamage : Float = if (move.move.id == 238) damage * 0.75f else damageDone * 0.5f
+            if (hasItem(HoldItem.BIG_ROOT))
+                drainedDamage *= 1.3f
             details += if (opponent.hasAbility(Ability.LIQUID_OOZE)) {
-                this.takeDamage(if (move.move.id == 238) damage * 3 / 4 else damageDone / 2)
+                this.takeDamage(drainedDamage.toInt())
                 "${opponent.data.name}'s Liquid Ooze: ${this.data.name} loses some hp.\n"
             } else {
-                this.heal(if (move.move.id == 238) damage * 3 / 4 else damageDone / 2)
+                this.heal(drainedDamage.toInt())
                 "The opposing ${opponent.data.name} had its energy drained!\n"
             }
         }
@@ -464,6 +471,10 @@ open class Pokemon(
                 if (opponent.hasItem(HoldItem.ASSAULT_VEST)) {
                     opponent.battleData!!.spDefMultiplicator = 1.5f
                 }
+                if (this.hasItem(HoldItem.EVIOLITE) && this.data.evolutions.isNotEmpty()) {
+                    this.battleData!!.spDefMultiplicator *= 1.5f
+                    this.battleData!!.defenseMultiplicator *= 1.5f
+                }
                 BattleUtils.checkForStatsRaiseAbility(opponent)
             }
         }
@@ -481,7 +492,6 @@ open class Pokemon(
                 details += "${this.data.name} is no longer trapped!\n"
             }
         }
-        details += BattleUtils.contactMovesCheck(this, move.move, opponent)
         if (opponent.hasAbility(Ability.CURSED_BODY) && Random.nextInt(100) < 30){
             details += "${opponent.data.name}'s Cursed Body: ${this.data.name}'s ${move.move.name} is disabled!\n"
             move.disabled = true

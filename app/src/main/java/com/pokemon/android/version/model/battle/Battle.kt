@@ -52,9 +52,17 @@ abstract class Battle {
             return "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}\nThe opposing " + opponent.data.name + (opponentPokemonMove.move as ChargedMove).chargeText
         }
         val opponentResponse = opponent.attack(opponentPokemonMove, pokemon)
-        return if (!opponentResponse.success)
+        return if (!opponentResponse.success) {
             action + opponentResponse.reason
+        }
         else {
+            if (opponentPokemonMove.move.category != MoveCategory.OTHER
+                && opponent.currentHP > 0
+                && opponent.hasItem(HoldItem.LIFE_ORB)
+                && !opponent.hasAbility(Ability.SHEER_FORCE)){
+                opponent.takeDamage(opponent.hp / 10)
+                action += opponent.data.name + " lost some of its hp!\n"
+            }
             action +
                     "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}\n" + opponentResponse.reason
         }
@@ -75,6 +83,13 @@ abstract class Battle {
         return if (!response.success)
             action + response.reason
         else {
+            if (pokemon.currentHP > 0
+                && trainerPokemonMove.move.category != MoveCategory.OTHER
+                && pokemon.hasItem(HoldItem.LIFE_ORB)
+                && !pokemon.hasAbility(Ability.SHEER_FORCE)){
+                pokemon.takeDamage(pokemon.hp / 10)
+                action += pokemon.data.name + " lost some of its hp!\n"
+            }
             action + "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n" + response.reason
         }
     }
@@ -117,7 +132,7 @@ abstract class Battle {
     fun turn(trainerPokemonMove: PokemonMove, megaEvolution: Boolean): String {
         val sb = StringBuilder()
         if (megaEvolution) {
-            sb.append("${pokemon.data.name} has Mega Evolved into Mega-${pokemon.data.name}\n")
+            sb.append("${pokemon.data.name} has Mega Evolved into Mega ${pokemon.data.name}\n")
             pokemon.megaEvolve()
             trainerHasUsedMegaEvolution = true
         }
@@ -134,31 +149,31 @@ abstract class Battle {
                 LevelMenu.MEGA_CHARIZARD_LEVEL_ID -> {
                     if (opponent.data.id == 6) {
                         opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega-${opponent.data.name}\n")
+                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
                     }
                 }
                 LevelMenu.MEGA_VENUSAUR_LEVEL_ID -> {
                     if (opponent.data.id == 3) {
                         opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega-${opponent.data.name}\n")
+                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
                     }
                 }
                 LevelMenu.ELITE_4_LAST_LEVEL_ID -> {
                     if (opponent.data.id == 18) {
                         opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega-${opponent.data.name}\n")
+                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
                     }
                 }
                 LevelMenu.STEVEN_LEVEL_ID -> {
                     if (opponent.data.id == 376) {
                         opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega-${opponent.data.name}\n")
+                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
                     }
                 }
                 LevelMenu.CYNTHIA_LEVEL_ID -> {
                     if (opponent.data.id == 445) {
                         opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega-${opponent.data.name}\n")
+                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
                     }
                 }
                 LevelMenu.MEWTWO_LEVEL -> {
@@ -227,10 +242,10 @@ abstract class Battle {
     private fun switchOpponent(pokemonToBeSent: Pokemon) {
         pokemonToBeSent.battleData = PokemonBattleData()
         this.opponent.battleData = PokemonBattleData()
-        if (this.opponent.hasAbility(Ability.NATURAL_CURE))
-            this.opponent.status = Status.OK
         if (this.opponent.hasAbility(Ability.REGENERATOR) && this.opponent.currentHP > 0)
             this.opponent.heal(this.pokemon.hp / 3)
+        if (this.opponent.hasAbility(Ability.NATURAL_CURE))
+            this.opponent.status = Status.OK
         if (pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE))
             pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
         if (pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE))
@@ -470,10 +485,6 @@ abstract class Battle {
                     else -> {}
                 }
             }
-            if (pokemon.hasItem(HoldItem.LIFE_ORB) && !pokemon.hasAbility(Ability.SHEER_FORCE)){
-                pokemon.takeDamage(pokemon.hp / 10)
-                details += pokemon.data.name + " lost some of its hp!\n"
-            }
             if (pokemon.hp > pokemon.currentHP && pokemon.hasItem(HoldItem.LEFTOVERS)){
                 pokemon.heal(pokemon.hp / 16)
                 details += pokemon.data.name + " restored a little of its hp using its Leftovers!\n"
@@ -484,7 +495,7 @@ abstract class Battle {
                     pokemon.data.name + " restored a little of its hp using its Black Sludge!\n"
                 } else{
                     pokemon.takeDamage(pokemon.hp / 8)
-                    pokemon.data.name + " lost some of its hp!\n"
+                    pokemon.data.name + " lost some of its hp because of its Black Sludge!\n"
                 }
             }
             return details

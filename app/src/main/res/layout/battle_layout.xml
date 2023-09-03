@@ -203,7 +203,7 @@
             app:layout_constraintStart_toEndOf="@+id/myPokemonNameTextView" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="20dp" app:layout_constraintBottom_toTopOf="@+id/myPokemonHPLevelTextView"
             android:textSize="10sp" android:textStyle="bold" android:textAlignment="textStart"
-            android:visibility="gone"/>
+            android:visibility="gone" android:layout_marginStart="8dp"/>
     <TextView
             android:text="TextView"
             android:layout_width="42dp"
@@ -212,5 +212,5 @@
             android:layout_marginTop="32dp" app:layout_constraintEnd_toStartOf="@+id/opponentPokemonNameTextView"
             app:layout_constraintBottom_toTopOf="@+id/opponentPokemonHPLevelTextView"
             app:layout_constraintVertical_bias="1.0" android:textSize="10sp" android:textStyle="bold"
-            android:textAlignment="textEnd" android:visibility="gone"/>
+            android:textAlignment="textEnd" android:visibility="gone" android:layout_marginEnd="8dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

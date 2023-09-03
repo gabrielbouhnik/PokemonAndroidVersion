@@ -1350,7 +1350,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 117,
@@ -1520,7 +1520,7 @@
         }
       ],
       "highCritRate": true,
-      "characteristics": ["SLICE"]
+      "characteristics": ["CONTACT","SLICE"]
     },
     {
       "id": 130,
@@ -1744,7 +1744,7 @@
         }
       ],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 164,
@@ -1788,7 +1788,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 170,
@@ -2229,7 +2229,7 @@
       "pp": 20,
       "type": 4,
       "category": "PHYSICAL",
-      "accuracy": 90,
+      "accuracy": 100,
       "description": "The user attacks by nuzzling its electrified cheeks against the target. This also leaves the target with paralysis.",
       "priorityLevel": 0,
       "status": [
@@ -2238,7 +2238,7 @@
         }
       ],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["CONTACT"]
     },
 
     {
@@ -2387,6 +2387,39 @@
       "status": [
         {
           "status": "TRAPPED_WITH_DAMAGE"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 260,
+      "name": "Stored Power",
+      "power": 20,
+      "pp": 10,
+      "type": 12,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user attacks the target with stored power. The more the user's stats are raised, the greater the move's power.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 261,
+      "name": "Heat Wave",
+      "power": 95,
+      "pp": 10,
+      "type": 2,
+      "category": "SPECIAL",
+      "accuracy": 90,
+      "description": "The user attacks by exhaling hot breath on opposing Pokémon. This may also leave them with a burn.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 10
         }
       ],
       "highCritRate": false,
@@ -3741,7 +3774,7 @@
       "type": 5,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "A spin attack that can also eliminate such moves as Bind, Wrap, and Leech Seed. This also raises the user's Speed stat.",
+      "description": "A spin attack that can also eliminate such moves as Wrap and Leech Seed. This also raises the user's Speed stat.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPEED"
@@ -3767,6 +3800,45 @@
       ],
       "target": "SELF",
       "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 259,
+      "name": "Crush Claw",
+      "power": 75,
+      "category": "PHYSICAL",
+      "pp": 10,
+      "type": 5,
+      "accuracy": 95,
+      "description": "The user slashes the target with hard and sharp claws. This may also lower the target's Defense stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE"
+      ],
+      "probability": 50,
+      "target": "OPPONENT",
+      "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 262,
+      "name": "Draco Meteor",
+      "power": 130,
+      "category": "SPECIAL",
+      "pp": 5,
+      "type": 15,
+      "accuracy": 90,
+      "description": "Comets are summoned down from the sky onto the target. The recoil from this move harshly lowers the user's Sp. Atk stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK"
+      ],
+      "target": "SELF",
+      "multiplicator": 0.5,
       "status": [],
       "highCritRate": false,
       "characteristics": []

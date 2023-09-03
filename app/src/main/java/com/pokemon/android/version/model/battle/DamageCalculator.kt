@@ -11,7 +11,7 @@ import kotlin.random.Random
 
 class DamageCalculator {
     companion object {
-        val TYPE_ITEM_BOOST = mapOf(
+        private val TYPE_ITEM_BOOST = mapOf(
             Type.GRASS to HoldItem.MIRACLE_SEED,
             Type.FIRE to HoldItem.CHARCOAL,
             Type.WATER to HoldItem.MYSTIC_WATER,
@@ -127,7 +127,7 @@ class DamageCalculator {
             val typeBoostItem = TYPE_ITEM_BOOST[move.type]
             if (typeBoostItem != null && attacker.hasItem(typeBoostItem))
                 power *= 1.2f
-            if (attacker.hasItem(HoldItem.LIFE_ORB) || (move is DrainMove && attacker.hasItem(HoldItem.BIG_ROOT)))
+            if (attacker.hasItem(HoldItem.LIFE_ORB))
                 power *= 1.3f
             if ((attacker.currentHP / attacker.hp) < 0.4) {
                 if (move.type == Type.GRASS && attacker.hasAbility(Ability.OVERGROW))
@@ -143,6 +143,11 @@ class DamageCalculator {
                 power *= 1.5f
             if (attacker.battleData!!.lastHitReceived != null && move.id ==  251)
                 power *= 2f
+            if (move.id == 260) {
+                val statBoost = attacker.battleData!!.attackMultiplicator * attacker.battleData!!.defenseMultiplicator * attacker.battleData!!.spAtkMultiplicator * attacker.battleData!!.spDefMultiplicator * attacker.battleData!!.speedMultiplicator
+                if (statBoost > 1f)
+                    return power * statBoost * 2f
+            }
             return power
         }
 

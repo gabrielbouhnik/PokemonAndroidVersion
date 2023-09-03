@@ -46,7 +46,7 @@ class LevelRecyclerAdapter(
             is LeaderLevelData -> holder.nameTextView.setTextColor(Color.YELLOW)
             is BossBattleLevelData -> holder.nameTextView.setTextColor(Color.RED)
         }
-        if (currentItem.name == "Safari Zone")
+        if (currentItem.name == "\nSafari Zone")
             holder.nameTextView.setTextColor(Color.WHITE)
         holder.nameTextView.text = currentItem.name
         holder.itemView.tag = position
