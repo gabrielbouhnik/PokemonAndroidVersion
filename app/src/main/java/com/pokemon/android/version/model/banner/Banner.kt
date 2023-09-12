@@ -24,7 +24,7 @@ class Banner(
     }
 
     private fun summon(): Summonable {
-        val idx: Int = Random.nextInt(items.sumOf { it.getRate() })
+        val idx: Int = Random.nextInt(items.sumOf { it.getRate() } + pokemons.sumOf{it.getRate()})
         val summonables: List<Summonable> = items + pokemons
         var totalRates = 0
         for (s in summonables) {

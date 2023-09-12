@@ -134,49 +134,41 @@ enum class Status(var activeOutsideBattle: Boolean) {
         }
 
         fun isAffectedByStatus(id: Int, status: Status, opponent: Pokemon): Boolean {
-            if ((id == 35 || id == 253 || id == 255) && (
-                        opponent.data.type1 == Type.GRASS || opponent.data.type2 == Type.GRASS
+            if ((id == 35 || id == 253 || id == 255) && (opponent.hasType(Type.GRASS)
                                 || opponent.hasAbility(Ability.MAGIC_BOUNCE)
                                 || opponent.hasAbility(Ability.OVERCOAT))
             )
                 return false
             if (id == 34 && (opponent.hasAbility(Ability.MAGIC_BOUNCE) || opponent.hasAbility(Ability.OVERCOAT)))
                 return false
-            if (id == 55 && (opponent.data.type1 == Type.GROUND || opponent.data.type2 == Type.GROUND))
+            if (id == 55 && opponent.hasType(Type.GROUND))
                 return false
             if (status == TIRED && opponent.status != OK)
                 return false
             if (status == TRAPPED_WITH_DAMAGE && id == 130 && opponent.hasAbility(Ability.FLASH_FIRE))
                 return false
-            if (status == TRAPPED_WITH_DAMAGE && id == 131 && opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(
+            if (status == TRAPPED_WITH_DAMAGE && id == 131 && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(
                     Ability.DRY_SKIN
-                )
+                ))
             )
                 return false
             if (opponent.hasAbility(Ability.OWN_TEMPO) && status == CONFUSED)
                 return false
             if (!status.activeOutsideBattle && !opponent.battleData!!.battleStatus.contains(status))
                 return true
-            val type1 =
-                if (opponent.isMegaEvolved) opponent.data.megaEvolutionData!!.type1 else opponent.data.type1
-            val type2 =
-                if (opponent.isMegaEvolved) opponent.data.megaEvolutionData!!.type2 else opponent.data.type2
-            if (status == LEECH_SEEDED && (type1 != Type.GRASS && type2 != Type.GRASS))
+            if (status == LEECH_SEEDED && !opponent.hasType(Type.GRASS))
                 return true
             if (opponent.status != OK)
                 return false
             if (status == ASLEEP && !opponent.hasAbility(Ability.INSOMNIA) && !opponent.hasAbility(Ability.VITAL_SPIRIT))
                 return true
-            if (status == FROZEN && (type1 != Type.ICE && type2 != Type.ICE) && !opponent.hasAbility(Ability.MAGMA_ARMOR))
+            if (status == FROZEN && !opponent.hasType(Type.ICE) && !opponent.hasAbility(Ability.MAGMA_ARMOR))
                 return true
-            if (status == BURN && (type1 != Type.FIRE && type2 != Type.FIRE) && !opponent.hasAbility(Ability.WATER_VEIL))
+            if (status == BURN && !opponent.hasType(Type.FIRE) && !opponent.hasAbility(Ability.WATER_VEIL))
                 return true
-            if (status == PARALYSIS && (type1 != Type.ELECTRIC && type2 != Type.ELECTRIC) && !opponent.hasAbility(
-                    Ability.LIMBER
-                )
-            )
+            if (status == PARALYSIS && !opponent.hasType(Type.ELECTRIC) && !opponent.hasAbility(Ability.LIMBER))
                 return true
-            if ((status == POISON || status == BADLY_POISON) && (type1 != Type.POISON && type2 != Type.POISON) && (type1 != Type.STEEL && type2 != Type.STEEL)
+            if ((status == POISON || status == BADLY_POISON) && !opponent.hasType(Type.POISON) && !opponent.hasType(Type.STEEL)
                 && !opponent.hasAbility(Ability.IMMUNITY)
             )
                 return true

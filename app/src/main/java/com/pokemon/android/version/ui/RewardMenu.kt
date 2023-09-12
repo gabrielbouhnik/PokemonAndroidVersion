@@ -32,7 +32,7 @@ class RewardMenu {
                     activity.trainer!!.achievements!!.celadonGymAchievement = true
             }
             LevelMenu.ARTICUNO_LEVEL -> {
-                if (activity.trainer!!.team.none { it.data.type1 == Type.STEEL || it.data.type2 == Type.STEEL })
+                if (activity.trainer!!.team.none { it.hasType(Type.ELECTRIC) })
                     activity.trainer!!.achievements!!.articunoAchievement = true
             }
             LevelMenu.BLAINE_LEVEL -> {
@@ -40,11 +40,11 @@ class RewardMenu {
                     activity.trainer!!.achievements!!.cinnbarGymAchievement = true
             }
             LevelMenu.MOLTRES_LEVEL -> {
-                if (activity.trainer!!.team.none { it.data.type1 == Type.WATER || it.data.type2 == Type.WATER })
+                if (activity.trainer!!.team.none { it.hasType(Type.WATER) })
                     activity.trainer!!.achievements!!.moltresAchievement = true
             }
             LevelMenu.ZAPDOS_LEVEL -> {
-                if (activity.trainer!!.team.none { it.data.type1 == Type.GROUND || it.data.type2 == Type.GROUND })
+                if (activity.trainer!!.team.none { it.hasType(Type.GROUND)})
                     activity.trainer!!.achievements!!.zapdosAchievement = true
             }
             LevelMenu.MEWTWO_LEVEL -> {

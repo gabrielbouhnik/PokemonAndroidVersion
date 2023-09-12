@@ -234,7 +234,7 @@ open class Pokemon(
                 "${this.data.name} uses ${move.move.name}!\n" + BattleUtils.getEffectiveness(move.move, opponent)
             )
         }
-        if ((move.move.id == 210 || move.move.id == 214) && (opponent.data.type1 == Type.GHOST || opponent.data.type2 == Type.GHOST)) {
+        if ((move.move.id == 210 || move.move.id == 214) && opponent.hasType(Type.GHOST)) {
             this.takeDamage(this.hp / 2)
             return AttackResponse(
                 false,
@@ -649,6 +649,13 @@ open class Pokemon(
 
     fun hasItem(item: HoldItem): Boolean {
         return heldItem != null && heldItem == item
+    }
+
+    fun hasType(type: Type): Boolean{
+        if (isMegaEvolved){
+            return data.megaEvolutionData!!.type1 == type || data.megaEvolutionData!!.type2 == type
+        }
+        return data.type1 == type || data.type2 == type
     }
 
     fun takeDamage(damage: Int) {

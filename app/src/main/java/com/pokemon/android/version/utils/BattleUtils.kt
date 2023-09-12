@@ -128,17 +128,17 @@ class BattleUtils {
             }
             if (pokemon.hasAbility(Ability.SUPER_LUCK))
                 pokemon.battleData!!.criticalRate *= 1.5f
-            if (pokemon.hasAbility(Ability.ARENA_TRAP) && !opponent.hasAbility(Ability.LEVITATE) && pokemon.data.type2 != Type.GHOST && pokemon.data.type2 != Type.FLYING && pokemon.data.type1 != Type.GHOST && pokemon.data.type1 != Type.FLYING)
+            if (pokemon.hasAbility(Ability.ARENA_TRAP) && !opponent.hasAbility(Ability.LEVITATE) && !pokemon.hasType(Type.FLYING) && !pokemon.hasType(Type.GHOST))
                 opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
-            if (opponent.hasAbility(Ability.ARENA_TRAP) && !pokemon.hasAbility(Ability.LEVITATE) && opponent.data.type1 != Type.GHOST && opponent.data.type1 != Type.FLYING && opponent.data.type2 != Type.GHOST && opponent.data.type2 != Type.FLYING)
+            if (opponent.hasAbility(Ability.ARENA_TRAP) && !pokemon.hasAbility(Ability.LEVITATE) && !opponent.hasType(Type.FLYING) && !opponent.hasType(Type.GHOST))
                 pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
-            if (pokemon.hasAbility(Ability.SHADOW_TAG) && pokemon.data.type2 != Type.GHOST && pokemon.data.type1 != Type.GHOST)
+            if (pokemon.hasAbility(Ability.SHADOW_TAG) && !pokemon.hasType(Type.GHOST))
                 opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
-            if (opponent.hasAbility(Ability.SHADOW_TAG) && opponent.data.type1 != Type.GHOST && opponent.data.type2 != Type.GHOST)
+            if (opponent.hasAbility(Ability.SHADOW_TAG) && !opponent.hasType(Type.GHOST))
                 pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
-            if (pokemon.hasAbility(Ability.MAGNET_PULL) && pokemon.data.type2 == Type.STEEL && pokemon.data.type1 == Type.STEEL)
+            if (pokemon.hasAbility(Ability.MAGNET_PULL) && pokemon.hasType(Type.STEEL))
                 opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
-            if (opponent.hasAbility(Ability.MAGNET_PULL) && opponent.data.type1 == Type.STEEL && opponent.data.type2 == Type.STEEL)
+            if (opponent.hasAbility(Ability.MAGNET_PULL) && opponent.hasType(Type.STEEL))
                 pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
             return sb.toString()
         }

@@ -54,6 +54,9 @@ class DamageCalculator {
             var type: Float = move.type.isEffectiveAgainst(type2) * move.type.isEffectiveAgainst(type1)
             if (type > 1f && opponent.hasAbility(Ability.FILTER))
                 type *= 0.75f
+            if (move.id == 263){
+                type *= Type.FLYING.isEffectiveAgainst(type2) * Type.FLYING.isEffectiveAgainst(type1)
+            }
             return type
         }
 

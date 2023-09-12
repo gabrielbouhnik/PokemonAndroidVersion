@@ -53,9 +53,7 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
             status = 2.5f
         val ball: Ball = ItemUtils.getItemById(ballId) as Ball
         var successRate = ball.successRate
-        if (ball is Ball.NetBall && (pokemon.data.type1 == Type.WATER || pokemon.data.type1 == Type.BUG
-                    || pokemon.data.type2 == Type.WATER || pokemon.data.type2 == Type.BUG)
-        )
+        if (ball is Ball.NetBall && (pokemon.hasType(Type.BUG) || pokemon.hasType(Type.WATER)))
             successRate *= 3
         val catch: Int =
             (((1f - ((2f / 3f) * (pokemon.currentHP / pokemon.hp).toFloat())) * status) * pokemon.data.catchRate.toFloat() * successRate).toInt()

@@ -1432,10 +1432,6 @@
           "level": 18
         },
         {
-          "moveId": 91,
-          "level": 20
-        },
-        {
           "moveId": 21,
           "level": 27
         },
@@ -1445,6 +1441,10 @@
         },
         {
           "moveId": 90,
+          "level": 41
+        },
+        {
+          "moveId": 91,
           "level": 45
         }
       ],
@@ -3036,9 +3036,7 @@
           "level": 66
         }
       ],
-      "movesLearnWithTM": [
-        36,37,56,69,105,137,176,177,207
-      ],
+      "movesLearnWithTM": [36,37,56,69,105,137,176,177,207],
       "bannerMoves": []
     },
     "hp": 60,
@@ -4862,8 +4860,7 @@
           "level": 42
         }
       ],
-      "movesLearnWithTM": [72,25,30,69,93,221
-      ],
+      "movesLearnWithTM": [72,25,30,69,93,103,110,221],
       "bannerMoves": []
     },
     "hp": 40,
@@ -4936,8 +4933,7 @@
           "level": 54
         }
       ],
-      "movesLearnWithTM": [72,25,30,69,93,221
-      ],
+      "movesLearnWithTM": [72,25,30,69,93,103,110,221],
       "bannerMoves": []
     },
     "hp": 55,
@@ -5010,8 +5006,7 @@
           "level": 54
         }
       ],
-      "movesLearnWithTM": [72,25,30,69,93,176,177,221
-      ],
+      "movesLearnWithTM": [72,25,30,69,93,103,110,176,177,221],
       "bannerMoves": []
     },
     "hp": 80,
@@ -15155,6 +15150,10 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
+          "moveId": 264,
+          "level": 1
+        },
+        {
           "moveId": 75,
           "level": 1
         },
@@ -18406,6 +18405,68 @@
     "catchRate": 45,
     "evolutions": [],
     "abilities": [],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 701,
+    "name": "Hawlucha",
+    "type1": 6,
+    "type2": 11,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 16,
+          "level": 4
+        },
+        {
+          "moveId": 113,
+          "level": 12
+        },
+        {
+          "moveId": 69,
+          "level": 24
+        },
+        {
+          "moveId": 242,
+          "level": 32
+        },
+        {
+          "moveId": 193,
+          "level": 36
+        },
+        {
+          "moveId": 114,
+          "level": 40
+        },
+        {
+          "moveId": 263,
+          "level": 44
+        },
+        {
+          "moveId": 210,
+          "level": 48
+        },
+        {
+          "moveId": 195,
+          "level": 56
+        }
+      ],
+      "movesLearnWithTM": [72,25,56,57,62,69,76,103,110,113,140,148,221],
+      "bannerMoves": []
+    },
+    "hp": 78,
+    "attack": 92,
+    "defense": 75,
+    "spAtk": 74,
+    "spDef": 63,
+    "speed": 118,
+    "catchRate": 100,
+    "evolutions": [],
+    "abilities": ["LIMBER"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {

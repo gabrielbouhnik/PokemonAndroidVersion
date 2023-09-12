@@ -120,7 +120,7 @@ class IAUtils {
                 if (move.move is RemoveStatChangesMove && (opponent.battleData!!.attackMultiplicator > 1f
                             || opponent.battleData!!.spAtkMultiplicator > 1f
                             || opponent.battleData!!.speedMultiplicator > 1f)
-                    && opponent.data.type1 != Type.STEEL && opponent.data.type2 != Type.STEEL
+                    && !opponent.hasType(Type.STEEL)
                 )
                     return move
                 if (damage > maxDamage) {

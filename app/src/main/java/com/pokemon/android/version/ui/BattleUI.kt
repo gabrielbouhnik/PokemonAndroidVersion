@@ -428,7 +428,7 @@ class BattleUI {
                         "${move.move.name} is disabled.",
                         Toast.LENGTH_SHORT
                     ).show()
-                } else if (battle.pokemon.move1.move.category == MoveCategory.OTHER && battle.pokemon.battleData!!.battleStatus.contains(
+                } else if (move.move.category == MoveCategory.OTHER && battle.pokemon.battleData!!.battleStatus.contains(
                         Status.TAUNTED
                     )
                 ) {
@@ -525,7 +525,7 @@ class BattleUI {
         switchButton.setOnClickListener {
             if ((!battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
                         && !battle.pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
-                        || (battle.pokemon.data.type1 == Type.GHOST || battle.pokemon.data.type2 == Type.GHOST))
+                        || (battle.pokemon.hasType(Type.GHOST)))
             ) {
                 megaEvolve = false
                 val closeButton: Button = activity.findViewById(R.id.closeTeamButton)
