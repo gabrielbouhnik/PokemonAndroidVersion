@@ -103,7 +103,7 @@ abstract class Battle {
             val opponentTrainer = opponent.trainer!! as OpponentTrainer
             if (opponentTrainer.iaLevel == 3
                 && !opponent.battleData!!.battleStatus.contains(Status.UNABLE_TO_MOVE)
-                && opponent.battleData!!.chargedMove != null
+                && opponent.battleData!!.chargedMove == null
                 && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
                 && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)){
                  val pokemonToSend = IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam())

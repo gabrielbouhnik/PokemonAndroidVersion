@@ -2457,6 +2457,52 @@
       ],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 265,
+      "name": "Disable",
+      "power": 0,
+      "pp": 20,
+      "type": 5,
+      "category": "OTHER",
+      "description": "For four turns, the target will be unable to use whichever move it last used.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 266,
+      "name": "Scald",
+      "power": 80,
+      "pp": 15,
+      "type": 3,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user attacks by shooting boiling hot water at the target. This may also leave the target with a burn.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 267,
+      "name": "Body Press",
+      "power": 80,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user attacks by slamming its body into the target. The higher the user's Defense stat, the greater the damage this move deals.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "multipleHitMoves": [

@@ -36,7 +36,7 @@
         "rate": 30
       },
       {
-        "id": 12,
+        "id": 153,
         "rate": 10
       }
     ],
@@ -82,7 +82,7 @@
         "rate": 30
       },
       {
-        "id": 12,
+        "id": 152,
         "rate": 10
       }
     ],
@@ -146,16 +146,28 @@
   },
   {
     "image": "images/banners/magby_banner.JPG",
-    "description": "Get a special Magby with the moves Mach Punch and Cross Chop",
+    "description": "Get a special Magby with the moves Mach Punch and Cross Chop. You can also get Smoochum or Elekid.",
     "cost": 100,
     "pokemons": [
       {
         "id": 240,
         "rate": 5,
         "moveIds": [
-          14,
-          33,
-          85
+          7,85,14,33
+        ]
+      },
+      {
+        "id": 238,
+        "rate": 5,
+        "moveIds": [
+          65,64,174,246
+        ]
+      },
+      {
+        "id": 239,
+        "rate": 5,
+        "moveIds": [
+          3,8,33
         ]
       }
     ],
@@ -179,20 +191,17 @@
       {
         "id": 11,
         "rate": 30
-      },
-      {
-        "id": 12,
-        "rate": 10
       }
     ],
     "days": [
-      "TUESDAY",
-      "SATURDAY"
+      "MONDAY",
+      "FRIDAY",
+      "SUNDAY"
     ]
   },
   {
     "image": "images/banners/eevee_banner.JPG",
-    "description": "Get an Eevee",
+    "description": "Get an Eevee which may be shiny!",
     "cost": 100,
     "pokemons": [
       {
@@ -207,7 +216,7 @@
     "items": [
       {
         "id": 2,
-        "rate": 15
+        "rate": 38
       },
       {
         "id": 4,
@@ -223,7 +232,7 @@
       },
       {
         "id": 11,
-        "rate": 38
+        "rate": 15
       }
     ],
     "days": [
@@ -263,11 +272,11 @@
         "rate": 15
       },
       {
-        "id": 11,
+        "id": 154,
         "rate": 30
       },
       {
-        "id": 12,
+        "id": 173,
         "rate": 10
       }
     ],
@@ -311,10 +320,14 @@
       },
       {
         "id": 11,
-        "rate": 30
+        "rate": 20
       },
       {
         "id": 12,
+        "rate": 10
+      },
+      {
+        "id": 158,
         "rate": 10
       }
     ],
@@ -365,50 +378,6 @@
     "days": [
       "THURSDAY",
       "SUNDAY"
-    ]
-  },
-  {
-    "image": "images/banners/smoochum_banner.JPG",
-    "description": "Get a Smoochum",
-    "cost": 100,
-    "pokemons": [
-      {
-        "id": 238,
-        "rate": 5,
-        "moveIds": [
-          65,64,174
-        ]
-      }
-    ],
-    "items": [
-      {
-        "id": 2,
-        "rate": 15
-      },
-      {
-        "id": 4,
-        "rate": 15
-      },
-      {
-        "id": 8,
-        "rate": 10
-      },
-      {
-        "id": 9,
-        "rate": 15
-      },
-      {
-        "id": 11,
-        "rate": 30
-      },
-      {
-        "id": 12,
-        "rate": 10
-      }
-    ],
-    "days": [
-      "MONDAY",
-      "SATURDAY"
     ]
   },
   {
@@ -848,6 +817,10 @@
       },
       {
         "id": 106,
+        "rate": 3
+      },
+      {
+        "id": 107,
         "rate": 3
       }
     ],

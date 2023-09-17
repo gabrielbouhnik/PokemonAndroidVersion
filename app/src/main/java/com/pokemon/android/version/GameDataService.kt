@@ -111,6 +111,11 @@ class GameDataService {
     fun generatePokemonFromBanner(pokemonBanner: PokemonBanner): Pokemon {
         val pokemon = generatePokemonWithMoves(pokemonBanner.pokemonId, 5, pokemonBanner.moves,null)
         pokemon.isFromBanner = true
+        if (pokemon.data.id == 133){
+            val random = Random.nextInt(1,5)
+            if (random == 1)
+                pokemon.shiny = true
+        }
         return pokemon
     }
 

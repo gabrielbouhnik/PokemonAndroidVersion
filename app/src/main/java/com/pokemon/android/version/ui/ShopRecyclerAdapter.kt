@@ -34,7 +34,7 @@ class ShopRecyclerAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = data[position]
-        val name = activity.gameDataService.items[currentItem.itemId].name
+        val name = activity.gameDataService.items.find{it.id == currentItem.itemId}!!.name
         holder.nameTextView.text = name
         holder.buyButton.text = "Buy for ${currentItem.cost} AndroCoins"
         holder.itemView.tag = position

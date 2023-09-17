@@ -665,8 +665,7 @@
           "level": 56
         }
       ],
-      "movesLearnWithTM": [72,24,25,30,43,92,93,97,100,107,136,111,139,176,177,221
-      ],
+      "movesLearnWithTM": [72,24,25,30,43,92,93,97,100,107,136,111,139,176,177,221,267],
       "bannerMoves": []
     },
     "hp": 79,
@@ -2347,6 +2346,10 @@
           "level": 1
         },
         {
+          "moveId": 265,
+          "level": 4
+        },
+        {
           "moveId": 3,
           "level": 8
         },
@@ -2412,6 +2415,10 @@
           "level": 1
         },
         {
+          "moveId": 265,
+          "level": 1
+        },
+        {
           "moveId": 3,
           "level": 1
         },
@@ -2463,6 +2470,10 @@
       "movesLearnByLevel": [
         {
           "moveId": 165,
+          "level": 1
+        },
+        {
+          "moveId": 265,
           "level": 1
         },
         {
@@ -2524,6 +2535,10 @@
       "movesLearnByLevel": [
         {
           "moveId": 165,
+          "level": 1
+        },
+        {
+          "moveId": 265,
           "level": 1
         },
         {
@@ -3066,6 +3081,10 @@
           "level": 1
         },
         {
+          "moveId": 265,
+          "level": 1
+        },
+        {
           "moveId": 39,
           "level": 11
         },
@@ -3138,6 +3157,10 @@
         },
         {
           "moveId": 207,
+          "level": 1
+        },
+        {
+          "moveId": 265,
           "level": 1
         },
         {
@@ -3499,6 +3522,10 @@
           "level": 12
         },
         {
+          "moveId": 265,
+          "level": 15
+        },
+        {
           "moveId": 148,
           "level": 18
         },
@@ -3562,6 +3589,10 @@
         {
           "moveId": 24,
           "level": 12
+        },
+        {
+          "moveId": 265,
+          "level": 15
         },
         {
           "moveId": 148,
@@ -4492,7 +4523,7 @@
         },
         {
           "moveId": 143,
-          "level": 47
+          "level": 52
         }
       ],
       "movesLearnWithTM": [
@@ -4567,7 +4598,7 @@
         },
         {
           "moveId": 143,
-          "level": 54
+          "level": 58
         }
       ],
       "movesLearnWithTM": [
@@ -5006,7 +5037,7 @@
           "level": 54
         }
       ],
-      "movesLearnWithTM": [72,25,30,69,93,103,110,176,177,221],
+      "movesLearnWithTM": [72,25,30,69,93,103,110,176,177,221,267],
       "bannerMoves": []
     },
     "hp": 80,
@@ -5175,6 +5206,10 @@
           "level": 12
         },
         {
+          "moveId": 265,
+          "level": 15
+        },
+        {
           "moveId": 24,
           "level": 18
         },
@@ -5254,6 +5289,10 @@
           "level": 12
         },
         {
+          "moveId": 265,
+          "level": 15
+        },
+        {
           "moveId": 24,
           "level": 18
         },
@@ -5280,9 +5319,13 @@
         {
           "moveId": 45,
           "level": 36
+        },
+        {
+          "moveId": 266,
+          "level": 46
         }
       ],
-      "movesLearnWithTM": [72,24,30,31,43,45,55,69,76,93,97,100,107,135,139,148,173,176,177,219],
+      "movesLearnWithTM": [72,24,30,31,43,45,55,69,76,93,97,100,107,135,139,148,173,176,177,219,267],
       "bannerMoves": []
     },
     "hp": 95,
@@ -5766,6 +5809,10 @@
           "level": 7
         },
         {
+          "moveId": 265,
+          "level": 12
+        },
+        {
           "moveId": 86,
           "level": 15
         },
@@ -5831,6 +5878,10 @@
         {
           "moveId": 154,
           "level": 7
+        },
+        {
+          "moveId": 265,
+          "level": 12
         },
         {
           "moveId": 86,
@@ -6270,7 +6321,7 @@
           "level": 56
         }
       ],
-      "movesLearnWithTM": [72,25,57,93,111,221],
+      "movesLearnWithTM": [72,25,57,93,111,221,267],
       "bannerMoves": []
     },
     "hp": 35,
@@ -6301,6 +6352,10 @@
         {
           "moveId": 64,
           "level": 1
+        },
+        {
+          "moveId": 265,
+          "level": 5
         },
         {
           "moveId": 39,
@@ -6374,6 +6429,10 @@
         {
           "moveId": 64,
           "level": 1
+        },
+        {
+          "moveId": 265,
+          "level": 5
         },
         {
           "moveId": 39,
@@ -8154,7 +8213,7 @@
         }
       ],
       "movesLearnWithTM": [24,45,46,69,100,105,107,135,139,173,176,177,219],
-      "bannerMoves": []
+      "bannerMoves": [246]
     },
     "hp": 65,
     "attack": 50,
@@ -8203,9 +8262,8 @@
           "level": 46
         }
       ],
-      "movesLearnWithTM": [72,12,45,55,69,103,107,110,184,200
-      ],
-      "bannerMoves": []
+      "movesLearnWithTM": [72,12,45,55,69,103,107,110,184,200],
+      "bannerMoves": [33]
     },
     "hp": 65,
     "attack": 83,
@@ -8604,8 +8662,7 @@
           "level": 55
         }
       ],
-      "movesLearnWithTM": [12,24,43,45,57,97,100,104,136,176,177
-      ],
+      "movesLearnWithTM": [12,24,43,45,57,97,100,104,136,176,177,267],
       "bannerMoves": []
     },
     "hp": 130,
@@ -9779,7 +9836,7 @@
           "level": 80
         }
       ],
-      "movesLearnWithTM": [72,12,24,31,43,50,55,57,69,82,93,97,104,100,103,107,110,108,205,221,261],
+      "movesLearnWithTM": [72,12,24,31,43,50,55,57,69,82,93,97,104,100,103,107,110,108,205,221,261,267],
       "bannerMoves": [15,96]
     },
     "hp": 91,
@@ -9806,6 +9863,10 @@
         },
         {
           "moveId": 112,
+          "level": 1
+        },
+        {
+          "moveId": 265,
           "level": 1
         },
         {
@@ -9887,7 +9948,7 @@
         }
       ],
       "movesLearnWithTM": [72,12,24,25,31,36,37,43,44,45,46,50,55,57,62,69,73,76,
-        81,87,92,93,97,104,100,103,105,107,110,111,135,148,172,173,206,219,261],
+        81,87,92,93,97,104,100,103,105,107,110,111,135,148,172,173,206,219,261,267],
       "bannerMoves": []
     },
     "hp": 100,
@@ -10336,6 +10397,10 @@
           "level": 27
         },
         {
+          "moveId": 96,
+          "level": 29
+        },
+        {
           "moveId": 38,
           "level": 34
         },
@@ -10373,7 +10438,7 @@
     "catchRate": 45,
     "evolutions": [
       {
-        "evolutionId": 158,
+        "evolutionId": 159,
         "evolutionCondition": {
           "level": 18
         }
@@ -10420,6 +10485,10 @@
         {
           "moveId": 27,
           "level": 30
+        },
+        {
+          "moveId": 96,
+          "level": 33
         },
         {
           "moveId": 38,
@@ -10476,6 +10545,10 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
+          "moveId": 125,
+          "level": 1
+        },
+        {
           "moveId": 1,
           "level": 1
         },
@@ -10506,6 +10579,10 @@
         {
           "moveId": 27,
           "level": 30
+        },
+        {
+          "moveId": 96,
+          "level": 37
         },
         {
           "moveId": 38,
@@ -10946,6 +11023,10 @@
           "level": 5
         },
         {
+          "moveId": 257,
+          "level": 8
+        },
+        {
           "moveId": 171,
           "level": 12
         },
@@ -10954,28 +11035,36 @@
           "level": 15
         },
         {
-          "moveId": 128,
-          "level": 29
+          "moveId": 220,
+          "level": 19
+        },
+        {
+          "moveId": 151,
+          "level": 22
+        },
+        {
+          "moveId": 208,
+          "level": 26
         },
         {
           "moveId": 21,
-          "level": 33
+          "level": 29
         },
         {
           "moveId": 61,
-          "level": 36
+          "level": 33
         },
         {
           "moveId": 45,
-          "level": 40
+          "level": 36
         },
         {
           "moveId": 62,
-          "level": 43
+          "level": 40
         },
         {
           "moveId": 129,
-          "level": 47
+          "level": 44
         }
       ],
       "movesLearnWithTM": [
@@ -11021,6 +11110,10 @@
           "level": 5
         },
         {
+          "moveId": 257,
+          "level": 8
+        },
+        {
           "moveId": 171,
           "level": 12
         },
@@ -11029,28 +11122,36 @@
           "level": 15
         },
         {
-          "moveId": 128,
-          "level": 32
+          "moveId": 220,
+          "level": 19
+        },
+        {
+          "moveId": 151,
+          "level": 22
+        },
+        {
+          "moveId": 208,
+          "level": 28
         },
         {
           "moveId": 21,
-          "level": 37
+          "level": 31
         },
         {
           "moveId": 61,
-          "level": 41
+          "level": 35
         },
         {
           "moveId": 45,
-          "level": 46
+          "level": 41
         },
         {
           "moveId": 62,
-          "level": 50
+          "level": 46
         },
         {
           "moveId": 129,
-          "level": 55
+          "level": 50
         }
       ],
       "movesLearnWithTM": [
@@ -12848,6 +12949,10 @@
           "level": 12
         },
         {
+          "moveId": 265,
+          "level": 15
+        },
+        {
           "moveId": 24,
           "level": 18
         },
@@ -12874,6 +12979,10 @@
         {
           "moveId": 45,
           "level": 36
+        },
+        {
+          "moveId": 266,
+          "level": 42
         }
       ],
       "movesLearnWithTM": [72,24,30,31,43,45,55,69,76,93,97,100,107,135,139,148,173,176,177,219],
@@ -13157,7 +13266,7 @@
           "level": 50
         }
       ],
-      "movesLearnWithTM": [72,30,36,55,57,66,93,111,176,177,221],
+      "movesLearnWithTM": [72,30,36,55,57,66,93,111,176,177,221,267],
       "bannerMoves": []
     },
     "hp": 75,
@@ -13312,8 +13421,7 @@
           "level": 56
         }
       ],
-      "movesLearnWithTM": [72,25,30,57,93,111,176,177,221
-      ],
+      "movesLearnWithTM": [72,25,30,57,93,111,176,177,221,267],
       "bannerMoves": []
     },
     "hp": 75,
@@ -14701,7 +14809,7 @@
           "level": 50
         }
       ],
-      "movesLearnWithTM": [72,25,30,36,57,62,73,93,176,177,221],
+      "movesLearnWithTM": [72,25,30,36,57,62,73,93,176,177,221,267],
       "bannerMoves": []
     },
     "hp": 90,
@@ -14928,7 +15036,7 @@
         }
       ],
       "movesLearnWithTM": [24,45,46,97,100,135,173,219],
-      "bannerMoves": []
+      "bannerMoves": [246]
     },
     "hp": 45,
     "attack": 30,
@@ -14947,6 +15055,63 @@
     ],
     "abilities": [],
     "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 239,
+    "name": "Elekid",
+    "type1": 5,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 3,
+          "level": 1
+        },
+        {
+          "moveId": 8,
+          "level": 4
+        },
+        {
+          "moveId": 112,
+          "level": 12
+        },
+        {
+          "moveId": 55,
+          "level": 20
+        },
+        {
+          "moveId": 103,
+          "level": 28
+        },
+        {
+          "moveId": 53,
+          "level": 32
+        },
+        {
+          "moveId": 12,
+          "level": 40
+        }
+      ],
+      "movesLearnWithTM": [72,12,45,55,69,103,107,110,184,200],
+      "bannerMoves": [33]
+    },
+    "hp": 45,
+    "attack": 63,
+    "defense": 37,
+    "spAtk": 65,
+    "spDef": 55,
+    "speed": 95,
+    "catchRate": 45,
+    "evolutions": [
+      {
+        "evolutionId": 125,
+        "evolutionCondition": {
+          "level": 30
+        }
+      }
+    ],
+    "abilities": ["VITAL_SPIRIT","STATIC"],
+    "expGaugeType":  "MEDIUM_FAST"
   },
   {
     "id": 240,
@@ -16928,7 +17093,7 @@
           "level": 40
         }
       ],
-      "movesLearnWithTM": [12,55,57,111,184,200],
+      "movesLearnWithTM": [12,55,57,111,184,200,267],
       "bannerMoves": []
     },
     "hp": 70,
@@ -16990,7 +17155,7 @@
           "level": 75
         }
       ],
-      "movesLearnWithTM": [72,25,30,57,62,93,69,87,103,107,110,176,177,221],
+      "movesLearnWithTM": [72,25,30,57,62,93,69,87,103,107,110,176,177,221,267],
       "bannerMoves": []
     },
     "hp": 115,
@@ -17111,7 +17276,7 @@
         }
       ],
       "movesLearnWithTM": [72,12,25,30,45,55,69,93,103,107,110,139,176,177,184,200,221],
-      "bannerMoves": []
+      "bannerMoves": [33]
     },
     "hp": 75,
     "attack": 123,
@@ -17715,6 +17880,27 @@
     "catchRate": 3,
     "evolutions": [],
     "abilities": ["LEVITATE"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 534,
+    "name": "Conkeldurr",
+    "type1": 11,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 105,
+    "attack": 140,
+    "defense": 95,
+    "spAtk": 55,
+    "spDef": 65,
+    "speed": 45,
+    "catchRate": 3,
+    "evolutions": [],
+    "abilities": ["GUTS","SHEER_FORCE","IRON_FIST"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -18889,7 +19075,7 @@
           "level": 65
         }
       ],
-      "movesLearnWithTM": [72,25,30,57,69,73,93,111,148],
+      "movesLearnWithTM": [72,25,30,57,69,73,93,111,148,267],
       "bannerMoves": []
     },
     "hp": 122,

@@ -2623,7 +2623,7 @@
               "id": 199,
               "level": 49,
               "moveIds": [
-                43,45,31,100
+                266,45,31,100
               ]
             },
             {
@@ -3294,12 +3294,12 @@
             {
               "id": 80,
               "level": 53,
-              "moveIds": [43,45,134,148]
+              "moveIds": [266,45,134,148]
             },
             {
               "id": 199,
               "level": 53,
-              "moveIds": [43,45,51,134]
+              "moveIds": [266,45,51,134]
             }
           ]
         },
@@ -4136,7 +4136,7 @@
             {
               "id": 80,
               "level": 73,
-              "moveIds": [43,45,100,134],
+              "moveIds": [266,45,100,134],
               "itemHeld": "LEFTOVERS"
             },
             {
@@ -4527,7 +4527,7 @@
             {
               "id": 350,
               "level": 83,
-              "moveIds": [43,100,228,132],
+              "moveIds": [266,100,228,132],
               "itemHeld": "LEFTOVERS"
             },
             {
@@ -4879,7 +4879,8 @@
           "level": 80,
           "moveIds": [
             102,43,100,145
-          ]
+          ],
+          "itemHeld": "LIFE_ORB"
         },
         {
           "id": 112,
@@ -4901,7 +4902,7 @@
           "id": 95,
           "level": 80,
           "moveIds": [
-            25,93,13,15
+            25,93,147,267
           ],
           "itemHeld": "EVIOLITE"
         }
@@ -5353,12 +5354,14 @@
         {
           "id": 110,
           "level": 80,
-          "moveIds": [37,12,31,92]
+          "moveIds": [37,12,31,92],
+          "itemHeld": "BLACK_SLUDGE"
         },
         {
           "id": 110,
           "level": 80,
-          "moveIds": [37,12,31,92]
+          "moveIds": [37,12,31,92],
+          "itemHeld": "BLACK_SLUDGE"
         },
         {
           "id": 89,
@@ -5369,7 +5372,8 @@
         {
           "id": 49,
           "level": 80,
-          "moveIds": [45,37,60,122]
+          "moveIds": [45,37,60,122],
+          "itemHeld": "BLACK_SLUDGE"
         },
         {
           "id": 73,
@@ -5481,7 +5485,7 @@
         {
           "id": 199,
           "level": 80,
-          "moveIds": [45,43,31,134],
+          "moveIds": [45,266,31,134],
           "itemHeld": "LEFTOVERS"
         },
         {
@@ -5672,7 +5676,7 @@
           "id": 350,
           "level": 50,
           "moveIds": [
-            43,132,94,100
+            266,132,94,100
           ],
           "itemHeld": "LEFTOVERS"
         },

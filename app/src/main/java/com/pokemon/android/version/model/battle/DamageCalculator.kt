@@ -205,6 +205,9 @@ class DamageCalculator {
                 if (move.id == 223) {
                     offensiveStat = (opponent.attack.toFloat() * opponent.battleData!!.attackMultiplicator).roundToInt()
                 }
+                if (move.id == 266) {
+                    offensiveStat = (attacker.defense.toFloat() * attacker.battleData!!.defenseMultiplicator).roundToInt()
+                }
                 var defensiveStat: Int =
                     if (move.category == MoveCategory.PHYSICAL || move.category == MoveCategory.SPECIAL_AND_PHYSICAL) (opponent.defense.toFloat() * opponent.battleData!!.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * opponent.battleData!!.spDefMultiplicator).roundToInt()
                 if (criticalMultiplicator >= 1.5f) {

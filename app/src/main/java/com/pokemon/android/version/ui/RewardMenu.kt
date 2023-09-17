@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
+import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.level.*
@@ -125,6 +126,7 @@ class RewardMenu {
             healTeamButton.visibility = GONE
         healTeamButton.setOnClickListener {
             activity.trainer!!.team.forEach { activity.trainer!!.heal(it, false) }
+            SaveManager.save(activity)
             healTeamButton.visibility = GONE
         }
         val nextLevelButton: Button = activity.findViewById(R.id.nextLevelButton)
@@ -172,7 +174,7 @@ class RewardMenu {
         val rewards =
             if (firstTime) levelData.rewards else ArrayList(levelData.rewards.filter { it.itemId != 0 && it.itemId !in 50..100 })
         if ((levelData is WildBattleLevelData || levelData is BossBattleLevelData) && Random.nextInt(10) == 1) {
-            rewards.add(BonusReward(Random.nextInt(150, 167), 1))
+            rewards.add(BonusReward(Random.nextInt(150, 168), 1))
         }
         val recyclerView = activity.findViewById<RecyclerView>(R.id.rewardRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)

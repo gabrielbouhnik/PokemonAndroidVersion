@@ -45,6 +45,7 @@ class ItemUtils {
             62,//Poison Jab
             25,//Rock Slide
             87,//Earth Power
+            267,//Body Press
             139,//Focus Blast
             219,//Psyshock
             148,//Zen Headbutt
@@ -89,7 +90,7 @@ class ItemUtils {
                 14 -> return Ball.NETBALL
                 15 -> return Ball.HEALBALL
                 in 16..29,in 38..39 -> return EvolutionItem(itemId)
-                in 51..100 -> return TMItem(TM_MOVE_ID[itemId - 51])
+                in 51..106 -> return TMItem(TM_MOVE_ID[itemId - 51])
                 in 150..176 -> return ItemToHold(HoldItem.values().first { it.id == itemId })
             }
             return Revive.MAX_REVIVE

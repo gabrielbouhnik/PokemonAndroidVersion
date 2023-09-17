@@ -70,7 +70,7 @@ class BannerMenu {
             resultTextView.text = activity.getString(R.string.summon_pokemon, s.name)
         } else {
             resultTextView.text =
-                activity.getString(R.string.summon_item, activity.gameDataService.items[(s as ItemBanner).id].name)
+                activity.getString(R.string.summon_item, activity.gameDataService.items.first {it.id == (s as ItemBanner).id}.name)
         }
     }
 }

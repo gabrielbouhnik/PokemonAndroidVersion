@@ -277,6 +277,7 @@ open class Pokemon(
         }
         var details = ""
         this.battleData!!.lastMoveFailed = false
+        this.battleData!!.lastMoveUsed = move
         if (move.move is HealMove) {
             if (move.move.id == 193)
                 this.battleData!!.battleStatus.add(Status.ROOSTED)
@@ -346,7 +347,7 @@ open class Pokemon(
                 )
             }
         }
-        if (move.move.power > 1)
+        if (move.move.power > 1 && move.move !is RetaliationMove)
             details += BattleUtils.getEffectiveness(move.move, opponent)
         val damageDone: Int
         if (damage >= opponent.currentHP) {
@@ -375,7 +376,7 @@ open class Pokemon(
         } else {
             damageDone = damage
             opponent.takeDamage(damage)
-            if (opponent.hasItem(HoldItem.AIR_BALLOON)) {
+            if (damage > 0 && opponent.hasItem(HoldItem.AIR_BALLOON)) {
                 details += "${opponent.data.name}'s Air Balloon popped out!\n"
                 opponent.heldItem = null
             }
@@ -495,6 +496,14 @@ open class Pokemon(
         if (opponent.hasAbility(Ability.CURSED_BODY) && Random.nextInt(100) < 30){
             details += "${opponent.data.name}'s Cursed Body: ${this.data.name}'s ${move.move.name} is disabled!\n"
             move.disabled = true
+        }
+        if (move.move.id == 265){
+            if (opponent.battleData!!.lastMoveUsed != null){
+                opponent.battleData!!.lastMoveUsed!!.disabled = true
+                details += "${opponent.data.name}'s ${opponent.battleData!!.lastMoveUsed!!.move.name} is disabled!\n"
+            } else{
+                details += "But it failed\n"
+            }
         }
         return AttackResponse(true, details)
     }

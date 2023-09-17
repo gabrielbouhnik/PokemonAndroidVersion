@@ -22,5 +22,6 @@ class PokemonBattleData(
     var rampageCounter: Int = 0,
     var lastHitReceived: LastHitReceived? = null,
     var lastMoveFailed: Boolean = false,
+    var lastMoveUsed: PokemonMove? = null,
     var hadATurn: Boolean = false
 )
