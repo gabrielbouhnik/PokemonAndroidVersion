@@ -3,7 +3,6 @@ package com.pokemon.android.version.model.item
 import com.pokemon.android.version.entity.item.ItemsEntity
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.utils.ItemUtils
-import java.util.*
 import kotlin.collections.ArrayList
 
 class ItemFactory {
@@ -12,7 +11,7 @@ class ItemFactory {
             val res: ArrayList<ItemData> = ArrayList()
             itemsEntity?.items?.forEach { res.add(ItemData.of(it)) }
             var idx = 50
-            ItemUtils.TM_MOVE_ID.forEach {
+            ItemUtils.TM_MOVES_IDS.forEach {
                 idx++
                 res.add(ItemData.of(idx,moves[it - 1]))
             }

@@ -15,6 +15,7 @@ enum class HoldItem(var id: Int) {
     EVIOLITE(173),
     FOCUS_SASH(169),
     HARD_STONE(158),
+    LOADED_DICE(177),
     LEFTOVERS(166),
     LIFE_ORB(168),
     LUM_BERRY(167),

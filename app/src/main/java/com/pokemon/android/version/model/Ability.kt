@@ -56,6 +56,7 @@ enum class Ability(var description: String) {
     REGENERATOR("Restores a little HP when withdrawn from battle."),
     ROCK_HEAD("Protects the Pokémon from recoil damage."),
     ROUGH_SKIN("This Pokémon inflicts damage with its rough skin to the attacker on contact."),
+    SAND_STREAM("Sandstorm blows when the Pokémon is on the battle. It raises the Special Defense of Rock-type Pokémon by 50%."),
     SERENE_GRACE("Boosts the likelihood of additional effects occurring when attacking."),
     SHADOW_TAG("This Pokémon steps on the opposing Pokémon's shadow to prevent it from escaping."),
     SHARPNESS("Powers up slicing moves."),

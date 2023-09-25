@@ -13,6 +13,7 @@ import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Trainer
 import com.pokemon.android.version.utils.ItemUtils
+import com.pokemon.android.version.utils.ItemUtils.Companion.MEGA_RING_ID
 import com.pokemon.android.version.utils.ItemUtils.Companion.POKEBALL_ID
 
 class StarterSelection {
@@ -40,12 +41,13 @@ class StarterSelection {
                     if (pokemon.movesByLevel.isNotEmpty())
                         activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(pokemon.id, 80))
                 }
-                activity.trainer!!.progression = 86
+                activity.trainer!!.progression = 89
                 activity.trainer!!.coins = 25000
-                for (i in 1..100) {
-                    val quantity = if (!ItemUtils.isBadge(i) && i != 30) 50 else 1
+                for (i in 1..124) {
+                    val quantity = if (!ItemUtils.isBadge(i)) 50 else 1
                     activity.trainer!!.addItem(i, quantity)
                 }
+                activity.trainer!!.addItem(MEGA_RING_ID, 1)
                 activity.updateMusic(R.raw.main_menu)
                 activity.mainMenu.loadGameMenu(activity)
             } else {

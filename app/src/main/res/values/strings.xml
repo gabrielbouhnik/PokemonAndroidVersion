@@ -70,4 +70,7 @@
         You can also re-battle each gym leader.
         In the trainer card menu, there are many achievements that you can reach to win rewards.
     </string>
+    <string name="new_item_available_in_shop">
+        New items are available in Poké Mart!
+    </string>
 </resources>

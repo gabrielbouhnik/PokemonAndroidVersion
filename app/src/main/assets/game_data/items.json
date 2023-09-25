@@ -122,7 +122,7 @@
     },
     {
       "id": 30,
-      "name": "Mega Ring"
+      "name": "Ice Stone"
     },
     {
       "id": 31,
@@ -263,6 +263,10 @@
     {
       "id": 124,
       "name": "Tyranitarite"
+    },
+    {
+      "id": 130,
+      "name": "Mega Ring"
     }
   ]
 }

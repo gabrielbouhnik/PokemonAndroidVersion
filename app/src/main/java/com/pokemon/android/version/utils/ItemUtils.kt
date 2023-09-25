@@ -4,7 +4,8 @@ import com.pokemon.android.version.model.item.*
 
 class ItemUtils {
     companion object {
-        val TM_MOVE_ID = listOf(
+        val MEGA_RING_ID = 130
+        val TM_MOVES_IDS = listOf(
             72,//Headbutt
             221,//ROCK TOMB
             24,//WATER PULSE
@@ -89,8 +90,8 @@ class ItemUtils {
                 13 -> return Ball.HYPERBALL
                 14 -> return Ball.NETBALL
                 15 -> return Ball.HEALBALL
-                in 16..29,in 38..39 -> return EvolutionItem(itemId)
-                in 51..106 -> return TMItem(TM_MOVE_ID[itemId - 51])
+                in 16..30,in 38..39 -> return EvolutionItem(itemId)
+                in 51..106 -> return TMItem(TM_MOVES_IDS[itemId - 51])
                 in 150..176 -> return ItemToHold(HoldItem.values().first { it.id == itemId })
             }
             return Revive.MAX_REVIVE

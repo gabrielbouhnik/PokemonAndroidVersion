@@ -2503,6 +2503,25 @@
       "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 268,
+      "name": "Freeze-Dry",
+      "power": 70,
+      "pp": 20,
+      "type": 14,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user rapidly cools the target. This may also leave the target frozen. This move is super effective on Water types.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "FROZEN",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "multipleHitMoves": [
@@ -3921,6 +3940,46 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 269,
+      "name": "Coil",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 8,
+      "description": "The user coils up and concentrates. This boosts its Attack and Defense stats as well as its accuracy.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK",
+        "DEFENSE",
+        "ACCURACY"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 270,
+      "name": "Hone Claws",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 15,
+      "type": 17,
+      "description": "The user sharpens its claws to boost its Attack stat and accuracy.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK",
+        "DEFENSE",
+        "ACCURACY"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "drainMoves": [
@@ -4224,6 +4283,18 @@
       "pp": 10,
       "type": 6,
       "description": "The user lands and rests its body. This move restores the user's HP by up to half of its max HP.",
+      "priorityLevel": 0,
+      "status": [],
+      "characteristics": []
+    },
+    {
+      "id": 271,
+      "name": "Morning Sun",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 5,
+      "type": 5,
+      "description": "The user recovers half of its maximum HP.",
       "priorityLevel": 0,
       "status": [],
       "characteristics": []

@@ -9,6 +9,7 @@ import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.BattleUtils
+import com.pokemon.android.version.utils.ItemUtils.Companion.MEGA_RING_ID
 import com.pokemon.android.version.utils.MoveUtils
 import com.pokemon.android.version.utils.StatUtils
 import java.util.*
@@ -291,7 +292,7 @@ open class Pokemon(
             if (move.move is MoveBasedOnLevel) {
                 damage = this.level
             } else if (move.move is VariableHitMove) {
-                val timesItHits = if (this.hasAbility(Ability.SKILL_LINK)) 5 else Random.nextInt(2..5)
+                val timesItHits = if (this.hasAbility(Ability.SKILL_LINK) || this.hasItem(HoldItem.LOADED_DICE)) 5 else Random.nextInt(2..5)
                 var i = 0
                 while (i < timesItHits && opponent.currentHP > damage) {
                     crit = DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)
@@ -493,7 +494,7 @@ open class Pokemon(
                 details += "${this.data.name} is no longer trapped!\n"
             }
         }
-        if (opponent.hasAbility(Ability.CURSED_BODY) && Random.nextInt(100) < 30){
+        if (damage > 0 && opponent.hasAbility(Ability.CURSED_BODY) && Random.nextInt(100) < 30){
             details += "${opponent.data.name}'s Cursed Body: ${this.data.name}'s ${move.move.name} is disabled!\n"
             move.disabled = true
         }
@@ -505,13 +506,21 @@ open class Pokemon(
                 details += "But it failed\n"
             }
         }
+        if (currentHP > 0
+            && damage > 0
+            && move.move.category != MoveCategory.OTHER
+            && this.hasItem(HoldItem.LIFE_ORB)
+            && !this.hasAbility(Ability.SHEER_FORCE)){
+            this.takeDamage(this.hp / 10)
+            details += this.data.name + " lost some of its hp!\n"
+        }
         return AttackResponse(true, details)
     }
 
     fun canMegaEvolve(): Boolean {
         return data.megaEvolutionData != null && battleData != null && !isMegaEvolved && (data.id == 150 || (trainer != null
                 && trainer!!.getTrainerTeam().none { it.isMegaEvolved } && (trainer is OpponentTrainer ||
-                (heldItem == null && (trainer as Trainer).items.containsKey(30) && (trainer as Trainer).items.containsKey(
+                (heldItem == null && (trainer as Trainer).items.containsKey(MEGA_RING_ID) && (trainer as Trainer).items.containsKey(
                     this.data.megaEvolutionData!!.stoneId
                 )))))
     }

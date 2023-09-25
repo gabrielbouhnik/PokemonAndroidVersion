@@ -126,6 +126,14 @@ class BattleUtils {
                 pokemon.battleData!!.spDefMultiplicator *= 1.5f
                 pokemon.battleData!!.defenseMultiplicator *= 1.5f
             }
+            if (pokemon.hasAbility(Ability.SAND_STREAM)) {
+                pokemon.battleData!!.spDefMultiplicator *= 1.5f
+                sb.append("${pokemon.data.name}'s Sand Stream: A sandstorm kicked up!\n")
+                if (pokemon.hasType(Type.ROCK))
+                    pokemon.battleData!!.spDefMultiplicator *= 1.5f
+                if (opponent.hasType(Type.ROCK))
+                    opponent.battleData!!.spDefMultiplicator *= 1.5f
+            }
             if (pokemon.hasAbility(Ability.SUPER_LUCK))
                 pokemon.battleData!!.criticalRate *= 1.5f
             if (pokemon.hasAbility(Ability.ARENA_TRAP) && !opponent.hasAbility(Ability.LEVITATE) && !pokemon.hasType(Type.FLYING) && !pokemon.hasType(Type.GHOST))

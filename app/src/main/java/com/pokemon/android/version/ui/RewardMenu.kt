@@ -13,7 +13,9 @@ import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.level.*
+import com.pokemon.android.version.ui.LevelMenu.Companion.ROUTE_3_LEVEL
 import com.pokemon.android.version.utils.ItemUtils
+import com.pokemon.android.version.utils.ItemUtils.Companion.MEGA_RING_ID
 import java.io.InputStream
 import kotlin.random.Random
 
@@ -92,6 +94,9 @@ class RewardMenu {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+                LevelMenu.BLAINE_LEVEL, LevelMenu.GIOVANNI_LEVEL_ID -> {
+                    activity.showCustomDialog(activity.getString(R.string.new_item_available_in_shop))
+                }
                 LevelMenu.MEGA_CHARIZARD_LEVEL_ID -> {
                     when {
                         activity.trainer!!.pokedex[1] == true -> {
@@ -122,7 +127,7 @@ class RewardMenu {
             }
         }
         val healTeamButton: Button = activity.findViewById(R.id.healTeamButton)
-        if (activity.trainer!!.progression < 9 || levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID)
+        if (activity.trainer!!.progression < ROUTE_3_LEVEL || levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID)
             healTeamButton.visibility = GONE
         healTeamButton.setOnClickListener {
             activity.trainer!!.team.forEach { activity.trainer!!.heal(it, false) }
@@ -130,7 +135,7 @@ class RewardMenu {
             healTeamButton.visibility = GONE
         }
         val nextLevelButton: Button = activity.findViewById(R.id.nextLevelButton)
-        if (activity.trainer!!.progression < 9 || levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID
+        if (activity.trainer!!.progression < ROUTE_3_LEVEL || levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID
             || levelData.id == LevelMenu.ELITE_4_FIRST_LEVEL_ID - 1 || levelData.id == LevelMenu.ELITE_4_LAST_LEVEL_ID
             || levelData.id == LevelMenu.MEWTWO_LEVEL
         )
@@ -196,7 +201,7 @@ class RewardMenu {
                 activity.trainer!!.coins += coinsReward.quantity / 10
         }
         rewards.forEach {
-            if (ItemUtils.isBadge(it.itemId) || it.itemId == 30) {
+            if (ItemUtils.isBadge(it.itemId) || it.itemId == MEGA_RING_ID) {
                 if (!activity.trainer!!.items.contains(it.itemId))
                     activity.trainer!!.addItem(it.itemId, it.quantity)
             } else if (it.itemId == 0) {

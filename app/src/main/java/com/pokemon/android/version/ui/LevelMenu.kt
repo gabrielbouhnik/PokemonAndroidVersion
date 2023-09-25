@@ -13,23 +13,25 @@ import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAI
 
 class LevelMenu {
     companion object {
+        const val ROUTE_3_LEVEL = 10
         const val MISTY_LEVEL = 18
         const val OTHER_BANNER_LEVEL = 19
         const val DUGTRIO_LEVEL = 24
         const val ERIKA_LEVEL = 36
-        const val TYROGUE_LEVEL = 50
-        const val LAPRAS_LEVEL = 46
-        const val ARTICUNO_LEVEL = 56
-        const val BLAINE_LEVEL = 59
-        const val MEGA_CHARIZARD_LEVEL_ID = 61
-        const val MEGA_VENUSAUR_LEVEL_ID = 67
-        const val MOLTRES_LEVEL = 68
-        const val ELITE_4_FIRST_LEVEL_ID = 69
-        const val ELITE_4_LAST_LEVEL_ID = 73
-        const val ZAPDOS_LEVEL = 76
-        const val STEVEN_LEVEL_ID = 77
-        const val CYNTHIA_LEVEL_ID = 81
-        const val MEWTWO_LEVEL = 86
+        const val LAPRAS_LEVEL = 47
+        const val TYROGUE_LEVEL = 51
+        const val ARTICUNO_LEVEL = 57
+        const val BLAINE_LEVEL = 60
+        const val MEGA_CHARIZARD_LEVEL_ID = 62
+        const val GIOVANNI_LEVEL_ID = 65
+        const val MEGA_VENUSAUR_LEVEL_ID = 69
+        const val MOLTRES_LEVEL = 70
+        const val ELITE_4_FIRST_LEVEL_ID = 71
+        const val ELITE_4_LAST_LEVEL_ID = 75
+        const val ZAPDOS_LEVEL = 78
+        const val STEVEN_LEVEL_ID = 79
+        const val CYNTHIA_LEVEL_ID = 83
+        const val MEWTWO_LEVEL = 88
     }
 
     var battleUI: BattleUI = BattleUI()

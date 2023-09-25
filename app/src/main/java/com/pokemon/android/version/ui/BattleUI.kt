@@ -21,6 +21,7 @@ import com.pokemon.android.version.model.level.*
 import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAIN_LEVEL_ID
+import com.pokemon.android.version.ui.LevelMenu.Companion.ROUTE_3_LEVEL
 import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.HealUtils
 import com.pokemon.android.version.utils.ItemUtils
@@ -327,7 +328,7 @@ class BattleUI {
                 if (battle is TrainerBattle)
                     dialogTextView!!.text = (battle.levelData as TrainerBattleLevelData).endDialogWin
                 if (battle is LeaderBattle) {
-                    if (battle.levelData.id == 99) {
+                    if (battle.levelData.id == FRONTIER_BRAIN_LEVEL_ID) {
                         HealUtils.healTeam(team)
                         if (activity.trainer!!.battleTowerProgression!!.progression == 7)
                             dialogTextView!!.text = (battle.levelData as LeaderLevelData).endDialogWin1
@@ -340,7 +341,7 @@ class BattleUI {
                             dialogTextView!!.text = (battle.levelData as LeaderLevelData).endDialogWin1
                     }
                 }
-                if (battle.levelData.id == 99) {
+                if (battle.levelData.id == FRONTIER_BRAIN_LEVEL_ID) {
                     activity.trainer!!.coins += 5000
                     activity.trainer!!.battleTowerProgression!!.progression += 1
                 }
@@ -661,7 +662,7 @@ class BattleUI {
     }
 
     fun startTrainerBattle(activity: MainActivity, level: TrainerBattleLevelData) {
-        if (activity.trainer!!.progression == 10 && level.id == 10)
+        if (activity.trainer!!.progression == 10 && level.id == ROUTE_3_LEVEL)
             activity.showCustomDialog(activity.getString(R.string.tutorial_trainer_battle))
         this.team = activity.trainer!!.team
         MusicUtils.playMusic(activity, level.music)

@@ -35,11 +35,15 @@ abstract class Battle {
         var action = ""
         if (opponentPokemonMove.move.id == 185){
              action += "${opponent.data.name} uses Teleport!\n"
-            action += if (opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
+            if (opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
                 || opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE))
-                "But it failed!\n"
-            else
-                "He teleported behind you, keep on battling!\n"
+                action += "But it failed!\n"
+            else if (this is WildBattle){
+                action += "${opponent.data.name} disappeared!\n"
+                if (encountersLeft > 0) {
+                    generateRandomEncounter()
+                }
+            }
             return action
         }
         if (opponent.battleData!!.confusionCounter == 4) {
@@ -56,13 +60,6 @@ abstract class Battle {
             action + opponentResponse.reason
         }
         else {
-            if (opponentPokemonMove.move.category != MoveCategory.OTHER
-                && opponent.currentHP > 0
-                && opponent.hasItem(HoldItem.LIFE_ORB)
-                && !opponent.hasAbility(Ability.SHEER_FORCE)){
-                opponent.takeDamage(opponent.hp / 10)
-                action += opponent.data.name + " lost some of its hp!\n"
-            }
             action +
                     "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}\n" + opponentResponse.reason
         }
@@ -83,13 +80,6 @@ abstract class Battle {
         return if (!response.success)
             action + response.reason
         else {
-            if (pokemon.currentHP > 0
-                && trainerPokemonMove.move.category != MoveCategory.OTHER
-                && pokemon.hasItem(HoldItem.LIFE_ORB)
-                && !pokemon.hasAbility(Ability.SHEER_FORCE)){
-                pokemon.takeDamage(pokemon.hp / 10)
-                action += pokemon.data.name + " lost some of its hp!\n"
-            }
             action + "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n" + response.reason
         }
     }
@@ -340,6 +330,16 @@ abstract class Battle {
                     pokemon.takeDamage(damage)
                     opponent.heal(damage)
                 }
+            }
+        }
+        if (pokemon.currentHP > 0 && opponent.currentHP > 0) {
+            if (pokemon.hasAbility(Ability.SAND_STREAM) && !opponent.hasType(Type.ROCK) && !opponent.hasType(Type.GROUND) && !opponent.hasType(Type.STEEL)){
+                sb.append("${opponent.data.name} is buffeted by the sandstorm!\n")
+                opponent.takeDamage(opponent.hp / 8)
+            }
+            if (opponent.hasAbility(Ability.SAND_STREAM) && !pokemon.hasType(Type.ROCK) && !pokemon.hasType(Type.GROUND) && !pokemon.hasType(Type.STEEL)){
+                pokemon.takeDamage(pokemon.hp / 8)
+                sb.append("${pokemon.data.name} is buffeted by the sandstorm!\n")
             }
         }
         if (opponent.currentHP > 0) {
