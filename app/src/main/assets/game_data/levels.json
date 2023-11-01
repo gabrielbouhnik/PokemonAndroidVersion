@@ -313,7 +313,7 @@
         "minLevel": 21,
         "maxLevel": 23,
         "encounters": [
-          20,20,20,20,21,21,21,21,22,22,23,23,23,23,27,27,27,27,48,48,48,100,100,100,100,100,878
+          20,20,20,20,21,21,21,21,22,22,23,23,23,23,27,27,27,27,48,48,48,100,100,100,100,100,619,878
         ]
       },
       "rewards": [
@@ -397,7 +397,7 @@
         "minLevel": 29,
         "maxLevel": 32,
         "encounters": [
-          22,22,22,22,22,88,88,88,88,88,218,218,218,218,218,701
+          22,22,22,22,22,84,84,84,84,88,88,88,88,88,218,218,218,218,218,701
         ]
       },
       "rewards": [
@@ -3897,7 +3897,7 @@
             {
               "id": 94,
               "level": 73,
-              "moveIds": [213,46,37,94],
+              "moveIds": [213,224,37,94],
               "itemHeld": "LIFE_ORB"
             },
             {
@@ -3909,7 +3909,7 @@
             {
               "id": 169,
               "level": 73,
-              "moveIds": [129,50,46,48],
+              "moveIds": [129,50,261,48],
               "itemHeld": "BLACK_SLUDGE"
             },
             {
@@ -4038,8 +4038,8 @@
             {
               "id": 106,
               "level": 80,
-              "moveIds": [68,25,14,40],
-              "itemHeld": "LUM_BERRY"
+              "moveIds": [68,40,25,191],
+              "itemHeld": "FOCUS_SASH"
             }
           ]
         }
@@ -4195,6 +4195,77 @@
       "background": "images/battle_background/mt_silver_background.png",
       "exp": 15000,
       "mandatory": true,
+      "iaLevel": 3
+    },
+    {
+      "id": 89,
+      "name": "\nVS Game Developer",
+      "description": "At the end of your adventure, a trainer comes to challenge you... And it's me: the developer of this game!",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Moi.png",
+          "name": "The Game Developer",
+          "pokemons": [
+            {
+              "id": 461,
+              "level": 85,
+              "moveIds": [107,62,123,69],
+              "itemHeld": "LIFE_ORB"
+            },
+            {
+              "id": 184,
+              "level": 85,
+              "moveIds": [136,107,73,96],
+              "itemHeld": "ASSAULT_VEST"
+            },
+            {
+              "id": 212,
+              "level": 85,
+              "moveIds": [56,127,113,40],
+              "itemHeld": "ASSAULT_VEST"
+            },
+            {
+              "id": 196,
+              "level": 85,
+              "moveIds": [45,46,44,219],
+              "itemHeld": "LIFE_ORB"
+            },
+            {
+              "id": 887,
+              "level": 85,
+              "moveIds": [258,46,12,31],
+              "itemHeld": "LIFE_ORB"
+            },
+            {
+              "id": 6,
+              "level": 85,
+              "moveIds": [116,108,103,125]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 400
+        },
+        {
+          "id": 3,
+          "quantity": 10
+        },
+        {
+          "id": 9,
+          "quantity": 10
+        }
+      ],
+      "startDialog": "Hi, I am the game developer. Since you've come so far, I wanted to see how strong you are!",
+      "endDialogWin": "Thank you for playing my game!",
+      "endDialogLoose": "Too bad, you were so close to finishing my game!",
+      "music": 5,
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "exp": 15000,
+      "mandatory": false,
       "iaLevel": 3
     }
   ],
@@ -4487,7 +4558,7 @@
           "id": 76,
           "level": 80,
           "moveIds": [
-            25,93,69,144
+            25,93,267,144
           ]
         },
         {
@@ -4729,7 +4800,7 @@
           "id": 101,
           "level": 80,
           "moveIds": [
-            12,52,112
+            228,12,52,112
           ],
           "itemHeld": "AIR_BALLOON"
         },
@@ -4737,20 +4808,20 @@
           "id": 101,
           "level": 80,
           "moveIds": [
-            2,12,52,112
+            228,12,52,112
           ],
           "itemHeld": "AIR_BALLOON"
         },
         {
-          "id": 82,
+          "id": 462,
           "level": 80,
           "moveIds": [
-            12,111,117,55
+            12,111,117,267
           ],
           "itemHeld": "AIR_BALLOON"
         },
         {
-          "id": 125,
+          "id": 466,
           "level": 80,
           "moveIds": [
             12,110,107,69
@@ -4816,7 +4887,7 @@
       "battle1": [
         {
           "id": 189,
-          "level": 41,
+          "level": 42,
           "moveIds": [
             66,44,133,35
           ],
@@ -4824,18 +4895,30 @@
         },
         {
           "id": 114,
-          "level": 42,
+          "level": 45,
           "moveIds": [
             66,102,37,35
           ],
-          "itemHeld": "BIG_ROOT"
+          "itemHeld": "EVIOLITE"
+        },
+        {
+          "id": 470,
+          "level": 45,
+          "moveIds": [
+            3,121,13,56
+          ],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 103,
+          "level": 45,
+          "moveIds": [66,45,133,219],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 71,
           "level": 45,
-          "moveIds": [
-            66,62,18,121
-          ],
+          "moveIds": [62,142,121,66],
           "itemHeld": "MIRACLE_SEED"
         },
         {
@@ -4844,7 +4927,7 @@
           "moveIds": [
             66,84,37,76
           ],
-          "itemHeld": "BIG_ROOT"
+          "itemHeld": "BLACK_SLUDGE"
         }
       ],
       "battle2": [
@@ -4865,12 +4948,10 @@
           "itemHeld": "MIRACLE_SEED"
         },
         {
-          "id": 182,
+          "id": 103,
           "level": 80,
-          "moveIds": [
-            66,84,122,133
-          ],
-          "itemHeld": "BIG_ROOT"
+          "moveIds": [66,45,133,219],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 465,
@@ -4942,24 +5023,27 @@
       "title": "Gym Leader Koga",
       "battle1": [
         {
-          "id": 109,
-          "level": 47,
-          "moveIds": [83,37,225]
-        },
-        {
-          "id": 109,
-          "level": 47,
-          "moveIds": [83,37,225]
-        },
-        {
           "id": 110,
           "level": 50,
-          "moveIds": [37,12,31,92]
+          "moveIds": [37,12,31,92],
+          "itemHeld": "BLACK_SLUDGE"
+        },
+        {
+          "id": 168,
+          "level": 50,
+          "moveIds": [61,62,220,208],
+          "itemHeld": "LOADED_DICE"
+        },
+        {
+          "id": 205,
+          "level": 50,
+          "moveIds": [233,93,22,267],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 89,
           "level": 50,
-          "moveIds": [37,62,69,25],
+          "moveIds": [62,69,25,103],
           "itemHeld": "BLACK_SLUDGE"
         },
         {
@@ -4971,7 +5055,7 @@
         {
           "id": 169,
           "level": 51,
-          "moveIds": [129,50,66,46],
+          "moveIds": [129,50,66,261],
           "itemHeld": "BLACK_SLUDGE"
         }
       ],
@@ -4983,10 +5067,16 @@
           "itemHeld": "BLACK_SLUDGE"
         },
         {
-          "id": 110,
+          "id": 472,
           "level": 80,
-          "moveIds": [37,12,31,92],
-          "itemHeld": "BLACK_SLUDGE"
+          "moveIds": [120,62,16,93],
+          "itemHeld": "TOXIC_ORB"
+        },
+        {
+          "id": 205,
+          "level": 80,
+          "moveIds": [233,93,22,267],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 89,
@@ -5001,15 +5091,9 @@
           "itemHeld": "BLACK_SLUDGE"
         },
         {
-          "id": 73,
-          "level": 80,
-          "moveIds": [43,37,66,62],
-          "itemHeld": "BLACK_SLUDGE"
-        },
-        {
           "id": 169,
           "level": 80,
-          "moveIds": [129,50,66,46],
+          "moveIds": [129,50,66,261],
           "itemHeld": "BLACK_SLUDGE"
         }
       ],
@@ -5070,10 +5154,10 @@
           "itemHeld": "EVIOLITE"
         },
         {
-          "id": 97,
+          "id": 124,
           "level": 55,
-          "moveIds": [45,44,76,83],
-          "itemHeld": "LEFTOVERS"
+          "moveIds": [100,45,46,246],
+          "itemHeld": "TWISTED_SPOON"
         },
         {
           "id": 49,
@@ -5084,7 +5168,7 @@
         {
           "id": 196,
           "level": 55,
-          "moveIds": [112,44,45,46],
+          "moveIds": [219,44,45,46],
           "itemHeld": "TWISTED_SPOON"
         },
         {
@@ -5104,7 +5188,7 @@
         {
           "id": 196,
           "level": 80,
-          "moveIds": [45,44,46,3],
+          "moveIds": [45,44,46,219],
           "itemHeld": "TWISTED_SPOON"
         },
         {
@@ -5116,14 +5200,14 @@
         {
           "id": 124,
           "level": 80,
-          "moveIds": [100,45,46,105],
+          "moveIds": [100,45,46,246],
           "itemHeld": "TWISTED_SPOON"
         },
         {
-          "id": 124,
+          "id": 97,
           "level": 80,
-          "moveIds": [45,100,46,106],
-          "itemHeld": "TWISTED_SPOON"
+          "moveIds": [219,107,76,83],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 65,

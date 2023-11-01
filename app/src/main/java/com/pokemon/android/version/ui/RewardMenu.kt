@@ -137,7 +137,7 @@ class RewardMenu {
         val nextLevelButton: Button = activity.findViewById(R.id.nextLevelButton)
         if (activity.trainer!!.progression < ROUTE_3_LEVEL || levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID
             || levelData.id == LevelMenu.ELITE_4_FIRST_LEVEL_ID - 1 || levelData.id == LevelMenu.ELITE_4_LAST_LEVEL_ID
-            || levelData.id == LevelMenu.MEWTWO_LEVEL
+            || levelData.id >= LevelMenu.MEWTWO_LEVEL
         )
             nextLevelButton.visibility = GONE
         nextLevelButton.setOnClickListener {

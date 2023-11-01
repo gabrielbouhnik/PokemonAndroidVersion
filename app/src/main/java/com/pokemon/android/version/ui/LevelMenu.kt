@@ -32,6 +32,7 @@ class LevelMenu {
         const val STEVEN_LEVEL_ID = 79
         const val CYNTHIA_LEVEL_ID = 83
         const val MEWTWO_LEVEL = 88
+        const val LAST_LEVEL = 89
     }
 
     var battleUI: BattleUI = BattleUI()

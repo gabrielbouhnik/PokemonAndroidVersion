@@ -201,7 +201,7 @@ class PokemonInfoMenu(var parentId: Int) {
             takeItemButton.visibility = View.VISIBLE
             takeItemButton.setOnClickListener {
                 (pokemon.trainer!! as Trainer).addItem(pokemon.heldItem!!.id, 1)
-                pokemon.heldItem = null
+                pokemon.consumeItem()
                 takeItemButton.visibility = GONE
                 itemTextView.visibility = GONE
             }

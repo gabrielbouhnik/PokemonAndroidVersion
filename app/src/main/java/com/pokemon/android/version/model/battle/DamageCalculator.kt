@@ -132,6 +132,18 @@ class DamageCalculator {
             val typeBoostItem = TYPE_ITEM_BOOST[move.type]
             if (typeBoostItem != null && attacker.hasItem(typeBoostItem))
                 power *= 1.2f
+            if (move.id == 272 && attacker.heldItem == null)
+                power *= 2f
+            if (move.id == 273){
+                val speedRatio = (attacker.speed/opponent.speed).toFloat()
+                when {
+                    speedRatio < 1f -> power *= 40f
+                    speedRatio > 4f -> power *= 150f
+                    speedRatio > 3f -> power *= 120f
+                    speedRatio > 2f -> power *= 80f
+                    speedRatio > 1f -> power *= 60f
+                }
+            }
             if (attacker.hasItem(HoldItem.LIFE_ORB))
                 power *= 1.3f
             if ((attacker.currentHP / attacker.hp) < 0.4) {
@@ -207,7 +219,7 @@ class DamageCalculator {
                 if (move.id == 223) {
                     offensiveStat = (opponent.attack.toFloat() * opponent.battleData!!.attackMultiplicator).roundToInt()
                 }
-                if (move.id == 266) {
+                if (move.id == 267) {
                     offensiveStat = (attacker.defense.toFloat() * attacker.battleData!!.defenseMultiplicator).roundToInt()
                 }
                 var defensiveStat: Int =

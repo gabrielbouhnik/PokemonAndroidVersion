@@ -73,13 +73,15 @@ enum class Stats(var value: String) {
             if (statChangeMove.id == 245){
                 details += "${pokemon.data.name}'s Defense fell!\n"
                 details += "${pokemon.data.name}'s Sp. Def fell!\n"
-                pokemon.battleData!!.spDefMultiplicator *= 0.75f
-                pokemon.battleData!!.spDefMultiplicator *= 0.75f
+                pokemon.battleData!!.spDefMultiplicator *= 0.67f
+                pokemon.battleData!!.spDefMultiplicator *= 0.67f
             }
             return details
         }
 
         fun increaseBossStats(pokemon: Pokemon, stats: List<Stats>) {
+            pokemon.battleData!!.accuracyMultiplicator *= 1.33f
+            pokemon.battleData!!.criticalRate *= 2f
             stats.forEach {
                 when (it) {
                     ATTACK -> {
@@ -97,12 +99,7 @@ enum class Stats(var value: String) {
                     SPEED -> {
                         pokemon.battleData!!.speedMultiplicator *= 1.5f
                     }
-                    ACCURACY -> {
-                        pokemon.battleData!!.accuracyMultiplicator *= 1.5f
-                    }
-                    CRITICAL_RATE -> {
-                        pokemon.battleData!!.criticalRate *= 1.5f
-                    }
+                    else -> {}
                 }
             }
         }

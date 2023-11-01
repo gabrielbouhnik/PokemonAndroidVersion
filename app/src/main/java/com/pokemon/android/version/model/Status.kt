@@ -73,7 +73,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
                             if (opponent.hasItem(HoldItem.LUM_BERRY)){
                                 details += "${opponent.data.name}'s Lum Berry cured its status\n"
                                 opponent.status = OK
-                                opponent.heldItem = null
+                                opponent.consumeItem()
                             }
                         } else {
                             if (it.status == CONFUSED) {
@@ -85,7 +85,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                     if (opponent.hasItem(HoldItem.LUM_BERRY)){
                                         details += "${opponent.data.name}'s Lum Berry cured its status\n"
                                         opponent.status = OK
-                                        opponent.heldItem = null
+                                        opponent.consumeItem()
                                     }
                                 }
 

@@ -13,6 +13,7 @@ enum class HoldItem(var id: Int) {
     DRAGON_FANG(164),
     EXPERT_BELT(170),
     EVIOLITE(173),
+    FLAME_ORB(179),
     FOCUS_SASH(169),
     HARD_STONE(158),
     LOADED_DICE(177),
@@ -30,7 +31,9 @@ enum class HoldItem(var id: Int) {
     SILVER_POWDER(156),
     SOFT_SAND(159),
     SPELL_TAG(162),
-    TWISTED_SPOON(161);
+    TOXIC_ORB(178),
+    TWISTED_SPOON(161),
+    WEAKNESS_POLICY(180);
 
     fun heldItemToString(): String {
         return this.toString().replace("_", " ").lowercase()

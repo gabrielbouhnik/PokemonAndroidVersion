@@ -5,6 +5,7 @@ import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.battle.DamageCalculator
+import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 
@@ -16,7 +17,7 @@ class IAUtils {
             for (move in offensiveMove) {
                 var damage: Int = DamageCalculator.computeDamage(opponent, move.move, attacker, 1f)
                 if (move.move is VariableHitMove) {
-                    damage *= if (opponent.hasAbility(Ability.SKILL_LINK)) 5 else 3
+                    damage *= if (opponent.hasAbility(Ability.SKILL_LINK) || opponent.hasItem(HoldItem.LOADED_DICE)) 5 else 3
                 } else if (move.move is MultipleHitMove)
                     damage *= 2
                 if (damage >= attacker.currentHP)
@@ -32,7 +33,7 @@ class IAUtils {
                 if (move.move !is ChargedMove && move.move !is UltimateMove)
                     damage *= 2
                 if (move.move is VariableHitMove) {
-                    damage *= if (opponent.hasAbility(Ability.SKILL_LINK)) 5 else 3
+                    damage *= if (opponent.hasAbility(Ability.SKILL_LINK) || opponent.hasItem(HoldItem.LOADED_DICE)) 5 else 3
                 } else if (move.move is MultipleHitMove)
                     damage *= 2
                 if (damage >= attacker.currentHP)
@@ -78,8 +79,10 @@ class IAUtils {
                 var damage: Int = DamageCalculator.computeDamage(attacker, move.move, opponent, 1f)
                 if (damage == 0 && move.move.category != MoveCategory.OTHER)
                     continue
-                if (move.move is MultipleHitMove || move.move is VariableHitMove)
+                if (move.move is MultipleHitMove)
                     damage *= 2
+                if(move.move is VariableHitMove)
+                    damage *= if (opponent.hasAbility(Ability.SKILL_LINK) || opponent.hasItem(HoldItem.LOADED_DICE)) 5 else 3
                 if (canBeKOdByOpponent(attacker, opponent) && move.move is ChargedMove)
                     continue
                 if (move.move.id == 246 && attacker.battleData!!.hadATurn)

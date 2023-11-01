@@ -363,7 +363,7 @@ open class Pokemon(
                     details += "${opponent.data.name}'s Sturdy: ${opponent.data.name} endured the hit!\n"
                 else {
                     details += "${opponent.data.name} hung on thanks to his Focus Sash!\n"
-                    opponent.heldItem = null
+                    opponent.consumeItem()
                 }
             } else {
                 damageDone = opponent.currentHP
@@ -379,7 +379,7 @@ open class Pokemon(
             opponent.takeDamage(damage)
             if (damage > 0 && opponent.hasItem(HoldItem.AIR_BALLOON)) {
                 details += "${opponent.data.name}'s Air Balloon popped out!\n"
-                opponent.heldItem = null
+                opponent.consumeItem()
             }
             if (crit == 1.5f && opponent.hasAbility(Ability.ANGER_POINT)) {
                 details += "${opponent.data.name}'s Anger Point: ${opponent.data.name} maxed its Attack!\n"
@@ -505,6 +505,16 @@ open class Pokemon(
             } else{
                 details += "But it failed\n"
             }
+        }
+        if (opponent.currentHP > 0
+            && damageDone > 0
+            && move.move !is MoveBasedOnLevel && move.move !is RetaliationMove
+            && BattleUtils.getEffectiveness(move.move, opponent).contains("super")
+            && opponent.hasItem(HoldItem.WEAKNESS_POLICY)) {
+            opponent.battleData!!.attackMultiplicator *= 2f
+            opponent.battleData!!.spAtkMultiplicator *= 2f
+            opponent.consumeItem()
+            details += "${opponent.data.name}'s Attack and Sp. Atk rose thanks to its Weakness Policy!\n"
         }
         if (currentHP > 0
             && damage > 0
@@ -667,6 +677,13 @@ open class Pokemon(
 
     fun hasItem(item: HoldItem): Boolean {
         return heldItem != null && heldItem == item
+    }
+
+    fun consumeItem() {
+        this.heldItem = null
+        if (this.hasAbility(Ability.UNBURDEN) && this.battleData != null){
+            this.battleData!!.speedMultiplicator *= 2f
+        }
     }
 
     fun hasType(type: Type): Boolean{

@@ -86,7 +86,7 @@ class BattleUtils {
             if (statusByContact && opponent.hasItem(HoldItem.LUM_BERRY)){
                 details += "${opponent.data.name}'s Lum Berry cured its status\n"
                 opponent.status = Status.OK
-                opponent.heldItem = null
+                opponent.consumeItem()
             }
             return details
         }
@@ -108,7 +108,7 @@ class BattleUtils {
                     }
                         else -> {
                         if (opponent.battleData != null)
-                            opponent.battleData!!.attackMultiplicator *= 0.75f
+                            opponent.battleData!!.attackMultiplicator *= 0.67f
                     }
                 }
             }
@@ -116,9 +116,6 @@ class BattleUtils {
                 sb.append("${pokemon.data.name} floats in the air with its Air Balloon\n")
             if (opponent.heldItem != null && pokemon.hasAbility(Ability.FRISK)){
                 sb.append("${pokemon.data.name}'s Frisk: ${pokemon.data.name} frisked ${opponent.data.name} and found its ${opponent.heldItem!!.heldItemToString()}!\n")
-            }
-            if (pokemon.heldItem != null && opponent.hasAbility(Ability.FRISK)){
-                sb.append("${opponent.data.name}'s Frisk: ${opponent.data.name} frisked ${pokemon.data.name} and found its ${pokemon.heldItem!!.heldItemToString()}!\n")
             }
             if (pokemon.hasItem(HoldItem.ASSAULT_VEST) && !MoveUtils.getMoveList(pokemon).map{it.move.category}.contains(MoveCategory.OTHER))
                 pokemon.battleData!!.spDefMultiplicator *= 1.5f
@@ -133,6 +130,15 @@ class BattleUtils {
                     pokemon.battleData!!.spDefMultiplicator *= 1.5f
                 if (opponent.hasType(Type.ROCK))
                     opponent.battleData!!.spDefMultiplicator *= 1.5f
+            }
+            if (pokemon.hasAbility(Ability.DOWNLOAD)){
+                if (opponent.defense * opponent.battleData!!.defenseMultiplicator > opponent.spDef * opponent.battleData!!.spDefMultiplicator){
+                    sb.append("${pokemon.data.name}'s Download: ${pokemon.data.name}'s Sp. Atk rose!\n")
+                    pokemon.battleData!!.spAtkMultiplicator *= 1.5f
+                } else{
+                    sb.append("${pokemon.data.name}'s Download: ${pokemon.data.name}'s attack rose!\n")
+                    pokemon.battleData!!.attackMultiplicator *= 1.5f
+                }
             }
             if (pokemon.hasAbility(Ability.SUPER_LUCK))
                 pokemon.battleData!!.criticalRate *= 1.5f

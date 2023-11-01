@@ -136,7 +136,7 @@ abstract class Battle {
         }
         if ((this is TrainerBattle || this is BossBattle) && opponent.canMegaEvolve() && shouldMegaEvolve) {
             when (levelData.id) {
-                LevelMenu.MEGA_CHARIZARD_LEVEL_ID -> {
+                LevelMenu.MEGA_CHARIZARD_LEVEL_ID, LevelMenu.LAST_LEVEL -> {
                     if (opponent.data.id == 6) {
                         opponent.megaEvolve()
                         sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
@@ -282,6 +282,7 @@ abstract class Battle {
                     )
                 ) {
                     sb.append(activity.trainer!!.name + " caught ${opponent.data.name}!\n")
+                    opponent.battleData = null
                     if (this.encountersLeft > 0)
                         this.generateRandomEncounter()
                     return sb.toString()
@@ -414,6 +415,14 @@ abstract class Battle {
     companion object {
         fun checkStatus(pokemon: Pokemon): String {
             var details = ""
+            if (pokemon.hasItem(HoldItem.TOXIC_ORB) && Status.isAffectedByStatus(83,Status.BADLY_POISON, pokemon)){
+                pokemon.status = Status.BADLY_POISON
+                details += pokemon.data.name + " is badly poisoned by its Toxic Orb\n"
+            }
+            if (pokemon.hasItem(HoldItem.FLAME_ORB) && Status.isAffectedByStatus(138,Status.BURN, pokemon)){
+                pokemon.status = Status.BURN
+                details += pokemon.data.name + " is burned by its Flame Orb\n"
+            }
             if (pokemon.battleData!!.battleStatus.contains(Status.CONFUSED)) {
                 pokemon.battleData!!.confusionCounter++
             }
@@ -441,7 +450,7 @@ abstract class Battle {
                     if (pokemon.hasItem(HoldItem.LUM_BERRY)){
                         details += "${pokemon.data.name}'s Lum Berry cured its status\n"
                         pokemon.status = Status.OK
-                        pokemon.heldItem = null
+                        pokemon.consumeItem()
                     }
                 }
             }
