@@ -7,6 +7,7 @@ import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.item.HoldItem
+import com.pokemon.android.version.model.level.LeaderLevelData
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.move.ChargedMove
 import com.pokemon.android.version.model.move.MoveCategory
@@ -89,7 +90,7 @@ abstract class Battle {
         if (opponentMove.move is RampageMove) {
             opponent.battleData!!.rampageMove = opponentMove
         }
-        if (this is TrainerBattle || this is BattleFrontierBattle){
+        if (this is TrainerBattle || this is BattleFrontierBattle || this is LeaderBattle){
             val opponentTrainer = opponent.trainer!! as OpponentTrainer
             if (opponentTrainer.iaLevel == 3
                 && !opponent.battleData!!.battleStatus.contains(Status.UNABLE_TO_MOVE)
@@ -148,8 +149,36 @@ abstract class Battle {
                         sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
                     }
                 }
+                LevelMenu.ELITE_4_FIRST_LEVEL_ID -> {
+                    if (opponent.data.id == 80 && opponent.level == 83) {
+                        opponent.megaEvolve()
+                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
+                    }
+                }
+                LevelMenu.ELITE_4_FIRST_LEVEL_ID + 1 -> {
+                    if (opponent.data.id == 208 && opponent.level == 83) {
+                        opponent.megaEvolve()
+                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
+                    }
+                }
+                LevelMenu.ELITE_4_FIRST_LEVEL_ID + 2 -> {
+                    if (opponent.data.id == 94 && opponent.level == 83) {
+                        opponent.megaEvolve()
+                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
+                    }
+                }
+                LevelMenu.ELITE_4_FIRST_LEVEL_ID + 3 -> {
+                    if (opponent.data.id == 6 && opponent.level == 83) {
+                        opponent.megaEvolve()
+                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
+                    }
+                }
                 LevelMenu.ELITE_4_LAST_LEVEL_ID -> {
                     if (opponent.data.id == 18) {
+                        opponent.megaEvolve()
+                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
+                    }
+                    if (opponent.data.id == 65 && opponent.level == 83) {
                         opponent.megaEvolve()
                         sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
                     }
@@ -164,11 +193,6 @@ abstract class Battle {
                     if (opponent.data.id == 445) {
                         opponent.megaEvolve()
                         sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
-                LevelMenu.MEWTWO_LEVEL -> {
-                    if (opponent.data.id == 150) {
-                        opponent.megaEvolve()
                     }
                 }
             }

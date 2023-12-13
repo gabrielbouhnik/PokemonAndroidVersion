@@ -18,6 +18,7 @@ data class LeaderLevelEntity(
     var icon: String,
     var background: String,
     var exp: Int,
+    var iaLevel: Int,
     var mandatory: Boolean
 ) {
 }

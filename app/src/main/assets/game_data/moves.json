@@ -4240,6 +4240,21 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 274,
+      "name": "Wave Crash",
+      "power": 120,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 3,
+      "accuracy": 100,
+      "description": "The user shrouds itself in water and slams into the target with its whole body to inflict damage. This also damages the user quite a lot.",
+      "priorityLevel": 0,
+      "recoil": "THIRD",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "healMoves": [
@@ -4323,6 +4338,18 @@
       "pp": 5,
       "type": 5,
       "description": "The user recovers half of its maximum HP.",
+      "priorityLevel": 0,
+      "status": [],
+      "characteristics": []
+    },
+    {
+      "id": 275,
+      "name": "Rest",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 5,
+      "type": 12,
+      "description": "The user goes to sleep for two turns. This fully restores the user's HP and cures any status conditions.",
       "priorityLevel": 0,
       "status": [],
       "characteristics": []

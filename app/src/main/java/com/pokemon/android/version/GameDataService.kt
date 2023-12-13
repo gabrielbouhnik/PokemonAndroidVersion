@@ -183,19 +183,11 @@ class GameDataService {
             .map { it.name }.toString()
     }
 
-    fun updateGymLeaderExp() {
+    fun increaseLevelDifficulty() {
         levels.filter { it is LeaderLevelData && it.id < BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID }
-            .forEach { it.exp = 10000 }
-    }
-
-    fun updateEliteMode() {
-        levels.filter { it.id in LevelMenu.ELITE_4_FIRST_LEVEL_ID..LevelMenu.ELITE_4_LAST_LEVEL_ID }
-            .map { it as TrainerBattleLevelData }.forEach { levelData ->
-                levelData.opponentTrainerData.forEach { trainer ->
-                    trainer.pokemons.forEach { pokemon ->
-                        pokemon.level += 10
-                    }
-                }
+            .forEach {
+                it.exp = 10000
+                (it as LeaderLevelData).iaLevel = 3
             }
     }
 }

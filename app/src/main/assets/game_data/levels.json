@@ -225,7 +225,7 @@
         "minLevel": 18,
         "maxLevel": 21,
         "encounters": [
-          16,16,16,16,16,16,17,17,19,19,19,39,39,43,43,43,43,52,52,54,54,63,69,69,69,69,81,81,96,96,96,96,209,209
+          16,16,16,16,16,16,17,17,19,19,19,39,39,43,43,43,43,52,52,54,54,63,69,69,69,69,81,81,96,96,96,96,209,209,418
         ]
       },
       "rewards": [
@@ -643,8 +643,8 @@
       "description": "You advance in the Power Plant and several powerful Electrodes attack you.",
       "encounter": 5,
       "possibleEncounters": {
-        "minLevel": 80,
-        "maxLevel": 85,
+        "minLevel": 85,
+        "maxLevel": 90,
         "encounters": [
           101,101,101,101,101
         ]
@@ -1267,7 +1267,7 @@
       ],
       "startDialog": "Hey, you only got one badge. I've already beaten the gym here. Come on, show me what you got",
       "endDialogWin": "Hey! Take it easy! You won already!",
-      "endDialogLoose": "I am the strongest!",
+      "endDialogLoose": "You're no match for my genius!",
       "music": 2,
       "icon": "images/battle_background/city_battle_background.png",
       "background": "images/battle_background/city_battle_background.png",
@@ -3660,7 +3660,7 @@
       ],
       "startDialog": "What a surprise to see you here! So you're going to the Pokemon League? You collected all the badges too? That's cool! Then I'll whip you as a warm up for Pokemon League!",
       "endDialogWin": "I don't believe it! Well, I'm off to the Pokemon League.",
-      "endDialogLoose": "You need more practice!",
+      "endDialogLoose": "That's your best? You're nowhere near as good as me, pal! Go train some more! You loser!",
       "music": 2,
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
@@ -3757,300 +3757,6 @@
       "music": 2,
       "icon": "images/battle_background/cave_battle_background.png",
       "background": "images/battle_background/cave_battle_background.png",
-      "exp": 10000,
-      "mandatory": true,
-      "iaLevel": 3
-    },
-    {
-      "id": 71,
-      "name": "\nVS Lorelei",
-      "description": "",
-      "opponents": [
-        {
-          "sprite": "images/Sprite_Olga.png",
-          "name": "Elite 4 Lorelei",
-          "pokemons": [
-            {
-              "id": 87,
-              "level": 73,
-              "moveIds": [100,95,43,72],
-              "itemHeld": "LEFTOVERS"
-            },
-            {
-              "id": 80,
-              "level": 73,
-              "moveIds": [266,45,100,134],
-              "itemHeld": "LEFTOVERS"
-            },
-            {
-              "id": 124,
-              "level": 73,
-              "moveIds": [100,45,46,105],
-              "itemHeld": "NEVER_MELT_ICE"
-            },
-            {
-              "id": 473,
-              "level": 73,
-              "moveIds": [25,93,98,95],
-              "itemHeld": "NEVER_MELT_ICE"
-            },
-            {
-              "id": 91,
-              "level": 73,
-              "moveIds": [245,98,77,136],
-              "itemHeld": "FOCUS_SASH"
-            },
-            {
-              "id": 131,
-              "level": 75,
-              "moveIds": [100,12,43,45],
-              "itemHeld": "LEFTOVERS"
-            }
-          ]
-        }
-      ],
-      "rewards": [],
-      "startDialog": "Welcome to the Pokemon League! I am Lorelei of the Elite Four! No one can best me when it comes to icy Pokemon. Are you ready?",
-      "endDialogWin": "You're better than I thought! Go on ahead! You only got a taste of Pokemon League power!",
-      "endDialogLoose": "You're no match against my icy Pokemon!",
-      "music": 3,
-      "icon": "images/boss_icon/VS_Olga.PNG",
-      "background": "images/battle_background/elite_background1.png",
-      "exp": 10000,
-      "mandatory": true,
-      "iaLevel": 1
-    },
-    {
-      "id": 72,
-      "name": "\nVS Bruno",
-      "description": "",
-      "opponents": [
-        {
-          "sprite": "images/Sprite_Aldo.png",
-          "name": "Elite 4 Bruno",
-          "pokemons": [
-            {
-              "id": 107,
-              "level": 73,
-              "moveIds": [103,76,14,107],
-              "itemHeld": "EXPERT_BELT"
-            },
-            {
-              "id": 62,
-              "level": 73,
-              "moveIds": [106,80,25,30],
-              "itemHeld": "LEFTOVERS"
-            },
-            {
-              "id": 208,
-              "level": 73,
-              "moveIds": [25,93,27,13],
-              "itemHeld": "LEFTOVERS"
-            },
-            {
-              "id": 237,
-              "level": 73,
-              "moveIds": [14,78,40,91],
-              "itemHeld": "LEFTOVERS"
-            },
-            {
-              "id": 57,
-              "level": 73,
-              "moveIds": [25,40,62,30],
-              "itemHeld": "BLACK_BELT"
-            },
-            {
-              "id": 68,
-              "level": 75,
-              "moveIds": [106,25,127,93],
-              "itemHeld": "LEFTOVERS"
-            }
-          ]
-        }
-      ],
-      "rewards": [],
-      "startDialog": "I am Bruno of the Elite Four! Through rigorous training, people and Pokémon can become stronger without limit. I've lived and trained with my fighting Pokémon!",
-      "endDialogWin": "My job is done! Go face your next challenge!",
-      "endDialogLoose": "Our training has paid off!",
-      "music": 3,
-      "icon": "images/boss_icon/VS_Aldo.PNG",
-      "background": "images/battle_background/elite_background2.jpg",
-      "exp": 10000,
-      "mandatory": true,
-      "iaLevel": 1
-    },
-    {
-      "id": 73,
-      "name": "\nVS Agatha",
-      "description": "",
-      "opponents": [
-        {
-          "sprite": "images/Sprite_Agatha.png",
-          "name": "Elite 4 Agatha",
-          "pokemons": [
-            {
-              "id": 93,
-              "level": 73,
-              "moveIds": [46,44,37,48],
-              "itemHeld": "LIFE_ORB"
-            },
-            {
-              "id": 94,
-              "level": 73,
-              "moveIds": [213,224,37,94],
-              "itemHeld": "LIFE_ORB"
-            },
-            {
-              "id": 24,
-              "level": 73,
-              "moveIds": [37,27,25,83],
-              "itemHeld": "BLACK_SLUDGE"
-            },
-            {
-              "id": 169,
-              "level": 73,
-              "moveIds": [129,50,261,48],
-              "itemHeld": "BLACK_SLUDGE"
-            },
-            {
-              "id": 429,
-              "level": 73,
-              "moveIds": [46,44,12,48],
-              "itemHeld": "LIFE_ORB"
-            },
-            {
-              "id": 94,
-              "level": 75,
-              "moveIds": [46,44,37,12],
-              "itemHeld": "LIFE_ORB"
-            }
-          ]
-        }
-      ],
-      "rewards": [],
-      "startDialog": "I am Agatha of the Elite Four. Let me show you how a real trainer battles!",
-      "endDialogWin": "You win! I have nothing else to say. Run along now, child!",
-      "endDialogLoose": "That's how a proper battle's done!",
-      "music": 3,
-      "icon": "images/boss_icon/VS_Agatha.PNG",
-      "background": "images/battle_background/elite_background3.jpg",
-      "exp": 10000,
-      "mandatory": true,
-      "iaLevel": 1
-    },
-    {
-      "id": 74,
-      "name": "\nVS Lance",
-      "description": "",
-      "opponents": [
-        {
-          "sprite": "images/Sprite_Peter.png",
-          "name": "Elite 4 Lance",
-          "pokemons": [
-            {
-              "id": 148,
-              "level": 73,
-              "moveIds": [79,104,12,31],
-              "itemHeld": "LEFTOVERS"
-            },
-            {
-              "id": 149,
-              "level": 73,
-              "moveIds": [104,12,31,101],
-              "itemHeld": "LEFTOVERS"
-            },
-            {
-              "id": 142,
-              "level": 73,
-              "moveIds": [57,27,25,16],
-              "itemHeld": "LIFE_ORB"
-            },
-            {
-              "id": 6,
-              "level": 73,
-              "moveIds": [50,31,104,103],
-              "itemHeld": "CHARCOAL"
-            },
-            {
-              "id": 130,
-              "level": 73,
-              "moveIds": [79,27,93,125],
-              "itemHeld": "LEFTOVERS"
-            },
-            {
-              "id": 149,
-              "level": 77,
-              "moveIds": [108,16,103,93],
-              "itemHeld": "LUM_BERRY"
-            }
-          ]
-        }
-      ],
-      "rewards": [],
-      "startDialog": "Ah! I heard about you! I lead the Elite Four! You can call me Lance the dragon trainer! Well, are you ready to lose? Your League challenge ends with me",
-      "endDialogWin": "I still can't believe my dragons lost to you! You're now the Pokémon League Champion! Or, you would have been, but you have one more challenge ahead. You have to face another trainer!",
-      "endDialogLoose": "I never give up, no matter what",
-      "music": 3,
-      "icon": "images/boss_icon/VS_Peter.PNG",
-      "background": "images/battle_background/elite_background4.jpg",
-      "exp": 10000,
-      "mandatory": true,
-      "iaLevel": 1
-    },
-    {
-      "id": 75,
-      "name": "\nVS Champion",
-      "description": "",
-      "opponents": [
-        {
-          "sprite": "images/Spr_Rival.png",
-          "name": "Champion Jackson",
-          "pokemons": [
-            {
-              "id": 18,
-              "level": 73,
-              "moveIds": [3,101,261,176]
-            },
-            {
-              "id": 230,
-              "level": 75,
-              "moveIds": [104,43,100,111],
-              "itemHeld": "LEFTOVERS"
-            },
-            {
-              "id": 65,
-              "level": 73,
-              "moveIds": [44,45,46,105],
-              "itemHeld": "TWISTED_SPOON"
-            },
-            {
-              "id": 59,
-              "level": 73,
-              "moveIds": [116,75,200,138],
-              "itemHeld": "LEFTOVERS"
-            },
-            {
-              "id": 466,
-              "level": 75,
-              "moveIds": [107,110,93,200],
-              "itemHeld": "EXPERT_BELT"
-            },
-            {
-              "id": 106,
-              "level": 80,
-              "moveIds": [68,40,25,191],
-              "itemHeld": "FOCUS_SASH"
-            }
-          ]
-        }
-      ],
-      "rewards": [],
-      "startDialog": "Hey! I was looking forward to seeing you! My rival should be strong to keep me sharp! I looked all over for powerful Pokemon and I assembled a team that would beat any Pokemon type! And now! I'm the Pokemon League Champion! Do you know what that means? I'll tell you! I am the most powerful trainer in the world!",
-      "endDialogWin": "NO! That can't be! You beat my best! After all that work to become the champion? My reign is over already? It's not fair!",
-      "endDialogLoose": "Hahah, this is so great! No one can defeat me!",
-      "music": 5,
-      "icon": "images/battle_background/champion_battle_background.png",
-      "background": "images/battle_background/champion_battle_background.png",
       "exp": 10000,
       "mandatory": true,
       "iaLevel": 3
@@ -4633,7 +4339,8 @@
       "icon": "images/boss_icon/VS_Brock.png",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 350,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 18,
@@ -4745,7 +4452,8 @@
       "icon": "images/boss_icon/VS_Misty.png",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 1240,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 22,
@@ -4876,7 +4584,8 @@
       "icon": "images/boss_icon/VS_Surge.png",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 1520,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 36,
@@ -5013,7 +4722,8 @@
       "icon": "images/boss_icon/VS_Erika.png",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 4900,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 42,
@@ -5132,7 +4842,8 @@
       "icon": "images/boss_icon/VS_Koga.png",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 5600,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 53,
@@ -5251,7 +4962,8 @@
       "icon": "images/boss_icon/VS_Morgane.png",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 7000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
     },
     {
       "id": 60,
@@ -5364,7 +5076,477 @@
       "icon": "images/boss_icon/VS_Auguste.png",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 8000,
-      "mandatory": true
+      "mandatory": true,
+      "iaLevel": 1
+    },
+    {
+      "id": 71,
+      "name": "\nVS Lorelei",
+      "description": "",
+      "sprite": "images/Sprite_Olga.png",
+      "title": "Elite 4 Lorelei",
+      "battle1":[
+        {
+          "id": 87,
+          "level": 73,
+          "moveIds": [100,95,43,72],
+          "itemHeld": "LEFTOVERS"
+        },
+        {
+          "id": 80,
+          "level": 73,
+          "moveIds": [266,45,100,134],
+          "itemHeld": "LEFTOVERS"
+        },
+        {
+          "id": 124,
+          "level": 73,
+          "moveIds": [100,45,46,105],
+          "itemHeld": "NEVER_MELT_ICE"
+        },
+        {
+          "id": 473,
+          "level": 73,
+          "moveIds": [25,93,98,95],
+          "itemHeld": "NEVER_MELT_ICE"
+        },
+        {
+          "id": 91,
+          "level": 73,
+          "moveIds": [245,98,77,136],
+          "itemHeld": "FOCUS_SASH"
+        },
+        {
+          "id": 131,
+          "level": 75,
+          "moveIds": [100,12,43,45],
+          "itemHeld": "LEFTOVERS"
+        }
+      ],
+      "battle2": [
+        {
+          "id": 473,
+          "level": 83,
+          "moveIds": [25,93,98,95],
+          "itemHeld": "NEVER_MELT_ICE"
+        },
+        {
+          "id": 80,
+          "level": 83,
+          "moveIds": [266,45,100,134]
+        },
+        {
+          "id": 461,
+          "level": 83,
+          "moveIds": [107,62,123,69],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 91,
+          "level": 83,
+          "moveIds": [245,98,77,136],
+          "itemHeld": "FOCUS_SASH"
+        },
+        {
+          "id": 124,
+          "level": 83,
+          "moveIds": [100,45,46,105],
+          "itemHeld": "NEVER_MELT_ICE"
+        },
+        {
+          "id": 646,
+          "level": 85,
+          "moveIds": [107,62,123,69],
+          "itemHeld": "LIFE_ORB"
+        }
+      ],
+      "rewards": [],
+      "startDialog1": "Welcome to the Pokemon League! I am Lorelei of the Elite Four! No one can best me when it comes to icy Pokemon. Are you ready?",
+      "endDialogWin1": "You're better than I thought! Go on ahead! You only got a taste of Pokemon League power!",
+      "startDialog2": "Welcome to the Pokemon League! I am Lorelei of the Elite Four! No one can best me when it comes to icy Pokemon. Are you ready?",
+      "endDialogWin2": "You're better than I thought! Go on ahead! You only got a taste of Pokemon League power!",
+      "endDialogLoose": "You're no match against my icy Pokemon!",
+      "music": 3,
+      "icon": "images/boss_icon/VS_Olga.PNG",
+      "background": "images/battle_background/elite_background1.png",
+      "exp": 10000,
+      "mandatory": true,
+      "iaLevel": 1
+    },
+    {
+      "id": 72,
+      "name": "\nVS Bruno",
+      "description": "",
+      "sprite": "images/Sprite_Aldo.png",
+      "title": "Elite 4 Bruno",
+      "battle1": [
+        {
+          "id": 107,
+          "level": 73,
+          "moveIds": [103,76,14,107],
+          "itemHeld": "EXPERT_BELT"
+        },
+        {
+          "id": 62,
+          "level": 73,
+          "moveIds": [106,80,25,30],
+          "itemHeld": "LEFTOVERS"
+        },
+        {
+          "id": 208,
+          "level": 73,
+          "moveIds": [25,93,27,13],
+          "itemHeld": "LEFTOVERS"
+        },
+        {
+          "id": 237,
+          "level": 73,
+          "moveIds": [14,78,40,91],
+          "itemHeld": "LEFTOVERS"
+        },
+        {
+          "id": 57,
+          "level": 73,
+          "moveIds": [25,40,62,30],
+          "itemHeld": "BLACK_BELT"
+        },
+        {
+          "id": 68,
+          "level": 75,
+          "moveIds": [106,25,127,93],
+          "itemHeld": "LEFTOVERS"
+        }
+      ],
+      "battle2": [
+        {
+          "id": 639,
+          "level": 83,
+          "moveIds": [40,25,148,62],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 448,
+          "level": 83,
+          "moveIds": [124,111,92,45],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 208,
+          "level": 83,
+          "moveIds": [25,93,27,13]
+        },
+        {
+          "id": 297,
+          "level": 83,
+          "moveIds": [76,93,103,107],
+          "itemHeld": "FLAME_ORB"
+        },
+        {
+          "id": 286,
+          "level": 83,
+          "moveIds": [14,137,25,255],
+          "itemHeld": "TOXIC_ORB"
+        },
+        {
+          "id": 68,
+          "level": 85,
+          "moveIds": [106,25,127,93],
+          "itemHeld": "FLAME_ORB"
+        }
+      ],
+      "rewards": [],
+      "startDialog1": "I am Bruno of the Elite Four! Through rigorous training, people and Pokémon can become stronger without limit. I've lived and trained with my fighting Pokémon!",
+      "endDialogWin1": "My job is done! Go face your next challenge!",
+      "startDialog2": "I am Bruno of the Elite Four! Through rigorous training, people and Pokémon can become stronger without limit. I've lived and trained with my fighting Pokémon!",
+      "endDialogWin2": "My job is done! Go face your next challenge!",
+      "endDialogLoose": "Our training has paid off!",
+      "music": 3,
+      "icon": "images/boss_icon/VS_Aldo.PNG",
+      "background": "images/battle_background/elite_background2.jpg",
+      "exp": 10000,
+      "mandatory": true,
+      "iaLevel": 1
+    },
+    {
+      "id": 73,
+      "name": "\nVS Agatha",
+      "description": "",
+      "sprite": "images/Sprite_Agatha.png",
+      "title": "Elite 4 Agatha",
+      "battle1": [
+        {
+          "id": 93,
+          "level": 73,
+          "moveIds": [46,44,37,48],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 94,
+          "level": 73,
+          "moveIds": [213,224,37,94],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 24,
+          "level": 73,
+          "moveIds": [37,27,25,83],
+          "itemHeld": "BLACK_SLUDGE"
+        },
+        {
+          "id": 169,
+          "level": 73,
+          "moveIds": [129,50,261,48],
+          "itemHeld": "BLACK_SLUDGE"
+        },
+        {
+          "id": 429,
+          "level": 73,
+          "moveIds": [46,44,12,48],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 94,
+          "level": 75,
+          "moveIds": [46,44,37,12],
+          "itemHeld": "LIFE_ORB"
+        }
+      ],
+      "battle2": [
+        {
+          "id": 94,
+          "level": 83,
+          "moveIds": [46,37,94,213]
+        },
+        {
+          "id": 169,
+          "level": 83,
+          "moveIds": [129,50,261,48],
+          "itemHeld": "BLACK_SLUDGE"
+        },
+        {
+          "id": 429,
+          "level": 83,
+          "moveIds": [46,44,12,48],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 609,
+          "level": 83,
+          "moveIds": [46,31,45,105],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 887,
+          "level": 83,
+          "moveIds": [46,258,12,31],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 94,
+          "level": 85,
+          "moveIds": [46,37,12,44],
+          "itemHeld": "LIFE_ORB"
+        }
+      ],
+      "rewards": [],
+      "startDialog1": "I am Agatha of the Elite Four. Let me show you how a real trainer battles!",
+      "endDialogWin1": "You win! I have nothing else to say. Run along now, child!",
+      "startDialog2": "I am Agatha of the Elite Four. Let me show you how a real trainer battles!",
+      "endDialogWin2": "You win! I have nothing else to say. Run along now, child!",
+      "endDialogLoose": "That's how a proper battle's done!",
+      "music": 3,
+      "icon": "images/boss_icon/VS_Agatha.PNG",
+      "background": "images/battle_background/elite_background3.jpg",
+      "exp": 10000,
+      "mandatory": true,
+      "iaLevel": 1
+    },
+    {
+      "id": 74,
+      "name": "\nVS Lance",
+      "description": "",
+      "sprite": "images/Sprite_Peter.png",
+      "title": "Elite 4 Lance",
+      "battle1": [
+        {
+          "id": 148,
+          "level": 73,
+          "moveIds": [79,104,12,31],
+          "itemHeld": "LEFTOVERS"
+        },
+        {
+          "id": 149,
+          "level": 73,
+          "moveIds": [104,12,31,101],
+          "itemHeld": "LEFTOVERS"
+        },
+        {
+          "id": 142,
+          "level": 73,
+          "moveIds": [57,27,25,16],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 6,
+          "level": 73,
+          "moveIds": [50,31,104,103],
+          "itemHeld": "CHARCOAL"
+        },
+        {
+          "id": 130,
+          "level": 73,
+          "moveIds": [79,27,93,125],
+          "itemHeld": "LEFTOVERS"
+        },
+        {
+          "id": 149,
+          "level": 77,
+          "moveIds": [108,16,103,93],
+          "itemHeld": "LUM_BERRY"
+        }
+      ],
+      "battle2": [
+        {
+          "id": 373,
+          "level": 83,
+          "moveIds": [108,222,27,148],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 635,
+          "level": 83,
+          "moveIds": [92,104,31,111],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 6,
+          "level": 83,
+          "moveIds": [116,108,103,206]
+        },
+        {
+          "id": 230,
+          "level": 83,
+          "moveIds": [104,43,100,111],
+          "itemHeld": "LEFTOVERS"
+        },
+        {
+          "id": 381,
+          "level": 83,
+          "moveIds": [104,45,100,12],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 149,
+          "level": 87,
+          "moveIds": [108,16,125,93],
+          "itemHeld": "LUM_BERRY"
+        }
+      ],
+      "rewards": [],
+      "startDialog1": "Ah! I heard about you! I lead the Elite Four! You can call me Lance the dragon trainer! Well, are you ready to lose? Your League challenge ends with me",
+      "endDialogWin1": "I still can't believe my dragons lost to you! You're now the Pokémon League Champion! Or, you would have been, but you have one more challenge ahead. You have to face another trainer!",
+      "startDialog2": "Ah! I heard about you! I lead the Elite Four! You can call me Lance the dragon trainer! Well, are you ready to lose? Your League challenge ends with me",
+      "endDialogWin2": "I still can't believe my dragons lost to you! You're now the Pokémon League Champion! Or, you would have been, but you have one more challenge ahead. You have to face another trainer!",
+      "endDialogLoose": "I never give up, no matter what",
+      "music": 3,
+      "icon": "images/boss_icon/VS_Peter.PNG",
+      "background": "images/battle_background/elite_background4.jpg",
+      "exp": 10000,
+      "mandatory": true,
+      "iaLevel": 1
+    },
+    {
+      "id": 75,
+      "name": "\nVS Champion",
+      "description": "",
+      "sprite": "images/Spr_Rival.png",
+      "title": "Champion Jackson",
+      "battle1": [
+        {
+          "id": 18,
+          "level": 73,
+          "moveIds": [3,101,261,176]
+        },
+        {
+          "id": 230,
+          "level": 75,
+          "moveIds": [104,43,100,111],
+          "itemHeld": "LEFTOVERS"
+        },
+        {
+          "id": 65,
+          "level": 73,
+          "moveIds": [44,45,46,105],
+          "itemHeld": "TWISTED_SPOON"
+        },
+        {
+          "id": 59,
+          "level": 73,
+          "moveIds": [116,75,200,138],
+          "itemHeld": "LEFTOVERS"
+        },
+        {
+          "id": 466,
+          "level": 75,
+          "moveIds": [107,110,93,200],
+          "itemHeld": "EXPERT_BELT"
+        },
+        {
+          "id": 106,
+          "level": 80,
+          "moveIds": [68,40,25,191],
+          "itemHeld": "FOCUS_SASH"
+        }
+      ],
+      "battle2": [
+        {
+          "id": 65,
+          "level": 83,
+          "moveIds": [44,45,46,105]
+        },
+        {
+          "id": 59,
+          "level": 83,
+          "moveIds": [116,75,200,138],
+          "itemHeld": "LEFTOVERS"
+        },
+        {
+          "id": 466,
+          "level": 83,
+          "moveIds": [107,110,93,200],
+          "itemHeld": "EXPERT_BELT"
+        },
+        {
+          "id": 645,
+          "level": 83,
+          "moveIds": [87,81,25,37],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 649,
+          "level": 83,
+          "moveIds": [60,111,12,100],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 106,
+          "level": 90,
+          "moveIds": [68,40,25,191],
+          "itemHeld": "FOCUS_SASH"
+        }
+      ],
+      "rewards": [],
+      "startDialog1": "Hey! I was looking forward to seeing you! My rival should be strong to keep me sharp! I looked all over for powerful Pokemon and I assembled a team that would beat any Pokemon type! And now! I'm the Pokemon League Champion! Do you know what that means? I'll tell you! I am the most powerful trainer in the world!",
+      "endDialogWin1": "NO! That can't be! You beat my best! After all that work to become the champion? My reign is over already? It's not fair!",
+      "startDialog2": "Hey! I was looking forward to seeing you! My rival should be strong to keep me sharp! I looked all over for powerful Pokemon and I assembled a team that would beat any Pokemon type! And now! I'm the Pokemon League Champion! Do you know what that means? I'll tell you! I am the most powerful trainer in the world!",
+      "endDialogWin2": "NO! That can't be! You beat my best! After all that work to become the champion? My reign is over already? It's not fair!",
+      "endDialogLoose": "Hahah, this is so great! No one can defeat me!",
+      "music": 5,
+      "icon": "images/battle_background/champion_battle_background.png",
+      "background": "images/battle_background/champion_battle_background.png",
+      "exp": 10000,
+      "mandatory": true,
+      "iaLevel": 3
     },
     {
       "id": 99,

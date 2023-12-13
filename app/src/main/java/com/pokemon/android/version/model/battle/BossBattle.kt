@@ -18,6 +18,9 @@ class BossBattle() : Battle() {
             if ((bossBattleLevelData.boss.id == 144 || bossBattleLevelData.boss.id == 146) && activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID) 90 else bossBattleLevelData.boss.level,
             bossBattleLevelData.boss.moves
         )
+        if (bossBattleLevelData.boss.id == 150){
+            this.opponent.megaEvolve()
+        }
         this.opponent.hp *= 3
         this.opponent.currentHP *= 3
         Stats.increaseBossStats(opponent, bossBattleLevelData.boss.boostedStats)

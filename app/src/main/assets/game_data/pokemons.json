@@ -5704,6 +5704,10 @@
           "level": 17
         },
         {
+          "moveId": 275,
+          "level": 21
+        },
+        {
           "moveId": 175,
           "level": 27
         },
@@ -5771,6 +5775,10 @@
         {
           "moveId": 95,
           "level": 17
+        },
+        {
+          "moveId": 275,
+          "level": 21
         },
         {
           "moveId": 175,
@@ -8490,6 +8498,10 @@
           "level": 35
         },
         {
+          "moveId": 275,
+          "level": 40
+        },
+        {
           "moveId": 196,
           "level": 50
         },
@@ -9454,6 +9466,10 @@
         {
           "moveId": 159,
           "level": 12
+        },
+        {
+          "moveId": 275,
+          "level": 20
         },
         {
           "moveId": 27,
@@ -16513,6 +16529,27 @@
     }
   },
   {
+    "id": 381,
+    "name": "Latios",
+    "type1": 15,
+    "type2": 12,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 80,
+    "attack": 90,
+    "defense": 80,
+    "spAtk": 130,
+    "spDef": 110,
+    "speed": 110,
+    "catchRate": 3,
+    "evolutions": [],
+    "abilities": ["LEVITATE"],
+    "expGaugeType":  "SLOW"
+  },
+  {
     "id": 398,
     "name": "Staraptor",
     "type1": 6,
@@ -16574,6 +16611,165 @@
     "evolutions": [],
     "abilities": ["NATURAL_CURE","POISON_POINT","TECHNICIAN"],
     "expGaugeType":  "MEDIUM_SLOW"
+  },
+  {
+    "id": 418,
+    "name": "Buizel",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 3,
+          "level": 11
+        },
+        {
+          "moveId": 6,
+          "level": 15
+        },
+        {
+          "moveId": 23,
+          "level": 18
+        },
+        {
+          "moveId": 112,
+          "level": 21
+        },
+        {
+          "moveId": 96,
+          "level": 24
+        },
+        {
+          "moveId": 162,
+          "level": 27
+        },
+        {
+          "moveId": 131,
+          "level": 31
+        },
+        {
+          "moveId": 248,
+          "level": 35
+        },
+        {
+          "moveId": 79,
+          "level": 38
+        },
+        {
+          "moveId": 21,
+          "level": 41
+        },
+        {
+          "moveId": 80,
+          "level": 45
+        },
+        {
+          "moveId": 274,
+          "level": 49
+        }
+      ],
+      "movesLearnWithTM": [72,24,43,69,97,100,107,136,140,221],
+      "bannerMoves": []
+    },
+    "hp": 55,
+    "attack": 65,
+    "defense": 35,
+    "spAtk": 60,
+    "spDef": 30,
+    "speed": 85,
+    "catchRate": 190,
+    "evolutions": [
+      {
+        "evolutionId": 419,
+        "evolutionCondition": {
+          "level": 28
+        }
+      }
+    ],
+    "abilities": ["WATER_VEIL"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 419,
+    "name": "Floatzel",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 27,
+          "level": 1
+        },
+        {
+          "moveId": 119,
+          "level": 1
+        },
+        {
+          "moveId": 3,
+          "level": 11
+        },
+        {
+          "moveId": 6,
+          "level": 15
+        },
+        {
+          "moveId": 23,
+          "level": 18
+        },
+        {
+          "moveId": 112,
+          "level": 21
+        },
+        {
+          "moveId": 96,
+          "level": 24
+        },
+        {
+          "moveId": 162,
+          "level": 27
+        },
+        {
+          "moveId": 131,
+          "level": 35
+        },
+        {
+          "moveId": 248,
+          "level": 41
+        },
+        {
+          "moveId": 79,
+          "level": 46
+        },
+        {
+          "moveId": 21,
+          "level": 51
+        },
+        {
+          "moveId": 80,
+          "level": 57
+        },
+        {
+          "moveId": 274,
+          "level": 62
+        }
+      ],
+      "movesLearnWithTM": [72,24,43,69,97,100,107,136,140,176,177,221],
+      "bannerMoves": []
+    },
+    "hp": 85,
+    "attack": 105,
+    "defense": 55,
+    "spAtk": 85,
+    "spDef": 50,
+    "speed": 115,
+    "catchRate": 75,
+    "evolutions": [],
+    "abilities": ["WATER_VEIL"],
+    "expGaugeType":  "MEDIUM_FAST"
   },
   {
     "id": 424,
@@ -18865,6 +19061,90 @@
     "catchRate": 45,
     "evolutions": [],
     "abilities": ["LEVITATE"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 639,
+    "name": "Terrakion",
+    "type1": 11,
+    "type2": 9,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 91,
+    "attack": 129,
+    "defense": 90,
+    "spAtk": 72,
+    "spDef": 90,
+    "speed": 108,
+    "catchRate": 3,
+    "evolutions": [],
+    "abilities": ["JUSTIFIED"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 645,
+    "name": "Landorus",
+    "type1": 6,
+    "type2": 10,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 89,
+    "attack": 125,
+    "defense": 90,
+    "spAtk": 115,
+    "spDef": 80,
+    "speed": 101,
+    "catchRate": 3,
+    "evolutions": [],
+    "abilities": ["SHEER_FORCE"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 646,
+    "name": "Kyurem",
+    "type1": 15,
+    "type2": 14,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 125,
+    "attack": 130,
+    "defense": 90,
+    "spAtk": 130,
+    "spDef": 90,
+    "speed": 95,
+    "catchRate": 3,
+    "evolutions": [],
+    "abilities": ["PRESSURE"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 649,
+    "name": "Genesect",
+    "type1": 7,
+    "type2": 16,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 71,
+    "attack": 120,
+    "defense": 95,
+    "spAtk": 120,
+    "spDef": 95,
+    "speed": 99,
+    "catchRate": 3,
+    "evolutions": [],
+    "abilities": ["DOWNLOAD"],
     "expGaugeType":  "SLOW"
   },
   {

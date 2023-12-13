@@ -282,7 +282,13 @@ open class Pokemon(
         if (move.move is HealMove) {
             if (move.move.id == 193)
                 this.battleData!!.battleStatus.add(Status.ROOSTED)
-            HealMove.heal(this)
+            if (move.move.id == 275) {
+                this.status = Status.ASLEEP
+                details += "${this.data.name} fell asleep!\n"
+                this.hp = currentHP
+            }
+            else
+                HealMove.heal(this)
         }
         if (move.move is UltimateMove)
             this.battleData!!.battleStatus.add(Status.UNABLE_TO_MOVE)
@@ -476,6 +482,12 @@ open class Pokemon(
                 if (this.hasItem(HoldItem.EVIOLITE) && this.data.evolutions.isNotEmpty()) {
                     this.battleData!!.spDefMultiplicator *= 1.5f
                     this.battleData!!.defenseMultiplicator *= 1.5f
+                }
+                if (this.hasAbility(Ability.SAND_STREAM)) {
+                    this.battleData!!.spDefMultiplicator *= 1.5f
+                }
+                if (opponent.hasAbility(Ability.SAND_STREAM) && this.hasType(Type.ROCK)) {
+                    this.battleData!!.spDefMultiplicator *= 1.5f
                 }
                 BattleUtils.checkForStatsRaiseAbility(opponent)
             }

@@ -1,7 +1,6 @@
 package com.pokemon.android.version
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -30,14 +29,15 @@ class MainActivity : AppCompatActivity() {
         const val pokemonBackSpritesUrl: String =
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/"
         const val armoredMewtwoUrl: String = "https://www.serebii.net/pokemongo/pokemon/150-armored.png"
-        val idForSVsprites = listOf(6, 25, 26, 39, 40, 48, 49, 52, 53, 54, 55, 56, 57, 58, 59, 79, 80, 81,
-            82, 90, 91, 93, 94, 100, 101, 113, 123, 128, 129, 130, 133, 134, 135, 136, 144, 145, 146, 147, 148,
-            149, 150, 151, 155, 156, 157, 181, 183, 184, 187, 188, 189, 195, 196, 197, 198, 199, 203, 204,
-            205, 211, 212, 214, 215, 216, 217, 228, 229, 231, 232, 242, 246, 247, 248, 282, 285, 286, 296,
-            297, 308, 373, 398, 405, 426, 429, 430, 442, 448, 453, 454, 461, 462, 470, 471, 475, 488, 602, 603, 604,
-            633, 634, 635, 700, 701, 715, 856, 857, 858, 878, 879, 885, 886,887,
-            23,24,27,28,35,36,37,38,60,61,62,69,70,71,74,75,76,80,81,82,109,110,143,161,162,163,164,167,
-            168,173,186,190,193,207,218,219,272,342,350,424,469,472,473,476,477,534,553,607,608,609,620,625
+        val idForSVsprites = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 25, 26, 39, 40, 48, 49, 50, 51, 52, 53, 54, 55, 56,
+            57, 58, 59, 79, 80, 81, 82, 90, 91, 93, 94, 100, 101, 113, 123, 128, 129, 130, 133, 134, 135, 136, 144,
+            145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 181, 183, 184, 187, 188,
+            189, 195, 196, 197, 198, 199, 203, 204, 205, 211, 212, 214, 215, 216, 217, 228, 229, 231, 232, 242, 246,
+            247, 248, 282, 285, 286, 296, 297, 308, 373, 398, 405, 426, 429, 430, 442, 448, 453, 454, 461, 462, 470,
+            471, 475, 488, 602, 603, 604, 633, 634, 635, 645, 700, 701, 715, 856, 857, 858, 878, 879, 885, 886,887,
+            23,24,27,28,35,36,37,38,43,44,45,60,61,62,69,70,71,74,75,76,80,81,82,84,85,86,87,109,110,111,112,131,143,161,162,163,164,167,
+            168,173,182,186,190,193,207,218,219,236,237,239,240,272,330,342,350,376,418,419,424,464,469,472,473,476,477,534,553,607,
+            608,609,620,625
         )
     }
 
@@ -173,8 +173,7 @@ class MainActivity : AppCompatActivity() {
                 starterSelection?.startNewGame(this)
             } else {
                 if (trainer!!.progression >= LevelMenu.ELITE_4_LAST_LEVEL_ID) {
-                    gameDataService.updateEliteMode()
-                    gameDataService.updateGymLeaderExp()
+                    gameDataService.increaseLevelDifficulty()
                 }
                 mainMenu.loadGameMenu(this)
             }
