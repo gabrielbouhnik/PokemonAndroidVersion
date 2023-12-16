@@ -5470,7 +5470,7 @@
         {
           "id": 230,
           "level": 75,
-          "moveIds": [104,43,100,111],
+          "moveIds": [104,274,100,111],
           "itemHeld": "LEFTOVERS"
         },
         {

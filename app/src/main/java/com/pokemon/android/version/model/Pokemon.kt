@@ -285,7 +285,7 @@ open class Pokemon(
             if (move.move.id == 275) {
                 this.status = Status.ASLEEP
                 details += "${this.data.name} fell asleep!\n"
-                this.hp = currentHP
+                this.currentHP = hp
             }
             else
                 HealMove.heal(this)

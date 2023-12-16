@@ -13539,7 +13539,7 @@
   },
   {
     "id": 209,
-    "name": "Snubull",
+    "name": "Snubbull",
     "type1": 18,
     "type2": 0,
     "possibleMoves": {
@@ -14771,6 +14771,10 @@
         {
           "moveId": 262,
           "level": 65
+        },
+        {
+          "moveId": 274,
+          "level": 72
         }
       ],
       "movesLearnWithTM": [24,43,57,97,100,104,111,136],
