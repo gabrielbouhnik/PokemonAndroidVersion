@@ -135,7 +135,7 @@ abstract class Battle {
                      && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
                      && IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam()) != null)
         }
-        if ((this is TrainerBattle || this is BossBattle) && opponent.canMegaEvolve() && shouldMegaEvolve) {
+        if ((this is TrainerBattle || this is BossBattle || this is LeaderBattle) && opponent.canMegaEvolve() && shouldMegaEvolve) {
             when (levelData.id) {
                 LevelMenu.MEGA_CHARIZARD_LEVEL_ID, LevelMenu.LAST_LEVEL -> {
                     if (opponent.data.id == 6) {

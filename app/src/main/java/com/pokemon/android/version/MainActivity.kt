@@ -30,16 +30,18 @@ class MainActivity : AppCompatActivity() {
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/"
         const val armoredMewtwoUrl: String = "https://www.serebii.net/pokemongo/pokemon/150-armored.png"
         val idForSVsprites = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 23, 24, 25, 26, 27, 28, 35, 36, 37, 38, 39, 40, 43, 44,
-            45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 69, 70, 71, 74, 75, 76, 79, 80, 81, 82, 84,
-            85, 86, 87, 90, 91, 93, 94, 100, 101, 109, 110, 111, 112, 113, 116, 117, 123, 125, 126, 128, 129, 130, 131,
+            45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 69, 70, 71, 72, 73, 74, 75, 76, 79, 80, 81, 82, 84,
+            85, 86, 87, 88, 89, 90, 91, 93, 94, 100, 101, 102, 103, 109, 110, 111, 112, 113, 116, 117, 123, 125, 126, 128, 129, 130, 131,
             132, 133, 134, 135, 136, 137, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157,
             158, 159, 160, 161, 162, 163, 164, 167, 168, 173, 181, 182, 183, 184, 186, 187, 188, 189, 190, 193, 195,
             196, 197, 198, 199, 203, 204, 205, 207, 209, 210, 211, 212, 214, 215, 216, 217, 218, 219, 228, 229, 230,
             231, 232, 233, 236, 237, 239, 240, 242, 243, 244, 245, 246, 247, 248, 272, 282, 285, 286, 296, 297, 308,
             330, 342, 350, 373, 376, 381, 398, 405, 418, 419, 424, 426, 429, 430, 435, 442, 448, 453, 454, 461, 462,
-            464, 469, 470, 471, 472, 473, 474, 475, 476, 477, 488, 534, 553, 602, 603, 604, 607, 608, 609, 619, 620,
-            625, 633, 634, 635, 639, 645, 646, 700, 701, 715, 856, 857, 858, 878, 879, 885, 886, 887
+            464, 466, 467, 469, 470, 471, 472, 473, 474, 475, 476, 477, 488, 534, 553, 602, 603, 604, 607, 608, 609, 619, 620,
+            625, 633, 634, 635, 639, 645, 646, 700, 701, 715, 856, 857, 858, 878, 879, 885, 886, 887, 901, 981, 10088, 10089, 10157
         )
+        val alolan_forms_id = listOf(10088, 10089)
+        val hisui_forms_id = listOf(10157)
     }
 
     private var currentMusicId: Int? = null
@@ -85,6 +87,11 @@ class MainActivity : AppCompatActivity() {
 
     fun displayPokemon(id: Int, shiny: Boolean, imageView: ImageView) {
         val idForUrl = SpriteUtils.getThreeDigitId(id)
+        var formSuffix = ""
+        if (hisui_forms_id.contains(id))
+            formSuffix = "-h"
+        if (alolan_forms_id.contains(id))
+            formSuffix = "-a"
         if (!shiny) {
             when {
                 id == -1 -> {
@@ -94,23 +101,23 @@ class MainActivity : AppCompatActivity() {
                 }
                 idForSVsprites.contains(id) -> {
                     Glide.with(this)
-                        .load("$pokemonSVspritesUrl$idForUrl.png")
+                        .load("$pokemonSVspritesUrl$idForUrl$formSuffix.png")
                         .into(imageView)
                 }
                 else -> {
                     Glide.with(this)
-                        .load("$pokemonSpritesUrl$idForUrl.png")
+                        .load("$pokemonSpritesUrl$idForUrl$formSuffix.png")
                         .into(imageView)
                 }
             }
         } else {
             if (idForSVsprites.contains(id)) {
                 Glide.with(this)
-                    .load("$pokemonSVshinySpriteUrl$idForUrl.png")
+                    .load("$pokemonSVshinySpriteUrl$idForUrl$formSuffix.png")
                     .into(imageView)
             } else {
                 Glide.with(this)
-                    .load("https://www.serebii.net/Shiny/SWSH/$idForUrl.png")
+                    .load("https://www.serebii.net/Shiny/SWSH/$idForUrl$formSuffix.png")
                     .into(imageView)
             }
 
@@ -151,7 +158,7 @@ class MainActivity : AppCompatActivity() {
                     .into(imageView)
             }
         } else {
-            val filename = if (shiny) "images/pokemon/${id}_back_shiny.png" else "images/pokemon/${id}_back.png"
+            val filename = if (shiny) "images/pokemon/${id}_back_shiny.png" else "images/pokemon/${if (id > 10000) id - 10000 else id}_back.png"
             val img: InputStream = this.assets.open(filename)
             imageView.setImageDrawable(Drawable.createFromStream(img, filename))
         }

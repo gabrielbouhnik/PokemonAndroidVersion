@@ -152,7 +152,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["BULLET"]
     },
     {
       "id": 43,
@@ -609,7 +609,7 @@
         }
       ],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["BULLET"]
     },
     {
       "id": 39,
@@ -1487,7 +1487,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["BULLET"]
     },
     {
       "id": 127,
@@ -2549,6 +2549,24 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
+      "characteristics": ["BULLET"]
+    },
+    {
+      "id": 278,
+      "name": "Infernal Parade",
+      "power": 60,
+      "pp": 15,
+      "type": 13,
+      "category": "SPECIAL",
+      "description": "The user attacks with myriad fireballs. This may also leave the target with a burn. This move's power is doubled if the target has a status condition.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false,
       "characteristics": []
     }
   ],
@@ -2623,6 +2641,20 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "The user attacks twice using Dreepy.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 277,
+      "name": "Twin Beam",
+      "power": 40,
+      "pp": 10,
+      "type": 12,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user shoots mystical beams from its eyes to inflict damage. The target is hit twice in a row.",
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
@@ -2714,7 +2746,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["BULLET"]
     },
     {
       "id": 99,
@@ -2742,7 +2774,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["BULLET"]
     },
     {
       "id": 151,
@@ -3020,7 +3052,7 @@
       "probability": 20,
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["BULLET"]
     },
     {
       "id": 30,
@@ -3360,7 +3392,7 @@
       "probability": 10,
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["BULLET"]
     },
     {
       "id": 140,
@@ -4008,6 +4040,26 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 276,
+      "name": "Headlong Rush",
+      "power": 120,
+      "pp": 5,
+      "type": 10,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user smashes into the target in a full-body tackle. This also lowers the user's Defense and Sp. Def stats.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE",
+        "SPDEF"
+      ],
+      "target": "SELF",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "drainMoves": [
@@ -4396,7 +4448,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["BULLET"]
     }
   ],
   "movesBasedOnHPEntity": [

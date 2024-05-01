@@ -4789,9 +4789,9 @@
           "itemHeld": "LEFTOVERS"
         },
         {
-          "id": 89,
+          "id": 10089,
           "level": 80,
-          "moveIds": [155,107,69,25],
+          "moveIds": [62,107,27,25],
           "itemHeld": "BLACK_SLUDGE"
         },
         {

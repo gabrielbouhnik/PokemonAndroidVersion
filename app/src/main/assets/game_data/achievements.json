@@ -31,7 +31,7 @@
   },
   {
     "id": 4,
-    "description": "Beat Articuno without using an Electric-type Pokemon",
+    "description": "Beat Articuno without having an Electric-type Pokemon in your team",
     "pokemonReward": [
       {
         "id": 144,
@@ -42,7 +42,7 @@
   },
   {
     "id": 5,
-    "description": "Beat Moltres without using a Water-type Pokemon",
+    "description": "Beat Moltres without having an Water-type Pokemon in your team",
     "pokemonReward": [
       {
         "id": 146,
@@ -53,7 +53,7 @@
   },
   {
     "id": 6,
-    "description": "Beat Zapdos without using any ground types Pokemon",
+    "description": "Beat Zapdos without having an Ground-type Pokemon in your team",
     "pokemonReward": [
       {
         "id": 145,
@@ -164,6 +164,45 @@
       {
         "id": 158,
         "level": 10
+      }
+    ],
+    "itemRewards": []
+  },
+  {
+    "id": 19,
+    "description": "Catch 30 different Pokémon",
+    "pokemonReward": [
+      {
+        "id": 10088,
+        "level": 10
+      }
+    ],
+    "itemRewards": []
+  },
+  {
+    "id": 20,
+    "description": "Catch 50 different Pokémon",
+    "pokemonReward": [],
+    "itemRewards": [131]
+  },
+  {
+    "id": 21,
+    "description": "Catch 150 different Pokémon",
+    "pokemonReward": [
+      {
+        "id": 10157,
+        "level": 80
+      }
+    ],
+    "itemRewards": []
+  },
+  {
+    "id": 22,
+    "description": "Catch 200 different Pokémon",
+    "pokemonReward": [
+      {
+        "id": 150,
+        "level": 80
       }
     ],
     "itemRewards": []

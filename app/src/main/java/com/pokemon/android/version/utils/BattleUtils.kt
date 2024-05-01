@@ -179,12 +179,14 @@ class BattleUtils {
 
         fun trainerStarts(pokemon: Pokemon, other: Pokemon, move: Move, opponentMove: Move): Boolean {
             return when {
-                move.priorityLevel > opponentMove.priorityLevel
-                        || (pokemon.hasAbility(Ability.PRANKSTER) && move.category == MoveCategory.OTHER) -> {
+                (move.priorityLevel > opponentMove.priorityLevel
+                        || (pokemon.hasAbility(Ability.PRANKSTER) && move.category == MoveCategory.OTHER))
+                        && !other.hasAbility(Ability.ARMOR_TAIL) -> {
                     true
                 }
-                move.priorityLevel < opponentMove.priorityLevel
-                        || (other.hasAbility(Ability.PRANKSTER) && opponentMove.category == MoveCategory.OTHER) -> {
+                (move.priorityLevel < opponentMove.priorityLevel
+                        || (other.hasAbility(Ability.PRANKSTER) && opponentMove.category == MoveCategory.OTHER))
+                        && !pokemon.hasAbility(Ability.ARMOR_TAIL) -> {
                     false
                 }
                 else -> {

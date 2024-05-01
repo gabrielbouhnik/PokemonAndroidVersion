@@ -123,7 +123,7 @@ class DamageCalculator {
                 if (opponent.hasAbility(Ability.DRY_SKIN))
                     power *= 2f
             }
-            if (move.id == 224 && (opponent.status != Status.OK || opponent.battleData!!.battleStatus.contains(Status.CONFUSED))) {
+            if ((move.id == 224 || move.id == 278) && (opponent.status != Status.OK || opponent.battleData!!.battleStatus.contains(Status.CONFUSED))) {
                 power *= 2f
             }
             if (move.id == 232 && (opponent.status == Status.POISON || opponent.status == Status.BADLY_POISON)) {

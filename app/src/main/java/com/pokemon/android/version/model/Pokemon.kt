@@ -203,6 +203,12 @@ open class Pokemon(
                 )
             }
         }
+        if (move.move.characteristics.contains(MoveCharacteristic.BULLET) && opponent.hasAbility(Ability.BULLETPROOF)) {
+            return AttackResponse(
+                false,
+                "${opponent.data.name}'s Bulletproof: It does not affect ${opponent.data.name}\n"
+            )
+        }
         if (move.move is RecoilMove && (move.move as RecoilMove).recoil == Recoil.ALL && opponent.hasAbility(Ability.DAMP)) {
             return AttackResponse(
                 false,

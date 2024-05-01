@@ -10940,7 +10940,7 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
-          "moveId": 1,
+          "moveId": 2,
           "level": 3
         },
         {
@@ -11007,7 +11007,7 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
-          "moveId": 1,
+          "moveId": 2,
           "level": 3
         },
         {
@@ -13223,6 +13223,10 @@
           "level": 28
         },
         {
+          "moveId": 277,
+          "level": 32
+        },
+        {
           "moveId": 27,
           "level": 37
         },
@@ -13245,7 +13249,14 @@
     "spDef": 65,
     "speed": 85,
     "catchRate": 50,
-    "evolutions": [],
+    "evolutions": [
+      {
+        "evolutionId": 981,
+        "evolutionCondition": {
+          "moveId": 277
+        }
+      }
+    ],
     "abilities": ["INNER_FOCUS","EARLY_BIRD"],
     "expGaugeType":  "MEDIUM_FAST"
   },
@@ -14143,7 +14154,14 @@
     "spDef": 75,
     "speed": 55,
     "catchRate": 60,
-    "evolutions": [],
+    "evolutions": [
+      {
+        "evolutionId": 901,
+        "evolutionCondition": {
+          "itemId": 131
+        }
+      }
+    ],
     "abilities": ["GUTS","QUICK_FEET"],
     "expGaugeType":  "MEDIUM_FAST"
   },
@@ -19928,6 +19946,355 @@
     "evolutions": [],
     "abilities": ["CURSED_BODY","CLEAR_BODY"],
     "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 901,
+    "name": "Ursaluna",
+    "type1": 5,
+    "type2": 10,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 276,
+          "level": 1
+        },
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 65,
+          "level": 1
+        },
+        {
+          "moveId": 151,
+          "level": 8
+        },
+        {
+          "moveId": 158,
+          "level": 17
+        },
+        {
+          "moveId": 38,
+          "level": 22
+        },
+        {
+          "moveId": 73,
+          "level": 29
+        },
+        {
+          "moveId": 171,
+          "level": 35
+        },
+        {
+          "moveId": 147,
+          "level": 41
+        },
+        {
+          "moveId": 215,
+          "level": 48
+        },
+        {
+          "moveId": 196,
+          "level": 56
+        },
+        {
+          "moveId": 149,
+          "level": 64
+        }
+      ],
+      "movesLearnWithTM": [72,25,36,69,73,87,93,103,107,110,114,140,206,221,267],
+      "bannerMoves": []
+    },
+    "hp": 130,
+    "attack": 140,
+    "defense": 105,
+    "spAtk": 45,
+    "spDef": 80,
+    "speed": 50,
+    "catchRate": 20,
+    "evolutions": [],
+    "abilities": ["GUTS"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 981,
+    "name": "Farigiraf",
+    "type1": 5,
+    "type2": 12,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 47,
+          "level": 1
+        },
+        {
+          "moveId": 39,
+          "level": 5
+        },
+        {
+          "moveId": 251,
+          "level": 10
+        },
+        {
+          "moveId": 63,
+          "level": 14
+        },
+        {
+          "moveId": 59,
+          "level": 19
+        },
+        {
+          "moveId": 21,
+          "level": 23
+        },
+        {
+          "moveId": 162,
+          "level": 28
+        },
+        {
+          "moveId": 277,
+          "level": 32
+        },
+        {
+          "moveId": 27,
+          "level": 37
+        },
+        {
+          "moveId": 173,
+          "level": 46
+        },
+        {
+          "moveId": 45,
+          "level": 50
+        }
+      ],
+      "movesLearnWithTM": [72,12,30,44,45,46,55,105,148,173,176,177,184,219],
+      "bannerMoves": []
+    },
+    "hp": 120,
+    "attack": 90,
+    "defense": 70,
+    "spAtk": 110,
+    "spDef": 70,
+    "speed": 60,
+    "catchRate": 45,
+    "evolutions": [],
+    "abilities": ["ARMOR_TAIL"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 10088,
+    "name": "Grimer",
+    "type1": 8,
+    "type2": 17,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 64,
+          "level": 1
+        },
+        {
+          "moveId": 83,
+          "level": 1
+        },
+        {
+          "moveId": 154,
+          "level": 7
+        },
+        {
+          "moveId": 265,
+          "level": 12
+        },
+        {
+          "moveId": 86,
+          "level": 15
+        },
+        {
+          "moveId": 209,
+          "level": 21
+        },
+        {
+          "moveId": 247,
+          "level": 29
+        },
+        {
+          "moveId": 27,
+          "level": 32
+        },
+        {
+          "moveId": 155,
+          "level": 40
+        },
+        {
+          "moveId": 156,
+          "level": 43
+        }
+      ],
+      "movesLearnWithTM": [
+        37,62,221
+      ],
+      "bannerMoves": []
+    },
+    "hp": 80,
+    "attack": 80,
+    "defense": 50,
+    "spAtk": 40,
+    "spDef": 50,
+    "speed": 25,
+    "catchRate": 190,
+    "evolutions": [
+      {
+        "evolutionId": 10089,
+        "evolutionCondition": {
+          "level": 38
+        }
+      }
+    ],
+    "abilities": ["POISON_TOUCH"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 10089,
+    "name": "Muk",
+    "type1": 8,
+    "type2": 17,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 64,
+          "level": 1
+        },
+        {
+          "moveId": 83,
+          "level": 1
+        },
+        {
+          "moveId": 154,
+          "level": 7
+        },
+        {
+          "moveId": 265,
+          "level": 12
+        },
+        {
+          "moveId": 86,
+          "level": 15
+        },
+        {
+          "moveId": 209,
+          "level": 21
+        },
+        {
+          "moveId": 247,
+          "level": 29
+        },
+        {
+          "moveId": 27,
+          "level": 32
+        },
+        {
+          "moveId": 155,
+          "level": 40
+        },
+        {
+          "moveId": 156,
+          "level": 46
+        }
+      ],
+      "movesLearnWithTM": [
+        37,25,62,69,92,103,107,110,176,177,221
+      ],
+      "bannerMoves": []
+    },
+    "hp": 105,
+    "attack": 105,
+    "defense": 75,
+    "spAtk": 65,
+    "spDef": 100,
+    "speed": 50,
+    "catchRate": 75,
+    "evolutions": [],
+    "abilities": ["POISON_TOUCH"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 10157,
+    "name": "Typhlosion",
+    "type1": 2,
+    "type2": 13,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 278,
+          "level": 1
+        },
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 42,
+          "level": 6
+        },
+        {
+          "moveId": 7,
+          "level": 10
+        },
+        {
+          "moveId": 3,
+          "level": 13
+        },
+        {
+          "moveId": 74,
+          "level": 20
+        },
+        {
+          "moveId": 172,
+          "level": 31
+        },
+        {
+          "moveId": 112,
+          "level": 35
+        },
+        {
+          "moveId": 170,
+          "level": 43
+        },
+        {
+          "moveId": 31,
+          "level": 48
+        },
+        {
+          "moveId": 147,
+          "level": 69
+        },
+        {
+          "moveId": 231,
+          "level": 74
+        },
+        {
+          "moveId": 212,
+          "level": 80
+        }
+      ],
+      "movesLearnWithTM": [72,25,31,46,82,93,103,110,113,135,138,172,176,177,200,261],
+      "bannerMoves": []
+    },
+    "hp": 73,
+    "attack": 84,
+    "defense": 78,
+    "spAtk": 119,
+    "spDef": 85,
+    "speed": 95,
+    "catchRate": 45,
+    "evolutions": [],
+    "abilities": ["BLAZE"],
+    "expGaugeType": "MEDIUM_SLOW"
   },
   {
     "id": -1,
