@@ -73,4 +73,13 @@
     <string name="new_item_available_in_shop">
         New items are available in Poké Mart!
     </string>
+    <string name="hard_mode_title">
+        Would you like to play in hard mode?
+    </string>
+    <string name="hard_mode_details">
+        In hard mode, resources like in-game currency and items will be harder to get.
+        Only TMs will be accessible via mystery gift.
+        This means that you will not be able to get some Pokémons and specific kinds of Poké Ball (including Hyper Balls) in hard mode.
+        WARNING: This cannot be changed throughout the game.
+    </string>
 </resources>

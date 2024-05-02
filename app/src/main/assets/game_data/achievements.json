@@ -23,11 +23,14 @@
   },
   {
     "id": 3,
-    "description": "Beat Dugtrio with a team of Pokemon below level 35",
-    "pokemonReward": [],
-    "itemRewards": [
-      59
-    ]
+    "description": "Beat Marowak with a team of Fire-type Pokemon",
+    "pokemonReward": [
+      {
+        "id": 10105,
+        "level": 40
+      }
+    ],
+    "itemRewards": []
   },
   {
     "id": 4,
@@ -182,12 +185,36 @@
   {
     "id": 20,
     "description": "Catch 50 different Pokémon",
-    "pokemonReward": [],
-    "itemRewards": [131]
+    "pokemonReward": [
+      {
+        "id": 10058,
+        "level": 10
+      }
+    ],
+    "itemRewards": []
   },
   {
     "id": 21,
+    "description": "Catch 100 different Pokémon",
+    "pokemonReward": [
+      {
+        "id": 10100,
+        "level": 10
+      }
+    ],
+    "itemRewards": []
+  },
+  {
+    "id": 22,
     "description": "Catch 150 different Pokémon",
+    "pokemonReward": [
+
+    ],
+    "itemRewards": [131]
+  },
+  {
+    "id": 23,
+    "description": "Catch 200 different Pokémon",
     "pokemonReward": [
       {
         "id": 10157,
@@ -197,8 +224,8 @@
     "itemRewards": []
   },
   {
-    "id": 22,
-    "description": "Catch 200 different Pokémon",
+    "id": 24,
+    "description": "Catch 250 different Pokémon",
     "pokemonReward": [
       {
         "id": 150,

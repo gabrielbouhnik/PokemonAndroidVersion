@@ -4060,6 +4060,26 @@
       "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 279,
+      "name": "Shadow Bone",
+      "power": 85,
+      "pp": 15,
+      "type": 13,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user attacks by beating the target with a bone that contains a spirit. This may also lower the target's Defense stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE"
+      ],
+      "probability": 20,
+      "target": "OPPONENT",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "drainMoves": [
@@ -4298,12 +4318,42 @@
       "name": "Wave Crash",
       "power": 120,
       "category": "PHYSICAL",
-      "pp": 15,
+      "pp": 10,
       "type": 3,
       "accuracy": 100,
       "description": "The user shrouds itself in water and slams into the target with its whole body to inflict damage. This also damages the user quite a lot.",
       "priorityLevel": 0,
       "recoil": "THIRD",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 280,
+      "name": "Chloroblast",
+      "power": 150,
+      "category": "SPECIAL",
+      "pp": 5,
+      "type": 1,
+      "accuracy": 95,
+      "description": "The user launches its amassed chlorophyll to inflict damage on the target. This also damages the user",
+      "priorityLevel": 0,
+      "recoil": "HALF",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 281,
+      "name": "Head Smash",
+      "power": 120,
+      "category": "PHYSICAL",
+      "pp": 5,
+      "type": 9,
+      "accuracy": 80,
+      "description": "The user attacks the target with a hazardous full-power headbutt. This also damages the user terribly.",
+      "priorityLevel": 0,
+      "recoil": "HALF",
       "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]

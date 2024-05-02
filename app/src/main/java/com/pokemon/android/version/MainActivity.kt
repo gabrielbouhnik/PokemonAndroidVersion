@@ -31,17 +31,18 @@ class MainActivity : AppCompatActivity() {
         const val armoredMewtwoUrl: String = "https://www.serebii.net/pokemongo/pokemon/150-armored.png"
         val idForSVsprites = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 23, 24, 25, 26, 27, 28, 35, 36, 37, 38, 39, 40, 43, 44,
             45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 69, 70, 71, 72, 73, 74, 75, 76, 79, 80, 81, 82, 84,
-            85, 86, 87, 88, 89, 90, 91, 93, 94, 100, 101, 102, 103, 109, 110, 111, 112, 113, 116, 117, 123, 125, 126, 128, 129, 130, 131,
+            85, 86, 87, 88, 89, 90, 91, 93, 94, 100, 101, 102, 103, 106, 107, 109, 110, 111, 112, 113, 116, 117, 123, 125, 126, 128, 129, 130, 131,
             132, 133, 134, 135, 136, 137, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157,
             158, 159, 160, 161, 162, 163, 164, 167, 168, 173, 181, 182, 183, 184, 186, 187, 188, 189, 190, 193, 195,
             196, 197, 198, 199, 203, 204, 205, 207, 209, 210, 211, 212, 214, 215, 216, 217, 218, 219, 228, 229, 230,
             231, 232, 233, 236, 237, 239, 240, 242, 243, 244, 245, 246, 247, 248, 272, 282, 285, 286, 296, 297, 308,
             330, 342, 350, 373, 376, 381, 398, 405, 418, 419, 424, 426, 429, 430, 435, 442, 448, 453, 454, 461, 462,
             464, 466, 467, 469, 470, 471, 472, 473, 474, 475, 476, 477, 488, 534, 553, 602, 603, 604, 607, 608, 609, 619, 620,
-            625, 633, 634, 635, 639, 645, 646, 700, 701, 715, 856, 857, 858, 878, 879, 885, 886, 887, 901, 981, 10088, 10089, 10157
+            625, 633, 634, 635, 639, 645, 646, 700, 701, 715, 856, 857, 858, 878, 879, 885, 886, 887, 901, 981,
+            10058, 10059, 10088, 10089, 10100, 10101, 10157
         )
-        val alolan_forms_id = listOf(10088, 10089)
-        val hisui_forms_id = listOf(10157)
+        val alolan_forms_id = listOf(10088, 10089, 10105)
+        val hisui_forms_id = listOf(10058, 10059, 10100, 10101, 10157)
     }
 
     private var currentMusicId: Int? = null
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
     var gameDataService: GameDataService = GameDataService()
     var mainMenu: MainMenu = MainMenu()
     var eliteMode: Boolean = false
+    var hardMode: Boolean = false
 
     fun displayStarters() {
         val bulbasaur: Pokemon = gameDataService.generatePokemon(1, 5)
@@ -183,6 +185,8 @@ class MainActivity : AppCompatActivity() {
                 if (trainer!!.progression >= LevelMenu.ELITE_4_LAST_LEVEL_ID) {
                     gameDataService.increaseLevelDifficulty()
                 }
+                if (hardMode)
+                    gameDataService.updateShopForHardMode()
                 mainMenu.loadGameMenu(this)
             }
         }
@@ -210,6 +214,27 @@ class MainActivity : AppCompatActivity() {
             .setTitle("Info")
             .setCancelable(false)
             .setPositiveButton("OK, got it!") { dialog, _ ->
+                dialog.dismiss()
+                if (message == getString(R.string.tutorial_game))
+                    showHardModeDialog()
+            }
+            .create()
+            .show()
+    }
+
+    private fun showHardModeDialog() {
+        val builder: AlertDialog.Builder = this.let {
+            AlertDialog.Builder(it)
+        }
+        builder.setMessage(getString(R.string.hard_mode_details))
+            .setTitle(getString(R.string.hard_mode_title))
+            .setCancelable(false)
+            .setPositiveButton("Yes") { dialog, _ ->
+                hardMode = true
+                findViewById<Button>(R.id.bannersButton).visibility = GONE
+                dialog.dismiss()
+            }
+            .setNegativeButton("No") { dialog, _ ->
                 dialog.dismiss()
             }
             .create()

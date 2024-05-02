@@ -22,7 +22,7 @@ class Achievement(var id: Int, var description: String, var pokemonRewards: List
             when (id) {
                 1 -> return activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID
                 2 -> return activity.trainer!!.achievements!!.leagueDefeatedSecondTime
-                3 -> return activity.trainer!!.achievements!!.dugtrioAchievement
+                3 -> return activity.trainer!!.achievements!!.marowakAchievement
                 4 -> return activity.trainer!!.achievements!!.articunoAchievement
                 5 -> return activity.trainer!!.achievements!!.moltresAchievement
                 6 -> return activity.trainer!!.achievements!!.zapdosAchievement
@@ -40,8 +40,10 @@ class Achievement(var id: Int, var description: String, var pokemonRewards: List
                 18 -> return activity.trainer!!.achievements!!.ceruleanGymAchievement
                 19 -> return activity.trainer!!.pokedex.values.filter { it }.size > 30
                 20 -> return activity.trainer!!.pokedex.values.filter { it }.size > 50
-                21 -> return activity.trainer!!.pokedex.values.filter { it }.size > 150
-                22 -> return activity.trainer!!.pokedex.values.filter { it }.size > 200
+                21 -> return activity.trainer!!.pokedex.values.filter { it }.size > 100
+                22 -> return activity.trainer!!.pokedex.values.filter { it }.size > 150
+                23 -> return activity.trainer!!.pokedex.values.filter { it }.size > 200
+                24 -> return activity.trainer!!.pokedex.values.filter { it }.size > 250
             }
             return false
         }

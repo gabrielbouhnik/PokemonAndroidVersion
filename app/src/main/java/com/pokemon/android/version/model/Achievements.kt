@@ -4,7 +4,7 @@ class Achievements(
     var leadersDefeatedAfterTheLeague: ArrayList<Int> = arrayListOf(),
     var leagueDefeatedSecondTime: Boolean = false,
     var ceruleanGymAchievement: Boolean = false,
-    var dugtrioAchievement: Boolean = false,
+    var marowakAchievement: Boolean = false,
     var celadonGymAchievement: Boolean = false,
     var articunoAchievement: Boolean = false,
     var cinnbarGymAchievement: Boolean = false,

@@ -46,6 +46,8 @@ class SaveManager {
                     SimpleDateFormat("yyyy-MM-dd").parse(trainerSave.lastTimeDailyHealUsed!!)
             if (trainerSave.eliteMode != null)
                 activity.eliteMode = trainerSave.eliteMode!!
+            if (trainerSave.hardMode != null)
+                activity.hardMode = trainerSave.hardMode!!
             if (trainerSave.battleFactorySave != null)
                 trainer.battleFactoryProgression =
                     BattleFrontierProgression.of(trainerSave.battleFactorySave!!, activity.gameDataService, trainer)
@@ -62,7 +64,7 @@ class SaveManager {
         }
 
         fun save(activity: MainActivity) {
-            val trainerSave: TrainerSave = TrainerSave.of(activity.trainer!!, activity.eliteMode)
+            val trainerSave: TrainerSave = TrainerSave.of(activity.trainer!!, activity.eliteMode, activity.hardMode)
             val gsonPretty = GsonBuilder().setPrettyPrinting().create()
             val jsonSave: String = gsonPretty.toJson(trainerSave)
             activity.openFileOutput(SAVE_FILE_PATH, Context.MODE_PRIVATE).use { output ->

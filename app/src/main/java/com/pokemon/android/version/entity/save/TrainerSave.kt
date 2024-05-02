@@ -15,6 +15,7 @@ class TrainerSave(
     var progression: Int,
     var lastTimeDailyHealUsed: String?,
     var eliteMode: Boolean?,
+    var hardMode: Boolean?,
     var eliteProgression: Int,
     var battleTowerSave: BattleFrontierSave?,
     var battleFactorySave: BattleFrontierSave?,
@@ -23,7 +24,7 @@ class TrainerSave(
     var pokedex: List<PokedexItemSave>?
 ) {
     companion object {
-        fun of(trainer: Trainer, eliteMode: Boolean): TrainerSave {
+        fun of(trainer: Trainer, eliteMode: Boolean, hardMode: Boolean): TrainerSave {
             val pokedex: ArrayList<PokedexItemSave> = arrayListOf()
             trainer.pokedex.forEach { (key, value) -> pokedex.add(PokedexItemSave(key, value)) }
             return TrainerSave(trainer.name, trainer.gender.toString().uppercase(),
@@ -34,6 +35,7 @@ class TrainerSave(
                 trainer.progression,
                 if (trainer.lastTimeDailyHealUsed == null) null else SimpleDateFormat("yyyy-MM-dd").format(trainer.lastTimeDailyHealUsed),
                 eliteMode,
+                hardMode,
                 trainer.eliteProgression,
                 if (trainer.battleTowerProgression == null) null else BattleFrontierSave.of(trainer.battleTowerProgression!!),
                 if (trainer.battleFactoryProgression == null) null else BattleFrontierSave.of(trainer.battleFactoryProgression!!),

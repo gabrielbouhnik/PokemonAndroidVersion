@@ -37,10 +37,14 @@ class AchievementRecyclerAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = data[position]
         holder.achievementDescrTextView.text = currentItem.description
-        if (Achievement.isClaimable(activity, currentItem.id))
-            holder.achievementDescrTextView.setTextColor(Color.RED)
-        else if (activity.trainer!!.successfulAchievements.contains(currentItem.id)) {
-            holder.achievementDescrTextView.setTextColor(Color.GRAY)
+        when {
+            Achievement.isClaimable(activity, currentItem.id) -> holder.achievementDescrTextView.setTextColor(Color.RED)
+            activity.trainer!!.successfulAchievements.contains(currentItem.id) -> {
+                holder.achievementDescrTextView.setTextColor(Color.GRAY)
+            }
+            else -> {
+                holder.achievementDescrTextView.setTextColor(Color.WHITE)
+            }
         }
         holder.claimRewardButton.setOnClickListener {
             when {

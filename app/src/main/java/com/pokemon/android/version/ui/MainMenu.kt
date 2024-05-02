@@ -45,6 +45,8 @@ class MainMenu {
                 pokemonMenu.loadPokemonMenu(activity)
         }
         val bannersButton: Button = activity.findViewById(R.id.bannersButton)
+        if (activity.hardMode && activity.trainer!!.progression <= LevelMenu.MISTY_LEVEL)
+            bannersButton.visibility = GONE
         val shopButton: Button = activity.findViewById(R.id.shopButton)
         if (activity.trainer!!.progression < 3)
             shopButton.visibility = GONE

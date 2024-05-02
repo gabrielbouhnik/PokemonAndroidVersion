@@ -175,6 +175,8 @@ class DamageCalculator {
                 return 0
             if (move.type == Type.GROUND && opponent.hasAbility(Ability.LEVITATE))
                 return 0
+            if (move.characteristics.contains(MoveCharacteristic.BULLET) && opponent.hasAbility(Ability.BULLETPROOF))
+                return 0
             if (move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(Ability.DRY_SKIN)))
                 return 0
             if (move.type == Type.ELECTRIC && (opponent.hasAbility(Ability.LIGHTNING_ROD) || opponent.hasAbility(Ability.VOLT_ABSORB) || opponent.hasAbility(

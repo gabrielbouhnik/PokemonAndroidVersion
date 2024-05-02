@@ -26,9 +26,9 @@ class RewardMenu {
                 if (activity.trainer!!.team.all { it.data.id in 152..251 })
                     activity.trainer!!.achievements!!.ceruleanGymAchievement = true
             }
-            LevelMenu.DUGTRIO_LEVEL -> {
-                if (activity.trainer!!.team.none { it.level > 35 })
-                    activity.trainer!!.achievements!!.dugtrioAchievement = true
+            LevelMenu.MAROWAK_LEVEL -> {
+                if (activity.trainer!!.team.all { it.hasType(Type.FIRE)})
+                    activity.trainer!!.achievements!!.marowakAchievement = true
             }
             LevelMenu.ERIKA_LEVEL -> {
                 if (activity.trainer!!.team.all { it.data.id in 152..251 })
@@ -197,7 +197,7 @@ class RewardMenu {
             && !activity.eliteMode
             && levelData.id != BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID) {
             val coinsReward = levelData.rewards.find { it.itemId == 0 }
-            if (coinsReward != null)
+            if (coinsReward != null && !activity.hardMode)
                 activity.trainer!!.coins += coinsReward.quantity / 10
         }
         rewards.forEach {

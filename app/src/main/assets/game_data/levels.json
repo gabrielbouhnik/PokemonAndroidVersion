@@ -4513,10 +4513,10 @@
           "itemHeld": "AIR_BALLOON"
         },
         {
-          "id": 101,
+          "id": 10101,
           "level": 80,
           "moveIds": [
-            228,12,52,112
+            280,12,36,234
           ],
           "itemHeld": "AIR_BALLOON"
         },
@@ -5287,10 +5287,10 @@
           "itemHeld": "LIFE_ORB"
         },
         {
-          "id": 24,
+          "id": 10105,
           "level": 73,
-          "moveIds": [37,27,25,83],
-          "itemHeld": "BLACK_SLUDGE"
+          "moveIds": [116,279,93,103],
+          "itemHeld": ""
         },
         {
           "id": 169,
@@ -5318,10 +5318,10 @@
           "moveIds": [46,37,94,213]
         },
         {
-          "id": 169,
-          "level": 83,
-          "moveIds": [129,50,261,48],
-          "itemHeld": "BLACK_SLUDGE"
+          "id": 10105,
+          "level": 73,
+          "moveIds": [116,279,93,103],
+          "itemHeld": ""
         },
         {
           "id": 429,

@@ -35,14 +35,32 @@ class BannerMenu {
             if (activity.trainer!!.progression < LevelMenu.OTHER_BANNER_LEVEL) activity.gameDataService.banners.filter {
                 it.description.contains("Hyper Ball") || it.description.contains("Pikachu")
             } else activity.gameDataService.banners.filter { it.days.contains(day) }
-        if (activity.trainer!!.progression < LevelMenu.ELITE_4_FIRST_LEVEL_ID)
-            recyclerView.adapter =
-                BannerRecyclerAdapter(activity, (banners.filter { !it.description.contains(" a strong move") }).toMutableList())
-        else
-            recyclerView.adapter = BannerRecyclerAdapter(
-                activity,
-                if (activity.trainer!!.name == ADMIN) activity.gameDataService.banners else banners
-            )
+        if (activity.hardMode) {
+            if (activity.trainer!!.progression in LevelMenu.MISTY_LEVEL..LevelMenu.ELITE_4_FIRST_LEVEL_ID)
+                recyclerView.adapter =
+                    BannerRecyclerAdapter(
+                        activity,
+                        (banners.filter { it.description.contains("a move") }).toMutableList()
+                    )
+            else
+                recyclerView.adapter =
+                    BannerRecyclerAdapter(
+                        activity,
+                        (banners.filter { it.description.contains(" TM") }).toMutableList()
+                    )
+        } else {
+            if (activity.trainer!!.progression < LevelMenu.ELITE_4_FIRST_LEVEL_ID)
+                recyclerView.adapter =
+                    BannerRecyclerAdapter(
+                        activity,
+                        (banners.filter { !it.description.contains(" a strong move") }).toMutableList()
+                    )
+            else
+                recyclerView.adapter = BannerRecyclerAdapter(
+                    activity,
+                    if (activity.trainer!!.name == ADMIN) activity.gameDataService.banners else banners
+                )
+        }
     }
 
     fun loadSummonResultScreen(activity: MainActivity, banner: Banner, s: Summonable) {
