@@ -22,15 +22,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/levelDescrBackButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="548dp" app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintVertical_bias="0.666"/>
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="32dp"/>
     <Button
             android:text="Start"
             android:layout_width="198dp"
             android:layout_height="83dp" android:id="@+id/levelDescrStartButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="548dp" app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintVertical_bias="0.0" android:textSize="30sp"/>
+            app:layout_constraintHorizontal_bias="0.497"
+            android:textSize="30sp" android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/levelDescrBackButton"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

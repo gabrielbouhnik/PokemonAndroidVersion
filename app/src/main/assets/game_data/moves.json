@@ -11,7 +11,8 @@
       "description": "Hard, pointed, sharp claws rake the target to inflict damage.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 2,
@@ -24,7 +25,8 @@
       "description": "A physical attack in which the user charges and slams into the target with its whole body.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 3,
@@ -37,7 +39,8 @@
       "description": "The user lunges at the target at a speed that makes it almost invisible. This move always goes first.",
       "priorityLevel": 1,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 4,
@@ -50,7 +53,8 @@
       "description": "A gust of wind is whipped up by wings and launched at the target to inflict damage.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 5,
@@ -63,7 +67,8 @@
       "description": "The target is struck with slender, whiplike vines to inflict damage.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 6,
@@ -76,7 +81,8 @@
       "description": "The target is blasted with a forceful shot of water.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 11,
@@ -89,20 +95,8 @@
       "description": "The target is jabbed with a sharply pointed beak or horn.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
-    },
-    {
-      "id": 13,
-      "name": "Iron Tail",
-      "power": 100,
-      "pp": 15,
-      "type": 16,
-      "category": "PHYSICAL",
-      "accuracy": 75,
-      "description": "",
-      "priorityLevel": 0,
-      "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 14,
@@ -112,10 +106,11 @@
       "type": 11,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user throws a punch at blinding speed. This move always goes first.",
       "priorityLevel": 1,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT","PUNCH"]
     },
     {
       "id": 16,
@@ -128,7 +123,8 @@
       "description": "The target is struck with large, imposing wings spread wide to inflict damage.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 29,
@@ -138,10 +134,11 @@
       "type": 9,
       "category": "PHYSICAL",
       "accuracy": 90,
-      "description": "",
+      "description": "The user picks up and throws a small rock at the target to attack.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 36,
@@ -154,7 +151,8 @@
       "description": "The user picks up and throws a small rock at the target to attack.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["BULLET"]
     },
     {
       "id": 43,
@@ -167,7 +165,8 @@
       "description": "The user attacks everything around it by swamping its surroundings with a giant wave.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 44,
@@ -177,10 +176,11 @@
       "type": 18,
       "category": "SPECIAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user damages opposing Pokémon by emitting a powerful flash.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 51,
@@ -193,7 +193,8 @@
       "description": "The user attacks with a ray of light that sparkles as if it were made of gemstones.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 56,
@@ -206,7 +207,8 @@
       "description": "The user slashes at the target by crossing its scythes or claws as if they were a pair of scissors. This move has a heightened chance of landing a critical hit.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["SLICE"]
     },
     {
       "id": 64,
@@ -219,7 +221,8 @@
       "description": "The target is physically pounded with a long tail, a foreleg, or the like.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 69,
@@ -229,10 +232,11 @@
       "type": 11,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user attacks with a swift chop.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 75,
@@ -245,7 +249,8 @@
       "description": "The user charges the target at blinding speed. This move always goes first.",
       "priorityLevel": 2,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 79,
@@ -258,7 +263,8 @@
       "description": "The user attacks by swinging its tail as if it were a vicious wave in a raging storm.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 80,
@@ -271,7 +277,8 @@
       "description": "The target is blasted by a huge volume of water launched under great pressure.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 90,
@@ -281,10 +288,11 @@
       "type": 6,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "A corkscrewing attack that strikes the target with a sharp beak acting as a drill.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 93,
@@ -297,7 +305,8 @@
       "description": "The user sets off an earthquake that strikes every Pokémon around it.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 95,
@@ -310,7 +319,8 @@
       "description": "The user flash-freezes chunks of ice and hurls them at the target. This move always goes first.",
       "priorityLevel": 1,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 96,
@@ -323,7 +333,8 @@
       "description": "The user lunges at the target at a speed that makes it almost invisible. This move always goes first.",
       "priorityLevel": 1,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 104,
@@ -336,7 +347,8 @@
       "description": "The target is attacked with a shock wave generated by the user's gaping mouth.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 108,
@@ -346,10 +358,11 @@
       "type": 15,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user slashes the target with huge sharp claws.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 7,
@@ -364,10 +377,12 @@
       "status": [
         {
           "status": "BURN",
-          "probability": 10
+          "probability": 10,
+          "target": "OPPONENT"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 8,
@@ -382,10 +397,12 @@
       "status": [
         {
           "status": "PARALYSIS",
-          "probability": 10
+          "probability": 10,
+          "target": "OPPONENT"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 12,
@@ -403,7 +420,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 15,
@@ -421,7 +439,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 17,
@@ -439,7 +458,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 23,
@@ -457,7 +477,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 24,
@@ -475,7 +496,8 @@
           "probability": 20
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 25,
@@ -493,7 +515,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 28,
@@ -503,7 +526,7 @@
       "type": 5,
       "category": "PHYSICAL",
       "accuracy": 90,
-      "description": "",
+      "description": "The user bites hard on the target with its sharp front fangs. This may also make the target flinch.",
       "priorityLevel": 0,
       "status": [
         {
@@ -511,7 +534,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 31,
@@ -529,7 +553,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 34,
@@ -539,14 +564,15 @@
       "type": 8,
       "category": "OTHER",
       "accuracy": 75,
-      "description": "",
+      "description": "The user scatters a cloud of poisonous dust that poisons the target.",
       "priorityLevel": 0,
       "status": [
         {
           "status": "POISON"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["POWDER"]
     },
     {
       "id": 35,
@@ -563,7 +589,8 @@
           "status": "ASLEEP"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["POWDER"]
     },
     {
       "id": 37,
@@ -581,7 +608,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["BULLET"]
     },
     {
       "id": 39,
@@ -599,7 +627,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 47,
@@ -617,7 +646,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 48,
@@ -634,7 +664,8 @@
           "status": "CONFUSED"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 50,
@@ -652,7 +683,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 52,
@@ -670,7 +702,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 53,
@@ -688,7 +721,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 54,
@@ -706,7 +740,8 @@
           "probability": 20
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 55,
@@ -723,7 +758,8 @@
           "status": "PARALYSIS"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 57,
@@ -741,7 +777,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 59,
@@ -759,7 +796,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 62,
@@ -777,7 +815,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 63,
@@ -795,7 +834,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 65,
@@ -813,7 +853,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 70,
@@ -823,7 +864,7 @@
       "type": 10,
       "category": "PHYSICAL",
       "accuracy": 85,
-      "description": "",
+      "description": "The user clubs the target with a bone. This may also make the target flinch.",
       "priorityLevel": 0,
       "status": [
         {
@@ -831,7 +872,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 72,
@@ -849,7 +891,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 74,
@@ -867,7 +910,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 81,
@@ -885,7 +929,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 82,
@@ -903,7 +948,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 83,
@@ -917,10 +963,11 @@
       "priorityLevel": 0,
       "status": [
         {
-          "status": "POISON"
+          "status": "BADLY_POISON"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 85,
@@ -930,7 +977,7 @@
       "type": 8,
       "category": "SPECIAL",
       "accuracy": 70,
-      "description": "",
+      "description": "The target is attacked with a discharge of filthy gases. This may also poison the target.",
       "priorityLevel": 0,
       "status": [
         {
@@ -938,7 +985,8 @@
           "probability": 40
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 86,
@@ -956,7 +1004,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 88,
@@ -974,7 +1023,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 92,
@@ -992,7 +1042,8 @@
           "probability": 20
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 94,
@@ -1009,7 +1060,8 @@
           "status": "ASLEEP"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 98,
@@ -1019,7 +1071,7 @@
       "type": 14,
       "category": "PHYSICAL",
       "accuracy": 90,
-      "description": "",
+      "description": "The user attacks by harshly dropping large icicles onto the target. This may also make the target flinch.",
       "priorityLevel": 0,
       "status": [
         {
@@ -1027,7 +1079,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 100,
@@ -1045,7 +1098,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 101,
@@ -1063,7 +1117,8 @@
           "probability": 30
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 103,
@@ -1081,7 +1136,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT","PUNCH"]
     },
     {
       "id": 106,
@@ -1091,14 +1147,15 @@
       "type": 11,
       "category": "PHYSICAL",
       "accuracy": 50,
-      "description": "",
+      "description": "The user punches the target with full, concentrated power. This confuses the target if it hits.",
       "priorityLevel": 0,
       "status": [
         {
           "status": "CONFUSED"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT","PUNCH"]
     },
     {
       "id": 107,
@@ -1116,7 +1173,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT","PUNCH"]
     },
     {
       "id": 109,
@@ -1129,7 +1187,8 @@
       "description": "Using its tough and impressive horn, the user rams into the target with no letup.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 110,
@@ -1147,7 +1206,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT","PUNCH"]
     },
     {
       "id": 9,
@@ -1157,10 +1217,11 @@
       "type": 11,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "This move can't be used. It's recommended that this move is forgotten. Once forgotten, this move can't be remembered.",
+      "description": "The target is attacked with a sharp chop. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 18,
@@ -1173,7 +1234,8 @@
       "description": "Sharp-edged leaves are launched to slash at opposing Pokémon. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": []
     },
     {
       "id": 33,
@@ -1186,7 +1248,8 @@
       "description": "The user delivers a double chop with its forearms crossed. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 38,
@@ -1199,7 +1262,8 @@
       "description": "The target is attacked with a slash of claws or blades. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 49,
@@ -1212,7 +1276,8 @@
       "description": "The user launches razor-like wind to slash opposing Pokémon. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["SLICE"]
     },
     {
       "id": 68,
@@ -1222,10 +1287,16 @@
       "type": 2,
       "category": "PHYSICAL",
       "accuracy": 90,
-      "description": "",
+      "description": "The user launches a kick that lands a critical hit more easily. This may also leave the target with a burn.",
       "priorityLevel": 0,
-      "status": [],
-      "highCritRate": true
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 10
+        }
+      ],
+      "highCritRate": true,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 78,
@@ -1238,7 +1309,8 @@
       "description": "The user stabs the target from below with sharpened stones. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": []
     },
     {
       "id": 91,
@@ -1251,7 +1323,8 @@
       "description": "The user crashes into its target while rotating its body like a drill. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 112,
@@ -1263,7 +1336,8 @@
       "description": "Star-shaped rays are shot at opposing Pokémon. This attack never misses.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 113,
@@ -1275,7 +1349,8 @@
       "description": "The user confounds the target with speed, then slashes. This attack never misses.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 117,
@@ -1301,7 +1376,8 @@
           "probability": 7
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 118,
@@ -1323,7 +1399,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 119,
@@ -1345,7 +1422,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 120,
@@ -1367,7 +1445,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 121,
@@ -1380,7 +1459,8 @@
       "description": "The user handles a sharp leaf like a sword and attacks by cutting its target. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["CONTACT","SLICE"]
     },
     {
       "id": 123,
@@ -1390,10 +1470,11 @@
       "type": 17,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user slashes the target the instant an opportunity arises. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["CONTACT","SLICE"]
     },
     {
       "id": 124,
@@ -1402,10 +1483,11 @@
       "pp": 10,
       "type": 11,
       "category": "SPECIAL",
-      "description": "",
+      "description": "The user lets loose a blast of aura power from deep within its body at the target. This attack never misses.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["BULLET"]
     },
     {
       "id": 127,
@@ -1418,7 +1500,8 @@
       "description": "The user strikes the target with tough punches as fast as bullets. This move always goes first.",
       "priorityLevel": 1,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT","PUNCH"]
     },
     {
       "id": 129,
@@ -1428,7 +1511,7 @@
       "type": 8,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "A slashing attack with a poisonous blade that may also poison the target. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [
         {
@@ -1436,7 +1519,8 @@
           "probability": 10
         }
       ],
-      "highCritRate": true
+      "highCritRate": true,
+      "characteristics": ["CONTACT","SLICE"]
     },
     {
       "id": 130,
@@ -1446,14 +1530,15 @@
       "type": 2,
       "category": "SPECIAL",
       "accuracy": 85,
-      "description": "",
+      "description": "The target becomes trapped within a fierce vortex of fire that rages for five turns.",
       "priorityLevel": 0,
       "status": [
         {
-          "status": "TRAPPED"
+          "status": "TRAPPED_WITH_DAMAGE"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 131,
@@ -1463,14 +1548,15 @@
       "type": 3,
       "category": "SPECIAL",
       "accuracy": 85,
-      "description": "",
+      "description": "The user traps the target in a violent swirling whirlpool for five turns.",
       "priorityLevel": 0,
       "status": [
         {
-          "status": "TRAPPED"
+          "status": "TRAPPED_WITH_DAMAGE"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 136,
@@ -1488,7 +1574,8 @@
           "probability": 20
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 138,
@@ -1505,7 +1592,8 @@
           "status": "BURN"
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 141,
@@ -1517,7 +1605,8 @@
       "description": "The user scatters curious leaves that chase the target. This attack never misses.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 143,
@@ -1530,7 +1619,1109 @@
       "description": "The user violently whirls its vines, tentacles, or the like to harshly lash the target.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 146,
+      "name": "Sand Tomb",
+      "power": 35,
+      "pp": 15,
+      "type": 10,
+      "category": "PHYSICAL",
+      "accuracy": 85,
+      "description": "The user traps the target inside a harshly raging sandstorm for five turns.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "TRAPPED_WITH_DAMAGE"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 148,
+      "name": "Zen Headbutt",
+      "power": 80,
+      "pp": 15,
+      "type": 12,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The user focuses its willpower to its head and attacks the target. This may also make the target flinch.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 20
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 152,
+      "name": "Crabhammer",
+      "power": 100,
+      "pp": 10,
+      "type": 3,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The target is hammered with a large pincer. Critical hits land more easily.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 153,
+      "name": "Sludge Wave",
+      "power": 95,
+      "pp": 10,
+      "type": 8,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user strikes everything around it by swamping the area with a giant sludge wave. This may also poison those hit.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "POISON",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 155,
+      "name": "Gunk Shot",
+      "power": 120,
+      "pp": 5,
+      "type": 8,
+      "category": "PHYSICAL",
+      "accuracy": 80,
+      "description": "The user shoots filthy garbage at the target to attack. This may also poison the target.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "POISON",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 159,
+      "name": "Yawn",
+      "power": 0,
+      "pp": 10,
+      "type": 5,
+      "category": "OTHER",
+      "description": "The user lets loose a huge yawn that lulls the target into falling asleep on the next turn.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "TIRED"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 160,
+      "name": "Wrap",
+      "power": 15,
+      "pp": 20,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "A long body, vines, or the like are used to wrap and squeeze the target for five turns.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "TRAPPED_WITH_DAMAGE"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 164,
+      "name": "Disarming Voice",
+      "power": 40,
+      "pp": 15,
+      "type": 18,
+      "category": "SPECIAL",
+      "description": "Letting out a charming cry, the user does emotional damage to opposing Pokémon. This attack never misses.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["SOUND"]
+    },
+    {
+      "id": 165,
+      "name": "Sing",
+      "power": 0,
+      "pp": 15,
+      "type": 5,
+      "category": "OTHER",
+      "accuracy": 55,
+      "description": "A soothing lullaby is sung in a calming voice that puts the target into a deep slumber.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "ASLEEP"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["SOUND"]
+    },
+    {
+      "id": 169,
+      "name": "Feint Attack",
+      "power": 60,
+      "pp": 20,
+      "type": 17,
+      "category": "PHYSICAL",
+      "description": "The user approaches the target disarmingly, then throws a sucker punch. This attack never misses.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 170,
+      "name": "Lava Plume",
+      "power": 80,
+      "pp": 15,
+      "type": 2,
+      "category": "SPECIAL",
+      "description": "The user torches everything around it in an inferno of scarlet flames. This may also leave the target with a burn.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 174,
+      "name": "Powder Snow",
+      "power": 40,
+      "pp": 25,
+      "type": 14,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user attacks with a chilling gust of powdery snow. This may also freeze opposing Pokémon.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "FROZEN",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 180,
+      "name": "Vital Throw",
+      "power": 70,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "description": "The user attacks last. In return, this throw move never misses.",
+      "priorityLevel": -1,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 181,
+      "name": "Strength",
+      "power": 80,
+      "pp": 15,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The target is slugged with a punch thrown at maximum power.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 182,
+      "name": "Poison Fang",
+      "power": 50,
+      "pp": 15,
+      "type": 8,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user bites the target with toxic fangs. This may also leave the target badly poisoned.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "BADLY_POISON",
+          "probability": 50
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 185,
+      "name": "Teleport",
+      "power": 0,
+      "pp": 20,
+      "type": 12,
+      "category": "OTHER",
+      "description": "The user teleports to another place.",
+      "priorityLevel": -6,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 186,
+      "name": "Transform",
+      "power": 0,
+      "pp": 10,
+      "type": 5,
+      "category": "OTHER",
+      "description": "The user transforms into a copy of the target right down to having the same move set.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 188,
+      "name": "Mean Look",
+      "power": 0,
+      "pp": 5,
+      "type": 5,
+      "category": "OTHER",
+      "description": "The user affixes the foe with a dark, arresting look. The target becomes unable to flee.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "TRAPPED_WITHOUT_DAMAGE"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 189,
+      "name": "Fairy Wind",
+      "power": 40,
+      "pp": 30,
+      "type": 18,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user stirs up a fairy wind and strikes the target with it.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 192,
+      "name": "Hyper Voice",
+      "power": 90,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 5,
+      "accuracy": 100,
+      "description": "The user lets loose a horribly echoing shout with the power to inflict damage.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["SOUND"]
+    },
+    {
+      "id": 206,
+      "name": "Shadow Claw",
+      "power": 70,
+      "pp": 15,
+      "type": 13,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user slashes with a sharp claw made from shadows. Critical hits land more easily.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 208,
+      "name": "Sucker Punch",
+      "power": 70,
+      "pp": 5,
+      "type": 17,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "This move enables the user to attack first. This move fails if the target is not readying an attack.",
+      "priorityLevel": 1,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 209,
+      "name": "Shadow Punch",
+      "power": 60,
+      "pp": 20,
+      "type": 13,
+      "category": "PHYSICAL",
+      "description": "The user throws a punch from the shadows. This attack never misses.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 210,
+      "name": "High Jump Kick",
+      "power": 130,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The target is attacked with a knee kick from a jump. If it misses, the user is hurt instead.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 215,
+      "name": "High Horsepower",
+      "power": 95,
+      "pp": 10,
+      "type": 10,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The user fiercely attacks the target using its entire body.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 217,
+      "name": "Psycho Cut",
+      "power": 70,
+      "pp": 20,
+      "type": 12,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user tears at the target with blades formed by psychic power. This move has a heightened chance of landing a critical hit.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true,
+      "characteristics": ["SLICE"]
+    },
+    {
+      "id": 218,
+      "name": "Psystrike",
+      "power": 100,
+      "pp": 10,
+      "type": 12,
+      "category": "SPECIAL_AND_PHYSICAL",
+      "accuracy": 100,
+      "description": "The user materializes an odd psychic wave to attack the target. This attack does physical damage.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 219,
+      "name": "Psyshock",
+      "power": 80,
+      "pp": 10,
+      "type": 12,
+      "category": "SPECIAL_AND_PHYSICAL",
+      "accuracy": 100,
+      "description": "The user materializes an odd psychic wave to attack the target. This attack does physical damage.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 220,
+      "name": "Shadow Sneak",
+      "power": 40,
+      "pp": 30,
+      "type": 13,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user extends its shadow and attacks the target from behind. This move always goes first.",
+      "priorityLevel": 1,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 223,
+      "name": "Foul Play",
+      "power": 95,
+      "pp": 15,
+      "type": 17,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user turns the target's strength against it. The higher the target's Attack stat, the greater the damage this move inflicts.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 224,
+      "name": "Hex",
+      "power": 65,
+      "pp": 10,
+      "type": 13,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "This relentless attack does massive damage to a target affected by status conditions.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 232,
+      "name": "Venoshock",
+      "power": 65,
+      "pp": 10,
+      "type": 8,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user drenches the target in a special poisonous liquid. This move's power is doubled if the target is poisoned.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 233,
+      "name": "Gyro Ball",
+      "power": 25,
+      "pp": 5,
+      "type": 16,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user tackles the target with a high-speed spin. The slower the user is than the target, the greater the move's power.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 234,
+      "name": "Leech Seed",
+      "power": 0,
+      "pp": 10,
+      "type": 1,
+      "category": "OTHER",
+      "accuracy": 90,
+      "description": "A seed is planted on the target. It steals some HP from the target every turn.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "LEECH_SEEDED"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 235,
+      "name": "Dragon Rush",
+      "power": 100,
+      "pp": 10,
+      "type": 15,
+      "category": "PHYSICAL",
+      "accuracy": 75,
+      "description": "The user tackles the target while exhibiting overwhelming menace. This may also make the target flinch.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 20
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 237,
+      "name": "Boomburst",
+      "power": 140,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 5,
+      "accuracy": 100,
+      "description": "The user attacks everything around it with the destructive power of a terrible explosive sound.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["SOUND"]
+    },
+    {
+      "id": 240,
+      "name": "Stomping Tantrum",
+      "power": 75,
+      "pp": 10,
+      "type": 10,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "Driven by frustration, the user attacks the target. If the user's previous move has failed, the power of this move doubles.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 241,
+      "name": "Brine",
+      "power": 65,
+      "pp": 15,
+      "type": 3,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "If the target's HP is half or less, this attack will hit with double the power.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 242,
+      "name": "Taunt",
+      "power": 0,
+      "pp": 20,
+      "type": 17,
+      "category": "OTHER",
+      "accuracy": 100,
+      "description": "The target is taunted into a rage that allows it to use only attack moves for three turns.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "TAUNTED"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 243,
+      "name": "Nuzzle",
+      "power": 20,
+      "pp": 20,
+      "type": 4,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user attacks by nuzzling its electrified cheeks against the target. This also leaves the target with paralysis.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "PARALYSIS"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+
+    {
+      "id": 244,
+      "name": "Jump Kick",
+      "power": 100,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 95,
+      "description": "The user jumps up high, then strikes with a kick. If it misses, the user is hurt instead.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 246,
+      "name": "Fake Out",
+      "power": 40,
+      "pp": 10,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "This attack hits first and makes the target flinch. It works only on the first turn each time the user enters battle.",
+      "priorityLevel": 3,
+      "status": [
+        {
+          "status": "FLINCHED"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 247,
+      "name": "Knock Off",
+      "power": 65,
+      "pp": 20,
+      "type": 17,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user slaps down the target's held item, making it unusable for that battle. This move does more damage if the target has a held item.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 251,
+      "name": "Assurance",
+      "power": 60,
+      "pp": 10,
+      "type": 17,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "This move's power is doubled if the target has already taken some damage in the same turn.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 252,
+      "name": "Force Palm",
+      "power": 60,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The target is attacked with a shock wave. This may also leave the target with paralysis.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "PARALYSIS",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 253,
+      "name": "Stun Spore",
+      "power": 0,
+      "pp": 30,
+      "type": 1,
+      "category": "OTHER",
+      "accuracy": 75,
+      "description": "The user scatters a cloud of numbing powder that paralyzes the target.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "PARALYSIS"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["POWDER"]
+    },
+    {
+      "id": 255,
+      "name": "Spore",
+      "power": 0,
+      "pp": 15,
+      "type": 1,
+      "category": "OTHER",
+      "accuracy": 75,
+      "description": "The user scatters bursts of spores that induce sleep.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "ASLEEP"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["POWDER"]
+    },
+    {
+      "id": 256,
+      "name": "Glare",
+      "power": 0,
+      "pp": 30,
+      "type": 5,
+      "category": "OTHER",
+      "accuracy": 100,
+      "description": "The user intimidates the target with the pattern on its belly to cause paralysis.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "PARALYSIS"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 257,
+      "name": "Infestation",
+      "power": 20,
+      "pp": 20,
+      "type": 7,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The target is infested and attacked for four to five turns. The target can't flee during this time.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "TRAPPED_WITH_DAMAGE"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 260,
+      "name": "Stored Power",
+      "power": 20,
+      "pp": 10,
+      "type": 12,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user attacks the target with stored power. The more the user's stats are raised, the greater the move's power.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 261,
+      "name": "Heat Wave",
+      "power": 95,
+      "pp": 10,
+      "type": 2,
+      "category": "SPECIAL",
+      "accuracy": 90,
+      "description": "The user attacks by exhaling hot breath on opposing Pokémon. This may also leave them with a burn.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 263,
+      "name": "Flying Press",
+      "power": 100,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 95,
+      "description": "The user dives down onto the target from the sky. This move is Fighting and Flying type simultaneously.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 264,
+      "name": "Sacred Fire",
+      "power": 100,
+      "pp": 5,
+      "type": 2,
+      "category": "PHYSICAL",
+      "accuracy": 95,
+      "description": "The target is razed with a mystical fire of great intensity. This may also leave the target with a burn.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 50
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 265,
+      "name": "Disable",
+      "power": 0,
+      "pp": 20,
+      "type": 5,
+      "category": "OTHER",
+      "description": "For four turns, the target will be unable to use whichever move it last used.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 266,
+      "name": "Scald",
+      "power": 80,
+      "pp": 15,
+      "type": 3,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user attacks by shooting boiling hot water at the target. This may also leave the target with a burn.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 267,
+      "name": "Body Press",
+      "power": 80,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user attacks by slamming its body into the target. The higher the user's Defense stat, the greater the damage this move deals.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 268,
+      "name": "Freeze-Dry",
+      "power": 70,
+      "pp": 20,
+      "type": 14,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user rapidly cools the target. This may also leave the target frozen. This move is super effective on Water types.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "FROZEN",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 272,
+      "name": "Acrobatics",
+      "power": 55,
+      "pp": 15,
+      "type": 6,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user nimbly strikes the target. This attack does massive damage if the user isn't holding an item.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 273,
+      "name": "Electro Ball",
+      "power": 1,
+      "pp": 10,
+      "type": 4,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user hurls an electric orb at the target. The faster the user is than the target, the greater the move's power.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["BULLET"]
+    },
+    {
+      "id": 278,
+      "name": "Infernal Parade",
+      "power": 60,
+      "pp": 15,
+      "type": 13,
+      "category": "SPECIAL",
+      "description": "The user attacks with myriad fireballs. This may also leave the target with a burn. This move's power is doubled if the target has a status condition.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "BURN",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 282,
+      "name": "First Impression",
+      "power": 90,
+      "pp": 10,
+      "type": 7,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "Although this move has great power, it works only on the first turn each time the user enters battle.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 283,
+      "name": "Axe Kick",
+      "power": 120,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The user attacks by kicking up into the air and slamming its heel down upon the target. This may also confuse the target. If it misses, the user takes damage instead.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "CONFUSED",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    }
+  ],
+  "multipleHitMoves": [
+    {
+      "id": 161,
+      "name": "Double Kick",
+      "power": 30,
+      "pp": 30,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The target is quickly kicked twice in succession using both feet.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 162,
+      "name": "Double Hit",
+      "power": 35,
+      "pp": 10,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The user slams the target with a long tail, vines, or a tentacle. The target is hit twice in a row.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 163,
+      "name": "Twineedle",
+      "power": 25,
+      "pp": 20,
+      "type": 7,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user damages the target twice in succession by jabbing it with two spikes. This may also poison the target.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "POISON",
+          "probability": 20
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 222,
+      "name": "Dual Wingbeat",
+      "power": 40,
+      "pp": 10,
+      "type": 6,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The user slams the target with its wings to inflict damage. The target is hit twice in a row.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 258,
+      "name": "Dragon Darts",
+      "power": 50,
+      "pp": 10,
+      "type": 15,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user attacks twice using Dreepy.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 277,
+      "name": "Twin Beam",
+      "power": 40,
+      "pp": 10,
+      "type": 12,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user shoots mystical beams from its eyes to inflict damage. The target is hit twice in a row.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    }
+  ],
+  "movesBasedOnLevelEntity": [
+    {
+      "id": 167,
+      "name": "Seismic Toss",
+      "power": 20,
+      "pp": 20,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The target is thrown using the power of gravity. It inflicts damage equal to the user's level.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 168,
+      "name": "Night Shade",
+      "power": 20,
+      "pp": 15,
+      "type": 13,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user makes the target see a frightening mirage. It inflicts damage equal to the user's level.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "variableHitMoves": [
@@ -1542,10 +2733,11 @@
       "type": 5,
       "category": "PHYSICAL",
       "accuracy": 85,
-      "description": "",
+      "description": "The target is jabbed repeatedly with a horn or beak two to five times in a row.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 61,
@@ -1555,10 +2747,11 @@
       "type": 7,
       "category": "PHYSICAL",
       "accuracy": 95,
-      "description": "",
+      "description": "Sharp spikes are shot at the target in rapid succession. They hit two to five times in a row.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 71,
@@ -1568,10 +2761,11 @@
       "type": 10,
       "category": "PHYSICAL",
       "accuracy": 90,
-      "description": "",
+      "description": "The user strikes the target with a hard bone two to five times in a row.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 77,
@@ -1584,7 +2778,8 @@
       "description": "The user hurls hard rocks at the target. Two to five rocks are launched in a row.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["BULLET"]
     },
     {
       "id": 99,
@@ -1594,10 +2789,11 @@
       "type": 14,
       "category": "PHYSICAL",
       "accuracy": 100,
-      "description": "",
+      "description": "The user launches sharp icicles at the target two to five times in a row.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 137,
@@ -1610,10 +2806,59 @@
       "description": "The user forcefully shoots seeds at the target two to five times in a row.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["BULLET"]
+    },
+    {
+      "id": 151,
+      "name": "Fury Swipes",
+      "power": 18,
+      "pp": 25,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 80,
+      "description": "The target is raked with sharp claws or scythes quickly two to five times in a row.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 239,
+      "name": "Arm Thrust",
+      "power": 15,
+      "pp": 25,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user attacks the target with open-palmed arm thrusts. This move hits two to five times in a row.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "statsChangesMoves": [
+    {
+      "id": 13,
+      "name": "Iron Tail",
+      "power": 100,
+      "pp": 15,
+      "type": 16,
+      "category": "PHYSICAL",
+      "accuracy": 75,
+      "description": "The target is slammed with a steel-hard tail. This may also lower the target's Defense stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "probability": 30,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
     {
       "id": 19,
       "name": "Sand Attack",
@@ -1630,7 +2875,8 @@
       "target": "OPPONENT",
       "multiplicator": 0.75,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 20,
@@ -1647,7 +2893,8 @@
       "target": "SELF",
       "multiplicator": 1.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 21,
@@ -1664,7 +2911,8 @@
       "target": "SELF",
       "multiplicator": 2,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 22,
@@ -1681,7 +2929,8 @@
       "target": "SELF",
       "multiplicator": 2,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 26,
@@ -1699,7 +2948,8 @@
       "target": "OPPONENT",
       "multiplicator": 0.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 27,
@@ -1715,10 +2965,11 @@
         "DEFENSE"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.75,
-      "probabilty": 20,
+      "multiplicator": 0.67,
+      "probability": 20,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 32,
@@ -1735,7 +2986,8 @@
       "target": "SELF",
       "multiplicator": 1.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 40,
@@ -1752,9 +3004,10 @@
         "SPDEF"
       ],
       "target": "SELF",
-      "multiplicator": 0.75,
+      "multiplicator": 0.67,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 41,
@@ -1772,7 +3025,8 @@
       "target": "OPPONENT",
       "multiplicator": 0.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 42,
@@ -1782,7 +3036,7 @@
       "pp": 20,
       "type": 5,
       "accuracy": 100,
-      "description": "",
+      "description": "The user releases an obscuring cloud of smoke or ink. This lowers the target's accuracy.",
       "priorityLevel": 0,
       "statsAffected": [
         "ACCURACY"
@@ -1790,7 +3044,8 @@
       "target": "OPPONENT",
       "multiplicator": 0.75,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 45,
@@ -1800,16 +3055,17 @@
       "pp": 10,
       "type": 12,
       "accuracy": 100,
-      "description": "",
+      "description": "The target is hit by a strong telekinetic force. This may also lower the target's Sp. Def stat.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 46,
@@ -1825,10 +3081,11 @@
         "SPDEF"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 20,
+      "multiplicator": 0.67,
+      "probability": 20,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["BULLET"]
     },
     {
       "id": 30,
@@ -1844,9 +3101,10 @@
         "SPEED"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.75,
+      "multiplicator": 0.67,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 58,
@@ -1856,16 +3114,17 @@
       "type": 8,
       "category": "SPECIAL",
       "accuracy": 100,
-      "description": "",
+      "description": "Opposing Pokemon are attacked with a spray of harsh acid. This may also lower their Sp. Def stats.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.75,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 60,
@@ -1881,10 +3140,11 @@
         "SPDEF"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["SOUND"]
     },
     {
       "id": 73,
@@ -1900,10 +3160,11 @@
         "ATTACK"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 84,
@@ -1919,10 +3180,11 @@
         "SPATK"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 87,
@@ -1932,16 +3194,17 @@
       "pp": 10,
       "type": 10,
       "accuracy": 100,
-      "description": "",
+      "description": "The user makes the ground under the target erupt with power. This may also lower the target's Sp. Def stat.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 89,
@@ -1958,9 +3221,10 @@
         "DEFENSE"
       ],
       "target": "SELF",
-      "multiplicator": 0.75,
+      "multiplicator": 0.67,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 97,
@@ -1976,9 +3240,10 @@
         "SPEED"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
+      "multiplicator": 0.67,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 102,
@@ -1999,9 +3264,10 @@
       ],
       "target": "SELF",
       "multiplicator": 1.5,
-      "probabilty": 10,
+      "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 105,
@@ -2011,16 +3277,17 @@
       "pp": 10,
       "type": 1,
       "accuracy": 100,
-      "description": "",
+      "description": "The user draws power from nature and fires it at the target. This may also lower the target's Sp. Def stat.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 111,
@@ -2030,25 +3297,26 @@
       "pp": 10,
       "type": 16,
       "accuracy": 100,
-      "description": "",
+      "description": "The user gathers all its light energy and releases it at once. This may also lower the target's defensive stats.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPDEF"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 114,
-      "name": "Sword Dance",
+      "name": "Swords Dance",
       "power": 0,
       "category": "OTHER",
       "pp": 20,
       "type": 5,
-      "description": "",
+      "description": "A frenetic dance to uplift the fighting spirit. This sharply raises the user's Attack stat.",
       "priorityLevel": 0,
       "statsAffected": [
         "ATTACK"
@@ -2056,7 +3324,8 @@
       "target": "SELF",
       "multiplicator": 2,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 122,
@@ -2066,7 +3335,7 @@
       "pp": 20,
       "type": 7,
       "accuracy": 100,
-      "description": "",
+      "description": "The user lightly performs a beautiful, mystic dance. This boosts the user's Sp. Atk, Sp. Def, and Speed stats.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPATK",
@@ -2076,7 +3345,8 @@
       "target": "SELF",
       "multiplicator": 1.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 125,
@@ -2095,7 +3365,8 @@
       "target": "SELF",
       "multiplicator": 1.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 126,
@@ -2105,16 +3376,17 @@
       "pp": 20,
       "type": 3,
       "accuracy": 100,
-      "description": "",
+      "description": "A spray of bubbles is forcefully ejected at the target. This may also lower the target's Speed stat.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPEED"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 135,
@@ -2123,7 +3395,7 @@
       "category": "OTHER",
       "pp": 20,
       "type": 12,
-      "description": "",
+      "description": "The user quietly focuses its mind and calms its spirit to raise its Sp. Atk and Sp. Def stats.",
       "priorityLevel": 0,
       "statsAffected": [
         "SPATK",
@@ -2132,7 +3404,8 @@
       "target": "SELF",
       "multiplicator": 1.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 139,
@@ -2148,10 +3421,11 @@
         "SPDEF"
       ],
       "target": "OPPONENT",
-      "multiplicator": 0.5,
-      "probabilty": 10,
+      "multiplicator": 0.67,
+      "probability": 10,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["BULLET"]
     },
     {
       "id": 140,
@@ -2160,7 +3434,7 @@
       "category": "OTHER",
       "pp": 10,
       "type": 11,
-      "description": "",
+      "description": "The user tenses its muscles to bulk up its body, raising both its Attack and Defense stats.",
       "priorityLevel": 0,
       "statsAffected": [
         "ATTACK",
@@ -2169,7 +3443,8 @@
       "target": "SELF",
       "multiplicator": 1.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 142,
@@ -2187,7 +3462,657 @@
       "target": "SELF",
       "multiplicator": 0.5,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 144,
+      "name": "Rock Polish",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 9,
+      "description": "The user polishes its body to reduce drag. This sharply raises the Speed stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "SELF",
+      "multiplicator": 2,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 145,
+      "name": "Mud Shot",
+      "power": 55,
+      "category": "SPECIAL",
+      "pp": 15,
+      "type": 10,
+      "accuracy": 95,
+      "description": "The user attacks by hurling a blob of mud at the target. This also lowers the target's Speed stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 149,
+      "name": "Hammer Arm",
+      "power": 100,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The user swings and hits with its strong, heavy fist. It lowers the user's Speed.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "SELF",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 150,
+      "name": "Amnesia",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 12,
+      "description": "The user temporarily empties its mind to forget its concerns. This sharply raises the user's Sp. Def stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPDEF"
+      ],
+      "target": "SELF",
+      "multiplicator": 2,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 154,
+      "name": "Mud-Slap",
+      "power": 20,
+      "category": "SPECIAL",
+      "pp": 20,
+      "type": 10,
+      "accuracy": 100,
+      "description": "The user hurls mud in the target's face to inflict damage and lower its accuracy.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ACCURACY"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.75,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 156,
+      "name": "Acid Armor",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 8,
+      "description": "The user alters its cellular structure to liquefy itself, sharply raising its Defense stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE"
+      ],
+      "target": "SELF",
+      "multiplicator": 2,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 157,
+      "name": "Iron Defense",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 15,
+      "type": 16,
+      "description": "The user hardens its body's surface like iron, sharply raising its Defense stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE"
+      ],
+      "target": "SELF",
+      "multiplicator": 2,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 158,
+      "name": "Metal Claw",
+      "power": 50,
+      "category": "PHYSICAL",
+      "pp": 35,
+      "type": 16,
+      "accuracy": 95,
+      "description": "The target is raked with steel claws. This may also raise the user's Attack stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "probability": 10,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 171,
+      "name": "Scary Face",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 10,
+      "type": 5,
+      "accuracy": 100,
+      "description": "The user frightens the target with a scary face to harshly lower its Speed stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 172,
+      "name": "Flame Charge",
+      "power": 50,
+      "category": "PHYSICAL",
+      "pp": 20,
+      "type": 2,
+      "accuracy": 100,
+      "description": "Cloaking itself in flame, the user attacks the target. Then, building up more power, the user raises its Speed stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 173,
+      "name": "Nasty Plot",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 17,
+      "description": "The user stimulates its brain by thinking bad thoughts. This sharply raises the user's Sp. Atk stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK"
+      ],
+      "target": "SELF",
+      "multiplicator": 2,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 175,
+      "name": "Aurora Bean",
+      "power": 65,
+      "category": "SPECIAL",
+      "pp": 20,
+      "type": 14,
+      "accuracy": 100,
+      "description": "The target is hit with a rainbow-colored beam. This may also lower the target's Attack stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 178,
+      "name": "Muddy Water",
+      "power": 90,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 3,
+      "accuracy": 85,
+      "description": "The user attacks by shooting muddy water at opposing Pokémon. This may also lower their accuracy.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ACCURACY"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.75,
+      "probability": 30,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 179,
+      "name": "Meteor Mash",
+      "power": 90,
+      "category": "PHYSICAL",
+      "pp": 10,
+      "type": 16,
+      "accuracy": 90,
+      "description": "The target is hit with a hard punch fired like a meteor. This may also raise the user's Attack stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "probability": 20,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 184,
+      "name": "Charge Beam",
+      "power": 50,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 4,
+      "accuracy": 90,
+      "description": "The user attacks the target with an electric charge. The user may use any remaining electricity to raise its Sp. Atk stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "probability": 70,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 201,
+      "name": "Power-Up Punch",
+      "power": 20,
+      "category": "PHYSICAL",
+      "pp": 10,
+      "type": 11,
+      "accuracy": 100,
+      "description": "Striking opponents over and over makes the user's fists harder. Hitting a target raises the Attack stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT","PUNCH"]
+    },
+    {
+      "id": 202,
+      "name": "Mystical Fire",
+      "power": 75,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 2,
+      "accuracy": 100,
+      "description": "The user attacks by breathing a special, hot fire. This also lowers the target's Sp. Atk stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 204,
+      "name": "Snarl",
+      "power": 55,
+      "category": "SPECIAL",
+      "pp": 15,
+      "type": 17,
+      "accuracy": 100,
+      "description": "The user yells as if it's ranting about something, which lowers the Sp. Atk stats of opposing Pokémon.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 205,
+      "name": "Steel Wing",
+      "power": 70,
+      "pp": 25,
+      "type": 16,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The target is hit with wings of steel. This may also raise the user's Defense stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "probability": 10,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 207,
+      "name": "Struggle Bug",
+      "power": 50,
+      "category": "SPECIAL",
+      "pp": 20,
+      "type": 7,
+      "accuracy": 100,
+      "description": "While resisting, the user attacks opposing PokÃ©mon. This lowers the Sp. Atk stats of those hit.",
+      "priorityLevel": 0,
+      "statsAffected": ["SPATK"],
+      "target": "OPPONENT",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 214,
+      "name": "Lunge",
+      "power": 80,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 7,
+      "accuracy": 100,
+      "description": "The user makes a lunge at the target, attacking with full force. This also lowers the target's Attack stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 221,
+      "name": "Rock Tomb",
+      "power": 60,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 9,
+      "accuracy": 95,
+      "description": "Boulders are hurled at the target. This also lowers the target's Speed stat by preventing its movement.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 231,
+      "name": "Overheat",
+      "power": 130,
+      "category": "SPECIAL",
+      "pp": 5,
+      "type": 2,
+      "accuracy": 90,
+      "description": "The user attacks the target with all its might. The recoil from this move harshly lowers the user's Sp. Atk stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK"
+      ],
+      "target": "SELF",
+      "multiplicator": 0.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 236,
+      "name": "Baby-Doll Eyes",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 30,
+      "type": 18,
+      "accuracy": 100,
+      "description": "The user stares at the target with its baby-doll eyes, which lowers the target's Attack stat. This move always goes first.",
+      "priorityLevel": 1,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 245,
+      "name": "Shell Smash",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 15,
+      "type": 5,
+      "description": "The user breaks its shell, which lowers its Defense and Sp. Def stats but sharply boosts its Attack, Sp. Atk, and Speed stats.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK", "SPATK","SPEED"
+      ],
+      "target": "SELF",
+      "multiplicator": 2,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 248,
+      "name": "Liquidation",
+      "power": 85,
+      "category": "PHYSICAL",
+      "pp": 10,
+      "type": 3,
+      "accuracy": 100,
+      "description": "The user slams into the target using a full-force blast of water. This may also lower the target's Defense stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE"
+      ],
+      "probability": 20,
+      "target": "OPPONENT",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 249,
+      "name": "Rapid Spin",
+      "power": 50,
+      "pp": 40,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "A spin attack that can also eliminate such moves as Wrap and Leech Seed. This also raises the user's Speed stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 250,
+      "name": "Cosmic Power",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 12,
+      "description": "The user absorbs a mystical power from space to raise its Defense and Sp. Def stats.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE",
+        "SPDEF"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 259,
+      "name": "Crush Claw",
+      "power": 75,
+      "category": "PHYSICAL",
+      "pp": 10,
+      "type": 5,
+      "accuracy": 95,
+      "description": "The user slashes the target with hard and sharp claws. This may also lower the target's Defense stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE"
+      ],
+      "probability": 50,
+      "target": "OPPONENT",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 262,
+      "name": "Draco Meteor",
+      "power": 130,
+      "category": "SPECIAL",
+      "pp": 5,
+      "type": 15,
+      "accuracy": 90,
+      "description": "Comets are summoned down from the sky onto the target. The recoil from this move harshly lowers the user's Sp. Atk stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK"
+      ],
+      "target": "SELF",
+      "multiplicator": 0.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 269,
+      "name": "Coil",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 8,
+      "description": "The user coils up and concentrates. This boosts its Attack and Defense stats as well as its accuracy.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK",
+        "DEFENSE",
+        "ACCURACY"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 270,
+      "name": "Hone Claws",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 15,
+      "type": 17,
+      "description": "The user sharpens its claws to boost its Attack stat and accuracy.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK",
+        "DEFENSE",
+        "ACCURACY"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.33,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 276,
+      "name": "Headlong Rush",
+      "power": 120,
+      "pp": 5,
+      "type": 10,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user smashes into the target in a full-body tackle. This also lowers the user's Defense and Sp. Def stats.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE",
+        "SPDEF"
+      ],
+      "target": "SELF",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 279,
+      "name": "Shadow Bone",
+      "power": 85,
+      "pp": 15,
+      "type": 13,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user attacks by beating the target with a bone that contains a spirit. This may also lower the target's Defense stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE"
+      ],
+      "probability": 20,
+      "target": "OPPONENT",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "drainMoves": [
@@ -2202,12 +4127,13 @@
       "description": "A nutrient-draining attack. The user's HP is restored by half the damage taken by the target.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 67,
       "name": "Absorb",
-      "power": 30,
+      "power": 20,
       "pp": 25,
       "type": 1,
       "category": "SPECIAL",
@@ -2215,7 +4141,8 @@
       "description": "The user attacks by draining the target's nutrients. Some of the damage dealt to the target is absorbed by the user to restore their own HP.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": []
     },
     {
       "id": 76,
@@ -2228,7 +4155,8 @@
       "description": "An energy-draining punch. The user's HP is restored by half the damage taken by the target.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT","PUNCH"]
     },
     {
       "id": 128,
@@ -2241,7 +4169,50 @@
       "description": "The user drains the target's blood. The user's HP is restored by half the damage taken by the target.",
       "priorityLevel": 0,
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 213,
+      "name": "Dream Eater",
+      "power": 100,
+      "category": "SPECIAL",
+      "pp": 15,
+      "type": 12,
+      "accuracy": 100,
+      "description": "The user eats the dreams of a sleeping target. The user's HP is restored by half the damage taken by the target.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 238,
+      "name": "Draining Kiss",
+      "power": 50,
+      "pp": 10,
+      "type": 18,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user steals the target's HP with a kiss. The user's HP is restored by over half the damage taken by the target.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 254,
+      "name": "Mega Drain",
+      "power": 40,
+      "pp": 15,
+      "type": 1,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user attacks by draining the target's nutrients. Some of the damage dealt to the target is absorbed by the user to restore their own HP.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "recoilMoves": [
@@ -2257,7 +4228,8 @@
       "priorityLevel": 0,
       "recoil": "QUARTER",
       "status": [],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     },
     {
       "id": 116,
@@ -2276,7 +4248,148 @@
           "probability": 10
         }
       ],
-      "highCritRate": false
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 147,
+      "name": "Double Edge",
+      "power": 120,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 5,
+      "accuracy": 100,
+      "description": "A reckless, life-risking tackle in which the user rushes the target. This also damages the user quite a lot.",
+      "priorityLevel": 0,
+      "recoil": "THIRD",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 198,
+      "name": "Volt Tackle",
+      "power": 120,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 4,
+      "accuracy": 100,
+      "description": "The user electrifies itself and charges the target. This also damages the user quite a lot. This attack may leave the target with paralysis.",
+      "priorityLevel": 0,
+      "recoil": "THIRD",
+      "status": [
+        {
+          "status": "PARALYSIS",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 200,
+      "name": "Wild Charge",
+      "power": 90,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 4,
+      "accuracy": 100,
+      "description": "The user shrouds itself in electricity and smashes into its target. This also damages the user a little.",
+      "priorityLevel": 0,
+      "recoil": "QUARTER",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 203,
+      "name": "Brave Bird",
+      "power": 120,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 6,
+      "accuracy": 100,
+      "description": "The user tucks in its wings and charges from a low altitude. This also damages the user quite a lot.",
+      "priorityLevel": 0,
+      "recoil": "THIRD",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 229,
+      "name": "Self Destruct",
+      "power": 200,
+      "category": "PHYSICAL",
+      "pp": 5,
+      "type": 5,
+      "accuracy": 100,
+      "description": "The user attacks everything around it by causing an explosion. The user faints upon using this move.",
+      "priorityLevel": 0,
+      "recoil": "ALL",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 230,
+      "name": "Explosion",
+      "power": 250,
+      "category": "PHYSICAL",
+      "pp": 5,
+      "type": 5,
+      "accuracy": 100,
+      "description": "The user attacks everything around it by causing a tremendous explosion. The user faints upon using this move.",
+      "priorityLevel": 0,
+      "recoil": "ALL",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 274,
+      "name": "Wave Crash",
+      "power": 120,
+      "category": "PHYSICAL",
+      "pp": 10,
+      "type": 3,
+      "accuracy": 100,
+      "description": "The user shrouds itself in water and slams into the target with its whole body to inflict damage. This also damages the user quite a lot.",
+      "priorityLevel": 0,
+      "recoil": "THIRD",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 280,
+      "name": "Chloroblast",
+      "power": 150,
+      "category": "SPECIAL",
+      "pp": 5,
+      "type": 1,
+      "accuracy": 95,
+      "description": "The user launches its amassed chlorophyll to inflict damage on the target. This also damages the user",
+      "priorityLevel": 0,
+      "recoil": "HALF",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 281,
+      "name": "Head Smash",
+      "power": 120,
+      "category": "PHYSICAL",
+      "pp": 5,
+      "type": 9,
+      "accuracy": 80,
+      "description": "The user attacks the target with a hazardous full-power headbutt. This also damages the user terribly.",
+      "priorityLevel": 0,
+      "recoil": "HALF",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "healMoves": [
@@ -2288,7 +4401,9 @@
       "pp": 10,
       "type": 5,
       "description": "The user recovers half of its maximum HP.",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "characteristics": []
     },
     {
       "id": 133,
@@ -2298,7 +4413,9 @@
       "pp": 5,
       "type": 1,
       "description": "The user recovers half of its maximum HP.",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "characteristics": []
     },
     {
       "id": 134,
@@ -2308,7 +4425,330 @@
       "pp": 10,
       "type": 5,
       "description": "The user recovers half of its maximum HP.",
-      "priorityLevel": 0
+      "priorityLevel": 0,
+      "status": [],
+      "characteristics": []
+    },
+    {
+      "id": 166,
+      "name": "Moonlight",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 5,
+      "type": 18,
+      "description": "The user recovers half of its maximum HP.",
+      "priorityLevel": 0,
+      "status": [],
+      "characteristics": []
+    },
+    {
+      "id": 187,
+      "name": "Soft-Boiled",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 10,
+      "type": 5,
+      "description": "The user recovers half of its maximum HP.",
+      "priorityLevel": 0,
+      "status": [],
+      "characteristics": []
+    },
+    {
+      "id": 193,
+      "name": "Roost",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 10,
+      "type": 6,
+      "description": "The user lands and rests its body. This move restores the user's HP by up to half of its max HP.",
+      "priorityLevel": 0,
+      "status": [],
+      "characteristics": []
+    },
+    {
+      "id": 271,
+      "name": "Morning Sun",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 5,
+      "type": 5,
+      "description": "The user recovers half of its maximum HP.",
+      "priorityLevel": 0,
+      "status": [],
+      "characteristics": []
+    },
+    {
+      "id": 275,
+      "name": "Rest",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 5,
+      "type": 12,
+      "description": "The user goes to sleep for two turns. This fully restores the user's HP and cures any status conditions.",
+      "priorityLevel": 0,
+      "status": [],
+      "characteristics": []
+    }
+  ],
+  "ultimateMoves": [
+    {
+      "id": 176,
+      "name": "Hyper Beam",
+      "power": 150,
+      "category": "SPECIAL",
+      "pp": 5,
+      "type": 5,
+      "accuracy": 90,
+      "description": "The target is attacked with a powerful beam. The user can't move on the next turn.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 177,
+      "name": "Giga Impact",
+      "power": 150,
+      "category": "PHYSICAL",
+      "pp": 5,
+      "type": 5,
+      "accuracy": 90,
+      "description": "The user charges at the target using every bit of its power. The user can't move on the next turn.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 183,
+      "name": "Rock Wrecker",
+      "power": 150,
+      "category": "PHYSICAL",
+      "pp": 5,
+      "type": 9,
+      "accuracy": 90,
+      "description": "The user launches a huge boulder at the target to attack. The user can't move on the next turn.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["BULLET"]
+    }
+  ],
+  "movesBasedOnHPEntity": [
+    {
+      "id": 191,
+      "name": "Reversal",
+      "power": 1,
+      "pp": 15,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "An all-out attack that becomes more powerful the less HP the user has.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"],
+      "strongerWhenHPisLow": true
+    },
+    {
+      "id": 190,
+      "name": "Flail",
+      "power": 1,
+      "pp": 15,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user flails about aimlessly to attack. The less HP the user has, the greater the move's power.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"],
+      "strongerWhenHPisLow": true
+    },
+    {
+      "id": 211,
+      "name": "Water Spout",
+      "power": 150,
+      "pp": 5,
+      "type": 3,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user spouts water to damage opposing Pokémon. The lower the user's HP, the lower the move's power.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": [],
+      "strongerWhenHPisLow": false
+    },
+    {
+      "id": 212,
+      "name": "Eruption",
+      "power": 150,
+      "pp": 5,
+      "type": 2,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user attacks opposing Pokémon with explosive fury. The lower the user's HP, the lower the move's power.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": [],
+      "strongerWhenHPisLow": false
+    }
+  ],
+  "chargedMovesEntity": [
+    {
+      "id": 194,
+      "name": "Solar Beam",
+      "power": 120,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 1,
+      "accuracy": 100,
+      "description": "The target is attacked with a powerful beam. The user can't move on the next turn.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": [],
+      "chargeText": " absorbs the light!\n"
+    },
+    {
+      "id": 195,
+      "name": "Sky Attack",
+      "power": 140,
+      "category": "PHYSICAL",
+      "pp": 5,
+      "type": 6,
+      "accuracy": 90,
+      "description": "A second-turn attack move where critical hits land more easily. This may also make the target flinch.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "FLINCHED",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"],
+      "chargeText": " became cloaked in a harsh light!\n"
+    }
+  ],
+  "rampageMovesEntity": [
+    {
+      "id": 196,
+      "name": "Thrash",
+      "power": 120,
+      "pp": 10,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user rampages and attacks for two turns. The user then becomes confused.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 197,
+      "name": "Outrage",
+      "power": 120,
+      "pp": 10,
+      "type": 15,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user rampages and attacks for two turns. The user then becomes confused.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 199,
+      "name": "Petal Dance",
+      "power": 120,
+      "pp": 10,
+      "type": 1,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user rampages and attacks for two turns. The user then becomes confused.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 216,
+      "name": "Raging Fury",
+      "power": 120,
+      "pp": 10,
+      "type": 2,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user rampages around spewing flames for two to three turns. The user then becomes confused.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    }
+  ],
+  "movesThatRemoveStatChangesEntity": [
+    {
+      "id": 225,
+      "name": "Clear Smog",
+      "power": 50,
+      "pp": 15,
+      "type": 8,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user attacks the target by throwing a clump of special mud. All stat changes are returned to normal.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 226,
+      "name": "Haze",
+      "power": 0,
+      "pp": 30,
+      "type": 14,
+      "category": "OTHER",
+      "accuracy": 100,
+      "description": "The user creates a haze that eliminates every stat change among all the Pokémon engaged in battle.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    }
+  ],
+  "retalationMovesEntity": [
+    {
+      "id": 227,
+      "name": "Counter",
+      "power": 1,
+      "pp": 20,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "A retaliation move that counters any physical attack, inflicting double the damage taken.",
+      "priorityLevel": -5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 228,
+      "name": "Mirror Coat",
+      "power": 1,
+      "pp": 20,
+      "type": 12,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "A retaliation move that counters any special attack, inflicting double the damage taken.",
+      "priorityLevel": -5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ]
 }

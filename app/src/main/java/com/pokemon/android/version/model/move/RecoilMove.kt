@@ -15,8 +15,22 @@ class RecoilMove(
     status: ArrayList<StatusMove>,
     highCritRate: Boolean = false,
     description: String,
+    characteristics: List<MoveCharacteristic> = listOf(),
     var recoil: Recoil
-) : Move(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description) {
+) : Move(
+    id,
+    name,
+    type,
+    category,
+    power,
+    pp,
+    accuracy,
+    priorityLevel,
+    status,
+    highCritRate,
+    description,
+    characteristics
+) {
     companion object {
         fun of(recoilMoveEntity: RecoilMoveEntity): RecoilMove {
             return RecoilMoveBuilder()
@@ -32,6 +46,7 @@ class RecoilMove(
                 .status(ArrayList(recoilMoveEntity.status.map(StatusMove::of)))
                 .recoil(Recoil.valueOf(recoilMoveEntity.recoil))
                 .description(recoilMoveEntity.description)
+                .characteristics(recoilMoveEntity.characteristics.map { MoveCharacteristic.valueOf(it) })
                 .build()
         }
     }
@@ -48,6 +63,7 @@ class RecoilMove(
         var status: ArrayList<StatusMove> = arrayListOf(),
         var highCritRate: Boolean = false,
         var description: String = "",
+        var characteristics: List<MoveCharacteristic> = listOf(),
         var recoil: Recoil = Recoil.ALL
     ) {
         fun id(id: Int) = apply { this.id = id }
@@ -61,9 +77,26 @@ class RecoilMove(
         fun highCritRate(highCritRate: Boolean) = apply { this.highCritRate = highCritRate }
         fun description(description: String) = apply { this.description = description }
         fun status(status: ArrayList<StatusMove>) = apply { this.status = status }
+        fun characteristics(characteristics: List<MoveCharacteristic>) =
+            apply { this.characteristics = characteristics }
+
         fun recoil(recoil: Recoil) = apply { this.recoil = recoil }
 
         fun build() =
-            RecoilMove(id, name, type, category, power, pp, accuracy, priorityLevel, status, highCritRate, description, recoil)
+            RecoilMove(
+                id,
+                name,
+                type,
+                category,
+                power,
+                pp,
+                accuracy,
+                priorityLevel,
+                status,
+                highCritRate,
+                description,
+                characteristics,
+                recoil
+            )
     }
 }

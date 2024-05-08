@@ -20,7 +20,8 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
     var battleTowerProgression: BattleFrontierProgression? = null
     var battleFactoryProgression: BattleFrontierProgression? = null
     var successfulAchievements: ArrayList<Int> = arrayListOf()
-    var achievements : Achievements? = null
+    var achievements: Achievements? = null
+    var pokedex: HashMap<Int, Boolean> = HashMap()
 
     override fun getFirstPokemonThatCanFight(): Pokemon? {
         for (pokemon in team) {
@@ -30,6 +31,10 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         return null
     }
 
+    override fun getTrainerTeam(): List<Pokemon> {
+        return team
+    }
+
     fun catchPokemon(pokemon: Pokemon, ballId: Int): Boolean {
         if (pokemon.trainer != null)
             return false
@@ -37,20 +42,22 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         if (items[ballId] == 0) {
             items.remove(ballId)
         }
+        if (pokemon.shiny) {
+            receivePokemon(pokemon)
+            return true
+        }
         var status = 1f
-        if (pokemon.status == Status.BURN || pokemon.status == Status.POISON || pokemon.status == Status.PARALYSIS || pokemon.status == Status.FROZEN)
+        if (pokemon.status == Status.BURN || pokemon.status == Status.POISON || pokemon.status == Status.BADLY_POISON || pokemon.status == Status.PARALYSIS || pokemon.status == Status.FROZEN)
             status = 1.5f
         if (pokemon.status == Status.ASLEEP)
             status = 2.5f
         val ball: Ball = ItemUtils.getItemById(ballId) as Ball
         var successRate = ball.successRate
-        if (ball is Ball.NetBall && (pokemon.data.type1 == Type.WATER || pokemon.data.type1 == Type.BUG
-                    || pokemon.data.type2 == Type.WATER || pokemon.data.type2 == Type.BUG)
-        )
+        if (ball is Ball.NetBall && (pokemon.hasType(Type.BUG) || pokemon.hasType(Type.WATER)))
             successRate *= 3
         val catch: Int =
             (((1f - ((2f / 3f) * (pokemon.currentHP / pokemon.hp).toFloat())) * status) * pokemon.data.catchRate.toFloat() * successRate).toInt()
-        if (catch >= 255) {
+        if (catch >= 255 || pokemon.shiny) {
             receivePokemon(pokemon)
             if (ball is Ball.HealBall) {
                 pokemon.currentHP = pokemon.hp
@@ -72,6 +79,7 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
 
     fun receivePokemon(pokemon: Pokemon) {
         pokemon.trainer = this
+        pokedex[pokemon.data.id] = true
         pokemon.currentExp = ExpGaugeType.getExpGauge(pokemon)
         pokemons.add(pokemon)
         if (this.team.size < 6)
@@ -105,8 +113,8 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         return false
     }
 
-    fun heal(pokemon: Pokemon) {
-        if (items.contains(10) && ItemUtils.getItemById(10).isUsable(pokemon))
+    fun heal(pokemon: Pokemon, healPP: Boolean) {
+        if (healPP && items.contains(10) && ItemUtils.getItemById(10).isUsable(pokemon))
             useItem(10, pokemon)
         if (pokemon.currentHP == 0) {
             if (items.contains(9))
@@ -123,8 +131,16 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         while (pokemon.currentHP < pokemon.hp && items.contains(3)) {
             useItem(3, pokemon)
         }
-        if (items.contains(4) && pokemon.status != Status.OK)
-            useItem(4, pokemon)
+        if (pokemon.status != Status.OK) {
+            if (items.contains(5) && pokemon.status == Status.PARALYSIS)
+                useItem(5, pokemon)
+            else if (items.contains(6) && pokemon.status == Status.BURN)
+                useItem(6, pokemon)
+            else if (items.contains(7) && pokemon.status == Status.BADLY_POISON || pokemon.status == Status.POISON)
+                useItem(7, pokemon)
+            else if (items.contains(4))
+                useItem(4, pokemon)
+        }
     }
 
     override fun canStillBattle(): Boolean {
@@ -158,9 +174,34 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         if (items.contains(33))
             return 40
         if (items.contains(32))
-            return 35
-        if (items.contains(31))
             return 30
+        if (items.contains(31))
+            return 25
         return 20
+    }
+
+    fun updatePokedex(pokemon: Pokemon) {
+        if (!pokedex.containsKey(pokemon.data.id))
+            pokedex[pokemon.data.id] = false
+    }
+
+    fun getBadgeCount(): Int {
+        if (items.contains(38))
+            return 8
+        if (items.contains(37))
+            return 7
+        if (items.contains(36))
+            return 6
+        if (items.contains(35))
+            return 5
+        if (items.contains(34))
+            return 4
+        if (items.contains(33))
+            return 3
+        if (items.contains(32))
+            return 2
+        if (items.contains(31))
+            return 1
+        return 0
     }
 }

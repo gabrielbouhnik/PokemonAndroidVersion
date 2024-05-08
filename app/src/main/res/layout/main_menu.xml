@@ -3,107 +3,105 @@
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
-                                                   android:layout_height="match_parent">
+                                                   android:layout_height="match_parent"
+                                                   android:background="@drawable/pokemon_background">
 
     <TextView
             android:layout_width="305dp"
-            android:layout_height="50dp" android:id="@+id/adventureDescriptionTextView"
+            android:layout_height="wrap_content" android:id="@+id/adventureDescriptionTextView"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:text="Face the trainers and wild pokemon that stand in your way" android:textSize="18sp"
+            android:text="Explore the Kanto region to become the League Champion" android:textSize="18sp"
             android:textAlignment="center" app:layout_constraintTop_toBottomOf="@+id/adventureButton"
-    />
-    <TextView
-            android:layout_width="309dp"
-            android:layout_height="49dp" android:id="@+id/MysteryGiftTextView"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:text="Use your AndroCoin to get gift like rare items and Pokemon" android:textSize="18sp"
-            android:textAlignment="center" app:layout_constraintTop_toBottomOf="@+id/bannersButton"
-            android:layout_marginTop="8dp"/>
-    <TextView
-            android:layout_width="267dp"
-            android:layout_height="24dp" android:id="@+id/BattleFrontierTextView"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:text="Test your trainer skills" android:textSize="18sp"
-            android:textAlignment="center" app:layout_constraintTop_toBottomOf="@+id/battleFrontierButton"
-            android:layout_marginTop="8dp" app:layout_constraintHorizontal_bias="0.503"/>
+            android:backgroundTint="#FFFFFF" android:textColor="@color/black"/>
     <Button
             android:text="Adventure"
             android:layout_width="225dp"
-            android:layout_height="67dp" android:id="@+id/adventureButton"
+            android:layout_height="60dp" android:id="@+id/adventureButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="90dp"
-            android:backgroundTint="#2196F3" android:textAlignment="center" android:textSize="18sp"
-            android:textStyle="bold" android:textColor="#FFFFFF"/>
+            android:layout_marginTop="80dp"
+            android:backgroundTint="#1A237E" android:textAlignment="center" android:textSize="18sp"
+            android:textStyle="bold" android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@+id/pokedexButton" android:alpha="0.75"/>
     <Button
-            android:text="My Pokemon"
-            android:layout_width="225dp"
-            android:layout_height="57dp" android:id="@+id/pokemonsButton"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="8dp"
+            android:text="Pokémon"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp" android:id="@+id/pokemonsButton"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
             android:backgroundTint="#4CAF50" android:textAlignment="center" android:textSize="18sp"
             android:textStyle="bold" android:textColor="#FFFFFF"
-            app:layout_constraintTop_toBottomOf="@+id/adventureDescriptionTextView"/>
-    <TextView
-            android:layout_width="267dp"
-            android:layout_height="48dp" android:id="@+id/pokemonTextView"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:text="Look at the characteristics of your pokemon" android:textSize="18sp"
-            android:textAlignment="center" app:layout_constraintTop_toBottomOf="@+id/pokemonsButton"
-    />
+            app:layout_constraintTop_toBottomOf="@+id/adventureDescriptionTextView" android:alpha="0.75"
+            android:layout_marginStart="16dp"/>
     <Button
             android:text="INVENTORY"
-            android:layout_width="225dp"
-            android:layout_height="57dp" android:id="@+id/itemsButton"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp" android:id="@+id/itemsButton"
+            app:layout_constraintEnd_toEndOf="parent"
             android:backgroundTint="#FFA726" android:textAlignment="center" android:textSize="18sp"
-            android:textStyle="bold" android:textColor="#FFFFFF" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.026" app:layout_constraintTop_toBottomOf="@+id/pokemonTextView"/>
-    <TextView
-            android:layout_width="251dp"
-            android:layout_height="26dp" android:id="@+id/itemsTextView"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:text="Check out your inventory" android:textSize="18sp"
-            android:textAlignment="center" app:layout_constraintTop_toBottomOf="@+id/itemsButton"
-            android:layout_marginTop="8dp" app:layout_constraintHorizontal_bias="0.522"/>
+            android:textStyle="bold" android:textColor="#FFFFFF"
+            android:alpha="0.75"
+            app:layout_constraintTop_toBottomOf="@+id/adventureDescriptionTextView"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+    />
     <Button
             android:text="Mystery Gift"
-            android:layout_width="225dp"
-            android:layout_height="57dp" android:id="@+id/bannersButton"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="6dp"
-            android:backgroundTint="#F44336" android:textAlignment="center" android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp" android:id="@+id/bannersButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:backgroundTint="#D32F2F" android:textAlignment="center" android:textSize="18sp"
             android:textStyle="bold" android:textColor="#FFFFFF"
-            app:layout_constraintTop_toBottomOf="@+id/itemsTextView"/>
+            android:alpha="0.75"
+            app:layout_constraintTop_toBottomOf="@+id/itemsButton"
+            android:layout_marginTop="32dp" android:layout_marginEnd="16dp"/>
     <Button
             android:text="Battle Frontier"
-            android:layout_width="225dp"
-            android:layout_height="57dp" android:id="@+id/battleFrontierButton"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp" android:id="@+id/battleFrontierButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="12dp"
             android:backgroundTint="#9C27B0" android:textAlignment="center" android:textSize="18sp"
             android:textStyle="bold" android:textColor="#FFFFFF"
-            app:layout_constraintTop_toBottomOf="@+id/MysteryGiftTextView"/>
+            android:alpha="0.75"
+            app:layout_constraintTop_toBottomOf="@+id/adventureDescriptionTextView"
+            android:layout_marginTop="200dp"/>
+    <Button
+            android:text="Poké Mart"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp" android:id="@+id/shopButton"
+            app:layout_constraintStart_toStartOf="parent"
+            android:backgroundTint="#1976D2" android:textAlignment="center" android:textSize="18sp"
+            android:textStyle="bold" android:textColor="#FFFFFF"
+            android:alpha="0.75"
+            app:layout_constraintTop_toBottomOf="@+id/pokemonsButton" android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"/>
     <Button
             android:text="Daily Heal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/dailyHealButton"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="5dp" android:layout_marginStart="5dp" android:textColor="#FFFFFF"
-            android:backgroundTint="#FF5722" android:visibility="gone"/>
+            android:backgroundTint="@color/purple_200" android:visibility="gone" android:alpha="0.75"/>
     <Button
             android:text="Trainer Card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/trainerCardButton"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="5dp" android:layout_marginEnd="5dp" android:backgroundTint="#3F51B5"
-            android:textSize="12sp"/>
+            android:textSize="12sp" android:alpha="0.75"/>
     <Button
             android:text="Fight the pokemon league"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/eliteButton"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="10dp"
-            app:layout_constraintHorizontal_bias="0.497" app:layout_constraintBottom_toTopOf="@+id/adventureButton"
-            app:layout_constraintVertical_bias="1.0" android:backgroundTint="#009688" android:textSize="10sp"
-            android:visibility="gone"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="20dp"
+            android:backgroundTint="#009688" android:textSize="10sp"
+            app:layout_constraintTop_toBottomOf="@+id/pokedexButton" android:visibility="gone" android:alpha="0.75"/>
+    <Button
+            android:text="Pokedex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/pokedexButton"
+            app:layout_constraintEnd_toStartOf="@+id/trainerCardButton" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="4dp" android:backgroundTint="#FF5722"
+            app:layout_constraintStart_toEndOf="@+id/dailyHealButton"
+            android:alpha="20"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,7 @@ import com.google.gson.reflect.TypeToken
 import com.pokemon.android.version.entity.save.TrainerSave
 import com.pokemon.android.version.model.*
 import com.pokemon.android.version.ui.LevelMenu
+import com.pokemon.android.version.ui.PokedexMenu
 import com.pokemon.android.version.utils.JsonFileToString
 import java.text.SimpleDateFormat
 
@@ -21,7 +22,12 @@ class SaveManager {
             Log.d("save:", jsonString)
             val trainerSave: TrainerSave = gson.fromJson(jsonString, data)
             val trainer = Trainer(trainerSave.name, Gender.valueOf(trainerSave.gender))
+            trainer.pokedex = HashMap()
+            if (trainerSave.pokedex != null)
+                trainerSave.pokedex!!.forEach { trainer.pokedex[it.id] = it.caught }
             trainer.coins = trainerSave.coins
+            if (trainer.name == PokedexMenu.ADMIN)
+                trainer.coins += 5000
             trainer.progression = trainerSave.progression
             trainer.eliteProgression = trainerSave.eliteProgression
             trainerSave.items.forEach { trainer.items[it.itemId] = it.quantity }
@@ -29,13 +35,19 @@ class SaveManager {
                 val pokemon: Pokemon = Pokemon.of(it, activity.gameDataService, trainer)
                 trainer.pokemons.add(pokemon)
                 trainer.team.add(pokemon)
+                trainer.pokedex[it.id] = true
             }
-            trainerSave.pokemons.forEach { trainer.pokemons.add(Pokemon.of(it, activity.gameDataService, trainer)) }
+            trainerSave.pokemons.forEach {
+                trainer.pokemons.add(Pokemon.of(it, activity.gameDataService, trainer))
+                trainer.pokedex[it.id] = true
+            }
             if (trainerSave.lastTimeDailyHealUsed != null)
                 trainer.lastTimeDailyHealUsed =
                     SimpleDateFormat("yyyy-MM-dd").parse(trainerSave.lastTimeDailyHealUsed!!)
             if (trainerSave.eliteMode != null)
                 activity.eliteMode = trainerSave.eliteMode!!
+            if (trainerSave.hardMode != null)
+                activity.hardMode = trainerSave.hardMode!!
             if (trainerSave.battleFactorySave != null)
                 trainer.battleFactoryProgression =
                     BattleFrontierProgression.of(trainerSave.battleFactorySave!!, activity.gameDataService, trainer)
@@ -43,7 +55,8 @@ class SaveManager {
                 trainer.battleTowerProgression =
                     BattleFrontierProgression.of(trainerSave.battleTowerSave!!, activity.gameDataService, trainer)
             if (trainer.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID) {
-                trainer.achievements = if (trainerSave.achievements == null) Achievements() else trainerSave.achievements
+                trainer.achievements =
+                    if (trainerSave.achievements == null) Achievements() else trainerSave.achievements
                 trainer.successfulAchievements =
                     if (trainerSave.successfulAchievements == null) arrayListOf() else trainerSave.successfulAchievements!!
             }
@@ -51,7 +64,7 @@ class SaveManager {
         }
 
         fun save(activity: MainActivity) {
-            val trainerSave: TrainerSave = TrainerSave.of(activity.trainer!!, activity.eliteMode)
+            val trainerSave: TrainerSave = TrainerSave.of(activity.trainer!!, activity.eliteMode, activity.hardMode)
             val gsonPretty = GsonBuilder().setPrettyPrinting().create()
             val jsonSave: String = gsonPretty.toJson(trainerSave)
             activity.openFileOutput(SAVE_FILE_PATH, Context.MODE_PRIVATE).use { output ->

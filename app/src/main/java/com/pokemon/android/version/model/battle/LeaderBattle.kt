@@ -4,7 +4,6 @@ import android.widget.ImageView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.level.LeaderLevelData
-import com.pokemon.android.version.model.level.PokemonOpponentTrainerData
 import com.pokemon.android.version.ui.BattleFrontierMenu
 import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.MoveUtils
@@ -15,7 +14,6 @@ class LeaderBattle() : Battle() {
 
     constructor(activity: MainActivity, leaderLevelData: LeaderLevelData) : this() {
         this.activity = activity
-        this.dialogTextView = activity.findViewById(R.id.dialogTextView)
         this.opponentTrainerSprite = activity.findViewById(R.id.opponentTrainerSpriteView)
         this.levelData = leaderLevelData
         this.pokemon = if (leaderLevelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID)
@@ -34,22 +32,31 @@ class LeaderBattle() : Battle() {
                 leaderLevelData.battle2
         }
         this.opponentTrainer = OpponentTrainer(
-            team.map{activity.gameDataService.generatePokemonWithMoves(it.id, it.level,
-            it.moves)}
-            ,leaderLevelData.sprite)
+            leaderLevelData.title,
+            team.map {
+                activity.gameDataService.generatePokemonWithMoves(
+                    it.id, it.level,
+                    it.moves,
+                    it.holdItem
+                )
+            }, leaderLevelData.sprite, leaderLevelData.iaLevel
+        )
+        opponentTrainer.team.forEach {it.trainer = this.opponentTrainer}
         this.opponent = this.opponentTrainer.getFirstPokemonThatCanFight()!!
+        activity.trainer!!.updatePokedex(opponent)
     }
 
     override fun updateOpponent() {
         if (opponentTrainer.canStillBattle())
             opponent = opponentTrainer.getFirstPokemonThatCanFight()!!
+        activity.trainer!!.updatePokedex(opponent)
     }
 
     override fun getBattleState(): State {
         if (!opponentTrainer.canStillBattle()) {
             return State.TRAINER_VICTORY
         }
-        if (levelData.id == 99){
+        if (levelData.id == 99) {
             return if (!activity.trainer!!.battleTowerProgression!!.team.any { it.currentHP > 0 })
                 State.TRAINER_LOSS
             else State.IN_PROGRESS

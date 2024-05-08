@@ -1,5 +1,6 @@
 package com.pokemon.android.version.ui
 
+import android.text.method.ScrollingMovementMethod
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Button
@@ -11,8 +12,8 @@ import com.pokemon.android.version.R
 import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Trainer
-import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.utils.ItemUtils
+import com.pokemon.android.version.utils.ItemUtils.Companion.MEGA_RING_ID
 import com.pokemon.android.version.utils.ItemUtils.Companion.POKEBALL_ID
 
 class StarterSelection {
@@ -24,8 +25,9 @@ class StarterSelection {
         val genderSwitch: Switch = activity.findViewById(R.id.genderSwitch)
         val characterName: EditText = activity.findViewById(R.id.characterName)
         val oakTextView: TextView = activity.findViewById(R.id.oakTextView)
+        oakTextView.movementMethod = ScrollingMovementMethod()
         nextButton.setOnClickListener {
-            oakTextView.text = "Now you can introduce yourself to me"
+            oakTextView.text = "What's your name?"
             nextButton.visibility = GONE
             submitButton.visibility = VISIBLE
             genderSwitch.visibility = VISIBLE
@@ -34,26 +36,43 @@ class StarterSelection {
         submitButton.setOnClickListener {
             val gender: Gender = if (genderSwitch.isChecked) Gender.FEMALE else Gender.MALE
             activity.trainer = Trainer(characterName.text.toString(), gender)
-            activity.trainer!!.addItem(POKEBALL_ID,3)
-            SaveManager.save(activity)
-            submitButton.visibility = GONE
-            genderSwitch.visibility = GONE
-            characterName.visibility = GONE
-            activity.displayStarters()
-            oakTextView.text = "Before starting your journey, choose one of these 3 pokemon"
+            if (characterName.text.toString() == PokedexMenu.ADMIN) {
+                for (pokemon in activity.gameDataService.pokemons) {
+                    if (pokemon.movesByLevel.isNotEmpty())
+                        activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(pokemon.id, 80))
+                }
+                activity.trainer!!.progression = 89
+                activity.trainer!!.coins = 25000
+                for (i in 1..124) {
+                    val quantity = if (!ItemUtils.isBadge(i)) 50 else 1
+                    activity.trainer!!.addItem(i, quantity)
+                }
+                activity.trainer!!.addItem(MEGA_RING_ID, 1)
+                activity.updateMusic(R.raw.main_menu)
+                activity.mainMenu.loadGameMenu(activity)
+            } else {
+                activity.trainer!!.addItem(POKEBALL_ID, 3)
+                submitButton.visibility = GONE
+                genderSwitch.visibility = GONE
+                characterName.visibility = GONE
+                activity.displayStarters()
+                oakTextView.text = "Now, which Pokémon do you want?"
+            }
         }
     }
 
     fun displayOakResponse(activity: MainActivity, starterName: String) {
-        SaveManager.save(activity)
         val nextButton: Button = activity.findViewById(R.id.nextButton)
         val oakTextView: TextView = activity.findViewById(R.id.oakTextView)
+        oakTextView.movementMethod = ScrollingMovementMethod()
         oakTextView.text =
-            "So you chose $starterName.\nYou can now go on an adventure and become a great pokemon trainer."
+            "So $starterName is your choice.\n Your own Pokémon legend is about to unfold!\n A world of dreams and adventures awaits!"
         nextButton.visibility = VISIBLE
         nextButton.setOnClickListener {
+            SaveManager.save(activity)
             activity.updateMusic(R.raw.main_menu)
             activity.mainMenu.loadGameMenu(activity)
+            activity.showCustomDialog(activity.getString(R.string.tutorial_game))
         }
     }
 }

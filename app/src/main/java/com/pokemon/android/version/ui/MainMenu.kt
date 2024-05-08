@@ -27,14 +27,14 @@ class MainMenu {
     var bannerMenu: BannerMenu = BannerMenu()
     var levelMenu: LevelMenu = LevelMenu()
     var itemMenu: ItemMenu = ItemMenu()
+    var shopMenu: ShopMenu = ShopMenu()
     var battleFrontierMenu = BattleFrontierMenu()
+    private var pokedexMenu = PokedexMenu()
 
     fun loadGameMenu(activity: MainActivity) {
         activity.setContentView(R.layout.main_menu)
         if (activity.eliteMode) {
             activity.updateMusic(R.raw.elite4_music)
-            val bannerTextView: TextView = activity.findViewById(R.id.MysteryGiftTextView)
-            bannerTextView.visibility = GONE
         } else
             activity.updateMusic(R.raw.main_menu)
         val pokemonsButton: Button = activity.findViewById(R.id.pokemonsButton)
@@ -45,11 +45,20 @@ class MainMenu {
                 pokemonMenu.loadPokemonMenu(activity)
         }
         val bannersButton: Button = activity.findViewById(R.id.bannersButton)
+        if (activity.hardMode && activity.trainer!!.progression <= LevelMenu.MISTY_LEVEL)
+            bannersButton.visibility = GONE
+        val shopButton: Button = activity.findViewById(R.id.shopButton)
+        if (activity.trainer!!.progression < 3)
+            shopButton.visibility = GONE
         if (activity.eliteMode) {
             bannersButton.visibility = GONE
+            shopButton.visibility = GONE
         } else {
             bannersButton.setOnClickListener {
                 bannerMenu.loadBannerMenu(activity)
+            }
+            shopButton.setOnClickListener {
+                shopMenu.loadShopMenu(activity)
             }
         }
         val adventureButton: Button = activity.findViewById(R.id.adventureButton)
@@ -91,14 +100,16 @@ class MainMenu {
             }
         }
         val battleFrontierButton: Button = activity.findViewById(R.id.battleFrontierButton)
-        if (!activity.eliteMode && activity.trainer!!.progression > 50) {
+        if (!activity.eliteMode && activity.trainer!!.progression > 51) {
             battleFrontierButton.setOnClickListener {
                 battleFrontierMenu.loadMenu(activity)
             }
         } else {
             battleFrontierButton.visibility = GONE
-            val battleFrontierTextView: TextView = activity.findViewById(R.id.BattleFrontierTextView)
-            battleFrontierTextView.visibility = GONE
+        }
+        val pokedexButton: Button = activity.findViewById(R.id.pokedexButton)
+        pokedexButton.setOnClickListener {
+            pokedexMenu.loadPokedexMenu(activity)
         }
     }
 
@@ -111,7 +122,7 @@ class MainMenu {
         val achievementsButton: TextView = activity.findViewById(R.id.achievementsButton)
         if (activity.trainer!!.progression < LevelMenu.ELITE_4_LAST_LEVEL_ID)
             achievementsButton.visibility = GONE
-        else{
+        else {
             achievementsButton.setOnClickListener {
                 loadAchievementsMenu(activity)
             }

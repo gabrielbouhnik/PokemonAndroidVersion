@@ -10,10 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
-import com.pokemon.android.version.model.level.BossBattleLevelData
-import com.pokemon.android.version.model.level.LevelData
-import com.pokemon.android.version.model.level.TrainerBattleLevelData
-import com.pokemon.android.version.model.level.WildBattleLevelData
+import com.pokemon.android.version.model.level.*
 import java.io.InputStream
 
 class LevelRecyclerAdapter(
@@ -46,8 +43,11 @@ class LevelRecyclerAdapter(
         when (currentItem) {
             is WildBattleLevelData -> holder.nameTextView.setTextColor(Color.GREEN)
             is TrainerBattleLevelData -> holder.nameTextView.setTextColor(Color.BLUE)
+            is LeaderLevelData -> holder.nameTextView.setTextColor(Color.YELLOW)
             is BossBattleLevelData -> holder.nameTextView.setTextColor(Color.RED)
         }
+        if (currentItem.name == "\nSafari Zone")
+            holder.nameTextView.setTextColor(Color.WHITE)
         holder.nameTextView.text = currentItem.name
         holder.itemView.tag = position
         val img: InputStream = activity.assets.open(currentItem.icon)

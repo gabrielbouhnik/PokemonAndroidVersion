@@ -12,8 +12,9 @@ class BossBattleLevelData(
     icon: String,
     background: String,
     exp: Int,
+    mandatory: Boolean,
     var boss: BossData,
-) : LevelData(id, name, description, rewards, music, icon, background, exp) {
+) : LevelData(id, name, description, rewards, music, icon, background, exp, mandatory) {
     companion object {
         fun of(bossBattleLevelEntity: BossBattleLevelEntity, gameDataService: GameDataService): BossBattleLevelData {
             return BossBattleLevelData(
@@ -25,6 +26,7 @@ class BossBattleLevelData(
                 bossBattleLevelEntity.icon,
                 bossBattleLevelEntity.background,
                 bossBattleLevelEntity.exp,
+                bossBattleLevelEntity.mandatory,
                 BossData.of(bossBattleLevelEntity.boss, gameDataService)
             )
         }

@@ -30,5 +30,56 @@
         type: %2$s\n
         pp: %3$d\n
         accuracy: %4$s\n
+        category: %5$s\n
+    </string>
+    <string name="tutorial_game">
+        In this game, you travel around the Kanto region, battling at every location you visit.
+        As in the cartridge game, your Pokémon will gain experience through battle and learn new attacks.
+        By completing a level in adventure mode, you will earn Andro Coins.
+        These coins can be exchanged for items in the store.
+        You can also try to win rare items or Pokémon that cannot be found in the wild thanks to the various mystery gift summoning banners.
+        You will unlock new banners as you progress through the adventure.
+    </string>
+    <string name="tutorial_after_first_fight">
+        After a fight, you should heal your Pokémon.
+        Do not hesitate to redo certain levels to collect lots of healing items.
+    </string>
+    <string name="tutorial_wild_battle">
+        This is a route with wild Pokémons! In these levels, you can use Pokéballs to catch them and you will be able to use them in battles.
+    </string>
+    <string name="tutorial_gym_leader">
+        In this game, your Pokémon level are capped.
+        At the moment, your level cap is 20.
+        Each time that you defeat a gym leader, he will give you a badge that will increase your current level cap.
+        To know your current level cap, check your trainer card.
+    </string>
+    <string name="tutorial_trainer_battle">
+        In this route, there are many trainers that are looking for a battle. You have to fight all of them in succession.
+    </string>
+    <string name="tutorial_boss_battle">
+        In some places, you will encounter a very powerful wild Pokémon.
+        Defeating it will require more than just using strong moves.
+    </string>
+    <string name="tutorial_elite_mode">
+        Now that you have cross the Victory Road, you can challenge the Elite Four.
+        Once you have entered the league, you won\'t be able to change Pokémons in your team.
+    </string>
+    <string name="tutorial_post_game">
+        Congratulations, you have become the Pokémon League Champion but your adventure is not over.
+        There are still places to visit in the Kanto Region.
+        You can also re-battle each gym leader.
+        In the trainer card menu, there are many achievements that you can reach to win rewards.
+    </string>
+    <string name="new_item_available_in_shop">
+        New items are available in Poké Mart!
+    </string>
+    <string name="hard_mode_title">
+        Would you like to play in hard mode?
+    </string>
+    <string name="hard_mode_details">
+        In hard mode, resources like in-game currency and items will be harder to get.
+        Only TMs will be accessible via mystery gift.
+        This means that you will not be able to get some Pokémons and specific kinds of Poké Ball (including Hyper Balls) in hard mode.
+        WARNING: This cannot be changed throughout the game.
     </string>
 </resources>

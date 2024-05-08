@@ -1,6 +1,6 @@
 [
   {
-    "image": "images/pikachu_irontail_banner.JPG",
+    "image": "images/banners/pikachu_irontail_banner.JPG",
     "description": "Get a special Pikachu with the move Iron Tail",
     "cost": 100,
     "pokemons": [
@@ -8,7 +8,8 @@
         "id": 25,
         "rate": 5,
         "moveIds": [
-          12,
+          8,
+          3,
           13
         ]
       }
@@ -35,7 +36,7 @@
         "rate": 30
       },
       {
-        "id": 12,
+        "id": 153,
         "rate": 10
       }
     ],
@@ -45,17 +46,17 @@
     ]
   },
   {
-    "image": "images/magby_banner.JPG",
-    "description": "Get a special Magby with the moves Mach Punch and Cross Chop",
+    "image": "images/banners/marill_banner.JPG",
+    "description": "Get a special Marill with move Aqua Jet",
     "cost": 100,
     "pokemons": [
       {
-        "id": 240,
+        "id": 183,
         "rate": 5,
         "moveIds": [
-          14,
-          33,
-          85
+          2,
+          6,
+          96
         ]
       }
     ],
@@ -81,17 +82,167 @@
         "rate": 30
       },
       {
-        "id": 12,
+        "id": 152,
         "rate": 10
       }
     ],
     "days": [
+      "TUESDAY",
+      "THURSDAY"
+    ]
+  },
+  {
+    "image": "images/banners/togepi_banner.JPG",
+    "description": "Get a special Togepi with the move Extrasensory. You can also get Cleffa or Igglybuff.",
+    "cost": 100,
+    "pokemons": [
+      {
+        "id": 173,
+        "rate": 5,
+        "moveIds": [
+          64,
+          164
+        ]
+      },
+      {
+        "id": 174,
+        "rate": 5,
+        "moveIds": [
+          165,
+          64
+        ]
+      },
+      {
+        "id": 175,
+        "rate": 10,
+        "moveIds": [
+          64,
+          81
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": 8,
+        "rate": 20
+      },
+      {
+        "id": 11,
+        "rate": 20
+      },
+      {
+        "id": 15,
+        "rate": 20
+      },
+      {
+        "id": 28,
+        "rate": 20
+      }
+    ],
+    "days": [
       "MONDAY",
+      "THURSDAY"
+    ]
+  },
+  {
+    "image": "images/banners/magby_banner.JPG",
+    "description": "Get a special Magby with the moves Mach Punch and Cross Chop. You can also get Smoochum or Elekid.",
+    "cost": 100,
+    "pokemons": [
+      {
+        "id": 240,
+        "rate": 5,
+        "moveIds": [
+          7,85,14,33
+        ]
+      },
+      {
+        "id": 238,
+        "rate": 5,
+        "moveIds": [
+          65,64,174,246
+        ]
+      },
+      {
+        "id": 239,
+        "rate": 5,
+        "moveIds": [
+          3,8,33
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": 2,
+        "rate": 15
+      },
+      {
+        "id": 4,
+        "rate": 15
+      },
+      {
+        "id": 8,
+        "rate": 10
+      },
+      {
+        "id": 9,
+        "rate": 15
+      },
+      {
+        "id": 11,
+        "rate": 30
+      }
+    ],
+    "days": [
+      "MONDAY",
+      "FRIDAY",
+      "SUNDAY"
+    ]
+  },
+  {
+    "image": "images/banners/eevee_banner.JPG",
+    "description": "Get an Eevee which may be shiny!",
+    "cost": 100,
+    "pokemons": [
+      {
+        "id": 133,
+        "rate": 7,
+        "moveIds": [
+          2,
+          19
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": 2,
+        "rate": 38
+      },
+      {
+        "id": 4,
+        "rate": 15
+      },
+      {
+        "id": 8,
+        "rate": 10
+      },
+      {
+        "id": 9,
+        "rate": 15
+      },
+      {
+        "id": 11,
+        "rate": 15
+      }
+    ],
+    "days": [
+      "TUESDAY",
+      "THURSDAY",
       "SATURDAY"
     ]
   },
   {
-    "image": "images/porygon_banner.JPG",
+    "image": "images/banners/porygon_banner.JPG",
     "description": "Get a Porygon",
     "cost": 100,
     "pokemons": [
@@ -121,22 +272,22 @@
         "rate": 15
       },
       {
-        "id": 11,
+        "id": 154,
         "rate": 30
       },
       {
-        "id": 12,
+        "id": 173,
         "rate": 10
       }
     ],
     "days": [
-      "TUESDAY",
-      "FRIDAY"
+      "THURSDAY",
+      "SATURDAY"
     ]
   },
   {
-    "image": "images/larvitar_banner.JPG",
-    "description": "Get a special Larvitar with the moves Iron Head and Dragon Dance",
+    "image": "images/banners/larvitar_banner.JPG",
+    "description": "Get a special Larvitar with the move Dragon Dance",
     "cost": 120,
     "pokemons": [
       {
@@ -169,29 +320,32 @@
       },
       {
         "id": 11,
-        "rate": 30
+        "rate": 20
       },
       {
         "id": 12,
+        "rate": 10
+      },
+      {
+        "id": 158,
         "rate": 10
       }
     ],
     "days": [
       "TUESDAY",
-      "THURSDAY"
+      "SATURDAY"
     ]
   },
   {
-    "image": "images/scyther_banner.JPG",
-    "description": "Get a Scyther",
-    "cost": 100,
+    "image": "images/banners/heracross_banner.JPG",
+    "description": "Get a Heracross",
+    "cost": 150,
     "pokemons": [
       {
-        "id": 123,
+        "id": 214,
         "rate": 5,
         "moveIds": [
-          3,
-          56
+          2,239
         ]
       }
     ],
@@ -227,7 +381,7 @@
     ]
   },
   {
-    "image": "images/dratini_banner.JPG",
+    "image": "images/banners/dratini_banner.JPG",
     "description": "Get a Dratini with the move Dragon Breath",
     "cost": 120,
     "pokemons": [
@@ -236,7 +390,7 @@
         "rate": 5,
         "moveIds": [
           15,
-          24
+          96
         ]
       }
     ],
@@ -272,7 +426,7 @@
     ]
   },
   {
-    "image": "images/HyperBall.png",
+    "image": "images/banners/HyperBall.png",
     "description": "Get a Hyper Ball which is an improved version of the Great Ball",
     "cost": 50,
     "pokemons": [
@@ -309,11 +463,13 @@
     ],
     "days": [
       "MONDAY",
-      "FRIDAY"
+      "TUESDAY",
+      "FRIDAY",
+      "SATURDAY"
     ]
   },
   {
-    "image": "images/evolution_stones_banner.JPG",
+    "image": "images/banners/evolution_stones_banner.JPG",
     "description": "Get stones with the ability to make certain species of Pokémon evolve upon contact",
     "cost": 50,
     "pokemons": [
@@ -337,7 +493,7 @@
       },
       {
         "id": 11,
-        "rate": 30
+        "rate": 25
       },
       {
         "id": 16,
@@ -356,17 +512,21 @@
         "rate": 5
       },
       {
-        "id": 60,
+        "id": 28,
+        "rate": 5
+      },
+      {
+        "id": 40,
         "rate": 5
       }
     ],
     "days": [
       "WEDNESDAY",
-      "SATURDAY"
+      "SUNDAY"
     ]
   },
   {
-    "image": "images/evolution_items_banner.png",
+    "image": "images/banners/evolution_items_banner.png",
     "description": "Get items with the ability to make certain species of Pokémon evolve like Seadra and Scyther",
     "cost": 50,
     "pokemons": [
@@ -415,218 +575,260 @@
     ]
   },
   {
-    "image": "images/sinnoh_evolution_items.PNG",
-    "description": "Get items with the ability to make certain species of Pokémon evolve like Magmar or Porygon2",
-    "cost": 100,
-    "pokemons": [
-    ],
-    "items": [
-      {
-        "id": 2,
-        "rate": 20
-      },
-      {
-        "id": 4,
-        "rate": 15
-      },
-      {
-        "id": 9,
-        "rate": 15
-      },
-      {
-        "id": 11,
-        "rate": 30
-      },
-      {
-        "id": 25,
-        "rate": 5
-      },
-      {
-        "id": 26,
-        "rate": 5
-      },
-      {
-        "id": 27,
-        "rate": 5
-      },
-      {
-        "id": 59,
-        "rate": 5
-      }
-    ],
-    "days": [
-      "MONDAY",
-      "WEDNESDAY"
-    ]
-  },
-  {
-    "image": "images/tm_banner.png",
+    "image": "images/banners/tm_banner.png",
     "description": "Get a single-use TM that can teach a move to some Pokemon.",
     "cost": 100,
     "pokemons": [
     ],
     "items": [
       {
-        "id": 39,
-        "rate": 66
-      },
-      {
-        "id": 41,
-        "rate": 2
-      },
-      {
-        "id": 43,
-        "rate": 2
-      },
-      {
-        "id": 45,
-        "rate": 2
-      },
-      {
-        "id": 47,
-        "rate": 2
-      },
-      {
-        "id": 49,
-        "rate": 2
-      },
-      {
         "id": 51,
-        "rate": 2
+        "rate": 20
+      },
+      {
+        "id": 52,
+        "rate": 5
       },
       {
         "id": 53,
-        "rate": 2
+        "rate": 5
       },
       {
-        "id": 55,
-        "rate": 2
+        "id": 54,
+        "rate": 5
       },
       {
-        "id": 57,
-        "rate": 2
+        "id": 60,
+        "rate": 5
       },
       {
         "id": 61,
-        "rate": 2
+        "rate": 5
+      },
+      {
+        "id": 62,
+        "rate": 5
       },
       {
         "id": 63,
-        "rate": 2
+        "rate": 5
+      },
+      {
+        "id": 64,
+        "rate": 5
       },
       {
         "id": 65,
-        "rate": 2
+        "rate": 5
+      },
+      {
+        "id": 66,
+        "rate": 5
       },
       {
         "id": 67,
-        "rate": 2
+        "rate": 5
+      },
+      {
+        "id": 68,
+        "rate": 5
       },
       {
         "id": 69,
-        "rate": 2
+        "rate": 5
+      },
+      {
+        "id": 70,
+        "rate": 5
       },
       {
         "id": 71,
-        "rate": 2
+        "rate": 5
       },
       {
-        "id": 73,
-        "rate": 2
-      },
-      {
-        "id": 75,
-        "rate": 2
+        "id": 72,
+        "rate": 5
       }
     ],
     "days": [
       "MONDAY",
       "TUESDAY",
       "WEDNESDAY",
-      "THURSDAY"
+      "THURSDAY",
+      "FRIDAY",
+      "SATURDAY",
+      "SUNDAY"
     ]
   },
   {
-    "image": "images/tm_banner.png",
-    "description": "Get a single-use TM that can teach a move to some Pokemon.",
-    "cost": 100,
+    "image": "images/banners/tm_banner.png",
+    "description": "Get a single-use TM that can teach a strong move to some Pokemon.",
+    "cost": 400,
     "pokemons": [
     ],
     "items": [
       {
-        "id": 39,
-        "rate": 66
-      },
-      {
-        "id": 40,
-        "rate": 2
-      },
-      {
-        "id": 42,
-        "rate": 2
-      },
-      {
-        "id": 44,
-        "rate": 2
-      },
-      {
-        "id": 46,
-        "rate": 2
-      },
-      {
-        "id": 48,
-        "rate": 2
-      },
-      {
-        "id": 50,
-        "rate": 2
-      },
-      {
-        "id": 52,
-        "rate": 2
-      },
-      {
-        "id": 54,
-        "rate": 2
+        "id": 55,
+        "rate": 3
       },
       {
         "id": 56,
-        "rate": 2
+        "rate": 3
+      },
+      {
+        "id": 57,
+        "rate": 3
       },
       {
         "id": 58,
-        "rate": 2
+        "rate": 3
       },
       {
-        "id": 62,
-        "rate": 2
-      },
-      {
-        "id": 64,
-        "rate": 2
-      },
-      {
-        "id": 66,
-        "rate": 2
-      },
-      {
-        "id": 68,
-        "rate": 2
-      },
-      {
-        "id": 70,
-        "rate": 2
-      },
-      {
-        "id": 72,
-        "rate": 2
+        "id": 73,
+        "rate": 3
       },
       {
         "id": 74,
-        "rate": 2
+        "rate": 3
+      },
+      {
+        "id": 75,
+        "rate": 3
+      },
+      {
+        "id": 76,
+        "rate": 3
+      },
+      {
+        "id": 77,
+        "rate": 3
+      },
+      {
+        "id": 78,
+        "rate": 3
+      },
+      {
+        "id": 79,
+        "rate": 3
+      },
+      {
+        "id": 80,
+        "rate": 3
+      },
+      {
+        "id": 81,
+        "rate": 3
+      },
+      {
+        "id": 82,
+        "rate": 3
+      },
+      {
+        "id": 83,
+        "rate": 3
+      },
+      {
+        "id": 84,
+        "rate": 3
+      },
+      {
+        "id": 85,
+        "rate": 3
+      },
+      {
+        "id": 86,
+        "rate": 3
+      },
+      {
+        "id": 87,
+        "rate": 3
+      },
+      {
+        "id": 88,
+        "rate": 3
+      },
+      {
+        "id": 89,
+        "rate": 3
+      },
+      {
+        "id": 90,
+        "rate": 3
+      },
+      {
+        "id": 91,
+        "rate": 3
+      },
+      {
+        "id": 92,
+        "rate": 3
+      },
+      {
+        "id": 93,
+        "rate": 3
+      },
+      {
+        "id": 94,
+        "rate": 3
+      },
+      {
+        "id": 95,
+        "rate": 3
+      },
+      {
+        "id": 96,
+        "rate": 3
+      },
+      {
+        "id": 97,
+        "rate": 3
+      },
+      {
+        "id": 98,
+        "rate": 3
+      },
+      {
+        "id": 99,
+        "rate": 3
+      },
+      {
+        "id": 100,
+        "rate": 3
+      },
+      {
+        "id": 101,
+        "rate": 3
+      },
+      {
+        "id": 102,
+        "rate": 3
+      },
+      {
+        "id": 103,
+        "rate": 3
+      },
+      {
+        "id": 104,
+        "rate": 3
+      },
+      {
+        "id": 105,
+        "rate": 3
+      },
+      {
+        "id": 106,
+        "rate": 3
+      },
+      {
+        "id": 107,
+        "rate": 3
       }
     ],
     "days": [
+      "MONDAY",
+      "TUESDAY",
+      "WEDNESDAY",
+      "THURSDAY",
       "FRIDAY",
       "SATURDAY",
       "SUNDAY"

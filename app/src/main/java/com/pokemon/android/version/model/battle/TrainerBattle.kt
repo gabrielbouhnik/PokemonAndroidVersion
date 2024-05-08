@@ -5,6 +5,7 @@ import android.widget.ImageView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
+import com.pokemon.android.version.utils.IAUtils
 import com.pokemon.android.version.utils.MoveUtils
 import java.io.InputStream
 
@@ -16,7 +17,6 @@ class TrainerBattle() : Battle() {
 
     constructor(activity: MainActivity, trainerBattleLevelData: TrainerBattleLevelData) : this() {
         this.activity = activity
-        this.dialogTextView = activity.findViewById(R.id.dialogTextView)
         this.opponentTrainerSprite = activity.findViewById(R.id.opponentTrainerSpriteView)
         this.levelData = trainerBattleLevelData
         this.numberOfTrainers = trainerBattleLevelData.opponentTrainerData.size
@@ -27,13 +27,20 @@ class TrainerBattle() : Battle() {
             activity.gameDataService
         )
         this.opponent = this.opponentTrainer.getFirstPokemonThatCanFight()!!
+        activity.trainer!!.updatePokedex(opponent)
     }
 
     override fun updateOpponent() {
-        if (opponentTrainer.canStillBattle())
-            opponent = opponentTrainer.getFirstPokemonThatCanFight()!!
+        opponent.recomputeStat()
+        if (opponentTrainer.canStillBattle()) {
+            opponent = if (opponentTrainer.iaLevel != 1 && pokemon.currentHP > 0)
+                IAUtils.getBestPokemonToSentAfterKo(pokemon, opponentTrainer.getTrainerTeam())!!
+            else
+                opponentTrainer.getFirstPokemonThatCanFight()!!
+        }
         else
             nextTrainer()
+        activity.trainer!!.updatePokedex(opponent)
     }
 
     override fun getBattleState(): State {

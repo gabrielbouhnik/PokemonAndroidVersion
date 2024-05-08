@@ -2,67 +2,65 @@ package com.pokemon.android.version.model.battle
 
 import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.MainActivity
-import com.pokemon.android.version.R
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.PokemonData
+import com.pokemon.android.version.model.Type
+import com.pokemon.android.version.utils.BattleUtils
+import com.pokemon.android.version.utils.IAUtils
 import kotlin.random.Random
 
 class BattleFrontierBattle() : Battle() {
-    companion object{
-        const val BACKGROUND_IMAGE = "images/building_battle_background.jpg"
+    companion object {
+        const val BACKGROUND_IMAGE = "images/battle_background/battle_frontier_background.png"
 
-        fun generateTeam(gameDataService: GameDataService) : List<Pokemon>{
+        fun generateTeam(gameDataService: GameDataService): List<Pokemon> {
             val team =
                 gameDataService.battleFrontierPokemons.asSequence().shuffled().take(3).toList()
-            return team.map{(id, moveSets) -> gameDataService.generatePokemonWithMoves(id,50,moveSets[Random.nextInt(moveSets.size)])}
-        }
-
-        private fun haveSameTypes(data1 : PokemonData, data2 : PokemonData) : Boolean{
-            return (data1.type1 == data2.type1 && data1.type2 == data2.type2)
-                    || (data1.type1 == data2.type2 && data1.type2 == data2.type1)
-        }
-
-        private fun haveATypeInCommon(data1 : PokemonData, data2 : PokemonData, data3 : PokemonData) : Boolean{
-            return (data1.type1 == data2.type1 || data1.type1 == data2.type2)
-                    && (data1.type1 == data3.type1 || data1.type1 == data3.type2)
-        }
-
-        fun generateTrainerTeam(gameDataService: GameDataService) : List<Pokemon> {
-            var team = generateTeam(gameDataService)
-            while((haveSameTypes(team[0].data, team[1].data) && haveSameTypes(team[1].data, team[2].data))
-                || haveATypeInCommon(team[0].data, team[1].data,team[2].data)){
-                team = generateTeam(gameDataService)
+            return team.map { (id, moveSets) ->
+                gameDataService.generatePokemonWithMoves(
+                    id,
+                    50,
+                    moveSets[Random.nextInt(moveSets.size)],
+                    null
+                )
             }
+        }
+
+        private fun validateTeamTypes(data1: PokemonData, data2: PokemonData, data3: PokemonData): Boolean {
+            val types: List<Type> = listOf(data1.type1, data1.type2, data2.type1, data2.type2, data3.type1, data3.type2).filter { it != Type.NONE}
+            return types.distinct().size == types.size
+        }
+
+        fun generateTrainerTeam(gameDataService: GameDataService): List<Pokemon> {
+            var team = generateTeam(gameDataService)
+            while (team.none { it.speed > 80 } || !validateTeamTypes(team[0].data,team[1].data,team[2].data))
+                team = generateTeam(gameDataService)
             return team
         }
     }
-    lateinit var opponentTrainer: OpponentTrainer
-    var team : List<Pokemon> = listOf()
-    var area : BattleFrontierArea = BattleFrontierArea.BATTLE_FACTORY
 
-    constructor(activity: MainActivity, team : List<Pokemon>, area : BattleFrontierArea) : this() {
+    lateinit var opponentTrainer: OpponentTrainer
+    var team: List<Pokemon> = listOf()
+    var area: BattleFrontierArea = BattleFrontierArea.BATTLE_FACTORY
+
+    constructor(activity: MainActivity, team: List<Pokemon>, area: BattleFrontierArea) : this() {
         this.activity = activity
-        this.dialogTextView = activity.findViewById(R.id.dialogTextView)
         this.team = team
         this.area = area
         this.pokemon = team[0]
         this.pokemon.battleData = PokemonBattleData()
-        this.opponentTrainer = OpponentTrainer(generateTeam(activity.gameDataService), "images/Sprite_Topdresseuse.png")
+        val opponentTeam = generateTeam(activity.gameDataService)
+        for (pokemon in opponentTeam){
+            if (Random.nextInt(50) == 10)
+                pokemon.shiny = true
+        }
+        this.opponentTrainer = OpponentTrainer("Elite Trainer", opponentTeam, "images/Sprite_Topdresseuse.png",3)
+        opponentTeam.forEach {it.trainer = this.opponentTrainer}
         this.opponent = this.opponentTrainer.getFirstPokemonThatCanFight()!!
     }
 
-    override fun turnWithSwitch(pokemonToBeSent: Pokemon) {
-        val sb = StringBuilder()
-        val previousPokemon = pokemon
-        sb.append("${activity.trainer!!.name} sends ${pokemonToBeSent.data.name}\n")
-        switchPokemon(pokemonToBeSent)
-        sb.append(opponentTurn(opponent.ia(previousPokemon)))
-        endTurn(sb)
-        dialogTextView.text = sb.toString()
-    }
-
     override fun getBattleState(): State {
-        if (!team.any { it.currentHP > 0})
+        if (!team.any { it.currentHP > 0 })
             return State.TRAINER_LOSS
         return if (opponentTrainer.canStillBattle())
             State.IN_PROGRESS
@@ -71,7 +69,10 @@ class BattleFrontierBattle() : Battle() {
     }
 
     override fun updateOpponent() {
-        val pokemon = opponentTrainer.getFirstPokemonThatCanFight()
+        val pokemon = if (pokemon.currentHP > 0)
+            IAUtils.getBestPokemonToSentAfterKo(pokemon, opponentTrainer.getTrainerTeam())
+        else
+            opponentTrainer.getFirstPokemonThatCanFight()
         if (pokemon != null)
             opponent = pokemon
     }

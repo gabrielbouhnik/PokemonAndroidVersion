@@ -13,7 +13,6 @@ class WildBattle() : Battle() {
 
     constructor(activity: MainActivity, wildBattleLevelData: WildBattleLevelData) : this() {
         this.activity = activity
-        this.dialogTextView = activity.findViewById(R.id.dialogTextView)
         this.levelData = wildBattleLevelData
         this.encountersLeft = wildBattleLevelData.encounter
         this.pokemon = activity.trainer!!.getFirstPokemonThatCanFight()!!
@@ -41,24 +40,25 @@ class WildBattle() : Battle() {
     fun generateRandomEncounter(): Pokemon {
         encountersLeft--
         if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID
-            && levelData.name.startsWith("\nRoute")) {
-            when(Random.nextInt(150)){
+            && levelData.name.startsWith("\nRoute")
+        ) {
+            when (Random.nextInt(100)) {
                 1 -> {
-                    if (!activity.trainer!!.pokemons.map{it.data.id}.contains(243)) {
+                    if (!activity.trainer!!.pokemons.map { it.data.id }.contains(243)) {
                         opponent = activity.gameDataService.generatePokemon(243, 70)
                         activity.updateMusic(R.raw.legendary_dogs)
                         return opponent
                     }
                 }
                 2 -> {
-                    if (!activity.trainer!!.pokemons.map{it.data.id}.contains(244)) {
+                    if (!activity.trainer!!.pokemons.map { it.data.id }.contains(244)) {
                         opponent = activity.gameDataService.generatePokemon(244, 70)
                         activity.updateMusic(R.raw.legendary_dogs)
                         return opponent
                     }
                 }
                 3 -> {
-                    if (!activity.trainer!!.pokemons.map{it.data.id}.contains(245)) {
+                    if (!activity.trainer!!.pokemons.map { it.data.id }.contains(245)) {
                         opponent = activity.gameDataService.generatePokemon(245, 70)
                         activity.updateMusic(R.raw.legendary_dogs)
                         return opponent
@@ -70,10 +70,18 @@ class WildBattle() : Battle() {
             (levelData as WildBattleLevelData).possibleEncounters.minLevel,
             (levelData as WildBattleLevelData).possibleEncounters.maxLevel
         )
-        opponent = activity.gameDataService.generatePokemon(
-            (levelData as WildBattleLevelData).possibleEncounters.encounters.random().id,
-            randomLevel
-        )
+        opponent = if (randomLevel < activity.trainer!!.getMaxLevel()) {
+            activity.gameDataService.generateWildPokemon(
+                (levelData as WildBattleLevelData).possibleEncounters.encounters.random().id,
+                randomLevel
+            )
+        } else {
+            activity.gameDataService.generatePokemon(
+                (levelData as WildBattleLevelData).possibleEncounters.encounters.random().id,
+                randomLevel
+            )
+        }
+        activity.trainer!!.updatePokedex(opponent)
         return opponent
     }
 }

@@ -1,6 +1,7 @@
 package com.pokemon.android.version.ui
 
 import android.view.View
+import android.view.View.GONE
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -9,13 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
-import com.pokemon.android.version.model.Pokemon
-import com.pokemon.android.version.model.Status
-import com.pokemon.android.version.model.Type
+import com.pokemon.android.version.model.*
 import com.pokemon.android.version.model.battle.BattleFrontierArea
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.utils.MoveUtils
+import java.util.*
+import kotlin.collections.ArrayList
 
 class PokemonInfoMenu(var parentId: Int) {
     private var moveDetailsMenu = MoveDetailsMenu(parentId)
@@ -50,10 +51,43 @@ class PokemonInfoMenu(var parentId: Int) {
         }
 
         val imageView: ImageView = activity.findViewById(R.id.pokemonSpriteDetailsView)
-        activity.displayPokemon(pokemon.data.id, imageView)
+
+        val abiltiesButton: Button = activity.findViewById(R.id.abilitiesButton)
+        abiltiesButton.setOnClickListener {
+            activity.setContentView(R.layout.ability_layout)
+            val recyclerView = activity.findViewById<RecyclerView>(R.id.abilityRecyclerView)
+            recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+            val abilities = mutableListOf<Ability>()
+            abilities.addAll(pokemon.data.abilities)
+            if (pokemon.data.megaEvolutionData != null && pokemon.data.megaEvolutionData!!.ability != null)
+                abilities.add(pokemon.data.megaEvolutionData!!.ability!!)
+            val adapter = AbilityRecyclerAdapter(activity, abilities, pokemon.data)
+            recyclerView.adapter = adapter
+            val backButton: Button = activity.findViewById(R.id.abilitiesMenuBackButton)
+            backButton.setOnClickListener {
+                if (moveDetailsMenu.parent == R.layout.battle_frontier_prep) {
+                    activity.mainMenu.battleFrontierMenu.loadPokemonInfoLayout(
+                        activity,
+                        pokemon,
+                        BattleFrontierArea.BATTLE_FACTORY
+                    )
+                } else {
+                    activity.mainMenu.pokemonMenu.pokemonInfoMenu.loadPokemonInfoLayout(activity, pokemon)
+                }
+            }
+        }
+
+        activity.displayPokemon(pokemon.data.id, pokemon.shiny, imageView)
     }
 
-    private fun displayMoveButton(activity: MainActivity, pokemon: Pokemon, move: PokemonMove, buttonId: Int, ppTextViewId: Int, area: BattleFrontierArea?) {
+    private fun displayMoveButton(
+        activity: MainActivity,
+        pokemon: Pokemon,
+        move: PokemonMove,
+        buttonId: Int,
+        ppTextViewId: Int,
+        area: BattleFrontierArea?
+    ) {
         val moveButton: Button = activity.findViewById(buttonId)
         moveButton.visibility = View.VISIBLE
         moveButton.text = move.move.name
@@ -107,7 +141,7 @@ class PokemonInfoMenu(var parentId: Int) {
                 activity.playSoundEffect(R.raw.evolve_sound_effect)
                 loadPokemonInfoLayout(activity, pokemon)
             } else if (selectedMoveNumber != null) {
-                val pokemonMove = PokemonMove(possibleMoves[position], possibleMoves[position].pp)
+                val pokemonMove = PokemonMove(possibleMoves[position], possibleMoves[position].pp, false)
                 when (selectedMoveNumber) {
                     0 -> pokemon.move1 = pokemonMove
                     1 -> pokemon.move2 = pokemonMove
@@ -116,9 +150,8 @@ class PokemonInfoMenu(var parentId: Int) {
                 }
                 activity.playSoundEffect(R.raw.evolve_sound_effect)
                 loadPokemonInfoLayout(activity, pokemon)
-            }
-            else{
-                MoveDetailsMenu(R.layout.move_layout).loadMoveMenu(activity, pokemon,possibleMoves[position], null)
+            } else {
+                MoveDetailsMenu(R.layout.move_layout).loadMoveMenu(activity, pokemon, possibleMoves[position], null)
             }
         }
         movesRecyclerView.adapter = MoveRecyclerAdapter(activity, possibleMoves, movesItemClickListener)
@@ -147,17 +180,33 @@ class PokemonInfoMenu(var parentId: Int) {
             loadMovesLayout(activity, pokemon)
         }
         val statusTextView: TextView = activity.findViewById(R.id.statusDetailsTextView)
-        if (pokemon.status != Status.OK)
-            statusTextView.text = pokemon.status.toString()
-        else
-            statusTextView.visibility = View.GONE
+        if (pokemon.status != Status.OK) {
+            statusTextView.text = pokemon.status.toBattleIcon()
+            statusTextView.setTextColor(ColorUtils.getColorByStatus(pokemon.status))
+        } else
+            statusTextView.visibility = GONE
         val healButton: Button = activity.findViewById(R.id.healButton)
         healButton.setOnClickListener {
-            activity.trainer!!.heal(pokemon)
+            activity.trainer!!.heal(pokemon, true)
             if (pokemon.status == Status.OK)
                 statusTextView.text = ""
             displayPokemonInfo(activity, pokemon)
             displayMoveButtons(activity, pokemon, null)
+        }
+        val itemTextView: TextView = activity.findViewById(R.id.heldItemTextView)
+        if (pokemon.heldItem == null){
+            itemTextView.visibility = GONE
+        } else {
+            val takeItemButton: Button = activity.findViewById(R.id.takeItemButton)
+            takeItemButton.visibility = View.VISIBLE
+            takeItemButton.setOnClickListener {
+                (pokemon.trainer!! as Trainer).addItem(pokemon.heldItem!!.id, 1)
+                pokemon.consumeItem()
+                takeItemButton.visibility = GONE
+                itemTextView.visibility = GONE
+            }
+            val itemName: String = pokemon.heldItem!!.heldItemToString()
+            itemTextView.text = "Item:\n${itemName}"
         }
         val evolveButton: Button = activity.findViewById(R.id.evolveButton)
         if (pokemon.canEvolve()) {
@@ -175,6 +224,7 @@ class PokemonInfoMenu(var parentId: Int) {
             }
         }
         if (!activity.eliteMode && !activity.trainer!!.team.contains(pokemon)
+            && pokemon.heldItem == null
             && activity.trainer!!.pokemons.count { pokemon.data.id == it.data.id } > 1
         ) {
             var alreadyClicked = false
@@ -182,6 +232,9 @@ class PokemonInfoMenu(var parentId: Int) {
             releaseButton.visibility = View.VISIBLE
             releaseButton.setOnClickListener {
                 if (alreadyClicked) {
+                    if (pokemon.heldItem != null) {
+                        (pokemon.trainer!! as Trainer).addItem(pokemon.heldItem!!.id, 1)
+                    }
                     activity.trainer!!.pokemons.remove(pokemon)
                     activity.mainMenu.pokemonMenu.loadPokemonMenu(activity)
                 } else {

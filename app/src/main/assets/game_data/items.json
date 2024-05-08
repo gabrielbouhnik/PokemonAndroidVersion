@@ -114,15 +114,15 @@
     },
     {
       "id": 28,
-      "name": "Exp. Candy S"
+      "name": "Moon Stone"
     },
     {
       "id": 29,
-      "name": "Exp. Candy M"
+      "name": "Shiny Stone"
     },
     {
       "id": 30,
-      "name": "Exp. Candy L"
+      "name": "Ice Stone"
     },
     {
       "id": 31,
@@ -157,189 +157,120 @@
       "name": "Earth Badge"
     },
     {
-      "id": 59,
+      "id": 39,
       "name": "Dubious Disc"
     },
     {
-      "id": 60,
-      "name": "Dusk Stone"
-    }
-  ],
-  "TMs": [
-    {
-      "id": 39,
-      "name": "TM01 Headbutt",
-      "moveId": 72
-    },
-    {
       "id": 40,
-      "name": "TM02 Brick Break",
-      "moveId": 69
+      "name": "Dusk Stone"
     },
     {
       "id": 41,
-      "name": "TM03 Iron Tail",
-      "moveId": 13
+      "name": "Zephyr Badge"
     },
     {
       "id": 42,
-      "name": "TM04 Rock Slide",
-      "moveId": 25
+      "name": "Hive Badge"
     },
     {
       "id": 43,
-      "name": "TM05 Thunder Punch",
-      "moveId": 103
+      "name": "Plain Badge"
     },
     {
       "id": 44,
-      "name": "TM06 Poison Jab",
-      "moveId": 62
+      "name": "Fog Badge"
     },
     {
       "id": 45,
-      "name": "TM07 Fire Punch",
-      "moveId": 110
+      "name": "Storm Badge"
     },
     {
       "id": 46,
-      "name": "TM08 Dazzling Gleam",
-      "moveId": 44
+      "name": "Mineral Badge"
     },
     {
       "id": 47,
-      "name": "TM09 Dragon Pulse",
-      "moveId": 104
+      "name": "Glacier Badge"
     },
     {
       "id": 48,
-      "name": "TM10 Ice Punch",
-      "moveId": 107
+      "name": "Rising Badge"
     },
     {
       "id": 49,
-      "name": "TM11 Thunderbolt",
-      "moveId": 12
+      "name": "Razor Fang"
     },
     {
       "id": 50,
-      "name": "TM12 Flamethrower",
-      "moveId": 31
+      "name": "Razor Claw"
     },
     {
-      "id": 51,
-      "name": "TM13 Psychic",
-      "moveId": 45
+      "id": 110,
+      "name": "Venusaurite"
     },
     {
-      "id": 52,
-      "name": "TM14 Earthquake",
-      "moveId": 93
+      "id": 111,
+      "name": "Charizardite"
     },
     {
-      "id": 53,
-      "name": "TM15 Shadow Ball",
-      "moveId": 46
+      "id": 112,
+      "name": "Blastoisinite"
     },
     {
-      "id": 54,
-      "name": "TM16 Fire Blast",
-      "moveId": 82
+      "id": 113,
+      "name": "Beedrillite"
     },
     {
-      "id": 55,
-      "name": "TM17 Surf",
-      "moveId": 43
+      "id": 114,
+      "name": "Pidgeotite"
     },
     {
-      "id": 56,
-      "name": "TM18 Sludge Bomb",
-      "moveId": 37
+      "id": 115,
+      "name": "Alakazite"
     },
     {
-      "id": 57,
-      "name": "TM19 Ice Beam",
-      "moveId": 100
+      "id": 116,
+      "name": "Slowbronite"
     },
     {
-      "id": 58,
-      "name": "TM20 Energy Ball",
-      "moveId": 105
+      "id": 117,
+      "name": "Gengarite"
     },
     {
-      "id": 61,
-      "name": "TM21 Thunder Wave",
-      "moveId": 55
+      "id": 118,
+      "name": "Pinsirite"
     },
     {
-      "id": 62,
-      "name": "TM22 Calm Mind",
-      "moveId": 135
+      "id": 119,
+      "name": "Gyaradosite"
     },
     {
-      "id": 63,
-      "name": "TM23 Sword Dance",
-      "moveId": 114
+      "id": 120,
+      "name": "Steelixite"
     },
     {
-      "id": 64,
-      "name": "TM24 Waterfall",
-      "moveId": 136
+      "id": 121,
+      "name": "Scizorite"
     },
     {
-      "id": 65,
-      "name": "TM25 Aerial Ace",
-      "moveId": 113
+      "id": 122,
+      "name": "Heracronite"
     },
     {
-      "id": 66,
-      "name": "TM26 Flash Cannon",
-      "moveId": 111
+      "id": 123,
+      "name": "Houndoominite"
     },
     {
-      "id": 67,
-      "name": "TM27 Giga Drain",
-      "moveId": 66
+      "id": 124,
+      "name": "Tyranitarite"
     },
     {
-      "id": 68,
-      "name": "TM28 Drain Punch",
-      "moveId": 76
+      "id": 130,
+      "name": "Mega Ring"
     },
     {
-      "id": 69,
-      "name": "TM29 Dragon Claw",
-      "moveId": 108
-    },
-    {
-      "id": 70,
-      "name": "TM30 Will-O-Wisp",
-      "moveId": 128
-    },
-    {
-      "id": 71,
-      "name": "TM31 Bulk Up",
-      "moveId": 140
-    },
-    {
-      "id": 72,
-      "name": "TM32 X-Scissor",
-      "moveId": 56
-    },
-    {
-      "id": 73,
-      "name": "TM33 Focus Blast",
-      "moveId": 138
-    },
-    {
-      "id": 74,
-      "name": "TM34 Bullet Seed",
-      "moveId": 137
-    },
-    {
-      "id": 75,
-      "name": "TM34 Dark Pulse",
-      "moveId": 92
+      "id": 131,
+      "name": "Peat Block"
     }
   ]
 }

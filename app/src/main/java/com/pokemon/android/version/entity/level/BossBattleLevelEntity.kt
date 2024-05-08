@@ -9,5 +9,6 @@ data class BossBattleLevelEntity(
     var music: Int,
     var icon: String,
     var background: String,
-    var exp: Int
+    var exp: Int,
+    var mandatory: Boolean
 )

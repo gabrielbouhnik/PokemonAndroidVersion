@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
@@ -16,7 +17,7 @@ import java.io.InputStream
 
 class BannerRecyclerAdapter(
     var activity: MainActivity,
-    var data: MutableList<Banner>
+    var data: List<Banner>
 ) :
     RecyclerView.Adapter<BannerRecyclerAdapter.ViewHolder>() {
 
@@ -41,9 +42,15 @@ class BannerRecyclerAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = data[position]
+        if (activity.hardMode) {
+            if (currentItem.description.contains("a move"))
+                currentItem.cost = 200
+            if (currentItem.description.contains("a strong move"))
+                currentItem.cost = 600
+        }
         if (position == 0 && position == data.size - 1)
             holder.arrowImageView.visibility = GONE
-        if (position == 0){
+        if (position == 0) {
             val img: InputStream = activity.assets.open("images/right.png")
             holder.arrowImageView.setImageDrawable(Drawable.createFromStream(img, "images/right.png"))
         }
@@ -59,8 +66,10 @@ class BannerRecyclerAdapter(
             if (s != null) {
                 activity.playSoundEffect(R.raw.item_sound_effect)
                 activity.mainMenu.bannerMenu.coinsTextView.text = "${activity.trainer!!.coins} AndroCoins"
-                activity.mainMenu.bannerMenu.loadSummonResultScreen(activity, s)
-            }
+                activity.mainMenu.bannerMenu.loadSummonResultScreen(activity, currentItem, s)
+            } else
+                Toast.makeText(activity, "You don't have enough AndroCoins.", Toast.LENGTH_SHORT).show()
+
         }
         val img: InputStream = activity.assets.open(currentItem.image)
         holder.spriteView.setImageDrawable(Drawable.createFromStream(img, currentItem.image))
