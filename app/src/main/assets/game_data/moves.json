@@ -2568,6 +2568,39 @@
       ],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 282,
+      "name": "First Impression",
+      "power": 90,
+      "pp": 10,
+      "type": 7,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "Although this move has great power, it works only on the first turn each time the user enters battle.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 283,
+      "name": "Axe Kick",
+      "power": 120,
+      "pp": 10,
+      "type": 11,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The user attacks by kicking up into the air and slamming its heel down upon the target. This may also confuse the target. If it misses, the user takes damage instead.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "CONFUSED",
+          "probability": 30
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "multipleHitMoves": [

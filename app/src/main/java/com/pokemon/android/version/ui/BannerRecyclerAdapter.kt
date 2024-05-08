@@ -42,6 +42,12 @@ class BannerRecyclerAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = data[position]
+        if (activity.hardMode) {
+            if (currentItem.description.contains("a move"))
+                currentItem.cost = 200
+            if (currentItem.description.contains("a strong move"))
+                currentItem.cost = 600
+        }
         if (position == 0 && position == data.size - 1)
             holder.arrowImageView.visibility = GONE
         if (position == 0) {

@@ -7,7 +7,6 @@ import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.item.HoldItem
-import com.pokemon.android.version.model.level.LeaderLevelData
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.move.ChargedMove
 import com.pokemon.android.version.model.move.MoveCategory
@@ -34,12 +33,13 @@ abstract class Battle {
         if (opponentPokemonMove.move.id == 208 && !opponentMoveIsOffensive)
             return "${opponent.data.name} uses Sucker Punch!\nBut it failed!\n"
         var action = ""
-        if (opponentPokemonMove.move.id == 185){
-             action += "${opponent.data.name} uses Teleport!\n"
+        if (opponentPokemonMove.move.id == 185) {
+            action += "${opponent.data.name} uses Teleport!\n"
             if (opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
-                || opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE))
+                || opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
+            )
                 action += "But it failed!\n"
-            else if (this is WildBattle){
+            else if (this is WildBattle) {
                 action += "${opponent.data.name} disappeared!\n"
                 if (encountersLeft > 0) {
                     generateRandomEncounter()
@@ -54,15 +54,14 @@ abstract class Battle {
         }
         if (opponentPokemonMove.move is ChargedMove && opponent.battleData!!.chargedMove == null) {
             opponent.battleData!!.chargedMove = opponentPokemonMove
-            return "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}\nThe opposing " + opponent.data.name + (opponentPokemonMove.move as ChargedMove).chargeText
+            return "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}!\nThe opposing " + opponent.data.name + (opponentPokemonMove.move as ChargedMove).chargeText
         }
         val opponentResponse = opponent.attack(opponentPokemonMove, pokemon)
         return if (!opponentResponse.success) {
             action + opponentResponse.reason
-        }
-        else {
+        } else {
             action +
-                    "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}\n" + opponentResponse.reason
+                    "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}!\n" + opponentResponse.reason
         }
     }
 
@@ -75,33 +74,35 @@ abstract class Battle {
         }
         if (trainerPokemonMove.move is ChargedMove && pokemon.battleData!!.chargedMove == null) {
             pokemon.battleData!!.chargedMove = trainerPokemonMove
-            return "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n" + pokemon.data.name + (trainerPokemonMove.move as ChargedMove).chargeText
+            return "${pokemon.data.name} uses ${trainerPokemonMove.move.name}!\n" + pokemon.data.name + (trainerPokemonMove.move as ChargedMove).chargeText
         }
         val response = pokemon.attack(trainerPokemonMove, opponent)
         return if (!response.success)
             action + response.reason
         else {
-            action + "${pokemon.data.name} uses ${trainerPokemonMove.move.name}\n" + response.reason
+            action + "${pokemon.data.name} uses ${trainerPokemonMove.move.name}!\n" + response.reason
         }
     }
 
     private fun turn(trainerPokemonMove: PokemonMove, sb: StringBuilder) {
-        val opponentMove: PokemonMove = if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
+        val opponentMove: PokemonMove =
+            if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
         if (opponentMove.move is RampageMove) {
             opponent.battleData!!.rampageMove = opponentMove
         }
-        if (this is TrainerBattle || this is BattleFrontierBattle || this is LeaderBattle){
+        if (this is TrainerBattle || this is BattleFrontierBattle || this is LeaderBattle) {
             val opponentTrainer = opponent.trainer!! as OpponentTrainer
             if (opponentTrainer.iaLevel == 3
                 && !opponent.battleData!!.battleStatus.contains(Status.UNABLE_TO_MOVE)
                 && opponent.battleData!!.chargedMove == null
                 && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
-                && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)){
-                 val pokemonToSend = IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam())
-                 if (pokemonToSend != null) {
-                     sb.append(turnWithOpponentSwitch(opponentTrainer, pokemonToSend, trainerPokemonMove))
-                     return
-                 }
+                && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
+            ) {
+                val pokemonToSend = IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam())
+                if (pokemonToSend != null) {
+                    sb.append(turnWithOpponentSwitch(opponentTrainer, pokemonToSend, trainerPokemonMove))
+                    return
+                }
             }
         }
         if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move, opponentMove.move)) {
@@ -128,12 +129,12 @@ abstract class Battle {
             trainerHasUsedMegaEvolution = true
         }
         var shouldMegaEvolve = true
-        if (this is TrainerBattle){
+        if (this is TrainerBattle) {
             val opponentTrainer = opponent.trainer!! as OpponentTrainer
-             shouldMegaEvolve = !(opponentTrainer.iaLevel == 3
-                     && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
-                     && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
-                     && IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam()) != null)
+            shouldMegaEvolve = !(opponentTrainer.iaLevel == 3
+                    && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
+                    && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
+                    && IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam()) != null)
         }
         if ((this is TrainerBattle || this is BossBattle || this is LeaderBattle) && opponent.canMegaEvolve() && shouldMegaEvolve) {
             when (levelData.id) {
@@ -200,7 +201,8 @@ abstract class Battle {
         turn(trainerPokemonMove, sb)
         endTurn(sb)
         if (pokemon.currentHP > 0 && getBattleState() == State.IN_PROGRESS) {
-            val opponentMove: PokemonMove = if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
+            val opponentMove: PokemonMove =
+                if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
             if (opponentMove.move is RampageMove) {
                 opponent.battleData!!.rampageMove = opponentMove
             }
@@ -267,11 +269,15 @@ abstract class Battle {
         this.opponent = pokemonToBeSent
     }
 
-    private fun turnWithOpponentSwitch(trainer: OpponentTrainer, pokemonToBeSent: Pokemon, trainerPokemonMove: PokemonMove): String {
+    private fun turnWithOpponentSwitch(
+        trainer: OpponentTrainer,
+        pokemonToBeSent: Pokemon,
+        trainerPokemonMove: PokemonMove
+    ): String {
         val sb = StringBuilder()
         sb.append("${trainer.name} withdrew ${opponent.data.name}!\n${trainer.name} sends out ${pokemonToBeSent.data.name}!\n")
         switchOpponent(pokemonToBeSent)
-        sb.append(BattleUtils.abilitiesCheck(opponent,pokemon))
+        sb.append(BattleUtils.abilitiesCheck(opponent, pokemon))
         if (trainerPokemonMove.move.id == 208)
             sb.append("${pokemon.data.name} uses Sucker Punch!\nBut it failed!\n")
         else
@@ -282,7 +288,8 @@ abstract class Battle {
     fun turnWithSwitch(pokemonToBeSent: Pokemon): String {
         val sb = StringBuilder()
         sb.append("${activity.trainer!!.name} withdrew ${pokemon.data.name}!\n${activity.trainer!!.name} sends ${pokemonToBeSent.data.name}\n")
-        var opponentMove: PokemonMove = if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
+        var opponentMove: PokemonMove =
+            if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
         switchPokemon(pokemonToBeSent)
         sb.append(BattleUtils.abilitiesCheck(pokemon, opponent))
         if (this is BossBattle)
@@ -318,18 +325,19 @@ abstract class Battle {
             sb.append(activity.trainer!!.name + " uses " + activity.gameDataService.items.first { it.id == itemId }.name + "!\n")
             activity.trainer!!.useItem(itemId, pokemon)
         }
-        val opponentMove: PokemonMove = if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
+        val opponentMove: PokemonMove =
+            if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
         sb.append(opponentTurn(opponentMove, false))
         endTurn(sb)
         return sb.toString()
     }
 
     private fun endTurn(sb: StringBuilder) {
-        if (pokemon.status != Status.OK && pokemon.hasAbility(Ability.SHED_SKIN) && Random.nextInt(2) == 0){
+        if (pokemon.status != Status.OK && pokemon.hasAbility(Ability.SHED_SKIN) && Random.nextInt(2) == 0) {
             sb.append("${pokemon.data.name}'s Shed Skin: ${pokemon.data.name} cured its status!\n")
             pokemon.status = Status.OK
         }
-        if (opponent.status != Status.OK && opponent.hasAbility(Ability.SHED_SKIN) && Random.nextInt(2) == 0){
+        if (opponent.status != Status.OK && opponent.hasAbility(Ability.SHED_SKIN) && Random.nextInt(2) == 0) {
             sb.append("${opponent.data.name}'s Shed Skin: ${opponent.data.name} cured its status!\n")
             opponent.status = Status.OK
         }
@@ -358,11 +366,17 @@ abstract class Battle {
             }
         }
         if (pokemon.currentHP > 0 && opponent.currentHP > 0) {
-            if (pokemon.hasAbility(Ability.SAND_STREAM) && !opponent.hasType(Type.ROCK) && !opponent.hasType(Type.GROUND) && !opponent.hasType(Type.STEEL)){
+            if (pokemon.hasAbility(Ability.SAND_STREAM) && !opponent.hasType(Type.ROCK) && !opponent.hasType(Type.GROUND) && !opponent.hasType(
+                    Type.STEEL
+                )
+            ) {
                 sb.append("${opponent.data.name} is buffeted by the sandstorm!\n")
                 opponent.takeDamage(opponent.hp / 8)
             }
-            if (opponent.hasAbility(Ability.SAND_STREAM) && !pokemon.hasType(Type.ROCK) && !pokemon.hasType(Type.GROUND) && !pokemon.hasType(Type.STEEL)){
+            if (opponent.hasAbility(Ability.SAND_STREAM) && !pokemon.hasType(Type.ROCK) && !pokemon.hasType(Type.GROUND) && !pokemon.hasType(
+                    Type.STEEL
+                )
+            ) {
                 pokemon.takeDamage(pokemon.hp / 8)
                 sb.append("${pokemon.data.name} is buffeted by the sandstorm!\n")
             }
@@ -439,11 +453,11 @@ abstract class Battle {
     companion object {
         fun checkStatus(pokemon: Pokemon): String {
             var details = ""
-            if (pokemon.hasItem(HoldItem.TOXIC_ORB) && Status.isAffectedByStatus(83,Status.BADLY_POISON, pokemon)){
+            if (pokemon.hasItem(HoldItem.TOXIC_ORB) && Status.isAffectedByStatus(83, Status.BADLY_POISON, pokemon)) {
                 pokemon.status = Status.BADLY_POISON
                 details += pokemon.data.name + " is badly poisoned by its Toxic Orb\n"
             }
-            if (pokemon.hasItem(HoldItem.FLAME_ORB) && Status.isAffectedByStatus(138,Status.BURN, pokemon)){
+            if (pokemon.hasItem(HoldItem.FLAME_ORB) && Status.isAffectedByStatus(138, Status.BURN, pokemon)) {
                 pokemon.status = Status.BURN
                 details += pokemon.data.name + " is burned by its Flame Orb\n"
             }
@@ -464,14 +478,16 @@ abstract class Battle {
             if (pokemon.battleData!!.battleStatus.contains(Status.FLINCHED))
                 pokemon.battleData!!.battleStatus.remove(Status.FLINCHED)
             if (pokemon.battleData!!.battleStatus.contains(Status.TIRED)) {
-                if (pokemon.battleData!!.sleepCounter == 0)
+                if (pokemon.status != Status.OK) {
+                    pokemon.battleData!!.battleStatus.remove(Status.TIRED)
+                } else if (pokemon.battleData!!.sleepCounter == 0)
                     pokemon.battleData!!.sleepCounter += 1
                 else {
                     pokemon.battleData!!.battleStatus.remove(Status.TIRED)
                     pokemon.battleData!!.sleepCounter = 0
                     pokemon.status = Status.ASLEEP
                     details += pokemon.data.name + " fell asleep!\n"
-                    if (pokemon.hasItem(HoldItem.LUM_BERRY)){
+                    if (pokemon.hasItem(HoldItem.LUM_BERRY)) {
                         details += "${pokemon.data.name}'s Lum Berry cured its status\n"
                         pokemon.status = Status.OK
                         pokemon.consumeItem()
@@ -488,17 +504,17 @@ abstract class Battle {
             if (pokemon.status != Status.OK) {
                 when (pokemon.status) {
                     Status.POISON -> {
-                        if (pokemon.hasAbility(Ability.POISON_HEAL)){
-                            pokemon.heal(pokemon.hp/8)
+                        if (pokemon.hasAbility(Ability.POISON_HEAL)) {
+                            pokemon.heal(pokemon.hp / 8)
                             details += "${pokemon.data.name}'s Poison Heal: ${pokemon.data.name} had its hp restored.\n"
                         } else if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
-                                pokemon.takeDamage(pokemon.hp / 8)
-                                details += pokemon.data.name + " suffers from the poison!\n"
+                            pokemon.takeDamage(pokemon.hp / 8)
+                            details += pokemon.data.name + " suffers from the poison!\n"
                         }
                     }
                     Status.BADLY_POISON -> {
-                        if (pokemon.hasAbility(Ability.POISON_HEAL)){
-                            pokemon.heal(pokemon.hp/8)
+                        if (pokemon.hasAbility(Ability.POISON_HEAL)) {
+                            pokemon.heal(pokemon.hp / 8)
                             details += "${pokemon.data.name}'s Poison Heal: ${pokemon.data.name} had its hp restored.\n"
                         } else if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
                             pokemon.battleData!!.poisonCounter++
@@ -518,15 +534,15 @@ abstract class Battle {
                     else -> {}
                 }
             }
-            if (pokemon.hp > pokemon.currentHP && pokemon.hasItem(HoldItem.LEFTOVERS)){
+            if (pokemon.hp > pokemon.currentHP && pokemon.hasItem(HoldItem.LEFTOVERS)) {
                 pokemon.heal(pokemon.hp / 16)
                 details += pokemon.data.name + " restored a little of its hp using its Leftovers!\n"
             }
-            if (pokemon.hasItem(HoldItem.BLACK_SLUDGE) && pokemon.hp > pokemon.currentHP){
+            if (pokemon.hasItem(HoldItem.BLACK_SLUDGE) && pokemon.hp > pokemon.currentHP) {
                 details += if (pokemon.hasType(Type.POISON)) {
                     pokemon.heal(pokemon.hp / 16)
                     pokemon.data.name + " restored a little of its hp using its Black Sludge!\n"
-                } else{
+                } else {
                     pokemon.takeDamage(pokemon.hp / 8)
                     pokemon.data.name + " lost some of its hp because of its Black Sludge!\n"
                 }

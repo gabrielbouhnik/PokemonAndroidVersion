@@ -85,7 +85,7 @@ class IAUtils {
                     damage *= if (opponent.hasAbility(Ability.SKILL_LINK) || opponent.hasItem(HoldItem.LOADED_DICE)) 5 else 3
                 if (canBeKOdByOpponent(attacker, opponent) && move.move is ChargedMove)
                     continue
-                if (move.move.id == 246 && attacker.battleData!!.hadATurn)
+                if ((move.move.id == 246 || move.move.id == 282) && attacker.battleData!!.hadATurn)
                     continue
                 if (move.move is RecoilMove && attacker.currentHP == attacker.hp && (move.move as RecoilMove).recoil == Recoil.ALL)
                     continue

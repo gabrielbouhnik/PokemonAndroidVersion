@@ -32,6 +32,10 @@ class BattleUtils {
                     attacker.takeDamage(attacker.hp / 8)
                     details += "${opponent.data.name}'s Rough Skin: ${attacker.data.name} was hurt!\n"
                 }
+                if (opponent.hasAbility(Ability.IRON_BARBS)) {
+                    attacker.takeDamage(attacker.hp / 8)
+                    details += "${opponent.data.name}'s Iron Barbs: ${attacker.data.name} was hurt!\n"
+                }
                 if (opponent.hasItem(HoldItem.ROCKY_HELMET)) {
                     attacker.takeDamage(attacker.hp / 8)
                     details += "${opponent.data.name}'s Rocky Helmet: ${attacker.data.name} was hurt!\n"
@@ -178,13 +182,19 @@ class BattleUtils {
         }
 
         fun trainerStarts(pokemon: Pokemon, other: Pokemon, move: Move, opponentMove: Move): Boolean {
+            var priorityLevel = move.priorityLevel
+            var opponentPriorityLevel = opponentMove.priorityLevel
+            if (pokemon.hasAbility(Ability.GALE_WINGS) && move.type == Type.FLYING && pokemon.currentHP == pokemon.currentHP)
+                priorityLevel += 1
+            if (other.hasAbility(Ability.GALE_WINGS) && opponentMove.type == Type.FLYING && other.currentHP == pokemon.currentHP)
+                opponentPriorityLevel += 1
             return when {
-                (move.priorityLevel > opponentMove.priorityLevel
+                (priorityLevel > opponentPriorityLevel
                         || (pokemon.hasAbility(Ability.PRANKSTER) && move.category == MoveCategory.OTHER))
                         && !other.hasAbility(Ability.ARMOR_TAIL) -> {
                     true
                 }
-                (move.priorityLevel < opponentMove.priorityLevel
+                (priorityLevel < opponentPriorityLevel
                         || (other.hasAbility(Ability.PRANKSTER) && opponentMove.category == MoveCategory.OTHER))
                         && !pokemon.hasAbility(Ability.ARMOR_TAIL) -> {
                     false

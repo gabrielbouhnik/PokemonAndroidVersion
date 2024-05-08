@@ -241,7 +241,7 @@ open class Pokemon(
                 "${this.data.name} uses ${move.move.name}!\n" + BattleUtils.getEffectiveness(move.move, opponent)
             )
         }
-        if ((move.move.id == 210 || move.move.id == 244) && opponent.hasType(Type.GHOST)) {
+        if ((move.move.id == 210 || move.move.id == 244 || move.move.id == 283 ) && opponent.hasType(Type.GHOST)) {
             this.takeDamage(this.hp / 2)
             return AttackResponse(
                 false,
@@ -251,7 +251,7 @@ open class Pokemon(
         if (move.move is RetaliationMove && (this.battleData!!.lastHitReceived == null || move.move.category != this.battleData!!.lastHitReceived!!.category)) {
             return AttackResponse(false, "${this.data.name} uses ${move.move.name}!\nBut it failed!\n")
         }
-        if ((move.move.id == 246 && hadATurn) || (move.move.id == 213 && opponent.status != Status.ASLEEP))
+        if (((move.move.id == 246 || move.move.id == 282) && hadATurn) || (move.move.id == 213 && opponent.status != Status.ASLEEP))
             return AttackResponse(
                 false,
                 "${this.data.name} uses ${move.move.name}!\nBut it failed!\n"
@@ -272,7 +272,7 @@ open class Pokemon(
                 accuracy *= 0.5f
             if (random > accuracy) {
                 var reason = "${this.data.name} uses ${move.move.name}!\n${this.data.name}'s attack missed!\n"
-                if (move.move.id == 210 || move.move.id == 244) {
+                if (move.move.id == 210 || move.move.id == 244 || move.move.id == 283 ) {
                     reason += "${this.data.name} kept going and crashed!\n"
                     this.takeDamage(this.hp / 2)
                 }

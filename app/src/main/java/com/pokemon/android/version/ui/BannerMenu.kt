@@ -36,7 +36,7 @@ class BannerMenu {
                 it.description.contains("Hyper Ball") || it.description.contains("Pikachu")
             } else activity.gameDataService.banners.filter { it.days.contains(day) }
         if (activity.hardMode) {
-            if (activity.trainer!!.progression in LevelMenu.MISTY_LEVEL..LevelMenu.ELITE_4_FIRST_LEVEL_ID)
+            if (activity.trainer!!.progression in LevelMenu.MISTY_LEVEL..LevelMenu.MOLTRES_LEVEL)
                 recyclerView.adapter =
                     BannerRecyclerAdapter(
                         activity,
