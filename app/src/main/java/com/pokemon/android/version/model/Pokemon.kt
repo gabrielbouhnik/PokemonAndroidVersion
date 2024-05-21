@@ -119,7 +119,7 @@ open class Pokemon(
         }
     }
 
-    private fun canAttack(move: PokemonMove): AttackResponse {
+    fun canAttack(move: PokemonMove): AttackResponse {
         if (this.status == Status.FROZEN) {
             if (Random.nextInt(100) > 20)
                 return AttackResponse(false, "${this.data.name} is frozen solid!\n")

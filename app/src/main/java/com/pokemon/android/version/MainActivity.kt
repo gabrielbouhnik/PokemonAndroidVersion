@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             "https://www.serebii.net/pokemongo/pokemon/"
         const val pokemonBackSpritesUrl: String =
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/"
+        const val itemSpriteUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/ca5a7886c10753144e6fae3b69d45a4d42a449b4/sprites/items/"
         const val armoredMewtwoUrl: String = "https://www.serebii.net/pokemongo/pokemon/150-armored.png"
         val idForSVsprites = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 23, 24, 25, 26, 27, 28, 35, 36, 37, 38, 39, 40, 43, 44,
             45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 69, 70, 71, 72, 73, 74, 75, 76, 79, 80, 81, 82, 84,
@@ -164,6 +165,12 @@ class MainActivity : AppCompatActivity() {
             val img: InputStream = this.assets.open(filename)
             imageView.setImageDrawable(Drawable.createFromStream(img, filename))
         }
+    }
+
+    fun displayItem(itemName: String, imageView: ImageView) {
+        Glide.with(this)
+            .load("${itemSpriteUrl}/${itemName.lowercase().replace(' ', '-')}.png")
+            .into(imageView)
     }
 
     private fun titleScreen() {

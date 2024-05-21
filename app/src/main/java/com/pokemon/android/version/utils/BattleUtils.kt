@@ -101,6 +101,8 @@ class BattleUtils {
                 checkForStatsRaiseAbility(pokemon)
             if (pokemon.hasAbility(Ability.PRESSURE))
                 sb.append("${pokemon.data.name}'s Pressure: ${pokemon.data.name} is exerting its pressure!\n")
+            if (pokemon.hasAbility(Ability.ANTICIPATION) && MoveUtils.getMoveList(opponent).any{ DamageCalculator.getEffectiveness(it.move, opponent) >= 2f})
+                sb.append("${pokemon.data.name}'s Anticipation: ${pokemon.data.name} shuddered!\n")
             if (pokemon.hasAbility(Ability.INTIMIDATE) && !opponent.hasAbility(Ability.OWN_TEMPO)) {
                 sb.append("${pokemon.data.name}'s Intimidate: ${opponent.data.name}'s attack fell!\n")
                 when {

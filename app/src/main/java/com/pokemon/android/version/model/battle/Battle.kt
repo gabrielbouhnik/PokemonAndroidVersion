@@ -30,8 +30,10 @@ abstract class Battle {
     abstract fun updateOpponent()
 
     private fun opponentTurn(opponentPokemonMove: PokemonMove, opponentMoveIsOffensive: Boolean): String {
-        if (opponentPokemonMove.move.id == 208 && !opponentMoveIsOffensive)
-            return "${opponent.data.name} uses Sucker Punch!\nBut it failed!\n"
+        if (opponentPokemonMove.move.id == 208 && !opponentMoveIsOffensive) {
+            val response = opponent.canAttack(opponentPokemonMove)
+            return if (!response.success) response.reason else "${opponent.data.name} uses Sucker Punch!\nBut it failed!\n"
+        }
         var action = ""
         if (opponentPokemonMove.move.id == 185) {
             action += "${opponent.data.name} uses Teleport!\n"
@@ -278,8 +280,10 @@ abstract class Battle {
         sb.append("${trainer.name} withdrew ${opponent.data.name}!\n${trainer.name} sends out ${pokemonToBeSent.data.name}!\n")
         switchOpponent(pokemonToBeSent)
         sb.append(BattleUtils.abilitiesCheck(opponent, pokemon))
-        if (trainerPokemonMove.move.id == 208)
-            sb.append("${pokemon.data.name} uses Sucker Punch!\nBut it failed!\n")
+        if (trainerPokemonMove.move.id == 208) {
+            val response = opponent.canAttack(trainerPokemonMove)
+            sb.append(if (!response.success) response.reason else "${opponent.data.name} uses Sucker Punch!\nBut it failed!\n${pokemon.data.name} uses Sucker Punch!\nBut it failed!\n")
+        }
         else
             sb.append(trainerTurn(trainerPokemonMove))
         return sb.toString()
@@ -294,8 +298,10 @@ abstract class Battle {
         sb.append(BattleUtils.abilitiesCheck(pokemon, opponent))
         if (this is BossBattle)
             opponentMove = IAUtils.ia(opponent, pokemon)
-        if (opponentMove.move.id == 208)
-            sb.append("${opponent.data.name} uses Sucker Punch!\nBut it failed!\n")
+        if (opponentMove.move.id == 208) {
+            val response = opponent.canAttack(opponentMove)
+            sb.append(if (response.success) "${opponent.data.name} uses Sucker Punch!\nBut it failed!\n" else response.reason)
+        }
         else
             sb.append(opponentTurn(opponentMove, false))
         endTurn(sb)

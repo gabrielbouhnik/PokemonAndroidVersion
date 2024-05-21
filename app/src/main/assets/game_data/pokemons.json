@@ -17387,7 +17387,7 @@
         }
       }
     ],
-    "abilities": ["POISON_TOUCH","DRY_SKIN"],
+    "abilities": ["ANTICIPATION","POISON_TOUCH","DRY_SKIN"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -17453,7 +17453,7 @@
     "speed": 85,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["POISON_TOUCH","DRY_SKIN"],
+    "abilities": ["ANTICIPATION","POISON_TOUCH","DRY_SKIN"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -18494,7 +18494,7 @@
     "speed": 20,
     "catchRate": 90,
     "evolutions": [],
-    "abilities": ["IRON_BARBS"],
+    "abilities": ["IRON_BARBS","ANTICIPATION"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -19736,7 +19736,7 @@
         }
       }
     ],
-    "abilities": ["MAGIC_BOUNCE"],
+    "abilities": ["ANTICIPATION","MAGIC_BOUNCE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -19793,7 +19793,7 @@
         }
       }
     ],
-    "abilities": ["MAGIC_BOUNCE"],
+    "abilities": ["ANTICIPATION","MAGIC_BOUNCE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -19847,7 +19847,7 @@
     "speed": 29,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["MAGIC_BOUNCE"],
+    "abilities": ["ANTICIPATION","MAGIC_BOUNCE"],
     "expGaugeType":  "SLOW"
   },
   {

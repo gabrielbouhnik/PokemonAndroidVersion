@@ -4,6 +4,7 @@ enum class Ability(var description: String) {
     ADAPTABILITY("Powers up moves of the same type as the Pokémon."),
     AFTERMATH("Damages the attacker if it contacts the Pokémon with a finishing hit."),
     ANGER_POINT("Increases Attack to maximum level upon taking a critical hit."),
+    ANTICIPATION("The Pokémon can sense an opposing Pokémon's dangerous moves."),
     ARENA_TRAP("Prevents opposing Pokémon from fleeing."),
     ARMOR_TAIL("The mysterious tail covering the Pokémon's head makes opponents unable to use priority moves against the Pokémon."),
     BATTLE_ARMOR("Hard armor protects the Pokémon from critical hits."),
