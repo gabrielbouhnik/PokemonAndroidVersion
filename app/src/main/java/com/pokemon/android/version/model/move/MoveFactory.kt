@@ -20,7 +20,7 @@ class MoveFactory {
                 movesEntity.chargedMovesEntity.forEach { res.add(ChargedMove.of(it)) }
                 movesEntity.rampageMovesEntity.forEach { res.add(RampageMove.of(it)) }
                 movesEntity.movesThatRemoveStatChangesEntity.forEach { res.add(RemoveStatChangesMove.of(it)) }
-                movesEntity.retalationMovesEntity.forEach { res.add(RetaliationMove.of(it)) }
+                movesEntity.retaliationMovesEntity.forEach { res.add(RetaliationMove.of(it)) }
             }
             res.sortBy { it.id }
             return res

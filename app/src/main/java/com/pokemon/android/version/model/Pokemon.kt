@@ -381,7 +381,9 @@ open class Pokemon(
                 damageDone = opponent.currentHP
                 opponent.currentHP = 0
                 opponent.status = Status.OK
-                if (opponent.hasAbility(Ability.AFTERMATH) && move.move.characteristics.contains(MoveCharacteristic.CONTACT)) {
+                if (opponent.hasAbility(Ability.AFTERMATH)
+                    && !this.hasItem(HoldItem.PROTECTIVE_PADS)
+                    && move.move.characteristics.contains(MoveCharacteristic.CONTACT)) {
                     details += "${opponent.data.name}'s Aftermath: ${this.data.name} loses some hp!\n"
                     this.takeDamage(hp / 4)
                 }
@@ -489,18 +491,22 @@ open class Pokemon(
                     this.battleData!!.spDefMultiplicator *= 1.5f
                     this.battleData!!.defenseMultiplicator *= 1.5f
                 }
-                if (this.hasAbility(Ability.SAND_STREAM)) {
-                    this.battleData!!.spDefMultiplicator *= 1.5f
-                }
-                if (opponent.hasAbility(Ability.SAND_STREAM) && this.hasType(Type.ROCK)) {
-                    this.battleData!!.spDefMultiplicator *= 1.5f
-                }
-                BattleUtils.checkForStatsRaiseAbility(opponent)
+                if (this.hasItem(HoldItem.WIDE_LENS))
+                    this.battleData!!.accuracyMultiplicator *= 1.5f
+                if ((this.hasAbility(Ability.SAND_STREAM)
+                    || opponent.hasAbility(Ability.SAND_STREAM)) && opponent.hasType(Type.ROCK))
+                    opponent.battleData!!.spDefMultiplicator *= 1.5f
+                if (opponent.status != Status.OK)
+                    BattleUtils.checkForStatusStatsRaiseAbility(opponent)
             }
         }
         if (move.move.id == 247 && opponent.heldItem != null && !opponent.hasAbility(Ability.STICKY_HOLD)){
             details += "${this.data.name} knocked off ${opponent.data.name}'s item!\n"
             opponent.heldItem = null
+        }
+        if (damage > 0 && currentHP > 0 && move.move.characteristics.contains(MoveCharacteristic.SOUND) && this.hasItem(HoldItem.THROAT_SPRAY)){
+            this.battleData!!.spAtkMultiplicator *= 1.5f
+            details += "The Throat Spray raised ${this.data.name}'s Sp. Atk!\n"
         }
         if (damage > 0 && move.move.id == 249){
             if (this.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
@@ -704,7 +710,7 @@ open class Pokemon(
         }
     }
 
-    fun hasType(type: Type): Boolean{
+    fun hasType(type: Type): Boolean {
         if (isMegaEvolved){
             return data.megaEvolutionData!!.type1 == type || data.megaEvolutionData!!.type2 == type
         }

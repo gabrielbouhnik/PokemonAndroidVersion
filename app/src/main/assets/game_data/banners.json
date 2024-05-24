@@ -427,7 +427,7 @@
   },
   {
     "image": "images/banners/HyperBall.png",
-    "description": "Get a Hyper Ball which is an improved version of the Great Ball",
+    "description": "Get an Ultra Ball which has a higher catch rate than a Great Ball.",
     "cost": 50,
     "pokemons": [
     ],

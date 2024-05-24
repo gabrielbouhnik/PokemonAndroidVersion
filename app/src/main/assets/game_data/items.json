@@ -8,107 +8,107 @@
     {
       "id": 1,
       "name": "Potion",
-      "description": ""
+      "description": "Restores 20 HP."
     },
     {
       "id": 2,
       "name": "Super Potion",
-      "description": ""
+      "description": "Restores 60 HP."
     },
     {
       "id": 3,
       "name": "Hyper Potion",
-      "description": ""
+      "description": "Restores 120 HP."
     },
     {
       "id": 4,
       "name": "Full Heal",
-      "description": ""
+      "description": "Cures a Pokémon of any status condition."
     },
     {
       "id": 5,
       "name": "Paralyze Heal",
-      "description": ""
+      "description": "Cures a Pokémon of paralysis."
     },
     {
       "id": 6,
       "name": "Burn Heal",
-      "description": ""
+      "description": "Cures a Pokémon of a burn."
     },
     {
       "id": 7,
       "name": "Antidote",
-      "description": ""
+      "description": "Cures a Pokémon of poisoning."
     },
     {
       "id": 8,
       "name": "Rare Candy",
-      "description": ""
+      "description": "Raises a Pokémon's level by 1."
     },
     {
       "id": 9,
       "name": "Revive",
-      "description": ""
+      "description": "Revives a fainted Pokémon, restoring half its HP."
     },
     {
       "id": 10,
       "name": "PP Heal",
-      "description": ""
+      "description": "Restored all pp of a Pokémon."
     },
     {
       "id": 11,
       "name": "Poke Ball",
-      "description": ""
+      "description": "Catches wild Pokémon."
     },
     {
       "id": 12,
       "name": "Great Ball",
-      "description": ""
+      "description": "Catches wild Pokémon with 1.5x the rate of a Poké Ball."
     },
     {
       "id": 13,
-      "name": "Hyper Ball",
-      "description": ""
+      "name": "Ultra Ball",
+      "description": "Catches wild Pokémon with 2x the rate of a Poké Ball"
     },
     {
       "id": 14,
       "name": "Net Ball",
-      "description": ""
+      "description": "Catches Water- and Bug-type Pokémon with 3.5x the rate of a standard Poké Ball."
     },
     {
       "id": 15,
       "name": "Heal Ball",
-      "description": ""
+      "description": "Catches wild Pokémon and fully heals them."
     },
     {
       "id": 16,
       "name": "Fire Stone",
-      "description": ""
+      "description": "Evolves certain species of Pokémon."
     },
     {
       "id": 17,
       "name": "Thunder Stone",
-      "description": ""
+      "description": "Evolves certain species of Pokémon."
     },
     {
       "id": 18,
       "name": "Water Stone",
-      "description": ""
+      "description": "Evolves certain species of Pokémon."
     },
     {
       "id": 19,
       "name": "Leaf Stone",
-      "description": ""
+      "description": "Evolves certain species of Pokémon."
     },
     {
       "id": 20,
       "name": "Sun Stone",
-      "description": ""
+      "description": "Evolves certain species of Pokémon."
     },
     {
       "id": 21,
       "name": "King's Rock",
-      "description": ""
+      "description": "Evolves certain species of Pokémon."
     },
     {
       "id": 22,
@@ -118,22 +118,22 @@
     {
       "id": 23,
       "name": "Metal Coat",
-      "description": ""
+      "description": "Evolves certain species of Pokémon."
     },
     {
       "id": 24,
       "name": "Upgrade",
-      "description": ""
+      "description": "Evolves Porygon"
     },
     {
       "id": 25,
       "name": "Magmarizer",
-      "description": ""
+      "description": "Evolves Magmar"
     },
     {
       "id": 26,
       "name": "Electirizer",
-      "description": ""
+      "description": "Evolves Electabuzz"
     },
     {
       "id": 27,
@@ -143,17 +143,17 @@
     {
       "id": 28,
       "name": "Moon Stone",
-      "description": ""
+      "description": "Evolves certain species of Pokémon."
     },
     {
       "id": 29,
       "name": "Shiny Stone",
-      "description": ""
+      "description": "Evolves certain species of Pokémon."
     },
     {
       "id": 30,
       "name": "Ice Stone",
-      "description": ""
+      "description": "Evolves certain species of Pokémon."
     },
     {
       "id": 31,
@@ -198,12 +198,12 @@
     {
       "id": 39,
       "name": "Dubious Disc",
-      "description": ""
+      "description": "Evolves Porygon 2"
     },
     {
       "id": 40,
       "name": "Dusk Stone",
-      "description": ""
+      "description": "Evolves certain species of Pokémon."
     },
     {
       "id": 41,
@@ -258,87 +258,87 @@
     {
       "id": 110,
       "name": "Venusaurite",
-      "description": ""
+      "description": "Enables Venusaur to Mega Evolve during battle."
     },
     {
       "id": 111,
       "name": "Charizardite",
-      "description": ""
+      "description": "Enables Charizard to Mega Evolve during battle."
     },
     {
       "id": 112,
       "name": "Blastoisinite",
-      "description": ""
+      "description": "Enables Blastoise to Mega Evolve during battle."
     },
     {
       "id": 113,
       "name": "Beedrillite",
-      "description": ""
+      "description": "Enables Beedrill to Mega Evolve during battle."
     },
     {
       "id": 114,
       "name": "Pidgeotite",
-      "description": ""
+      "description": "Enables Pidgeot to Mega Evolve during battle."
     },
     {
       "id": 115,
       "name": "Alakazite",
-      "description": ""
+      "description": "Enables Alakazam to Mega Evolve during battle."
     },
     {
       "id": 116,
       "name": "Slowbronite",
-      "description": ""
+      "description": "Enables Slowbrow to Mega Evolve during battle."
     },
     {
       "id": 117,
       "name": "Gengarite",
-      "description": ""
+      "description": "Enables Gengar to Mega Evolve during battle."
     },
     {
       "id": 118,
       "name": "Pinsirite",
-      "description": ""
+      "description": "Enables Pinsir to Mega Evolve during battle."
     },
     {
       "id": 119,
       "name": "Gyaradosite",
-      "description": ""
+      "description": "Enables Gyarados to Mega Evolve during battle."
     },
     {
       "id": 120,
       "name": "Steelixite",
-      "description": ""
+      "description": "Enables Steelix to Mega Evolve during battle."
     },
     {
       "id": 121,
       "name": "Scizorite",
-      "description": ""
+      "description": "Enables Scizor to Mega Evolve during battle."
     },
     {
       "id": 122,
       "name": "Heracronite",
-      "description": ""
+      "description": "Enables Heracross to Mega Evolve during battle."
     },
     {
       "id": 123,
       "name": "Houndoominite",
-      "description": ""
+      "description": "Enables Houndoom to Mega Evolve during battle."
     },
     {
       "id": 124,
       "name": "Tyranitarite",
-      "description": ""
+      "description": "Enables Tyranitar to Mega Evolve during battle."
     },
     {
       "id": 130,
       "name": "Mega Ring",
-      "description": ""
+      "description": "Accessory which enables Mega Evolution"
     },
     {
       "id": 131,
       "name": "Peat Block",
-      "description": ""
+      "description": "A block of mud loved by a certain Pokémon."
     }
   ]
 }

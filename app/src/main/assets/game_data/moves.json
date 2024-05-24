@@ -4113,6 +4113,25 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 284,
+      "name": "Lumina Crash",
+      "power": 80,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 12,
+      "accuracy": 100,
+      "description": "The user attacks by unleashing a peculiar light that even affects the mind. This also harshly lowers the target's Sp. Def stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPDEF"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "drainMoves": [
@@ -4721,7 +4740,7 @@
       "characteristics": []
     }
   ],
-  "retalationMovesEntity": [
+  "retaliationMovesEntity": [
     {
       "id": 227,
       "name": "Counter",

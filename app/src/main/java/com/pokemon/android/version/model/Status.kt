@@ -1,7 +1,6 @@
 package com.pokemon.android.version.model
 
 import com.pokemon.android.version.model.item.HoldItem
-import com.pokemon.android.version.model.move.HealMove
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.utils.BattleUtils
@@ -63,7 +62,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
                         if (it.status.activeOutsideBattle) {
                             opponent.status = it.status
                             details += "${opponent.data.name} " + it.status.toDetails() + "\n"
-                            BattleUtils.checkForStatsRaiseAbility(opponent)
+                            BattleUtils.checkForStatusStatsRaiseAbility(opponent)
                             if (opponent.hasAbility(Ability.SYNCHRONIZE)
                                 && isAffectedByStatus(0, it.status, attacker)
                             ) {

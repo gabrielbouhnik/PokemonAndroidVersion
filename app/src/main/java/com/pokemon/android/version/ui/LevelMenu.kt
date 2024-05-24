@@ -17,6 +17,7 @@ class LevelMenu {
         const val MISTY_LEVEL = 18
         const val OTHER_BANNER_LEVEL = 19
         const val DUGTRIO_LEVEL = 24
+        const val POKEMON_TOWER_LEVEL = 31
         const val MAROWAK_LEVEL = 31
         const val ERIKA_LEVEL = 36
         const val LAPRAS_LEVEL = 47

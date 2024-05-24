@@ -294,8 +294,8 @@ class BattleUI {
                     if (it.hasAbility(Ability.PICKUP) && it.currentHP > 0) {
                         val random = Random.nextInt(10)
                         when {
-                            random < 7 -> activity.trainer!!.addItem(11, 1)
-                            random < 4 -> activity.trainer!!.addItem(1, 1)
+                            random > 7 -> activity.trainer!!.addItem(11, 1)
+                            random in 4..6 -> activity.trainer!!.addItem(1, 1)
                             random == 3 -> activity.trainer!!.addItem(2, 1)
                             random == 2 -> activity.trainer!!.addItem(4, 1)
                             random == 1 -> activity.trainer!!.addItem(9, 1)

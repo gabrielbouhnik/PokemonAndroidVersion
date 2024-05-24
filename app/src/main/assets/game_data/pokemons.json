@@ -16721,7 +16721,7 @@
     "catchRate": 45,
     "evolutions": [
       {
-        "evolutionId": 406,
+        "evolutionId": 405,
         "evolutionCondition": {
           "level": 30
         }
@@ -20418,6 +20418,141 @@
     "evolutions": [],
     "abilities": ["SWARM","TINTED_LENS"],
     "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 955,
+    "name": "Flittle",
+    "type1": 12,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 94,
+          "level": 1
+        },
+        {
+          "moveId": 11,
+          "level": 1
+        },
+        {
+          "moveId": 39,
+          "level": 5
+        },
+        {
+          "moveId": 236,
+          "level": 8
+        },
+        {
+          "moveId": 164,
+          "level": 11
+        },
+        {
+          "moveId": 3,
+          "level": 15
+        },
+        {
+          "moveId": 59,
+          "level": 19
+        },
+        {
+          "moveId": 193,
+          "level": 24
+        },
+        {
+          "moveId": 21,
+          "level": 29
+        }
+      ],
+      "movesLearnWithTM": [72,44,45,148,219],
+      "bannerMoves": []
+    },
+    "hp": 30,
+    "attack": 35,
+    "defense": 30,
+    "spAtk": 55,
+    "spDef": 30,
+    "speed": 75,
+    "catchRate": 120,
+    "evolutions": [
+      {
+        "evolutionId": 956,
+        "evolutionCondition": {
+          "level" : 35
+        }
+      }
+    ],
+    "abilities": ["ANTICIPATION","FRISK","SPEED_BOOST"],
+    "expGaugeType":  "MEDIUM_SLOW"
+  },
+  {
+    "id": 956,
+    "name": "Espathra",
+    "type1": 12,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 94,
+          "level": 1
+        },
+        {
+          "moveId": 11,
+          "level": 1
+        },
+        {
+          "moveId": 39,
+          "level": 5
+        },
+        {
+          "moveId": 236,
+          "level": 8
+        },
+        {
+          "moveId": 164,
+          "level": 11
+        },
+        {
+          "moveId": 3,
+          "level": 15
+        },
+        {
+          "moveId": 59,
+          "level": 19
+        },
+        {
+          "moveId": 193,
+          "level": 24
+        },
+        {
+          "moveId": 21,
+          "level": 29
+        },
+        {
+          "moveId": 284,
+          "level": 35
+        },
+        {
+          "moveId": 44,
+          "level": 43
+        },
+        {
+          "moveId": 45,
+          "level": 49
+        }
+      ],
+      "movesLearnWithTM": [72,44,45,46,105,111,113,148,176,177,219],
+      "bannerMoves": []
+    },
+    "hp": 95,
+    "attack": 60,
+    "defense": 60,
+    "spAtk": 101,
+    "spDef": 60,
+    "speed": 105,
+    "catchRate": 120,
+    "evolutions": [],
+    "abilities": ["ANTICIPATION","FRISK","SPEED_BOOST"],
+    "expGaugeType":  "MEDIUM_SLOW"
   },
   {
     "id": 981,

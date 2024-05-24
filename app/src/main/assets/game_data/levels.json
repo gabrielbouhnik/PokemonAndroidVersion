@@ -398,7 +398,7 @@
         "minLevel": 29,
         "maxLevel": 32,
         "encounters": [
-          22,22,22,22,22,84,84,84,84,88,88,88,88,88,218,218,218,218,218,701
+          22,22,22,22,22,84,84,84,84,88,88,88,88,88,218,218,218,218,218,701,955
         ]
       },
       "rewards": [
@@ -2194,6 +2194,38 @@
               "id": 110,
               "level": 45,
               "moveIds": [225,37,31,83]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Loubard.png",
+          "name": "Cue Ball Jamal",
+          "pokemons": [
+            {
+              "id": 57,
+              "level": 49,
+              "moveIds": [40,240,25,62]
+            },
+            {
+              "id": 68,
+              "level": 49,
+              "moveIds": [106,127,25,93]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Motard.png",
+          "name": "Biker Joel",
+          "pokemons": [
+            {
+              "id": 126,
+              "level": 45,
+              "moveIds": [31,69,42,169]
+            },
+            {
+              "id": 126,
+              "level": 45,
+              "moveIds": [31,69,169,172]
             }
           ]
         }
@@ -5157,7 +5189,7 @@
         {
           "id": 646,
           "level": 85,
-          "moveIds": [107,62,123,69],
+          "moveIds": [100,87,104,111],
           "itemHeld": "LIFE_ORB"
         }
       ],

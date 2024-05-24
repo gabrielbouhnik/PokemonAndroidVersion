@@ -55,8 +55,16 @@ abstract class Battle {
             action += "The opposing ${opponent.data.name} is no longer confused!\n"
         }
         if (opponentPokemonMove.move is ChargedMove && opponent.battleData!!.chargedMove == null) {
-            opponent.battleData!!.chargedMove = opponentPokemonMove
-            return "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}!\nThe opposing " + opponent.data.name + (opponentPokemonMove.move as ChargedMove).chargeText
+
+            action += "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}!\nThe opposing " + opponent.data.name + (opponentPokemonMove.move as ChargedMove).chargeText
+            if (opponent.hasItem(HoldItem.POWER_HERB)) {
+                action += "${opponent.data.name} became fully charged due to its Power Herb!\n"
+                opponent.heldItem = null
+            }
+            else {
+                opponent.battleData!!.chargedMove = opponentPokemonMove
+                return action
+            }
         }
         val opponentResponse = opponent.attack(opponentPokemonMove, pokemon)
         return if (!opponentResponse.success) {
@@ -75,8 +83,15 @@ abstract class Battle {
             action += pokemon.data.name + " is no longer confused!\n"
         }
         if (trainerPokemonMove.move is ChargedMove && pokemon.battleData!!.chargedMove == null) {
-            pokemon.battleData!!.chargedMove = trainerPokemonMove
-            return "${pokemon.data.name} uses ${trainerPokemonMove.move.name}!\n" + pokemon.data.name + (trainerPokemonMove.move as ChargedMove).chargeText
+            action += "${pokemon.data.name} uses ${trainerPokemonMove.move.name}!\n" + pokemon.data.name + (trainerPokemonMove.move as ChargedMove).chargeText
+            if (pokemon.hasItem(HoldItem.POWER_HERB)) {
+                action += "${pokemon.data.name} became fully charged due to its Power Herb!\n"
+                pokemon.heldItem = null
+            }
+            else {
+                pokemon.battleData!!.chargedMove = trainerPokemonMove
+                return action
+            }
         }
         val response = pokemon.attack(trainerPokemonMove, opponent)
         return if (!response.success)

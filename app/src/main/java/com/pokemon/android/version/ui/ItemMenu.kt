@@ -2,6 +2,7 @@ package com.pokemon.android.version.ui
 
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -61,5 +62,9 @@ class ItemMenu {
         itemName.text = item.name
         val itemDescription: TextView = activity.findViewById(R.id.itemDetailsDescription)
         itemDescription.text = item.description
+
+        val spriteView: ImageView = activity.findViewById(R.id.itemSpriteView)
+        activity.displayItem(item.name, spriteView)
+
     }
 }

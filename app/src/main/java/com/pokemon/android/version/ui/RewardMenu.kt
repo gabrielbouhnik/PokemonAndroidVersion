@@ -13,9 +13,12 @@ import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.level.*
+import com.pokemon.android.version.ui.LevelMenu.Companion.ELITE_4_LAST_LEVEL_ID
 import com.pokemon.android.version.ui.LevelMenu.Companion.ROUTE_3_LEVEL
+import com.pokemon.android.version.ui.LevelMenu.Companion.ZAPDOS_LEVEL
 import com.pokemon.android.version.utils.ItemUtils
 import com.pokemon.android.version.utils.ItemUtils.Companion.MEGA_RING_ID
+import com.pokemon.android.version.utils.MoveUtils
 import java.io.InputStream
 import kotlin.random.Random
 
@@ -130,7 +133,7 @@ class RewardMenu {
         if (activity.trainer!!.progression < ROUTE_3_LEVEL || levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID)
             healTeamButton.visibility = GONE
         healTeamButton.setOnClickListener {
-            activity.trainer!!.team.forEach { activity.trainer!!.heal(it, false) }
+            activity.trainer!!.team.forEach { activity.trainer!!.heal(it, MoveUtils.getMoveList(it).any{ move -> move.pp == 0}) }
             SaveManager.save(activity)
             healTeamButton.visibility = GONE
         }
@@ -258,7 +261,9 @@ class RewardMenu {
             )
         val backButton: Button = activity.findViewById(R.id.HOFBackButton)
         backButton.setOnClickListener {
-            activity.showCustomDialog(activity.getString(R.string.tutorial_post_game))
+            if (activity.trainer!!.progression < ZAPDOS_LEVEL) {
+                activity.showCustomDialog(activity.getString(R.string.tutorial_post_game))
+            }
             activity.mainMenu.loadGameMenu(activity)
         }
     }
