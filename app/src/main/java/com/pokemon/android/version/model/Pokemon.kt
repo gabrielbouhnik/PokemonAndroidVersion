@@ -238,10 +238,10 @@ open class Pokemon(
             opponent.heal(DamageCalculator.computeDamageWithoutAbility(this, move.move, opponent))
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}!\n" + BattleUtils.getEffectiveness(move.move, opponent)
+                "${this.data.name} uses ${move.move.name}!\n" + BattleUtils.getEffectiveness(this, move.move, opponent)
             )
         }
-        if ((move.move.id == 210 || move.move.id == 244 || move.move.id == 283 ) && opponent.hasType(Type.GHOST)) {
+        if ((move.move.id == 210 || move.move.id == 244 || move.move.id == 283) && !this.hasAbility(Ability.SCRAPPY) && opponent.hasType(Type.GHOST) ) {
             this.takeDamage(this.hp / 2)
             return AttackResponse(
                 false,
@@ -257,6 +257,7 @@ open class Pokemon(
                 "${this.data.name} uses ${move.move.name}!\nBut it failed!\n"
             )
         if (move.move !is MoveBasedOnLevel && move.move.category != MoveCategory.OTHER && DamageCalculator.getEffectiveness(
+                this,
                 move.move,
                 opponent
             ) == 0f
@@ -361,7 +362,7 @@ open class Pokemon(
             }
         }
         if (move.move.power > 1 && move.move !is RetaliationMove)
-            details += BattleUtils.getEffectiveness(move.move, opponent)
+            details += BattleUtils.getEffectiveness(this, move.move, opponent)
         val damageDone: Int
         if (damage >= opponent.currentHP) {
             if (opponent.currentHP == opponent.hp
@@ -533,7 +534,7 @@ open class Pokemon(
         if (opponent.currentHP > 0
             && damageDone > 0
             && move.move !is MoveBasedOnLevel && move.move !is RetaliationMove
-            && BattleUtils.getEffectiveness(move.move, opponent).contains("super")
+            && BattleUtils.getEffectiveness(this, move.move, opponent).contains("super")
             && opponent.hasItem(HoldItem.WEAKNESS_POLICY)) {
             opponent.battleData!!.attackMultiplicator *= 2f
             opponent.battleData!!.spAtkMultiplicator *= 2f

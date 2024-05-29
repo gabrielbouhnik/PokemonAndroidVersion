@@ -3859,7 +3859,7 @@
       "endDialogWin": "You are a truly noble Pokémon Trainer!",
       "endDialogLoose": "When it comes down to it, I'm still the strongest!",
       "music": 2,
-      "icon": "images/boss_icon/VS_Steven.PNG",
+      "icon": "images/boss_icon/VS_Steven.png",
       "background": "images/battle_background/city_battle_background.png",
       "exp": 15000,
       "mandatory": true,

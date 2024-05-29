@@ -381,6 +381,97 @@
     ]
   },
   {
+    "image": "images/banners/larvesta_banner.jpg",
+    "description": "Get a Larvesta with the move Morning Sun",
+    "cost": 150,
+    "pokemons": [
+      {
+        "id": 636,
+        "rate": 3,
+        "moveIds": [
+          7,26,271
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": 2,
+        "rate": 15
+      },
+      {
+        "id": 4,
+        "rate": 15
+      },
+      {
+        "id": 8,
+        "rate": 10
+      },
+      {
+        "id": 9,
+        "rate": 15
+      },
+      {
+        "id": 11,
+        "rate": 30
+      },
+      {
+        "id": 12,
+        "rate": 12
+      }
+    ],
+    "days": [
+      "TUESDAY",
+      "SUNDAY"
+    ]
+  },
+  {
+    "image": "images/banners/birds_banner.png",
+    "description": "Get a Fletchling or a Starly",
+    "cost": 100,
+    "pokemons": [
+      {
+        "id": 396,
+        "rate": 10,
+        "moveIds": [
+          2,3
+        ]
+      },
+      {
+        "id": 661,
+        "rate": 10,
+        "moveIds": [
+          11,3
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": 2,
+        "rate": 15
+      },
+      {
+        "id": 4,
+        "rate": 15
+      },
+      {
+        "id": 8,
+        "rate": 10
+      },
+      {
+        "id": 9,
+        "rate": 15
+      },
+      {
+        "id": 11,
+        "rate": 15
+      }
+    ],
+    "days": [
+      "MONDAY",
+      "THURSDAY"
+    ]
+  },
+  {
     "image": "images/banners/dratini_banner.JPG",
     "description": "Get a Dratini with the move Dragon Breath",
     "cost": 120,

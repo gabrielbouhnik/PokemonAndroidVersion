@@ -297,7 +297,7 @@ abstract class Battle {
         sb.append(BattleUtils.abilitiesCheck(opponent, pokemon))
         if (trainerPokemonMove.move.id == 208) {
             val response = opponent.canAttack(trainerPokemonMove)
-            sb.append(if (!response.success) response.reason else "${opponent.data.name} uses Sucker Punch!\nBut it failed!\n${pokemon.data.name} uses Sucker Punch!\nBut it failed!\n")
+            sb.append(if (!response.success) response.reason else "${pokemon.data.name} uses Sucker Punch!\nBut it failed!\n")
         }
         else
             sb.append(trainerTurn(trainerPokemonMove))

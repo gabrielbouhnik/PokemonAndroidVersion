@@ -348,7 +348,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["AURA"]
     },
     {
       "id": 108,
@@ -497,7 +497,7 @@
         }
       ],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["AURA"]
     },
     {
       "id": 25,
@@ -1043,7 +1043,7 @@
         }
       ],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["AURA"]
     },
     {
       "id": 94,
@@ -1487,7 +1487,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": ["BULLET"]
+      "characteristics": ["BULLET","AURA"]
     },
     {
       "id": 127,
@@ -4129,6 +4129,44 @@
       ],
       "target": "OPPONENT",
       "multiplicator": 0.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 285,
+      "name": "Howl",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 40,
+      "type": 5,
+      "description": "The user howls loudly to rouse itself and its allies. This boosts their Attack stats.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 286,
+      "name": "Fiery Dance",
+      "power": 80,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 2,
+      "accuracy": 100,
+      "description": "Cloaked in flames, the user attacks the target by dancing and flapping its wings. This may also boost the user's Sp. Atk stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "probability": 50,
       "status": [],
       "highCritRate": false,
       "characteristics": []

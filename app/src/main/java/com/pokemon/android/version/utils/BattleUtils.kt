@@ -103,7 +103,7 @@ class BattleUtils {
                 checkForStatusStatsRaiseAbility(pokemon)
             if (pokemon.hasAbility(Ability.PRESSURE))
                 sb.append("${pokemon.data.name}'s Pressure: ${pokemon.data.name} is exerting its pressure!\n")
-            if (pokemon.hasAbility(Ability.ANTICIPATION) && MoveUtils.getMoveList(opponent).any{ DamageCalculator.getEffectiveness(it.move, opponent) >= 2f})
+            if (pokemon.hasAbility(Ability.ANTICIPATION) && MoveUtils.getMoveList(opponent).any{ DamageCalculator.getEffectiveness(opponent, it.move, pokemon) >= 2f})
                 sb.append("${pokemon.data.name}'s Anticipation: ${pokemon.data.name} shuddered!\n")
             if (pokemon.hasAbility(Ability.INTIMIDATE) && !opponent.hasAbility(Ability.OWN_TEMPO)) {
                 sb.append("${pokemon.data.name}'s Intimidate: ${opponent.data.name}'s attack fell!\n")
@@ -168,8 +168,8 @@ class BattleUtils {
             return sb.toString()
         }
 
-        fun getEffectiveness(move: Move, opponent: Pokemon): String {
-            var effectiveness = DamageCalculator.getEffectiveness(move, opponent)
+        fun getEffectiveness(attacker: Pokemon, move: Move, opponent: Pokemon): String {
+            var effectiveness = DamageCalculator.getEffectiveness(attacker, move, opponent)
             if (move is MoveBasedOnLevel)
                 effectiveness = 1f
             if (move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))
