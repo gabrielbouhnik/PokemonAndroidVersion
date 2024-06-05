@@ -16,6 +16,7 @@ class MusicUtils {
                 7 -> activity.updateMusic(R.raw.cynthia_theme)
                 8 -> activity.updateMusic(R.raw.frontier_brain_theme)
                 9 -> activity.updateMusic(R.raw.rocket_theme)
+                10 -> activity.updateMusic(R.raw.rayquaza_theme)
             }
         }
     }

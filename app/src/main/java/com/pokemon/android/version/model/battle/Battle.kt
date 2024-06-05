@@ -1,13 +1,12 @@
 package com.pokemon.android.version.model.battle
 
 import com.pokemon.android.version.MainActivity
-import com.pokemon.android.version.model.Ability
-import com.pokemon.android.version.model.Pokemon
-import com.pokemon.android.version.model.Status
-import com.pokemon.android.version.model.Type
+import com.pokemon.android.version.model.*
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.item.HoldItem
+import com.pokemon.android.version.model.level.LeaderLevelData
 import com.pokemon.android.version.model.level.LevelData
+import com.pokemon.android.version.model.level.TrainerBattleLevelData
 import com.pokemon.android.version.model.move.ChargedMove
 import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.RampageMove
@@ -153,66 +152,24 @@ abstract class Battle {
                     && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
                     && IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam()) != null)
         }
-        if ((this is TrainerBattle || this is BossBattle || this is LeaderBattle) && opponent.canMegaEvolve() && shouldMegaEvolve) {
-            when (levelData.id) {
-                LevelMenu.MEGA_CHARIZARD_LEVEL_ID, LevelMenu.LAST_LEVEL -> {
-                    if (opponent.data.id == 6) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
+        if (opponent.canMegaEvolve() && shouldMegaEvolve && opponent.heldItem == null) {
+            if (this is LeaderBattle) {
+                val leaderLevelData: LeaderLevelData = levelData as LeaderLevelData
+                val megaPokemonId : Int = if ((pokemon.trainer!! as Trainer).progression < LevelMenu.ELITE_4_LAST_LEVEL_ID) leaderLevelData.megaPokemonId else leaderLevelData.megaPokemonIdOnRematch
+                if (opponent.data.id != megaPokemonId) {
+                    shouldMegaEvolve = false
                 }
-                LevelMenu.MEGA_VENUSAUR_LEVEL_ID -> {
-                    if (opponent.data.id == 3) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
+            }
+            else if (this is TrainerBattle) {
+                if ((this.levelData as TrainerBattleLevelData).megaPokemonId != opponent.data.id) {
+                    shouldMegaEvolve = false
                 }
-                LevelMenu.ELITE_4_FIRST_LEVEL_ID -> {
-                    if (opponent.data.id == 80 && opponent.level == 83) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
-                LevelMenu.ELITE_4_FIRST_LEVEL_ID + 1 -> {
-                    if (opponent.data.id == 208 && opponent.level == 83) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
-                LevelMenu.ELITE_4_FIRST_LEVEL_ID + 2 -> {
-                    if (opponent.data.id == 94 && opponent.level == 83) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
-                LevelMenu.ELITE_4_FIRST_LEVEL_ID + 3 -> {
-                    if (opponent.data.id == 6 && opponent.level == 83) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
-                LevelMenu.ELITE_4_LAST_LEVEL_ID -> {
-                    if (opponent.data.id == 18) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                    if (opponent.data.id == 65 && opponent.level == 83) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
-                LevelMenu.STEVEN_LEVEL_ID -> {
-                    if (opponent.data.id == 376) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
-                LevelMenu.CYNTHIA_LEVEL_ID -> {
-                    if (opponent.data.id == 445) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
+            } else
+                shouldMegaEvolve = false
+            if (shouldMegaEvolve) {
+                opponent.megaEvolve()
+                sb.append("The opposing ${opponent.data.name} is reacting to ${(opponent.trainer!! as OpponentTrainer).name}'s Key Stone!\n")
+                sb.append("The opposing ${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
             }
         }
         turn(trainerPokemonMove, sb)
@@ -465,6 +422,10 @@ abstract class Battle {
                 sb.append("${pokemon.data.name}'s Moxie: ${pokemon.data.name}'s attack rose!\n")
             }
             updateOpponent()
+            if (this is BossBattle && opponent.isMegaEvolved && !this.megaPhase) {
+                activity.showCustomDialog("${this.opponent.data.name} has absorbed energy from your Mega Ring and has Mega Evolved! All its HP has been restored")
+                this.megaPhase = true
+            }
             if (getBattleState() == State.IN_PROGRESS) {
                 sb.append(BattleUtils.abilitiesCheck(opponent, pokemon))
             }

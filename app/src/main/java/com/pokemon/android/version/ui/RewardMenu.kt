@@ -4,7 +4,6 @@ import android.graphics.drawable.Drawable
 import android.view.View.GONE
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
@@ -13,7 +12,6 @@ import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.level.*
-import com.pokemon.android.version.ui.LevelMenu.Companion.ELITE_4_LAST_LEVEL_ID
 import com.pokemon.android.version.ui.LevelMenu.Companion.ROUTE_3_LEVEL
 import com.pokemon.android.version.ui.LevelMenu.Companion.ZAPDOS_LEVEL
 import com.pokemon.android.version.utils.ItemUtils
@@ -83,24 +81,16 @@ class RewardMenu {
                 }
                 LevelMenu.LAPRAS_LEVEL -> {
                     activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(131, 45))
-                    Toast.makeText(
-                        activity,
-                        "To thank you, one of the Silph Co scientist gave you a Lapras!",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    activity.showCustomDialog("To thank you, one of the Silph Co scientist gave you a Lapras!")
                 }
                 LevelMenu.TYROGUE_LEVEL -> {
                     activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(236, 10))
-                    Toast.makeText(
-                        activity,
-                        "You received a level 10 Tyrogue!",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    activity.showCustomDialog("You received a level 10 Tyrogue!")
                 }
                 LevelMenu.BLAINE_LEVEL, LevelMenu.GIOVANNI_LEVEL_ID -> {
                     activity.showCustomDialog(activity.getString(R.string.new_item_available_in_shop))
                 }
-                LevelMenu.MEGA_CHARIZARD_LEVEL_ID -> {
+                LevelMenu.OAK_LEVEL_ID -> {
                     when {
                         activity.trainer!!.pokedex[1] == true -> {
                             activity.trainer!!.addItem(110, 1)

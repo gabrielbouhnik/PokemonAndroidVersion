@@ -17,6 +17,7 @@ class TrainerBattleLevelData(
     var endDialogWin: String,
     var endDialogLoose: String,
     var opponentTrainerData: List<OpponentTrainerData>,
+    var megaPokemonId: Int
 ) : LevelData(id, name, description, rewards, music, icon, background, exp, mandatory) {
     companion object {
         fun of(
@@ -37,6 +38,7 @@ class TrainerBattleLevelData(
                 trainerBattleLevelEntity.endDialogWin,
                 trainerBattleLevelEntity.endDialogLoose,
                 trainerBattleLevelEntity.opponents.map { OpponentTrainerData.of(it, gameDataService, trainerBattleLevelEntity.iaLevel) },
+                trainerBattleLevelEntity.megaPokemonId
             )
         }
     }

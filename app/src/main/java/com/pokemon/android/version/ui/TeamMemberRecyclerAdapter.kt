@@ -1,5 +1,6 @@
 package com.pokemon.android.version.ui
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,6 +39,10 @@ class TeamMemberRecyclerAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = data[position]
         holder.nameTextView.text = currentItem.data.name
+        if (activity.trainer!!.team.contains(currentItem))
+            holder.nameTextView.setTextColor(Color.LTGRAY)
+        else
+            holder.nameTextView.setTextColor(Color.DKGRAY)
         holder.hpLevelTextView.text = "Level  ${currentItem.level}  ${currentItem.currentHP}/${currentItem.hp}"
         holder.itemView.tag = position
 

@@ -312,7 +312,9 @@ class BattleUI {
                 val firstTime: Boolean = activity.trainer!!.progression == battle.levelData.id
                 if (activity.trainer!!.eliteProgression == 4)
                     activity.updateMusic(R.raw.hall_of_fame)
-                else if (activity.trainer!!.eliteProgression > 0 || battle is LeaderBattle || battle.levelData.id == LevelMenu.CYNTHIA_LEVEL_ID)
+                else if (activity.trainer!!.eliteProgression > 0 || battle is LeaderBattle
+                    || battle.levelData.id == LevelMenu.STEVEN_LEVEL_ID
+                    || battle.levelData.id == LevelMenu.CYNTHIA_LEVEL_ID)
                     activity.updateMusic(R.raw.victory_theme2)
                 else
                     activity.updateMusic(R.raw.victory_theme)

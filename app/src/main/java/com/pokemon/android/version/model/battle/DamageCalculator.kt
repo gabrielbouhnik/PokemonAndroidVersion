@@ -58,7 +58,7 @@ class DamageCalculator {
                     type2 = Type.NONE
             }
             var type: Float = move.type.isEffectiveAgainst(type2) * move.type.isEffectiveAgainst(type1)
-            if (type > 1f && opponent.hasAbility(Ability.FILTER))
+            if (type > 1f && (opponent.hasAbility(Ability.FILTER) || opponent.hasAbility(Ability.DELTA_STREAM)))
                 type *= 0.75f
             if (opponent.hasType(Type.WATER) && move.id == 268)
                 type *= 4f

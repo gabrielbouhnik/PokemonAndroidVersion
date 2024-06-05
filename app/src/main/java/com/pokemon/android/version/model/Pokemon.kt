@@ -553,7 +553,7 @@ open class Pokemon(
     }
 
     fun canMegaEvolve(): Boolean {
-        return data.megaEvolutionData != null && battleData != null && !isMegaEvolved && (data.id == 150 || (trainer != null
+        return data.megaEvolutionData != null && battleData != null && !isMegaEvolved && (this is PokemonBoss || (trainer != null
                 && trainer!!.getTrainerTeam().none { it.isMegaEvolved } && (trainer is OpponentTrainer ||
                 (heldItem == null && (trainer as Trainer).items.containsKey(MEGA_RING_ID) && (trainer as Trainer).items.containsKey(
                     this.data.megaEvolutionData!!.stoneId
@@ -719,8 +719,11 @@ open class Pokemon(
     }
 
     fun takeDamage(damage: Int) {
-        if (this.currentHP > damage)
-            this.currentHP -= damage
+        var damageDone = damage
+        if (this.currentHP == this.hp && this.hasAbility(Ability.MULTISCALE))
+            damageDone /= 2
+        if (this.currentHP > damageDone)
+            this.currentHP -= damageDone
         else {
             currentHP = 0
             status = Status.OK

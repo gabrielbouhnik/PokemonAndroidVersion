@@ -15844,6 +15844,48 @@
     }
   },
   {
+    "id": 249,
+    "name": "Lugia",
+    "type1": 12,
+    "type2": 6,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 106,
+    "attack": 90,
+    "defense": 130,
+    "spAtk": 90,
+    "spDef": 154,
+    "speed": 110,
+    "catchRate": 3,
+    "evolutions": [],
+    "abilities": ["PRESSURE","MULTISCALE"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 250,
+    "name": "Ho-Oh",
+    "type1": 2,
+    "type2": 6,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 106,
+    "attack": 130,
+    "defense": 90,
+    "spAtk": 110,
+    "spDef": 154,
+    "speed": 90,
+    "catchRate": 3,
+    "evolutions": [],
+    "abilities": ["PRESSURE","REGENERATOR"],
+    "expGaugeType":  "SLOW"
+  },
+  {
     "id": 251,
     "name": "Celebi",
     "type1": 1,
@@ -16591,6 +16633,37 @@
     "evolutions": [],
     "abilities": ["LEVITATE"],
     "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 384,
+    "name": "Rayquaza",
+    "type1": 15,
+    "type2": 6,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 105,
+    "attack": 150,
+    "defense": 90,
+    "spAtk": 150,
+    "spDef": 90,
+    "speed": 95,
+    "catchRate": 3,
+    "evolutions": [],
+    "abilities": [],
+    "expGaugeType":  "SLOW",
+    "megaEvolutionData": {
+      "type1": 15,
+      "type2": 6,
+      "attack": 180,
+      "defense": 100,
+      "spAtk": 180,
+      "spDef": 100,
+      "speed": 115,
+      "ability": "DELTA_STREAM"
+    }
   },
   {
     "id": 396,
