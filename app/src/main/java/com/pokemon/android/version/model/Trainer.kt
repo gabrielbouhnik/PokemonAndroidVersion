@@ -177,7 +177,7 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
             return 30
         if (items.contains(31))
             return 25
-        return 20
+        return 15
     }
 
     fun updatePokedex(pokemon: Pokemon) {

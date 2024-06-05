@@ -348,7 +348,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["AURA"]
     },
     {
       "id": 108,
@@ -497,7 +497,7 @@
         }
       ],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["AURA"]
     },
     {
       "id": 25,
@@ -1043,7 +1043,7 @@
         }
       ],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["AURA"]
     },
     {
       "id": 94,
@@ -1487,7 +1487,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": ["BULLET"]
+      "characteristics": ["BULLET","AURA"]
     },
     {
       "id": 127,
@@ -2578,7 +2578,7 @@
       "category": "PHYSICAL",
       "accuracy": 100,
       "description": "Although this move has great power, it works only on the first turn each time the user enters battle.",
-      "priorityLevel": 0,
+      "priorityLevel": 3,
       "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
@@ -2599,6 +2599,34 @@
           "probability": 30
         }
       ],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 287,
+      "name": "Aeroblast",
+      "power": 100,
+      "pp": 5,
+      "type": 6,
+      "category": "SPECIAL",
+      "accuracy": 95,
+      "description": "A vortex of air is shot at the target to inflict damage. This move has a heightened chance of landing a critical hit.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": true,
+      "characteristics": []
+    },
+    {
+      "id": 288,
+      "name": "Dragon Ascent",
+      "power": 120,
+      "pp": 5,
+      "type": 6,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user attacks the target by dropping out of the sky at high speed.",
+      "priorityLevel": 0,
+      "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
     }
@@ -4113,6 +4141,63 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 284,
+      "name": "Lumina Crash",
+      "power": 80,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 12,
+      "accuracy": 100,
+      "description": "The user attacks by unleashing a peculiar light that even affects the mind. This also harshly lowers the target's Sp. Def stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPDEF"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 285,
+      "name": "Howl",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 40,
+      "type": 5,
+      "description": "The user howls loudly to rouse itself and its allies. This boosts their Attack stats.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 286,
+      "name": "Fiery Dance",
+      "power": 80,
+      "category": "SPECIAL",
+      "pp": 10,
+      "type": 2,
+      "accuracy": 100,
+      "description": "Cloaked in flames, the user attacks the target by dancing and flapping its wings. This may also boost the user's Sp. Atk stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPATK"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "probability": 50,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "drainMoves": [
@@ -4721,7 +4806,7 @@
       "characteristics": []
     }
   ],
-  "retalationMovesEntity": [
+  "retaliationMovesEntity": [
     {
       "id": 227,
       "name": "Counter",

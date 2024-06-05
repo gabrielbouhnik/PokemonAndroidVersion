@@ -4,11 +4,12 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.model.level.BossBattleLevelData
 import com.pokemon.android.version.model.move.Stats
 import com.pokemon.android.version.ui.LevelMenu
+import com.pokemon.android.version.utils.HealUtils
 import com.pokemon.android.version.utils.MoveUtils
 
-class BossBattle() : Battle() {
+class BossBattle(var megaPhase: Boolean) : Battle() {
 
-    constructor(activity: MainActivity, bossBattleLevelData: BossBattleLevelData) : this() {
+    constructor(activity: MainActivity, bossBattleLevelData: BossBattleLevelData) : this(false) {
         this.activity = activity
         this.levelData = bossBattleLevelData
         this.pokemon = activity.trainer!!.getFirstPokemonThatCanFight()!!
@@ -18,9 +19,6 @@ class BossBattle() : Battle() {
             if ((bossBattleLevelData.boss.id == 144 || bossBattleLevelData.boss.id == 146) && activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID) 90 else bossBattleLevelData.boss.level,
             bossBattleLevelData.boss.moves
         )
-        if (bossBattleLevelData.boss.id == 150){
-            this.opponent.megaEvolve()
-        }
         this.opponent.hp *= 3
         this.opponent.currentHP *= 3
         Stats.increaseBossStats(opponent, bossBattleLevelData.boss.boostedStats)
@@ -38,6 +36,14 @@ class BossBattle() : Battle() {
     }
 
     override fun updateOpponent() {
-
+        if (!this.opponent.isMegaEvolved
+            && this.opponent.currentHP == 0
+            && !this.megaPhase
+            && this.opponent.canMegaEvolve()) {
+            this.opponent.currentHP = this.opponent.hp
+            this.opponent.recomputeStat()
+            this.opponent.megaEvolve()
+            HealUtils.healPP(this.opponent)
+        }
     }
 }

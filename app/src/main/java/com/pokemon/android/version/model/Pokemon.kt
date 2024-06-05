@@ -119,7 +119,7 @@ open class Pokemon(
         }
     }
 
-    private fun canAttack(move: PokemonMove): AttackResponse {
+    fun canAttack(move: PokemonMove): AttackResponse {
         if (this.status == Status.FROZEN) {
             if (Random.nextInt(100) > 20)
                 return AttackResponse(false, "${this.data.name} is frozen solid!\n")
@@ -238,10 +238,10 @@ open class Pokemon(
             opponent.heal(DamageCalculator.computeDamageWithoutAbility(this, move.move, opponent))
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}!\n" + BattleUtils.getEffectiveness(move.move, opponent)
+                "${this.data.name} uses ${move.move.name}!\n" + BattleUtils.getEffectiveness(this, move.move, opponent)
             )
         }
-        if ((move.move.id == 210 || move.move.id == 244 || move.move.id == 283 ) && opponent.hasType(Type.GHOST)) {
+        if ((move.move.id == 210 || move.move.id == 244 || move.move.id == 283) && !this.hasAbility(Ability.SCRAPPY) && opponent.hasType(Type.GHOST) ) {
             this.takeDamage(this.hp / 2)
             return AttackResponse(
                 false,
@@ -257,6 +257,7 @@ open class Pokemon(
                 "${this.data.name} uses ${move.move.name}!\nBut it failed!\n"
             )
         if (move.move !is MoveBasedOnLevel && move.move.category != MoveCategory.OTHER && DamageCalculator.getEffectiveness(
+                this,
                 move.move,
                 opponent
             ) == 0f
@@ -361,7 +362,7 @@ open class Pokemon(
             }
         }
         if (move.move.power > 1 && move.move !is RetaliationMove)
-            details += BattleUtils.getEffectiveness(move.move, opponent)
+            details += BattleUtils.getEffectiveness(this, move.move, opponent)
         val damageDone: Int
         if (damage >= opponent.currentHP) {
             if (opponent.currentHP == opponent.hp
@@ -381,7 +382,9 @@ open class Pokemon(
                 damageDone = opponent.currentHP
                 opponent.currentHP = 0
                 opponent.status = Status.OK
-                if (opponent.hasAbility(Ability.AFTERMATH) && move.move.characteristics.contains(MoveCharacteristic.CONTACT)) {
+                if (opponent.hasAbility(Ability.AFTERMATH)
+                    && !this.hasItem(HoldItem.PROTECTIVE_PADS)
+                    && move.move.characteristics.contains(MoveCharacteristic.CONTACT)) {
                     details += "${opponent.data.name}'s Aftermath: ${this.data.name} loses some hp!\n"
                     this.takeDamage(hp / 4)
                 }
@@ -489,18 +492,22 @@ open class Pokemon(
                     this.battleData!!.spDefMultiplicator *= 1.5f
                     this.battleData!!.defenseMultiplicator *= 1.5f
                 }
-                if (this.hasAbility(Ability.SAND_STREAM)) {
-                    this.battleData!!.spDefMultiplicator *= 1.5f
-                }
-                if (opponent.hasAbility(Ability.SAND_STREAM) && this.hasType(Type.ROCK)) {
-                    this.battleData!!.spDefMultiplicator *= 1.5f
-                }
-                BattleUtils.checkForStatsRaiseAbility(opponent)
+                if (this.hasItem(HoldItem.WIDE_LENS))
+                    this.battleData!!.accuracyMultiplicator *= 1.5f
+                if ((this.hasAbility(Ability.SAND_STREAM)
+                    || opponent.hasAbility(Ability.SAND_STREAM)) && opponent.hasType(Type.ROCK))
+                    opponent.battleData!!.spDefMultiplicator *= 1.5f
+                if (opponent.status != Status.OK)
+                    BattleUtils.checkForStatusStatsRaiseAbility(opponent)
             }
         }
         if (move.move.id == 247 && opponent.heldItem != null && !opponent.hasAbility(Ability.STICKY_HOLD)){
             details += "${this.data.name} knocked off ${opponent.data.name}'s item!\n"
             opponent.heldItem = null
+        }
+        if (damage > 0 && currentHP > 0 && move.move.characteristics.contains(MoveCharacteristic.SOUND) && this.hasItem(HoldItem.THROAT_SPRAY)){
+            this.battleData!!.spAtkMultiplicator *= 1.5f
+            details += "The Throat Spray raised ${this.data.name}'s Sp. Atk!\n"
         }
         if (damage > 0 && move.move.id == 249){
             if (this.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
@@ -527,7 +534,7 @@ open class Pokemon(
         if (opponent.currentHP > 0
             && damageDone > 0
             && move.move !is MoveBasedOnLevel && move.move !is RetaliationMove
-            && BattleUtils.getEffectiveness(move.move, opponent).contains("super")
+            && BattleUtils.getEffectiveness(this, move.move, opponent).contains("super")
             && opponent.hasItem(HoldItem.WEAKNESS_POLICY)) {
             opponent.battleData!!.attackMultiplicator *= 2f
             opponent.battleData!!.spAtkMultiplicator *= 2f
@@ -546,7 +553,7 @@ open class Pokemon(
     }
 
     fun canMegaEvolve(): Boolean {
-        return data.megaEvolutionData != null && battleData != null && !isMegaEvolved && (data.id == 150 || (trainer != null
+        return data.megaEvolutionData != null && battleData != null && !isMegaEvolved && (this is PokemonBoss || (trainer != null
                 && trainer!!.getTrainerTeam().none { it.isMegaEvolved } && (trainer is OpponentTrainer ||
                 (heldItem == null && (trainer as Trainer).items.containsKey(MEGA_RING_ID) && (trainer as Trainer).items.containsKey(
                     this.data.megaEvolutionData!!.stoneId
@@ -704,7 +711,7 @@ open class Pokemon(
         }
     }
 
-    fun hasType(type: Type): Boolean{
+    fun hasType(type: Type): Boolean {
         if (isMegaEvolved){
             return data.megaEvolutionData!!.type1 == type || data.megaEvolutionData!!.type2 == type
         }
@@ -712,8 +719,11 @@ open class Pokemon(
     }
 
     fun takeDamage(damage: Int) {
-        if (this.currentHP > damage)
-            this.currentHP -= damage
+        var damageDone = damage
+        if (this.currentHP == this.hp && this.hasAbility(Ability.MULTISCALE))
+            damageDone /= 2
+        if (this.currentHP > damageDone)
+            this.currentHP -= damageDone
         else {
             currentHP = 0
             status = Status.OK

@@ -42,21 +42,27 @@ class DamageCalculator {
             return 1f
         }
 
-        fun getEffectiveness(move: Move, opponent: Pokemon): Float {
+        fun getEffectiveness(attacker: Pokemon, move: Move, opponent: Pokemon): Float {
             var type1 = if (opponent.isMegaEvolved) opponent.data.megaEvolutionData!!.type1 else opponent.data.type1
             var type2 = if (opponent.isMegaEvolved) opponent.data.megaEvolutionData!!.type2 else opponent.data.type2
             if (move.type == Type.GROUND && opponent.battleData!!.battleStatus.contains(Status.ROOSTED)) {
                 if (type1 == Type.FLYING)
-                    type1 = Type.NORMAL
+                    type1 = Type.NONE
                 else
-                    type2 = Type.NORMAL
+                    type2 = Type.NONE
+            }
+            if ((move.type == Type.NORMAL || move.type == Type.FIGHTING) && attacker.hasAbility(Ability.SCRAPPY) && opponent.hasType(Type.GHOST)) {
+                if (type1 == Type.GHOST)
+                    type1 = Type.NONE
+                else
+                    type2 = Type.NONE
             }
             var type: Float = move.type.isEffectiveAgainst(type2) * move.type.isEffectiveAgainst(type1)
-            if (type > 1f && opponent.hasAbility(Ability.FILTER))
+            if (type > 1f && (opponent.hasAbility(Ability.FILTER) || opponent.hasAbility(Ability.DELTA_STREAM)))
                 type *= 0.75f
             if (opponent.hasType(Type.WATER) && move.id == 268)
                 type *= 4f
-            if (move.id == 263){
+            if (move.id == 263) {
                 type *= Type.FLYING.isEffectiveAgainst(type2) * Type.FLYING.isEffectiveAgainst(type1)
             }
             return type
@@ -72,7 +78,7 @@ class DamageCalculator {
                     multiplicator *= 0.5f
             }
             val power = if (move is MoveBasedOnHP) move.getPower(attacker) else move.power
-            val type = getEffectiveness(move, opponent)
+            val type = getEffectiveness(attacker, move, opponent)
             val random: Float = Random.nextInt(85, 100).toFloat() / 100f
             val offensiveStat: Int =
                 if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * if (attacker.hasAbility(
@@ -93,13 +99,13 @@ class DamageCalculator {
             return ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * power * offensiveStat) / (defensiveStat * 50)) + 2) * type * stab * multiplicator * random).roundToInt()
         }
 
-        private fun computePower(attacker: Pokemon, move: Move, opponent: Pokemon): Float{
+        private fun computePower(attacker: Pokemon, move: Move, opponent: Pokemon): Float {
             var power: Float =
                 if (move is MoveBasedOnHP) move.getPower(attacker).toFloat() else move.power.toFloat()
             if (move.id == 240 && attacker.battleData!!.lastMoveFailed) {
                 power *= 2
             }
-            if (move.id == 241 && opponent.hp/opponent.currentHP >= 2) {
+            if (move.id == 241 && opponent.hp / opponent.currentHP >= 2) {
                 power *= 2
             }
             if (move.id == 233) {
@@ -109,9 +115,14 @@ class DamageCalculator {
                 power *= 1.3f
             if (attacker.hasAbility(Ability.TOUGH_CLAW) && move.characteristics.contains(MoveCharacteristic.CONTACT))
                 power *= 1.3f
+            if (attacker.hasAbility(Ability.MEGA_LAUNCHER) && move.characteristics.contains(MoveCharacteristic.AURA))
+                power *= 1.5f
             if (move.power <= 60 && attacker.hasAbility(Ability.TECHNICIAN))
                 power *= 1.5f
-            if ((move is RecoilMove || move.id == 210 || move.id == 244 || move.id == 283) && attacker.hasAbility(Ability.RECKLESS))
+            if ((move is RecoilMove || move.id == 210 || move.id == 244 || move.id == 283) && attacker.hasAbility(
+                    Ability.RECKLESS
+                )
+            )
                 power *= 1.2f
             if (move.characteristics.contains(MoveCharacteristic.PUNCH) && attacker.hasAbility(Ability.IRON_FIST))
                 power *= 1.2f
@@ -123,7 +134,10 @@ class DamageCalculator {
                 if (opponent.hasAbility(Ability.DRY_SKIN))
                     power *= 2f
             }
-            if ((move.id == 224 || move.id == 278) && (opponent.status != Status.OK || opponent.battleData!!.battleStatus.contains(Status.CONFUSED))) {
+            if ((move.id == 224 || move.id == 278) && (opponent.status != Status.OK || opponent.battleData!!.battleStatus.contains(
+                    Status.CONFUSED
+                ))
+            ) {
                 power *= 2f
             }
             if (move.id == 232 && (opponent.status == Status.POISON || opponent.status == Status.BADLY_POISON)) {
@@ -134,8 +148,8 @@ class DamageCalculator {
                 power *= 1.2f
             if (move.id == 272 && attacker.heldItem == null)
                 power *= 2f
-            if (move.id == 273){
-                val speedRatio = (attacker.speed/opponent.speed).toFloat()
+            if (move.id == 273) {
+                val speedRatio = (attacker.speed / opponent.speed).toFloat()
                 when {
                     speedRatio < 1f -> power *= 40f
                     speedRatio > 4f -> power *= 150f
@@ -158,10 +172,11 @@ class DamageCalculator {
             }
             if (move.id == 247 && opponent.heldItem != null)
                 power *= 1.5f
-            if (attacker.battleData!!.lastHitReceived != null && move.id ==  251)
+            if (attacker.battleData!!.lastHitReceived != null && move.id == 251)
                 power *= 2f
             if (move.id == 260) {
-                val statBoost = attacker.battleData!!.attackMultiplicator * attacker.battleData!!.defenseMultiplicator * attacker.battleData!!.spAtkMultiplicator * attacker.battleData!!.spDefMultiplicator * attacker.battleData!!.speedMultiplicator
+                val statBoost =
+                    attacker.battleData!!.attackMultiplicator * attacker.battleData!!.defenseMultiplicator * attacker.battleData!!.spAtkMultiplicator * attacker.battleData!!.spDefMultiplicator * attacker.battleData!!.speedMultiplicator
                 if (statBoost > 1f)
                     return power * statBoost * 2f
             }
@@ -206,11 +221,11 @@ class DamageCalculator {
             if ((move.type == Type.FIRE || move.type == Type.ICE) && opponent.hasAbility(Ability.THICK_FAT))
                 multiplicator *= 0.5f
             return try {
-                var type = getEffectiveness(move, opponent)
-                if (type >= 2f){
-                    if(opponent.hasAbility(Ability.SOLID_ROCK))
+                var type = getEffectiveness(attacker, move, opponent)
+                if (type >= 2f) {
+                    if (opponent.hasAbility(Ability.SOLID_ROCK))
                         type *= 0.75f
-                    if(attacker.hasItem(HoldItem.EXPERT_BELT))
+                    if (attacker.hasItem(HoldItem.EXPERT_BELT))
                         type *= 1.2f
                 }
                 if (attacker.hasAbility(Ability.TINTED_LENS) && type < 1f)
@@ -222,7 +237,8 @@ class DamageCalculator {
                     offensiveStat = (opponent.attack.toFloat() * opponent.battleData!!.attackMultiplicator).roundToInt()
                 }
                 if (move.id == 267) {
-                    offensiveStat = (attacker.defense.toFloat() * attacker.battleData!!.defenseMultiplicator).roundToInt()
+                    offensiveStat =
+                        (attacker.defense.toFloat() * attacker.battleData!!.defenseMultiplicator).roundToInt()
                 }
                 var defensiveStat: Int =
                     if (move.category == MoveCategory.PHYSICAL || move.category == MoveCategory.SPECIAL_AND_PHYSICAL) (opponent.defense.toFloat() * opponent.battleData!!.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * opponent.battleData!!.spDefMultiplicator).roundToInt()
@@ -240,7 +256,11 @@ class DamageCalculator {
                             if (move.category == MoveCategory.PHYSICAL || move.category == MoveCategory.SPECIAL_AND_PHYSICAL) opponent.defense else opponent.spDef
                     }
                 }
-                ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * computePower(attacker,move,opponent) * offensiveStat) / (defensiveStat * 50)) + 2) * type * criticalMultiplicator * stab * multiplicator * random).roundToInt()
+                ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * computePower(
+                    attacker,
+                    move,
+                    opponent
+                ) * offensiveStat) / (defensiveStat * 50)) + 2) * type * criticalMultiplicator * stab * multiplicator * random).roundToInt()
             } catch (e: Exception) {
                 0
             }

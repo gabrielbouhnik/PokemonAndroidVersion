@@ -23,17 +23,15 @@ class LevelMenu {
         const val TYROGUE_LEVEL = 51
         const val ARTICUNO_LEVEL = 57
         const val BLAINE_LEVEL = 60
-        const val MEGA_CHARIZARD_LEVEL_ID = 62
+        const val OAK_LEVEL_ID = 62
         const val GIOVANNI_LEVEL_ID = 65
-        const val MEGA_VENUSAUR_LEVEL_ID = 69
         const val MOLTRES_LEVEL = 70
         const val ELITE_4_FIRST_LEVEL_ID = 71
         const val ELITE_4_LAST_LEVEL_ID = 75
         const val ZAPDOS_LEVEL = 78
         const val STEVEN_LEVEL_ID = 79
         const val CYNTHIA_LEVEL_ID = 83
-        const val MEWTWO_LEVEL = 88
-        const val LAST_LEVEL = 89
+        const val MEWTWO_LEVEL = 87
     }
 
     var battleUI: BattleUI = BattleUI()

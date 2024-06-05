@@ -294,8 +294,8 @@ class BattleUI {
                     if (it.hasAbility(Ability.PICKUP) && it.currentHP > 0) {
                         val random = Random.nextInt(10)
                         when {
-                            random < 7 -> activity.trainer!!.addItem(11, 1)
-                            random < 4 -> activity.trainer!!.addItem(1, 1)
+                            random > 7 -> activity.trainer!!.addItem(11, 1)
+                            random in 4..6 -> activity.trainer!!.addItem(1, 1)
                             random == 3 -> activity.trainer!!.addItem(2, 1)
                             random == 2 -> activity.trainer!!.addItem(4, 1)
                             random == 1 -> activity.trainer!!.addItem(9, 1)
@@ -312,7 +312,9 @@ class BattleUI {
                 val firstTime: Boolean = activity.trainer!!.progression == battle.levelData.id
                 if (activity.trainer!!.eliteProgression == 4)
                     activity.updateMusic(R.raw.hall_of_fame)
-                else if (activity.trainer!!.eliteProgression > 0 || battle is LeaderBattle || battle.levelData.id == LevelMenu.CYNTHIA_LEVEL_ID)
+                else if (activity.trainer!!.eliteProgression > 0 || battle is LeaderBattle
+                    || battle.levelData.id == LevelMenu.STEVEN_LEVEL_ID
+                    || battle.levelData.id == LevelMenu.CYNTHIA_LEVEL_ID)
                     activity.updateMusic(R.raw.victory_theme2)
                 else
                     activity.updateMusic(R.raw.victory_theme)

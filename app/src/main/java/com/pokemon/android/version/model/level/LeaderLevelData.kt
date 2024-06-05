@@ -22,7 +22,9 @@ class LeaderLevelData(
     var endDialogLoose: String,
     var battle1: List<PokemonOpponentTrainerData>,
     var battle2: List<PokemonOpponentTrainerData>,
-    var iaLevel: Int
+    var iaLevel: Int,
+    var megaPokemonId: Int,
+    var megaPokemonIdOnRematch: Int
 ) : LevelData(id, name, description, rewards, music, icon, background, exp, mandatory) {
     companion object {
         fun of(
@@ -48,7 +50,9 @@ class LeaderLevelData(
                 gymLeaderBattleLevelEntity.endDialogLoose,
                 gymLeaderBattleLevelEntity.battle1.map { PokemonOpponentTrainerData.of(it, gameDataService) },
                 gymLeaderBattleLevelEntity.battle2.map { PokemonOpponentTrainerData.of(it, gameDataService) },
-                gymLeaderBattleLevelEntity.iaLevel
+                gymLeaderBattleLevelEntity.iaLevel,
+                gymLeaderBattleLevelEntity.megaPokemonId,
+                gymLeaderBattleLevelEntity.megaPokemonIdOnRematch
             )
         }
     }
