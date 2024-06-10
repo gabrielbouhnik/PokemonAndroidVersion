@@ -32,7 +32,11 @@ class BattleFrontierMenu {
             loadBattlePrepLayout(activity, area)
         }
         val itemTextView: TextView = activity.findViewById(R.id.heldItemTextView)
-        itemTextView.visibility = GONE
+        if (pokemon.heldItem != null) {
+            val itemName: String = pokemon.heldItem!!.heldItemToString()
+            itemTextView.text = "Item:\n${itemName}"
+        } else
+            itemTextView.visibility = GONE
         val useItemButton: Button = activity.findViewById(R.id.useItemButton)
         useItemButton.visibility = GONE
         val movesButton: Button = activity.findViewById(R.id.movesButton)

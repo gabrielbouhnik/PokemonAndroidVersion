@@ -15,6 +15,7 @@ import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.IAUtils
 import com.pokemon.android.version.utils.ItemUtils
+import com.pokemon.android.version.utils.MoveUtils
 import kotlin.random.Random
 
 abstract class Battle {
@@ -384,6 +385,7 @@ abstract class Battle {
                 opponent.battleData!!.speedMultiplicator *= 1.5f
                 sb.append("${opponent.data.name}'s Speed Boost: the opposing ${opponent.data.name}'s speed rose!\n")
             }
+            MoveUtils.getMoveList(pokemon).forEach { it.reduceDisableCountdown() }
         }
         if (pokemon.currentHP > 0) {
             if (opponent.currentHP == 0) {
@@ -397,6 +399,7 @@ abstract class Battle {
                 pokemon.battleData!!.speedMultiplicator *= 1.5f
                 sb.append("${pokemon.data.name}'s Speed Boost: ${pokemon.data.name}'s speed rose!\n")
             }
+            MoveUtils.getMoveList(pokemon).forEach { it.reduceDisableCountdown() }
         }
         pokemon.battleData!!.lastHitReceived = null
         opponent.battleData!!.lastHitReceived = null

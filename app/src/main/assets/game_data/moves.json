@@ -4198,6 +4198,25 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 289,
+      "name": "Clanging Scales",
+      "power": 110,
+      "pp": 5,
+      "type": 11,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "The user rubs the scales on its entire body and makes a huge noise to attack opposing Pokémon. The user's Defense stat is lowered after the attack.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE"
+      ],
+      "target": "SELF",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["SOUND"]
     }
   ],
   "drainMoves": [

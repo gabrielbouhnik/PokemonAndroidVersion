@@ -16,12 +16,12 @@ class BattleFrontierBattle() : Battle() {
         fun generateTeam(gameDataService: GameDataService): List<Pokemon> {
             val team =
                 gameDataService.battleFrontierPokemons.asSequence().shuffled().take(3).toList()
-            return team.map { (id, moveSets) ->
+            return team.map { (id, pkmnData) ->
                 gameDataService.generatePokemonWithMoves(
                     id,
                     50,
-                    moveSets[Random.nextInt(moveSets.size)],
-                    null
+                    pkmnData[Random.nextInt(pkmnData.size)].moves,
+                    pkmnData[Random.nextInt(pkmnData.size)].heldItem
                 )
             }
         }

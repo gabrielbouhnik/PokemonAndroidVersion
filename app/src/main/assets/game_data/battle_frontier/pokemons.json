@@ -161,7 +161,8 @@
   },
   {
     "id": 134,
-    "moveIds": [43,100,46,80]
+    "moveIds": [43,100,46,80],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 135,
@@ -177,15 +178,18 @@
   },
   {
     "id": 143,
-    "moveIds": [88,107,27,69]
+    "moveIds": [88,107,27,69],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 143,
-    "moveIds": [88,110,27,93]
+    "moveIds": [88,110,27,93],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 143,
-    "moveIds": [88,25,27,103]
+    "moveIds": [88,25,27,103],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 149,
@@ -237,15 +241,18 @@
   },
   {
     "id": 199,
-    "moveIds": [43,45,51,55]
+    "moveIds": [43,45,51,55],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 199,
-    "moveIds": [43,45,51,134]
+    "moveIds": [43,45,51,134],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 199,
-    "moveIds": [266,45,31,100]
+    "moveIds": [266,45,31,100],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 205,
@@ -261,11 +268,13 @@
   },
   {
     "id": 208,
-    "moveIds": [93,27,25,144]
+    "moveIds": [93,27,25,144],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 208,
-    "moveIds": [93,120,13,144]
+    "moveIds": [93,120,13,144],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 212,
@@ -277,11 +286,13 @@
   },
   {
     "id": 214,
-    "moveIds": [109,40,93,113]
+    "moveIds": [109,40,93,113],
+    "itemHeld": "FLAME_ORB"
   },
   {
     "id": 214,
-    "moveIds": [109,69,25,114]
+    "moveIds": [109,69,25,114],
+    "itemHeld": "FLAME_ORB"
   },
   {
     "id": 217,
@@ -309,19 +320,23 @@
   },
   {
     "id": 233,
-    "moveIds": [117,132,12,100]
+    "moveIds": [117,132,12,100],
+    "itemHeld": "EVIOLITE"
   },
   {
     "id": 233,
-    "moveIds": [117,132,46,100]
+    "moveIds": [117,132,46,100],
+    "itemHeld": "EVIOLITE"
   },
   {
     "id": 242,
-    "moveIds": [187,31,100,135]
+    "moveIds": [187,31,100,135],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 242,
-    "moveIds": [187,45,44,135]
+    "moveIds": [187,45,44,135],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 248,
@@ -381,11 +396,13 @@
   },
   {
     "id": 297,
-    "moveIds": [76,40,62,25]
+    "moveIds": [76,40,62,25],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 297,
-    "moveIds": [69,107,103,93]
+    "moveIds": [69,107,103,93],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 306,
@@ -473,11 +490,13 @@
   },
   {
     "id": 407,
-    "moveIds": [105,37,44,46]
+    "moveIds": [105,37,44,46],
+    "itemHeld": "BLACK_SLUDGE"
   },
   {
     "id": 407,
-    "moveIds": [66,133,37,44]
+    "moveIds": [66,133,37,44],
+    "itemHeld": "BLACK_SLUDGE"
   },
   {
     "id": 426,
@@ -585,15 +604,18 @@
   },
   {
     "id": 472,
-    "moveIds": [93,272,114,118]
+    "moveIds": [93,272,114,118],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 472,
-    "moveIds": [93,272,62,56]
+    "moveIds": [93,272,62,56],
+    "itemHeld": "TOXIC_ORB"
   },
   {
     "id": 472,
-    "moveIds": [93,113,119,120]
+    "moveIds": [93,113,119,120],
+    "itemHeld": "TOXIC_ORB"
   },
   {
     "id": 473,
@@ -641,11 +663,13 @@
   },
   {
     "id": 598,
-    "moveIds": [233,143,234,55]
+    "moveIds": [233,143,234,55],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 598,
-    "moveIds": [233,143,267,157]
+    "moveIds": [233,143,267,157],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 609,

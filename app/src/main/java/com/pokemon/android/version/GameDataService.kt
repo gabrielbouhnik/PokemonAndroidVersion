@@ -1,6 +1,7 @@
 package com.pokemon.android.version
 
 import com.pokemon.android.version.model.Achievement
+import com.pokemon.android.version.model.BattleFrontierPokemonData
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.banner.Banner
@@ -28,7 +29,7 @@ class GameDataService {
     var levels: List<LevelData> = ArrayList()
     var achievements: List<Achievement> = ArrayList()
     var shop: MutableList<ShopItem> = ArrayList()
-    var battleFrontierPokemons: HashMap<Int, ArrayList<List<Move>>> = HashMap()
+    var battleFrontierPokemons: HashMap<Int, ArrayList<BattleFrontierPokemonData>> = HashMap()
 
     companion object {
         const val MOVES_DATA_PATH = "game_data/moves.json"
@@ -58,9 +59,9 @@ class GameDataService {
         this.achievements = achievementsRepository.loadData(activity).map { Achievement.of(it, this) }
         battleFrontierPokemonRepository.loadData(activity).forEach {
             if (this.battleFrontierPokemons.containsKey(it.id))
-                this.battleFrontierPokemons[it.id]!!.add(it.moveIds.map { moveId -> getMoveById(moveId) })
+                this.battleFrontierPokemons[it.id]!!.add(BattleFrontierPokemonData(it.moveIds.map { moveId -> getMoveById(moveId)}, if (it.itemHeld != null) HoldItem.valueOf(it.itemHeld!!) else null))
             else
-                this.battleFrontierPokemons[it.id] = arrayListOf(it.moveIds.map { moveId -> getMoveById(moveId) })
+                this.battleFrontierPokemons[it.id] = arrayListOf(BattleFrontierPokemonData(it.moveIds.map { moveId -> getMoveById(moveId)}, if (it.itemHeld != null) HoldItem.valueOf(it.itemHeld!!) else null))
         }
         this.shop = shopRepository.loadData(activity).map { ShopItem.of(it, this)}.toMutableList()
     }

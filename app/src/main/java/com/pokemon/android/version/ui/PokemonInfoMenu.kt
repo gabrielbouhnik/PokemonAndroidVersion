@@ -141,7 +141,7 @@ class PokemonInfoMenu(var parentId: Int) {
                 activity.playSoundEffect(R.raw.evolve_sound_effect)
                 loadPokemonInfoLayout(activity, pokemon)
             } else if (selectedMoveNumber != null) {
-                val pokemonMove = PokemonMove(possibleMoves[position], possibleMoves[position].pp, false)
+                val pokemonMove = PokemonMove(possibleMoves[position], possibleMoves[position].pp, 0)
                 when (selectedMoveNumber) {
                     0 -> pokemon.move1 = pokemonMove
                     1 -> pokemon.move2 = pokemonMove

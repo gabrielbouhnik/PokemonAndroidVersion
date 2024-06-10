@@ -427,7 +427,7 @@ class BattleUI {
                     )
                         .show()
                 }*/
-                if (move.disabled) {
+                if (move.disabledCountdown > 0) {
                     Toast.makeText(
                         activity,
                         "${move.move.name} is disabled.",
@@ -479,7 +479,7 @@ class BattleUI {
             ppTextView.text =
                 activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
             attack1Button.setOnClickListener {
-                if (battle.pokemon.move1.disabled) {
+                if (battle.pokemon.move1.isDisabled()) {
                     Toast.makeText(
                         activity,
                         "${battle.pokemon.move1.move.name} is disabled.",

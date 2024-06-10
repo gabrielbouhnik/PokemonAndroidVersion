@@ -18716,13 +18716,204 @@
     "expGaugeType":  "SLOW"
   },
   {
+    "id": 532,
+    "name": "Timburr",
+    "type1": 11,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 64,
+          "level": 1
+        },
+        {
+          "moveId": 14,
+          "level": 4
+        },
+        {
+          "moveId": 29,
+          "level": 8
+        },
+        {
+          "moveId": 22,
+          "level": 12
+        },
+        {
+          "moveId": 140,
+          "level": 16
+        },
+        {
+          "moveId": 25,
+          "level": 20
+        },
+        {
+          "moveId": 171,
+          "level": 28
+        },
+        {
+          "moveId": 106,
+          "level": 32
+        },
+        {
+          "moveId": 149,
+          "level": 36
+        },
+        {
+          "moveId": 78,
+          "level": 40
+        },
+        {
+          "moveId": 89,
+          "level": 44
+        }
+      ],
+      "movesLearnWithTM": [72,25,30,62,69,103,107,110,139,140,221],
+      "bannerMoves": []
+    },
+    "hp": 75,
+    "attack": 80,
+    "defense": 55,
+    "spAtk": 25,
+    "spDef": 35,
+    "speed": 35,
+    "catchRate": 180,
+    "evolutions": [
+      {
+        "evolutionId": 533,
+        "evolutionCondition": {
+          "level": 25
+        }
+      }
+    ],
+    "abilities": ["GUTS","SHEER_FORCE","IRON_FIST"],
+    "expGaugeType":  "MEDIUM_SLOW"
+  },
+  {
+    "id": 533,
+    "name": "Gurdurr",
+    "type1": 11,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 64,
+          "level": 1
+        },
+        {
+          "moveId": 14,
+          "level": 4
+        },
+        {
+          "moveId": 29,
+          "level": 8
+        },
+        {
+          "moveId": 22,
+          "level": 12
+        },
+        {
+          "moveId": 140,
+          "level": 16
+        },
+        {
+          "moveId": 25,
+          "level": 20
+        },
+        {
+          "moveId": 171,
+          "level": 30
+        },
+        {
+          "moveId": 106,
+          "level": 36
+        },
+        {
+          "moveId": 149,
+          "level": 42
+        },
+        {
+          "moveId": 78,
+          "level": 48
+        },
+        {
+          "moveId": 89,
+          "level": 54
+        }
+      ],
+      "movesLearnWithTM": [72,25,30,62,69,103,107,110,139,140,221],
+      "bannerMoves": []
+    },
+    "hp": 85,
+    "attack": 105,
+    "defense": 85,
+    "spAtk": 40,
+    "spDef": 50,
+    "speed": 40,
+    "catchRate": 90,
+    "evolutions": [
+      {
+        "evolutionId": 534,
+        "evolutionCondition": {
+          "level": 48
+        }
+      }
+    ],
+    "abilities": ["GUTS","SHEER_FORCE","IRON_FIST"],
+    "expGaugeType":  "MEDIUM_SLOW"
+  },
+  {
     "id": 534,
     "name": "Conkeldurr",
     "type1": 11,
     "type2": 0,
     "possibleMoves": {
-      "movesLearnByLevel": [],
-      "movesLearnWithTM": [],
+      "movesLearnByLevel": [
+        {
+          "moveId": 64,
+          "level": 1
+        },
+        {
+          "moveId": 14,
+          "level": 4
+        },
+        {
+          "moveId": 29,
+          "level": 8
+        },
+        {
+          "moveId": 22,
+          "level": 12
+        },
+        {
+          "moveId": 140,
+          "level": 16
+        },
+        {
+          "moveId": 25,
+          "level": 20
+        },
+        {
+          "moveId": 171,
+          "level": 30
+        },
+        {
+          "moveId": 106,
+          "level": 36
+        },
+        {
+          "moveId": 149,
+          "level": 42
+        },
+        {
+          "moveId": 78,
+          "level": 48
+        },
+        {
+          "moveId": 89,
+          "level": 54
+        }
+      ],
+      "movesLearnWithTM": [72,25,30,62,69,103,107,110,139,140,176,177,221],
       "bannerMoves": []
     },
     "hp": 105,
@@ -18734,7 +18925,7 @@
     "catchRate": 3,
     "evolutions": [],
     "abilities": ["GUTS","SHEER_FORCE","IRON_FIST"],
-    "expGaugeType":  "SLOW"
+    "expGaugeType":  "MEDIUM_SLOW"
   },
   {
     "id": 553,
@@ -20308,6 +20499,210 @@
     "evolutions": [],
     "abilities": ["FRISK"],
     "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 782,
+    "name": "Jangmo-o",
+    "type1": 15,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 15,
+          "level": 8
+        },
+        {
+          "moveId": 171,
+          "level": 12
+        },
+        {
+          "moveId": 72,
+          "level": 16
+        },
+        {
+          "moveId": 41,
+          "level": 24
+        },
+        {
+          "moveId": 157,
+          "level": 28
+        },
+        {
+          "moveId": 108,
+          "level": 32
+        },
+        {
+          "moveId": 125,
+          "level": 40
+        },
+        {
+          "moveId": 197,
+          "level": 44
+        }
+      ],
+      "movesLearnWithTM": [72,25,30,56,57,93,104,108,114,140,206,221],
+      "bannerMoves": []
+    },
+    "hp": 45,
+    "attack": 55,
+    "defense": 65,
+    "spAtk": 45,
+    "spDef": 45,
+    "speed": 45,
+    "catchRate": 45,
+    "evolutions": [
+      {
+        "evolutionId": 783,
+        "evolutionCondition": {
+          "level": 35
+        }
+      }
+    ],
+    "abilities": ["BULLETPROOF","SOUNDPROOF","OVERCOAT"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 783,
+    "name": "Hakamo-o",
+    "type1": 15,
+    "type2": 11,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 15,
+          "level": 8
+        },
+        {
+          "moveId": 171,
+          "level": 12
+        },
+        {
+          "moveId": 72,
+          "level": 16
+        },
+        {
+          "moveId": 41,
+          "level": 24
+        },
+        {
+          "moveId": 157,
+          "level": 28
+        },
+        {
+          "moveId": 108,
+          "level": 32
+        },
+        {
+          "moveId": 125,
+          "level": 44
+        },
+        {
+          "moveId": 197,
+          "level": 50
+        },
+        {
+          "moveId": 40,
+          "level": 56
+        }
+      ],
+      "movesLearnWithTM": [72,25,30,56,57,69,93,104,108,113,114,139,140,206,221],
+      "bannerMoves": []
+    },
+    "hp": 55,
+    "attack": 75,
+    "defense": 90,
+    "spAtk": 65,
+    "spDef": 65,
+    "speed": 65,
+    "catchRate": 45,
+    "evolutions": [
+      {
+        "evolutionId": 784,
+        "evolutionCondition": {
+          "level": 45
+        }
+      }
+    ],
+    "abilities": ["BULLETPROOF","SOUNDPROOF","OVERCOAT"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 784,
+    "name": "Kommo-o",
+    "type1": 15,
+    "type2": 11,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 289,
+          "level": 1
+        },
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 15,
+          "level": 8
+        },
+        {
+          "moveId": 171,
+          "level": 12
+        },
+        {
+          "moveId": 72,
+          "level": 16
+        },
+        {
+          "moveId": 41,
+          "level": 24
+        },
+        {
+          "moveId": 157,
+          "level": 28
+        },
+        {
+          "moveId": 108,
+          "level": 32
+        },
+        {
+          "moveId": 125,
+          "level": 44
+        },
+        {
+          "moveId": 197,
+          "level": 52
+        },
+        {
+          "moveId": 40,
+          "level": 60
+        },
+        {
+          "moveId": 237,
+          "level": 76
+        }
+      ],
+      "movesLearnWithTM": [72,25,30,56,57,69,93,104,103,107,108,110,113,114,139,140,176,177,206,221],
+      "bannerMoves": []
+    },
+    "hp": 75,
+    "attack": 110,
+    "defense": 125,
+    "spAtk": 100,
+    "spDef": 105,
+    "speed": 85,
+    "catchRate": 45,
+    "evolutions": [],
+    "abilities": ["BULLETPROOF","SOUNDPROOF","OVERCOAT"],
+    "expGaugeType":  "SLOW"
   },
   {
     "id": 856,

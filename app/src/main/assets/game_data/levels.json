@@ -286,7 +286,7 @@
         "minLevel": 24,
         "maxLevel": 26,
         "encounters": [
-          41,41,41,66,66,66,74,74,74,95,95,95,115
+          41,41,41,41,41,66,66,66,66,66,74,74,74,74,95,95,95,115,532,782
         ]
       },
       "rewards": [
@@ -308,11 +308,11 @@
     {
       "id": 28,
       "name": "\nRoute 10",
-      "description": "You come out of the Rock Tunnel and see the Pokemon Tower of Lavanville on the horizon.",
-      "encounter": 3,
+      "description": "You come out of the Rock Tunnel and see the Pokemon Tower of Lavender Town on the horizon.",
+      "encounter": 5,
       "possibleEncounters": {
-        "minLevel": 21,
-        "maxLevel": 23,
+        "minLevel": 23,
+        "maxLevel": 26,
         "encounters": [
           20,20,20,20,21,21,21,21,22,22,23,23,23,23,27,27,27,27,48,48,48,100,100,100,100,100,619,878
         ]

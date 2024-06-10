@@ -85,26 +85,26 @@ open class Pokemon(
                 .speed(StatUtils.computeStat(data, pokemonSave.level, Stats.SPEED))
                 .currentHP(pokemonSave.currentHP)
                 .currentExp(pokemonSave.currentExp)
-                .move1(PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[0].id), pokemonSave.moveids[0].pp, false))
+                .move1(PokemonMove(gameDataService.getMoveById(pokemonSave.moveids[0].id), pokemonSave.moveids[0].pp, 0))
                 .move2(
                     if (pokemonSave.moveids.size > 1) PokemonMove(
                         gameDataService.getMoveById(pokemonSave.moveids[1].id),
                         pokemonSave.moveids[1].pp,
-                        false
+                        0
                     ) else null
                 )
                 .move3(
                     if (pokemonSave.moveids.size > 2) PokemonMove(
                         gameDataService.getMoveById(pokemonSave.moveids[2].id),
                         pokemonSave.moveids[2].pp,
-                        false
+                        0
                     ) else null
                 )
                 .move4(
                     if (pokemonSave.moveids.size > 3) PokemonMove(
                         gameDataService.getMoveById(pokemonSave.moveids[3].id),
                         pokemonSave.moveids[3].pp,
-                        false
+                        0
                     ) else null
                 )
                 .shiny(pokemonSave.shiny)
@@ -521,11 +521,11 @@ open class Pokemon(
         }
         if (damage > 0 && opponent.hasAbility(Ability.CURSED_BODY) && Random.nextInt(100) < 30){
             details += "${opponent.data.name}'s Cursed Body: ${this.data.name}'s ${move.move.name} is disabled!\n"
-            move.disabled = true
+            move.disabledCountdown = 4
         }
         if (move.move.id == 265){
             if (opponent.battleData!!.lastMoveUsed != null){
-                opponent.battleData!!.lastMoveUsed!!.disabled = true
+                opponent.battleData!!.lastMoveUsed!!.disabledCountdown = 4
                 details += "${opponent.data.name}'s ${opponent.battleData!!.lastMoveUsed!!.move.name} is disabled!\n"
             } else{
                 details += "But it failed\n"
@@ -583,13 +583,13 @@ open class Pokemon(
         this.speed = StatUtils.computeStat(data, level, Stats.SPEED)
         if (addHP)
             currentHP = hp
-        this.move1.disabled = false
+        this.move1.disabledCountdown = 0
         if (this.move2 != null)
-            this.move2!!.disabled = false
+            this.move2!!.disabledCountdown = 0
         if (this.move3 != null)
-            this.move3!!.disabled = false
+            this.move3!!.disabledCountdown = 0
         if (this.move4 != null)
-            this.move4!!.disabled = false
+            this.move4!!.disabledCountdown = 0
     }
 
     fun learnMove(moveToLearn: Move, moveToDeleteNumber: Int) {
@@ -605,15 +605,15 @@ open class Pokemon(
         if (MoveUtils.getMoveList(this).map { it.move }.contains(move))
             return false
         if (move2 == null) {
-            this.move2 = PokemonMove(move, move.pp, false)
+            this.move2 = PokemonMove(move, move.pp, 0)
             return true
         }
         if (move3 == null) {
-            this.move3 = PokemonMove(move, move.pp, false)
+            this.move3 = PokemonMove(move, move.pp, 0)
             return true
         }
         if (move4 == null) {
-            this.move4 = PokemonMove(move, move.pp, false)
+            this.move4 = PokemonMove(move, move.pp, 0)
             return true
         }
         return false
