@@ -219,6 +219,7 @@ abstract class Battle {
     fun switchPokemon(pokemonToBeSent: Pokemon) {
         pokemonToBeSent.battleData = PokemonBattleData()
         this.pokemon.battleData = PokemonBattleData()
+        this.pokemon.removeDisableCountdown()
         if (this.pokemon.hasAbility(Ability.NATURAL_CURE))
             this.pokemon.status = Status.OK
         if (this.pokemon.hasAbility(Ability.REGENERATOR) && this.pokemon.currentHP > 0)
@@ -233,6 +234,7 @@ abstract class Battle {
     private fun switchOpponent(pokemonToBeSent: Pokemon) {
         pokemonToBeSent.battleData = PokemonBattleData()
         this.opponent.battleData = PokemonBattleData()
+        this.pokemon.removeDisableCountdown()
         if (this.opponent.hasAbility(Ability.REGENERATOR) && this.opponent.currentHP > 0)
             this.opponent.heal(this.pokemon.hp / 3)
         if (this.opponent.hasAbility(Ability.NATURAL_CURE))

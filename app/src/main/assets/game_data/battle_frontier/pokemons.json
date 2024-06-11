@@ -101,23 +101,28 @@
   },
   {
     "id": 107,
-    "moveIds": [110,107,40,14]
+    "moveIds": [110,107,40,14],
+    "itemHeld": "PROTECTIVE_PADS"
   },
   {
     "id": 107,
-    "moveIds": [110,103,40,14]
+    "moveIds": [110,103,40,14],
+    "itemHeld": "PROTECTIVE_PADS"
   },
   {
     "id": 107,
-    "moveIds": [107,40,14,127]
+    "moveIds": [107,40,14,127],
+    "itemHeld": "PROTECTIVE_PADS"
   },
   {
     "id": 115,
-    "moveIds": [72,27,103,93]
+    "moveIds": [246,27,103,93],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 115,
-    "moveIds": [72,191,110,25]
+    "moveIds": [246,191,110,25],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 122,
@@ -217,7 +222,8 @@
   },
   {
     "id": 169,
-    "moveIds": [50,129,128,48]
+    "moveIds": [50,129,128,48],
+    "itemHeld": "BLACK_SLUDGE"
   },
   {
     "id": 178,
@@ -287,7 +293,7 @@
   {
     "id": 214,
     "moveIds": [109,40,93,113],
-    "itemHeld": "FLAME_ORB"
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 214,
@@ -402,7 +408,7 @@
   {
     "id": 297,
     "moveIds": [69,107,103,93],
-    "itemHeld": "LEFTOVERS"
+    "itemHeld": "ASSAULT_VEST"
   },
   {
     "id": 306,
@@ -446,15 +452,18 @@
   },
   {
     "id": 346,
-    "moveIds": [66,102,37,132]
+    "moveIds": [66,102,37,132],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 365,
-    "moveIds": [43,100,93,88]
+    "moveIds": [43,100,93,88],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 365,
-    "moveIds": [43,100,27,25]
+    "moveIds": [43,100,27,25],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 373,
@@ -548,11 +557,13 @@
   },
   {
     "id": 454,
-    "moveIds": [69,62,110,25]
+    "moveIds": [69,62,110,25],
+    "itemHeld": "BLACK_SLUDGE"
   },
   {
     "id": 454,
-    "moveIds": [69,62,103,107]
+    "moveIds": [69,62,103,107],
+    "itemHeld": "BLACK_SLUDGE"
   },
   {
     "id": 461,
@@ -749,11 +760,13 @@
   },
   {
     "id": 10089,
-    "moveIds": [62,27,25,107]
+    "moveIds": [62,27,25,107],
+    "itemHeld": "BLACK_SLUDGE"
   },
   {
     "id": 10089,
-    "moveIds": [62,27,25,103]
+    "moveIds": [62,27,25,103],
+    "itemHeld": "BLACK_SLUDGE"
   },
   {
     "id": 10157,

@@ -485,7 +485,7 @@ open class Pokemon(
                 opponent.battleData!!.speedMultiplicator = 1f
                 opponent.battleData!!.accuracyMultiplicator = 1f
                 details += "${opponent.data.name}'s stats changes were removed!\n"
-                if (opponent.hasItem(HoldItem.ASSAULT_VEST)) {
+                if (opponent.hasItem(HoldItem.ASSAULT_VEST)  && !MoveUtils.getMoveList(this).map{it.move.category}.contains(MoveCategory.OTHER)) {
                     opponent.battleData!!.spDefMultiplicator = 1.5f
                 }
                 if (this.hasItem(HoldItem.EVIOLITE) && this.data.evolutions.isNotEmpty()) {
@@ -583,6 +583,10 @@ open class Pokemon(
         this.speed = StatUtils.computeStat(data, level, Stats.SPEED)
         if (addHP)
             currentHP = hp
+        removeDisableCountdown()
+    }
+
+    fun removeDisableCountdown() {
         this.move1.disabledCountdown = 0
         if (this.move2 != null)
             this.move2!!.disabledCountdown = 0

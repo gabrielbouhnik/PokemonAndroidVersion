@@ -4217,6 +4217,25 @@
       "status": [],
       "highCritRate": false,
       "characteristics": ["SOUND"]
+    },
+    {
+      "id": 290,
+      "name": "Work Up",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 30,
+      "type": 5,
+      "description": "The user is roused, and its Attack and Sp. Atk stats are boosted.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK",
+        "SPATK"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "drainMoves": [
