@@ -4,7 +4,9 @@ import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
+import com.pokemon.android.version.model.level.LeaderLevelData
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
+import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.IAUtils
 import com.pokemon.android.version.utils.MoveUtils
 import java.io.InputStream
@@ -26,6 +28,9 @@ class TrainerBattle() : Battle() {
             trainerBattleLevelData.opponentTrainerData.first(),
             activity.gameDataService
         )
+        if (activity.hardMode && this.levelData.id == LevelMenu.KAREN_LEVEL) {
+            (this.levelData as TrainerBattleLevelData).megaPokemonId = 229
+        }
         this.opponent = this.opponentTrainer.getFirstPokemonThatCanFight()!!
         activity.trainer!!.updatePokedex(opponent)
     }

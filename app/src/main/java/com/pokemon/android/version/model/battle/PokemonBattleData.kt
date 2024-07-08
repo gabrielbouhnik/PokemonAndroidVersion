@@ -1,5 +1,6 @@
 package com.pokemon.android.version.model.battle
 
+import com.pokemon.android.version.model.Ability
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 
@@ -23,5 +24,6 @@ class PokemonBattleData(
     var lastHitReceived: LastHitReceived? = null,
     var lastMoveFailed: Boolean = false,
     var lastMoveUsed: PokemonMove? = null,
-    var hadATurn: Boolean = false
+    var hadATurn: Boolean = false,
+    var abilities: ArrayList<Ability> = arrayListOf()
 )

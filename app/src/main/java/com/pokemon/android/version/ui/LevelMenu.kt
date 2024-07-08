@@ -15,23 +15,27 @@ class LevelMenu {
     companion object {
         const val ROUTE_3_LEVEL = 10
         const val MISTY_LEVEL = 18
+        const val SURGE_LEVEL = 22
         const val OTHER_BANNER_LEVEL = 19
-        const val DUGTRIO_LEVEL = 24
-        const val MAROWAK_LEVEL = 31
-        const val ERIKA_LEVEL = 36
-        const val LAPRAS_LEVEL = 47
-        const val TYROGUE_LEVEL = 51
-        const val ARTICUNO_LEVEL = 57
-        const val BLAINE_LEVEL = 60
-        const val OAK_LEVEL_ID = 62
-        const val GIOVANNI_LEVEL_ID = 65
-        const val MOLTRES_LEVEL = 70
-        const val ELITE_4_FIRST_LEVEL_ID = 71
-        const val ELITE_4_LAST_LEVEL_ID = 75
-        const val ZAPDOS_LEVEL = 78
-        const val STEVEN_LEVEL_ID = 79
-        const val CYNTHIA_LEVEL_ID = 83
-        const val MEWTWO_LEVEL = 87
+        const val DUGTRIO_LEVEL = 25
+        const val MAROWAK_LEVEL = 32
+        const val ERIKA_LEVEL = 37
+        const val KAREN_LEVEL = 41
+        const val KOGA_LEVEL = 44
+        const val LAPRAS_LEVEL = 49
+        const val TYROGUE_LEVEL = 53
+        const val SABRINA_LEVEL = 55
+        const val ARTICUNO_LEVEL = 59
+        const val BLAINE_LEVEL = 62
+        const val OAK_LEVEL_ID = 64
+        const val GIOVANNI_LEVEL_ID = 67
+        const val MOLTRES_LEVEL = 72
+        const val ELITE_4_FIRST_LEVEL_ID = 73
+        const val ELITE_4_LAST_LEVEL_ID = 77
+        const val ZAPDOS_LEVEL = 80
+        const val STEVEN_LEVEL_ID = 81
+        const val CYNTHIA_LEVEL_ID = 85
+        const val MEWTWO_LEVEL = 93
     }
 
     var battleUI: BattleUI = BattleUI()

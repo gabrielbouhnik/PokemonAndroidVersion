@@ -250,7 +250,7 @@
       "mandatory": true
     },
     {
-      "id": 23,
+      "id": 24,
       "name": "\nDiglett's Cave",
       "description": "You receive a call from Professor Oak that a powerful pokemon has appeared in Diglett's cave. You go there to find out more.",
       "encounter": 3,
@@ -278,7 +278,7 @@
       "mandatory": true
     },
     {
-      "id": 27,
+      "id": 28,
       "name": "\nRock Tunnel B1F",
       "description": "You enter the B1F and you come across several wild Pokemon.",
       "encounter": 5,
@@ -306,7 +306,7 @@
       "mandatory": true
     },
     {
-      "id": 28,
+      "id": 29,
       "name": "\nRoute 10",
       "description": "You come out of the Rock Tunnel and see the Pokemon Tower of Lavender Town on the horizon.",
       "encounter": 5,
@@ -334,7 +334,7 @@
       "mandatory": true
     },
     {
-      "id": 30,
+      "id": 31,
       "name": "\nPokemon Tower",
       "description": "After beating Jackson, you can finally catch some ghost types Pokemon.",
       "encounter": 3,
@@ -362,7 +362,7 @@
       "mandatory": true
     },
     {
-      "id": 34,
+      "id": 35,
       "name": "\nRoute 7",
       "description": "A guard blocks your access to Saffron City, so you take an underground passage that leads you to Route 7.",
       "encounter": 4,
@@ -370,7 +370,7 @@
         "minLevel": 28,
         "maxLevel": 31,
         "encounters": [
-          20,21,37,43,52,52,58,69,198,209,228
+          20,21,37,43,52,52,58,69,20,21,37,43,52,52,58,69,198,209,209,228,951
         ]
       },
       "rewards": [
@@ -390,7 +390,7 @@
       "mandatory": true
     },
     {
-      "id": 39,
+      "id": 40,
       "name": "\nRoute 18",
       "description": "You are almost in Fuchsia City, there are some wild Pokemon on your way",
       "encounter": 4,
@@ -398,7 +398,7 @@
         "minLevel": 29,
         "maxLevel": 32,
         "encounters": [
-          22,22,22,22,22,84,84,84,84,88,88,88,88,88,218,218,218,218,218,701,955
+          22,22,22,22,22,84,84,84,84,88,88,88,88,88,198,218,218,218,218,218,701,955
         ]
       },
       "rewards": [
@@ -418,7 +418,7 @@
       "mandatory": true
     },
     {
-      "id": 40,
+      "id": 42,
       "name": "\nSafari Zone",
       "description": "Welcome to the Safari Zone! This parks features many wild Pokemon! Try to catch as many as you can!",
       "encounter": 10,
@@ -443,7 +443,7 @@
       "mandatory": true
     },
     {
-      "id": 43,
+      "id": 45,
       "name": "\nRoute 15",
       "description": "After obtaining your fifth badge, you head to the next gym which is located in Saffron City.",
       "encounter": 4,
@@ -471,7 +471,7 @@
       "mandatory": true
     },
     {
-      "id": 46,
+      "id": 48,
       "name": "\nRoute 12",
       "description": "On Route 12, a fisherman offers you a fishing rod to find Pokemon water types. Therefore, you decide to use it.",
       "encounter": 1,
@@ -499,7 +499,7 @@
       "mandatory": true
     },
     {
-      "id": 54,
+      "id": 56,
       "name": "\nSea Route 19",
       "description": "Before leaving Safrania, one of the Silph Co scientists has given you a Lapras to cross Sea Route 19 at the south of Fuschia City.",
       "encounter": 6,
@@ -527,7 +527,7 @@
       "mandatory": true
     },
     {
-      "id": 56,
+      "id": 58,
       "name": "\nSeafoam Islands",
       "description": "To reach Cinnabar Islands, you have to cross Seafoam Islands. Once in the cave, you feel the presence of a powerful pokemon.",
       "encounter": 6,
@@ -555,7 +555,7 @@
       "mandatory": true
     },
     {
-      "id": 58,
+      "id": 60,
       "name": "\nPokemon Mansion",
       "description": "Once you arrive at Cinnabar Island, you head to Cinnabar Gym but the door is locked but there is a note on that door indicating that the key is in the Pokemon Mansion.",
       "encounter": 8,
@@ -583,7 +583,7 @@
       "mandatory": true
     },
     {
-      "id": 68,
+      "id": 70,
       "name": "\nVictory Road",
       "description": "Having shown your 8 badges to the guard, you enter the Victory Road, the last step before the Pokemon League",
       "encounter": 15,
@@ -611,7 +611,7 @@
       "mandatory": true
     },
     {
-      "id": 76,
+      "id": 78,
       "name": "\nPower Plant",
       "description": "After defeating the Pokemon League, Professor Oak sends you to the abandoned Power Plant on Route 10 because something strange is happening with the wild Pokemon there.",
       "encounter": 5,
@@ -639,13 +639,13 @@
       "mandatory": true
     },
     {
-      "id": 77,
+      "id": 79,
       "name": "\nVS Electrodes",
       "description": "You advance in the Power Plant and several powerful Electrodes attack you.",
       "encounter": 5,
       "possibleEncounters": {
-        "minLevel": 85,
-        "maxLevel": 90,
+        "minLevel": 90,
+        "maxLevel": 99,
         "encounters": [
           101,101,101,101,101
         ]
@@ -667,7 +667,7 @@
       "mandatory": true
     },
     {
-      "id": 80,
+      "id": 82,
       "name": "\nRoute 28",
       "description": "You receive a letter from the Sinnoh region's champion who wants to battle you on the top of Mt Silver. You decide to go there to face her.",
       "encounter": 8,
@@ -695,7 +695,7 @@
       "mandatory": true
     },
     {
-      "id": 81,
+      "id": 83,
       "name": "\nMt Silver",
       "description": "You finally reach Mt. Silver and you come across several wild Pokemon.",
       "encounter": 10,
@@ -723,7 +723,7 @@
       "mandatory": true
     },
     {
-      "id": 86,
+      "id": 88,
       "name": "\nDragon Cave",
       "description": "As you reach the last island, you hear the cry of a powerful Pokémon. You decide to enter a cave where powerful Dragon-types attack you.",
       "encounter": 10,
@@ -751,7 +751,7 @@
       "mandatory": true
     },
     {
-      "id": 88,
+      "id": 90,
       "name": "\nCerulean Cave",
       "description": "After defeating Cynthia, you visit Professor Oak and he informs you that your rival Jackson has gone to Cerulean Cave and encountered the most powerful Pokemon he has ever seen. He ran away because his Pokemon were defeated by this creature. Be careful!",
       "encounter": 10,
@@ -779,7 +779,7 @@
       "mandatory": true
     },
     {
-      "id": 89,
+      "id": 91,
       "name": "\nCerulean Cave 1F",
       "description": "Pokemon in this cave are very powerful. Keep it up!",
       "encounter": 10,
@@ -807,7 +807,7 @@
       "mandatory": true
     },
     {
-      "id": 90,
+      "id": 92,
       "name": "\nCerulean Cave B1F",
       "description": "You find a ladder that takes you into the depths of the cave. You feel the presence of the powerful Pokemon.",
       "encounter": 10,
@@ -1656,7 +1656,101 @@
       "megaPokemonId": 0
     },
     {
-      "id": 25,
+      "id": 23,
+      "name": "\nRoute 11",
+      "description": "After obtaining your third badge, you are going to train on Route 11.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Youngster.png",
+          "name": "Youngster Jason",
+          "pokemons": [
+            {
+              "id": 28,
+              "level": 32,
+              "moveIds": [30,38,19,259]
+            },
+            {
+              "id": 169,
+              "level": 36,
+              "moveIds": [129,16,23,83]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Kinesiste.png",
+          "name": "Psychic Fidel",
+          "pokemons": [
+            {
+              "id": 178,
+              "level": 37,
+              "moveIds": [55,219,261,48],
+              "itemHeld": "TWISTED_SPOON"
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Youngster.png",
+          "name": "Youngster Owen",
+          "pokemons": [
+            {
+              "id": 58,
+              "level": 34,
+              "moveIds": [74,72,7,27]
+            }
+          ]
+        },
+        {
+          "sprite": "images/Sprite_Kinesiste.png",
+          "name": "Psychic Herman",
+          "pokemons": [
+            {
+              "id": 102,
+              "level": 39,
+              "moveIds": [36,45,66,133],
+              "itemHeld": "MIRACLE_SEED"
+            },
+            {
+              "id": 102,
+              "level": 39,
+              "moveIds": [36,45,66,133],
+              "itemHeld": "MIRACLE_SEED"
+            },
+            {
+              "id": 103,
+              "level": 39,
+              "moveIds": [36,45,66,219],
+              "itemHeld": "MIRACLE_SEED"
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 50
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "Let's go, but don't cheat!",
+      "endDialogWin": "Strength in conviction... You're strong because you believe in your Pokémon.",
+      "endDialogLoose": "Aiyaaah! You got stomped!",
+      "music": 2,
+      "icon": "images/battle_background/route_battle_background.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "exp": 1900,
+      "mandatory": true,
+      "iaLevel": 1,
+      "megaPokemonId": 0
+    },
+    {
+      "id": 26,
       "name": "\nRoute 9",
       "description": "After defeating Dugtrio, Professor Oak advises you to go to Lavender Town to catch some ghost types Pokemon. So you go to Route 9 to the east of Cerulean City",
       "opponents": [
@@ -1799,7 +1893,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 26,
+      "id": 27,
       "name": "\nRock Tunner 1F",
       "description": "You enter Rock Tunnel but it is so dark that you can't  see anything. So you use a flashlight and see several trainers ready to battle you.",
       "opponents": [
@@ -1903,7 +1997,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 29,
+      "id": 30,
       "name": "\nVS Rival 4",
       "description": "You have arrived in Lavender Town and you are going to the Pokemon Tower. Once inside, you come across Jackson.",
       "opponents": [
@@ -1913,20 +2007,26 @@
           "pokemons": [
             {
               "id": 18,
-              "level": 35,
+              "level": 38,
               "moveIds": [3,16,54,19]
             },
             {
               "id": 58,
-              "level": 35,
+              "level": 38,
               "moveIds": [72,74,27,138],
               "itemHeld": "CHARCOAL"
             },
             {
-              "id": 117,
-              "level": 35,
-              "moveIds": [15,43,100,111],
-              "itemHeld": "MYSTIC_WATER"
+              "id": 130,
+              "level": 38,
+              "moveIds": [136,119,27,125],
+              "itemHeld": "LEFTOVERS"
+            },
+            {
+              "id": 64,
+              "level": 38,
+              "moveIds": [44,45,46,105],
+              "itemHeld": "TWISTED_SPOON"
             },
             {
               "id": 106,
@@ -1967,7 +2067,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 32,
+      "id": 33,
       "name": "\nVS Team Rocket",
       "description": "On the top floor of the Pokemon Tower, you come across Team Rocket brutalizing an old man.",
       "opponents": [
@@ -2040,7 +2140,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 33,
+      "id": 34,
       "name": "\nRoute 8",
       "description": "After saving the old man from Team Rocket, he gives you a flute to wake up a Pokemon on Route 16. Therefore, you go west from Lavender Town to wake up this Pokemon",
       "opponents": [
@@ -2119,7 +2219,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 35,
+      "id": 36,
       "name": "\nCeladon Gym",
       "description": "You have arrived in Celadon City and are about to face the gym.",
       "opponents": [
@@ -2213,7 +2313,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 38,
+      "id": 39,
       "name": "\nRoute 17",
       "description": "You are walking on Route 17 and a biker comes to challenge you.",
       "opponents": [
@@ -2303,8 +2403,80 @@
     },
     {
       "id": 41,
+      "name": "\nVS Karen",
+      "description": "After arriving to Fushia City, you are challenged by a trainer.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Karen.png",
+          "name": "Trainer Karen",
+          "pokemons": [
+            {
+              "id": 197,
+              "level": 45,
+              "moveIds": [48,19,204,223],
+              "itemHeld": "LEFTOVERS"
+            },
+            {
+              "id": 430,
+              "level": 45,
+              "moveIds": [203,208,45,261],
+              "itemHeld": "LIFE_ORB"
+            },
+            {
+              "id": 94,
+              "level": 45,
+              "moveIds": [46,37,44,12],
+              "itemHeld": "LIFE_ORB"
+            },
+            {
+              "id": 920,
+              "level": 45,
+              "moveIds": [282,208,214,161],
+              "itemHeld": "BLACK_GLASSES"
+            },
+            {
+              "id": 461,
+              "level": 45,
+              "moveIds": [107,123,69,158],
+              "itemHeld": "LIFE_ORB"
+            },
+            {
+              "id": 229,
+              "level": 48,
+              "moveIds": [31,92,37,120]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 90
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        },
+        {
+          "id": 9,
+          "quantity": 2
+        }
+      ],
+      "startDialog": "Hey, I am Karen! I love Dark-type Pokémon. I'm known for my overpowering tactics. Think you can take them? Just try to entertain me. Let's go!",
+      "endDialogWin": "Well, aren't you good. I like that in a trainer.",
+      "endDialogLoose": "Well, that was relatively entertaining.",
+      "music": 2,
+      "icon": "images/boss_icon/VS_Karen.png",
+      "background": "images/battle_background/route_battle_background.png",
+      "exp": 4900,
+      "mandatory": true,
+      "iaLevel": 3,
+      "megaPokemonId": 0
+    },
+    {
+      "id": 43,
       "name": "\nFuschia Gym",
-      "description": "You have arrived in Fuschia City and are about to face the gym.",
+      "description": "After leaving the Safari, you go to the Fuschia gym.",
       "opponents": [
         {
           "sprite": "images/Sprite_Jongleur.png",
@@ -2354,7 +2526,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 44,
+      "id": 46,
       "name": "\nRoute 14",
       "description": "You continue your way to Saffron City and several trainers stand in your way.",
       "opponents": [
@@ -2432,7 +2604,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 45,
+      "id": 47,
       "name": "\nRoute 13",
       "description": "You continue your way to Saffron City and several trainers stand in your way.",
       "opponents": [
@@ -2531,7 +2703,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 47,
+      "id": 49,
       "name": "\nSilph Co",
       "description": "You arrive in Saffron City and Team Rocket has invaded the city. You learn that the boss of the organization is on the top floor of the Silph Co. building. You go there to stop him.",
       "opponents": [
@@ -2749,7 +2921,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 48,
+      "id": 50,
       "name": "\nVS Rival 5",
       "description": "Still in the Silph Co building, you come across Jackson.",
       "opponents": [
@@ -2763,10 +2935,10 @@
               "moveIds": [3,16,54,19]
             },
             {
-              "id": 117,
+              "id": 130,
               "level": 54,
-              "moveIds": [104,43,100,111],
-              "itemHeld": "MYSTIC_WATER"
+              "moveIds": [136,119,27,125],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 59,
@@ -2819,7 +2991,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 49,
+      "id": 51,
       "name": "\nVS Archer",
       "description": "You finally reach the top floor and a Team Rocket Executive is standing in front of the door of the room where the boss is.",
       "opponents": [
@@ -2890,7 +3062,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 50,
+      "id": 52,
       "name": "\nVS Giovanni",
       "description": "You enter the room where the boss is and you see him pressuring the chief of the Silph Co. to work for him.",
       "opponents": [
@@ -2966,7 +3138,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 51,
+      "id": 53,
       "name": "\nFighting Dojo",
       "description": "Before challenging the saffron gym, you decide to train to the fighting dojo",
       "opponents": [
@@ -3039,7 +3211,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 52,
+      "id": 54,
       "name": "\nSaffron Gym",
       "description": "After defeating Giovanni, you go to the gym to battle the gym leader.",
       "opponents": [
@@ -3123,7 +3295,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 55,
+      "id": 57,
       "name": "\nSea Route 20",
       "description": "You are now heading to Cinnabar Island but there are Pokemon trainers in the water.",
       "opponents": [
@@ -3191,7 +3363,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 59,
+      "id": 61,
       "name": "\nCinnabar Gym",
       "description": "After finding the key to the gym, you leave the mansion and head straight for the gym.",
       "opponents": [
@@ -3246,7 +3418,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 61,
+      "id": 63,
       "name": "\nSea Route 21",
       "description": "After obtaining your seventh badge, you decide to go to Viridian City to get your last badge.",
       "opponents": [
@@ -3331,7 +3503,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 62,
+      "id": 64,
       "name": "\nVS Professor Oak",
       "description": "You arrive in Pallet Town and visit Professor Oak",
       "opponents": [
@@ -3354,7 +3526,8 @@
             {
               "id": 130,
               "level": 70,
-              "moveIds": [79,27,119,125]
+              "moveIds": [79,27,119,125],
+              "itemHeld": "LUM_BERRY"
             },
             {
               "id": 6,
@@ -3386,7 +3559,7 @@
       "megaPokemonId": 6
     },
     {
-      "id": 63,
+      "id": 65,
       "name": "\nViridian Gym",
       "description": "You are back in Viridian City, it's time to get your last badge.",
       "opponents": [
@@ -3490,7 +3663,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 64,
+      "id": 66,
       "name": "\nVS Giovanni 2",
       "description": "After defeating the guards, you go to the gym leader and you notice that it's Giovanni, the boss of Team Rocket!",
       "opponents": [
@@ -3567,7 +3740,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 65,
+      "id": 67,
       "name": "\nVS ???",
       "description": "Giovanni has called his secret weapon which looks like an armored Pokémon",
       "opponents": [
@@ -3617,7 +3790,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 66,
+      "id": 68,
       "name": "\nTrainer House",
       "description": "You heard that a very powerful trainer is looking for challengers in Viridian City's Trainer House. You decide to go there",
       "opponents": [
@@ -3690,7 +3863,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 67,
+      "id": 69,
       "name": "\nVS Rival 6",
       "description": "Now that you have 8 badges, you head for the Victory Road. However, on Route 22, you run into Jackson.",
       "opponents": [
@@ -3699,16 +3872,16 @@
           "name": "Jackson",
           "pokemons": [
             {
-              "id": 18,
+              "id": 142,
               "level": 70,
-              "moveIds": [3,16,205,19],
+              "moveIds": [25,113,27,57],
               "itemHeld": "LIFE_ORB"
             },
             {
-              "id": 230,
+              "id": 130,
               "level": 70,
-              "moveIds": [104,43,100,111],
-              "itemHeld": "MYSTIC_WATER"
+              "moveIds": [136,119,93,125],
+              "itemHeld": "LUM_BERRY"
             },
             {
               "id": 65,
@@ -3767,7 +3940,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 69,
+      "id": 71,
       "name": "\nVictory Road 2",
       "description": "Still in Victory Road, there are several trainers in your path. Take them down to get to the Pokemon League",
       "opponents": [
@@ -3861,7 +4034,7 @@
       "megaPokemonId": 3
     },
     {
-      "id": 79,
+      "id": 81,
       "name": "\nVS Steven Stone",
       "description": "After hearing about your victory in the league, a trainer invites you to Pewter City for a ",
       "opponents": [
@@ -3933,7 +4106,7 @@
       "megaPokemonId": 376
     },
     {
-      "id": 83,
+      "id": 85,
       "name": "\nVS Cynthia",
       "description": "At the top of Mt. Silver, you come across the champion of the Sinnoh region.",
       "opponents": [
@@ -4005,7 +4178,7 @@
       "megaPokemonId": 445
     },
     {
-      "id": 92,
+      "id": 94,
       "name": "\nVS Game Developer",
       "description": "At the end of your adventure, a trainer comes to challenge you... And it's me: the developer of this game!",
       "opponents": [
@@ -4079,7 +4252,7 @@
   ],
   "bossBattles": [
     {
-      "id": 24,
+      "id": 25,
       "name": "\nVs Dugtrio",
       "description": "You finally find the powerful Pokémon that Professor Oak tells you about. It is a wild Dugtrio. It attacks you by shaking the ground. Stop it before it's too late.",
       "boss": {
@@ -4105,7 +4278,7 @@
       "mandatory": true
     },
     {
-      "id": 31,
+      "id": 32,
       "name": "\nVs Marowak",
       "description": "As you advance through the Pokémon Tower, you come across a Marowak that looks extremely powerful. Watch out, it's attacking you!",
       "boss": {
@@ -4131,7 +4304,7 @@
       "mandatory": true
     },
     {
-      "id": 37,
+      "id": 38,
       "name": "\nVs Snorlax",
       "description": "After getting your fourth badge, you go to Route 16 and come across the sleeping Pokemon. You wake him up with the flute that the old man gave you and it gets really angry!",
       "boss": {
@@ -4157,7 +4330,7 @@
       "mandatory": true
     },
     {
-      "id": 57,
+      "id": 59,
       "name": "\nVs Articuno",
       "description": "In the depths of Seafoam Island, you come across a powerful looking bird. Upon closer inspection, you notice that it is the legendary bird Articuno!",
       "boss": {
@@ -4183,7 +4356,7 @@
       "mandatory": true
     },
     {
-      "id": 70,
+      "id": 72,
       "name": "\nVs Moltres",
       "description": "You finally see the exit of Victory Road but you feel the presence of a powerful Pokemon near you. You head into a really hot room near the exit and come across the legendary bird Moltres.",
       "boss": {
@@ -4213,7 +4386,7 @@
       "mandatory": true
     },
     {
-      "id": 78,
+      "id": 80,
       "name": "\nVs Zapdos",
       "description": "At the very bottom of the Power Plant, you come across the legendary bird Zapdos and he attacks you!",
       "boss": {
@@ -4239,7 +4412,7 @@
       "mandatory": true
     },
     {
-      "id": 82,
+      "id": 84,
       "name": "\nVs Tyranitar",
       "description": "You can see the exit to the top of Mt Silver. However, a very powerful looking Tyranitar attacks you!",
       "boss": {
@@ -4269,7 +4442,7 @@
       "mandatory": true
     },
     {
-      "id": 84,
+      "id": 86,
       "name": "\nVs Lugia",
       "description": "Professor Oak has given you a MysticTicket which gives you access to three islands with legendary Pokemon. On the first island you visit, you come across Lugia",
       "boss": {
@@ -4303,7 +4476,7 @@
       "mandatory": true
     },
     {
-      "id": 85,
+      "id": 87,
       "name": "\nVs Ho-Oh",
       "description": "On the second island you visit, you come across Ho-Oh",
       "boss": {
@@ -4337,7 +4510,7 @@
       "mandatory": true
     },
     {
-      "id": 87,
+      "id": 89,
       "name": "\nVs Rayquaza",
       "description": "After facing multiples wild Dragon-types in the Dragon Cave, the legendary Rayquaza appears",
       "boss": {
@@ -4371,7 +4544,7 @@
       "mandatory": true
     },
     {
-      "id": 91,
+      "id": 93,
       "name": "\nVs Mewtwo",
       "description": "You finally come across the powerful Pokemon. It seems to want to fight you! Show him what you can do!",
       "boss": {
@@ -4762,7 +4935,7 @@
       "iaLevel": 1
     },
     {
-      "id": 36,
+      "id": 37,
       "name": "\nVS Erika",
       "description": "After beating the guard, you go to the gym leader to challenge her.",
       "sprite": "images/Sprite_Erika.png",
@@ -4902,7 +5075,7 @@
       "megaPokemonIdOnRematch": 0
     },
     {
-      "id": 42,
+      "id": 44,
       "name": "\nVS Koga",
       "description": "After beating the guard, you go to the gym leader to challenge him.",
       "sprite": "images/Sprite_Koga.png",
@@ -4940,7 +5113,7 @@
         },
         {
           "id": 169,
-          "level": 51,
+          "level": 53,
           "moveIds": [129,50,66,261],
           "itemHeld": "BLACK_SLUDGE"
         }
@@ -5024,7 +5197,7 @@
       "megaPokemonIdOnRematch": 0
     },
     {
-      "id": 53,
+      "id": 55,
       "name": "\nVS Sabrina",
       "description": "After defeating the guards, you can finally battle against the gym leader.",
       "sprite": "images/Sprite_Morgane.png",
@@ -5052,7 +5225,7 @@
           "id": 49,
           "level": 55,
           "moveIds": [35,37,45,60],
-          "itemHeld": "TWISTED_SPOON"
+          "itemHeld": "BLACK_SLUDGE"
         },
         {
           "id": 196,
@@ -5063,8 +5236,7 @@
         {
           "id": 65,
           "level": 57,
-          "moveIds": [45,44,46,105],
-          "itemHeld": "FOCUS_SASH"
+          "moveIds": [45,44,46,105]
         }
       ],
       "battle2": [
@@ -5146,7 +5318,7 @@
       "megaPokemonIdOnRematch": 0
     },
     {
-      "id": 60,
+      "id": 62,
       "name": "\nVS Blaine",
       "description": "After defeating the guard, you go to the gym leader.",
       "sprite": "images/Sprite_Auguste.png",
@@ -5157,6 +5329,12 @@
           "level": 60,
           "moveIds": [82,81,48,130],
           "itemHeld": "LEFTOVERS"
+        },
+        {
+          "id": 952,
+          "level": 60,
+          "moveIds": [105,31,27,66],
+          "itemHeld": "MIRACLE_SEED"
         },
         {
           "id": 219,
@@ -5262,7 +5440,7 @@
       "megaPokemonIdOnRematch": 0
     },
     {
-      "id": 71,
+      "id": 73,
       "name": "\nVS Lorelei",
       "description": "",
       "sprite": "images/Sprite_Olga.png",
@@ -5358,7 +5536,7 @@
       "megaPokemonIdOnRematch": 80
     },
     {
-      "id": 72,
+      "id": 74,
       "name": "\nVS Bruno",
       "description": "",
       "sprite": "images/Sprite_Aldo.png",
@@ -5454,18 +5632,12 @@
       "megaPokemonIdOnRematch": 208
     },
     {
-      "id": 73,
+      "id": 75,
       "name": "\nVS Agatha",
       "description": "",
       "sprite": "images/Sprite_Agatha.png",
       "title": "Elite 4 Agatha",
       "battle1": [
-        {
-          "id": 93,
-          "level": 73,
-          "moveIds": [46,44,37,48],
-          "itemHeld": "LIFE_ORB"
-        },
         {
           "id": 94,
           "level": 73,
@@ -5488,6 +5660,12 @@
           "id": 429,
           "level": 73,
           "moveIds": [46,44,12,48],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 887,
+          "level": 75,
+          "moveIds": [46,258,12,31],
           "itemHeld": "LIFE_ORB"
         },
         {
@@ -5550,18 +5728,12 @@
       "megaPokemonIdOnRematch": 94
     },
     {
-      "id": 74,
+      "id": 76,
       "name": "\nVS Lance",
       "description": "",
       "sprite": "images/Sprite_Peter.png",
       "title": "Elite 4 Lance",
       "battle1": [
-        {
-          "id": 148,
-          "level": 73,
-          "moveIds": [79,104,12,31],
-          "itemHeld": "LEFTOVERS"
-        },
         {
           "id": 149,
           "level": 73,
@@ -5584,6 +5756,12 @@
           "id": 130,
           "level": 73,
           "moveIds": [79,27,93,125],
+          "itemHeld": "LEFTOVERS"
+        },
+        {
+          "id": 230,
+          "level": 77,
+          "moveIds": [104,43,100,111],
           "itemHeld": "LEFTOVERS"
         },
         {
@@ -5646,21 +5824,21 @@
       "megaPokemonIdOnRematch": 6
     },
     {
-      "id": 75,
+      "id": 77,
       "name": "\nVS Champion",
       "description": "",
       "sprite": "images/Spr_Rival.png",
       "title": "Champion Jackson",
       "battle1": [
         {
-          "id": 18,
+          "id": 142,
           "level": 73,
-          "moveIds": [3,101,261,176]
+          "moveIds": [222,25,93,27]
         },
         {
-          "id": 230,
-          "level": 75,
-          "moveIds": [104,274,100,111],
+          "id": 130,
+          "level": 73,
+          "moveIds": [136,119,93,125],
           "itemHeld": "LEFTOVERS"
         },
         {
@@ -5737,7 +5915,7 @@
       "exp": 10000,
       "mandatory": true,
       "iaLevel": 3,
-      "megaPokemonId": 18,
+      "megaPokemonId": 142,
       "megaPokemonIdOnRematch": 65
     },
     {

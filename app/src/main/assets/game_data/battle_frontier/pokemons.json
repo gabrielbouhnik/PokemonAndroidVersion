@@ -394,11 +394,13 @@
   },
   {
     "id": 286,
-    "moveIds": [14,36,25,252]
+    "moveIds": [14,36,25,252],
+    "itemHeld": "TOXIC_ORB"
   },
   {
     "id": 286,
-    "moveIds": [14,76,137,114]
+    "moveIds": [14,76,137,114],
+    "itemHeld": "TOXIC_ORB"
   },
   {
     "id": 297,

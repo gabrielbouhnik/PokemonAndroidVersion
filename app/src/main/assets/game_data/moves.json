@@ -2629,6 +2629,20 @@
       "status": [],
       "highCritRate": false,
       "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 291,
+      "name": "Leafage",
+      "power": 40,
+      "pp": 40,
+      "type": 1,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user attacks by pelting the target with leaves.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "multipleHitMoves": [
@@ -4204,7 +4218,7 @@
       "name": "Clanging Scales",
       "power": 110,
       "pp": 5,
-      "type": 11,
+      "type": 15,
       "category": "SPECIAL",
       "accuracy": 100,
       "description": "The user rubs the scales on its entire body and makes a huge noise to attack opposing Pokémon. The user's Defense stat is lowered after the attack.",

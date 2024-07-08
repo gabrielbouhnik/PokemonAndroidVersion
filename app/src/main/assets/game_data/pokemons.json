@@ -4267,7 +4267,7 @@
       "spAtk": 175,
       "spDef": 105,
       "speed": 150,
-      "ability": "MAGIC_GUARD",
+      "ability": "TRACE",
       "stoneId": 115
     }
   },
@@ -6844,6 +6844,10 @@
           "level": 40
         },
         {
+          "moveId": 102,
+          "level": 45
+        },
+        {
           "moveId": 194,
           "level": 55
         }
@@ -6922,6 +6926,10 @@
         },
         {
           "moveId": 81,
+          "level": 1
+        },
+        {
+          "moveId": 102,
           "level": 1
         },
         {
@@ -9144,7 +9152,7 @@
         }
       }
     ],
-    "abilities": ["DOWNLOAD"],
+    "abilities": ["DOWNLOAD","TRACE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -9425,6 +9433,10 @@
           "level": 20
         },
         {
+          "moveId": 222,
+          "level": 25
+        },
+        {
           "moveId": 27,
           "level": 30
         },
@@ -9457,7 +9469,18 @@
     "catchRate": 45,
     "evolutions": [],
     "abilities": ["ROCK_HEAD","PRESSURE"],
-    "expGaugeType":  "SLOW"
+    "expGaugeType":  "SLOW",
+    "megaEvolutionData": {
+      "type1": 2,
+      "type2": 15,
+      "attack": 135,
+      "defense": 85,
+      "spAtk": 70,
+      "spDef": 95,
+      "speed": 150,
+      "ability": "TOUGH_CLAW",
+      "stoneId": 120
+    }
   },
   {
     "id": 143,
@@ -11354,6 +11377,10 @@
           "level": 20
         },
         {
+          "moveId": 59,
+          "level": 24
+        },
+        {
           "moveId": 53,
           "level": 28
         },
@@ -11417,6 +11444,10 @@
         {
           "moveId": 52,
           "level": 20
+        },
+        {
+          "moveId": 59,
+          "level": 24
         },
         {
           "moveId": 53,
@@ -13426,6 +13457,10 @@
           "level": 13
         },
         {
+          "moveId": 16,
+          "level": 16
+        },
+        {
           "moveId": 154,
           "level": 19
         },
@@ -13560,7 +13595,7 @@
       "spAtk": 55,
       "spDef": 95,
       "speed": 30,
-      "stoneId": 120
+      "stoneId": 121
     }
   },
   {
@@ -13847,7 +13882,7 @@
       "spDef": 100,
       "speed": 75,
       "ability": "TECHNICIAN",
-      "stoneId": 121
+      "stoneId": 122
     }
   },
   {
@@ -13974,7 +14009,7 @@
       "spDef": 105,
       "speed": 75,
       "ability": "SKILL_LINK",
-      "stoneId": 122
+      "stoneId": 123
     }
   },
   {
@@ -14751,7 +14786,7 @@
       "spAtk": 140,
       "spDef": 90,
       "speed": 115,
-      "stoneId": 123
+      "stoneId": 124
     }
   },
   {
@@ -15022,7 +15057,7 @@
         }
       }
     ],
-    "abilities": ["DOWNLOAD"],
+    "abilities": ["DOWNLOAD","TRACE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -15842,7 +15877,7 @@
       "spAtk": 95,
       "spDef": 120,
       "speed": 71,
-      "stoneId": 124
+      "stoneId": 125
     }
   },
   {
@@ -16036,7 +16071,7 @@
     "speed": 81,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["SYNCHRONIZE"],
+    "abilities": ["SYNCHRONIZE","TRACE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -18431,6 +18466,10 @@
         {
           "moveId": 3,
           "level": 13
+        },
+        {
+          "moveId": 16,
+          "level": 16
         },
         {
           "moveId": 154,
@@ -21465,6 +21504,149 @@
     "catchRate": 30,
     "evolutions": [],
     "abilities": ["SWARM","TINTED_LENS"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 951,
+    "name": "Capsakid",
+    "type1": 1,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 291,
+          "level": 1
+        },
+        {
+          "moveId": 23,
+          "level": 4
+        },
+        {
+          "moveId": 18,
+          "level": 13
+        },
+        {
+          "moveId": 234,
+          "level": 17
+        },
+        {
+          "moveId": 137,
+          "level": 21
+        },
+        {
+          "moveId": 72,
+          "level": 24
+        },
+        {
+          "moveId": 148,
+          "level": 28
+        },
+        {
+          "moveId": 27,
+          "level": 38
+        },
+        {
+          "moveId": 36,
+          "level": 44
+        },
+        {
+          "moveId": 194,
+          "level": 48
+        }
+      ],
+      "movesLearnWithTM": [72,36,66,105,137,148],
+      "bannerMoves": []
+    },
+    "hp": 50,
+    "attack": 62,
+    "defense": 40,
+    "spAtk": 62,
+    "spDef": 40,
+    "speed": 50,
+    "catchRate": 190,
+    "evolutions": [
+      {
+        "evolutionId": 952,
+        "evolutionCondition": {
+          "itemId" : 16
+        }
+      }
+    ],
+    "abilities": ["INSOMNIA"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 952,
+    "name": "Scovillain",
+    "type1": 1,
+    "type2": 2,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 31,
+          "level": 1
+        },
+        {
+          "moveId": 118,
+          "level": 1
+        },
+        {
+          "moveId": 291,
+          "level": 1
+        },
+        {
+          "moveId": 23,
+          "level": 4
+        },
+        {
+          "moveId": 18,
+          "level": 13
+        },
+        {
+          "moveId": 234,
+          "level": 17
+        },
+        {
+          "moveId": 137,
+          "level": 21
+        },
+        {
+          "moveId": 72,
+          "level": 24
+        },
+        {
+          "moveId": 148,
+          "level": 28
+        },
+        {
+          "moveId": 27,
+          "level": 38
+        },
+        {
+          "moveId": 36,
+          "level": 44
+        },
+        {
+          "moveId": 194,
+          "level": 48
+        },
+        {
+          "moveId": 231,
+          "level": 48
+        }
+      ],
+      "movesLearnWithTM": [72,31,36,66,82,105,137,138,148,176,177],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 108,
+    "defense": 65,
+    "spAtk": 108,
+    "spDef": 65,
+    "speed": 75,
+    "catchRate": 75,
+    "evolutions": [],
+    "abilities": ["INSOMNIA"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {

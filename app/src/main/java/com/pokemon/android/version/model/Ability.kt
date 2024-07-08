@@ -91,6 +91,7 @@ enum class Ability(var description: String) {
     TINTED_LENS("The Pokémon can use “not very effective” moves to deal regular damage."),
     TORRENT("Powers up Water-type moves when the Pokémon's HP is low."),
     TOUGH_CLAW("Powers up moves that make direct contact."),
+    TRACE("When it enters a battle, the Pokémon copies an opposing Pokémon's Abilities."),
     UNBURDEN("Boosts the Speed stat if the Pokémon's held item is used or lost."),
     UNAWARE("When attacking, the Pokémon ignores the target Pokémon's stat changes."),
     VITAL_SPIRIT("The Pokémon is full of vitality, and that prevents it from falling asleep."),

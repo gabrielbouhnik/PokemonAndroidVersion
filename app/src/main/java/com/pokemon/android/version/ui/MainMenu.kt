@@ -100,7 +100,7 @@ class MainMenu {
             }
         }
         val battleFrontierButton: Button = activity.findViewById(R.id.battleFrontierButton)
-        if (!activity.eliteMode && activity.trainer!!.progression > 51) {
+        if (!activity.eliteMode && !activity.hardMode && activity.trainer!!.progression > LevelMenu.SABRINA_LEVEL) {
             battleFrontierButton.setOnClickListener {
                 battleFrontierMenu.loadMenu(activity)
             }

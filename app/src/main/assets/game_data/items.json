@@ -307,26 +307,31 @@
     },
     {
       "id": 120,
+      "name": "Aerodactylite",
+      "description": "Enables Aerodactyl to Mega Evolve during battle."
+    },
+    {
+      "id": 121,
       "name": "Steelixite",
       "description": "Enables Steelix to Mega Evolve during battle."
     },
     {
-      "id": 121,
+      "id": 122,
       "name": "Scizorite",
       "description": "Enables Scizor to Mega Evolve during battle."
     },
     {
-      "id": 122,
+      "id": 123,
       "name": "Heracronite",
       "description": "Enables Heracross to Mega Evolve during battle."
     },
     {
-      "id": 123,
+      "id": 124,
       "name": "Houndoominite",
       "description": "Enables Houndoom to Mega Evolve during battle."
     },
     {
-      "id": 124,
+      "id": 125,
       "name": "Tyranitarite",
       "description": "Enables Tyranitar to Mega Evolve during battle."
     },

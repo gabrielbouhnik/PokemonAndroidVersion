@@ -79,6 +79,11 @@ class RewardMenu {
                 1 -> {
                     activity.showCustomDialog(activity.getString(R.string.tutorial_after_first_fight))
                 }
+                LevelMenu.SURGE_LEVEL -> {
+                    if (activity.hardMode) {
+                        activity.showCustomDialog(activity.getString(R.string.new_item_available_in_shop))
+                    }
+                }
                 LevelMenu.LAPRAS_LEVEL -> {
                     activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(131, 45))
                     activity.showCustomDialog("To thank you, one of the Silph Co scientist gave you a Lapras!")
@@ -93,13 +98,13 @@ class RewardMenu {
                 LevelMenu.OAK_LEVEL_ID -> {
                     when {
                         activity.trainer!!.pokedex[1] == true -> {
-                            activity.trainer!!.addItem(110, 1)
+                            activity.trainer!!.addItem(activity.gameDataService.pokemons[1].megaEvolutionData!!.stoneId, 1)
                         }
                         activity.trainer!!.pokedex[4] == true -> {
-                            activity.trainer!!.addItem(111, 1)
+                            activity.trainer!!.addItem(activity.gameDataService.pokemons[4].megaEvolutionData!!.stoneId, 1)
                         }
                         activity.trainer!!.pokedex[7] == true -> {
-                            activity.trainer!!.addItem(112, 1)
+                            activity.trainer!!.addItem(activity.gameDataService.pokemons[7].megaEvolutionData!!.stoneId, 1)
                         }
                     }
                 }

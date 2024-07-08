@@ -293,13 +293,23 @@ class BattleUI {
                     it.recomputeStat()
                     if (it.hasAbility(Ability.PICKUP) && it.currentHP > 0) {
                         val random = Random.nextInt(10)
-                        when {
-                            random > 7 -> activity.trainer!!.addItem(11, 1)
-                            random in 4..6 -> activity.trainer!!.addItem(1, 1)
-                            random == 3 -> activity.trainer!!.addItem(2, 1)
-                            random == 2 -> activity.trainer!!.addItem(4, 1)
-                            random == 1 -> activity.trainer!!.addItem(9, 1)
-                            random == 0 -> activity.trainer!!.addItem(12, 1)
+                        if (activity.hardMode) {
+                            when {
+                                random > 3 -> activity.trainer!!.addItem(1, 1)
+                                random == 3 -> activity.trainer!!.addItem(8, 1)
+                                random == 2 -> activity.trainer!!.addItem(2, 1)
+                                random == 1 -> activity.trainer!!.addItem(4, 1)
+                                random == 0 -> activity.trainer!!.addItem(9, 1)
+                            }
+                        } else {
+                            when {
+                                random > 7 -> activity.trainer!!.addItem(11, 1)
+                                random in 4..6 -> activity.trainer!!.addItem(1, 1)
+                                random == 3 -> activity.trainer!!.addItem(2, 1)
+                                random == 2 -> activity.trainer!!.addItem(4, 1)
+                                random == 1 -> activity.trainer!!.addItem(9, 1)
+                                random == 0 -> activity.trainer!!.addItem(12, 1)
+                            }
                         }
                     }
                 }
@@ -320,8 +330,9 @@ class BattleUI {
                     activity.updateMusic(R.raw.victory_theme)
                 if (activity.eliteMode)
                     activity.trainer!!.eliteProgression++
-                else if (firstTime && battle.levelData.mandatory)
+                else if (firstTime && battle.levelData.mandatory) {
                     activity.trainer!!.progression++
+                }
                 disableBattleButtons(activity)
                 val opponentPokemonSprite: ImageView = activity.findViewById(R.id.opponentPokemonImageView)
                 opponentPokemonSprite.visibility = GONE

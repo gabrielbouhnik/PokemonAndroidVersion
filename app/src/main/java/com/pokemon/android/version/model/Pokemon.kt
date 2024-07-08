@@ -701,7 +701,8 @@ open class Pokemon(
     }
 
     fun hasAbility(ability: Ability): Boolean {
-        return if (isMegaEvolved) data.megaEvolutionData!!.ability == ability else data.abilities.contains(ability)
+        return (if (isMegaEvolved) data.megaEvolutionData!!.ability == ability
+        else data.abilities.contains(ability)) || (battleData != null && battleData!!.abilities.contains(ability))
     }
 
     fun hasItem(item: HoldItem): Boolean {

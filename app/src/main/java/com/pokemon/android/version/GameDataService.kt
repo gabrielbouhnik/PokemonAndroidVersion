@@ -68,6 +68,7 @@ class GameDataService {
 
     fun updateShopForHardMode() {
         this.shop.filter { it.itemId < 12 }.map{ it.cost *= 3}
+        this.shop.add(ShopItem(8, this.items.first { it.id == 8 }.name, 10, 2))
         for (itemId in 16..23) {
             this.shop.add(ShopItem(itemId, this.items.first { it.id == itemId }.name, 1000, 3))
         }

@@ -151,6 +151,14 @@ class BattleUtils {
                     pokemon.battleData!!.attackMultiplicator *= 1.5f
                 }
             }
+            if (pokemon.hasAbility(Ability.TRACE)) {
+                sb.append("${pokemon.data.name}'s Trace: It traced the opposing ${opponent.data.name}'s abilities!\n")
+                if (opponent.isMegaEvolved && opponent.data.megaEvolutionData!!.ability != null) {
+                    pokemon.battleData!!.abilities.add(opponent.data.megaEvolutionData!!.ability!!)
+                } else {
+                    opponent.data.abilities.forEach { pokemon.battleData!!.abilities.add(it) }
+                }
+            }
             if (pokemon.hasAbility(Ability.SUPER_LUCK))
                 pokemon.battleData!!.criticalRate *= 1.5f
             if (pokemon.hasAbility(Ability.ARENA_TRAP) && !opponent.hasAbility(Ability.LEVITATE) && !pokemon.hasType(Type.FLYING) && !pokemon.hasType(Type.GHOST))
