@@ -52,6 +52,7 @@ class WildBattle() : Battle() {
         encountersLeft--
         if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID
             && levelData.name.startsWith("\nRoute")
+            && !activity.hardMode
         ) {
             when (Random.nextInt(100)) {
                 1 -> {

@@ -15,21 +15,10 @@ import kotlin.random.Random
 class BattleUtils {
     companion object {
         fun contactMovesCheck(attacker: Pokemon, move: Move, opponent: Pokemon): String {
-            val random: Int = Random.nextInt(100)
             var details = ""
             var statusByContact = false
             if (move.characteristics.contains(MoveCharacteristic.CONTACT)
-                && !attacker.hasItem(HoldItem.PROTECTIVE_PADS)
-                && random < 30) {
-                if (attacker.hasAbility(Ability.POISON_TOUCH)
-                    && attacker.status != Status.OK
-                    && Status.isAffectedByStatus(0, Status.POISON, opponent)
-                ) {
-                    opponent.status = Status.POISON
-                    statusByContact = true
-                    checkForStatusStatsRaiseAbility(attacker)
-                    details += "${attacker.data.name}'s Poison Touch: ${opponent.data.name} is poisoned!\n"
-                }
+                && !attacker.hasItem(HoldItem.PROTECTIVE_PADS)) {
                 if (opponent.hasAbility(Ability.ROUGH_SKIN)) {
                     attacker.takeDamage(attacker.hp / 8)
                     details += "${opponent.data.name}'s Rough Skin: ${attacker.data.name} was hurt!\n"
@@ -42,57 +31,70 @@ class BattleUtils {
                     attacker.takeDamage(attacker.hp / 8)
                     details += "${opponent.data.name}'s Rocky Helmet: ${attacker.data.name} was hurt!\n"
                 }
-                if (opponent.hasAbility(Ability.POISON_POINT)
-                    && attacker.status != Status.OK
-                    && Status.isAffectedByStatus(0, Status.POISON, attacker)
-                ) {
-                    attacker.status = Status.POISON
-                    statusByContact = true
-                    checkForStatusStatsRaiseAbility(attacker)
-                    details += "${opponent.data.name}'s Poison Point: ${attacker.data.name} is poisoned!\n"
-                }
-                if (opponent.hasAbility(Ability.STATIC)
-                    && attacker.status != Status.OK
-                    && Status.isAffectedByStatus(0, Status.PARALYSIS, attacker)
-                ) {
-                    attacker.status = Status.PARALYSIS
-                    statusByContact = true
-                    checkForStatusStatsRaiseAbility(attacker)
-                    details +=  "${opponent.data.name}'s Static: ${attacker.data.name} is paralyzed!\n"
-                }
-                if (opponent.hasAbility(Ability.FLAME_BODY)
-                    && attacker.status != Status.OK
-                    && Status.isAffectedByStatus(0, Status.BURN, attacker)
-                ) {
-                    attacker.status = Status.BURN
-                    statusByContact = true
-                    checkForStatusStatsRaiseAbility(attacker)
-                    details +=  "${opponent.data.name}'s Flame Body: ${attacker.data.name} is burned!\n"
-                }
-                if (opponent.hasAbility(Ability.EFFECT_SPORE)
-                    && attacker.status != Status.OK) {
-                    if (random < 10 && Status.isAffectedByStatus(34, Status.POISON, attacker)) {
+                val random: Int = Random.nextInt(100)
+                if (random < 30) {
+                    if (attacker.hasAbility(Ability.POISON_TOUCH)
+                        && attacker.status != Status.OK
+                        && Status.isAffectedByStatus(0, Status.POISON, opponent)
+                    ) {
+                        opponent.status = Status.POISON
+                        statusByContact = true
+                        checkForStatusStatsRaiseAbility(attacker)
+                        details += "${attacker.data.name}'s Poison Touch: ${opponent.data.name} is poisoned!\n"
+                    }
+                    if (opponent.hasAbility(Ability.POISON_POINT)
+                        && attacker.status != Status.OK
+                        && Status.isAffectedByStatus(0, Status.POISON, attacker)
+                    ) {
                         attacker.status = Status.POISON
                         statusByContact = true
                         checkForStatusStatsRaiseAbility(attacker)
-                        details +=  "${opponent.data.name}'s Effect Spore: ${attacker.data.name} is poisoned!\n"
-                    } else if (random < 20 && Status.isAffectedByStatus(35, Status.ASLEEP, attacker)) {
-                        attacker.status = Status.ASLEEP
-                        statusByContact = true
-                        details +=  "${opponent.data.name}'s Effect Spore: ${attacker.data.name} fell asleep!\n"
+                        details += "${opponent.data.name}'s Poison Point: ${attacker.data.name} is poisoned!\n"
                     }
-                    else if (random >= 20 && Status.isAffectedByStatus(-1, Status.PARALYSIS, attacker)){
+                    if (opponent.hasAbility(Ability.STATIC)
+                        && attacker.status != Status.OK
+                        && Status.isAffectedByStatus(0, Status.PARALYSIS, attacker)
+                    ) {
                         attacker.status = Status.PARALYSIS
                         statusByContact = true
                         checkForStatusStatsRaiseAbility(attacker)
-                        details +=  "${opponent.data.name}'s Effect Spore: ${attacker.data.name} is paralysed\n"
+                        details += "${opponent.data.name}'s Static: ${attacker.data.name} is paralyzed!\n"
+                    }
+                    if (opponent.hasAbility(Ability.FLAME_BODY)
+                        && attacker.status != Status.OK
+                        && Status.isAffectedByStatus(0, Status.BURN, attacker)
+                    ) {
+                        attacker.status = Status.BURN
+                        statusByContact = true
+                        checkForStatusStatsRaiseAbility(attacker)
+                        details += "${opponent.data.name}'s Flame Body: ${attacker.data.name} is burned!\n"
+                    }
+                    if (opponent.hasAbility(Ability.EFFECT_SPORE)
+                        && attacker.status != Status.OK
+                    ) {
+                        if (random < 10 && Status.isAffectedByStatus(34, Status.POISON, attacker)) {
+                            attacker.status = Status.POISON
+                            statusByContact = true
+                            checkForStatusStatsRaiseAbility(attacker)
+                            details += "${opponent.data.name}'s Effect Spore: ${attacker.data.name} is poisoned!\n"
+                        } else if (random < 20 && Status.isAffectedByStatus(35, Status.ASLEEP, attacker)) {
+                            attacker.status = Status.ASLEEP
+                            statusByContact = true
+                            details += "${opponent.data.name}'s Effect Spore: ${attacker.data.name} fell asleep!\n"
+                        } else if (random >= 20 && Status.isAffectedByStatus(-1, Status.PARALYSIS, attacker)) {
+                            attacker.status = Status.PARALYSIS
+                            statusByContact = true
+                            checkForStatusStatsRaiseAbility(attacker)
+                            details += "${opponent.data.name}'s Effect Spore: ${attacker.data.name} is paralysed\n"
+                        }
                     }
                 }
             }
-            if (statusByContact && opponent.hasItem(HoldItem.LUM_BERRY)){
+            if (statusByContact && opponent.hasItem(HoldItem.LUM_BERRY)) {
                 details += "${opponent.data.name}'s Lum Berry cured its status\n"
                 opponent.status = Status.OK
                 opponent.consumeItem()
+                Status.cureAllStatus(opponent)
             }
             return details
         }
@@ -101,9 +103,21 @@ class BattleUtils {
             val sb = StringBuilder()
             if (pokemon.status != Status.OK)
                 checkForStatusStatsRaiseAbility(pokemon)
+            if (pokemon.hasAbility(Ability.TRACE)) {
+                sb.append("${pokemon.data.name}'s Trace: It traced the opposing ${opponent.data.name}'s abilities!\n")
+                if (opponent.isMegaEvolved && opponent.data.megaEvolutionData!!.ability != null) {
+                    pokemon.battleData!!.abilities.add(opponent.data.megaEvolutionData!!.ability!!)
+                } else {
+                    opponent.data.abilities.forEach { pokemon.battleData!!.abilities.add(it) }
+                }
+            }
             if (pokemon.hasAbility(Ability.PRESSURE))
                 sb.append("${pokemon.data.name}'s Pressure: ${pokemon.data.name} is exerting its pressure!\n")
-            if (pokemon.hasAbility(Ability.ANTICIPATION) && MoveUtils.getMoveList(opponent).any{ DamageCalculator.getEffectiveness(opponent, it.move, pokemon) >= 2f})
+            if (pokemon.hasAbility(Ability.MOLD_BREAKER))
+                sb.append("${pokemon.data.name}'s Mold Breaker: ${pokemon.data.name} breaks the mold!\n")
+            if (pokemon.hasAbility(Ability.ANTICIPATION) && MoveUtils.getMoveList(opponent)
+                    .any { DamageCalculator.getEffectiveness(opponent, it.move, pokemon) >= 2f }
+            )
                 sb.append("${pokemon.data.name}'s Anticipation: ${pokemon.data.name} shuddered!\n")
             if (pokemon.hasAbility(Ability.INTIMIDATE) && !opponent.hasAbility(Ability.OWN_TEMPO)) {
                 sb.append("${pokemon.data.name}'s Intimidate: ${opponent.data.name}'s attack fell!\n")
@@ -114,7 +128,7 @@ class BattleUtils {
                         opponent.battleData!!.attackMultiplicator *= 1.5f
                         sb.append("${opponent.data.name}'s Defiant: ${opponent.data.name}'s attack rose!\n")
                     }
-                        else -> {
+                    else -> {
                         if (opponent.battleData != null)
                             opponent.battleData!!.attackMultiplicator *= 0.67f
                     }
@@ -122,10 +136,11 @@ class BattleUtils {
             }
             if (pokemon.hasItem(HoldItem.AIR_BALLOON))
                 sb.append("${pokemon.data.name} floats in the air with its Air Balloon\n")
-            if (opponent.heldItem != null && pokemon.hasAbility(Ability.FRISK)){
+            if (opponent.heldItem != null && pokemon.hasAbility(Ability.FRISK)) {
                 sb.append("${pokemon.data.name}'s Frisk: ${pokemon.data.name} frisked ${opponent.data.name} and found its ${opponent.heldItem!!.heldItemToString()}!\n")
             }
-            if (pokemon.hasItem(HoldItem.ASSAULT_VEST) && !MoveUtils.getMoveList(pokemon).map{it.move.category}.contains(MoveCategory.OTHER))
+            if (pokemon.hasItem(HoldItem.ASSAULT_VEST) && !MoveUtils.getMoveList(pokemon).map { it.move.category }
+                    .contains(MoveCategory.OTHER))
                 pokemon.battleData!!.spDefMultiplicator *= 1.5f
             if (pokemon.hasItem(HoldItem.EVIOLITE) && pokemon.data.evolutions.isNotEmpty()) {
                 pokemon.battleData!!.spDefMultiplicator *= 1.5f
@@ -142,28 +157,26 @@ class BattleUtils {
                 if (opponent.hasType(Type.ROCK))
                     opponent.battleData!!.spDefMultiplicator *= 1.5f
             }
-            if (pokemon.hasAbility(Ability.DOWNLOAD)){
-                if (opponent.defense * opponent.battleData!!.defenseMultiplicator > opponent.spDef * opponent.battleData!!.spDefMultiplicator){
+            if (pokemon.hasAbility(Ability.DOWNLOAD)) {
+                if (opponent.defense * opponent.battleData!!.defenseMultiplicator > opponent.spDef * opponent.battleData!!.spDefMultiplicator) {
                     sb.append("${pokemon.data.name}'s Download: ${pokemon.data.name}'s Sp. Atk rose!\n")
                     pokemon.battleData!!.spAtkMultiplicator *= 1.5f
-                } else{
+                } else {
                     sb.append("${pokemon.data.name}'s Download: ${pokemon.data.name}'s attack rose!\n")
                     pokemon.battleData!!.attackMultiplicator *= 1.5f
                 }
             }
-            if (pokemon.hasAbility(Ability.TRACE)) {
-                sb.append("${pokemon.data.name}'s Trace: It traced the opposing ${opponent.data.name}'s abilities!\n")
-                if (opponent.isMegaEvolved && opponent.data.megaEvolutionData!!.ability != null) {
-                    pokemon.battleData!!.abilities.add(opponent.data.megaEvolutionData!!.ability!!)
-                } else {
-                    opponent.data.abilities.forEach { pokemon.battleData!!.abilities.add(it) }
-                }
-            }
             if (pokemon.hasAbility(Ability.SUPER_LUCK))
                 pokemon.battleData!!.criticalRate *= 1.5f
-            if (pokemon.hasAbility(Ability.ARENA_TRAP) && !opponent.hasAbility(Ability.LEVITATE) && !pokemon.hasType(Type.FLYING) && !pokemon.hasType(Type.GHOST))
+            if (pokemon.hasAbility(Ability.ARENA_TRAP) && !opponent.hasAbility(Ability.LEVITATE) && !pokemon.hasType(
+                    Type.FLYING
+                ) && !pokemon.hasType(Type.GHOST)
+            )
                 opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
-            if (opponent.hasAbility(Ability.ARENA_TRAP) && !pokemon.hasAbility(Ability.LEVITATE) && !opponent.hasType(Type.FLYING) && !opponent.hasType(Type.GHOST))
+            if (opponent.hasAbility(Ability.ARENA_TRAP) && !pokemon.hasAbility(Ability.LEVITATE) && !opponent.hasType(
+                    Type.FLYING
+                ) && !opponent.hasType(Type.GHOST)
+            )
                 pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
             if (pokemon.hasAbility(Ability.SHADOW_TAG) && !pokemon.hasType(Type.GHOST))
                 opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
@@ -215,7 +228,7 @@ class BattleUtils {
                     false
                 }
                 else -> {
-                    return isFaster(pokemon,other)
+                    return isFaster(pokemon, other)
                 }
             }
         }
@@ -228,7 +241,7 @@ class BattleUtils {
             return pokemonSpeed * paralysisMultiplicator >= otherSpeed * opponentParalysisMultiplicator
         }
 
-        fun checkForStatusStatsRaiseAbility(pokemon: Pokemon){
+        fun checkForStatusStatsRaiseAbility(pokemon: Pokemon) {
             if (pokemon.hasAbility(Ability.QUICK_FEET))
                 pokemon.battleData!!.speedMultiplicator *= 1.5f
             if (pokemon.hasAbility(Ability.GUTS))
@@ -237,6 +250,17 @@ class BattleUtils {
                 pokemon.battleData!!.spAtkMultiplicator *= 1.5f
             if (pokemon.hasAbility(Ability.MARVEL_SCALE))
                 pokemon.battleData!!.defenseMultiplicator *= 1.5f
+        }
+
+        fun removeStatusStatsRaiseAbility(pokemon: Pokemon) {
+            if (pokemon.hasAbility(Ability.GUTS))
+                pokemon.battleData!!.attackMultiplicator /= 1.5f
+            if (pokemon.hasAbility(Ability.QUICK_FEET))
+                pokemon.battleData!!.speedMultiplicator /= 1.5f
+            if (pokemon.hasAbility(Ability.MARVEL_SCALE))
+                pokemon.battleData!!.defenseMultiplicator /= 1.5f
+            if (pokemon.hasAbility(Ability.COMPETITIVE))
+                pokemon.battleData!!.spAtkMultiplicator /= 1.5f
         }
     }
 }

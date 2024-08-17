@@ -5,7 +5,6 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.Type
-import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.IAUtils
 import kotlin.random.Random
 

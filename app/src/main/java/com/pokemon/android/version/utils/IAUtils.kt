@@ -7,36 +7,37 @@ import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.battle.DamageCalculator
 import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.move.*
+import com.pokemon.android.version.model.move.Target
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 
 class IAUtils {
     companion object {
-        fun canBeKOdByOpponent(attacker: Pokemon, opponent: Pokemon): Boolean {
+        private fun canBeKOdByOpponent(pokemon: Pokemon, opponent: Pokemon): Boolean {
             val offensiveMove =
                 MoveUtils.getMoveList(opponent).filter { it.pp > 0 && it.move.power > 0 && it.move !is ChargedMove }
             for (move in offensiveMove) {
-                var damage: Int = DamageCalculator.computeDamage(opponent, move.move, attacker, 1f)
+                var damage: Int = DamageCalculator.computeDamage(opponent, move.move, pokemon, 1f)
                 if (move.move is VariableHitMove) {
                     damage *= if (opponent.hasAbility(Ability.SKILL_LINK) || opponent.hasItem(HoldItem.LOADED_DICE)) 5 else 3
                 } else if (move.move is MultipleHitMove)
                     damage *= 2
-                if (damage >= attacker.currentHP)
+                if (damage >= pokemon.currentHP)
                     return true
             }
             return false
         }
 
-        fun canTakeTwoHits(attacker: Pokemon, opponent: Pokemon): Boolean {
+        private fun canTakeTwoHits(pokemon: Pokemon, opponent: Pokemon): Boolean {
             val offensiveMove = MoveUtils.getMoveList(opponent).filter { it.pp > 0 && it.move.power > 0 }
             for (move in offensiveMove) {
-                var damage: Int = DamageCalculator.computeDamage(opponent, move.move, attacker, 1f)
+                var damage: Int = DamageCalculator.computeDamage(opponent, move.move, pokemon, 1f)
                 if (move.move !is ChargedMove && move.move !is UltimateMove)
                     damage *= 2
                 if (move.move is VariableHitMove) {
                     damage *= if (opponent.hasAbility(Ability.SKILL_LINK) || opponent.hasItem(HoldItem.LOADED_DICE)) 5 else 3
                 } else if (move.move is MultipleHitMove)
                     damage *= 2
-                if (damage >= attacker.currentHP)
+                if (damage >= pokemon.currentHP)
                     return true
             }
             return false
@@ -44,7 +45,7 @@ class IAUtils {
 
         fun iaWildPokemon(attacker: Pokemon): PokemonMove {
             var usableMoves = MoveUtils.getMoveList(attacker).filter { it.pp > 0  && !it.isDisabled()}
-            if (attacker.battleData!!.battleStatus.contains(Status.TAUNTED)){
+            if (attacker.battleData!!.battleStatus.contains(Status.TAUNTED)) {
                 usableMoves = usableMoves.filter { it.move.category != MoveCategory.OTHER}
             }
             if (attacker.battleData!!.rampageMove != null)
@@ -57,9 +58,17 @@ class IAUtils {
             return usableMoves.random()
         }
 
+        private fun shouldUpdateStats(statsAffected: List<Stats>, pokemon: Pokemon): Boolean {
+            if (statsAffected.contains(Stats.ATTACK) && pokemon.battleData!!.attackMultiplicator <= 1f)
+                return true
+            if (statsAffected.contains(Stats.SPATK) && pokemon.battleData!!.spAtkMultiplicator <= 1f)
+                return true
+            return false
+        }
+
         fun ia(attacker: Pokemon, opponent: Pokemon): PokemonMove {
             var usableMoves = MoveUtils.getMoveList(attacker).filter {!it.isDisabled() && it.pp > 0}
-            if (attacker.battleData!!.battleStatus.contains(Status.TAUNTED)){
+            if (attacker.battleData!!.battleStatus.contains(Status.TAUNTED)) {
                 usableMoves = usableMoves.filter { it.move.category != MoveCategory.OTHER}
             }
             if (opponent.currentHP == 0)
@@ -93,7 +102,14 @@ class IAUtils {
                     if (move.move !is ChargedMove || attacker.hp / attacker.currentHP > 2)
                         return move
                 }
-                if (damage > 0 && attacker.hp / attacker.currentHP < 4 && move.move.priorityLevel > 0 && attacker.speed * attacker.battleData!!.speedMultiplicator < opponent.speed * opponent.battleData!!.speedMultiplicator)
+                if (damage > 0 && canBeKOdByOpponent(opponent, attacker)
+                    && move.move.priorityLevel > 0
+                    && move.move.power > 0
+                    && BattleUtils.isFaster(opponent,attacker)) {
+                        //IF ATTACKER IS GOING TO GET KO FROM A FASTER OPPONENT, THEN IT WILL USE AN OFFENSIVE PRIORITY MOVE
+                        return move
+                }
+                if (move.move is HealMove && attacker.hp / attacker.currentHP > 3)
                     return move
                 move.move.status.forEach {
                     if (Status.isAffectedByStatus(
@@ -106,25 +122,36 @@ class IAUtils {
                     )
                         return move
                 }
-                if (move.move is HealMove && attacker.hp / attacker.currentHP > 3)
-                    return move
                 if (move.move is StatChangeMove) {
                     val statChangeMove: StatChangeMove = move.move as StatChangeMove
-                    if (move.move.power == 0 && !opponent.hasAbility(Ability.MAGIC_BOUNCE) &&
-                        statChangeMove.statsAffected.contains(Stats.SPEED) && BattleUtils.isFaster(opponent, attacker)
-                    )
-                        return move
-                    if (statChangeMove.statsAffected.contains(Stats.ACCURACY) && opponent.battleData!!.accuracyMultiplicator == 1f && !opponent.hasAbility(
-                            Ability.MAGIC_BOUNCE
-                        ) && !opponent.hasAbility(Ability.KEEN_EYE)
-                    )
-                        return move
+                    if (statChangeMove.target == Target.SELF) {
+                        if (statChangeMove.statsAffected.contains(Stats.SPEED)) {
+                            if (BattleUtils.isFaster(opponent, attacker)
+                                && !canBeKOdByOpponent(opponent, attacker)) {
+                                //OPPONENT IS FASTER AND CAN'T KO ATTACKER
+                                return move
+                            }
+                        } else if (shouldUpdateStats(statChangeMove.statsAffected, attacker) &&
+                            (BattleUtils.isFaster(attacker, opponent)
+                            || canTakeTwoHits(opponent, attacker))) {
+                            //ATTACKER IS FASTER OR CAN SURVIVE 2 HITS FROM OPPONENT
+                            return move
+                        }
+
+                    } else if (move.move.category != MoveCategory.OTHER || !opponent.hasAbility(Ability.MAGIC_BOUNCE)) {
+                        //ATTACKER SHOULD ONLY LOWER SPEED AND ACCURACY OF OPPONENT
+                        if (statChangeMove.statsAffected.contains(Stats.ACCURACY) && opponent.battleData!!.accuracyMultiplicator == 1f
+                            && !opponent.hasAbility(Ability.KEEN_EYE) && !opponent.hasAbility(Ability.CLEAR_BODY))
+                            return move
+                        if (statChangeMove.statsAffected.contains(Stats.SPEED)
+                            && opponent.battleData!!.speedMultiplicator == 1f
+                            && !opponent.hasAbility(Ability.CLEAR_BODY))
+                            return move
+                    }
                 }
                 if (move.move is RemoveStatChangesMove && (opponent.battleData!!.attackMultiplicator > 1f
                             || opponent.battleData!!.spAtkMultiplicator > 1f
-                            || opponent.battleData!!.speedMultiplicator > 1f)
-                    && !opponent.hasType(Type.STEEL)
-                )
+                            || opponent.battleData!!.speedMultiplicator > 1f))
                     return move
                 if (damage > maxDamage) {
                     maxDamageIdx = Idx

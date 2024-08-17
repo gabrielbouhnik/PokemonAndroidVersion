@@ -4207,7 +4207,7 @@
       {
         "evolutionId": 65,
         "evolutionCondition": {
-          "level": 48
+          "itemId": 132
         }
       }
     ],
@@ -4418,7 +4418,7 @@
       {
         "evolutionId": 68,
         "evolutionCondition": {
-          "level": 45
+          "itemId": 132
         }
       }
     ],
@@ -4999,7 +4999,7 @@
       {
         "evolutionId": 76,
         "evolutionCondition": {
-          "level": 36
+          "itemId": 132
         }
       }
     ],
@@ -6227,7 +6227,7 @@
       {
         "evolutionId": 94,
         "evolutionCondition": {
-          "level": 48
+          "itemId": 132
         }
       }
     ],
@@ -6664,6 +6664,10 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
+          "moveId": 295,
+          "level": 1
+        },
+        {
           "moveId": 2,
           "level": 1
         },
@@ -6741,6 +6745,10 @@
     "type2": 0,
     "possibleMoves": {
       "movesLearnByLevel": [
+        {
+          "moveId": 295,
+          "level": 1
+        },
         {
           "moveId": 2,
           "level": 1
@@ -8476,7 +8484,7 @@
     "speed": 85,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["MOXIE","HYPER_CUTTER"],
+    "abilities": ["HYPER_CUTTER","MOLD_BREAKER","MOXIE"],
     "expGaugeType":  "SLOW",
     "megaEvolutionData": {
       "type1": 7,
@@ -8682,7 +8690,8 @@
       "spAtk": 70,
       "spDef": 130,
       "speed": 81,
-      "stoneId": 119
+      "stoneId": 119,
+      "ability": "MOLD_BREAKER"
     }
   },
   {
@@ -9471,8 +9480,8 @@
     "abilities": ["ROCK_HEAD","PRESSURE"],
     "expGaugeType":  "SLOW",
     "megaEvolutionData": {
-      "type1": 2,
-      "type2": 15,
+      "type1": 6,
+      "type2": 9,
       "attack": 135,
       "defense": 85,
       "spAtk": 70,
@@ -14036,6 +14045,10 @@
           "level": 6
         },
         {
+          "moveId": 169,
+          "level": 10
+        },
+        {
           "moveId": 158,
           "level": 18
         },
@@ -16033,6 +16046,185 @@
     "expGaugeType": "MEDIUM_SLOW"
   },
   {
+    "id": 261,
+    "name": "Poochyena",
+    "type1": 17,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 285,
+          "level": 4
+        },
+        {
+          "moveId": 19,
+          "level": 7
+        },
+        {
+          "moveId": 23,
+          "level": 10
+        },
+        {
+          "moveId": 154,
+          "level": 13
+        },
+        {
+          "moveId": 72,
+          "level": 16
+        },
+        {
+          "moveId": 251,
+          "level": 22
+        },
+        {
+          "moveId": 171,
+          "level": 25
+        },
+        {
+          "moveId": 242,
+          "level": 28
+        },
+        {
+          "moveId": 27,
+          "level": 31
+        },
+        {
+          "moveId": 159,
+          "level": 34
+        },
+        {
+          "moveId": 115,
+          "level": 36
+        },
+        {
+          "moveId": 73,
+          "level": 40
+        },
+        {
+          "moveId": 208,
+          "level": 44
+        }
+      ],
+      "movesLearnWithTM": [72,204,46,73,92],
+      "bannerMoves": []
+    },
+    "hp": 35,
+    "attack": 55,
+    "defense": 35,
+    "spAtk": 30,
+    "spDef": 30,
+    "speed": 35,
+    "catchRate": 255,
+    "evolutions": [
+      {
+        "evolutionId": 262,
+        "evolutionCondition": {
+          "level": 18
+        }
+      }
+    ],
+    "abilities": ["QUICK_FEET"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 262,
+    "name": "Mightyena",
+    "type1": 17,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 118,
+          "level": 1
+        },
+        {
+          "moveId": 119,
+          "level": 1
+        },
+        {
+          "moveId": 120,
+          "level": 1
+        },
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 285,
+          "level": 4
+        },
+        {
+          "moveId": 19,
+          "level": 7
+        },
+        {
+          "moveId": 23,
+          "level": 10
+        },
+        {
+          "moveId": 154,
+          "level": 13
+        },
+        {
+          "moveId": 72,
+          "level": 16
+        },
+        {
+          "moveId": 204,
+          "level": 18
+        },
+        {
+          "moveId": 251,
+          "level": 22
+        },
+        {
+          "moveId": 171,
+          "level": 25
+        },
+        {
+          "moveId": 242,
+          "level": 28
+        },
+        {
+          "moveId": 27,
+          "level": 31
+        },
+        {
+          "moveId": 159,
+          "level": 34
+        },
+        {
+          "moveId": 115,
+          "level": 36
+        },
+        {
+          "moveId": 73,
+          "level": 40
+        },
+        {
+          "moveId": 208,
+          "level": 44
+        }
+      ],
+      "movesLearnWithTM": [72,46,73,92,176,177,204],
+      "bannerMoves": []
+    },
+    "hp": 70,
+    "attack": 90,
+    "defense": 70,
+    "spAtk": 60,
+    "spDef": 60,
+    "speed": 70,
+    "catchRate": 127,
+    "evolutions": [],
+    "abilities": ["INTIMIDATE","QUICK_FEET","MOXIE"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
     "id": 272,
     "name": "Ludicolo",
     "type1": 3,
@@ -16555,6 +16747,155 @@
     "evolutions": [],
     "abilities": [],
     "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 353,
+    "name": "Shuppet",
+    "type1": 13,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 47,
+          "level": 1
+        },
+        {
+          "moveId": 41,
+          "level": 4
+        },
+        {
+          "moveId": 168,
+          "level": 7
+        },
+        {
+          "moveId": 265,
+          "level": 10
+        },
+        {
+          "moveId": 138,
+          "level": 16
+        },
+        {
+          "moveId": 220,
+          "level": 19
+        },
+        {
+          "moveId": 224,
+          "level": 22
+        },
+        {
+          "moveId": 46,
+          "level": 30
+        },
+        {
+          "moveId": 48,
+          "level": 34
+        },
+        {
+          "moveId": 208,
+          "level": 38
+        },
+        {
+          "moveId": 247,
+          "level": 42
+        }
+      ],
+      "movesLearnWithTM": [12,44,45,46,92,97,135,138,184],
+      "bannerMoves": []
+    },
+    "hp": 44,
+    "attack": 75,
+    "defense": 35,
+    "spAtk": 63,
+    "spDef": 33,
+    "speed": 45,
+    "catchRate": 225,
+    "evolutions": [
+      {
+        "evolutionId": 354,
+        "evolutionCondition": {
+          "level": 37
+        }
+      }
+    ],
+    "abilities": ["INSOMNIA","FRISK","CURSED_BODY"],
+    "expGaugeType":  "FAST"
+  },
+  {
+    "id": 354,
+    "name": "Banette",
+    "type1": 13,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 47,
+          "level": 1
+        },
+        {
+          "moveId": 41,
+          "level": 4
+        },
+        {
+          "moveId": 168,
+          "level": 7
+        },
+        {
+          "moveId": 265,
+          "level": 10
+        },
+        {
+          "moveId": 138,
+          "level": 16
+        },
+        {
+          "moveId": 220,
+          "level": 19
+        },
+        {
+          "moveId": 224,
+          "level": 22
+        },
+        {
+          "moveId": 46,
+          "level": 30
+        },
+        {
+          "moveId": 48,
+          "level": 34
+        },
+        {
+          "moveId": 208,
+          "level": 40
+        },
+        {
+          "moveId": 247,
+          "level": 46
+        }
+      ],
+      "movesLearnWithTM": [12,44,45,46,92,97,135,138,176,177,184],
+      "bannerMoves": []
+    },
+    "hp": 64					,
+    "attack": 115,
+    "defense": 65,
+    "spAtk": 83,
+    "spDef": 63,
+    "speed": 65,
+    "catchRate": 45,
+    "evolutions": [],
+    "abilities": ["INSOMNIA","FRISK","CURSED_BODY"],
+    "expGaugeType":  "FAST",
+    "megaEvolutionData": {
+      "type1": 13,
+      "type2": 0,
+      "attack": 165,
+      "defense": 75,
+      "spAtk": 93,
+      "spDef": 83,
+      "speed": 75,
+      "ability": "PRANKSTER"
+    }
   },
   {
     "id": 350,
@@ -17659,6 +18000,10 @@
           "level": 8
         },
         {
+          "moveId": 169,
+          "level": 17
+        },
+        {
           "moveId": 232,
           "level": 20
         },
@@ -17732,6 +18077,10 @@
           "level": 8
         },
         {
+          "moveId": 169,
+          "level": 17
+        },
+        {
           "moveId": 232,
           "level": 20
         },
@@ -17800,6 +18149,10 @@
         {
           "moveId": 242,
           "level": 1
+        },
+        {
+          "moveId": 169,
+          "level": 10
         },
         {
           "moveId": 158,
@@ -18895,7 +19248,7 @@
       {
         "evolutionId": 534,
         "evolutionCondition": {
-          "level": 48
+          "itemId": 132
         }
       }
     ],
@@ -19391,6 +19744,290 @@
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
+    "id": 610,
+    "name": "Axew",
+    "type1": 15,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 23,
+          "level": 3
+        },
+        {
+          "moveId": 227,
+          "level": 6
+        },
+        {
+          "moveId": 251,
+          "level": 9
+        },
+        {
+          "moveId": 242,
+          "level": 12
+        },
+        {
+          "moveId": 38,
+          "level": 15
+        },
+        {
+          "moveId": 108,
+          "level": 18
+        },
+        {
+          "moveId": 171,
+          "level": 21
+        },
+        {
+          "moveId": 27,
+          "level": 24
+        },
+        {
+          "moveId": 125,
+          "level": 27
+        },
+        {
+          "moveId": 294,
+          "level": 30
+        },
+        {
+          "moveId": 22,
+          "level": 33
+        },
+        {
+          "moveId": 104,
+          "level": 36
+        },
+        {
+          "moveId": 114,
+          "level": 39
+        },
+        {
+          "moveId": 197,
+          "level": 42
+        },
+        {
+          "moveId": 282,
+          "level": 45
+        },
+        {
+          "moveId": 177,
+          "level": 48
+        }
+      ],
+      "movesLearnWithTM": [30,57,62,69,104,108,113,177,206,221],
+      "bannerMoves": []
+    },
+    "hp": 46,
+    "attack": 87,
+    "defense": 60,
+    "spAtk": 30,
+    "spDef": 40,
+    "speed": 57,
+    "catchRate": 75,
+    "evolutions": [
+      {
+        "evolutionId": 611,
+        "evolutionCondition": {
+          "level": 38
+        }
+      }
+    ],
+    "abilities": ["MOLD_BREAKER"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 611,
+    "name": "Fraxure",
+    "type1": 15,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 23,
+          "level": 3
+        },
+        {
+          "moveId": 227,
+          "level": 6
+        },
+        {
+          "moveId": 251,
+          "level": 9
+        },
+        {
+          "moveId": 242,
+          "level": 12
+        },
+        {
+          "moveId": 38,
+          "level": 15
+        },
+        {
+          "moveId": 108,
+          "level": 18
+        },
+        {
+          "moveId": 171,
+          "level": 21
+        },
+        {
+          "moveId": 27,
+          "level": 24
+        },
+        {
+          "moveId": 125,
+          "level": 27
+        },
+        {
+          "moveId": 294,
+          "level": 30
+        },
+        {
+          "moveId": 22,
+          "level": 33
+        },
+        {
+          "moveId": 104,
+          "level": 36
+        },
+        {
+          "moveId": 114,
+          "level": 41
+        },
+        {
+          "moveId": 197,
+          "level": 46
+        },
+        {
+          "moveId": 282,
+          "level": 51
+        },
+        {
+          "moveId": 177,
+          "level": 56
+        }
+      ],
+      "movesLearnWithTM": [30,57,62,69,104,108,113,177,206,221],
+      "bannerMoves": []
+    },
+    "hp": 66,
+    "attack": 117,
+    "defense": 70,
+    "spAtk": 40,
+    "spDef": 50,
+    "speed": 67,
+    "catchRate": 60,
+    "evolutions": [
+      {
+        "evolutionId": 612,
+        "evolutionCondition": {
+          "level": 48
+        }
+      }
+    ],
+    "abilities": ["MOLD_BREAKER"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 612,
+    "name": "Haxorus",
+    "type1": 15,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 23,
+          "level": 3
+        },
+        {
+          "moveId": 227,
+          "level": 6
+        },
+        {
+          "moveId": 251,
+          "level": 9
+        },
+        {
+          "moveId": 242,
+          "level": 12
+        },
+        {
+          "moveId": 38,
+          "level": 15
+        },
+        {
+          "moveId": 108,
+          "level": 18
+        },
+        {
+          "moveId": 171,
+          "level": 21
+        },
+        {
+          "moveId": 27,
+          "level": 24
+        },
+        {
+          "moveId": 125,
+          "level": 27
+        },
+        {
+          "moveId": 294,
+          "level": 30
+        },
+        {
+          "moveId": 22,
+          "level": 33
+        },
+        {
+          "moveId": 104,
+          "level": 36
+        },
+        {
+          "moveId": 114,
+          "level": 41
+        },
+        {
+          "moveId": 197,
+          "level": 46
+        },
+        {
+          "moveId": 282,
+          "level": 53
+        },
+        {
+          "moveId": 177,
+          "level": 60
+        }
+      ],
+      "movesLearnWithTM": [25,30,57,62,69,93,104,108,113,176,177,206,221],
+      "bannerMoves": []
+    },
+    "hp": 76,
+    "attack": 147,
+    "defense": 90,
+    "spAtk": 60,
+    "spDef": 70,
+    "speed": 97,
+    "catchRate": 45,
+    "evolutions": [],
+    "abilities": ["MOLD_BREAKER"],
+    "expGaugeType":  "SLOW"
+  },
+  {
     "id": 619,
     "name": "Mienfoo",
     "type1": 11,
@@ -19416,6 +20053,10 @@
         {
           "moveId": 252,
           "level": 25
+        },
+        {
+          "moveId": 247,
+          "level": 30
         },
         {
           "moveId": 76,
@@ -19487,6 +20128,10 @@
           "level": 25
         },
         {
+          "moveId": 247,
+          "level": 30
+        },
+        {
           "moveId": 76,
           "level": 35
         },
@@ -19520,6 +20165,76 @@
     "evolutions": [],
     "abilities": ["INNER_FOCUS","REGENERATOR","RECKLESS"],
     "expGaugeType":  "MEDIUM_SLOW"
+  },
+  {
+    "id": 621,
+    "name": "Druddigon",
+    "type1": 15,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 23,
+          "level": 5
+        },
+        {
+          "moveId": 256,
+          "level": 10
+        },
+        {
+          "moveId": 158,
+          "level": 15
+        },
+        {
+          "moveId": 171,
+          "level": 20
+        },
+        {
+          "moveId": 38,
+          "level": 25
+        },
+        {
+          "moveId": 108,
+          "level": 30
+        },
+        {
+          "moveId": 270,
+          "level": 35
+        },
+        {
+          "moveId": 27,
+          "level": 40
+        },
+        {
+          "moveId": 57,
+          "level": 45
+        },
+        {
+          "moveId": 197,
+          "level": 50
+        },
+        {
+          "moveId": 89,
+          "level": 55
+        }
+      ],
+      "movesLearnWithTM": [25,30,31,62,69,93,103,104,108,110,176,177,206,221],
+      "bannerMoves": []
+    },
+    "hp": 77,
+    "attack": 120,
+    "defense": 90,
+    "spAtk": 60,
+    "spDef": 90,
+    "speed": 48,
+    "catchRate": 45,
+    "evolutions": [],
+    "abilities": ["ROUGH_SKIN","SHEER_FORCE","MOLD_BREAKER"],
+    "expGaugeType":  "MEDIUM_FAST"
   },
   {
     "id": 625,
@@ -20407,7 +21122,7 @@
     "speed": 118,
     "catchRate": 100,
     "evolutions": [],
-    "abilities": ["LIMBER","UNBURDEN"],
+    "abilities": ["LIMBER","UNBURDEN","MOLD_BREAKER"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -21364,8 +22079,78 @@
     "speed": 78,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["ADAPTABILITY"],
+    "abilities": ["ADAPTABILITY","MOLD_BREAKER"],
     "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 903,
+    "name": "Sneasler",
+    "type1": 11,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 293,
+          "level": 1
+        },
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 242,
+          "level": 6
+        },
+        {
+          "moveId": 3,
+          "level": 12
+        },
+        {
+          "moveId": 158,
+          "level": 18
+        },
+        {
+          "moveId": 62,
+          "level": 24
+        },
+        {
+          "moveId": 69,
+          "level": 30
+        },
+        {
+          "moveId": 270,
+          "level": 36
+        },
+        {
+          "moveId": 38,
+          "level": 42
+        },
+        {
+          "moveId": 21,
+          "level": 48
+        },
+        {
+          "moveId": 41,
+          "level": 54
+        },
+        {
+          "moveId": 40,
+          "level": 60
+        }
+      ],
+      "movesLearnWithTM": [25,37,46,56,62,69,110,113,114,176,177,206,221],
+      "bannerMoves": []
+    },
+    "hp": 80,
+    "attack": 130,
+    "defense": 60,
+    "spAtk": 40,
+    "spDef": 80,
+    "speed": 120,
+    "catchRate": 20,
+    "evolutions": [],
+    "abilities": ["PRESSURE","UNBURDEN","POISON_TOUCH"],
+    "expGaugeType":  "MEDIUM_SLOW"
   },
   {
     "id": 919,
@@ -21504,6 +22289,149 @@
     "catchRate": 30,
     "evolutions": [],
     "abilities": ["SWARM","TINTED_LENS"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 938,
+    "name": "Tadbulb",
+    "type1": 4,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 154,
+          "level": 1
+        },
+        {
+          "moveId": 8,
+          "level": 7
+        },
+        {
+          "moveId": 6,
+          "level": 11
+        },
+        {
+          "moveId": 295,
+          "level": 17
+        },
+        {
+          "moveId": 52,
+          "level": 21
+        },
+        {
+          "moveId": 145,
+          "level": 24
+        },
+        {
+          "moveId": 190,
+          "level": 25
+        },
+        {
+          "moveId": 53,
+          "level": 32
+        },
+        {
+          "moveId": 178,
+          "level": 36
+        },
+        {
+          "moveId": 208,
+          "level": 45
+        }
+      ],
+      "movesLearnWithTM": [12,24,55,184],
+      "bannerMoves": []
+    },
+    "hp": 61,
+    "attack": 31,
+    "defense": 41,
+    "spAtk": 59,
+    "spDef": 35,
+    "speed": 45,
+    "catchRate": 190,
+    "evolutions": [
+      {
+        "evolutionId": 939,
+        "evolutionCondition": {
+          "itemId" : 17
+        }
+      }
+    ],
+    "abilities": ["OWN_TEMPO","STATIC","DAMP"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 939,
+    "name": "Bellibolt",
+    "type1": 4,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 154,
+          "level": 1
+        },
+        {
+          "moveId": 134,
+          "level": 1
+        },
+        {
+          "moveId": 8,
+          "level": 7
+        },
+        {
+          "moveId": 6,
+          "level": 11
+        },
+        {
+          "moveId": 295,
+          "level": 17
+        },
+        {
+          "moveId": 52,
+          "level": 21
+        },
+        {
+          "moveId": 145,
+          "level": 24
+        },
+        {
+          "moveId": 190,
+          "level": 25
+        },
+        {
+          "moveId": 53,
+          "level": 32
+        },
+        {
+          "moveId": 178,
+          "level": 36
+        },
+        {
+          "moveId": 208,
+          "level": 45
+        }
+      ],
+      "movesLearnWithTM": [12,24,55,176,177,184,200],
+      "bannerMoves": []
+    },
+    "hp": 109,
+    "attack": 64,
+    "defense": 91,
+    "spAtk": 103,
+    "spDef": 83,
+    "speed": 45,
+    "catchRate": 50,
+    "evolutions": [],
+    "abilities": ["ELECTROMORPHOSIS","STATIC","DAMP"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -21783,6 +22711,169 @@
     "evolutions": [],
     "abilities": ["ANTICIPATION","FRISK","SPEED_BOOST"],
     "expGaugeType":  "MEDIUM_SLOW"
+  },
+  {
+    "id": 965,
+    "name": "Varoom",
+    "type1": 16,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 65,
+          "level": 1
+        },
+        {
+          "moveId": 85,
+          "level": 4
+        },
+        {
+          "moveId": 242,
+          "level": 7
+        },
+        {
+          "moveId": 251,
+          "level": 10
+        },
+        {
+          "moveId": 86,
+          "level": 13
+        },
+        {
+          "moveId": 233,
+          "level": 17
+        },
+        {
+          "moveId": 72,
+          "level": 21
+        },
+        {
+          "moveId": 41,
+          "level": 25
+        },
+        {
+          "moveId": 57,
+          "level": 28
+        },
+        {
+          "moveId": 83,
+          "level": 32
+        },
+        {
+          "moveId": 62,
+          "level": 36
+        },
+        {
+          "moveId": 226,
+          "level": 41
+        },
+        {
+          "moveId": 292,
+          "level": 46
+        },
+        {
+          "moveId": 155,
+          "level": 50
+        }
+      ],
+      "movesLearnWithTM": [72,30,37,57,62,148],
+      "bannerMoves": []
+    },
+    "hp": 45,
+    "attack": 70,
+    "defense": 63,
+    "spAtk": 30,
+    "spDef": 45,
+    "speed": 47,
+    "catchRate": 190,
+    "evolutions": [
+      {
+        "evolutionId": 966,
+        "evolutionCondition": {
+          "level" : 40
+        }
+      }
+    ],
+    "abilities": ["OVERCOAT"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 966,
+    "name": "Revavroom",
+    "type1": 16,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 65,
+          "level": 1
+        },
+        {
+          "moveId": 85,
+          "level": 4
+        },
+        {
+          "moveId": 242,
+          "level": 7
+        },
+        {
+          "moveId": 251,
+          "level": 10
+        },
+        {
+          "moveId": 86,
+          "level": 13
+        },
+        {
+          "moveId": 233,
+          "level": 17
+        },
+        {
+          "moveId": 72,
+          "level": 21
+        },
+        {
+          "moveId": 41,
+          "level": 25
+        },
+        {
+          "moveId": 57,
+          "level": 28
+        },
+        {
+          "moveId": 83,
+          "level": 32
+        },
+        {
+          "moveId": 62,
+          "level": 36
+        },
+        {
+          "moveId": 226,
+          "level": 46
+        },
+        {
+          "moveId": 292,
+          "level": 52
+        },
+        {
+          "moveId": 155,
+          "level": 58
+        }
+      ],
+      "movesLearnWithTM": [72,30,37,57,62,148,176,177],
+      "bannerMoves": []
+    },
+    "hp": 80,
+    "attack": 119,
+    "defense": 90,
+    "spAtk": 54,
+    "spDef": 67,
+    "speed": 90,
+    "catchRate": 75,
+    "evolutions": [],
+    "abilities": ["OVERCOAT","FILTER"],
+    "expGaugeType":  "MEDIUM_FAST"
   },
   {
     "id": 981,
@@ -22148,6 +23239,10 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
+          "moveId": 295,
+          "level": 1
+        },
+        {
           "moveId": 2,
           "level": 1
         },
@@ -22236,6 +23331,10 @@
     "type2": 1,
     "possibleMoves": {
       "movesLearnByLevel": [
+        {
+          "moveId": 295,
+          "level": 1
+        },
         {
           "moveId": 280,
           "level": 1
@@ -22458,6 +23557,79 @@
     "evolutions": [],
     "abilities": ["BLAZE"],
     "expGaugeType": "MEDIUM_SLOW"
+  },
+  {
+    "id": 10215,
+    "name": "Sneasel",
+    "type1": 11,
+    "type2": 8,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 242,
+          "level": 6
+        },
+        {
+          "moveId": 3,
+          "level": 12
+        },
+        {
+          "moveId": 158,
+          "level": 18
+        },
+        {
+          "moveId": 62,
+          "level": 24
+        },
+        {
+          "moveId": 69,
+          "level": 30
+        },
+        {
+          "moveId": 270,
+          "level": 36
+        },
+        {
+          "moveId": 38,
+          "level": 42
+        },
+        {
+          "moveId": 21,
+          "level": 48
+        },
+        {
+          "moveId": 41,
+          "level": 54
+        },
+        {
+          "moveId": 40,
+          "level": 60
+        }
+      ],
+      "movesLearnWithTM": [37,46,56,62,69,113,114,206],
+      "bannerMoves": []
+    },
+    "hp": 55,
+    "attack": 95,
+    "defense": 55,
+    "spAtk": 35,
+    "spDef": 75,
+    "speed": 115,
+    "catchRate": 60,
+    "evolutions": [
+      {
+        "evolutionId": 903,
+        "evolutionCondition": {
+          "itemId": 50
+        }
+      }
+    ],
+    "abilities": ["KEEN_EYE","INNER_FOCUS"],
+    "expGaugeType":  "MEDIUM_SLOW"
   },
   {
     "id": -1,

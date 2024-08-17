@@ -22,7 +22,7 @@ import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAIN_LEVEL_ID
 import com.pokemon.android.version.ui.LevelMenu.Companion.ELITE_4_LAST_LEVEL_ID
-import com.pokemon.android.version.ui.LevelMenu.Companion.GIOVANNI_LEVEL_ID
+import com.pokemon.android.version.ui.LevelMenu.Companion.ARMORED_MEWTWO_LEVEL_ID
 import com.pokemon.android.version.ui.LevelMenu.Companion.ROUTE_3_LEVEL
 import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.HealUtils
@@ -596,7 +596,7 @@ class BattleUI {
         if (battle !is BattleFrontierBattle && battle.levelData.id != FRONTIER_BRAIN_LEVEL_ID) {
             bagButton.setOnClickListener {
                 if (battle is LeaderBattle
-                    || battle.levelData.id == GIOVANNI_LEVEL_ID - 1
+                    || battle.levelData.id == ARMORED_MEWTWO_LEVEL_ID - 1
                     || battle.levelData.id in ELITE_4_LAST_LEVEL_ID..ELITE_4_LAST_LEVEL_ID){
                     Toast.makeText(activity, "You can't use items in an official Pokémon League battle!", Toast.LENGTH_SHORT).show()
                 } else {

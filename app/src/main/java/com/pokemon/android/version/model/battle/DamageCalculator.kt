@@ -58,13 +58,17 @@ class DamageCalculator {
                     type2 = Type.NONE
             }
             var type: Float = move.type.isEffectiveAgainst(type2) * move.type.isEffectiveAgainst(type1)
-            if (type > 1f && (opponent.hasAbility(Ability.FILTER) || opponent.hasAbility(Ability.DELTA_STREAM)))
-                type *= 0.75f
             if (opponent.hasType(Type.WATER) && move.id == 268)
-                type *= 4f
+                type *= 2f
             if (move.id == 263) {
                 type *= Type.FLYING.isEffectiveAgainst(type2) * Type.FLYING.isEffectiveAgainst(type1)
             }
+            if (type >= 2f && (opponent.hasAbility(Ability.FILTER) || opponent.hasAbility(Ability.SOLID_ROCK) || opponent.hasAbility(Ability.DELTA_STREAM)) && !attacker.hasAbility(Ability.MOLD_BREAKER))
+                type *= 0.75f
+            if (attacker.hasItem(HoldItem.EXPERT_BELT))
+                type *= 1.2f
+            if (attacker.hasAbility(Ability.TINTED_LENS) && type < 1f)
+                type *= 2f
             return type
         }
 
@@ -80,22 +84,11 @@ class DamageCalculator {
             val power = if (move is MoveBasedOnHP) move.getPower(attacker) else move.power
             val type = getEffectiveness(attacker, move, opponent)
             val random: Float = Random.nextInt(85, 100).toFloat() / 100f
+            val ignoreStatChange : Boolean = !attacker.hasAbility(Ability.MOLD_BREAKER) && opponent.hasAbility(Ability.UNAWARE)
             val offensiveStat: Int =
-                if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * if (attacker.hasAbility(
-                        Ability.UNAWARE
-                    )
-                ) 1f else attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * if (attacker.hasAbility(
-                        Ability.UNAWARE
-                    )
-                ) 1f else attacker.battleData!!.spAtkMultiplicator).roundToInt()
+                if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * if (ignoreStatChange) 1f else attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * if (ignoreStatChange) 1f else attacker.battleData!!.spAtkMultiplicator).roundToInt()
             val defensiveStat: Int =
-                if (move.category == MoveCategory.PHYSICAL) (opponent.defense.toFloat() * if (attacker.hasAbility(
-                        Ability.UNAWARE
-                    )
-                ) 1f else opponent.battleData!!.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * if (attacker.hasAbility(
-                        Ability.UNAWARE
-                    )
-                ) 1f else opponent.battleData!!.spDefMultiplicator).roundToInt()
+                if (move.category == MoveCategory.PHYSICAL) (opponent.defense.toFloat() * if (ignoreStatChange) 1f else opponent.battleData!!.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * if (ignoreStatChange) 1f else opponent.battleData!!.spDefMultiplicator).roundToInt()
             return ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * power * offensiveStat) / (defensiveStat * 50)) + 2) * type * stab * multiplicator * random).roundToInt()
         }
 
@@ -130,9 +123,12 @@ class DamageCalculator {
                 power *= 1.5f
             if (move.type == Type.FIRE) {
                 if (attacker.battleData!!.battleStatus.contains(Status.FIRED_UP))
-                    power *= 1.5f
+                    power *= 2f
                 if (opponent.hasAbility(Ability.DRY_SKIN))
                     power *= 2f
+            }
+            if (move.type == Type.ELECTRIC && attacker.battleData!!.battleStatus.contains(Status.CHARGED)) {
+                    power *= 1.5f
             }
             if ((move.id == 224 || move.id == 278) && (opponent.status != Status.OK || opponent.battleData!!.battleStatus.contains(
                     Status.CONFUSED
@@ -186,23 +182,27 @@ class DamageCalculator {
         fun computeDamage(attacker: Pokemon, move: Move, opponent: Pokemon, criticalMultiplicator: Float): Int {
             if (opponent.currentHP == 0)
                 return 0
-            if (move.characteristics.contains(MoveCharacteristic.SOUND) && opponent.hasAbility(Ability.SOUNDPROOF))
-                return 0
-            if (move.type == Type.GROUND && opponent.hasAbility(Ability.LEVITATE))
-                return 0
-            if (move.characteristics.contains(MoveCharacteristic.BULLET) && opponent.hasAbility(Ability.BULLETPROOF))
-                return 0
-            if (move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(Ability.DRY_SKIN)))
-                return 0
-            if (move.type == Type.ELECTRIC && (opponent.hasAbility(Ability.LIGHTNING_ROD) || opponent.hasAbility(Ability.VOLT_ABSORB) || opponent.hasAbility(
-                    Ability.MOTOR_DRIVE
-                ))
-            )
-                return 0
-            if (move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE))
-                return 0
-            if (move is RecoilMove && move.recoil == Recoil.ALL && opponent.hasAbility(Ability.DAMP))
-                return 0
+            if (!attacker.hasAbility(Ability.MOLD_BREAKER)) {
+                if (move.characteristics.contains(MoveCharacteristic.SOUND) && opponent.hasAbility(Ability.SOUNDPROOF))
+                    return 0
+                if (move.type == Type.GROUND && opponent.hasAbility(Ability.LEVITATE))
+                    return 0
+                if (move.characteristics.contains(MoveCharacteristic.BULLET) && opponent.hasAbility(Ability.BULLETPROOF))
+                    return 0
+                if (move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(Ability.DRY_SKIN)))
+                    return 0
+                if (move.type == Type.ELECTRIC && (opponent.hasAbility(Ability.LIGHTNING_ROD) || opponent.hasAbility(
+                        Ability.VOLT_ABSORB
+                    ) || opponent.hasAbility(
+                        Ability.MOTOR_DRIVE
+                    ))
+                )
+                    return 0
+                if (move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE))
+                    return 0
+                if (move is RecoilMove && move.recoil == Recoil.ALL && opponent.hasAbility(Ability.DAMP))
+                    return 0
+            }
             if (move is RetaliationMove) {
                 if (attacker.battleData!!.lastHitReceived != null && move.category == attacker.battleData!!.lastHitReceived!!.category)
                     return attacker.battleData!!.lastHitReceived!!.damage * 2
@@ -222,14 +222,6 @@ class DamageCalculator {
                 multiplicator *= 0.5f
             return try {
                 var type = getEffectiveness(attacker, move, opponent)
-                if (type >= 2f) {
-                    if (opponent.hasAbility(Ability.SOLID_ROCK))
-                        type *= 0.75f
-                    if (attacker.hasItem(HoldItem.EXPERT_BELT))
-                        type *= 1.2f
-                }
-                if (attacker.hasAbility(Ability.TINTED_LENS) && type < 1f)
-                    type *= 2f
                 val random: Float = Random.nextInt(85, 100).toFloat() / 100f
                 var offensiveStat: Int =
                     if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * attacker.battleData!!.spAtkMultiplicator).roundToInt()

@@ -172,6 +172,7 @@ open class Pokemon(
         this.battleData!!.lastMoveFailed = attackResponse.success
         if (!attackResponse.success)
             return attackResponse
+        val moldBreaker = this.hasAbility(Ability.MOLD_BREAKER)
         if (move.move.category != MoveCategory.OTHER && opponent.hasAbility(Ability.PRESSURE))
             move.pp = if (move.pp > 1) move.pp - 2 else 0
         else
@@ -182,63 +183,74 @@ open class Pokemon(
                 "${this.data.name} can't use ${move.move.name} after the taunt!\n"
             )
         }
-        if (move.move.characteristics.contains(MoveCharacteristic.SOUND) && opponent.hasAbility(Ability.SOUNDPROOF))
-            return AttackResponse(
-                false,
-                "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Soundproof: It does not affect ${opponent.data.name}!\n"
-            )
-        if (move.move.type == Type.ELECTRIC) {
-            if (opponent.hasAbility(Ability.LIGHTNING_ROD)) {
-                opponent.battleData!!.spAtkMultiplicator *= 1.5f
+        if (!moldBreaker) {
+            if (move.move.characteristics.contains(MoveCharacteristic.SOUND) && opponent.hasAbility(Ability.SOUNDPROOF))
                 return AttackResponse(
                     false,
-                    "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Lightning Rod: ${opponent.data.name}'s Sp. Atk rose!\n"
+                    "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Soundproof: It does not affect ${opponent.data.name}!\n"
                 )
+            if (move.move.type == Type.ELECTRIC) {
+                if (opponent.hasAbility(Ability.LIGHTNING_ROD)) {
+                    opponent.battleData!!.spAtkMultiplicator *= 1.5f
+                    return AttackResponse(
+                        false,
+                        "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Lightning Rod: ${opponent.data.name}'s Sp. Atk rose!\n"
+                    )
+                }
+                if (opponent.hasAbility(Ability.MOTOR_DRIVE)) {
+                    opponent.battleData!!.speedMultiplicator *= 1.5f
+                    return AttackResponse(
+                        false,
+                        "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Motor Drive: ${opponent.data.name}'s speed rose!\n"
+                    )
+                }
             }
-            if (opponent.hasAbility(Ability.MOTOR_DRIVE)) {
-                opponent.battleData!!.speedMultiplicator *= 1.5f
+            if (move.move.characteristics.contains(MoveCharacteristic.BULLET) && opponent.hasAbility(Ability.BULLETPROOF)) {
                 return AttackResponse(
                     false,
-                    "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Motor Drive: ${opponent.data.name}'s speed rose!\n"
+                    "${opponent.data.name}'s Bulletproof: It does not affect ${opponent.data.name}\n"
+                )
+            }
+            if (move.move is RecoilMove && (move.move as RecoilMove).recoil == Recoil.ALL && opponent.hasAbility(Ability.DAMP)) {
+                return AttackResponse(
+                    false,
+                    "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Damp: ${this.data.name} cannot use ${move.move.name}!\n"
+                )
+            }
+            if (move.move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE)) {
+                if (!opponent.battleData!!.battleStatus.contains(Status.FIRED_UP))
+                    opponent.battleData!!.battleStatus.add(Status.FIRED_UP)
+                return AttackResponse(
+                    false,
+                    "${this.data.name} uses ${move.move.name}\n${opponent.data.name}'s Flash Fire: ${opponent.data.name}'s fire power is increased!\n"
+                )
+            }
+            if ((move.move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(
+                    Ability.DRY_SKIN
+                )))
+                || (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))
+            ) {
+                opponent.heal(DamageCalculator.computeDamageWithoutAbility(this, move.move, opponent))
+                return AttackResponse(
+                    false,
+                    "${this.data.name} uses ${move.move.name}!\n" + BattleUtils.getEffectiveness(
+                        this,
+                        move.move,
+                        opponent
+                    )
+                )
+            }
+            if (move.move.power > 0 && move.move.type == Type.GROUND && opponent.hasAbility(Ability.LEVITATE)) {
+                return AttackResponse(
+                    false,
+                    "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Levitate: It does not affect ${opponent.data.name}!\n"
                 )
             }
         }
-        if (move.move.characteristics.contains(MoveCharacteristic.BULLET) && opponent.hasAbility(Ability.BULLETPROOF)) {
+        if (move.move.power > 0 && move.move.type == Type.GROUND && opponent.hasItem(HoldItem.AIR_BALLOON)) {
             return AttackResponse(
                 false,
-                "${opponent.data.name}'s Bulletproof: It does not affect ${opponent.data.name}\n"
-            )
-        }
-        if (move.move is RecoilMove && (move.move as RecoilMove).recoil == Recoil.ALL && opponent.hasAbility(Ability.DAMP)) {
-            return AttackResponse(
-                false,
-                "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Damp: ${this.data.name} cannot use ${move.move.name}!\n"
-            )
-        }
-        if (move.move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE)) {
-            if (!opponent.battleData!!.battleStatus.contains(Status.FIRED_UP))
-                opponent.battleData!!.battleStatus.add(Status.FIRED_UP)
-            return AttackResponse(
-                false,
-                "${this.data.name} uses ${move.move.name}\n${opponent.data.name}'s Flash Fire: ${opponent.data.name}'s fire power is increased!\n"
-            )
-        }
-        if (move.move.power > 0 && move.move.type == Type.GROUND
-            && (opponent.hasAbility(Ability.LEVITATE) || opponent.hasItem(HoldItem.AIR_BALLOON))
-        ) {
-            val causeOfImmunity = if (opponent.hasAbility(Ability.LEVITATE)) "Levitate" else "Air Balloon"
-            return AttackResponse(
-                false,
-                "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s ${causeOfImmunity}: It does not affect ${opponent.data.name}!\n"
-            )
-        }
-        if ((move.move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(Ability.DRY_SKIN)))
-            || (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))
-        ) {
-            opponent.heal(DamageCalculator.computeDamageWithoutAbility(this, move.move, opponent))
-            return AttackResponse(
-                false,
-                "${this.data.name} uses ${move.move.name}!\n" + BattleUtils.getEffectiveness(this, move.move, opponent)
+                "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Air Ballon: It does not affect ${opponent.data.name}!\n"
             )
         }
         if ((move.move.id == 210 || move.move.id == 244 || move.move.id == 283) && !this.hasAbility(Ability.SCRAPPY) && opponent.hasType(Type.GHOST) ) {
@@ -297,6 +309,8 @@ open class Pokemon(
             else
                 HealMove.heal(this)
         }
+        if (move.move.id == 295)
+            this.battleData!!.battleStatus.add(Status.CHARGED)
         if (move.move is UltimateMove)
             this.battleData!!.battleStatus.add(Status.UNABLE_TO_MOVE)
         var damage = 0
@@ -505,23 +519,29 @@ open class Pokemon(
             details += "${this.data.name} knocked off ${opponent.data.name}'s item!\n"
             opponent.heldItem = null
         }
-        if (damage > 0 && currentHP > 0 && move.move.characteristics.contains(MoveCharacteristic.SOUND) && this.hasItem(HoldItem.THROAT_SPRAY)){
-            this.battleData!!.spAtkMultiplicator *= 1.5f
-            details += "The Throat Spray raised ${this.data.name}'s Sp. Atk!\n"
-        }
-        if (damage > 0 && move.move.id == 249){
-            if (this.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
-                this.battleData!!.battleStatus.remove(Status.LEECH_SEEDED)
-                details += "${this.data.name} is no longer seeded!\n"
+        if (damage > 0) {
+            if (currentHP > 0 && move.move.characteristics.contains(MoveCharacteristic.SOUND) && this.hasItem(HoldItem.THROAT_SPRAY)) {
+                this.battleData!!.spAtkMultiplicator *= 1.5f
+                details += "The Throat Spray raised ${this.data.name}'s Sp. Atk!\n"
             }
-            if (this.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)) {
-                this.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
-                details += "${this.data.name} is no longer trapped!\n"
+            if (move.move.id == 249) {
+                if (this.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
+                    this.battleData!!.battleStatus.remove(Status.LEECH_SEEDED)
+                    details += "${this.data.name} is no longer seeded!\n"
+                }
+                if (this.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)) {
+                    this.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
+                    details += "${this.data.name} is no longer trapped!\n"
+                }
             }
-        }
-        if (damage > 0 && opponent.hasAbility(Ability.CURSED_BODY) && Random.nextInt(100) < 30){
-            details += "${opponent.data.name}'s Cursed Body: ${this.data.name}'s ${move.move.name} is disabled!\n"
-            move.disabledCountdown = 4
+            if (opponent.hasAbility(Ability.CURSED_BODY) && Random.nextInt(100) < 30) {
+                details += "${opponent.data.name}'s Cursed Body: ${this.data.name}'s ${move.move.name} is disabled!\n"
+                move.disabledCountdown = 4
+            }
+            if (opponent.hasAbility(Ability.ELECTROMORPHOSIS)) {
+                details += "${opponent.data.name}'s Electromorphosis: ${move.move.name} charged ${opponent.data.name}!\n"
+                this.battleData!!.battleStatus.add(Status.CHARGED)
+            }
         }
         if (move.move.id == 265){
             if (opponent.battleData!!.lastMoveUsed != null){

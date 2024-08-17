@@ -143,6 +143,7 @@ abstract class Battle {
         if (megaEvolution) {
             sb.append("${pokemon.data.name} has Mega Evolved into Mega ${pokemon.data.name}\n")
             pokemon.megaEvolve()
+            sb.append(BattleUtils.abilitiesCheck(pokemon, opponent))
             trainerHasUsedMegaEvolution = true
         }
         var shouldMegaEvolve = true
@@ -171,6 +172,7 @@ abstract class Battle {
                 opponent.megaEvolve()
                 sb.append("The opposing ${opponent.data.name} is reacting to ${(opponent.trainer!! as OpponentTrainer).name}'s Key Stone!\n")
                 sb.append("The opposing ${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
+                sb.append(BattleUtils.abilitiesCheck(pokemon, opponent))
             }
         }
         turn(trainerPokemonMove, sb)
@@ -451,6 +453,21 @@ abstract class Battle {
             if (pokemon.battleData!!.battleStatus.contains(Status.CONFUSED)) {
                 pokemon.battleData!!.confusionCounter++
             }
+            if (pokemon.battleData!!.battleStatus.contains(Status.TAUNTED)) {
+                pokemon.battleData!!.tauntCounter++
+                if (pokemon.battleData!!.tauntCounter == 4) {
+                    pokemon.battleData!!.tauntCounter = 0
+                    pokemon.battleData!!.battleStatus.remove(Status.TAUNTED)
+                    details += pokemon.data.name + " is no longer affected by the taunt!\n"
+                }
+            }
+            if (pokemon.battleData!!.battleStatus.contains(Status.CHARGED)) {
+                pokemon.battleData!!.chargedCounter++
+                if (pokemon.battleData!!.chargedCounter == 2) {
+                    pokemon.battleData!!.chargedCounter = 0
+                    pokemon.battleData!!.battleStatus.remove(Status.CHARGED)
+                }
+            }
             if (pokemon.battleData!!.battleStatus.contains(Status.ROOSTED)) {
                 pokemon.battleData!!.battleStatus.remove(Status.ROOSTED)
             }
@@ -478,6 +495,7 @@ abstract class Battle {
                         details += "${pokemon.data.name}'s Lum Berry cured its status\n"
                         pokemon.status = Status.OK
                         pokemon.consumeItem()
+                        Status.cureAllStatus(pokemon)
                     }
                 }
             }

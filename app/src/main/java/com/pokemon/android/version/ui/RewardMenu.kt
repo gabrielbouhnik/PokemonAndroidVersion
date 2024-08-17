@@ -11,6 +11,7 @@ import com.pokemon.android.version.R
 import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Type
+import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.level.*
 import com.pokemon.android.version.ui.LevelMenu.Companion.ROUTE_3_LEVEL
 import com.pokemon.android.version.ui.LevelMenu.Companion.ZAPDOS_LEVEL
@@ -85,26 +86,28 @@ class RewardMenu {
                     }
                 }
                 LevelMenu.LAPRAS_LEVEL -> {
-                    activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(131, 45))
+                    val lapras = activity.gameDataService.generatePokemon(131, 45)
+                    lapras.heldItem = HoldItem.NEVER_MELT_ICE
+                    activity.trainer!!.receivePokemon(lapras)
                     activity.showCustomDialog("To thank you, one of the Silph Co scientist gave you a Lapras!")
                 }
                 LevelMenu.TYROGUE_LEVEL -> {
                     activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(236, 10))
                     activity.showCustomDialog("You received a level 10 Tyrogue!")
                 }
-                LevelMenu.BLAINE_LEVEL, LevelMenu.GIOVANNI_LEVEL_ID -> {
+                LevelMenu.BLAINE_LEVEL, LevelMenu.ARMORED_MEWTWO_LEVEL_ID -> {
                     activity.showCustomDialog(activity.getString(R.string.new_item_available_in_shop))
                 }
                 LevelMenu.OAK_LEVEL_ID -> {
                     when {
                         activity.trainer!!.pokedex[1] == true -> {
-                            activity.trainer!!.addItem(activity.gameDataService.pokemons[1].megaEvolutionData!!.stoneId, 1)
+                            activity.trainer!!.addItem(activity.gameDataService.pokemons[3].megaEvolutionData!!.stoneId, 1)
                         }
                         activity.trainer!!.pokedex[4] == true -> {
-                            activity.trainer!!.addItem(activity.gameDataService.pokemons[4].megaEvolutionData!!.stoneId, 1)
+                            activity.trainer!!.addItem(activity.gameDataService.pokemons[6].megaEvolutionData!!.stoneId, 1)
                         }
                         activity.trainer!!.pokedex[7] == true -> {
-                            activity.trainer!!.addItem(activity.gameDataService.pokemons[7].megaEvolutionData!!.stoneId, 1)
+                            activity.trainer!!.addItem(activity.gameDataService.pokemons[9].megaEvolutionData!!.stoneId, 1)
                         }
                     }
                 }

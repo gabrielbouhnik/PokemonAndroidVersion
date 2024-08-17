@@ -4,6 +4,7 @@ import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.model.level.BossBattleLevelData
 import com.pokemon.android.version.model.move.Stats
 import com.pokemon.android.version.ui.LevelMenu
+import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.HealUtils
 import com.pokemon.android.version.utils.MoveUtils
 

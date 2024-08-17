@@ -78,15 +78,20 @@ class BannerMenu {
                 if (newSummonResult != null) {
                     activity.mainMenu.bannerMenu.coinsTextView.text = "${activity.trainer!!.coins} AndroCoins"
                     activity.mainMenu.bannerMenu.loadSummonResultScreen(activity, banner, newSummonResult)
-                    activity.playSoundEffect(R.raw.item_sound_effect)
                 } else
                     Toast.makeText(activity, "You don't have enough AndroCoins.", Toast.LENGTH_SHORT).show()
             }
         }
         val resultTextView: TextView = activity.findViewById(R.id.summonResultTextView)
         if (s is PokemonBanner) {
+            activity.playSoundEffect(R.raw.evolve_sound_effect)
             resultTextView.text = activity.getString(R.string.summon_pokemon, s.name)
         } else {
+            val itemBanner: ItemBanner = (s as ItemBanner)
+            if (itemBanner.id in 51..106)
+                activity.playSoundEffect(R.raw.tm_obtained)
+            else
+                activity.playSoundEffect(R.raw.item_sound_effect)
             resultTextView.text =
                 activity.getString(R.string.summon_item, activity.gameDataService.items.first {it.id == (s as ItemBanner).id}.name)
         }

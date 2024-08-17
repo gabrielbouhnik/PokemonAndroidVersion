@@ -91,7 +91,7 @@ class ItemUtils {
                 13 -> return Ball.HYPERBALL
                 14 -> return Ball.NETBALL
                 15 -> return Ball.HEALBALL
-                in 16..30, in 38..39, 131 -> return EvolutionItem(itemId)
+                in 16..30, in 38..39, in 131..132 -> return EvolutionItem(itemId)
                 in 51..106 -> return TMItem(TM_MOVES_IDS[itemId - 51])
                 in 150..185 -> return ItemToHold(HoldItem.values().first { it.id == itemId })
             }

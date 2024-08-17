@@ -10,7 +10,8 @@ import com.pokemon.android.version.ui.BattleFrontierMenu
 import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.MoveUtils
 
-class LeaderBattle() : Battle() {
+class
+LeaderBattle() : Battle() {
     private lateinit var opponentTrainer: OpponentTrainer
     private lateinit var opponentTrainerSprite: ImageView
 
@@ -44,8 +45,8 @@ class LeaderBattle() : Battle() {
             }, leaderLevelData.sprite, leaderLevelData.iaLevel
         )
         if (activity.hardMode && activity.trainer!!.progression < LevelMenu.ELITE_4_LAST_LEVEL_ID) {
-            when {
-                levelData.id == LevelMenu.MISTY_LEVEL -> {
+            when (levelData.id) {
+                LevelMenu.MISTY_LEVEL -> {
                     opponentTrainer.team = ArrayList(opponentTrainer.team)
                     (opponentTrainer.team as ArrayList<Pokemon>).add(
                         2,
@@ -74,7 +75,7 @@ class LeaderBattle() : Battle() {
                         )
                     )
                 }
-                levelData.id == LevelMenu.SURGE_LEVEL -> {
+                LevelMenu.SURGE_LEVEL -> {
                     opponentTrainer.team = ArrayList(opponentTrainer.team.filter {
                         it.data.id != 25 && it.data.id != 81 && it.data.id != 100 })
                     (opponentTrainer.team as ArrayList<Pokemon>).add(
@@ -126,7 +127,7 @@ class LeaderBattle() : Battle() {
                             HoldItem.MIRACLE_SEED
                         ))
                 }
-                this.levelData.id == LevelMenu.KOGA_LEVEL -> {
+                LevelMenu.KOGA_LEVEL -> {
                     opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 168
                             && it.data.id != 89})
                     (opponentTrainer.team as ArrayList<Pokemon>).add(
@@ -154,9 +155,36 @@ class LeaderBattle() : Battle() {
                             HoldItem.BLACK_SLUDGE
                         ))
                 }
-                this.levelData.id == LevelMenu.SABRINA_LEVEL -> {
+                LevelMenu.SABRINA_LEVEL -> {
                     (this.levelData as LeaderLevelData).megaPokemonId = 65
                     (this.levelData as LeaderLevelData).megaPokemonIdOnRematch = 65
+                    opponentTrainer.team.forEach{
+                        if (it.data.id == 65) {
+                            it.heldItem = null
+                        }
+                    }
+                }
+                LevelMenu.BLAINE_LEVEL -> {
+                    (this.levelData as LeaderLevelData).megaPokemonId = 6
+                    (this.levelData as LeaderLevelData).megaPokemonIdOnRematch = 6
+                    opponentTrainer.team.forEach{
+                        if (it.data.id == 6) {
+                            it.heldItem = null
+                        }
+                    }
+                    opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 219 })
+                    (opponentTrainer.team as ArrayList<Pokemon>).add(
+                        1,
+                        activity.gameDataService.generatePokemonWithMoves(
+                            952, 60,//SCOVILLAIN
+                            listOf(
+                                activity.gameDataService.getMoveById(66),//GIGA DRAIN
+                                activity.gameDataService.getMoveById(31),//FLAMETHROWER
+                                activity.gameDataService.getMoveById(27),//CRUNCH
+                                activity.gameDataService.getMoveById(36)//SEED BOMB
+                            ),
+                            HoldItem.BLACK_SLUDGE
+                        ))
                 }
             }
         }

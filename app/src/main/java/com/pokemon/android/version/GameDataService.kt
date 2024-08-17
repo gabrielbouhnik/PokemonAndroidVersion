@@ -112,12 +112,22 @@ class GameDataService {
         val random = Random.nextInt(250)
         if (random == 50 && id < 650)
             pokemon.shiny = true
-        if ((id == 21 || id == 22 || id == 84) && random % 4 == 0)
-            pokemon.heldItem = HoldItem.SHARP_BEAK
-        if (id == 50 && random % 4 == 0)
-            pokemon.heldItem = HoldItem.SOFT_SAND
-        if ((id == 88 || id == 89) && random % 4 == 0)
-            pokemon.heldItem = HoldItem.BLACK_SLUDGE
+        if (random % 4 == 0) {
+            if (id == 21 || id == 22 || id == 84)
+                pokemon.heldItem = HoldItem.SHARP_BEAK
+            if (id == 109 || id == 110)
+                pokemon.heldItem = HoldItem.TOXIC_ORB
+            if (id == 193)
+                pokemon.heldItem = HoldItem.WIDE_LENS
+            if (id == 353 || id == 200)
+                pokemon.heldItem = HoldItem.SPELL_TAG
+            if (id == 50)
+                pokemon.heldItem = HoldItem.SOFT_SAND
+            if (id == 621)
+                pokemon.heldItem = HoldItem.DRAGON_FANG
+            if (id == 88 || id == 89 || id == 453)
+                pokemon.heldItem = HoldItem.BLACK_SLUDGE
+        }
         return pokemon
     }
 

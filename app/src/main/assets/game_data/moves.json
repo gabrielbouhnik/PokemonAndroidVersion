@@ -2643,6 +2643,33 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 293,
+      "name": "Dire Claw",
+      "power": 80,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 8,
+      "accuracy": 100,
+      "description": "The user lashes out at the target with ruinous claws. This may also leave the target poisoned, paralyzed, or asleep.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "POISON",
+          "probability": 30
+        },
+        {
+          "status": "PARALYSIS",
+          "probability": 10
+        },
+        {
+          "status": "ASLEEP",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "multipleHitMoves": [
@@ -4244,6 +4271,62 @@
       "statsAffected": [
         "ATTACK",
         "SPATK"
+      ],
+      "target": "SELF",
+      "multiplicator": 1.5,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 292,
+      "name": "Spin Out",
+      "power": 100,
+      "pp": 5,
+      "type": 16,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user spins furiously by straining its legs, inflicting damage on the target. This also harshly lowers the user's Speed stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "SELF",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 294,
+      "name": "Breaking Swipe",
+      "power": 60,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 15,
+      "accuracy": 100,
+      "description": "The user swings its tough tail wildly and attacks opposing Pokémon. This also lowers the target's Attack stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 295,
+      "name": "Charge",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 20,
+      "type": 4,
+      "description": "The user becomes charged, boosting the power of the next Electric-type move it uses. This also boosts the user's Sp. Def stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPDEF"
       ],
       "target": "SELF",
       "multiplicator": 1.5,

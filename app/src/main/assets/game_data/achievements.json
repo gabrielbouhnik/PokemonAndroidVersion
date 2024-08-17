@@ -208,9 +208,12 @@
     "id": 22,
     "description": "Catch 150 different Pokémon",
     "pokemonReward": [
-
+      {
+        "id": 10215,
+        "level": 20
+      }
     ],
-    "itemRewards": [131]
+    "itemRewards": []
   },
   {
     "id": 23,

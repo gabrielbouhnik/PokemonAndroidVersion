@@ -336,6 +336,11 @@
       "description": "Enables Tyranitar to Mega Evolve during battle."
     },
     {
+      "id": 126,
+      "name": "Banettite",
+      "description": "Enables Banette to Mega Evolve during battle."
+    },
+    {
       "id": 130,
       "name": "Mega Ring",
       "description": "Accessory which enables Mega Evolution"
@@ -344,6 +349,11 @@
       "id": 131,
       "name": "Peat Block",
       "description": "A block of mud loved by a certain Pokémon."
+    },
+    {
+      "id": 132,
+      "name": "Linking Cord",
+      "description": " string exuding a mysterious energy that makes you feel a strange sense of connection. It’s loved by certain Pokémon."
     }
   ]
 }

@@ -22,6 +22,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
     TRAPPED_WITHOUT_DAMAGE(false),
     LEECH_SEEDED(false),
     FIRED_UP(false),
+    CHARGED(false),
     TAUNTED(false),
     ROOSTED(false);
 
@@ -53,6 +54,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
             if ((move.id == 34 || move.id == 35) && opponent.hasAbility(Ability.OVERCOAT))
                 return "${opponent.data.name}'s Overcoat: It does not affect ${opponent.data.name}!\n"
             var details = ""
+            val moldBreaker = attacker.hasAbility(Ability.MOLD_BREAKER)
             move.status.forEach {
                 if (isAffectedByStatus(move.id, it.status, opponent)) {
                     var randomForStatus: Int = Random.nextInt(100)
@@ -73,10 +75,11 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                 details += "${opponent.data.name}'s Lum Berry cured its status\n"
                                 opponent.status = OK
                                 opponent.consumeItem()
+                                cureAllStatus(opponent)
                             }
                         } else {
                             if (it.status == CONFUSED) {
-                                if (opponent.hasAbility(Ability.OWN_TEMPO))
+                                if (opponent.hasAbility(Ability.OWN_TEMPO) && !moldBreaker)
                                     details += "${opponent.data.name}'s Own Tempo: ${opponent.data.name} cannot be confused!\n"
                                 else {
                                     opponent.battleData!!.battleStatus.add(it.status)
@@ -85,6 +88,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                         details += "${opponent.data.name}'s Lum Berry cured its status\n"
                                         opponent.status = OK
                                         opponent.consumeItem()
+                                        cureAllStatus(opponent)
                                     }
                                 }
 
@@ -105,7 +109,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
                         }
                     }
                 } else if (it.probability == null) {
-                    if (opponent.status == OK) {
+                    if (opponent.status == OK && !moldBreaker) {
                         if ((move.id ==34 || move.id == 83) && opponent.hasAbility(Ability.IMMUNITY))
                             details = "${opponent.data.name}'s Immunity: It does not affect ${opponent.data.name}!\n"
                         if (move.id == 55 && opponent.hasAbility(Ability.LIMBER))
@@ -172,6 +176,15 @@ enum class Status(var activeOutsideBattle: Boolean) {
             )
                 return true
             return false
+        }
+
+        fun cureAllStatus(pokemon: Pokemon) {
+            if (pokemon.battleData != null && pokemon.battleData!!.battleStatus.contains(CONFUSED))
+                pokemon.battleData!!.battleStatus.remove(CONFUSED)
+            pokemon.status = OK
+            if (pokemon.battleData != null) {
+                BattleUtils.removeStatusStatsRaiseAbility(pokemon)
+            }
         }
     }
 }
