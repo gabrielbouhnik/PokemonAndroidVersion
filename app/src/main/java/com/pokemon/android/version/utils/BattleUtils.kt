@@ -128,6 +128,10 @@ class BattleUtils {
                         opponent.battleData!!.attackMultiplicator *= 1.5f
                         sb.append("${opponent.data.name}'s Defiant: ${opponent.data.name}'s attack rose!\n")
                     }
+                    opponent.hasAbility(Ability.COMPETITIVE) -> {
+                        opponent.battleData!!.attackMultiplicator *= 1.5f
+                        sb.append("${opponent.data.name}'s Competitive: ${opponent.data.name}'s sp. Atk rose!\n")
+                    }
                     else -> {
                         if (opponent.battleData != null)
                             opponent.battleData!!.attackMultiplicator *= 0.67f
@@ -246,8 +250,6 @@ class BattleUtils {
                 pokemon.battleData!!.speedMultiplicator *= 1.5f
             if (pokemon.hasAbility(Ability.GUTS))
                 pokemon.battleData!!.attackMultiplicator *= 1.5f
-            if (pokemon.hasAbility(Ability.COMPETITIVE))
-                pokemon.battleData!!.spAtkMultiplicator *= 1.5f
             if (pokemon.hasAbility(Ability.MARVEL_SCALE))
                 pokemon.battleData!!.defenseMultiplicator *= 1.5f
         }
@@ -259,8 +261,6 @@ class BattleUtils {
                 pokemon.battleData!!.speedMultiplicator /= 1.5f
             if (pokemon.hasAbility(Ability.MARVEL_SCALE))
                 pokemon.battleData!!.defenseMultiplicator /= 1.5f
-            if (pokemon.hasAbility(Ability.COMPETITIVE))
-                pokemon.battleData!!.spAtkMultiplicator /= 1.5f
         }
     }
 }

@@ -453,6 +453,9 @@ abstract class Battle {
             if (pokemon.battleData!!.battleStatus.contains(Status.CONFUSED)) {
                 pokemon.battleData!!.confusionCounter++
             }
+            if (pokemon.battleData!!.battleStatus.contains(Status.BOUNDED)) {
+                pokemon.battleData!!.battleStatus.remove(Status.BOUNDED)
+            }
             if (pokemon.battleData!!.battleStatus.contains(Status.TAUNTED)) {
                 pokemon.battleData!!.tauntCounter++
                 if (pokemon.battleData!!.tauntCounter == 4) {

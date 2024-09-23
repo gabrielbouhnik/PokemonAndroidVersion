@@ -2670,6 +2670,37 @@
       ],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 296,
+      "name": "Destiny Bound",
+      "power": 0,
+      "pp": 5,
+      "type": 13,
+      "category": "OTHER",
+      "description": "If the user is knocked out after using this move, the Pokémon that knocked it out will also faint. This move will fail if it is used in succession.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "BOUNDED"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 299,
+      "name": "Avalanche",
+      "power": 60,
+      "pp": 10,
+      "type": 14,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "This move's power is doubled if the target has already taken some damage in the same turn.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "multipleHitMoves": [
@@ -4333,6 +4364,45 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 297,
+      "name": "Rock Smash",
+      "power": 40,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 11,
+      "accuracy": 100,
+      "description": "The user attacks with a punch. This may also lower the target's Defense stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "DEFENSE"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.67,
+      "probability": 50,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 298,
+      "name": "Ice Hammer",
+      "power": 100,
+      "pp": 10,
+      "type": 14,
+      "category": "PHYSICAL",
+      "accuracy": 90,
+      "description": "The user swings and hits with its strong, heavy fist. It lowers the user's Speed.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "SPEED"
+      ],
+      "target": "SELF",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "drainMoves": [

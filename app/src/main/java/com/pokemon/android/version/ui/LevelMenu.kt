@@ -24,12 +24,13 @@ class LevelMenu {
         const val KOGA_LEVEL = 44
         const val LAPRAS_LEVEL = 49
         const val ARCHER_LEVEL = 51
+        const val GIOVANNI_LEVEL = 52
         const val TYROGUE_LEVEL = 53
         const val SABRINA_LEVEL = 55
         const val ARTICUNO_LEVEL = 59
         const val BLAINE_LEVEL = 62
         const val OAK_LEVEL_ID = 64
-        const val GIOVANNI_LEVEL = 66
+        const val GIOVANNI_2_LEVEL = 66
         const val ARMORED_MEWTWO_LEVEL_ID = 67
         const val MOLTRES_LEVEL = 72
         const val ELITE_4_FIRST_LEVEL_ID = 73

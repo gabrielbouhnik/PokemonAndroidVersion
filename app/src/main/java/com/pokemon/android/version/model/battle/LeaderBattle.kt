@@ -127,6 +127,34 @@ LeaderBattle() : Battle() {
                             HoldItem.MIRACLE_SEED
                         ))
                 }
+                LevelMenu.ERIKA_LEVEL -> {
+                    opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 470
+                            && it.data.id != 103})
+                    (opponentTrainer.team as ArrayList<Pokemon>).add(
+                        4,
+                        activity.gameDataService.generatePokemonWithMoves(
+                            242, 45,//BLISSEY
+                            listOf(
+                                activity.gameDataService.getMoveById(31),//FLAMETHROWER
+                                activity.gameDataService.getMoveById(12),//THUNDERBOLT
+                                activity.gameDataService.getMoveById(45),//PSYCHIC
+                                activity.gameDataService.getMoveById(187)//SOFTBOILED
+                            ),
+                            HoldItem.LEFTOVERS
+                        ))
+                    (opponentTrainer.team as ArrayList<Pokemon>).add(
+                        4,
+                        activity.gameDataService.generatePokemonWithMoves(
+                            134, 45,//VAPOREON
+                            listOf(
+                                activity.gameDataService.getMoveById(43),//SURF
+                                activity.gameDataService.getMoveById(100),//ICE BEAM
+                                activity.gameDataService.getMoveById(46),//SHADOW BALL
+                                activity.gameDataService.getMoveById(3)//QUICK ATTACK
+                            ),
+                            HoldItem.LEFTOVERS
+                        ))
+                }
                 LevelMenu.KOGA_LEVEL -> {
                     opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 168
                             && it.data.id != 89})

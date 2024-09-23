@@ -23,6 +23,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
     LEECH_SEEDED(false),
     FIRED_UP(false),
     CHARGED(false),
+    BOUNDED(false),
     TAUNTED(false),
     ROOSTED(false);
 
@@ -97,6 +98,9 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                     opponent.battleData!!.battleStatus.add(it.status)
                             } else {
                                 opponent.battleData!!.battleStatus.add(it.status)
+                                if (it.status == BOUNDED) {
+                                    details = "${attacker.data.name} is trying to take down his opponent with it!\n"
+                                }
                                 if (it.status == TRAPPED_WITH_DAMAGE || it.status == TRAPPED_WITHOUT_DAMAGE)
                                     details = "${opponent.data.name} is trapped!\n"
                                 if (it.status == TIRED && opponent.status == OK)
@@ -124,12 +128,8 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                 details =
                                     "${opponent.data.name}'s Vital Spirit: It does not affect ${opponent.data.name}!\n"
                         }
-                    }
-                    if (move.category == MoveCategory.OTHER) {
-                        details = if (it.status == CONFUSED && opponent.battleData!!.battleStatus.contains(CONFUSED))
-                            "But ${opponent.data.name} is already confused\n"
-                        else
-                            "But it failed!\n"
+                        if (it.status == CONFUSED && opponent.battleData!!.battleStatus.contains(CONFUSED))
+                            details = "But ${opponent.data.name} is already confused\n"
                     }
                 }
             }

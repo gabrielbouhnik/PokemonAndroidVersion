@@ -38,6 +38,12 @@ enum class Stats(var value: String) {
                         if (it == ATTACK)
                             return@forEach
                     }
+                    if (target == Target.OPPONENT && pokemon.hasAbility(Ability.COMPETITIVE)) {
+                        pokemon.battleData!!.attackMultiplicator *= 1.5f
+                        details += "${pokemon.data.name}'s Competitive: ${pokemon.data.name}'s sp. Atk rose!\n"
+                        if (it == SPATK)
+                            return@forEach
+                    }
                 }
                 when (it) {
                     ATTACK -> {

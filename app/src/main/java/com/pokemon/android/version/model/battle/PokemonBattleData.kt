@@ -27,5 +27,6 @@ class PokemonBattleData(
     var lastMoveFailed: Boolean = false,
     var lastMoveUsed: PokemonMove? = null,
     var hadATurn: Boolean = false,
+    var child: Boolean = false,
     var abilities: ArrayList<Ability> = arrayListOf()
 )

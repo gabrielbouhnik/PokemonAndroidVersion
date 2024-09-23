@@ -101,13 +101,13 @@ class RewardMenu {
                 LevelMenu.OAK_LEVEL_ID -> {
                     when {
                         activity.trainer!!.pokedex[1] == true -> {
-                            activity.trainer!!.addItem(activity.gameDataService.pokemons[3].megaEvolutionData!!.stoneId, 1)
+                            activity.trainer!!.addItem(activity.gameDataService.pokemons[2].megaEvolutionData!!.stoneId, 1)
                         }
                         activity.trainer!!.pokedex[4] == true -> {
-                            activity.trainer!!.addItem(activity.gameDataService.pokemons[6].megaEvolutionData!!.stoneId, 1)
+                            activity.trainer!!.addItem(activity.gameDataService.pokemons[5].megaEvolutionData!!.stoneId, 1)
                         }
                         activity.trainer!!.pokedex[7] == true -> {
-                            activity.trainer!!.addItem(activity.gameDataService.pokemons[9].megaEvolutionData!!.stoneId, 1)
+                            activity.trainer!!.addItem(activity.gameDataService.pokemons[8].megaEvolutionData!!.stoneId, 1)
                         }
                     }
                 }

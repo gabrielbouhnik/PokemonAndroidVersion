@@ -168,13 +168,16 @@ class DamageCalculator {
             }
             if (move.id == 247 && opponent.heldItem != null)
                 power *= 1.5f
-            if (attacker.battleData!!.lastHitReceived != null && move.id == 251)
+            if (attacker.battleData!!.lastHitReceived != null && (move.id == 251 || move.id == 299))
                 power *= 2f
             if (move.id == 260) {
                 val statBoost =
                     attacker.battleData!!.attackMultiplicator * attacker.battleData!!.defenseMultiplicator * attacker.battleData!!.spAtkMultiplicator * attacker.battleData!!.spDefMultiplicator * attacker.battleData!!.speedMultiplicator
                 if (statBoost > 1f)
                     return power * statBoost * 2f
+            }
+            if (attacker.hasAbility(Ability.PARENTAL_BOND) && opponent.battleData!!.child) {
+                power *= 0.25f
             }
             return power
         }
@@ -221,14 +224,16 @@ class DamageCalculator {
             if ((move.type == Type.FIRE || move.type == Type.ICE) && opponent.hasAbility(Ability.THICK_FAT))
                 multiplicator *= 0.5f
             return try {
-                var type = getEffectiveness(attacker, move, opponent)
+                val type = getEffectiveness(attacker, move, opponent)
                 val random: Float = Random.nextInt(85, 100).toFloat() / 100f
                 var offensiveStat: Int =
                     if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * attacker.battleData!!.spAtkMultiplicator).roundToInt()
                 if (move.id == 223) {
+                    //FOUL PLAY
                     offensiveStat = (opponent.attack.toFloat() * opponent.battleData!!.attackMultiplicator).roundToInt()
                 }
                 if (move.id == 267) {
+                    //BODY PRESS
                     offensiveStat =
                         (attacker.defense.toFloat() * attacker.battleData!!.defenseMultiplicator).roundToInt()
                 }

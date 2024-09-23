@@ -56,6 +56,7 @@ enum class Ability(var description: String) {
     OVERCOAT("Protects the Pokémon from powder."),
     OVERGROW("Powers up Grass-type moves when the Pokémon's HP is low."),
     OWN_TEMPO("This Pokémon has its own tempo, and that prevents it from becoming confused."),
+    PARENTAL_BOND("Every move used by the Pokémon will hit twice. The damage inflicted by the second hit is reduced to 25%."),
     PICKUP("The Pokémon will pick up an item after a battle."),
     POISON_HEAL("Restores HP if the Pokémon is poisoned, instead of losing HP."),
     POISON_POINT("Contact with the Pokémon may poison the attacker."),

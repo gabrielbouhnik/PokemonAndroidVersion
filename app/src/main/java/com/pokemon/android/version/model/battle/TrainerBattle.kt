@@ -92,6 +92,26 @@ class TrainerBattle() : Battle() {
                     ))
             }
             if (this.levelData.id == LevelMenu.GIOVANNI_LEVEL) {
+                (this.levelData as TrainerBattleLevelData).megaPokemonId = 115
+                opponentTrainer.team.forEach {
+                    if (it.data.id == 115) {
+                        it.heldItem = null
+                    }
+                }
+                (opponentTrainer.team as ArrayList<Pokemon>).add(
+                    activity.gameDataService.generatePokemonWithMoves(
+                        130, 57,//GYARADOS
+                        listOf(
+                            activity.gameDataService.getMoveById(136),//WATERFALL
+                            activity.gameDataService.getMoveById(27),//CRUNCH
+                            activity.gameDataService.getMoveById(125),//DRAGON DANCE
+                            activity.gameDataService.getMoveById(93)//EARTHQUAKE
+                        ),
+                        HoldItem.LEFTOVERS
+                    ))
+                opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 34})
+            }
+            if (this.levelData.id == LevelMenu.GIOVANNI_2_LEVEL) {
                 (this.levelData as TrainerBattleLevelData).megaPokemonId = 130
                 (opponentTrainer.team as ArrayList<Pokemon>).add(
                     activity.gameDataService.generatePokemonWithMoves(
@@ -113,7 +133,7 @@ class TrainerBattle() : Battle() {
                             activity.gameDataService.getMoveById(125),//DRAGON DANCE
                             activity.gameDataService.getMoveById(93)//EARTHQUAKE
                         ),
-                        null
+                        HoldItem.LEFTOVERS
                     ))
                 opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 31 && it.data.id != 112})
             }

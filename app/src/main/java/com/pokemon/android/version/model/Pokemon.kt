@@ -169,9 +169,10 @@ open class Pokemon(
         val hadATurn = this.battleData!!.hadATurn
         this.battleData!!.hadATurn = true
         val attackResponse = canAttack(move)
-        this.battleData!!.lastMoveFailed = attackResponse.success
-        if (!attackResponse.success)
+        this.battleData!!.lastMoveFailed = true
+        if (!attackResponse.success) {
             return attackResponse
+        }
         val moldBreaker = this.hasAbility(Ability.MOLD_BREAKER)
         if (move.move.category != MoveCategory.OTHER && opponent.hasAbility(Ability.PRESSURE))
             move.pp = if (move.pp > 1) move.pp - 2 else 0
@@ -181,6 +182,14 @@ open class Pokemon(
             return AttackResponse(
                 false,
                 "${this.data.name} can't use ${move.move.name} after the taunt!\n"
+            )
+        }
+        if (move.move.id == 296
+            && ((this.battleData!!.lastMoveUsed != null && this.battleData!!.lastMoveUsed!!.move.id == move.move.id)
+                    || opponent is PokemonBoss)) {
+            return AttackResponse(
+                false,
+                "${this.data.name} uses ${move.move.name}!\n But it failed!\n"
             )
         }
         if (!moldBreaker) {
@@ -538,12 +547,12 @@ open class Pokemon(
                 details += "${opponent.data.name}'s Cursed Body: ${this.data.name}'s ${move.move.name} is disabled!\n"
                 move.disabledCountdown = 4
             }
-            if (opponent.hasAbility(Ability.ELECTROMORPHOSIS)) {
+            if (opponent.currentHP > 0 && opponent.hasAbility(Ability.ELECTROMORPHOSIS)) {
                 details += "${opponent.data.name}'s Electromorphosis: ${move.move.name} charged ${opponent.data.name}!\n"
                 this.battleData!!.battleStatus.add(Status.CHARGED)
             }
         }
-        if (move.move.id == 265){
+        if (move.move.id == 265) {
             if (opponent.battleData!!.lastMoveUsed != null){
                 opponent.battleData!!.lastMoveUsed!!.disabledCountdown = 4
                 details += "${opponent.data.name}'s ${opponent.battleData!!.lastMoveUsed!!.move.name} is disabled!\n"
@@ -561,6 +570,17 @@ open class Pokemon(
             opponent.consumeItem()
             details += "${opponent.data.name}'s Attack and Sp. Atk rose thanks to its Weakness Policy!\n"
         }
+
+        if (this.hasAbility(Ability.PARENTAL_BOND) && !this.battleData!!.child) {
+            if (opponent.currentHP == 0) {
+                details += "${opponent.data.name} was hit 1 time!\n"
+            } else {
+                this.battleData!!.child = true
+                details += this.attack(move, opponent).reason
+                this.battleData!!.child = false
+                details += "${opponent.data.name} was hit 2 times!\n"
+            }
+        }
         if (currentHP > 0
             && damage > 0
             && move.move.category != MoveCategory.OTHER
@@ -568,6 +588,11 @@ open class Pokemon(
             && !this.hasAbility(Ability.SHEER_FORCE)){
             this.takeDamage(this.hp / 10)
             details += this.data.name + " lost some of its hp!\n"
+        }
+
+        if (opponent.currentHP == 0 && battleData!!.battleStatus.contains(Status.BOUNDED)) {
+            this.currentHP = 0
+            details += "${opponent.data.name} took down his opponent with it!\n"
         }
         return AttackResponse(true, details)
     }

@@ -535,7 +535,7 @@
         "minLevel": 36,
         "maxLevel": 38,
         "encounters": [
-          41,41,42,54,54,54,55,79,79,79,79,86,86,86,86,87,90,98,98,98,116
+          41,41,42,54,54,54,55,79,79,79,79,86,86,86,86,87,90,98,98,98,116,739
         ]
       },
       "rewards": [
@@ -3095,13 +3095,14 @@
             {
               "id": 115,
               "level": 57,
-              "moveIds": [63,25,27,76],
+              "moveIds": [246,25,27,76],
               "itemHeld": "LEFTOVERS"
             },
             {
               "id": 51,
               "level": 57,
-              "moveIds": [30,25,38,113]
+              "moveIds": [30,25,38,113],
+              "itemHeld": "FOCUS_SASH"
             },
             {
               "id": 31,
@@ -4275,7 +4276,7 @@
         "id": 51,
         "level": 40,
         "moveIds": [30,38,25,113],
-        "boostedStats": ["SPEED"]
+        "boostedStats": ["DEFENSE","SPEED"]
       },
       "rewards": [
         {
@@ -5567,20 +5568,20 @@
         {
           "id": 62,
           "level": 73,
-          "moveIds": [106,80,25,30],
+          "moveIds": [100,43,25,87],
           "itemHeld": "LEFTOVERS"
         },
         {
-          "id": 208,
+          "id": 901,
           "level": 73,
-          "moveIds": [25,93,27,13],
-          "itemHeld": "LEFTOVERS"
+          "moveIds": [93,206,76,110],
+          "itemHeld": "FLAME_ORB"
         },
         {
-          "id": 237,
+          "id": 534,
           "level": 73,
-          "moveIds": [14,208,40,93],
-          "itemHeld": "LEFTOVERS"
+          "moveIds": [76,107,103,14],
+          "itemHeld": "ASSAULT_VEST"
         },
         {
           "id": 57,
@@ -5609,21 +5610,21 @@
           "itemHeld": "LIFE_ORB"
         },
         {
-          "id": 208,
+          "id": 214,
           "level": 83,
-          "moveIds": [25,93,27,13]
+          "moveIds": [239,61,137,93]
         },
         {
-          "id": 297,
+          "id": 534,
           "level": 83,
-          "moveIds": [76,93,103,107],
+          "moveIds": [76,107,103,14],
+          "itemHeld": "ASSAULT_VEST"
+        },
+        {
+          "id": 901,
+          "level": 83,
+          "moveIds": [93,206,76,110],
           "itemHeld": "FLAME_ORB"
-        },
-        {
-          "id": 286,
-          "level": 83,
-          "moveIds": [14,137,25,255],
-          "itemHeld": "TOXIC_ORB"
         },
         {
           "id": 68,
@@ -5645,7 +5646,7 @@
       "mandatory": true,
       "iaLevel": 1,
       "megaPokemonId": 0,
-      "megaPokemonIdOnRematch": 208
+      "megaPokemonIdOnRematch": 214
     },
     {
       "id": 75,
@@ -5914,7 +5915,7 @@
         },
         {
           "id": 106,
-          "level": 90,
+          "level": 95,
           "moveIds": [68,40,25,191],
           "itemHeld": "FOCUS_SASH"
         }

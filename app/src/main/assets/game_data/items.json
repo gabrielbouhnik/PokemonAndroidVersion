@@ -297,46 +297,51 @@
     },
     {
       "id": 118,
+      "name": "Kangaskhanite",
+      "description": "Enables Kangaskhan to Mega Evolve during battle."
+    },
+    {
+      "id": 119,
       "name": "Pinsirite",
       "description": "Enables Pinsir to Mega Evolve during battle."
     },
     {
-      "id": 119,
+      "id": 120,
       "name": "Gyaradosite",
       "description": "Enables Gyarados to Mega Evolve during battle."
     },
     {
-      "id": 120,
+      "id": 121,
       "name": "Aerodactylite",
       "description": "Enables Aerodactyl to Mega Evolve during battle."
     },
     {
-      "id": 121,
+      "id": 122,
       "name": "Steelixite",
       "description": "Enables Steelix to Mega Evolve during battle."
     },
     {
-      "id": 122,
+      "id": 123,
       "name": "Scizorite",
       "description": "Enables Scizor to Mega Evolve during battle."
     },
     {
-      "id": 123,
+      "id": 124,
       "name": "Heracronite",
       "description": "Enables Heracross to Mega Evolve during battle."
     },
     {
-      "id": 124,
+      "id": 125,
       "name": "Houndoominite",
       "description": "Enables Houndoom to Mega Evolve during battle."
     },
     {
-      "id": 125,
+      "id": 126,
       "name": "Tyranitarite",
       "description": "Enables Tyranitar to Mega Evolve during battle."
     },
     {
-      "id": 126,
+      "id": 127,
       "name": "Banettite",
       "description": "Enables Banette to Mega Evolve during battle."
     },

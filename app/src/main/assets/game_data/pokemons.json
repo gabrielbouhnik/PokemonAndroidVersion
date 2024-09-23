@@ -6136,6 +6136,10 @@
           "level": 40
         },
         {
+          "moveId": 296,
+          "level": 44
+        },
+        {
           "moveId": 213,
           "level": 48
         }
@@ -6209,6 +6213,10 @@
           "level": 48
         },
         {
+          "moveId": 296,
+          "level": 54
+        },
+        {
           "moveId": 213,
           "level": 60
         }
@@ -6280,6 +6288,10 @@
         {
           "moveId": 46,
           "level": 48
+        },
+        {
+          "moveId": 296,
+          "level": 54
         },
         {
           "moveId": 213,
@@ -7306,6 +7318,10 @@
         {
           "moveId": 230,
           "level": 44
+        },
+        {
+          "moveId": 296,
+          "level": 52
         }
       ],
       "movesLearnWithTM": [12,31,37,82,92,138,233],
@@ -7387,6 +7403,10 @@
         {
           "moveId": 230,
           "level": 50
+        },
+        {
+          "moveId": 296,
+          "level": 62
         }
       ],
       "movesLearnWithTM": [12,31,37,82,92,138,176,177,233,261],
@@ -7720,7 +7740,18 @@
     "catchRate": 45,
     "evolutions": [],
     "abilities": ["INNER_FOCUS","SCRAPPY","EARLY_BIRD"],
-    "expGaugeType":  "MEDIUM_FAST"
+    "expGaugeType":  "MEDIUM_FAST",
+    "megaEvolutionData": {
+      "type1": 5,
+      "type2": 0,
+      "attack": 125,
+      "defense": 100,
+      "spAtk": 60,
+      "spDef": 100,
+      "speed": 100,
+      "ability": "PARENTAL_BOND",
+      "stoneId": 118
+    }
   },
   {
     "id": 116,
@@ -8494,7 +8525,7 @@
       "spAtk": 65,
       "spDef": 90,
       "speed": 105,
-      "stoneId": 118
+      "stoneId": 119
     }
   },
   {
@@ -8690,7 +8721,7 @@
       "spAtk": 70,
       "spDef": 130,
       "speed": 81,
-      "stoneId": 119,
+      "stoneId": 120,
       "ability": "MOLD_BREAKER"
     }
   },
@@ -9488,7 +9519,7 @@
       "spDef": 95,
       "speed": 150,
       "ability": "TOUGH_CLAW",
-      "stoneId": 120
+      "stoneId": 121
     }
   },
   {
@@ -13604,7 +13635,7 @@
       "spAtk": 55,
       "spDef": 95,
       "speed": 30,
-      "stoneId": 121
+      "stoneId": 122
     }
   },
   {
@@ -13789,6 +13820,10 @@
         {
           "moveId": 79,
           "level": 56
+        },
+        {
+          "moveId": 296,
+          "level": 66
         }
       ],
       "movesLearnWithTM": [24,43,37,62,72,100,136],
@@ -13891,7 +13926,7 @@
       "spDef": 100,
       "speed": 75,
       "ability": "TECHNICIAN",
-      "stoneId": 122
+      "stoneId": 123
     }
   },
   {
@@ -14018,7 +14053,7 @@
       "spDef": 105,
       "speed": 75,
       "ability": "SKILL_LINK",
-      "stoneId": 123
+      "stoneId": 124
     }
   },
   {
@@ -14799,7 +14834,7 @@
       "spAtk": 140,
       "spDef": 90,
       "speed": 115,
-      "stoneId": 124
+      "stoneId": 125
     }
   },
   {
@@ -14980,6 +15015,10 @@
         {
           "moveId": 247,
           "level": 19
+        },
+        {
+          "moveId": 240,
+          "level": 30
         },
         {
           "moveId": 73,
@@ -15417,9 +15456,7 @@
           "level": 44
         }
       ],
-      "movesLearnWithTM": [
-        72,30,31,44,45,55,82,97,100,103,107,110,135,148,176,177,221
-      ],
+      "movesLearnWithTM": [72,12,30,31,44,45,55,82,97,100,103,107,110,135,148,176,177,221],
       "bannerMoves": []
     },
     "hp": 255,
@@ -15890,7 +15927,7 @@
       "spAtk": 95,
       "spDef": 120,
       "speed": 71,
-      "stoneId": 125
+      "stoneId": 126
     }
   },
   {
@@ -16894,7 +16931,8 @@
       "spAtk": 93,
       "spDef": 83,
       "speed": 75,
-      "ability": "PRANKSTER"
+      "ability": "PRANKSTER",
+      "stoneId": 127
     }
   },
   {
@@ -21269,6 +21307,141 @@
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
+    "id": 739,
+    "name": "Crabrawler",
+    "type1": 11,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 297,
+          "level": 1
+        },
+        {
+          "moveId": 126,
+          "level": 13
+        },
+        {
+          "moveId": 69,
+          "level": 22
+        },
+        {
+          "moveId": 201,
+          "level": 25
+        },
+        {
+          "moveId": 191,
+          "level": 33
+        },
+        {
+          "moveId": 152,
+          "level": 37
+        },
+        {
+          "moveId": 157,
+          "level": 42
+        },
+        {
+          "moveId": 106,
+          "level": 45
+        },
+        {
+          "moveId": 40,
+          "level": 49
+        }
+      ],
+      "movesLearnWithTM": [57,69,76,103,107,140,148,221],
+      "bannerMoves": []
+    },
+    "hp": 47,
+    "attack": 82,
+    "defense": 57,
+    "spAtk": 42,
+    "spDef": 47,
+    "speed": 63,
+    "catchRate": 225,
+    "evolutions": [
+      {
+        "evolutionId": 740,
+        "evolutionCondition": {
+          "itemId": 30
+        }
+      }
+    ],
+    "abilities": ["HYPER_CUTTER","IRON_FIST","ANGER_POINT"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 740,
+    "name": "Crabominable",
+    "type1": 11,
+    "type2": 14,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 107,
+          "level": 1
+        },
+        {
+          "moveId": 297,
+          "level": 1
+        },
+        {
+          "moveId": 126,
+          "level": 13
+        },
+        {
+          "moveId": 69,
+          "level": 22
+        },
+        {
+          "moveId": 201,
+          "level": 25
+        },
+        {
+          "moveId": 299,
+          "level": 29
+        },
+        {
+          "moveId": 191,
+          "level": 33
+        },
+        {
+          "moveId": 152,
+          "level": 37
+        },
+        {
+          "moveId": 298,
+          "level": 37
+        },
+        {
+          "moveId": 157,
+          "level": 42
+        },
+        {
+          "moveId": 106,
+          "level": 45
+        },
+        {
+          "moveId": 40,
+          "level": 49
+        }
+      ],
+      "movesLearnWithTM": [57,69,76,93,103,107,140,148,176,177,221,267],
+      "bannerMoves": []
+    },
+    "hp": 97,
+    "attack": 132,
+    "defense": 77,
+    "spAtk": 62,
+    "spDef": 67,
+    "speed": 43,
+    "catchRate": 225,
+    "evolutions": [],
+    "abilities": ["HYPER_CUTTER","IRON_FIST","ANGER_POINT"],
+    "expGaugeType":  "SLOW"
+  },
+  {
     "id": 782,
     "name": "Jangmo-o",
     "type1": 15,
@@ -21664,6 +21837,10 @@
           "level": 1
         },
         {
+          "moveId": 297,
+          "level": 10
+        },
+        {
           "moveId": 30,
           "level": 15
         },
@@ -21727,6 +21904,10 @@
         {
           "moveId": 2,
           "level": 1
+        },
+        {
+          "moveId": 297,
+          "level": 10
         },
         {
           "moveId": 30,
@@ -22047,7 +22228,7 @@
           "level": 64
         }
       ],
-      "movesLearnWithTM": [72,25,36,69,73,87,93,103,107,110,114,140,206,221,267],
+      "movesLearnWithTM": [72,25,30,36,69,73,87,93,103,107,110,114,140,176,177,206,221,267],
       "bannerMoves": []
     },
     "hp": 130,
@@ -22095,6 +22276,10 @@
         },
         {
           "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 297,
           "level": 1
         },
         {
@@ -22875,6 +23060,28 @@
     "abilities": ["OVERCOAT","FILTER"],
     "expGaugeType":  "MEDIUM_FAST"
   },
+
+  {
+    "id": 975,
+    "name": "Cetitan",
+    "type1": 14,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 170,
+    "attack": 113,
+    "defense": 65,
+    "spAtk": 45,
+    "spDef": 55,
+    "speed": 73,
+    "catchRate": 50,
+    "evolutions": [],
+    "abilities": ["THICK_FAT", "SHEER_FORCE"],
+    "expGaugeType":  "SLOW"
+  },
   {
     "id": 981,
     "name": "Farigiraf",
@@ -23567,6 +23774,10 @@
       "movesLearnByLevel": [
         {
           "moveId": 1,
+          "level": 1
+        },
+        {
+          "moveId": 297,
           "level": 1
         },
         {

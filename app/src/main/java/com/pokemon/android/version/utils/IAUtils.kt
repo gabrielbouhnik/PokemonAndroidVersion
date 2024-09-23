@@ -132,9 +132,9 @@ class IAUtils {
                                 return move
                             }
                         } else if (shouldUpdateStats(statChangeMove.statsAffected, attacker) &&
-                            (BattleUtils.isFaster(attacker, opponent)
+                            ((BattleUtils.isFaster(attacker, opponent) && canBeKOdByOpponent(opponent, attacker))
                             || canTakeTwoHits(opponent, attacker))) {
-                            //ATTACKER IS FASTER OR CAN SURVIVE 2 HITS FROM OPPONENT
+                            //ATTACKER IS FASTER AND CAN SURVIVE 1 HIT OR CAN SURVIVE 2 HITS FROM OPPONENT
                             return move
                         }
 
