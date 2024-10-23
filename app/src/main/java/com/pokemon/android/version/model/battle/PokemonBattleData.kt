@@ -18,6 +18,7 @@ class PokemonBattleData(
     var chargedCounter: Int = 0,
     var trapCounter: Int = 0,
     var poisonCounter: Int = 0,
+    var haxxCounter: Int = 0,
     var unableToMoveCounter: Int = 0,
     var battleStatus: HashSet<Status> = hashSetOf(),
     var chargedMove: PokemonMove? = null,

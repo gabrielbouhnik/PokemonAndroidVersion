@@ -346,6 +346,11 @@
       "description": "Enables Banette to Mega Evolve during battle."
     },
     {
+      "id": 127,
+      "name": "Absolite",
+      "description": "Enables Absol to Mega Evolve during battle."
+    },
+    {
       "id": 130,
       "name": "Mega Ring",
       "description": "Accessory which enables Mega Evolution"
@@ -358,7 +363,12 @@
     {
       "id": 132,
       "name": "Linking Cord",
-      "description": " string exuding a mysterious energy that makes you feel a strange sense of connection. It’s loved by certain Pokémon."
+      "description": "A string exuding a mysterious energy that makes you feel a strange sense of connection. It’s loved by certain Pokémon."
+    },
+    {
+      "id": 133,
+      "name": "Chipped Pot",
+      "description": "A peculiar teapot that can make a certain species of Pokémon evolve."
     }
   ]
 }

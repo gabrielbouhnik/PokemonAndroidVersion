@@ -38,12 +38,13 @@ class Achievement(var id: Int, var description: String, var pokemonRewards: List
                 16 -> return activity.trainer!!.achievements!!.celadonGymAchievement
                 17 -> return activity.trainer!!.achievements!!.cinnbarGymAchievement
                 18 -> return activity.trainer!!.achievements!!.ceruleanGymAchievement
-                19 -> return activity.trainer!!.pokedex.values.filter { it }.size > 30
+                19 -> return activity.trainer!!.pokedex.values.filter { it }.size > 25
                 20 -> return activity.trainer!!.pokedex.values.filter { it }.size > 50
-                21 -> return activity.trainer!!.pokedex.values.filter { it }.size > 100
-                22 -> return activity.trainer!!.pokedex.values.filter { it }.size > 150
-                23 -> return activity.trainer!!.pokedex.values.filter { it }.size > 200
-                24 -> return activity.trainer!!.pokedex.values.filter { it }.size > 250
+                21 -> return activity.trainer!!.pokedex.values.filter { it }.size > 75
+                22 -> return activity.trainer!!.pokedex.values.filter { it }.size > 100
+                23 -> return activity.trainer!!.pokedex.values.filter { it }.size > 150
+                24 -> return activity.trainer!!.pokedex.values.filter { it }.size > 200
+                25 -> return activity.trainer!!.pokedex.values.filter { it }.size > 250
             }
             return false
         }

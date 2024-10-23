@@ -2,7 +2,7 @@ package com.pokemon.android.version.model
 
 import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.move.Move
-import com.pokemon.android.version.model.move.MoveCategory
+import com.pokemon.android.version.model.move.MoveCharacteristic
 import com.pokemon.android.version.utils.BattleUtils
 import kotlin.random.Random
 
@@ -52,10 +52,9 @@ enum class Status(var activeOutsideBattle: Boolean) {
 
     companion object {
         fun updateStatus(attacker: Pokemon, opponent: Pokemon, move: Move): String {
-            if ((move.id == 34 || move.id == 35) && opponent.hasAbility(Ability.OVERCOAT))
+            if (move.characteristics.contains(MoveCharacteristic.POWDER) && opponent.hasAbility(Ability.OVERCOAT))
                 return "${opponent.data.name}'s Overcoat: It does not affect ${opponent.data.name}!\n"
             var details = ""
-            val moldBreaker = attacker.hasAbility(Ability.MOLD_BREAKER)
             move.status.forEach {
                 if (isAffectedByStatus(move.id, it.status, opponent)) {
                     var randomForStatus: Int = Random.nextInt(100)
@@ -72,49 +71,47 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                 attacker.status = it.status
                                 details += "${opponent.data.name}'s Synchronize: ${attacker.data.name} " + it.status.toDetails() + "\n"
                             }
-                            if (opponent.hasItem(HoldItem.LUM_BERRY)){
+                            if (opponent.hasItem(HoldItem.LUM_BERRY)) {
                                 details += "${opponent.data.name}'s Lum Berry cured its status\n"
                                 opponent.status = OK
                                 opponent.consumeItem()
                                 cureAllStatus(opponent)
                             }
                         } else {
-                            if (it.status == CONFUSED) {
-                                if (opponent.hasAbility(Ability.OWN_TEMPO) && !moldBreaker)
-                                    details += "${opponent.data.name}'s Own Tempo: ${opponent.data.name} cannot be confused!\n"
-                                else {
+                            if (!opponent.battleData!!.battleStatus.contains(it.status)) {
+                                if (it.status == CONFUSED) {
                                     opponent.battleData!!.battleStatus.add(it.status)
-                                    details +="${opponent.data.name} became confused!\n"
-                                    if (opponent.hasItem(HoldItem.LUM_BERRY)){
+                                    details += "${opponent.data.name} became confused!\n"
+                                    if (opponent.hasItem(HoldItem.LUM_BERRY)) {
                                         details += "${opponent.data.name}'s Lum Berry cured its status\n"
                                         opponent.status = OK
                                         opponent.consumeItem()
                                         cureAllStatus(opponent)
                                     }
-                                }
-
-                            } else if (it.status == FLINCHED) {
-                                if (!opponent.hasAbility(Ability.INNER_FOCUS))
+                                } else if (it.status == FLINCHED) {
+                                    if (!opponent.hasAbility(Ability.INNER_FOCUS))
+                                        opponent.battleData!!.battleStatus.add(it.status)
+                                } else if (it.status == TAUNTED) {
                                     opponent.battleData!!.battleStatus.add(it.status)
-                            } else {
-                                opponent.battleData!!.battleStatus.add(it.status)
-                                if (it.status == BOUNDED) {
-                                    details = "${attacker.data.name} is trying to take down his opponent with it!\n"
-                                }
-                                if (it.status == TRAPPED_WITH_DAMAGE || it.status == TRAPPED_WITHOUT_DAMAGE)
-                                    details = "${opponent.data.name} is trapped!\n"
-                                if (it.status == TIRED && opponent.status == OK)
-                                    details = "${opponent.data.name} gets drowsy!\n"
-                                if (it.status == LEECH_SEEDED)
-                                    details = "${opponent.data.name} was seeded!\n"
-                                if (it.status == TAUNTED)
                                     details = "${opponent.data.name} fell for the taunt!\n"
+                                } else {
+                                    opponent.battleData!!.battleStatus.add(it.status)
+                                    if (it.status == BOUNDED) {
+                                        details = "${attacker.data.name} is trying to take down his opponent with it!\n"
+                                    }
+                                    if (it.status == TRAPPED_WITH_DAMAGE || it.status == TRAPPED_WITHOUT_DAMAGE)
+                                        details = "${opponent.data.name} is trapped!\n"
+                                    if (it.status == TIRED && opponent.status == OK)
+                                        details = "${opponent.data.name} gets drowsy!\n"
+                                    if (it.status == LEECH_SEEDED)
+                                        details = "${opponent.data.name} was seeded!\n"
+                                }
                             }
                         }
                     }
                 } else if (it.probability == null) {
-                    if (opponent.status == OK && !moldBreaker) {
-                        if ((move.id ==34 || move.id == 83) && opponent.hasAbility(Ability.IMMUNITY))
+                    if (opponent.status == OK) {
+                        if ((move.id == 34 || move.id == 83) && opponent.hasAbility(Ability.IMMUNITY))
                             details = "${opponent.data.name}'s Immunity: It does not affect ${opponent.data.name}!\n"
                         if (move.id == 55 && opponent.hasAbility(Ability.LIMBER))
                             details = "${opponent.data.name}'s Limber: It does not affect ${opponent.data.name}!\n"
@@ -128,8 +125,17 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                 details =
                                     "${opponent.data.name}'s Vital Spirit: It does not affect ${opponent.data.name}!\n"
                         }
-                        if (it.status == CONFUSED && opponent.battleData!!.battleStatus.contains(CONFUSED))
-                            details = "But ${opponent.data.name} is already confused\n"
+                        if (it.status == TAUNTED) {
+                            details = "${opponent.data.name}'s Oblivious: ${opponent.data.name} cannot fell for the taunt!\n"
+                        }
+                        if (it.status == CONFUSED) {
+                            if (opponent.battleData!!.battleStatus.contains(CONFUSED))
+                                details = "But ${opponent.data.name} is already confused\n"
+                            else if (opponent.hasAbility(Ability.OWN_TEMPO))
+                                details += "${opponent.data.name}'s Own Tempo: ${opponent.data.name} cannot be confused!\n"
+                        }
+                    } else {
+                        details = "But it failed\n"
                     }
                 }
             }
@@ -137,45 +143,49 @@ enum class Status(var activeOutsideBattle: Boolean) {
         }
 
         fun isAffectedByStatus(id: Int, status: Status, opponent: Pokemon): Boolean {
-            if ((id == 35 || id == 253 || id == 255) && (opponent.hasType(Type.GRASS)
-                                || opponent.hasAbility(Ability.MAGIC_BOUNCE)
-                                || opponent.hasAbility(Ability.OVERCOAT))
-            )
+            if (status.activeOutsideBattle && opponent.status != OK)
                 return false
-            if (id == 34 && (opponent.hasAbility(Ability.MAGIC_BOUNCE) || opponent.hasAbility(Ability.OVERCOAT)))
+            if (!status.activeOutsideBattle && opponent.battleData!!.battleStatus.contains(status))
                 return false
-            if (id == 55 && opponent.hasType(Type.GROUND))
+            if ((id == 35 || id == 253 || id == 255 || id == 34)
+                &&  (opponent.hasType(Type.GRASS) || opponent.hasAbility(Ability.MAGIC_BOUNCE) || !opponent.hasAbility(Ability.OVERCOAT))) {
+                //STUN SPORE, SLEEP POWDER, SPORE, POISON POWDER
                 return false
-            if (status == TIRED && opponent.status != OK)
+            }
+            if (id == 55 && opponent.hasType(Type.GROUND)) {
+                //THUNDER WAVE
                 return false
-            if (status == TRAPPED_WITH_DAMAGE && id == 130 && opponent.hasAbility(Ability.FLASH_FIRE))
-                return false
-            if (status == TRAPPED_WITH_DAMAGE && id == 131 && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(
-                    Ability.DRY_SKIN
-                ))
-            )
-                return false
-            if (opponent.hasAbility(Ability.OWN_TEMPO) && status == CONFUSED)
-                return false
-            if (!status.activeOutsideBattle && !opponent.battleData!!.battleStatus.contains(status))
-                return true
-            if (status == LEECH_SEEDED && !opponent.hasType(Type.GRASS))
-                return true
-            if (opponent.status != OK)
-                return false
-            if (status == ASLEEP && !opponent.hasAbility(Ability.INSOMNIA) && !opponent.hasAbility(Ability.VITAL_SPIRIT))
-                return true
-            if (status == FROZEN && !opponent.hasType(Type.ICE) && !opponent.hasAbility(Ability.MAGMA_ARMOR))
-                return true
-            if (status == BURN && !opponent.hasType(Type.FIRE) && !opponent.hasAbility(Ability.WATER_VEIL))
-                return true
-            if (status == PARALYSIS && !opponent.hasType(Type.ELECTRIC) && !opponent.hasAbility(Ability.LIMBER))
-                return true
-            if ((status == POISON || status == BADLY_POISON) && !opponent.hasType(Type.POISON) && !opponent.hasType(Type.STEEL)
-                && !opponent.hasAbility(Ability.IMMUNITY)
-            )
-                return true
-            return false
+            }
+
+            if (status == TIRED) {
+                return opponent.status != OK && !opponent.hasAbility(Ability.INSOMNIA) && !opponent.hasAbility(Ability.VITAL_SPIRIT)
+            }
+            if (status == TRAPPED_WITH_DAMAGE) {
+                if (id == 130)
+                    return !opponent.hasAbility(Ability.FLASH_FIRE)
+                else if (id == 131)
+                    return !opponent.hasAbility(Ability.WATER_ABSORB) && !opponent.hasAbility(Ability.DRY_SKIN)
+            }
+            if (status == CONFUSED)
+                return !opponent.hasAbility(Ability.OWN_TEMPO)
+            if (status == TAUNTED)
+                return !opponent.hasAbility(Ability.OBLIVIOUS)
+            if (status == LEECH_SEEDED)
+                return !opponent.hasType(Type.GRASS)
+            if (status == ASLEEP)
+                return !opponent.hasAbility(Ability.INSOMNIA) && !opponent.hasAbility(Ability.VITAL_SPIRIT)
+            if (status == FROZEN)
+                return !opponent.hasType(Type.ICE) && !opponent.hasAbility(Ability.MAGMA_ARMOR)
+            if (status == BURN)
+                return !opponent.hasType(Type.FIRE) && !opponent.hasAbility(Ability.WATER_VEIL)
+            if (status == PARALYSIS) {
+                return !opponent.hasType(Type.ELECTRIC) && !opponent.hasAbility(Ability.LIMBER)
+            }
+            if (status == POISON || status == BADLY_POISON) {
+                return !opponent.hasType(Type.POISON) && !opponent.hasType(Type.STEEL)
+                        && !opponent.hasAbility(Ability.IMMUNITY)
+            }
+            return true
         }
 
         fun cureAllStatus(pokemon: Pokemon) {

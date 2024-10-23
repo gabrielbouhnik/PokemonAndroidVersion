@@ -163,14 +163,20 @@ class BattleFrontierMenu {
             }
         }
         val battleFactoryButton: Button = activity.findViewById(R.id.battleFactoryButton)
-        battleFactoryButton.setOnClickListener {
-            if (activity.trainer!!.battleFactoryProgression == null) {
-                activity.trainer!!.battleFactoryProgression = BattleFrontierProgression(
-                    0,
-                    BattleFrontierBattle.generateTrainerTeam(activity.gameDataService).toMutableList()
-                )
+        if (!activity.hardMode) {
+            battleFactoryButton.setOnClickListener {
+                if (activity.trainer!!.battleFactoryProgression == null) {
+                    activity.trainer!!.battleFactoryProgression = BattleFrontierProgression(
+                        0,
+                        BattleFrontierBattle.generateTrainerTeam(activity.gameDataService).toMutableList()
+                    )
+                }
+                loadBattlePrepLayout(activity, BattleFrontierArea.BATTLE_FACTORY)
             }
-            loadBattlePrepLayout(activity, BattleFrontierArea.BATTLE_FACTORY)
+        } else {
+            battleFactoryButton.visibility = GONE
+            val battleFactoryTextView : TextView = activity.findViewById(R.id.battleFactoryTextView)
+            battleFactoryTextView.visibility = GONE
         }
     }
 }

@@ -173,7 +173,7 @@
   },
   {
     "id": 19,
-    "description": "Catch 30 different Pokémon",
+    "description": "Catch 25 different Pokémon",
     "pokemonReward": [
       {
         "id": 10088,
@@ -195,6 +195,17 @@
   },
   {
     "id": 21,
+    "description": "Catch 75 different Pokémon",
+    "pokemonReward": [
+      {
+        "id": 10037,
+        "level": 10
+      }
+    ],
+    "itemRewards": []
+  },
+  {
+    "id": 22,
     "description": "Catch 100 different Pokémon",
     "pokemonReward": [
       {
@@ -205,7 +216,7 @@
     "itemRewards": []
   },
   {
-    "id": 22,
+    "id": 23,
     "description": "Catch 150 different Pokémon",
     "pokemonReward": [
       {
@@ -216,7 +227,7 @@
     "itemRewards": []
   },
   {
-    "id": 23,
+    "id": 24,
     "description": "Catch 200 different Pokémon",
     "pokemonReward": [
       {
@@ -227,7 +238,7 @@
     "itemRewards": []
   },
   {
-    "id": 24,
+    "id": 25,
     "description": "Catch 250 different Pokémon",
     "pokemonReward": [
       {

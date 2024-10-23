@@ -23,6 +23,8 @@ abstract class Battle {
     lateinit var pokemon: Pokemon
     lateinit var opponent: Pokemon
     lateinit var levelData: LevelData
+    var weather: Weather = Weather.NONE
+    var weatherCounter: Int = 0
     var trainerHasUsedMegaEvolution = false
 
     abstract fun getBattleState(): State
@@ -66,7 +68,7 @@ abstract class Battle {
                 return action
             }
         }
-        val opponentResponse = opponent.attack(opponentPokemonMove, pokemon)
+        val opponentResponse = opponent.attack(opponentPokemonMove, pokemon, weather)
         return if (!opponentResponse.success) {
             action + opponentResponse.reason
         } else {
@@ -93,7 +95,7 @@ abstract class Battle {
                 return action
             }
         }
-        val response = pokemon.attack(trainerPokemonMove, opponent)
+        val response = pokemon.attack(trainerPokemonMove, opponent, weather)
         return if (!response.success)
             action + response.reason
         else {
@@ -143,7 +145,7 @@ abstract class Battle {
         if (megaEvolution) {
             sb.append("${pokemon.data.name} has Mega Evolved into Mega ${pokemon.data.name}\n")
             pokemon.megaEvolve()
-            sb.append(BattleUtils.abilitiesCheck(pokemon, opponent))
+            sb.append(BattleUtils.abilitiesCheck(pokemon, opponent, this))
             trainerHasUsedMegaEvolution = true
         }
         var shouldMegaEvolve = true
@@ -172,7 +174,7 @@ abstract class Battle {
                 opponent.megaEvolve()
                 sb.append("The opposing ${opponent.data.name} is reacting to ${(opponent.trainer!! as OpponentTrainer).name}'s Key Stone!\n")
                 sb.append("The opposing ${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                sb.append(BattleUtils.abilitiesCheck(pokemon, opponent))
+                sb.append(BattleUtils.abilitiesCheck(pokemon, opponent, this))
             }
         }
         turn(trainerPokemonMove, sb)
@@ -201,6 +203,12 @@ abstract class Battle {
                     ) {
                         pokemon.battleData!!.battleStatus.add(Status.CONFUSED)
                         sb.append("${pokemon.data.name} became confused due to fatigue!\n")
+                        if (pokemon.heldItem == HoldItem.LUM_BERRY) {
+                            sb.append("${pokemon.data.name}'s Lum Berry cured its status\n")
+                            pokemon.status = Status.OK
+                            pokemon.consumeItem()
+                            Status.cureAllStatus(pokemon)
+                        }
                     }
                     endTurn(sb)
                 }
@@ -256,7 +264,7 @@ abstract class Battle {
         val sb = StringBuilder()
         sb.append("${trainer.name} withdrew ${opponent.data.name}!\n${trainer.name} sends out ${pokemonToBeSent.data.name}!\n")
         switchOpponent(pokemonToBeSent)
-        sb.append(BattleUtils.abilitiesCheck(opponent, pokemon))
+        sb.append(BattleUtils.abilitiesCheck(opponent, pokemon, this))
         if (trainerPokemonMove.move.id == 208) {
             val response = opponent.canAttack(trainerPokemonMove)
             sb.append(if (!response.success) response.reason else "${pokemon.data.name} uses Sucker Punch!\nBut it failed!\n")
@@ -272,7 +280,7 @@ abstract class Battle {
         var opponentMove: PokemonMove =
             if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
         switchPokemon(pokemonToBeSent)
-        sb.append(BattleUtils.abilitiesCheck(pokemon, opponent))
+        sb.append(BattleUtils.abilitiesCheck(pokemon, opponent, this))
         if (this is BossBattle)
             opponentMove = IAUtils.ia(opponent, pokemon)
         if (opponentMove.move.id == 208) {
@@ -337,7 +345,7 @@ abstract class Battle {
                 }
             }
             if (pokemon.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
-                val damage = if (pokemon.currentHP < 16) 1 else pokemon.currentHP / 8
+                val damage = pokemon.hp / 8
                 if (pokemon.hasAbility(Ability.LIQUID_OOZE)) {
                     sb.append("${pokemon.data.name}'s Liquid Ooze: ${opponent.data.name} loses some hp.\n")
                     opponent.takeDamage(damage)
@@ -348,20 +356,26 @@ abstract class Battle {
                 }
             }
         }
-        if (pokemon.currentHP > 0 && opponent.currentHP > 0) {
-            if (pokemon.hasAbility(Ability.SAND_STREAM) && !opponent.hasType(Type.ROCK) && !opponent.hasType(Type.GROUND) && !opponent.hasType(
-                    Type.STEEL
-                )
-            ) {
+        if (weather == Weather.SANDSTORM) {
+            if (opponent.currentHP > 0 && !opponent.hasType(Type.ROCK) && !opponent.hasType(Type.GROUND) && !opponent.hasType(Type.STEEL)
+                && !opponent.hasAbility(Ability.MAGIC_GUARD) && !opponent.hasAbility(Ability.OVERCOAT)) {
                 sb.append("${opponent.data.name} is buffeted by the sandstorm!\n")
                 opponent.takeDamage(opponent.hp / 8)
             }
-            if (opponent.hasAbility(Ability.SAND_STREAM) && !pokemon.hasType(Type.ROCK) && !pokemon.hasType(Type.GROUND) && !pokemon.hasType(
-                    Type.STEEL
-                )
-            ) {
+            if (pokemon.currentHP > 0 && !pokemon.hasType(Type.ROCK) && !pokemon.hasType(Type.GROUND) && !pokemon.hasType(Type.STEEL)
+                && !pokemon.hasAbility(Ability.MAGIC_GUARD) && !pokemon.hasAbility(Ability.OVERCOAT)) {
                 pokemon.takeDamage(pokemon.hp / 8)
                 sb.append("${pokemon.data.name} is buffeted by the sandstorm!\n")
+            }
+        }
+        if (weather == Weather.SNOW) {
+            if (opponent.currentHP > 0 && opponent.hasAbility(Ability.ICE_BODY)) {
+                sb.append("${opponent.data.name}'s Ice Body: ${opponent.data.name} regains some hp!\n")
+                opponent.takeDamage(opponent.hp / 16)
+            }
+            if (pokemon.currentHP > 0 && pokemon.hasAbility(Ability.ICE_BODY)) {
+                pokemon.heal(pokemon.hp / 16)
+                sb.append("${pokemon.data.name}'s Ice Body: ${pokemon.data.name} regains some hp!\n")
             }
         }
         if (opponent.currentHP > 0) {
@@ -376,6 +390,12 @@ abstract class Battle {
                 ) {
                     opponent.battleData!!.battleStatus.add(Status.CONFUSED)
                     sb.append("The opposing ${opponent.data.name} became confused due to fatigue!\n")
+                    if (opponent.heldItem == HoldItem.LUM_BERRY) {
+                        sb.append("${opponent.data.name}'s Lum Berry cured its status\n")
+                        opponent.status = Status.OK
+                        opponent.consumeItem()
+                        Status.cureAllStatus(opponent)
+                    }
                 }
             }
             sb.append(checkStatus(opponent))
@@ -414,19 +434,11 @@ abstract class Battle {
             if (pokemon.isMegaEvolved) {
                 pokemon.recomputeStat()
             }
-            if (opponent.currentHP > 0 && opponent.hasAbility(Ability.MOXIE)) {
-                opponent.battleData!!.attackMultiplicator *= 1.5f
-                sb.append("${opponent.data.name}'s Moxie: the opposing ${opponent.data.name}'s attack rose!\n")
-            }
         }
         if (opponent.currentHP == 0) {
             sb.append("The opposing " + opponent.data.name + " fainted\n")
             if (opponent.isMegaEvolved) {
                 opponent.recomputeStat()
-            }
-            if (pokemon.currentHP > 0 && pokemon.hasAbility(Ability.MOXIE)) {
-                pokemon.battleData!!.attackMultiplicator *= 1.5f
-                sb.append("${pokemon.data.name}'s Moxie: ${pokemon.data.name}'s attack rose!\n")
             }
             updateOpponent()
             if (this is BossBattle && opponent.isMegaEvolved && !this.megaPhase) {
@@ -434,7 +446,22 @@ abstract class Battle {
                 this.megaPhase = true
             }
             if (getBattleState() == State.IN_PROGRESS) {
-                sb.append(BattleUtils.abilitiesCheck(opponent, pokemon))
+                sb.append(BattleUtils.abilitiesCheck(opponent, pokemon, this))
+            }
+        }
+        if (weatherCounter > 0) {
+            weatherCounter -= 1
+            if (weatherCounter == 0) {
+                if (weather == Weather.SANDSTORM) {
+                    if (opponent.hasAbility(Ability.SAND_RUSH)) {
+                        opponent.battleData!!.speedMultiplicator /= 2
+                    }
+                    if (pokemon.hasAbility(Ability.SAND_RUSH)) {
+                        pokemon.battleData!!.speedMultiplicator /= 2
+                    }
+                }
+                weather = Weather.NONE
+                sb.append("The weather is back to normal\n")
             }
         }
     }

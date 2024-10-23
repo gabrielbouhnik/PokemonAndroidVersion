@@ -3,7 +3,6 @@ package com.pokemon.android.version.utils
 import com.pokemon.android.version.model.Ability
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
-import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.battle.DamageCalculator
 import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.move.*

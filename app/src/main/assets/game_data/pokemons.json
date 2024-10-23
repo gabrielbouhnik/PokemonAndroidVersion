@@ -725,7 +725,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["SHIELD_DUST"],
     "expGaugeType": "MEDIUM_FAST"
   },
   {
@@ -829,7 +829,7 @@
     "speed": 70,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["TINTED_LENS"],
+    "abilities": ["TINTED_LENS","COMPOUNDEYES"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -867,7 +867,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["SHIELD_DUST"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -1793,7 +1793,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["SAND_RUSH"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -1871,7 +1871,7 @@
     "speed": 65,
     "catchRate": 90,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["SAND_RUSH"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3148,7 +3148,7 @@
         }
       }
     ],
-    "abilities": ["TINTED_LENS"],
+    "abilities": ["TINTED_LENS","COMPOUNDEYES"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3224,7 +3224,7 @@
     "speed": 90,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["TINTED_LENS","WONDER_SKIN"],
+    "abilities": ["SHIELD_DUST","TINTED_LENS","WONDER_SKIN"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -5283,7 +5283,7 @@
         }
       }
     ],
-    "abilities": ["OWN_TEMPO","REGENERATOR"],
+    "abilities": ["OBLIVIOUS","OWN_TEMPO","REGENERATOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -5357,7 +5357,7 @@
     "speed": 30,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["OWN_TEMPO","REGENERATOR"],
+    "abilities": ["OBLIVIOUS","OWN_TEMPO","REGENERATOR"],
     "expGaugeType":  "MEDIUM_FAST",
     "megaEvolutionData": {
       "type1": 3,
@@ -5757,7 +5757,7 @@
         }
       }
     ],
-    "abilities": ["THICK_FAT"],
+    "abilities": ["THICK_FAT","ICE_BODY"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -5823,7 +5823,7 @@
     "speed": 70,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["THICK_FAT"],
+    "abilities": ["THICK_FAT","ICE_BODY"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -7265,7 +7265,7 @@
     "speed": 30,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["OWN_TEMPO"],
+    "abilities": ["OWN_TEMPO","OBLIVIOUS"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -8321,7 +8321,7 @@
     "speed": 95,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["DRY_SKIN"],
+    "abilities": ["OBLIVIOUS","DRY_SKIN"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -8467,6 +8467,10 @@
     "type2": 0,
     "possibleMoves": {
       "movesLearnByLevel": [
+        {
+          "moveId": 301,
+          "level": 1
+        },
         {
           "moveId": 32,
           "level": 1
@@ -8625,7 +8629,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["RATTLED"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -9634,6 +9638,10 @@
         {
           "moveId": 226,
           "level": 60
+        },
+        {
+          "moveId": 300,
+          "level": 65
         }
       ],
       "movesLearnWithTM": [50,97,100,113,176,177,205],
@@ -12730,7 +12738,7 @@
         }
       }
     ],
-    "abilities": ["SPEED_BOOST","FRISK"],
+    "abilities": ["SPEED_BOOST","COMPOUNDEYES","FRISK"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -13174,7 +13182,7 @@
     "speed": 30,
     "catchRate": 70,
     "evolutions": [],
-    "abilities": ["OWN_TEMPO","REGENERATOR"],
+    "abilities": ["OBLIVIOUS","OWN_TEMPO","REGENERATOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -13343,7 +13351,7 @@
         }
       }
     ],
-    "abilities": ["INNER_FOCUS","EARLY_BIRD"],
+    "abilities": ["INNER_FOCUS","EARLY_BIRD","SAP_SIPPER"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -13696,7 +13704,7 @@
         }
       }
     ],
-    "abilities": ["INTIMIDATE"],
+    "abilities": ["INTIMIDATE","RATTLED"],
     "expGaugeType":  "FAST"
   },
   {
@@ -13771,7 +13779,7 @@
     "speed": 45,
     "catchRate": 75,
     "evolutions": [],
-    "abilities": ["INTIMIDATE","QUICK_FEET"],
+    "abilities": ["INTIMIDATE","QUICK_FEET","RATTLED"],
     "expGaugeType":  "FAST"
   },
   {
@@ -14098,6 +14106,10 @@
         {
           "moveId": 270,
           "level": 36
+        },
+        {
+          "moveId": 98,
+          "level": 42
         },
         {
           "moveId": 21,
@@ -14494,7 +14506,7 @@
         }
       }
     ],
-    "abilities": ["THICK_FAT"],
+    "abilities": ["OBLIVIOUS","THICK_FAT"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -14577,7 +14589,7 @@
         }
       }
     ],
-    "abilities": ["THICK_FAT"],
+    "abilities": ["OBLIVIOUS","THICK_FAT"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -15281,7 +15293,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["OWN_TEMPO"],
     "expGaugeType": "MEDIUM_SLOW"
   },
   {
@@ -15666,6 +15678,10 @@
         {
           "moveId": 80,
           "level": 72
+        },
+        {
+          "moveId": 300,
+          "level": 78
         }
       ],
       "movesLearnWithTM": [72,24,30,43,46,50,57,97,100,136,176,177,204
@@ -16164,7 +16180,7 @@
         }
       }
     ],
-    "abilities": ["QUICK_FEET"],
+    "abilities": ["QUICK_FEET","RATTLED"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -16936,6 +16952,79 @@
     }
   },
   {
+    "id": 359,
+    "name": "Absol",
+    "type1": 17,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 3,
+          "level": 1
+        },
+        {
+          "moveId": 247,
+          "level": 10
+        },
+        {
+          "moveId": 242,
+          "level": 20
+        },
+        {
+          "moveId": 38,
+          "level": 25
+        },
+        {
+          "moveId": 123,
+          "level": 30
+        },
+        {
+          "moveId": 22,
+          "level": 35
+        },
+        {
+          "moveId": 208,
+          "level": 40
+        },
+        {
+          "moveId": 114,
+          "level": 45
+        },
+        {
+          "moveId": 217,
+          "level": 50
+        },
+        {
+          "moveId": 109,
+          "level": 55
+        }
+      ],
+      "movesLearnWithTM": [72,12,25,31,46,50,55,56,73,82,92,100,113,114,135,176,177,204,206,221],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 130,
+    "defense": 60,
+    "spAtk": 75,
+    "spDef": 60,
+    "speed": 75,
+    "catchRate": 30,
+    "evolutions": [],
+    "abilities": ["PRESSURE","SUPER_LUCK","JUSTIFIED"],
+    "expGaugeType":  "MEDIUM_SLOW",
+    "megaEvolutionData": {
+      "type1": 17,
+      "type2": 0,
+      "attack": 150,
+      "defense": 60,
+      "spAtk": 115,
+      "spDef": 60,
+      "speed": 115,
+      "ability": "MAGIC_BOUNCE",
+      "stoneId": 128
+    }
+  },
+  {
     "id": 350,
     "name": "Milotic",
     "type1": 3,
@@ -16974,7 +17063,7 @@
     "speed": 65,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["THICK_FAT"],
+    "abilities": ["THICK_FAT","OBLIVIOUS"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -18209,6 +18298,10 @@
           "level": 36
         },
         {
+          "moveId": 98,
+          "level": 42
+        },
+        {
           "moveId": 21,
           "level": 48
         },
@@ -18981,7 +19074,7 @@
     "speed": 80,
     "catchRate": 50,
     "evolutions": [],
-    "abilities": ["THICK_FAT"],
+    "abilities": ["OBLIVIOUS","THICK_FAT"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -21164,6 +21257,218 @@
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
+    "id": 704,
+    "name": "Goomy",
+    "type1": 15,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 67,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 5
+        },
+        {
+          "moveId": 15,
+          "level": 10
+        },
+        {
+          "moveId": 190,
+          "level": 20
+        },
+        {
+          "moveId": 24,
+          "level": 25
+        },
+        {
+          "moveId": 227,
+          "level": 30
+        },
+        {
+          "moveId": 104,
+          "level": 35
+        },
+        {
+          "moveId": 88,
+          "level": 45
+        },
+        {
+          "moveId": 178,
+          "level": 50
+        }
+      ],
+      "movesLearnWithTM": [72,12,24,25,37,104],
+      "bannerMoves": []
+    },
+    "hp": 45,
+    "attack": 50,
+    "defense": 35,
+    "spAtk": 55	,
+    "spDef": 75,
+    "speed": 40,
+    "catchRate": 45,
+    "evolutions": [
+      {
+        "evolutionId": 705,
+        "evolutionCondition": {
+          "level": 40
+        }
+      }
+    ],
+    "abilities": ["SAP_SIPPER"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 705,
+    "name": "Sliggoo",
+    "type1": 15,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 67,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 5
+        },
+        {
+          "moveId": 15,
+          "level": 10
+        },
+        {
+          "moveId": 190,
+          "level": 20
+        },
+        {
+          "moveId": 24,
+          "level": 25
+        },
+        {
+          "moveId": 227,
+          "level": 30
+        },
+        {
+          "moveId": 104,
+          "level": 35
+        },
+        {
+          "moveId": 88,
+          "level": 49
+        },
+        {
+          "moveId": 178,
+          "level": 56
+        }
+      ],
+      "movesLearnWithTM": [72,12,24,25,37,104],
+      "bannerMoves": []
+    },
+    "hp": 68,
+    "attack": 75,
+    "defense": 53,
+    "spAtk": 83	,
+    "spDef": 113,
+    "speed": 60,
+    "catchRate": 45,
+    "evolutions": [
+      {
+        "evolutionId": 706,
+        "evolutionCondition": {
+          "level": 50
+        }
+      }
+    ],
+    "abilities": ["SAP_SIPPER"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 706,
+    "name": "Goodra",
+    "type1": 15,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 67,
+          "level": 1
+        },
+        {
+          "moveId": 6,
+          "level": 5
+        },
+        {
+          "moveId": 15,
+          "level": 10
+        },
+        {
+          "moveId": 190,
+          "level": 20
+        },
+        {
+          "moveId": 24,
+          "level": 25
+        },
+        {
+          "moveId": 227,
+          "level": 30
+        },
+        {
+          "moveId": 104,
+          "level": 35
+        },
+        {
+          "moveId": 88,
+          "level": 45
+        },
+        {
+          "moveId": 79,
+          "level": 50
+        },
+        {
+          "moveId": 178,
+          "level": 58
+        },
+        {
+          "moveId": 143,
+          "level": 67
+        },
+        {
+          "moveId": 262,
+          "level": 76
+        }
+      ],
+      "movesLearnWithTM": [72,12,24,25,31,37,43,82,93,100,104,176,177],
+      "bannerMoves": []
+    },
+    "hp": 90,
+    "attack": 100,
+    "defense": 70,
+    "spAtk": 110,
+    "spDef": 150,
+    "speed": 80,
+    "catchRate": 45,
+    "evolutions": [],
+    "abilities": ["SAP_SIPPER"],
+    "expGaugeType":  "SLOW"
+  },
+  {
     "id": 714,
     "name": "Noibat",
     "type1": 6,
@@ -21307,12 +21612,224 @@
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
+    "id": 736 ,
+    "name": "Grubbin",
+    "type1": 7,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 301,
+          "level": 1
+        },
+        {
+          "moveId": 32,
+          "level": 1
+        },
+        {
+          "moveId": 154,
+          "level": 1
+        },
+        {
+          "moveId": 26,
+          "level": 5
+        },
+        {
+          "moveId": 23,
+          "level": 15
+        },
+        {
+          "moveId": 272,
+          "level": 19
+        },
+        {
+          "moveId": 52,
+          "level": 21
+        },
+        {
+          "moveId": 56,
+          "level": 30
+        },
+        {
+          "moveId": 27,
+          "level": 35
+        }
+      ],
+      "movesLearnWithTM": [72,56,207],
+      "bannerMoves": []
+    },
+    "hp": 47,
+    "attack": 62,
+    "defense": 45,
+    "spAtk": 55,
+    "spDef": 45,
+    "speed": 46,
+    "catchRate": 255,
+    "evolutions": [
+      {
+        "evolutionId": 737,
+        "evolutionCondition": {
+          "level": 20
+        }
+      }
+    ],
+    "abilities": ["SWARM"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 737,
+    "name": "Charjabug",
+    "type1": 7,
+    "type2": 4,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 301,
+          "level": 1
+        },
+        {
+          "moveId": 32,
+          "level": 1
+        },
+        {
+          "moveId": 154,
+          "level": 1
+        },
+        {
+          "moveId": 26,
+          "level": 5
+        },
+        {
+          "moveId": 23,
+          "level": 15
+        },
+        {
+          "moveId": 272,
+          "level": 19
+        },
+        {
+          "moveId": 52,
+          "level": 21
+        },
+        {
+          "moveId": 56,
+          "level": 36
+        },
+        {
+          "moveId": 27,
+          "level": 43
+        },
+        {
+          "moveId": 53,
+          "level": 64
+        }
+      ],
+      "movesLearnWithTM": [72,12,55,56,184,207],
+      "bannerMoves": []
+    },
+    "hp": 57,
+    "attack": 82,
+    "defense": 95,
+    "spAtk": 55,
+    "spDef": 75,
+    "speed": 36,
+    "catchRate": 120,
+    "evolutions": [
+      {
+        "evolutionId": 738,
+        "evolutionCondition": {
+          "itemId": 17
+        }
+      }
+    ],
+    "abilities": ["SWARM"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 738,
+    "name": "Vikavolt",
+    "type1": 7,
+    "type2": 4,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 12,
+          "level": 1
+        },
+        {
+          "moveId": 53,
+          "level": 1
+        },
+        {
+          "moveId": 27,
+          "level": 1
+        },
+        {
+          "moveId": 301,
+          "level": 1
+        },
+        {
+          "moveId": 32,
+          "level": 1
+        },
+        {
+          "moveId": 154,
+          "level": 1
+        },
+        {
+          "moveId": 26,
+          "level": 5
+        },
+        {
+          "moveId": 23,
+          "level": 15
+        },
+        {
+          "moveId": 272,
+          "level": 19
+        },
+        {
+          "moveId": 52,
+          "level": 21
+        },
+        {
+          "moveId": 56,
+          "level": 36
+        },
+        {
+          "moveId": 60,
+          "level": 43
+        },
+        {
+          "moveId": 21,
+          "level": 57
+        }
+      ],
+      "movesLearnWithTM": [72,12,55,50,56,105,111,176,184,177,200,207],
+      "bannerMoves": []
+    },
+    "hp": 77,
+    "attack": 70,
+    "defense": 90,
+    "spAtk": 145,
+    "spDef": 75,
+    "speed": 43,
+    "catchRate": 45,
+    "evolutions": [],
+    "abilities": ["LEVITATE"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
     "id": 739,
     "name": "Crabrawler",
     "type1": 11,
     "type2": 0,
     "possibleMoves": {
       "movesLearnByLevel": [
+        {
+          "moveId": 301,
+          "level": 1
+        },
         {
           "moveId": 297,
           "level": 1
@@ -21658,6 +22175,129 @@
     "expGaugeType":  "SLOW"
   },
   {
+    "id": 854,
+    "name": "Sinistea",
+    "type1": 13,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 20,
+          "level": 1
+        },
+        {
+          "moveId": 47,
+          "level": 1
+        },
+        {
+          "moveId": 260,
+          "level": 6
+        },
+        {
+          "moveId": 254,
+          "level": 12
+        },
+        {
+          "moveId": 208,
+          "level": 24
+        },
+        {
+          "moveId": 66,
+          "level": 36
+        },
+        {
+          "moveId": 173,
+          "level": 42
+        },
+        {
+          "moveId": 46,
+          "level": 48
+        },
+        {
+          "moveId": 245,
+          "level": 60
+        }
+      ],
+      "movesLearnWithTM": [45,46,66,135,138,173,219],
+      "bannerMoves": []
+    },
+    "hp": 40,
+    "attack": 45,
+    "defense": 45,
+    "spAtk": 74,
+    "spDef": 54,
+    "speed": 50,
+    "catchRate": 120,
+    "evolutions": [
+      {
+        "evolutionId": 855,
+        "evolutionCondition": {
+          "itemId": 133
+        }
+      }
+    ],
+    "abilities": ["WEAK_ARMOR","CURSED_BODY"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 855,
+    "name": "Polteageist",
+    "type1": 13,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 20,
+          "level": 1
+        },
+        {
+          "moveId": 47,
+          "level": 1
+        },
+        {
+          "moveId": 260,
+          "level": 6
+        },
+        {
+          "moveId": 254,
+          "level": 12
+        },
+        {
+          "moveId": 208,
+          "level": 24
+        },
+        {
+          "moveId": 66,
+          "level": 36
+        },
+        {
+          "moveId": 173,
+          "level": 42
+        },
+        {
+          "moveId": 46,
+          "level": 48
+        },
+        {
+          "moveId": 245,
+          "level": 60
+        }
+      ],
+      "movesLearnWithTM": [45,46,66,135,138,173,176,177,219],
+      "bannerMoves": []
+    },
+    "hp": 60,
+    "attack": 65,
+    "defense": 65,
+    "spAtk": 134,
+    "spDef": 114,
+    "speed": 70,
+    "catchRate": 120,
+    "evolutions": [],
+    "abilities": ["WEAK_ARMOR","CURSED_BODY"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
     "id": 856,
     "name": "Hatenna",
     "type1": 12,
@@ -21824,6 +22464,202 @@
     "evolutions": [],
     "abilities": ["ANTICIPATION","MAGIC_BOUNCE"],
     "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 859,
+    "name": "Impidimp",
+    "type1": 17,
+    "type2": 18,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 246,
+          "level": 1
+        },
+        {
+          "moveId": 23,
+          "level": 4
+        },
+        {
+          "moveId": 251,
+          "level": 16
+        },
+        {
+          "moveId": 208,
+          "level": 24
+        },
+        {
+          "moveId": 92,
+          "level": 33
+        },
+        {
+          "moveId": 173,
+          "level": 36
+        },
+        {
+          "moveId": 73,
+          "level": 40
+        },
+        {
+          "moveId": 223,
+          "level": 44
+        }
+      ],
+      "movesLearnWithTM": [72,44,76,92,173],
+      "bannerMoves": []
+    },
+    "hp": 45,
+    "attack": 45,
+    "defense": 30,
+    "spAtk": 55,
+    "spDef": 40,
+    "speed": 50,
+    "catchRate": 255,
+    "evolutions": [
+      {
+        "evolutionId": 860,
+        "evolutionCondition": {
+          "level": 32
+        }
+      }
+    ],
+    "abilities": ["FRISK", "PRANKSTER"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 860,
+    "name": "Morgrem",
+    "type1": 17,
+    "type2": 18,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 303,
+          "level": 1
+        },
+        {
+          "moveId": 246,
+          "level": 1
+        },
+        {
+          "moveId": 23,
+          "level": 4
+        },
+        {
+          "moveId": 251,
+          "level": 16
+        },
+        {
+          "moveId": 208,
+          "level": 24
+        },
+        {
+          "moveId": 92,
+          "level": 33
+        },
+        {
+          "moveId": 173,
+          "level": 46
+        },
+        {
+          "moveId": 73,
+          "level": 46
+        },
+        {
+          "moveId": 223,
+          "level": 52
+        }
+      ],
+      "movesLearnWithTM": [72,44,55,76,92,173,206],
+      "bannerMoves": []
+    },
+    "hp": 65,
+    "attack": 60,
+    "defense": 45,
+    "spAtk": 75,
+    "spDef": 55,
+    "speed": 70,
+    "catchRate": 120,
+    "evolutions": [
+      {
+        "evolutionId": 861,
+        "evolutionCondition": {
+          "level": 42
+        }
+      }
+    ],
+    "abilities": ["FRISK", "PRANKSTER"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 861,
+    "name": "Grimmsnarl",
+    "type1": 17,
+    "type2": 18,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 304,
+          "level": 1
+        },
+        {
+          "moveId": 303,
+          "level": 1
+        },
+        {
+          "moveId": 140,
+          "level": 1
+        },
+        {
+          "moveId": 246,
+          "level": 1
+        },
+        {
+          "moveId": 23,
+          "level": 4
+        },
+        {
+          "moveId": 251,
+          "level": 16
+        },
+        {
+          "moveId": 208,
+          "level": 24
+        },
+        {
+          "moveId": 92,
+          "level": 33
+        },
+        {
+          "moveId": 173,
+          "level": 46
+        },
+        {
+          "moveId": 73,
+          "level": 48
+        },
+        {
+          "moveId": 223,
+          "level": 56
+        },
+        {
+          "moveId": 149,
+          "level": 64
+        }
+      ],
+      "movesLearnWithTM": [72,44,55,76,92,103,107,110,173,176,177,206],
+      "bannerMoves": []
+    },
+    "hp": 95,
+    "attack": 120,
+    "defense": 65,
+    "spAtk": 95,
+    "spDef": 75,
+    "speed": 60,
+    "catchRate": 45,
+    "evolutions": [],
+    "abilities": ["FRISK", "PRANKSTER"],
+    "expGaugeType":  "MEDIUM_FAST"
   },
   {
     "id": 878,
@@ -22228,7 +23064,7 @@
           "level": 64
         }
       ],
-      "movesLearnWithTM": [72,25,30,36,69,73,87,93,103,107,110,114,140,176,177,206,221,267],
+      "movesLearnWithTM": [72,25,30,36,69,73,76,87,93,103,107,110,114,140,176,177,206,221,267],
       "bannerMoves": []
     },
     "hp": 130,
@@ -22239,7 +23075,7 @@
     "speed": 50,
     "catchRate": 20,
     "evolutions": [],
-    "abilities": ["GUTS"],
+    "abilities": ["GUTS", "BULLETPROOF"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -23060,7 +23896,150 @@
     "abilities": ["OVERCOAT","FILTER"],
     "expGaugeType":  "MEDIUM_FAST"
   },
-
+  {
+    "id": 971,
+    "name": "Greavard",
+    "type1": 13,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 65,
+          "level": 3
+        },
+        {
+          "moveId": 23,
+          "level": 6
+        },
+        {
+          "moveId": 285,
+          "level": 9
+        },
+        {
+          "moveId": 72,
+          "level": 12
+        },
+        {
+          "moveId": 220,
+          "level": 16
+        },
+        {
+          "moveId": 275,
+          "level": 24
+        },
+        {
+          "moveId": 27,
+          "level": 28
+        },
+        {
+          "moveId": 73,
+          "level": 32
+        },
+        {
+          "moveId": 296,
+          "level": 37
+        },
+        {
+          "moveId": 147,
+          "level": 52
+        }
+      ],
+      "movesLearnWithTM": [72,30,46,204],
+      "bannerMoves": []
+    },
+    "hp": 50,
+    "attack": 61,
+    "defense": 60,
+    "spAtk": 30,
+    "spDef": 55,
+    "speed": 34,
+    "catchRate": 120,
+    "evolutions": [
+      {
+        "evolutionId": 972,
+        "evolutionCondition": {
+          "level" : 30,
+          "dayTime": "NIGHT"
+        }
+      }
+    ],
+    "abilities": ["PICKUP", "FLUFFY"],
+    "expGaugeType":  "MEDIUM_SLOW"
+  },
+  {
+    "id": 972,
+    "name": "Houndstone",
+    "type1": 13,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 305,
+          "level": 1
+        },
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 65,
+          "level": 3
+        },
+        {
+          "moveId": 23,
+          "level": 6
+        },
+        {
+          "moveId": 285,
+          "level": 9
+        },
+        {
+          "moveId": 72,
+          "level": 12
+        },
+        {
+          "moveId": 220,
+          "level": 16
+        },
+        {
+          "moveId": 275,
+          "level": 24
+        },
+        {
+          "moveId": 27,
+          "level": 28
+        },
+        {
+          "moveId": 73,
+          "level": 36
+        },
+        {
+          "moveId": 296,
+          "level": 41
+        },
+        {
+          "moveId": 147,
+          "level": 58
+        }
+      ],
+      "movesLearnWithTM": [72,30,46,138,177,178,204,267],
+      "bannerMoves": []
+    },
+    "hp": 72,
+    "attack": 101,
+    "defense": 100,
+    "spAtk": 50,
+    "spDef": 97,
+    "speed": 68,
+    "catchRate": 60,
+    "evolutions": [],
+    "abilities": ["SAND_RUSH", "FLUFFY"],
+    "expGaugeType":  "MEDIUM_SLOW"
+  },
   {
     "id": 975,
     "name": "Cetitan",
@@ -23149,7 +24128,146 @@
     "speed": 60,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["ARMOR_TAIL"],
+    "abilities": ["ARMOR_TAIL","SAP_SIPPER"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 10037,
+    "name": "Vulpix",
+    "type1": 14,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 174,
+          "level": 1
+        },
+        {
+          "moveId": 265,
+          "level": 4
+        },
+        {
+          "moveId": 95,
+          "level": 8
+        },
+        {
+          "moveId": 97,
+          "level": 16
+        },
+        {
+          "moveId": 48,
+          "level": 20
+        },
+        {
+          "moveId": 175,
+          "level": 24
+        },
+        {
+          "moveId": 81,
+          "level": 28
+        },
+        {
+          "moveId": 100,
+          "level": 32
+        },
+        {
+          "moveId": 84,
+          "level": 40
+        },
+        {
+          "moveId": 268,
+          "level": 48
+        },
+        {
+          "moveId": 300,
+          "level": 52
+        }
+      ],
+      "movesLearnWithTM": [72,44,73,92,97,100,148,173,176,177],
+      "bannerMoves": []
+    },
+    "catchRate": 190,
+    "hp": 38,
+    "attack": 41,
+    "defense": 40,
+    "spAtk": 50,
+    "spDef": 65,
+    "speed": 60,
+    "evolutions": [
+      {
+        "evolutionId": 10038,
+        "evolutionCondition": {
+          "itemId": 30
+        }
+      }
+    ],
+    "abilities": ["SNOW_WARNING"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 10038,
+    "name": "Ninetales",
+    "type1": 14,
+    "type2": 18,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 174,
+          "level": 1
+        },
+        {
+          "moveId": 265,
+          "level": 1
+        },
+        {
+          "moveId": 95,
+          "level": 1
+        },
+        {
+          "moveId": 97,
+          "level": 1
+        },
+        {
+          "moveId": 48,
+          "level": 1
+        },
+        {
+          "moveId": 175,
+          "level": 1
+        },
+        {
+          "moveId": 81,
+          "level": 1
+        },
+        {
+          "moveId": 100,
+          "level": 1
+        },
+        {
+          "moveId": 84,
+          "level": 1
+        },
+        {
+          "moveId": 268,
+          "level": 1
+        },
+        {
+          "moveId": 300,
+          "level": 1
+        }
+      ],
+      "movesLearnWithTM": [72,44,73,92,97,100,148,173,176,177,219],
+      "bannerMoves": []
+    },
+    "catchRate": 75,
+    "hp": 73,
+    "attack": 67,
+    "defense": 75,
+    "spAtk": 81,
+    "spDef": 100,
+    "speed": 109,
+    "evolutions": [],
+    "abilities": ["SNOW_WARNING"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {

@@ -2701,6 +2701,66 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 300,
+      "name": "Blizzard",
+      "power": 110,
+      "pp": 5,
+      "type": 14,
+      "category": "SPECIAL",
+      "accuracy": 70,
+      "description": "A howling blizzard is summoned to strike opposing Pokémon. This may also leave the target frozen.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "FROZEN",
+          "probability": 10
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 301,
+      "name": "Vise Grip",
+      "power": 55,
+      "pp": 30,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The target is gripped and squeezed from both sides to inflict damage.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 303,
+      "name": "False Surrender",
+      "power": 80,
+      "pp": 10,
+      "type": 17,
+      "category": "PHYSICAL",
+      "description": "The user pretends to bow its head, but then it stabs the target with its disheveled hair. This attack never misses.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 305,
+      "name": "Last Respects",
+      "power": 50,
+      "pp": 10,
+      "type": 13,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user attacks to avenge its allies. The more defeated allies there are in the user's party, the greater the move's power.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "multipleHitMoves": [
@@ -3934,7 +3994,7 @@
       "pp": 20,
       "type": 7,
       "accuracy": 100,
-      "description": "While resisting, the user attacks opposing PokÃ©mon. This lowers the Sp. Atk stats of those hit.",
+      "description": "While resisting, the user attacks opposing Pokémon. This lowers the Sp. Atk stats of those hit.",
       "priorityLevel": 0,
       "statsAffected": ["SPATK"],
       "target": "OPPONENT",
@@ -4399,6 +4459,42 @@
         "SPEED"
       ],
       "target": "SELF",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 302,
+      "name": "Strength Sap",
+      "power": 0,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 1,
+      "accuracy": 100,
+      "description": "The user restores its own HP by the same amount as the target's Attack stat. It then lowers the target's Attack stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        "ATTACK"
+      ],
+      "target": "OPPONENT",
+      "multiplicator": 0.67,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 304,
+      "name": "Spirit Break",
+      "power": 75,
+      "category": "PHYSICAL",
+      "pp": 15,
+      "type": 18,
+      "accuracy": 100,
+      "description": "The user attacks the target with so much force that it could break the target's spirit. This also lowers the target's Sp. Atk stat.",
+      "priorityLevel": 0,
+      "statsAffected": ["SPATK"],
+      "target": "OPPONENT",
       "multiplicator": 0.67,
       "status": [],
       "highCritRate": false,

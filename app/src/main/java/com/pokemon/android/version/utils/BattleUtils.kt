@@ -4,7 +4,9 @@ import com.pokemon.android.version.model.Ability
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Type
+import com.pokemon.android.version.model.battle.Battle
 import com.pokemon.android.version.model.battle.DamageCalculator
+import com.pokemon.android.version.model.battle.Weather
 import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveBasedOnLevel
@@ -99,7 +101,7 @@ class BattleUtils {
             return details
         }
 
-        fun abilitiesCheck(pokemon: Pokemon, opponent: Pokemon): String {
+        fun abilitiesCheck(pokemon: Pokemon, opponent: Pokemon, battle: Battle): String {
             val sb = StringBuilder()
             if (pokemon.status != Status.OK)
                 checkForStatusStatsRaiseAbility(pokemon)
@@ -115,11 +117,13 @@ class BattleUtils {
                 sb.append("${pokemon.data.name}'s Pressure: ${pokemon.data.name} is exerting its pressure!\n")
             if (pokemon.hasAbility(Ability.MOLD_BREAKER))
                 sb.append("${pokemon.data.name}'s Mold Breaker: ${pokemon.data.name} breaks the mold!\n")
+            if (pokemon.hasAbility(Ability.COMPOUNDEYES))
+                pokemon.battleData!!.accuracyMultiplicator *= 1.3f
             if (pokemon.hasAbility(Ability.ANTICIPATION) && MoveUtils.getMoveList(opponent)
                     .any { DamageCalculator.getEffectiveness(opponent, it.move, pokemon) >= 2f }
             )
                 sb.append("${pokemon.data.name}'s Anticipation: ${pokemon.data.name} shuddered!\n")
-            if (pokemon.hasAbility(Ability.INTIMIDATE) && !opponent.hasAbility(Ability.OWN_TEMPO)) {
+            if (pokemon.hasAbility(Ability.INTIMIDATE) && !opponent.hasAbility(Ability.OBLIVIOUS)  && !opponent.hasAbility(Ability.OWN_TEMPO)) {
                 sb.append("${pokemon.data.name}'s Intimidate: ${opponent.data.name}'s attack fell!\n")
                 when {
                     opponent.hasAbility(Ability.CLEAR_BODY) -> sb.append("${opponent.data.name}'s Clear Body: ${opponent.data.name}'s stats cannot be lowered!\n")
@@ -135,6 +139,10 @@ class BattleUtils {
                     else -> {
                         if (opponent.battleData != null)
                             opponent.battleData!!.attackMultiplicator *= 0.67f
+                        if (opponent.hasAbility(Ability.RATTLED)) {
+                            opponent.battleData!!.speedMultiplicator *= 1.5f
+                            sb.append("${opponent.data.name}'s Rattled: ${opponent.data.name}'s speed rose!\n")
+                        }
                     }
                 }
             }
@@ -153,13 +161,28 @@ class BattleUtils {
             if (pokemon.hasItem(HoldItem.WIDE_LENS)) {
                 pokemon.battleData!!.accuracyMultiplicator *= 1.5f
             }
-            if (pokemon.hasAbility(Ability.SAND_STREAM)) {
-                pokemon.battleData!!.spDefMultiplicator *= 1.5f
+            if (pokemon.hasAbility(Ability.SAND_STREAM) && battle.weather != Weather.SANDSTORM) {
+                battle.weather = Weather.SANDSTORM
+                battle.weatherCounter = 5
                 sb.append("${pokemon.data.name}'s Sand Stream: A sandstorm kicked up!\n")
                 if (pokemon.hasType(Type.ROCK))
                     pokemon.battleData!!.spDefMultiplicator *= 1.5f
                 if (opponent.hasType(Type.ROCK))
                     opponent.battleData!!.spDefMultiplicator *= 1.5f
+                if (opponent.hasAbility(Ability.SAND_RUSH))
+                    opponent.battleData!!.speedMultiplicator *= 2
+                if (pokemon.hasAbility(Ability.SAND_RUSH))
+                    pokemon.battleData!!.speedMultiplicator *= 2
+
+            }
+            if (pokemon.hasAbility(Ability.SNOW_WARNING) && battle.weather != Weather.SNOW) {
+                battle.weather = Weather.SNOW
+                battle.weatherCounter = 5
+                sb.append("${pokemon.data.name}'s Snow Warning: It started to snow!\n")
+                if (pokemon.hasType(Type.ICE))
+                    pokemon.battleData!!.defenseMultiplicator *= 1.5f
+                if (opponent.hasType(Type.ICE))
+                    opponent.battleData!!.defenseMultiplicator *= 1.5f
             }
             if (pokemon.hasAbility(Ability.DOWNLOAD)) {
                 if (opponent.defense * opponent.battleData!!.defenseMultiplicator > opponent.spDef * opponent.battleData!!.spDefMultiplicator) {

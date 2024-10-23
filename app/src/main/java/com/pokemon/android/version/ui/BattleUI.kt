@@ -33,10 +33,11 @@ import kotlin.random.Random
 
 class BattleUI {
     companion object {
-        const val BOY_BACK_SPRITE = "images/HGSS_Ethan_Back.png"
-        const val GIRL_BACK_SPRITE = "images/HGSS_Lyra_Back.png"
-        const val MEGA_DISABLED_ICON = "images/mega/mega_disabled.png"
-        const val MEGA_ENABLED_ICON = "images/mega/mega_enabled.png"
+        const val IMAGE_FOLDER = "images/"
+        const val BOY_BACK_SPRITE = IMAGE_FOLDER + "HGSS_Ethan_Back.png"
+        const val GIRL_BACK_SPRITE = IMAGE_FOLDER + "HGSS_Lyra_Back.png"
+        const val MEGA_DISABLED_ICON = IMAGE_FOLDER + "mega/mega_disabled.png"
+        const val MEGA_ENABLED_ICON = IMAGE_FOLDER + "mega/mega_enabled.png"
     }
 
     private var dialogTextView: TextView? = null
@@ -161,6 +162,21 @@ class BattleUI {
             opponentStatusTextView.setTextColor(ColorUtils.getColorByStatus(battle.opponent.status))
         } else {
             opponentStatusTextView.visibility = GONE
+        }
+
+        val weatherIconImageView: ImageView = activity.findViewById(R.id.weatherIconSpriteView)
+        if (battle.weather == Weather.NONE) {
+            weatherIconImageView.visibility = GONE
+        }
+        else {
+            weatherIconImageView.visibility = VISIBLE
+            weatherIconImageView.setImageDrawable(
+                Drawable.createFromStream(
+                    activity.assets.open(
+                        IMAGE_FOLDER + battle.weather.iconName
+                    ), IMAGE_FOLDER + battle.weather.iconName
+                )
+            )
         }
     }
 
@@ -402,7 +418,7 @@ class BattleUI {
                                 displayPokemonsInfos(activity, battle)
                                 val sb = StringBuilder()
                                 sb.append(dialogTextView!!.text.toString())
-                                sb.append(BattleUtils.abilitiesCheck(battle.pokemon, battle.opponent))
+                                sb.append(BattleUtils.abilitiesCheck(battle.pokemon, battle.opponent, battle))
                                 dialogTextView!!.text = sb.toString()
                             }
                         }
@@ -674,8 +690,8 @@ class BattleUI {
         sb.append(activity.getString(R.string.wild_encounter, wildBattle.opponent.data.name) + '\n')
         if (wildBattle.opponent.shiny)
             activity.showCustomDialog("It's shiny!\n")
-        sb.append(BattleUtils.abilitiesCheck(wildBattle.pokemon, wildBattle.opponent))
-        sb.append(BattleUtils.abilitiesCheck(wildBattle.opponent, wildBattle.pokemon))
+        sb.append(BattleUtils.abilitiesCheck(wildBattle.pokemon, wildBattle.opponent, wildBattle))
+        sb.append(BattleUtils.abilitiesCheck(wildBattle.opponent, wildBattle.pokemon, wildBattle))
         dialogTextView!!.text = sb.toString()
         displayPokemonsInfos(activity, wildBattle)
     }
@@ -702,8 +718,8 @@ class BattleUI {
             val sb = StringBuilder()
             sb.append(activity.getString(R.string.trainer_encounter, level.opponentTrainerData[0].name) + "\n")
             sb.append("${level.opponentTrainerData[0].name} sends out ${trainerBattle.opponent.data.name}\n")
-            sb.append(BattleUtils.abilitiesCheck(trainerBattle.pokemon, trainerBattle.opponent))
-            sb.append(BattleUtils.abilitiesCheck(trainerBattle.opponent, trainerBattle.pokemon))
+            sb.append(BattleUtils.abilitiesCheck(trainerBattle.pokemon, trainerBattle.opponent, trainerBattle))
+            sb.append(BattleUtils.abilitiesCheck(trainerBattle.opponent, trainerBattle.pokemon, trainerBattle))
             dialogTextView!!.text = sb.toString()
             buttonSetUp(activity, trainerBattle)
             displayPokemonsInfos(activity, trainerBattle)
@@ -739,8 +755,8 @@ class BattleUI {
             val sb = StringBuilder()
             sb.append(activity.getString(R.string.trainer_encounter, level.title) + "\n")
             sb.append("${level.title} sends out ${gymLeaderBattle.opponent.data.name}\n")
-            sb.append(BattleUtils.abilitiesCheck(gymLeaderBattle.pokemon, gymLeaderBattle.opponent))
-            sb.append(BattleUtils.abilitiesCheck(gymLeaderBattle.opponent, gymLeaderBattle.pokemon))
+            sb.append(BattleUtils.abilitiesCheck(gymLeaderBattle.pokemon, gymLeaderBattle.opponent, gymLeaderBattle))
+            sb.append(BattleUtils.abilitiesCheck(gymLeaderBattle.opponent, gymLeaderBattle.pokemon, gymLeaderBattle))
             dialogTextView!!.text = sb.toString()
             buttonSetUp(activity, gymLeaderBattle)
             displayPokemonsInfos(activity, gymLeaderBattle)
@@ -762,8 +778,8 @@ class BattleUI {
         buttonSetUp(activity, bossBattle)
         val sb = StringBuilder()
         sb.append(activity.getString(R.string.boss_encounter, bossBattle.opponent.data.name) + '\n')
-        sb.append(BattleUtils.abilitiesCheck(bossBattle.pokemon, bossBattle.opponent))
-        sb.append(BattleUtils.abilitiesCheck(bossBattle.opponent, bossBattle.pokemon))
+        sb.append(BattleUtils.abilitiesCheck(bossBattle.pokemon, bossBattle.opponent, bossBattle))
+        sb.append(BattleUtils.abilitiesCheck(bossBattle.opponent, bossBattle.pokemon, bossBattle))
         dialogTextView!!.text = sb.toString()
         displayPokemonsInfos(activity, bossBattle)
     }
@@ -791,8 +807,8 @@ class BattleUI {
             val sb = StringBuilder()
             sb.append(activity.getString(R.string.battle_frontier_encounter) + "\n")
             sb.append("The opposing trainer sends out ${battleFrontierBattle.opponent.data.name}\n")
-            sb.append(BattleUtils.abilitiesCheck(battleFrontierBattle.pokemon, battleFrontierBattle.opponent))
-            sb.append(BattleUtils.abilitiesCheck(battleFrontierBattle.opponent, battleFrontierBattle.pokemon))
+            sb.append(BattleUtils.abilitiesCheck(battleFrontierBattle.pokemon, battleFrontierBattle.opponent, battleFrontierBattle))
+            sb.append(BattleUtils.abilitiesCheck(battleFrontierBattle.opponent, battleFrontierBattle.pokemon, battleFrontierBattle))
             dialogTextView!!.text = sb.toString()
             buttonSetUp(activity, battleFrontierBattle)
             displayPokemonsInfos(activity, battleFrontierBattle)

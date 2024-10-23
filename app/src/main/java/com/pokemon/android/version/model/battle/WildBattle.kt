@@ -25,6 +25,8 @@ class WildBattle() : Battle() {
                 && it.id != 701
                 && it.id != 782
                 && it.id != 885 }
+        else
+            wildBattleLevelData.possibleEncounters.encounters = wildBattleLevelData.possibleEncounters.encounters.filter { it.id != 126 }
         this.encountersLeft = wildBattleLevelData.encounter
         this.pokemon = activity.trainer!!.getFirstPokemonThatCanFight()!!
         this.pokemon.battleData = PokemonBattleData()

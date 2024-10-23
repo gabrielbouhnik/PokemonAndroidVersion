@@ -51,7 +51,10 @@ class DamageCalculator {
                 else
                     type2 = Type.NONE
             }
-            if ((move.type == Type.NORMAL || move.type == Type.FIGHTING) && attacker.hasAbility(Ability.SCRAPPY) && opponent.hasType(Type.GHOST)) {
+            if ((move.type == Type.NORMAL || move.type == Type.FIGHTING) && attacker.hasAbility(Ability.SCRAPPY) && opponent.hasType(
+                    Type.GHOST
+                )
+            ) {
                 if (type1 == Type.GHOST)
                     type1 = Type.NONE
                 else
@@ -63,7 +66,10 @@ class DamageCalculator {
             if (move.id == 263) {
                 type *= Type.FLYING.isEffectiveAgainst(type2) * Type.FLYING.isEffectiveAgainst(type1)
             }
-            if (type >= 2f && (opponent.hasAbility(Ability.FILTER) || opponent.hasAbility(Ability.SOLID_ROCK) || opponent.hasAbility(Ability.DELTA_STREAM)) && !attacker.hasAbility(Ability.MOLD_BREAKER))
+            if (type >= 2f && (opponent.hasAbility(Ability.FILTER) || opponent.hasAbility(Ability.SOLID_ROCK) || opponent.hasAbility(
+                    Ability.DELTA_STREAM
+                )) && !attacker.hasAbility(Ability.MOLD_BREAKER)
+            )
                 type *= 0.75f
             if (attacker.hasItem(HoldItem.EXPERT_BELT))
                 type *= 1.2f
@@ -84,11 +90,14 @@ class DamageCalculator {
             val power = if (move is MoveBasedOnHP) move.getPower(attacker) else move.power
             val type = getEffectiveness(attacker, move, opponent)
             val random: Float = Random.nextInt(85, 100).toFloat() / 100f
-            val ignoreStatChange : Boolean = !attacker.hasAbility(Ability.MOLD_BREAKER) && opponent.hasAbility(Ability.UNAWARE)
+            val ignoreOffensiveStatChange: Boolean =
+                !attacker.hasAbility(Ability.MOLD_BREAKER) && opponent.hasAbility(Ability.UNAWARE)
             val offensiveStat: Int =
-                if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * if (ignoreStatChange) 1f else attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * if (ignoreStatChange) 1f else attacker.battleData!!.spAtkMultiplicator).roundToInt()
+                if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * if (ignoreOffensiveStatChange) 1f else attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * if (ignoreOffensiveStatChange) 1f else attacker.battleData!!.spAtkMultiplicator).roundToInt()
+            val ignoreDefensiveStatChange: Boolean =
+                attacker.hasAbility(Ability.UNAWARE) && !opponent.hasAbility(Ability.MOLD_BREAKER)
             val defensiveStat: Int =
-                if (move.category == MoveCategory.PHYSICAL) (opponent.defense.toFloat() * if (ignoreStatChange) 1f else opponent.battleData!!.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * if (ignoreStatChange) 1f else opponent.battleData!!.spDefMultiplicator).roundToInt()
+                if (move.category == MoveCategory.PHYSICAL) (opponent.defense.toFloat() * if (ignoreDefensiveStatChange) 1f else opponent.battleData!!.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * if (ignoreDefensiveStatChange) 1f else opponent.battleData!!.spDefMultiplicator).roundToInt()
             return ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * power * offensiveStat) / (defensiveStat * 50)) + 2) * type * stab * multiplicator * random).roundToInt()
         }
 
@@ -97,6 +106,9 @@ class DamageCalculator {
                 if (move is MoveBasedOnHP) move.getPower(attacker).toFloat() else move.power.toFloat()
             if (move.id == 240 && attacker.battleData!!.lastMoveFailed) {
                 power *= 2
+            }
+            if (move.id == 305 && attacker.trainer != null) {
+                power *= attacker.trainer!!.getTrainerTeam().filter { it.currentHP == 0}.size + 1
             }
             if (move.id == 241 && opponent.hp / opponent.currentHP >= 2) {
                 power *= 2
@@ -124,11 +136,11 @@ class DamageCalculator {
             if (move.type == Type.FIRE) {
                 if (attacker.battleData!!.battleStatus.contains(Status.FIRED_UP))
                     power *= 2f
-                if (opponent.hasAbility(Ability.DRY_SKIN))
+                if (opponent.hasAbility(Ability.DRY_SKIN) || opponent.hasAbility(Ability.FLUFFY))
                     power *= 2f
             }
             if (move.type == Type.ELECTRIC && attacker.battleData!!.battleStatus.contains(Status.CHARGED)) {
-                    power *= 1.5f
+                power *= 1.5f
             }
             if ((move.id == 224 || move.id == 278) && (opponent.status != Status.OK || opponent.battleData!!.battleStatus.contains(
                     Status.CONFUSED
@@ -171,13 +183,24 @@ class DamageCalculator {
             if (attacker.battleData!!.lastHitReceived != null && (move.id == 251 || move.id == 299))
                 power *= 2f
             if (move.id == 260) {
-                val statBoost =
-                    attacker.battleData!!.attackMultiplicator * attacker.battleData!!.defenseMultiplicator * attacker.battleData!!.spAtkMultiplicator * attacker.battleData!!.spDefMultiplicator * attacker.battleData!!.speedMultiplicator
-                if (statBoost > 1f)
-                    return power * statBoost * 2f
+                var statBoost = 1f
+                if (attacker.battleData!!.attackMultiplicator > 1f)
+                    statBoost += 20f * attacker.battleData!!.attackMultiplicator
+                if (attacker.battleData!!.defenseMultiplicator > 1f)
+                    statBoost += 20f * attacker.battleData!!.defenseMultiplicator
+                if (attacker.battleData!!.spAtkMultiplicator > 1f)
+                    statBoost += 20f * attacker.battleData!!.spAtkMultiplicator
+                if (attacker.battleData!!.spDefMultiplicator > 1f)
+                    statBoost += 20f * attacker.battleData!!.spDefMultiplicator
+                if (attacker.battleData!!.speedMultiplicator > 1f)
+                    statBoost += 20f * attacker.battleData!!.speedMultiplicator
+                return power + statBoost
             }
             if (attacker.hasAbility(Ability.PARENTAL_BOND) && opponent.battleData!!.child) {
                 power *= 0.25f
+            }
+            if (move.characteristics.contains(MoveCharacteristic.CONTACT) && opponent.hasAbility(Ability.FLUFFY)) {
+                power *= 0.5f
             }
             return power
         }
@@ -202,6 +225,8 @@ class DamageCalculator {
                 )
                     return 0
                 if (move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE))
+                    return 0
+                if (move.type == Type.GRASS && opponent.hasAbility(Ability.SAP_SIPPER))
                     return 0
                 if (move is RecoilMove && move.recoil == Recoil.ALL && opponent.hasAbility(Ability.DAMP))
                     return 0

@@ -98,7 +98,7 @@ LeaderBattle() : Battle() {
                                 activity.gameDataService.getMoveById(12),//THUNDERBOLT
                                 activity.gameDataService.getMoveById(46),//SHADOW BALL
                                 activity.gameDataService.getMoveById(55),//THUNDER WAVE
-                                activity.gameDataService.getMoveById(3)//QUICK ATTACK
+                                activity.gameDataService.getMoveById(161)//DOUBLE KICK
                             ),
                             HoldItem.AIR_BALLOON
                         ))
@@ -133,12 +133,12 @@ LeaderBattle() : Battle() {
                     (opponentTrainer.team as ArrayList<Pokemon>).add(
                         4,
                         activity.gameDataService.generatePokemonWithMoves(
-                            242, 45,//BLISSEY
+                            36, 45,//CLEFABLE
                             listOf(
+                                activity.gameDataService.getMoveById(84),//MOONBLAST
                                 activity.gameDataService.getMoveById(31),//FLAMETHROWER
                                 activity.gameDataService.getMoveById(12),//THUNDERBOLT
-                                activity.gameDataService.getMoveById(45),//PSYCHIC
-                                activity.gameDataService.getMoveById(187)//SOFTBOILED
+                                activity.gameDataService.getMoveById(166)//MOONLIGHT
                             ),
                             HoldItem.LEFTOVERS
                         ))
@@ -211,8 +211,17 @@ LeaderBattle() : Battle() {
                                 activity.gameDataService.getMoveById(27),//CRUNCH
                                 activity.gameDataService.getMoveById(36)//SEED BOMB
                             ),
-                            HoldItem.BLACK_SLUDGE
+                            HoldItem.LIFE_ORB
                         ))
+                }
+                LevelMenu.ELITE_4_FIRST_LEVEL_ID -> {
+                    (this.levelData as LeaderLevelData).megaPokemonId = 80
+                }
+                LevelMenu.ELITE_4_FIRST_LEVEL_ID + 2 -> {
+                    (this.levelData as LeaderLevelData).megaPokemonId = 94
+                }
+                LevelMenu.ELITE_4_FIRST_LEVEL_ID + 3 -> {
+                    (this.levelData as LeaderLevelData).megaPokemonId = 6
                 }
             }
         }

@@ -1,23 +1,28 @@
 [
   {
     "id": 3,
-    "moveIds": [66,87,37,35]
+    "moveIds": [66,87,37,35],
+    "itemHeld": "BIG_ROOT"
   },
   {
     "id": 3,
-    "moveIds": [105,133,37,35]
+    "moveIds": [105,133,37,35],
+    "itemHeld": "BLACK_SLUDGE"
   },
   {
     "id": 6,
-    "moveIds": [31,104,50,93]
+    "moveIds": [31,104,50,93],
+    "itemHeld": "LIFE_ORB"
   },
   {
     "id": 6,
-    "moveIds": [82,104,50,139]
+    "moveIds": [82,104,50,139],
+    "itemHeld": "WIDE_LENS"
   },
   {
     "id": 9,
-    "moveIds": [43,100,111,92]
+    "moveIds": [43,100,111,92],
+    "itemHeld": "ASSAULT_VEST"
   },
   {
     "id": 26,
@@ -25,7 +30,8 @@
   },
   {
     "id": 31,
-    "moveIds": [62,93,103,107]
+    "moveIds": [62,93,103,107],
+    "itemHeld": "LIFE_ORB"
   },
   {
     "id": 34,
@@ -39,19 +45,28 @@
   },
   {
     "id": 36,
-    "moveIds": [84,31,135,166]
+    "moveIds": [84,31,135,166],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 36,
-    "moveIds": [84,100,45,166]
+    "moveIds": [84,100,45,166],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 36,
-    "moveIds": [84,100,12,31]
+    "moveIds": [84,100,12,31],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 49,
-    "moveIds": [37,45,122,60]
+    "moveIds": [37,45,122,60],
+    "itemHeld": "BLACK_SLUDGE"
+  },
+  {
+    "id": 49,
+    "moveIds": [37,66,122,60],
+    "itemHeld": "BLACK_SLUDGE"
   },
   {
     "id": 59,
@@ -71,15 +86,18 @@
   },
   {
     "id": 68,
-    "moveIds": [106,107,25,140]
+    "moveIds": [106,107,25,140],
+    "itemHeld": "PROTECTIVE_PADS"
   },
   {
     "id": 68,
-    "moveIds": [106,103,93,140]
+    "moveIds": [106,103,93,140],
+    "itemHeld": "PROTECTIVE_PADS"
   },
   {
     "id": 68,
-    "moveIds": [106,93,25,110]
+    "moveIds": [106,93,25,110],
+    "itemHeld": "PROTECTIVE_PADS"
   },
   {
     "id": 85,
@@ -241,7 +259,8 @@
   },
   {
     "id": 184,
-    "moveIds": [136,107,73,96]
+    "moveIds": [136,107,73,96],
+    "itemHeld": "PROTECTIVE_PADS"
   },
   {
     "id": 196,
@@ -290,7 +309,7 @@
   },
   {
     "id": 212,
-    "moveIds": [57,56,16,69]
+    "moveIds": [56,114,127,113]
   },
   {
     "id": 214,
@@ -304,7 +323,8 @@
   },
   {
     "id": 217,
-    "moveIds": [38,93,25,149]
+    "moveIds": [38,93,25,149],
+    "itemHeld": "FLAME_ORB"
   },
   {
     "id": 229,
@@ -320,11 +340,13 @@
   },
   {
     "id": 232,
-    "moveIds": [93,118,25,62]
+    "moveIds": [93,118,25,62],
+    "itemHeld": "ASSAULT_VEST"
   },
   {
     "id": 232,
-    "moveIds": [93,120,25,95]
+    "moveIds": [93,120,25,95],
+    "itemHeld": "ASSAULT_VEST"
   },
   {
     "id": 233,
@@ -416,11 +438,12 @@
   },
   {
     "id": 306,
-    "moveIds": [57,25,93,147]
+    "moveIds": [57,25,93,147],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 308,
-    "moveIds": [148,210,107,103]
+    "moveIds": [148,283,107,103]
   },
   {
     "id": 308,
@@ -452,7 +475,8 @@
   },
   {
     "id": 342,
-    "moveIds": [96,136,27,125]
+    "moveIds": [96,136,27,125],
+    "itemHeld": "LIFE_ORB"
   },
   {
     "id": 346,
@@ -513,7 +537,7 @@
   },
   {
     "id": 426,
-    "moveIds": [46,12,45,138]
+    "moveIds": [46,12,302,138]
   },
   {
     "id": 429,
@@ -573,7 +597,8 @@
   },
   {
     "id": 461,
-    "moveIds": [123,69,107,114]
+    "moveIds": [123,69,107,114],
+    "itemHeld": "LIFE_ORB"
   },
   {
     "id": 462,
@@ -581,7 +606,8 @@
   },
   {
     "id": 464,
-    "moveIds": [25,93,109,62]
+    "moveIds": [25,93,109,62],
+    "itemHeld": "ASSAULT_VEST"
   },
   {
     "id": 465,
@@ -589,7 +615,8 @@
   },
   {
     "id": 465,
-    "moveIds": [143,102,93,66]
+    "moveIds": [143,102,93,66],
+    "itemHeld": "ASSAULT_VEST"
   },
   {
     "id": 466,
@@ -667,15 +694,19 @@
   },
   {
     "id": 534,
-    "moveIds": [14,76,25,103]
+    "moveIds": [14,76,25,103],
+    "itemHeld": "ASSAULT_VEST"
   },
   {
     "id": 534,
-    "moveIds": [14,76,93,107]
+    "moveIds": [14,76,93,107],
+    "itemHeld": "ASSAULT_VEST"
+
   },
   {
     "id": 534,
-    "moveIds": [14,76,103,107]
+    "moveIds": [14,76,103,107],
+    "itemHeld": "PROTECTIVE_PADS"
   },
   {
     "id": 553,
@@ -725,11 +756,13 @@
   },
   {
     "id": 700,
-    "moveIds": [84,238,45,46]
+    "moveIds": [84,238,45,46],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 700,
-    "moveIds": [44,135,45,46]
+    "moveIds": [84,135,45,46],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 701,
@@ -740,12 +773,45 @@
     "moveIds": [210,263,113,114]
   },
   {
+    "id": 706,
+    "moveIds": [104,100,43,12],
+    "itemHeld": "ASSAULT_VEST"
+  },
+  {
+    "id": 706,
+    "moveIds": [104,100,31,12],
+    "itemHeld": "EXPERT_BELT"
+  },
+  {
     "id": 715,
-    "moveIds": [50,104,31,237]
+    "moveIds": [50,104,31,237],
+    "itemHeld": "LIFE_ORB"
+  },
+  {
+    "id": 738,
+    "moveIds": [12,60,105,111],
+    "itemHeld": "LIFE_ORB"
+  },
+  {
+    "id": 855,
+    "moveIds": [46,66,302,245]
+  },
+  {
+    "id": 855,
+    "moveIds": [46,66,260,245]
   },
   {
     "id": 858,
-    "moveIds": [45,44,202,243]
+    "moveIds": [45,44,202,243],
+    "itemHeld": "LEFTOVERS"
+  },
+  {
+    "id": 861,
+    "moveIds": [304,55,303,223]
+  },
+  {
+    "id": 861,
+    "moveIds": [304,76,303,140]
   },
   {
     "id": 879,
@@ -754,7 +820,7 @@
   },
   {
     "id": 902,
-    "moveIds": [274,46,96,27]
+    "moveIds": [274,305,96,27]
   },
   {
     "id": 920,
@@ -766,9 +832,18 @@
     "itemHeld": "LEFTOVERS"
   },
   {
+    "id": 972,
+    "moveIds": [305,27,220,73],
+    "itemHeld": "SPELL_TAG"
+  },
+  {
     "id": 975,
     "moveIds": [98,93,95,73],
     "itemHeld": "LIFE_ORB"
+  },
+  {
+    "id": 10038,
+    "moveIds": [300,84,92,268]
   },
   {
     "id": 10059,
