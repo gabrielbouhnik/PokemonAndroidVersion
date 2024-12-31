@@ -2761,6 +2761,20 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 306,
+      "name": "Facade",
+      "power": 20,
+      "pp": 20,
+      "type": 5,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "This move's power is doubled if the user is poisoned, burned, or paralyzed.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
     }
   ],
   "multipleHitMoves": [

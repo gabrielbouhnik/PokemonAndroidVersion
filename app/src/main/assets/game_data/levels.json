@@ -9,7 +9,7 @@
         "minLevel": 2,
         "maxLevel": 3,
         "encounters": [
-          16,19,16,19,16,19,161,163,161,163,261,10037
+          16,19,16,19,16,19,161,163,161,163,261,276
         ]
       },
       "rewards": [
@@ -250,7 +250,7 @@
       "mandatory": true
     },
     {
-      "id": 24,
+      "id": 23,
       "name": "\nDiglett's Cave",
       "description": "You receive a call from Professor Oak that a powerful pokemon has appeared in Diglett's cave. You go there to find out more.",
       "encounter": 3,
@@ -1661,9 +1661,9 @@
       "megaPokemonId": 0
     },
     {
-      "id": 23,
+      "id": 25,
       "name": "\nRoute 11",
-      "description": "After obtaining your third badge, you are going to train on Route 11.",
+      "description": "After obtaining defeating Dugtrio, you are going to train on Route 11.",
       "opponents": [
         {
           "sprite": "images/Sprite_Youngster.png",
@@ -4269,7 +4269,7 @@
   ],
   "bossBattles": [
     {
-      "id": 25,
+      "id": 24,
       "name": "\nVs Dugtrio",
       "description": "You finally find the powerful Pokémon that Professor Oak tells you about. It is a wild Dugtrio. It attacks you by shaking the ground. Stop it before it's too late.",
       "boss": {

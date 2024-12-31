@@ -16299,6 +16299,137 @@
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
+    "id": 276,
+    "name": "Taillow",
+    "type1": 5,
+    "type2": 6,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 11,
+          "level": 1
+        },
+        {
+          "moveId": 22,
+          "level": 5
+        },
+        {
+          "moveId": 3,
+          "level": 9
+        },
+        {
+          "moveId": 16,
+          "level": 13
+        },
+        {
+          "moveId": 113,
+          "level": 21
+        },
+        {
+          "moveId": 306,
+          "level": 25
+        },
+        {
+          "moveId": 21,
+          "level": 29
+        },
+        {
+          "moveId": 50,
+          "level": 33
+        },
+        {
+          "moveId": 203,
+          "level": 41
+        },
+        {
+          "moveId": 191,
+          "level": 45
+        }
+      ],
+      "movesLearnWithTM": [50,113,205,261],
+      "bannerMoves": []
+    },
+    "hp": 40,
+    "attack": 55,
+    "defense": 30,
+    "spAtk": 30,
+    "spDef": 30,
+    "speed": 85,
+    "catchRate": 200,
+    "evolutions": [
+      {
+        "evolutionId": 277,
+        "evolutionCondition": {
+          "level": 22
+        }
+      }
+    ],
+    "abilities": ["GUTS","SCRAPPY"],
+    "expGaugeType":  "MEDIUM_SLOW"
+  },
+  {
+    "id": 277,
+    "name": "Swellow",
+    "type1": 5,
+    "type2": 6,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 11,
+          "level": 1
+        },
+        {
+          "moveId": 22,
+          "level": 5
+        },
+        {
+          "moveId": 3,
+          "level": 9
+        },
+        {
+          "moveId": 16,
+          "level": 13
+        },
+        {
+          "moveId": 113,
+          "level": 21
+        },
+        {
+          "moveId": 306,
+          "level": 27
+        },
+        {
+          "moveId": 21,
+          "level": 33
+        },
+        {
+          "moveId": 50,
+          "level": 39
+        },
+        {
+          "moveId": 203,
+          "level": 51
+        },
+        {
+          "moveId": 191,
+          "level": 57
+        }
+      ],
+      "movesLearnWithTM": [50,113,176,177,205,261],
+      "bannerMoves": []
+    },
+    "hp": 60,
+    "attack": 85,
+    "defense": 60,
+    "spAtk": 75,
+    "spDef": 50,
+    "speed": 125,
+    "catchRate": 45,
+    "evolutions": [],
+    "abilities": ["GUTS","SCRAPPY"],
+    "expGaugeType":  "MEDIUM_SLOW"
+  },
+  {
     "id": 282,
     "name": "Gardevoir",
     "type1": 12,
@@ -24026,7 +24157,7 @@
           "level": 58
         }
       ],
-      "movesLearnWithTM": [72,30,46,138,177,178,204,267],
+      "movesLearnWithTM": [72,30,46,138,176,177,204,267],
       "bannerMoves": []
     },
     "hp": 72,

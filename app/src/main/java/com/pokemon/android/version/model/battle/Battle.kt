@@ -140,14 +140,8 @@ abstract class Battle {
         }
     }
 
-    fun turn(trainerPokemonMove: PokemonMove, megaEvolution: Boolean): String {
+    private fun megaEvolveOpponentIfPossible(): String {
         val sb = StringBuilder()
-        if (megaEvolution) {
-            sb.append("${pokemon.data.name} has Mega Evolved into Mega ${pokemon.data.name}\n")
-            pokemon.megaEvolve()
-            sb.append(BattleUtils.abilitiesCheck(pokemon, opponent, this))
-            trainerHasUsedMegaEvolution = true
-        }
         var shouldMegaEvolve = true
         if (this is TrainerBattle) {
             val opponentTrainer = opponent.trainer!! as OpponentTrainer
@@ -177,6 +171,18 @@ abstract class Battle {
                 sb.append(BattleUtils.abilitiesCheck(pokemon, opponent, this))
             }
         }
+        return sb.toString()
+    }
+
+    fun turn(trainerPokemonMove: PokemonMove, megaEvolution: Boolean): String {
+        val sb = StringBuilder()
+        if (megaEvolution) {
+            sb.append("${pokemon.data.name} has Mega Evolved into Mega ${pokemon.data.name}\n")
+            pokemon.megaEvolve()
+            sb.append(BattleUtils.abilitiesCheck(pokemon, opponent, this))
+            trainerHasUsedMegaEvolution = true
+        }
+        sb.append(megaEvolveOpponentIfPossible())
         turn(trainerPokemonMove, sb)
         endTurn(sb)
         if (pokemon.currentHP > 0 && getBattleState() == State.IN_PROGRESS) {
@@ -280,6 +286,7 @@ abstract class Battle {
         var opponentMove: PokemonMove =
             if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
         switchPokemon(pokemonToBeSent)
+        sb.append(megaEvolveOpponentIfPossible())
         sb.append(BattleUtils.abilitiesCheck(pokemon, opponent, this))
         if (this is BossBattle)
             opponentMove = IAUtils.ia(opponent, pokemon)
@@ -316,6 +323,7 @@ abstract class Battle {
             sb.append(activity.trainer!!.name + " uses " + activity.gameDataService.items.first { it.id == itemId }.name + "!\n")
             activity.trainer!!.useItem(itemId, pokemon)
         }
+        sb.append(megaEvolveOpponentIfPossible())
         val opponentMove: PokemonMove =
             if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
         sb.append(opponentTurn(opponentMove, false))

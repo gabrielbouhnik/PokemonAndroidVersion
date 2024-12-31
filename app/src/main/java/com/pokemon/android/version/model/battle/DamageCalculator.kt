@@ -151,6 +151,9 @@ class DamageCalculator {
             if (move.id == 232 && (opponent.status == Status.POISON || opponent.status == Status.BADLY_POISON)) {
                 power *= 2f
             }
+            if (move.id == 306 && attacker.status != Status.OK) {
+                power *= 2f
+            }
             val typeBoostItem = TYPE_ITEM_BOOST[move.type]
             if (typeBoostItem != null && attacker.hasItem(typeBoostItem))
                 power *= 1.2f

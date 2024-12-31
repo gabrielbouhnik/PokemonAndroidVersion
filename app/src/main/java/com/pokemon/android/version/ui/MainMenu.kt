@@ -5,6 +5,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -146,6 +147,11 @@ class MainMenu {
                     .filter { ItemUtils.isBadge(it.itemId) })
         ) {}
         recyclerView.adapter = adapter
+        val musicSwitch: Switch = activity.findViewById(R.id.musicSwitch)
+        musicSwitch.isChecked = activity.mediaPlayer != null
+        musicSwitch.setOnCheckedChangeListener { _, _ ->
+            activity.enableOrDisableMusic()
+        }
     }
 
     private fun loadAchievementsMenu(activity: MainActivity) {

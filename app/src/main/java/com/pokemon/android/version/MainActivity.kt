@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val pokemonSpritesUrl: String =
             "https://www.serebii.net/swordshield/pokemon/"
-        const val pokemonSVspritesUrl: String = "https://www.serebii.net/scarletviolet/pokemon/new/";
+        const val pokemonSVspritesUrl: String = "https://www.serebii.net/scarletviolet/pokemon/new/"
         const val pokemonSVshinySpriteUrl: String = "https://www.serebii.net/Shiny/SV/new/"
         const val megaPokemonSpritesUrl: String =
             "https://www.serebii.net/pokemongo/pokemon/"
@@ -50,8 +50,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private var currentMusicId: Int? = null
-    private var mediaPlayer: MediaPlayer? = null
     private var starterSelection: StarterSelection? = null
+    var mediaPlayer: MediaPlayer? = null
     var trainer: Trainer? = null
     var gameDataService: GameDataService = GameDataService()
     var mainMenu: MainMenu = MainMenu()
@@ -207,13 +207,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun updateMusic(id: Int) {
-        if (currentMusicId == id)
+        if (currentMusicId == id || mediaPlayer == null)
             return
         currentMusicId = id
         mediaPlayer?.stop()
         mediaPlayer = MediaPlayer.create(this, id)
         mediaPlayer?.isLooping = true
         mediaPlayer?.start()
+    }
+
+    fun enableOrDisableMusic() {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(this, currentMusicId!!)
+            mediaPlayer?.isLooping = true
+            mediaPlayer?.start()
+        } else {
+            mediaPlayer?.stop()
+            mediaPlayer?.release()
+            mediaPlayer = null
+        }
     }
 
     fun showCustomDialog(message: String) {
@@ -239,12 +251,12 @@ class MainActivity : AppCompatActivity() {
         builder.setMessage(getString(R.string.hard_mode_details))
             .setTitle(getString(R.string.hard_mode_title))
             .setCancelable(false)
-            .setPositiveButton("Yes") { dialog, _ ->
+            .setPositiveButton("Hard mode") { dialog, _ ->
                 hardMode = true
                 findViewById<Button>(R.id.bannersButton).visibility = GONE
                 dialog.dismiss()
             }
-            .setNegativeButton("No") { dialog, _ ->
+            .setNegativeButton("Easy mode") { dialog, _ ->
                 dialog.dismiss()
             }
             .create()
@@ -267,7 +279,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        mediaPlayer?.stop()
+        if (mediaPlayer != null)
+            mediaPlayer?.stop()
     }
 
     override fun onRestart() {
