@@ -134,7 +134,7 @@
         "minLevel": 10,
         "maxLevel": 12,
         "encounters": [
-          27,27,27,27,35,41,41,41,41,41,41,41,46,46,46,46,46,46,74,74,74,216,231,714
+          27,27,27,27,35,41,41,41,41,41,41,41,46,46,46,46,46,46,74,74,74,216,231,714,957
         ]
       },
       "rewards": [
@@ -286,7 +286,7 @@
         "minLevel": 24,
         "maxLevel": 26,
         "encounters": [
-          41,41,41,41,41,66,66,66,66,66,74,74,74,74,95,95,95,115,532,610,782
+          41,41,41,41,41,41,66,66,66,66,66,66,74,74,74,74,95,95,95,115,307,532,610,782
         ]
       },
       "rewards": [
@@ -846,9 +846,9 @@
           "name": "Jackson",
           "pokemons": [
             {
-              "id": 236,
+              "id": 307,
               "level": 6,
-              "moveIds": [2]
+              "moveIds": [64]
             }
           ]
         }
@@ -872,7 +872,7 @@
         }
       ],
       "startDialog": "Hey you, you want to be a pokemon trainer, so show me what you got!",
-      "endDialogWin": "It's beginner's luck. Next time, I'll crush you with my Tyrogue.",
+      "endDialogWin": "It's beginner's luck. Next time, I'll crush you with my Meditite.",
       "endDialogLoose": "Don't even think about leaving Pallet Town...",
       "music": 2,
       "icon": "images/battle_background/building_battle_background.jpg",
@@ -897,9 +897,9 @@
               "moveIds": [2,4]
             },
             {
-              "id": 236,
+              "id": 307,
               "level": 10,
-              "moveIds": [2,246,14]
+              "moveIds": [64,39,246]
             }
           ]
         }
@@ -918,9 +918,9 @@
           "quantity": 1
         }
       ],
-      "startDialog": "Hey, you got kicked out of the Victory Road too.  I was ready to blow them away with my Tyrogue. For that matter, I'm going to blow you away.",
+      "startDialog": "Hey, you got kicked out of the Victory Road too.  I was ready to blow them away with my Meditite. For that matter, I'm going to blow you away.",
       "endDialogWin": "You just got lucky.",
-      "endDialogLoose": "Well done Tyrogue",
+      "endDialogLoose": "Well done Meditite!",
       "music": 2,
       "icon": "images/battle_background/route_battle_background.png",
       "background": "images/battle_background/route_battle_background.png",
@@ -1266,9 +1266,9 @@
           "name": "Jackson",
           "pokemons": [
             {
-              "id": 236,
+              "id": 307,
               "level": 19,
-              "moveIds": [2,246,14]
+              "moveIds": [252,39,246,127]
             },
             {
               "id": 17,
@@ -1276,9 +1276,9 @@
               "moveIds": [4,3,19,2]
             },
             {
-              "id": 64,
+              "id": 919,
               "level": 18,
-              "moveIds": [59,184,55]
+              "moveIds": [161,251,207,47]
             },
             {
               "id": 19,
@@ -2028,15 +2028,15 @@
               "itemHeld": "LEFTOVERS"
             },
             {
-              "id": 64,
+              "id": 920,
               "level": 38,
-              "moveIds": [44,45,46,105],
-              "itemHeld": "TWISTED_SPOON"
+              "moveIds": [214,113,161,21],
+              "itemHeld": "SILVER_POWDER"
             },
             {
-              "id": 106,
+              "id": 308,
               "level": 40,
-              "moveIds": [68,69,25,14],
+              "moveIds": [148,210,110,103],
               "itemHeld": "BLACK_BELT"
             }
           ]
@@ -2249,9 +2249,9 @@
           "name": "Ace Trainer Mary",
           "pokemons": [
             {
-              "id": 69,
+              "id": 102,
               "level": 38,
-              "moveIds": [18,34,35,58]
+              "moveIds": [36,45,66,133]
             },
             {
               "id": 43,
@@ -2259,9 +2259,9 @@
               "moveIds": [66,84,58,83]
             },
             {
-              "id": 70,
-              "level": 38,
-              "moveIds": [18,34,35,58]
+              "id": 192,
+              "level": 42,
+              "moveIds": [36,87,66,37]
             },
             {
               "id": 44,
@@ -2963,15 +2963,15 @@
               "itemHeld": "CHARCOAL"
             },
             {
-              "id": 64,
+              "id": 920,
               "level": 54,
-              "moveIds": [44,45,46,105],
-              "itemHeld": "TWISTED_SPOON"
+              "moveIds": [214,113,282,208],
+              "itemHeld": "SILVER_POWDER"
             },
             {
-              "id": 106,
+              "id": 308,
               "level": 57,
-              "moveIds": [68,210,25,14],
+              "moveIds": [217,283,110,103],
               "itemHeld": "BLACK_BELT"
             }
           ]
@@ -3889,10 +3889,10 @@
           "name": "Jackson",
           "pokemons": [
             {
-              "id": 142,
+              "id": 855,
               "level": 70,
-              "moveIds": [25,113,27,57],
-              "itemHeld": "LIFE_ORB"
+              "moveIds": [46,66,245,260],
+              "itemHeld": "FOCUS_SASH"
             },
             {
               "id": 130,
@@ -3901,10 +3901,10 @@
               "itemHeld": "LUM_BERRY"
             },
             {
-              "id": 65,
+              "id": 920,
               "level": 70,
-              "moveIds": [44,45,46,105],
-              "itemHeld": "TWISTED_SPOON"
+              "moveIds": [214,113,282,208],
+              "itemHeld": "SILVER_POWDER"
             },
             {
               "id": 125,
@@ -3919,9 +3919,9 @@
               "itemHeld": "LEFTOVERS"
             },
             {
-              "id": 106,
+              "id": 308,
               "level": 73,
-              "moveIds": [68,210,25,14],
+              "moveIds": [217,283,110,103],
               "itemHeld": "BLACK_BELT"
             }
           ]
@@ -4276,6 +4276,8 @@
         "id": 51,
         "level": 40,
         "moveIds": [30,38,25,113],
+        "hpMultiplier": 5,
+        "itemHeld": "ROCKY_HELMET",
         "boostedStats": ["DEFENSE","SPEED"]
       },
       "rewards": [
@@ -4301,6 +4303,7 @@
       "boss": {
         "id": 105,
         "level": 45,
+        "hpMultiplier": 5,
         "moveIds": [25,71,69,70],
         "boostedStats": ["SPEED"]
       },
@@ -4327,7 +4330,9 @@
       "boss": {
         "id": 143,
         "level": 50,
+        "hpMultiplier": 3,
         "moveIds": [88,25,27,107,30,159],
+        "itemHeld": "LEFTOVERS",
         "boostedStats": ["DEFENSE"]
       },
       "rewards": [
@@ -4353,7 +4358,9 @@
       "boss": {
         "id": 144,
         "level": 58,
+        "hpMultiplier": 5,
         "moveIds": [100,102,268,50,24,205],
+        "itemHeld": "WEAKNESS_POLICY",
         "boostedStats": ["DEFENSE","SPDEF"]
       },
       "rewards": [
@@ -4379,12 +4386,10 @@
       "boss": {
         "id": 146,
         "level": 77,
-        "moveIds": [
-          31,102,50,21
-        ],
-        "boostedStats": [
-          "DEFENSE"
-        ]
+        "hpMultiplier": 5,
+        "moveIds": [31,102,50,21],
+        "itemHeld": "WEAKNESS_POLICY",
+        "boostedStats": ["DEFENSE"]
       },
       "rewards": [
         {
@@ -4409,7 +4414,9 @@
       "boss": {
         "id": 145,
         "level": 82,
+        "hpMultiplier": 4,
         "moveIds": [90,53,102,21,261],
+        "itemHeld": "SHARP_BEAK",
         "boostedStats": ["ATTACK","DEFENSE"]
       },
       "rewards": [
@@ -4435,6 +4442,7 @@
       "boss": {
         "id": 248,
         "level": 82,
+        "hpMultiplier": 4,
         "moveIds": [25,27,93,57,120],
         "boostedStats": ["DEFENSE","SPDEF","SPEED"]
       },
@@ -4465,7 +4473,9 @@
       "boss": {
         "id": 249,
         "level": 80,
+        "hpMultiplier": 5,
         "moveIds": [287,45,100,43,132],
+        "itemHeld": "WEAKNESS_POLICY",
         "boostedStats": ["SPATK"]
       },
       "rewards": [
@@ -4499,8 +4509,10 @@
       "boss": {
         "id": 250,
         "level": 80,
+        "hpMultiplier": 5,
         "moveIds": [264,132,93,132,12,45],
-        "boostedStats": ["SPEED"]
+        "itemHeld": "LUM_BERRY",
+        "boostedStats": ["DEFENSE","SPEED"]
       },
       "rewards": [
         {
@@ -4533,6 +4545,7 @@
       "boss": {
         "id": 384,
         "level": 80,
+        "hpMultiplier": 4,
         "moveIds": [288,108,93,27],
         "boostedStats": ["SPEED"]
       },
@@ -4567,6 +4580,7 @@
       "boss": {
         "id": 150,
         "level": 80,
+        "hpMultiplier": 5,
         "moveIds": [124,12,100,218,46,132],
         "boostedStats": []
       },
@@ -5584,9 +5598,9 @@
           "itemHeld": "ASSAULT_VEST"
         },
         {
-          "id": 57,
+          "id": 979,
           "level": 73,
-          "moveIds": [25,40,62,30],
+          "moveIds": [40,307,62,107],
           "itemHeld": "BLACK_BELT"
         },
         {
@@ -5848,21 +5862,22 @@
       "title": "Champion Jackson",
       "battle1": [
         {
-          "id": 142,
-          "level": 73,
-          "moveIds": [222,25,93,27]
-        },
-        {
           "id": 130,
           "level": 73,
           "moveIds": [136,119,93,125],
           "itemHeld": "LEFTOVERS"
         },
         {
-          "id": 65,
+          "id": 855,
           "level": 73,
-          "moveIds": [44,45,46,105],
-          "itemHeld": "TWISTED_SPOON"
+          "moveIds": [46,66,245,260],
+          "itemHeld": "FOCUS_SASH"
+        },
+        {
+          "id": 920,
+          "level": 73,
+          "moveIds": [214,113,282,208],
+          "itemHeld": "LIFE_ORB"
         },
         {
           "id": 59,
@@ -5877,17 +5892,17 @@
           "itemHeld": "EXPERT_BELT"
         },
         {
-          "id": 106,
+          "id": 308,
           "level": 80,
-          "moveIds": [68,40,25,191],
-          "itemHeld": "FOCUS_SASH"
+          "moveIds": [217,283,107,103]
         }
       ],
       "battle2": [
         {
-          "id": 65,
+          "id": 855,
           "level": 83,
-          "moveIds": [44,45,46,105]
+          "moveIds": [46,66,245,260],
+          "itemHeld": "FOCUS_SASH"
         },
         {
           "id": 59,
@@ -5914,10 +5929,9 @@
           "itemHeld": "LIFE_ORB"
         },
         {
-          "id": 106,
-          "level": 95,
-          "moveIds": [68,40,25,191],
-          "itemHeld": "FOCUS_SASH"
+          "id": 308,
+          "level": 90,
+          "moveIds": [217,283,107,103]
         }
       ],
       "rewards": [],
@@ -5932,8 +5946,8 @@
       "exp": 10000,
       "mandatory": true,
       "iaLevel": 3,
-      "megaPokemonId": 142,
-      "megaPokemonIdOnRematch": 65
+      "megaPokemonId": 308,
+      "megaPokemonIdOnRematch": 308
     },
     {
       "id": 99,

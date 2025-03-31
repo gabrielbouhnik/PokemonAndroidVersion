@@ -20,8 +20,9 @@ class BossBattle(var megaPhase: Boolean) : Battle() {
             if ((bossBattleLevelData.boss.id == 144 || bossBattleLevelData.boss.id == 146) && activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID) 90 else bossBattleLevelData.boss.level,
             bossBattleLevelData.boss.moves
         )
-        this.opponent.hp *= 3
-        this.opponent.currentHP *= 3
+        this.opponent.hp *= bossBattleLevelData.boss.hpMultiplier
+        this.opponent.currentHP *= bossBattleLevelData.boss.hpMultiplier
+        this.opponent.heldItem = bossBattleLevelData.boss.itemHeld
         Stats.increaseBossStats(opponent, bossBattleLevelData.boss.boostedStats)
         activity.trainer!!.updatePokedex(opponent)
     }

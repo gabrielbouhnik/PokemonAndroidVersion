@@ -83,7 +83,7 @@ class BattleUtils {
                             attacker.status = Status.ASLEEP
                             statusByContact = true
                             details += "${opponent.data.name}'s Effect Spore: ${attacker.data.name} fell asleep!\n"
-                        } else if (random >= 20 && Status.isAffectedByStatus(-1, Status.PARALYSIS, attacker)) {
+                        } else if (random >= 20 && Status.isAffectedByStatus(253, Status.PARALYSIS, attacker)) {
                             attacker.status = Status.PARALYSIS
                             statusByContact = true
                             checkForStatusStatsRaiseAbility(attacker)

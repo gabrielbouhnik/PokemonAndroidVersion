@@ -194,8 +194,6 @@ class GameDataService {
             .move5(move5)
             .move6(move6)
             .build()
-        if (boss.data.id == 143)
-            boss.heldItem = HoldItem.LEFTOVERS
         return boss
     }
 

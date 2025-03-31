@@ -361,8 +361,9 @@ open class Pokemon(
                     )
                     i++
                 }
-                details =
-                    if (timesItHits > 1) "${opponent.data.name} was hit $timesItHits times!\n" else "${opponent.data.name} was hit 1 time!\n"
+                opponent.battleData!!.numberOfHitTaken += i - 1
+                details +=
+                    if (i > 1) "${opponent.data.name} was hit $i times!\n" else "${opponent.data.name} was hit 1 time!\n"
             } else if (move.move is MultipleHitMove) {
                 crit = DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)
                 if (crit == 1.5f)
@@ -387,6 +388,7 @@ open class Pokemon(
                         opponent,
                         crit
                     )
+                    opponent.battleData!!.numberOfHitTaken += 1
                     details += "${opponent.data.name} was hit 2 times!\n"
                 }
             } else {
@@ -485,8 +487,10 @@ open class Pokemon(
                     }
             }
         }
-        if (damage > 0 && move.move.category != MoveCategory.OTHER)
+        if (damage > 0 && move.move.category != MoveCategory.OTHER) {
+            opponent.battleData!!.numberOfHitTaken += 1
             opponent.battleData!!.lastHitReceived = LastHitReceived(damage, move.move.category)
+        }
         if (opponent.currentHP > 0 && move.move.type == Type.DARK && move.move.category != MoveCategory.OTHER && opponent.hasAbility(
                 Ability.JUSTIFIED
             )
@@ -606,6 +610,10 @@ open class Pokemon(
             } else{
                 details += "But it failed\n"
             }
+        }
+        if (move.move.id == 310) {
+            //GIGATON HAMMER
+            move.disabledCountdown = 2
         }
         if (opponent.currentHP > 0
             && damageDone > 0

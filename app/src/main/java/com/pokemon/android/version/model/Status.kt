@@ -148,7 +148,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
             if (!status.activeOutsideBattle && opponent.battleData!!.battleStatus.contains(status))
                 return false
             if ((id == 35 || id == 253 || id == 255 || id == 34)
-                &&  (opponent.hasType(Type.GRASS) || opponent.hasAbility(Ability.MAGIC_BOUNCE) || !opponent.hasAbility(Ability.OVERCOAT))) {
+                &&  (opponent.hasType(Type.GRASS) || opponent.hasAbility(Ability.MAGIC_BOUNCE) || opponent.hasAbility(Ability.OVERCOAT))) {
                 //STUN SPORE, SLEEP POWDER, SPORE, POISON POWDER
                 return false
             }

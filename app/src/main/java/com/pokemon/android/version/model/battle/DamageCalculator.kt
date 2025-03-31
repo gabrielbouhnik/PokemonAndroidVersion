@@ -152,7 +152,11 @@ class DamageCalculator {
                 power *= 2f
             }
             if (move.id == 306 && attacker.status != Status.OK) {
+                //FACADE
                 power *= 2f
+            }
+            if (move.id == 307 && attacker.status != Status.OK) {
+                power += 50 * attacker.battleData!!.numberOfHitTaken
             }
             val typeBoostItem = TYPE_ITEM_BOOST[move.type]
             if (typeBoostItem != null && attacker.hasItem(typeBoostItem))
@@ -253,6 +257,13 @@ class DamageCalculator {
                 multiplicator *= 0.5f
             return try {
                 val type = getEffectiveness(attacker, move, opponent)
+                if (type > 0) {
+                    if (move is MoveBasedOnLevel) {
+                        return attacker.level
+                    } else if (move.id == 308) {
+                        return attacker.currentHP
+                    }
+                }
                 val random: Float = Random.nextInt(85, 100).toFloat() / 100f
                 var offensiveStat: Int =
                     if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * attacker.battleData!!.spAtkMultiplicator).roundToInt()

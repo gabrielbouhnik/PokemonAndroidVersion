@@ -842,6 +842,16 @@
     "itemHeld": "LIFE_ORB"
   },
   {
+    "id": 979,
+    "moveIds": [76,307,107,308],
+    "itemHeld": "PROTECTIVE_PADS"
+  },
+  {
+    "id": 979,
+    "moveIds": [76,307,25,140],
+    "itemHeld": "LEFTOVERS"
+  },
+  {
     "id": 10038,
     "moveIds": [300,84,92,268]
   },
