@@ -114,6 +114,7 @@ class DamageCalculator {
                 power *= 2
             }
             if (move.id == 233) {
+                //GYRO BALL
                 power *= (1 + (opponent.speed * opponent.battleData!!.speedMultiplicator) / (attacker.speed * attacker.battleData!!.speedMultiplicator)).roundToInt()
             }
             if (attacker.hasAbility(Ability.SHEER_FORCE) && (move.status.isNotEmpty() || move is StatChangeMove))
@@ -164,6 +165,7 @@ class DamageCalculator {
             if (move.id == 272 && attacker.heldItem == null)
                 power *= 2f
             if (move.id == 273) {
+                //ELECTRO BALL
                 val speedRatio = (attacker.speed / opponent.speed).toFloat()
                 when {
                     speedRatio < 1f -> power *= 40f

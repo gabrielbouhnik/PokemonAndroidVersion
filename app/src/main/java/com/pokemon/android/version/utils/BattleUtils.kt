@@ -92,7 +92,7 @@ class BattleUtils {
                     }
                 }
             }
-            if (statusByContact && opponent.hasItem(HoldItem.LUM_BERRY)) {
+            if (statusByContact && opponent.hasItem(HoldItem.LUM_BERRY) && !attacker.hasAbility(Ability.UNNERVE)) {
                 details += "${opponent.data.name}'s Lum Berry cured its status\n"
                 opponent.status = Status.OK
                 opponent.consumeItem()
@@ -117,6 +117,8 @@ class BattleUtils {
                 sb.append("${pokemon.data.name}'s Pressure: ${pokemon.data.name} is exerting its pressure!\n")
             if (pokemon.hasAbility(Ability.MOLD_BREAKER))
                 sb.append("${pokemon.data.name}'s Mold Breaker: ${pokemon.data.name} breaks the mold!\n")
+            if (pokemon.hasAbility(Ability.UNNERVE))
+                sb.append("${pokemon.data.name}'s Unnerve: ${opponent.data.name} is too nervous to eat berries!\n")
             if (pokemon.hasAbility(Ability.COMPOUNDEYES))
                 pokemon.battleData!!.accuracyMultiplicator *= 1.3f
             if (pokemon.hasAbility(Ability.ANTICIPATION) && MoveUtils.getMoveList(opponent)

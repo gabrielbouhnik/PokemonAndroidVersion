@@ -47,7 +47,7 @@
   },
   {
     "image": "images/banners/marill_banner.JPG",
-    "description": "Get a special Marill with move Aqua Jet",
+    "description": "Get a special Marill with the move Aqua Jet",
     "cost": 100,
     "pokemons": [
       {
@@ -268,7 +268,7 @@
         "rate": 10
       },
       {
-        "id": 9,
+        "id": 11,
         "rate": 15
       },
       {

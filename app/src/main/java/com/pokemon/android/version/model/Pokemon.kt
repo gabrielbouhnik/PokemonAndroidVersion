@@ -120,11 +120,14 @@ open class Pokemon(
     }
 
     fun canAttack(move: PokemonMove): AttackResponse {
+        var statusChange = ""
         if (this.status == Status.FROZEN) {
-            if (Random.nextInt(100) > 20)
+            if (move.move.type != Type.FIRE && Random.nextInt(100) > 20)
                 return AttackResponse(false, "${this.data.name} is frozen solid!\n")
-            else
+            else {
                 status = Status.OK
+                statusChange = "${data.name} thawed out!\n"
+            }
         }
         if (this.status == Status.PARALYSIS && this.battleData!!.haxxCounter < 3) {
             if (Random.nextInt(100) < 25) {
@@ -136,10 +139,12 @@ open class Pokemon(
             if (battleData!!.sleepCounter == 3 || (hasAbility(Ability.EARLY_BIRD) && battleData!!.sleepCounter == 2)) {
                 battleData!!.sleepCounter = 0
                 this.status = Status.OK
+                statusChange = "${data.name} woke up!\n"
             } else if (battleData!!.sleepCounter > 1) {
                 if (Random.nextInt(100) < 30) {
                     battleData!!.sleepCounter = 0
                     this.status = Status.OK
+                    statusChange = "${data.name} woke up!\n"
                 } else
                     return AttackResponse(false, this.data.name + " is fast asleep!\n")
             } else
@@ -162,12 +167,12 @@ open class Pokemon(
                 this.takeDamage(DamageCalculator.computeConfusionDamage(this))
                 return AttackResponse(
                     false,
-                    "${this.data.name} uses ${move.move.name}\nBut ${this.data.name} hits hurt itself in its confusion\n"
+                    "But ${this.data.name} hits hurt itself in its confusion\n"
                 )
             }
         }
         this.battleData!!.haxxCounter = 0
-        return AttackResponse(true, "")
+        return AttackResponse(true, statusChange)
     }
 
     fun attack(move: PokemonMove, opponent: Pokemon, weather: Weather): AttackResponse {
@@ -178,6 +183,7 @@ open class Pokemon(
         if (!attackResponse.success) {
             return attackResponse
         }
+        var details = attackResponse.reason
         val moldBreaker = this.hasAbility(Ability.MOLD_BREAKER)
         if (move.move.category != MoveCategory.OTHER && opponent.hasAbility(Ability.PRESSURE))
             move.pp = if (move.pp > 1) move.pp - 2 else 0
@@ -189,52 +195,53 @@ open class Pokemon(
                 "${this.data.name} can't use ${move.move.name} after the taunt!\n"
             )
         }
+        details += "${this.data.name} uses ${move.move.name}!\n"
         if (move.move.id == 296
             && ((this.battleData!!.lastMoveUsed != null && this.battleData!!.lastMoveUsed!!.move.id == move.move.id)
                     || opponent is PokemonBoss)) {
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}!\n But it failed!\n"
+                details + "But it failed!\n"
             )
         }
         if (move.move.id == 19 && opponent is PokemonBoss) {
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}!\n But ${opponent.data.name} didn't seem affected!\n"
+                details + "But ${opponent.data.name} didn't seem affected!\n"
             )
         }
         if (!moldBreaker) {
             if (move.move.characteristics.contains(MoveCharacteristic.SOUND) && opponent.hasAbility(Ability.SOUNDPROOF))
                 return AttackResponse(
                     false,
-                    "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Soundproof: It does not affect ${opponent.data.name}!\n"
+                    details + "${opponent.data.name}'s Soundproof: It does not affect ${opponent.data.name}!\n"
                 )
             if (move.move.type == Type.ELECTRIC) {
                 if (opponent.hasAbility(Ability.LIGHTNING_ROD)) {
                     opponent.battleData!!.spAtkMultiplicator *= 1.5f
                     return AttackResponse(
                         false,
-                        "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Lightning Rod: ${opponent.data.name}'s Sp. Atk rose!\n"
+                        details + "${opponent.data.name}'s Lightning Rod: ${opponent.data.name}'s Sp. Atk rose!\n"
                     )
                 }
                 if (opponent.hasAbility(Ability.MOTOR_DRIVE)) {
                     opponent.battleData!!.speedMultiplicator *= 1.5f
                     return AttackResponse(
                         false,
-                        "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Motor Drive: ${opponent.data.name}'s speed rose!\n"
+                        details + "${opponent.data.name}'s Motor Drive: ${opponent.data.name}'s speed rose!\n"
                     )
                 }
             }
             if (move.move.characteristics.contains(MoveCharacteristic.BULLET) && opponent.hasAbility(Ability.BULLETPROOF)) {
                 return AttackResponse(
                     false,
-                    "${opponent.data.name}'s Bulletproof: It does not affect ${opponent.data.name}\n"
+                    details + "${opponent.data.name}'s Bulletproof: It does not affect ${opponent.data.name}\n"
                 )
             }
             if (move.move is RecoilMove && (move.move as RecoilMove).recoil == Recoil.ALL && opponent.hasAbility(Ability.DAMP)) {
                 return AttackResponse(
                     false,
-                    "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Damp: ${this.data.name} cannot use ${move.move.name}!\n"
+                    details + "${opponent.data.name}'s Damp: ${this.data.name} cannot use ${move.move.name}!\n"
                 )
             }
             if (move.move.type == Type.FIRE && opponent.hasAbility(Ability.FLASH_FIRE)) {
@@ -242,14 +249,14 @@ open class Pokemon(
                     opponent.battleData!!.battleStatus.add(Status.FIRED_UP)
                 return AttackResponse(
                     false,
-                    "${this.data.name} uses ${move.move.name}\n${opponent.data.name}'s Flash Fire: ${opponent.data.name}'s fire power is increased!\n"
+                    details + "${opponent.data.name}'s Flash Fire: ${opponent.data.name}'s fire power is increased!\n"
                 )
             }
             if (move.move.type == Type.GRASS && move.move.category != MoveCategory.OTHER && opponent.hasAbility(Ability.SAP_SIPPER)) {
                 opponent.battleData!!.attackMultiplicator *= 1.5f
                 return AttackResponse(
                     false,
-                    "${this.data.name} uses ${move.move.name}\n${opponent.data.name}'s Sap Sipper: ${opponent.data.name}'s attack rose!\n"
+                    details + "${opponent.data.name}'s Sap Sipper: ${opponent.data.name}'s attack rose!\n"
                 )
             }
             if ((move.move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(
@@ -260,7 +267,7 @@ open class Pokemon(
                 opponent.heal(DamageCalculator.computeDamageWithoutAbility(this, move.move, opponent))
                 return AttackResponse(
                     false,
-                    "${this.data.name} uses ${move.move.name}!\n" + BattleUtils.getEffectiveness(
+                    details + "" + BattleUtils.getEffectiveness(
                         this,
                         move.move,
                         opponent
@@ -270,30 +277,30 @@ open class Pokemon(
             if (move.move.power > 0 && move.move.type == Type.GROUND && opponent.hasAbility(Ability.LEVITATE)) {
                 return AttackResponse(
                     false,
-                    "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Levitate: It does not affect ${opponent.data.name}!\n"
+                    details + "${opponent.data.name}'s Levitate: It does not affect ${opponent.data.name}!\n"
                 )
             }
         }
         if (move.move.power > 0 && move.move.type == Type.GROUND && opponent.hasItem(HoldItem.AIR_BALLOON)) {
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}!\n${opponent.data.name}'s Air Ballon: It does not affect ${opponent.data.name}!\n"
+                details + "${opponent.data.name}'s Air Balloon: It does not affect ${opponent.data.name}!\n"
             )
         }
         if ((move.move.id == 210 || move.move.id == 244 || move.move.id == 283) && !this.hasAbility(Ability.SCRAPPY) && opponent.hasType(Type.GHOST) ) {
             this.takeDamage(this.hp / 2)
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}!\nIt does not affect ${opponent.data.name}!\n${this.data.name} kept going and crashed!\n"
+                details + "It does not affect ${opponent.data.name}!\n${this.data.name} kept going and crashed!\n"
             )
         }
         if (move.move is RetaliationMove && (this.battleData!!.lastHitReceived == null || move.move.category != this.battleData!!.lastHitReceived!!.category)) {
-            return AttackResponse(false, "${this.data.name} uses ${move.move.name}!\nBut it failed!\n")
+            return AttackResponse(false, details + "But it failed!\n")
         }
         if (((move.move.id == 246 || move.move.id == 282) && hadATurn) || (move.move.id == 213 && opponent.status != Status.ASLEEP))
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}!\nBut it failed!\n"
+                details + "But it failed!\n"
             )
         if (move.move !is MoveBasedOnLevel && move.move.category != MoveCategory.OTHER && DamageCalculator.getEffectiveness(
                 this,
@@ -303,7 +310,7 @@ open class Pokemon(
         )
             return AttackResponse(
                 false,
-                "${this.data.name} uses ${move.move.name}!\nIt does not affect ${opponent.data.name}!\n"
+                details + "It does not affect ${opponent.data.name}!\n"
             )
         if (move.move.accuracy != null && !this.hasAbility(Ability.NO_GUARD)) {
             val random: Int = if (weather == Weather.SNOW && move.move.id == 300) 1 else Random.nextInt(100)
@@ -311,8 +318,8 @@ open class Pokemon(
             if (opponent.hasAbility(Ability.WONDER_SKIN) && move.move.category == MoveCategory.OTHER && move.move.status.isNotEmpty())
                 accuracy *= 0.5f
             if (random > accuracy) {
-                var reason = "${this.data.name} uses ${move.move.name}!\n${this.data.name}'s attack missed!\n"
-                if (move.move.id == 210 || move.move.id == 244 || move.move.id == 283 ) {
+                var reason = details + "${this.data.name}'s attack missed!\n"
+                if (move.move.id == 210 || move.move.id == 244 || move.move.id == 283) {
                     reason += "${this.data.name} kept going and crashed!\n"
                     this.takeDamage(this.hp / 2)
                 }
@@ -322,7 +329,6 @@ open class Pokemon(
                 )
             }
         }
-        var details = ""
         this.battleData!!.lastMoveFailed = false
         this.battleData!!.lastMoveUsed = move
         if (move.move is HealMove) {
@@ -567,7 +573,7 @@ open class Pokemon(
         }
         if (move.move.id == 247 && opponent.heldItem != null && !opponent.hasAbility(Ability.STICKY_HOLD)){
             details += "${this.data.name} knocked off ${opponent.data.name}'s item!\n"
-            opponent.heldItem = null
+            opponent.battleData!!.itemDisabled = true
         }
         if (damage > 0) {
             if (currentHP > 0 && move.move.characteristics.contains(MoveCharacteristic.SOUND) && this.hasItem(HoldItem.THROAT_SPRAY)) {
@@ -603,8 +609,8 @@ open class Pokemon(
                 this.battleData!!.battleStatus.add(Status.CHARGED)
             }
         }
-        if (move.move.id == 265) {
-            if (opponent.battleData!!.lastMoveUsed != null){
+        if (move.move.id == 265) { //DISABLE
+            if (opponent.battleData!!.lastMoveUsed != null) {
                 opponent.battleData!!.lastMoveUsed!!.disabledCountdown = 4
                 details += "${opponent.data.name}'s ${opponent.battleData!!.lastMoveUsed!!.move.name} is disabled!\n"
             } else{
@@ -813,13 +819,18 @@ open class Pokemon(
     }
 
     fun hasItem(item: HoldItem): Boolean {
+        if (this.battleData != null && this.battleData!!.itemDisabled) {
+            return false
+        }
         return heldItem != null && heldItem == item
     }
 
     fun consumeItem() {
-        this.heldItem = null
-        if (this.hasAbility(Ability.UNBURDEN) && this.battleData != null){
-            this.battleData!!.speedMultiplicator *= 2f
+        if (this.battleData != null) {
+            this.battleData!!.itemDisabled = true
+            if (this.hasAbility(Ability.UNBURDEN)) {
+                this.battleData!!.speedMultiplicator *= 2f
+            }
         }
     }
 

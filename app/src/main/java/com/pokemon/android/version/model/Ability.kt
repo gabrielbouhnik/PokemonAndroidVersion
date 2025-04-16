@@ -106,6 +106,7 @@ enum class Ability(var description: String) {
     TRACE("When it enters a battle, the Pokémon copies an opposing Pokémon's Abilities."),
     UNBURDEN("Boosts the Speed stat if the Pokémon's held item is used or lost."),
     UNAWARE("When attacking, the Pokémon ignores the target Pokémon's stat changes."),
+    UNNERVE("The opponent Pokémon will never use their held Berry while the Pokémon is in battle."),
     VITAL_SPIRIT("The Pokémon is full of vitality, and that prevents it from falling asleep."),
     VOLT_ABSORB("Restores HP if hit by an Electric-type move instead of taking damage."),
     WATER_ABSORB("Restores HP if hit by a Water-type move instead of taking damage."),

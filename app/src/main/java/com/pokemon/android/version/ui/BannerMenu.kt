@@ -40,13 +40,17 @@ class BannerMenu {
                 recyclerView.adapter =
                     BannerRecyclerAdapter(
                         activity,
-                        (banners.filter { it.description.contains("a move") }).toMutableList()
+                        ( activity.gameDataService.banners.filter { it.description.contains("a move")
+                                || it.description.contains("Porygon")
+                                || it.description.contains("Marill") }).toMutableList()
                     )
             else
                 recyclerView.adapter =
                     BannerRecyclerAdapter(
                         activity,
-                        (banners.filter { it.description.contains(" TM") }).toMutableList()
+                        ( activity.gameDataService.banners.filter { it.description.contains(" TM")
+                                || it.description.contains("Porygon")
+                                || it.description.contains("Marill")}).toMutableList()
                     )
         } else {
             if (activity.trainer!!.progression < LevelMenu.ELITE_4_FIRST_LEVEL_ID)

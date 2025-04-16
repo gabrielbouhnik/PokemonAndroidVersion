@@ -33,8 +33,7 @@ abstract class Battle {
 
     private fun opponentTurn(opponentPokemonMove: PokemonMove, opponentMoveIsOffensive: Boolean): String {
         if (opponentPokemonMove.move.id == 208 && !opponentMoveIsOffensive) {
-            val response = opponent.canAttack(opponentPokemonMove)
-            return if (!response.success) response.reason else "${opponent.data.name} uses Sucker Punch!\nBut it failed!\n"
+            return suckerPunchFailure(opponent, opponentPokemonMove)
         }
         var action = ""
         if (opponentPokemonMove.move.id == 185) {
@@ -69,12 +68,7 @@ abstract class Battle {
             }
         }
         val opponentResponse = opponent.attack(opponentPokemonMove, pokemon, weather)
-        return if (!opponentResponse.success) {
-            action + opponentResponse.reason
-        } else {
-            action +
-                    "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}!\n" + opponentResponse.reason
-        }
+        return action + opponentResponse.reason.replace(opponent.data.name, "The opposing ${opponent.data.name}")
     }
 
     private fun trainerTurn(trainerPokemonMove: PokemonMove): String {
@@ -96,11 +90,7 @@ abstract class Battle {
             }
         }
         val response = pokemon.attack(trainerPokemonMove, opponent, weather)
-        return if (!response.success)
-            action + response.reason
-        else {
-            action + "${pokemon.data.name} uses ${trainerPokemonMove.move.name}!\n" + response.reason
-        }
+        return action + response.reason
     }
 
     private fun turn(trainerPokemonMove: PokemonMove, sb: StringBuilder) {
@@ -125,9 +115,22 @@ abstract class Battle {
             }
         }
         if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move, opponentMove.move)) {
-            if (trainerPokemonMove.move.id == 208 && opponentMove.move.category == MoveCategory.OTHER)
-                sb.append("${pokemon.data.name} uses Sucker Punch!\nBut it failed!\n")
-            else
+            if (trainerPokemonMove.move.id == 208 && opponentMove.move.category == MoveCategory.OTHER) {
+                pokemon.battleData!!.lastMoveFailed = true
+                pokemon.battleData!!.hadATurn = true
+                when (pokemon.status) {
+                    Status.FROZEN -> {
+                        sb.append(pokemon.data.name + " is frozen solid!\n")
+                    }
+                    Status.ASLEEP -> {
+                        sb.append(pokemon.data.name + " is fast asleep!\n")
+                    }
+                    else -> {
+                        pokemon.battleData!!.lastMoveUsed = trainerPokemonMove
+                        sb.append("${pokemon.data.name} uses Sucker Punch!\nBut it failed!\n")
+                    }
+                }
+            } else
                 sb.append(trainerTurn(trainerPokemonMove))
             if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
                 sb.append(opponentTurn(opponentMove, trainerPokemonMove.move.category != MoveCategory.OTHER))
@@ -209,7 +212,7 @@ abstract class Battle {
                     ) {
                         pokemon.battleData!!.battleStatus.add(Status.CONFUSED)
                         sb.append("${pokemon.data.name} became confused due to fatigue!\n")
-                        if (pokemon.heldItem == HoldItem.LUM_BERRY) {
+                        if (pokemon.heldItem == HoldItem.LUM_BERRY  && !opponent.hasAbility(Ability.UNNERVE)) {
                             sb.append("${pokemon.data.name}'s Lum Berry cured its status\n")
                             pokemon.status = Status.OK
                             pokemon.consumeItem()
@@ -272,8 +275,7 @@ abstract class Battle {
         switchOpponent(pokemonToBeSent)
         sb.append(BattleUtils.abilitiesCheck(opponent, pokemon, this))
         if (trainerPokemonMove.move.id == 208) {
-            val response = opponent.canAttack(trainerPokemonMove)
-            sb.append(if (!response.success) response.reason else "${pokemon.data.name} uses Sucker Punch!\nBut it failed!\n")
+            sb.append(suckerPunchFailure(pokemon, trainerPokemonMove))
         }
         else
             sb.append(trainerTurn(trainerPokemonMove))
@@ -291,8 +293,7 @@ abstract class Battle {
         if (this is BossBattle)
             opponentMove = IAUtils.ia(opponent, pokemon)
         if (opponentMove.move.id == 208) {
-            val response = opponent.canAttack(opponentMove)
-            sb.append(if (response.success) "${opponent.data.name} uses Sucker Punch!\nBut it failed!\n" else response.reason)
+            sb.append(suckerPunchFailure(opponent, opponentMove))
         }
         else
             sb.append(opponentTurn(opponentMove, false))
@@ -329,6 +330,17 @@ abstract class Battle {
         sb.append(opponentTurn(opponentMove, false))
         endTurn(sb)
         return sb.toString()
+    }
+
+    private fun suckerPunchFailure(attacker: Pokemon, move: PokemonMove): String {
+        val response = opponent.canAttack(move)
+        return if (!response.success) {
+            response.reason
+        } else {
+            attacker.battleData!!.lastMoveFailed = true
+            attacker.battleData!!.hadATurn = true
+            return response.reason + "${attacker.data.name} uses Sucker Punch!\nBut it failed!\n"
+        }
     }
 
     private fun endTurn(sb: StringBuilder) {
@@ -398,7 +410,7 @@ abstract class Battle {
                 ) {
                     opponent.battleData!!.battleStatus.add(Status.CONFUSED)
                     sb.append("The opposing ${opponent.data.name} became confused due to fatigue!\n")
-                    if (opponent.heldItem == HoldItem.LUM_BERRY) {
+                    if (opponent.heldItem == HoldItem.LUM_BERRY && !pokemon.hasAbility(Ability.UNNERVE)) {
                         sb.append("${opponent.data.name}'s Lum Berry cured its status\n")
                         opponent.status = Status.OK
                         opponent.consumeItem()

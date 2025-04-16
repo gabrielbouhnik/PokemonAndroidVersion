@@ -26,7 +26,8 @@
   },
   {
     "id": 26,
-    "moveIds": [12,69,3,198]
+    "moveIds": [12,69,3,198],
+    "itemHeld": "AIR_BALLOON"
   },
   {
     "id": 31,
@@ -70,19 +71,22 @@
   },
   {
     "id": 59,
-    "moveIds": [116,27,120,75]
+    "moveIds": [116,27,120,75],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 59,
-    "moveIds": [116,31,120,75]
+    "moveIds": [116,31,120,75],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 65,
-    "moveIds": [219,132,46,44]
+    "moveIds": [219,132,46,44],
+    "itemHeld": "FOCUS_SASH"
   },
   {
     "id": 65,
-    "moveIds": [59,132,135,105]
+    "moveIds": [45,132,135,105]
   },
   {
     "id": 68,
@@ -109,15 +113,18 @@
   },
   {
     "id": 91,
-    "moveIds": [99,136,77,245]
+    "moveIds": [99,136,77,245],
+    "itemHeld": "FOCUS_SASH"
   },
   {
     "id": 94,
-    "moveIds": [46,37,12,138]
+    "moveIds": [46,37,12,138],
+    "itemHeld": "LIFE_ORB"
   },
   {
     "id": 94,
-    "moveIds": [46,44,37,48]
+    "moveIds": [46,44,37,48],
+    "itemHeld": "LIFE_ORB"
   },
   {
     "id": 107,
@@ -191,7 +198,8 @@
   },
   {
     "id": 135,
-    "moveIds": [12,46,3,55]
+    "moveIds": [12,46,3,55],
+    "itemHeld": "LIFE_ORB"
   },
   {
     "id": 141,
@@ -545,11 +553,13 @@
   },
   {
     "id": 429,
-    "moveIds": [46,202,48,44]
+    "moveIds": [46,202,48,44],
+    "itemHeld": "FOCUS_SASH"
   },
   {
     "id": 429,
-    "moveIds": [46,48,45,51]
+    "moveIds": [46,48,45,51],
+    "itemHeld": "FOCUS_SASH"
   },
   {
     "id": 430,
@@ -611,7 +621,8 @@
   },
   {
     "id": 465,
-    "moveIds": [66,102,93,35]
+    "moveIds": [66,102,93,35],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 465,
@@ -710,7 +721,8 @@
   },
   {
     "id": 553,
-    "moveIds": [93,27,108,25]
+    "moveIds": [93,27,108,25],
+    "itemHeld": "EXPERT_BELT"
   },
   {
     "id": 598,
@@ -732,7 +744,13 @@
   },
   {
     "id": 620,
-    "moveIds": [210,246,76,62]
+    "moveIds": [210,246,76,62],
+    "itemHeld": "PROTECTIVE_PADS"
+  },
+  {
+    "id": 620,
+    "moveIds": [210,246,247,62],
+    "itemHeld": "PROTECTIVE_PADS"
   },
   {
     "id": 625,
@@ -740,7 +758,8 @@
   },
   {
     "id": 635,
-    "moveIds": [104,92,31,111]
+    "moveIds": [104,92,31,111],
+    "itemHeld": "LIFE_ORB"
   },
   {
     "id": 660,
@@ -794,11 +813,13 @@
   },
   {
     "id": 855,
-    "moveIds": [46,66,302,245]
+    "moveIds": [46,66,302,245],
+    "itemHeld": "FOCUS_SASH"
   },
   {
     "id": 855,
-    "moveIds": [46,66,260,245]
+    "moveIds": [46,66,260,245],
+    "itemHeld": "FOCUS_SASH"
   },
   {
     "id": 858,

@@ -101,7 +101,7 @@ class MainMenu {
             }
         }
         val battleFrontierButton: Button = activity.findViewById(R.id.battleFrontierButton)
-        if (!activity.eliteMode && activity.trainer!!.progression > LevelMenu.SABRINA_LEVEL) {
+        if (activity.trainer!!.progression > LevelMenu.SABRINA_LEVEL) {
             battleFrontierButton.setOnClickListener {
                 battleFrontierMenu.loadMenu(activity)
             }
@@ -121,7 +121,7 @@ class MainMenu {
             loadGameMenu(activity)
         }
         val achievementsButton: TextView = activity.findViewById(R.id.achievementsButton)
-        if (activity.trainer!!.progression < LevelMenu.ELITE_4_LAST_LEVEL_ID)
+        if (activity.trainer!!.progression < LevelMenu.ELITE_4_LAST_LEVEL_ID || activity.eliteMode)
             achievementsButton.visibility = GONE
         else {
             achievementsButton.setOnClickListener {

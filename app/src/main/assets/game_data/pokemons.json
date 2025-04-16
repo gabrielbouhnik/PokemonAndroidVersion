@@ -1520,7 +1520,7 @@
         }
       }
     ],
-    "abilities": ["INTIMIDATE","SHED_SKIN"],
+    "abilities": ["INTIMIDATE","SHED_SKIN","UNNERVE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -1590,7 +1590,7 @@
     "speed": 80,
     "catchRate": 90,
     "evolutions": [],
-    "abilities": ["INTIMIDATE","SHED_SKIN"],
+    "abilities": ["INTIMIDATE","SHED_SKIN","UNNERVE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3432,7 +3432,7 @@
         }
       }
     ],
-    "abilities": ["TECHNICIAN","PICKUP"],
+    "abilities": ["TECHNICIAN","PICKUP","UNNERVE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3506,7 +3506,7 @@
     "speed": 115,
     "catchRate": 90,
     "evolutions": [],
-    "abilities": ["TECHNICIAN","LIMBER"],
+    "abilities": ["TECHNICIAN","LIMBER","UNNERVE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -14291,7 +14291,7 @@
         }
       }
     ],
-    "abilities": ["GUTS","QUICK_FEET"],
+    "abilities": ["GUTS","QUICK_FEET","UNNERVE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -14777,7 +14777,7 @@
         }
       }
     ],
-    "abilities": ["FLASH_FIRE","EARLY_BIRD"],
+    "abilities": ["FLASH_FIRE","EARLY_BIRD","UNNERVE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -14855,7 +14855,7 @@
     "speed": 95,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["FLASH_FIRE","EARLY_BIRD"],
+    "abilities": ["FLASH_FIRE","EARLY_BIRD","UNNERVE"],
     "expGaugeType":  "SLOW",
     "megaEvolutionData": {
       "type1": 2,
@@ -15952,7 +15952,7 @@
     "speed": 61,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["SAND_STREAM"],
+    "abilities": ["SAND_STREAM","UNNERVE"],
     "expGaugeType":  "SLOW",
     "megaEvolutionData": {
       "type1": 9,
@@ -20278,7 +20278,7 @@
         }
       }
     ],
-    "abilities": ["MOLD_BREAKER"],
+    "abilities": ["MOLD_BREAKER","UNNERVE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -20375,7 +20375,7 @@
         }
       }
     ],
-    "abilities": ["MOLD_BREAKER"],
+    "abilities": ["MOLD_BREAKER","UNNERVE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -20465,7 +20465,7 @@
     "speed": 97,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["MOLD_BREAKER"],
+    "abilities": ["MOLD_BREAKER","UNNERVE"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -23393,7 +23393,7 @@
     "speed": 50,
     "catchRate": 20,
     "evolutions": [],
-    "abilities": ["GUTS", "BULLETPROOF"],
+    "abilities": ["GUTS", "BULLETPROOF","UNNERVE"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {

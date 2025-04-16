@@ -17,7 +17,6 @@ import com.pokemon.android.version.model.move.Stats
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.repository.*
 import com.pokemon.android.version.ui.BattleFrontierMenu
-import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.StatUtils
 import kotlin.random.Random
 
@@ -69,13 +68,18 @@ class GameDataService {
     fun updateShopForHardMode() {
         this.shop.filter { it.itemId < 12 }.map{ it.cost *= 2}
         this.shop.add(ShopItem(8, this.items.first { it.id == 8 }.name, 5, 2))
-        for (itemId in 16..23) {
+        for (itemId in 16..28) {
             this.shop.add(ShopItem(itemId, this.items.first { it.id == itemId }.name, 1000, 3))
         }
         this.shop.add(ShopItem(12, this.items.first { it.id == 12 }.name, 200, 3))
         this.shop.add(ShopItem(13, this.items.first { it.id == 13 }.name, 1000, 6))
-        this.shop.add(ShopItem(28, this.items.first { it.id == 28 }.name, 1000, 3))
         this.shop.sortBy { it.itemId }
+
+        this.banners.forEach{ banner ->
+            run {
+                banner.items = banner.items.filter { it.id < 10 }
+            }
+        }
     }
 
     fun getPokemonDataById(id: Int): PokemonData {

@@ -24,7 +24,8 @@ class WildBattle() : Battle() {
                 && it.id != 120
                 && it.id != 701
                 && it.id != 782
-                && it.id != 885 }
+                && it.id != 885
+                && it.id != 955 }
         else
             wildBattleLevelData.possibleEncounters.encounters = wildBattleLevelData.possibleEncounters.encounters.filter { it.id != 126 }
         this.encountersLeft = wildBattleLevelData.encounter

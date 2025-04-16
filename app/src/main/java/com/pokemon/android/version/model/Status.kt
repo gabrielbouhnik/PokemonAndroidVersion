@@ -71,7 +71,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                 attacker.status = it.status
                                 details += "${opponent.data.name}'s Synchronize: ${attacker.data.name} " + it.status.toDetails() + "\n"
                             }
-                            if (opponent.hasItem(HoldItem.LUM_BERRY)) {
+                            if (opponent.hasItem(HoldItem.LUM_BERRY) && !attacker.hasAbility(Ability.UNNERVE)) {
                                 details += "${opponent.data.name}'s Lum Berry cured its status\n"
                                 opponent.status = OK
                                 opponent.consumeItem()
@@ -82,7 +82,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                 if (it.status == CONFUSED) {
                                     opponent.battleData!!.battleStatus.add(it.status)
                                     details += "${opponent.data.name} became confused!\n"
-                                    if (opponent.hasItem(HoldItem.LUM_BERRY)) {
+                                    if (opponent.hasItem(HoldItem.LUM_BERRY) && !attacker.hasAbility(Ability.UNNERVE)) {
                                         details += "${opponent.data.name}'s Lum Berry cured its status\n"
                                         opponent.status = OK
                                         opponent.consumeItem()

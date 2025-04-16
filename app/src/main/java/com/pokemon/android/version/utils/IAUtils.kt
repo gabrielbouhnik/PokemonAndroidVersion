@@ -18,8 +18,11 @@ class IAUtils {
                 var damage: Int = DamageCalculator.computeDamage(opponent, move.move, pokemon, 1f)
                 if (move.move is VariableHitMove) {
                     damage *= if (opponent.hasAbility(Ability.SKILL_LINK) || opponent.hasItem(HoldItem.LOADED_DICE)) 5 else 3
-                } else if (move.move is MultipleHitMove)
+                } else if (move.move is MultipleHitMove) {
                     damage *= 2
+                } else if (pokemon.currentHP == pokemon.hp && pokemon.hasAbility(Ability.STURDY)) {
+                    return false
+                }
                 if (damage >= pokemon.currentHP)
                     return true
             }
