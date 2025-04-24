@@ -35,9 +35,9 @@ class DamageCalculator {
                 return 1f
             val random = Random.nextInt(100)
             if (move.highCritRate) {
-                if (random < 13 * attacker.battleData!!.criticalRate)
+                if (random < 13 * attacker.battleData!!.statsMultiplier.criticalRate)
                     return if (attacker.hasAbility(Ability.SNIPER)) 2.25f else 1.5f
-            } else if (random < 6 * attacker.battleData!!.criticalRate)
+            } else if (random < 6 * attacker.battleData!!.statsMultiplier.criticalRate)
                 return if (attacker.hasAbility(Ability.SNIPER)) 2.25f else 1.5f
             return 1f
         }
@@ -93,11 +93,11 @@ class DamageCalculator {
             val ignoreOffensiveStatChange: Boolean =
                 !attacker.hasAbility(Ability.MOLD_BREAKER) && opponent.hasAbility(Ability.UNAWARE)
             val offensiveStat: Int =
-                if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * if (ignoreOffensiveStatChange) 1f else attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * if (ignoreOffensiveStatChange) 1f else attacker.battleData!!.spAtkMultiplicator).roundToInt()
+                if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * if (ignoreOffensiveStatChange) 1f else attacker.battleData!!.statsMultiplier.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * if (ignoreOffensiveStatChange) 1f else attacker.battleData!!.statsMultiplier.spAtkMultiplicator).roundToInt()
             val ignoreDefensiveStatChange: Boolean =
                 attacker.hasAbility(Ability.UNAWARE) && !opponent.hasAbility(Ability.MOLD_BREAKER)
             val defensiveStat: Int =
-                if (move.category == MoveCategory.PHYSICAL) (opponent.defense.toFloat() * if (ignoreDefensiveStatChange) 1f else opponent.battleData!!.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * if (ignoreDefensiveStatChange) 1f else opponent.battleData!!.spDefMultiplicator).roundToInt()
+                if (move.category == MoveCategory.PHYSICAL) (opponent.defense.toFloat() * if (ignoreDefensiveStatChange) 1f else opponent.battleData!!.statsMultiplier.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * if (ignoreDefensiveStatChange) 1f else opponent.battleData!!.statsMultiplier.spDefMultiplicator).roundToInt()
             return ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * power * offensiveStat) / (defensiveStat * 50)) + 2) * type * stab * multiplicator * random).roundToInt()
         }
 
@@ -115,7 +115,7 @@ class DamageCalculator {
             }
             if (move.id == 233) {
                 //GYRO BALL
-                power *= (1 + (opponent.speed * opponent.battleData!!.speedMultiplicator) / (attacker.speed * attacker.battleData!!.speedMultiplicator)).roundToInt()
+                power *= (1 + (opponent.speed * opponent.battleData!!.statsMultiplier.speedMultiplicator) / (attacker.speed * attacker.battleData!!.statsMultiplier.speedMultiplicator)).roundToInt()
             }
             if (attacker.hasAbility(Ability.SHEER_FORCE) && (move.status.isNotEmpty() || move is StatChangeMove))
                 power *= 1.3f
@@ -193,16 +193,16 @@ class DamageCalculator {
                 power *= 2f
             if (move.id == 260) {
                 var statBoost = 1f
-                if (attacker.battleData!!.attackMultiplicator > 1f)
-                    statBoost += 20f * attacker.battleData!!.attackMultiplicator
-                if (attacker.battleData!!.defenseMultiplicator > 1f)
-                    statBoost += 20f * attacker.battleData!!.defenseMultiplicator
-                if (attacker.battleData!!.spAtkMultiplicator > 1f)
-                    statBoost += 20f * attacker.battleData!!.spAtkMultiplicator
-                if (attacker.battleData!!.spDefMultiplicator > 1f)
-                    statBoost += 20f * attacker.battleData!!.spDefMultiplicator
-                if (attacker.battleData!!.speedMultiplicator > 1f)
-                    statBoost += 20f * attacker.battleData!!.speedMultiplicator
+                if (attacker.battleData!!.statsMultiplier.attackMultiplicator > 1f)
+                    statBoost += 20f * attacker.battleData!!.statsMultiplier.attackMultiplicator
+                if (attacker.battleData!!.statsMultiplier.defenseMultiplicator > 1f)
+                    statBoost += 20f * attacker.battleData!!.statsMultiplier.defenseMultiplicator
+                if (attacker.battleData!!.statsMultiplier.spAtkMultiplicator > 1f)
+                    statBoost += 20f * attacker.battleData!!.statsMultiplier.spAtkMultiplicator
+                if (attacker.battleData!!.statsMultiplier.spDefMultiplicator > 1f)
+                    statBoost += 20f * attacker.battleData!!.statsMultiplier.spDefMultiplicator
+                if (attacker.battleData!!.statsMultiplier.speedMultiplicator > 1f)
+                    statBoost += 20f * attacker.battleData!!.statsMultiplier.speedMultiplicator
                 return power + statBoost
             }
             if (attacker.hasAbility(Ability.PARENTAL_BOND) && opponent.battleData!!.child) {
@@ -268,18 +268,18 @@ class DamageCalculator {
                 }
                 val random: Float = Random.nextInt(85, 100).toFloat() / 100f
                 var offensiveStat: Int =
-                    if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * attacker.battleData!!.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * attacker.battleData!!.spAtkMultiplicator).roundToInt()
+                    if (move.category == MoveCategory.PHYSICAL) (attacker.attack.toFloat() * attacker.battleData!!.statsMultiplier.attackMultiplicator).roundToInt() else (attacker.spAtk.toFloat() * attacker.battleData!!.statsMultiplier.spAtkMultiplicator).roundToInt()
                 if (move.id == 223) {
                     //FOUL PLAY
-                    offensiveStat = (opponent.attack.toFloat() * opponent.battleData!!.attackMultiplicator).roundToInt()
+                    offensiveStat = (opponent.attack.toFloat() * opponent.battleData!!.statsMultiplier.attackMultiplicator).roundToInt()
                 }
                 if (move.id == 267) {
                     //BODY PRESS
                     offensiveStat =
-                        (attacker.defense.toFloat() * attacker.battleData!!.defenseMultiplicator).roundToInt()
+                        (attacker.defense.toFloat() * attacker.battleData!!.statsMultiplier.defenseMultiplicator).roundToInt()
                 }
                 var defensiveStat: Int =
-                    if (move.category == MoveCategory.PHYSICAL || move.category == MoveCategory.SPECIAL_AND_PHYSICAL) (opponent.defense.toFloat() * opponent.battleData!!.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * opponent.battleData!!.spDefMultiplicator).roundToInt()
+                    if (move.category == MoveCategory.PHYSICAL || move.category == MoveCategory.SPECIAL_AND_PHYSICAL) (opponent.defense.toFloat() * opponent.battleData!!.statsMultiplier.defenseMultiplicator).roundToInt() else (opponent.spDef.toFloat() * opponent.battleData!!.statsMultiplier.spDefMultiplicator).roundToInt()
                 if (criticalMultiplicator >= 1.5f) {
                     if (move.category == MoveCategory.PHYSICAL) {
                         offensiveStat = if (move.category == MoveCategory.PHYSICAL) attacker.attack else attacker.spAtk
@@ -310,9 +310,9 @@ class DamageCalculator {
                 multiplicator *= 0.5f
             val random: Float = Random.nextInt(85, 100).toFloat() / 100f
             val offensiveStat: Int =
-                (attacker.attack.toFloat() * attacker.battleData!!.attackMultiplicator).roundToInt()
+                (attacker.attack.toFloat() * attacker.battleData!!.statsMultiplier.attackMultiplicator).roundToInt()
             val defensiveStat: Int =
-                (attacker.defense.toFloat() * attacker.battleData!!.defenseMultiplicator).roundToInt()
+                (attacker.defense.toFloat() * attacker.battleData!!.statsMultiplier.defenseMultiplicator).roundToInt()
             return ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * 40 * offensiveStat) / (defensiveStat * 50)) + 2) * multiplicator * random).roundToInt()
         }
     }

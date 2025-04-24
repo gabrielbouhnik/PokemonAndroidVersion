@@ -8,10 +8,7 @@ import com.pokemon.android.version.model.battle.Battle
 import com.pokemon.android.version.model.battle.DamageCalculator
 import com.pokemon.android.version.model.battle.Weather
 import com.pokemon.android.version.model.item.HoldItem
-import com.pokemon.android.version.model.move.Move
-import com.pokemon.android.version.model.move.MoveBasedOnLevel
-import com.pokemon.android.version.model.move.MoveCategory
-import com.pokemon.android.version.model.move.MoveCharacteristic
+import com.pokemon.android.version.model.move.*
 import kotlin.random.Random
 
 class BattleUtils {
@@ -32,6 +29,16 @@ class BattleUtils {
                 if (opponent.hasItem(HoldItem.ROCKY_HELMET)) {
                     attacker.takeDamage(attacker.hp / 8)
                     details += "${opponent.data.name}'s Rocky Helmet: ${attacker.data.name} was hurt!\n"
+                }
+                if (opponent.hasAbility(Ability.PICKPOCKET) && attacker.heldItem != null
+                    && opponent.heldItem == null) {
+                    details += "${opponent.data.name}'s Pickpocket: ${attacker.data.name} had its ${attacker.heldItem!!.heldItemToString()} stolen!\n"
+                    if (!opponent.hasAbility(Ability.MOLD_BREAKER) && attacker.hasAbility(Ability.STICKY_HOLD)) {
+                        details += "${attacker.data.name}'s Sticky Hold: ${attacker.data.name}'s item cannot be removed!\n"
+                    } else {
+                        attacker.battleData!!.itemDisabled = true
+                        opponent.heldItem = attacker.heldItem
+                    }
                 }
                 val random: Int = Random.nextInt(100)
                 if (random < 30) {
@@ -120,7 +127,7 @@ class BattleUtils {
             if (pokemon.hasAbility(Ability.UNNERVE))
                 sb.append("${pokemon.data.name}'s Unnerve: ${opponent.data.name} is too nervous to eat berries!\n")
             if (pokemon.hasAbility(Ability.COMPOUNDEYES))
-                pokemon.battleData!!.accuracyMultiplicator *= 1.3f
+                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.ACCURACY_ONE_LEVEL_RAISE)
             if (pokemon.hasAbility(Ability.ANTICIPATION) && MoveUtils.getMoveList(opponent)
                     .any { DamageCalculator.getEffectiveness(opponent, it.move, pokemon) >= 2f }
             )
@@ -131,18 +138,18 @@ class BattleUtils {
                     opponent.hasAbility(Ability.CLEAR_BODY) -> sb.append("${opponent.data.name}'s Clear Body: ${opponent.data.name}'s stats cannot be lowered!\n")
                     opponent.hasAbility(Ability.HYPER_CUTTER) -> sb.append("${opponent.data.name}'s Hyper Cutter: ${opponent.data.name}'s attack cannot be lowered!\n")
                     opponent.hasAbility(Ability.DEFIANT) -> {
-                        opponent.battleData!!.attackMultiplicator *= 1.5f
+                        opponent.battleData!!.statsMultiplier.increaseStat(StatChange.ATTACK_ONE_LEVEL_RAISE)
                         sb.append("${opponent.data.name}'s Defiant: ${opponent.data.name}'s attack rose!\n")
                     }
                     opponent.hasAbility(Ability.COMPETITIVE) -> {
-                        opponent.battleData!!.attackMultiplicator *= 1.5f
+                        opponent.battleData!!.statsMultiplier.increaseStat(StatChange.SPATK_ONE_LEVEL_RAISE)
                         sb.append("${opponent.data.name}'s Competitive: ${opponent.data.name}'s sp. Atk rose!\n")
                     }
                     else -> {
                         if (opponent.battleData != null)
-                            opponent.battleData!!.attackMultiplicator *= 0.67f
+                            opponent.battleData!!.statsMultiplier.increaseStat(StatChange.ATTACK_ONE_LEVEL_DECREASE)
                         if (opponent.hasAbility(Ability.RATTLED)) {
-                            opponent.battleData!!.speedMultiplicator *= 1.5f
+                            opponent.battleData!!.statsMultiplier.increaseStat(StatChange.SPEED_ONE_LEVEL_RAISE)
                             sb.append("${opponent.data.name}'s Rattled: ${opponent.data.name}'s speed rose!\n")
                         }
                     }
@@ -155,48 +162,51 @@ class BattleUtils {
             }
             if (pokemon.hasItem(HoldItem.ASSAULT_VEST) && !MoveUtils.getMoveList(pokemon).map { it.move.category }
                     .contains(MoveCategory.OTHER))
-                pokemon.battleData!!.spDefMultiplicator *= 1.5f
+                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.SPDEF_ONE_LEVEL_RAISE)
             if (pokemon.hasItem(HoldItem.EVIOLITE) && pokemon.data.evolutions.isNotEmpty()) {
-                pokemon.battleData!!.spDefMultiplicator *= 1.5f
-                pokemon.battleData!!.defenseMultiplicator *= 1.5f
+                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.SPDEF_ONE_LEVEL_RAISE)
+                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.DEFENSE_ONE_LEVEL_RAISE)
             }
             if (pokemon.hasItem(HoldItem.WIDE_LENS)) {
-                pokemon.battleData!!.accuracyMultiplicator *= 1.5f
+                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.ACCURACY_ONE_LEVEL_RAISE)
             }
             if (pokemon.hasAbility(Ability.SAND_STREAM) && battle.weather != Weather.SANDSTORM) {
                 battle.weather = Weather.SANDSTORM
                 battle.weatherCounter = 5
+                if (pokemon.hasItem(HoldItem.SMOOTH_ROCK))
+                    battle.weatherCounter += 3
                 sb.append("${pokemon.data.name}'s Sand Stream: A sandstorm kicked up!\n")
                 if (pokemon.hasType(Type.ROCK))
-                    pokemon.battleData!!.spDefMultiplicator *= 1.5f
+                    pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.SPDEF_ONE_LEVEL_RAISE)
                 if (opponent.hasType(Type.ROCK))
-                    opponent.battleData!!.spDefMultiplicator *= 1.5f
+                    opponent.battleData!!.statsMultiplier.increaseStat(StatChange.SPDEF_ONE_LEVEL_RAISE)
                 if (opponent.hasAbility(Ability.SAND_RUSH))
-                    opponent.battleData!!.speedMultiplicator *= 2
+                    opponent.battleData!!.statsMultiplier.increaseStat(StatChange.SPEED_TWO_LEVEL_RAISE)
                 if (pokemon.hasAbility(Ability.SAND_RUSH))
-                    pokemon.battleData!!.speedMultiplicator *= 2
-
+                    pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.SPEED_TWO_LEVEL_RAISE)
             }
             if (pokemon.hasAbility(Ability.SNOW_WARNING) && battle.weather != Weather.SNOW) {
                 battle.weather = Weather.SNOW
                 battle.weatherCounter = 5
+                if (pokemon.hasItem(HoldItem.ICY_ROCK))
+                    battle.weatherCounter += 3
                 sb.append("${pokemon.data.name}'s Snow Warning: It started to snow!\n")
                 if (pokemon.hasType(Type.ICE))
-                    pokemon.battleData!!.defenseMultiplicator *= 1.5f
+                    pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.DEFENSE_ONE_LEVEL_RAISE)
                 if (opponent.hasType(Type.ICE))
-                    opponent.battleData!!.defenseMultiplicator *= 1.5f
+                    opponent.battleData!!.statsMultiplier.increaseStat(StatChange.DEFENSE_ONE_LEVEL_RAISE)
             }
             if (pokemon.hasAbility(Ability.DOWNLOAD)) {
-                if (opponent.defense * opponent.battleData!!.defenseMultiplicator > opponent.spDef * opponent.battleData!!.spDefMultiplicator) {
+                if (opponent.defense * opponent.battleData!!.statsMultiplier.defenseMultiplicator > opponent.spDef * opponent.battleData!!.statsMultiplier.spDefMultiplicator) {
                     sb.append("${pokemon.data.name}'s Download: ${pokemon.data.name}'s Sp. Atk rose!\n")
-                    pokemon.battleData!!.spAtkMultiplicator *= 1.5f
+                    pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.SPATK_ONE_LEVEL_RAISE)
                 } else {
                     sb.append("${pokemon.data.name}'s Download: ${pokemon.data.name}'s attack rose!\n")
-                    pokemon.battleData!!.attackMultiplicator *= 1.5f
+                    pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.ATTACK_ONE_LEVEL_RAISE)
                 }
             }
             if (pokemon.hasAbility(Ability.SUPER_LUCK))
-                pokemon.battleData!!.criticalRate *= 1.5f
+                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange(Stats.CRITICAL_RATE, 1.5f))
             if (pokemon.hasAbility(Ability.ARENA_TRAP) && !opponent.hasAbility(Ability.LEVITATE) && !pokemon.hasType(
                     Type.FLYING
                 ) && !pokemon.hasType(Type.GHOST)
@@ -263,29 +273,29 @@ class BattleUtils {
         }
 
         fun isFaster(pokemon: Pokemon, other: Pokemon): Boolean {
-            val pokemonSpeed = pokemon.speed.toFloat() * pokemon.battleData!!.speedMultiplicator
-            val otherSpeed = other.speed.toFloat() * other.battleData!!.speedMultiplicator
+            val pokemonSpeed = pokemon.speed.toFloat() * pokemon.battleData!!.statsMultiplier.speedMultiplicator
+            val otherSpeed = other.speed.toFloat() * other.battleData!!.statsMultiplier.speedMultiplicator
             val paralysisMultiplicator: Float = if (pokemon.status == Status.PARALYSIS) 0.5f else 1f
             val opponentParalysisMultiplicator: Float = if (other.status == Status.PARALYSIS) 0.5f else 1f
             return pokemonSpeed * paralysisMultiplicator >= otherSpeed * opponentParalysisMultiplicator
         }
 
         fun checkForStatusStatsRaiseAbility(pokemon: Pokemon) {
-            if (pokemon.hasAbility(Ability.QUICK_FEET))
-                pokemon.battleData!!.speedMultiplicator *= 1.5f
             if (pokemon.hasAbility(Ability.GUTS))
-                pokemon.battleData!!.attackMultiplicator *= 1.5f
+                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.ATTACK_ONE_LEVEL_RAISE)
+            if (pokemon.hasAbility(Ability.QUICK_FEET))
+                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.SPEED_ONE_LEVEL_RAISE)
             if (pokemon.hasAbility(Ability.MARVEL_SCALE))
-                pokemon.battleData!!.defenseMultiplicator *= 1.5f
+                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.DEFENSE_ONE_LEVEL_RAISE)
         }
 
         fun removeStatusStatsRaiseAbility(pokemon: Pokemon) {
             if (pokemon.hasAbility(Ability.GUTS))
-                pokemon.battleData!!.attackMultiplicator /= 1.5f
+                pokemon.battleData!!.statsMultiplier.attackMultiplicator /= 1.5f
             if (pokemon.hasAbility(Ability.QUICK_FEET))
-                pokemon.battleData!!.speedMultiplicator /= 1.5f
+                pokemon.battleData!!.statsMultiplier.speedMultiplicator /= 1.5f
             if (pokemon.hasAbility(Ability.MARVEL_SCALE))
-                pokemon.battleData!!.defenseMultiplicator /= 1.5f
+                pokemon.battleData!!.statsMultiplier.defenseMultiplicator /= 1.5f
         }
     }
 }

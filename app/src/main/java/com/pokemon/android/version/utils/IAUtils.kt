@@ -20,7 +20,8 @@ class IAUtils {
                     damage *= if (opponent.hasAbility(Ability.SKILL_LINK) || opponent.hasItem(HoldItem.LOADED_DICE)) 5 else 3
                 } else if (move.move is MultipleHitMove) {
                     damage *= 2
-                } else if (pokemon.currentHP == pokemon.hp && pokemon.hasAbility(Ability.STURDY)) {
+                } else if (pokemon.currentHP == pokemon.hp
+                    && (pokemon.hasAbility(Ability.STURDY) || pokemon.hasItem(HoldItem.FOCUS_SASH))) {
                     return false
                 }
                 if (damage >= pokemon.currentHP)
@@ -60,12 +61,9 @@ class IAUtils {
             return usableMoves.random()
         }
 
-        private fun shouldUpdateStats(statsAffected: List<Stats>, pokemon: Pokemon): Boolean {
-            if (statsAffected.contains(Stats.ATTACK) && pokemon.battleData!!.attackMultiplicator <= 1f)
-                return true
-            if (statsAffected.contains(Stats.SPATK) && pokemon.battleData!!.spAtkMultiplicator <= 1f)
-                return true
-            return false
+        private fun shouldUpdateStats(statsChangeMove: StatChangeMove, pokemon: Pokemon): Boolean {
+            return (statsChangeMove.increaseStat(Stats.ATTACK) && pokemon.battleData!!.statsMultiplier.attackMultiplicator <= 1f)
+                    || (statsChangeMove.increaseStat(Stats.SPATK) && pokemon.battleData!!.statsMultiplier.spAtkMultiplicator <= 1f)
         }
 
         fun ia(attacker: Pokemon, opponent: Pokemon): PokemonMove {
@@ -127,13 +125,13 @@ class IAUtils {
                 if (move.move is StatChangeMove) {
                     val statChangeMove: StatChangeMove = move.move as StatChangeMove
                     if (statChangeMove.target == Target.SELF) {
-                        if (statChangeMove.statsAffected.contains(Stats.SPEED)) {
+                        if (statChangeMove.increaseStat(Stats.SPEED)) {
                             if (BattleUtils.isFaster(opponent, attacker)
                                 && !canBeKOdByOpponent(opponent, attacker)) {
                                 //OPPONENT IS FASTER AND CAN'T KO ATTACKER
                                 return move
                             }
-                        } else if (shouldUpdateStats(statChangeMove.statsAffected, attacker) &&
+                        } else if (shouldUpdateStats(statChangeMove, attacker) &&
                             ((BattleUtils.isFaster(attacker, opponent) && canBeKOdByOpponent(opponent, attacker))
                             || canTakeTwoHits(opponent, attacker))) {
                             //ATTACKER IS FASTER AND CAN SURVIVE 1 HIT OR CAN SURVIVE 2 HITS FROM OPPONENT
@@ -142,18 +140,20 @@ class IAUtils {
 
                     } else if (move.move.category != MoveCategory.OTHER || !opponent.hasAbility(Ability.MAGIC_BOUNCE)) {
                         //ATTACKER SHOULD ONLY LOWER SPEED AND ACCURACY OF OPPONENT
-                        if (statChangeMove.statsAffected.contains(Stats.ACCURACY) && opponent.battleData!!.accuracyMultiplicator == 1f
-                            && !opponent.hasAbility(Ability.KEEN_EYE) && !opponent.hasAbility(Ability.CLEAR_BODY))
+                        if (statChangeMove.decreaseOpponentStat(Stats.ACCURACY)
+                            && opponent.battleData!!.statsMultiplier.accuracyMultiplicator == 1f
+                            && !opponent.hasAbility(Ability.KEEN_EYE)
+                            && !opponent.hasAbility(Ability.CLEAR_BODY))
                             return move
-                        if (statChangeMove.statsAffected.contains(Stats.SPEED)
-                            && opponent.battleData!!.speedMultiplicator == 1f
+                        if (statChangeMove.decreaseOpponentStat(Stats.SPEED)
+                            && opponent.battleData!!.statsMultiplier.speedMultiplicator == 1f
                             && !opponent.hasAbility(Ability.CLEAR_BODY))
                             return move
                     }
                 }
-                if (move.move is RemoveStatChangesMove && (opponent.battleData!!.attackMultiplicator > 1f
-                            || opponent.battleData!!.spAtkMultiplicator > 1f
-                            || opponent.battleData!!.speedMultiplicator > 1f))
+                if (move.move is RemoveStatChangesMove && (opponent.battleData!!.statsMultiplier.attackMultiplicator > 1f
+                            || opponent.battleData!!.statsMultiplier.spAtkMultiplicator > 1f
+                            || opponent.battleData!!.statsMultiplier.speedMultiplicator > 1f))
                     return move
                 if (damage > maxDamage) {
                     maxDamageIdx = Idx
@@ -171,7 +171,7 @@ class IAUtils {
                 ) && opponent.currentHP >= opponent.hp * 0.6f)
             ) {
                 for (pokemon in team) {
-                    if ((pokemon.speed > opponent.speed * opponent.battleData!!.speedMultiplicator
+                    if ((pokemon.speed > opponent.speed * opponent.battleData!!.statsMultiplier.speedMultiplicator
                                 || canTakeTwoHits(pokemon, opponent))
                         && canBeKOdByOpponent(
                             opponent, pokemon
@@ -190,7 +190,7 @@ class IAUtils {
                 return null
             val scores: List<Int> = team.map {
                 var score = 0
-                if (it.speed > opponent.speed * opponent.battleData!!.speedMultiplicator) {
+                if (it.speed > opponent.speed * opponent.battleData!!.statsMultiplier.speedMultiplicator) {
                     score += 1
                     if (canBeKOdByOpponent(opponent, it))
                         score += 3

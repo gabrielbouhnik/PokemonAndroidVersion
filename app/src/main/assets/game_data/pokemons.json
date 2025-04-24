@@ -2385,6 +2385,10 @@
           "level": 32
         },
         {
+          "moveId": 311,
+          "level": 36
+        },
+        {
           "moveId": 130,
           "level": 40
         },
@@ -2447,6 +2451,10 @@
         },
         {
           "moveId": 31,
+          "level": 1
+        },
+        {
+          "moveId": 311,
           "level": 1
         },
         {
@@ -5234,6 +5242,10 @@
           "level": 1
         },
         {
+          "moveId": 312,
+          "level": 1
+        },
+        {
           "moveId": 6,
           "level": 6
         },
@@ -5314,6 +5326,10 @@
       "movesLearnByLevel": [
         {
           "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 312,
           "level": 1
         },
         {
@@ -6367,6 +6383,10 @@
         {
           "moveId": 15,
           "level": 12
+        },
+        {
+          "moveId": 312,
+          "level": 16
         },
         {
           "moveId": 25,
@@ -13142,6 +13162,10 @@
           "level": 1
         },
         {
+          "moveId": 312,
+          "level": 1
+        },
+        {
           "moveId": 6,
           "level": 6
         },
@@ -13398,6 +13422,10 @@
         },
         {
           "moveId": 115,
+          "level": 20
+        },
+        {
+          "moveId": 312,
           "level": 23
         },
         {
@@ -13463,6 +13491,10 @@
         },
         {
           "moveId": 115,
+          "level": 20
+        },
+        {
+          "moveId": 312,
           "level": 23
         },
         {
@@ -13619,6 +13651,10 @@
         {
           "moveId": 15,
           "level": 12
+        },
+        {
+          "moveId": 312,
+          "level": 16
         },
         {
           "moveId": 25,
@@ -14161,7 +14197,7 @@
         }
       }
     ],
-    "abilities": ["KEEN_EYE","INNER_FOCUS"],
+    "abilities": ["KEEN_EYE","INNER_FOCUS","PICKPOCKET"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -18639,7 +18675,7 @@
     "speed": 125,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["PRESSURE"],
+    "abilities": ["PRESSURE","PICKPOCKET"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -20028,6 +20064,10 @@
           "level": 36
         },
         {
+          "moveId": 311,
+          "level": 44
+        },
+        {
           "moveId": 231,
           "level": 52
         }
@@ -20097,6 +20137,10 @@
           "level": 36
         },
         {
+          "moveId": 311,
+          "level": 46
+        },
+        {
           "moveId": 231,
           "level": 58
         }
@@ -20163,6 +20207,10 @@
         },
         {
           "moveId": 46,
+          "level": 1
+        },
+        {
+          "moveId": 311,
           "level": 1
         },
         {
@@ -22841,7 +22889,7 @@
         }
       }
     ],
-    "abilities": ["FRISK", "PRANKSTER"],
+    "abilities": ["FRISK","PRANKSTER","PICKPOCKET"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -22906,7 +22954,7 @@
         }
       }
     ],
-    "abilities": ["FRISK", "PRANKSTER"],
+    "abilities": ["FRISK","PRANKSTER","PICKPOCKET"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -22976,7 +23024,7 @@
     "speed": 60,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["FRISK", "PRANKSTER"],
+    "abilities": ["FRISK","PRANKSTER","PICKPOCKET"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -24121,7 +24169,7 @@
         }
       }
     ],
-    "abilities": ["MOLD_BREAKER", "OWN_TEMPO"],
+    "abilities": ["MOLD_BREAKER", "OWN_TEMPO","PICKPOCKET"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -24194,7 +24242,7 @@
         }
       }
     ],
-    "abilities": ["MOLD_BREAKER", "OWN_TEMPO"],
+    "abilities": ["MOLD_BREAKER", "OWN_TEMPO","PICKPOCKET"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -24268,7 +24316,7 @@
     "speed": 94,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["MOLD_BREAKER", "OWN_TEMPO"],
+    "abilities": ["MOLD_BREAKER", "OWN_TEMPO","PICKPOCKET"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -24787,6 +24835,10 @@
           "level": 32
         },
         {
+          "moveId": 311,
+          "level": 36
+        },
+        {
           "moveId": 84,
           "level": 40
         },
@@ -24857,6 +24909,10 @@
         },
         {
           "moveId": 100,
+          "level": 1
+        },
+        {
+          "moveId": 311,
           "level": 1
         },
         {
@@ -25573,7 +25629,7 @@
         }
       }
     ],
-    "abilities": ["KEEN_EYE","INNER_FOCUS"],
+    "abilities": ["KEEN_EYE","INNER_FOCUS","PICKPOCKET"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {

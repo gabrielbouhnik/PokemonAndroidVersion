@@ -181,7 +181,7 @@ class GameDataService {
         val pokemon = generatePokemonWithMoves(id, level, moves,null)
         val move5: PokemonMove? = if (moves.size < 5) null else PokemonMove(moves[4])
         val move6: PokemonMove? = if (moves.size < 6) null else PokemonMove(moves[5])
-        val boss = PokemonBoss.PokemonBossBuilder()
+        return PokemonBoss.PokemonBossBuilder()
             .data(pokemon.data)
             .level(level)
             .hp(pokemon.hp)
@@ -198,7 +198,6 @@ class GameDataService {
             .move5(move5)
             .move6(move6)
             .build()
-        return boss
     }
 
     fun getPokemonLocation(id: Int, progression: Int): String {

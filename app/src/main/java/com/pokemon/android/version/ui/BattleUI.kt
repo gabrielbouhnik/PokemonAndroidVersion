@@ -287,7 +287,7 @@ class BattleUI {
                     activity.updateMusic(R.raw.victory_theme)
                     if (battle.area == BattleFrontierArea.BATTLE_FACTORY) {
                         activity.trainer!!.battleFactoryProgression!!.progression += 1
-                        if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID && activity.trainer!!.battleFactoryProgression!!.progression >= 25)
+                        if (activity.trainer!!.progression > ELITE_4_LAST_LEVEL_ID && activity.trainer!!.battleFactoryProgression!!.progression >= 25)
                             activity.trainer!!.achievements!!.winstreak25Factory = true
                         activity.trainer!!.coins += 30 * (1 + (activity.trainer!!.battleFactoryProgression!!.progression / 5))
                     } else {
@@ -366,7 +366,7 @@ class BattleUI {
                         else
                             dialogTextView!!.text = (battle.levelData as LeaderLevelData).endDialogWin2
                     } else {
-                        if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID)
+                        if (activity.trainer!!.progression > ELITE_4_LAST_LEVEL_ID)
                             dialogTextView!!.text = (battle.levelData as LeaderLevelData).endDialogWin2
                         else
                             dialogTextView!!.text = (battle.levelData as LeaderLevelData).endDialogWin1
@@ -466,7 +466,7 @@ class BattleUI {
                 ) {
                     Toast.makeText(
                         activity,
-                        "${battle.pokemon.data.name} can't use ${battle.pokemon.move1.move.name} afterthe taunt",
+                        "${battle.pokemon.data.name} can't use ${battle.pokemon.move1.move.name} after the taunt",
                         Toast.LENGTH_SHORT
                     )
                         .show()
@@ -518,7 +518,7 @@ class BattleUI {
                 ) {
                     Toast.makeText(
                         activity,
-                        "${battle.pokemon.data.name} can't use ${battle.pokemon.move1.move.name} afterthe taunt",
+                        "${battle.pokemon.data.name} can't use ${battle.pokemon.move1.move.name} after the taunt",
                         Toast.LENGTH_SHORT
                     )
                         .show()
@@ -612,8 +612,7 @@ class BattleUI {
         if (battle !is BattleFrontierBattle && battle.levelData.id != FRONTIER_BRAIN_LEVEL_ID) {
             bagButton.setOnClickListener {
                 if (battle is LeaderBattle
-                    || battle.levelData.id == ARMORED_MEWTWO_LEVEL_ID - 1
-                    || battle.levelData.id in ELITE_4_LAST_LEVEL_ID..ELITE_4_LAST_LEVEL_ID){
+                    || battle.levelData.id == ARMORED_MEWTWO_LEVEL_ID - 1) {
                     Toast.makeText(activity, "You can't use items in an official Pokémon League battle!", Toast.LENGTH_SHORT).show()
                 } else {
                     megaEvolve = false
@@ -737,7 +736,7 @@ class BattleUI {
         MusicUtils.playMusic(activity, level.music)
         activity.setContentView(R.layout.battle_layout)
         setDialogTextView(activity)
-        if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID)
+        if (activity.trainer!!.progression > ELITE_4_LAST_LEVEL_ID)
             dialogTextView!!.text = level.startDialog2
         else
             dialogTextView!!.text = level.startDialog1

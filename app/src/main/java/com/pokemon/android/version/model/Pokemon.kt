@@ -110,7 +110,7 @@ open class Pokemon(
                 .shiny(pokemonSave.shiny)
                 .holdItem(
                     if (pokemonSave.holdItem == null || pokemonSave.holdItem == "") null else HoldItem.valueOf(
-                        pokemonSave.holdItem
+                        pokemonSave.holdItem!!
                     )
                 )
                 .isFromBanner(pokemonSave.isFromBanner)
@@ -157,7 +157,7 @@ open class Pokemon(
             var reason = "${this.data.name} flinched and couldn't move\n"
             if (this.hasAbility(Ability.STEADFAST)) {
                 reason += "${data.name}'s Steadfast: ${this.data.name}'s speed rose!\n"
-                this.battleData!!.speedMultiplicator *= 1.5f
+                this.battleData!!.statsMultiplier.increaseStat(StatChange.SPEED_ONE_LEVEL_RAISE)
             }
             return AttackResponse(false, reason)
         }
@@ -218,14 +218,14 @@ open class Pokemon(
                 )
             if (move.move.type == Type.ELECTRIC) {
                 if (opponent.hasAbility(Ability.LIGHTNING_ROD)) {
-                    opponent.battleData!!.spAtkMultiplicator *= 1.5f
+                    opponent.battleData!!.statsMultiplier.increaseStat(StatChange.SPATK_ONE_LEVEL_RAISE)
                     return AttackResponse(
                         false,
                         details + "${opponent.data.name}'s Lightning Rod: ${opponent.data.name}'s Sp. Atk rose!\n"
                     )
                 }
                 if (opponent.hasAbility(Ability.MOTOR_DRIVE)) {
-                    opponent.battleData!!.speedMultiplicator *= 1.5f
+                    opponent.battleData!!.statsMultiplier.increaseStat(StatChange.SPEED_ONE_LEVEL_RAISE)
                     return AttackResponse(
                         false,
                         details + "${opponent.data.name}'s Motor Drive: ${opponent.data.name}'s speed rose!\n"
@@ -253,7 +253,7 @@ open class Pokemon(
                 )
             }
             if (move.move.type == Type.GRASS && move.move.category != MoveCategory.OTHER && opponent.hasAbility(Ability.SAP_SIPPER)) {
-                opponent.battleData!!.attackMultiplicator *= 1.5f
+                opponent.battleData!!.statsMultiplier.increaseStat(StatChange.ATTACK_ONE_LEVEL_RAISE)
                 return AttackResponse(
                     false,
                     details + "${opponent.data.name}'s Sap Sipper: ${opponent.data.name}'s attack rose!\n"
@@ -314,7 +314,7 @@ open class Pokemon(
             )
         if (move.move.accuracy != null && !this.hasAbility(Ability.NO_GUARD)) {
             val random: Int = if (weather == Weather.SNOW && move.move.id == 300) 1 else Random.nextInt(100)
-            var accuracy = move.move.accuracy!! * battleData!!.accuracyMultiplicator
+            var accuracy = move.move.accuracy!! * battleData!!.statsMultiplier.accuracyMultiplicator
             if (opponent.hasAbility(Ability.WONDER_SKIN) && move.move.category == MoveCategory.OTHER && move.move.status.isNotEmpty())
                 accuracy *= 0.5f
             if (random > accuracy) {
@@ -447,7 +447,7 @@ open class Pokemon(
             }
             if (crit == 1.5f && opponent.hasAbility(Ability.ANGER_POINT)) {
                 details += "${opponent.data.name}'s Anger Point: ${opponent.data.name} maxed its Attack!\n"
-                opponent.battleData!!.attackMultiplicator = 4f
+                opponent.battleData!!.statsMultiplier.attackMultiplicator = 4f
             }
             if (move.move.type == Type.FIRE && opponent.status == Status.FROZEN)
                 opponent.status = Status.OK
@@ -474,20 +474,26 @@ open class Pokemon(
                 val statChangeMove = move.move as StatChangeMove
                 details +=
                     if (statChangeMove.target == Target.SELF)
-                        Stats.updateStat(this, statChangeMove, Target.SELF)
+                        Stats.updateStat(this, statChangeMove, Target.SELF, false)
                     else {
                         if (move.move.category == MoveCategory.OTHER && opponent.hasAbility(Ability.MAGIC_BOUNCE) && !moldBreaker) {
                             "${opponent.data.name}'s Magic Bounce: ${opponent.data.name} bounced the attack back!\n" + Stats.updateStat(
                                 this,
                                 statChangeMove,
-                                Target.OPPONENT
+                                Target.OPPONENT,
+                                false
                             )
                         } else if (opponent.currentHP > 0) {
                             if (move.move.id == 302) {
-                                this.heal((opponent.attack * opponent.battleData!!.attackMultiplicator).toInt())
-                                "The opposing ${opponent.data.name} had its energy drained!\n" + Stats.updateStat(opponent, statChangeMove, Target.OPPONENT)
+                                this.heal((opponent.attack * opponent.battleData!!.statsMultiplier.attackMultiplicator).toInt())
+                                "The opposing ${opponent.data.name} had its energy drained!\n" + Stats.updateStat(
+                                    opponent,
+                                    statChangeMove,
+                                    Target.OPPONENT,
+                                    false
+                                )
                             } else {
-                                Stats.updateStat(opponent, statChangeMove, Target.OPPONENT)
+                                Stats.updateStat(opponent, statChangeMove, Target.OPPONENT, moldBreaker)
                             }
                         } else ""
                     }
@@ -502,10 +508,10 @@ open class Pokemon(
             )
         ) {
             details += "${opponent.data.name}'s Justified: ${opponent.data.name}'s attack rose!\n"
-            if (opponent.battleData!!.attackMultiplicator > 4)
+            if (opponent.battleData!!.statsMultiplier.attackMultiplicator > 4)
                 details += "But ${opponent.data.name}'s attack cannot go higher!\n"
             else
-                opponent.battleData!!.attackMultiplicator *= 1.5f
+                this.battleData!!.statsMultiplier.increaseStat(StatChange.ATTACK_ONE_LEVEL_RAISE)
         }
         if (move.move is DrainMove) {
             var drainedDamage : Float = if (move.move.id == 238) damage * 0.75f else damageDone * 0.5f
@@ -535,49 +541,26 @@ open class Pokemon(
             if (opponent is PokemonBoss)
                 details += "${opponent.data.name}'s stats changes can't be removed!\n"
             else if (damage > 0 || move.move.category == MoveCategory.OTHER) {
-                opponent.battleData!!.attackMultiplicator = 1f
-                opponent.battleData!!.defenseMultiplicator = 1f
-                opponent.battleData!!.spAtkMultiplicator = 1f
-                opponent.battleData!!.spDefMultiplicator = 1f
-                opponent.battleData!!.speedMultiplicator = 1f
-                opponent.battleData!!.accuracyMultiplicator = 1f
-                details += "${opponent.data.name}'s stats changes were removed!\n"
-                if (opponent.hasItem(HoldItem.ASSAULT_VEST)  && !MoveUtils.getMoveList(this).map{it.move.category}.contains(MoveCategory.OTHER)) {
-                    opponent.battleData!!.spDefMultiplicator = 1.5f
+                if (move.move.category == MoveCategory.OTHER) {
+                    details += "All stats changes were removed!\n"
+                    this.recomputeStatMultiplier(weather)
+                } else {
+                    details += "${opponent.data.name}'s stats changes were removed!\n"
                 }
-                if (this.hasItem(HoldItem.EVIOLITE) && this.data.evolutions.isNotEmpty()) {
-                    this.battleData!!.spDefMultiplicator *= 1.5f
-                    this.battleData!!.defenseMultiplicator *= 1.5f
-                }
-                if (this.hasItem(HoldItem.WIDE_LENS))
-                    this.battleData!!.accuracyMultiplicator *= 1.5f
-                if (weather == Weather.SANDSTORM) {
-                    if (opponent.hasType(Type.ROCK))
-                        opponent.battleData!!.spDefMultiplicator *= 1.5f
-                    if (this.hasType(Type.ROCK))
-                        this.battleData!!.spDefMultiplicator *= 1.5f
-                    if (opponent.hasAbility(Ability.SAND_RUSH))
-                        opponent.battleData!!.speedMultiplicator *= 2
-                    if (this.hasAbility(Ability.SAND_RUSH))
-                        this.battleData!!.speedMultiplicator *= 2
-                }
-                if (weather == Weather.SNOW) {
-                    if (opponent.hasType(Type.ICE))
-                        opponent.battleData!!.defenseMultiplicator *= 1.5f
-                    if (this.hasType(Type.ICE))
-                        this.battleData!!.defenseMultiplicator *= 1.5f
-                }
-                if (opponent.status != Status.OK)
-                    BattleUtils.checkForStatusStatsRaiseAbility(opponent)
+                opponent.recomputeStatMultiplier(weather)
             }
         }
-        if (move.move.id == 247 && opponent.heldItem != null && !opponent.hasAbility(Ability.STICKY_HOLD)){
-            details += "${this.data.name} knocked off ${opponent.data.name}'s item!\n"
-            opponent.battleData!!.itemDisabled = true
+        if (move.move.id == 247 && opponent.heldItem != null) {
+            if (!moldBreaker && opponent.hasAbility(Ability.STICKY_HOLD)) {
+                details += "${opponent.data.name}'s Sticky Hold: ${opponent.data.name}'s item cannot be removed!\n"
+            } else {
+                details += "${this.data.name} knocked off ${opponent.data.name}'s item!\n"
+                opponent.battleData!!.itemDisabled = true
+            }
         }
         if (damage > 0) {
             if (currentHP > 0 && move.move.characteristics.contains(MoveCharacteristic.SOUND) && this.hasItem(HoldItem.THROAT_SPRAY)) {
-                this.battleData!!.spAtkMultiplicator *= 1.5f
+                this.battleData!!.statsMultiplier.increaseStat(StatChange.SPATK_ONE_LEVEL_RAISE)
                 details += "The Throat Spray raised ${this.data.name}'s Sp. Atk!\n"
             }
             if (move.move.id == 249) {
@@ -591,13 +574,13 @@ open class Pokemon(
                 }
             }
             if (opponent.currentHP > 0 && opponent.hasAbility(Ability.WEAK_ARMOR) && move.move.category == MoveCategory.PHYSICAL) {
-                opponent.battleData!!.defenseMultiplicator *= 0.67f
-                opponent.battleData!!.speedMultiplicator *= 2f
+                opponent.battleData!!.statsMultiplier.increaseStat(StatChange.DEFENSE_ONE_LEVEL_DECREASE)
+                opponent.battleData!!.statsMultiplier.increaseStat(StatChange.SPEED_TWO_LEVEL_RAISE)
                 details += "${opponent.data.name}'s Weak Armor: ${opponent.data.name}'s Defense fell\n${opponent.data.name}'s Speed rose sharply!\n"
             }
             if (opponent.hasAbility(Ability.RATTLED)
                 && (move.move.type == Type.GHOST || move.move.type == Type.DARK || move.move.type == Type.BUG)) {
-                opponent.battleData!!.speedMultiplicator *= 1.5f
+                opponent.battleData!!.statsMultiplier.increaseStat(StatChange.SPEED_ONE_LEVEL_RAISE)
                 details += "${opponent.data.name}'s Rattled: ${opponent.data.name}'s Speed rose!\n"
             }
             if (opponent.hasAbility(Ability.CURSED_BODY) && Random.nextInt(100) < 30) {
@@ -617,6 +600,16 @@ open class Pokemon(
                 details += "But it failed\n"
             }
         }
+        if (move.move.id == 311) { //IMPRISON
+            details += "${this.data.name} sealed any moves its target shares with it!\n"
+            val attackerMoves = MoveUtils.getMoveList(this).map { it.move }
+            val opponentMoves = MoveUtils.getMoveList(opponent)
+            opponentMoves.forEach {
+                if (attackerMoves.contains(it.move)) {
+                    it.disabledCountdown = 4
+                }
+            }
+        }
         if (move.move.id == 310) {
             //GIGATON HAMMER
             move.disabledCountdown = 2
@@ -626,8 +619,8 @@ open class Pokemon(
             && move.move !is MoveBasedOnLevel && move.move !is RetaliationMove
             && BattleUtils.getEffectiveness(this, move.move, opponent).contains("super")
             && opponent.hasItem(HoldItem.WEAKNESS_POLICY)) {
-            opponent.battleData!!.attackMultiplicator *= 2f
-            opponent.battleData!!.spAtkMultiplicator *= 2f
+                opponent.battleData!!.statsMultiplier.increaseStat(StatChange.ATTACK_TWO_LEVEL_RAISE)
+                opponent.battleData!!.statsMultiplier.increaseStat(StatChange.SPATK_TWO_LEVEL_RAISE)
             opponent.consumeItem()
             details += "${opponent.data.name}'s Attack and Sp. Atk rose thanks to its Weakness Policy!\n"
         }
@@ -657,12 +650,37 @@ open class Pokemon(
                 details += "${opponent.data.name} took down his opponent with it!\n"
             }
             else if (opponent.currentHP == 0 && this.hasAbility(Ability.MOXIE)) {
-                this.battleData!!.attackMultiplicator *= 1.5f
+                this.battleData!!.statsMultiplier.increaseStat(StatChange.ATTACK_ONE_LEVEL_RAISE)
                 details += "${this.data.name}'s Moxie: ${this.data.name}'s attack rose!\n"
             }
         }
 
         return AttackResponse(true, details)
+    }
+
+    private fun recomputeStatMultiplier(weather: Weather) {
+        this.battleData!!.statsMultiplier = StatsMultiplier()
+        if (this.hasItem(HoldItem.ASSAULT_VEST)  && !MoveUtils.getMoveList(this).map{it.move.category}.contains(MoveCategory.OTHER)) {
+            this.battleData!!.statsMultiplier.increaseStat(StatChange.SPDEF_ONE_LEVEL_RAISE)
+        }
+        if (this.hasItem(HoldItem.EVIOLITE) && this.data.evolutions.isNotEmpty()) {
+            this.battleData!!.statsMultiplier.increaseStat(StatChange.DEFENSE_ONE_LEVEL_RAISE)
+            this.battleData!!.statsMultiplier.increaseStat(StatChange.SPDEF_ONE_LEVEL_RAISE)
+        }
+        if (this.hasItem(HoldItem.WIDE_LENS)) {
+            this.battleData!!.statsMultiplier.increaseStat(StatChange.ACCURACY_ONE_LEVEL_RAISE)
+        }
+        if (weather == Weather.SANDSTORM) {
+            if (this.hasType(Type.ROCK))
+                this.battleData!!.statsMultiplier.increaseStat(StatChange.SPDEF_ONE_LEVEL_RAISE)
+            if (this.hasAbility(Ability.SAND_RUSH))
+                this.battleData!!.statsMultiplier.increaseStat(StatChange.SPEED_TWO_LEVEL_RAISE)
+        }
+        if (weather == Weather.SNOW && this.hasType(Type.ICE)) {
+            this.battleData!!.statsMultiplier.increaseStat(StatChange.DEFENSE_ONE_LEVEL_RAISE)
+        }
+        if (this.status != Status.OK)
+            BattleUtils.checkForStatusStatsRaiseAbility(this)
     }
 
     fun canMegaEvolve(): Boolean {
@@ -685,8 +703,7 @@ open class Pokemon(
     }
 
     fun recomputeStat() {
-        if (isMegaEvolved)
-            this.isMegaEvolved = false
+        isMegaEvolved = false
         val addHP: Boolean = hp == currentHP
         this.hp = StatUtils.computeHP(data, level)
         this.attack = StatUtils.computeStat(data, level, Stats.ATTACK)
@@ -829,7 +846,7 @@ open class Pokemon(
         if (this.battleData != null) {
             this.battleData!!.itemDisabled = true
             if (this.hasAbility(Ability.UNBURDEN)) {
-                this.battleData!!.speedMultiplicator *= 2f
+                this.battleData!!.statsMultiplier.increaseStat(StatChange.SPEED_TWO_LEVEL_RAISE)
             }
         }
     }

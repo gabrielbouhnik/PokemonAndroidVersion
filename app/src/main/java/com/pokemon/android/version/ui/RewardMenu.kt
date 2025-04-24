@@ -13,8 +13,6 @@ import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.level.*
-import com.pokemon.android.version.ui.LevelMenu.Companion.ROUTE_3_LEVEL
-import com.pokemon.android.version.ui.LevelMenu.Companion.ZAPDOS_LEVEL
 import com.pokemon.android.version.utils.ItemUtils
 import com.pokemon.android.version.utils.ItemUtils.Companion.MEGA_RING_ID
 import com.pokemon.android.version.utils.MoveUtils
@@ -57,10 +55,10 @@ class RewardMenu {
                     activity.trainer!!.achievements!!.mewtwoAchievement = true
             }
             BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID -> {
-                if (activity.trainer!!.battleTowerProgression!!.progression < 10)
-                    activity.trainer!!.achievements!!.winstreak8Achievement = true
-                else
+                if (activity.trainer!!.battleTowerProgression!!.progression >= 15)
                     activity.trainer!!.achievements!!.winstreak15Achievement = true
+                else if (activity.trainer!!.battleTowerProgression!!.progression >= 8)
+                    activity.trainer!!.achievements!!.winstreak8Achievement = true
             }
         }
     }
@@ -128,7 +126,7 @@ class RewardMenu {
             }
         }
         val healTeamButton: Button = activity.findViewById(R.id.healTeamButton)
-        if (activity.trainer!!.progression < ROUTE_3_LEVEL || levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID)
+        if (activity.trainer!!.progression < LevelMenu.ROUTE_3_LEVEL || levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID)
             healTeamButton.visibility = GONE
         healTeamButton.setOnClickListener {
             activity.trainer!!.team.forEach { activity.trainer!!.heal(it, MoveUtils.getMoveList(it).any{ move -> move.pp == 0}) }
@@ -136,7 +134,7 @@ class RewardMenu {
             healTeamButton.visibility = GONE
         }
         val nextLevelButton: Button = activity.findViewById(R.id.nextLevelButton)
-        if (activity.trainer!!.progression < ROUTE_3_LEVEL || levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID
+        if (activity.trainer!!.progression < LevelMenu.ROUTE_3_LEVEL || levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID
             || levelData.id == LevelMenu.ELITE_4_FIRST_LEVEL_ID - 1 || levelData.id == LevelMenu.ELITE_4_LAST_LEVEL_ID
             || levelData.id >= LevelMenu.MEWTWO_LEVEL
         )
@@ -259,7 +257,7 @@ class RewardMenu {
             )
         val backButton: Button = activity.findViewById(R.id.HOFBackButton)
         backButton.setOnClickListener {
-            if (activity.trainer!!.progression < ZAPDOS_LEVEL) {
+            if (activity.trainer!!.progression < LevelMenu.ZAPDOS_LEVEL) {
                 activity.showCustomDialog(activity.getString(R.string.tutorial_post_game))
             }
             activity.mainMenu.loadGameMenu(activity)

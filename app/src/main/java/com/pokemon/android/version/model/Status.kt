@@ -125,7 +125,12 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                 details =
                                     "${opponent.data.name}'s Vital Spirit: It does not affect ${opponent.data.name}!\n"
                         }
-                        if (it.status == TAUNTED) {
+                        if (((it.status == POISON || it.status == BADLY_POISON) && opponent.hasType(Type.POISON) && opponent.hasType(Type.STEEL))
+                            || (it.status == PARALYSIS && opponent.hasType(Type.ELECTRIC))
+                            || (it.status == BURN && opponent.hasType(Type.FIRE))
+                            || (it.status == FROZEN && opponent.hasType(Type.ICE)))
+                                details = "It does not affect ${opponent.data.name}!\n"
+                        if (it.status == TAUNTED && opponent.hasAbility(Ability.OBLIVIOUS)) {
                             details = "${opponent.data.name}'s Oblivious: ${opponent.data.name} cannot fell for the taunt!\n"
                         }
                         if (it.status == CONFUSED) {

@@ -49,9 +49,7 @@ class LevelMenu {
                 activity,
                 level
             )
-            is BossBattleLevelData -> {
-                battleUI.startBossBattle(activity, level)
-            }
+            is BossBattleLevelData -> battleUI.startBossBattle(activity, level)
             is LeaderLevelData -> battleUI.startGymLeaderBattle(activity, level)
             else -> battleUI.startTrainerBattle(
                 activity,

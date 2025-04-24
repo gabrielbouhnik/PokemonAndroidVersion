@@ -7,9 +7,7 @@ import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.level.LeaderLevelData
 import com.pokemon.android.version.model.level.LevelData
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
-import com.pokemon.android.version.model.move.ChargedMove
-import com.pokemon.android.version.model.move.MoveCategory
-import com.pokemon.android.version.model.move.RampageMove
+import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.BattleUtils
@@ -426,8 +424,12 @@ abstract class Battle {
                     opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE)
             }
             if (opponent.hasAbility(Ability.SPEED_BOOST) && opponent.battleData != null) {
-                opponent.battleData!!.speedMultiplicator *= 1.5f
                 sb.append("${opponent.data.name}'s Speed Boost: the opposing ${opponent.data.name}'s speed rose!\n")
+                if (opponent.battleData!!.statsMultiplier.speedMultiplicator < 4f) {
+                    opponent.battleData!!.statsMultiplier.increaseStat(StatChange.SPEED_ONE_LEVEL_RAISE)
+                } else {
+                    sb.append("${opponent.data.name}'s speed cannot go higher!\n")
+                }
             }
             MoveUtils.getMoveList(pokemon).forEach { it.reduceDisableCountdown() }
         }
@@ -440,8 +442,12 @@ abstract class Battle {
             }
             sb.append(checkStatus(pokemon))
             if (pokemon.hasAbility(Ability.SPEED_BOOST) && pokemon.battleData != null) {
-                pokemon.battleData!!.speedMultiplicator *= 1.5f
                 sb.append("${pokemon.data.name}'s Speed Boost: ${pokemon.data.name}'s speed rose!\n")
+                if (pokemon.battleData!!.statsMultiplier.speedMultiplicator < 4f) {
+                    pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.SPEED_ONE_LEVEL_RAISE)
+                } else {
+                    sb.append("${pokemon.data.name}'s speed cannot go higher!\n")
+                }
             }
             MoveUtils.getMoveList(pokemon).forEach { it.reduceDisableCountdown() }
         }
@@ -474,10 +480,10 @@ abstract class Battle {
             if (weatherCounter == 0) {
                 if (weather == Weather.SANDSTORM) {
                     if (opponent.hasAbility(Ability.SAND_RUSH)) {
-                        opponent.battleData!!.speedMultiplicator /= 2
+                        opponent.battleData!!.statsMultiplier.speedMultiplicator /= 2
                     }
                     if (pokemon.hasAbility(Ability.SAND_RUSH)) {
-                        pokemon.battleData!!.speedMultiplicator /= 2
+                        pokemon.battleData!!.statsMultiplier.speedMultiplicator /= 2
                     }
                 }
                 weather = Weather.NONE
