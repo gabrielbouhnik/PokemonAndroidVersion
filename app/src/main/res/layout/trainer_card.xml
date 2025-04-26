@@ -41,9 +41,8 @@
             android:layout_width="340dp"
             android:layout_height="380dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.492" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.637" android:id="@+id/badgesRecyclerView"/>
+            android:id="@+id/badgesRecyclerView" app:layout_constraintTop_toBottomOf="@+id/maxLevelTextView"
+            app:layout_constraintBottom_toTopOf="@+id/trainerCardMenuBackButton"/>
     <Button
             android:text="Achievements"
             android:layout_width="wrap_content"

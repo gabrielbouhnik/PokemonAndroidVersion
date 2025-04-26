@@ -26,8 +26,6 @@ class SaveManager {
             if (trainerSave.pokedex != null)
                 trainerSave.pokedex!!.forEach { trainer.pokedex[it.id] = it.caught }
             trainer.coins = trainerSave.coins
-            if (trainer.name == PokedexMenu.ADMIN)
-                trainer.coins += 5000
             trainer.progression = trainerSave.progression
             trainer.eliteProgression = trainerSave.eliteProgression
             trainerSave.items.forEach { trainer.items[it.itemId] = it.quantity }
@@ -36,6 +34,10 @@ class SaveManager {
                 trainer.pokemons.add(pokemon)
                 trainer.team.add(pokemon)
                 trainer.pokedex[it.id] = true
+            }
+            if (trainer.name == PokedexMenu.ADMIN) {
+                trainer.coins += 5000
+                trainer.addItem(8,90)
             }
             trainerSave.pokemons.forEach {
                 trainer.pokemons.add(Pokemon.of(it, activity.gameDataService, trainer))

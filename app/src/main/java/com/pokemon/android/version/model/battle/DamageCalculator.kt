@@ -22,7 +22,7 @@ class DamageCalculator {
             Type.POISON to HoldItem.POISON_BARB,
             Type.ROCK to HoldItem.HARD_STONE,
             Type.GROUND to HoldItem.SOFT_SAND,
-            Type.FIGHTING to HoldItem.EXPERT_BELT,
+            Type.FIGHTING to HoldItem.BLACK_BELT,
             Type.PSYCHIC to HoldItem.TWISTED_SPOON,
             Type.GHOST to HoldItem.SPELL_TAG,
             Type.ICE to HoldItem.NEVER_MELT_ICE,
@@ -42,16 +42,24 @@ class DamageCalculator {
             return 1f
         }
 
-        fun getEffectiveness(attacker: Pokemon, move: Move, opponent: Pokemon): Float {
+        fun getEffectiveness(attacker: Pokemon, move: Move, opponent: Pokemon, battleField: BattleField): Float {
             var type1 = if (opponent.isMegaEvolved) opponent.data.megaEvolutionData!!.type1 else opponent.data.type1
             var type2 = if (opponent.isMegaEvolved) opponent.data.megaEvolutionData!!.type2 else opponent.data.type2
-            if (move.type == Type.GROUND && opponent.battleData!!.battleStatus.contains(Status.ROOSTED)) {
+            var moveType = move.type
+            if (move.id == 316) {
+                if (battleField.weather == Weather.SANDSTORM) {
+                    moveType = Type.ROCK
+                } else if (battleField.weather == Weather.SNOW) {
+                    moveType = Type.ICE
+                }
+            }
+            if (moveType == Type.GROUND && opponent.battleData!!.battleStatus.contains(Status.ROOSTED)) {
                 if (type1 == Type.FLYING)
                     type1 = Type.NONE
                 else
                     type2 = Type.NONE
             }
-            if ((move.type == Type.NORMAL || move.type == Type.FIGHTING) && attacker.hasAbility(Ability.SCRAPPY) && opponent.hasType(
+            if ((moveType == Type.NORMAL || moveType == Type.FIGHTING) && attacker.hasAbility(Ability.SCRAPPY) && opponent.hasType(
                     Type.GHOST
                 )
             ) {
@@ -60,9 +68,9 @@ class DamageCalculator {
                 else
                     type2 = Type.NONE
             }
-            var type: Float = move.type.isEffectiveAgainst(type2) * move.type.isEffectiveAgainst(type1)
+            var type: Float = moveType.isEffectiveAgainst(type2) * moveType.isEffectiveAgainst(type1)
             if (opponent.hasType(Type.WATER) && move.id == 268)
-                type *= 2f
+                type *= 4f
             if (move.id == 263) {
                 type *= Type.FLYING.isEffectiveAgainst(type2) * Type.FLYING.isEffectiveAgainst(type1)
             }
@@ -78,7 +86,7 @@ class DamageCalculator {
             return type
         }
 
-        fun computeDamageWithoutAbility(attacker: Pokemon, move: Move, opponent: Pokemon): Int {
+        fun computeDamageWithoutAbility(attacker: Pokemon, move: Move, opponent: Pokemon, battleField: BattleField): Int {
             var multiplicator = 1f
             var stab = if (attacker.data.type1 == move.type || attacker.data.type2 == move.type) 1.5f else 1f
             if (attacker.isMegaEvolved && (attacker.data.megaEvolutionData!!.type1 == move.type || attacker.data.megaEvolutionData!!.type2 == move.type))
@@ -88,7 +96,7 @@ class DamageCalculator {
                     multiplicator *= 0.5f
             }
             val power = if (move is MoveBasedOnHP) move.getPower(attacker) else move.power
-            val type = getEffectiveness(attacker, move, opponent)
+            val type = getEffectiveness(attacker, move, opponent, battleField)
             val random: Float = Random.nextInt(85, 100).toFloat() / 100f
             val ignoreOffensiveStatChange: Boolean =
                 !attacker.hasAbility(Ability.MOLD_BREAKER) && opponent.hasAbility(Ability.UNAWARE)
@@ -101,7 +109,7 @@ class DamageCalculator {
             return ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * power * offensiveStat) / (defensiveStat * 50)) + 2) * type * stab * multiplicator * random).roundToInt()
         }
 
-        private fun computePower(attacker: Pokemon, move: Move, opponent: Pokemon): Float {
+        private fun computePower(attacker: Pokemon, move: Move, opponent: Pokemon, battleField: BattleField): Float {
             var power: Float =
                 if (move is MoveBasedOnHP) move.getPower(attacker).toFloat() else move.power.toFloat()
             if (move.id == 240 && attacker.battleData!!.lastMoveFailed) {
@@ -157,7 +165,12 @@ class DamageCalculator {
                 power *= 2f
             }
             if (move.id == 307 && attacker.status != Status.OK) {
+                //RAGE FIST
                 power += 50 * attacker.battleData!!.numberOfHitTaken
+            }
+            if (move.id == 316 && battleField.weather != Weather.NONE) {
+                //WEATHER BALL
+                power *= 2
             }
             val typeBoostItem = TYPE_ITEM_BOOST[move.type]
             if (typeBoostItem != null && attacker.hasItem(typeBoostItem))
@@ -214,7 +227,13 @@ class DamageCalculator {
             return power
         }
 
-        fun computeDamage(attacker: Pokemon, move: Move, opponent: Pokemon, criticalMultiplicator: Float): Int {
+        fun computeDamage(
+            attacker: Pokemon,
+            move: Move,
+            opponent: Pokemon,
+            criticalMultiplicator: Float,
+            battleField: BattleField
+        ): Int {
             if (opponent.currentHP == 0)
                 return 0
             if (!attacker.hasAbility(Ability.MOLD_BREAKER)) {
@@ -224,7 +243,9 @@ class DamageCalculator {
                     return 0
                 if (move.characteristics.contains(MoveCharacteristic.BULLET) && opponent.hasAbility(Ability.BULLETPROOF))
                     return 0
-                if (move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB) || opponent.hasAbility(Ability.DRY_SKIN)))
+                if (move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB)
+                                                || opponent.hasAbility(Ability.STORM_DRAIN)
+                                                || opponent.hasAbility(Ability.DRY_SKIN)))
                     return 0
                 if (move.type == Type.ELECTRIC && (opponent.hasAbility(Ability.LIGHTNING_ROD) || opponent.hasAbility(
                         Ability.VOLT_ABSORB
@@ -258,7 +279,7 @@ class DamageCalculator {
             if ((move.type == Type.FIRE || move.type == Type.ICE) && opponent.hasAbility(Ability.THICK_FAT))
                 multiplicator *= 0.5f
             return try {
-                val type = getEffectiveness(attacker, move, opponent)
+                val type = getEffectiveness(attacker, move, opponent, battleField)
                 if (type > 0) {
                     if (move is MoveBasedOnLevel) {
                         return attacker.level
@@ -297,7 +318,8 @@ class DamageCalculator {
                 ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * computePower(
                     attacker,
                     move,
-                    opponent
+                    opponent,
+                    battleField
                 ) * offensiveStat) / (defensiveStat * 50)) + 2) * type * criticalMultiplicator * stab * multiplicator * random).roundToInt()
             } catch (e: Exception) {
                 0

@@ -77,7 +77,9 @@ class GameDataService {
 
         this.banners.forEach{ banner ->
             run {
-                banner.items = banner.items.filter { it.id < 10 }
+                if (banner.pokemons.isNotEmpty()) {
+                    banner.items = banner.items.filter { it.id < 10 }
+                }
             }
         }
     }
@@ -117,7 +119,7 @@ class GameDataService {
         if (random == 50 && id < 650)
             pokemon.shiny = true
         if (random % 4 == 0) {
-            if (id == 21 || id == 22 || id == 84)
+            if (id == 21 || id == 22 || id == 84 || id == 227)
                 pokemon.heldItem = HoldItem.SHARP_BEAK
             if (id == 109 || id == 110)
                 pokemon.heldItem = HoldItem.TOXIC_ORB
@@ -138,7 +140,7 @@ class GameDataService {
     fun generatePokemonFromBanner(pokemonBanner: PokemonBanner): Pokemon {
         val pokemon = generatePokemonWithMoves(pokemonBanner.pokemonId, 5, pokemonBanner.moves,null)
         pokemon.isFromBanner = true
-        if (pokemon.data.id == 133){
+        if (pokemon.data.id == 133) {
             val random = Random.nextInt(1,5)
             if (random == 1)
                 pokemon.shiny = true

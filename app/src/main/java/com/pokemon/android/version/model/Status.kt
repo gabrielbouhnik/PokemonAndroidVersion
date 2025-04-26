@@ -117,7 +117,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
                             details = "${opponent.data.name}'s Limber: It does not affect ${opponent.data.name}!\n"
                         if (move.id == 138 && opponent.hasAbility(Ability.WATER_VEIL))
                             details = "${opponent.data.name}'s Water Veil: It does not affect ${opponent.data.name}!\n"
-                        if (it.status == ASLEEP) {
+                        if (it.status == ASLEEP || it.status == TIRED) {
                             if (opponent.hasAbility(Ability.INSOMNIA))
                                 details =
                                     "${opponent.data.name}'s Insomnia: It does not affect ${opponent.data.name}!\n"
@@ -163,7 +163,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
             }
 
             if (status == TIRED) {
-                return opponent.status != OK && !opponent.hasAbility(Ability.INSOMNIA) && !opponent.hasAbility(Ability.VITAL_SPIRIT)
+                return opponent.status == OK && !opponent.hasAbility(Ability.INSOMNIA) && !opponent.hasAbility(Ability.VITAL_SPIRIT)
             }
             if (status == TRAPPED_WITH_DAMAGE) {
                 if (id == 130)

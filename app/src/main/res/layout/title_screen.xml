@@ -27,16 +27,16 @@
             android:text="Start"
             android:layout_width="187dp"
             android:layout_height="78dp" android:id="@+id/startButton"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:textSize="24sp"
             android:backgroundTint="#4CAF50" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.86"/>
+            android:layout_marginBottom="80dp"/>
     <ImageView
             android:layout_width="129dp"
             android:layout_height="127dp"
             android:id="@+id/randomPokemonSpriteView"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.607"/>
+            app:layout_constraintTop_toBottomOf="@+id/logo" app:layout_constraintBottom_toTopOf="@+id/startButton"
+            android:layout_marginBottom="8dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -93,7 +93,13 @@ class LevelMenu {
             val position = it.tag as Int
             val levelData: LevelData = levels[position]
             if (activity.trainer!!.canStillBattle()) {
-                if (activity.trainer!!.progression == levelData.id) {
+                if (levelData is LeaderLevelData
+                    && !activity.eliteMode
+                    && activity.trainer!!.team.map { pokemon ->  pokemon.data.id }.distinct().size != activity.trainer!!.team.size) {
+                    Toast.makeText(activity, "You cannot have the same species of Pokémon in your team in an official Pokémon League battle!", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                else if (activity.trainer!!.progression == levelData.id) {
                     loadLevelDescriptionMenu(activity, levelData)
                 } else if (activity.trainer!!.progression > levelData.id) {
                     startBattle(activity, levels[position])

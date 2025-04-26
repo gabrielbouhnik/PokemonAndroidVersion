@@ -314,7 +314,7 @@
         "minLevel": 23,
         "maxLevel": 26,
         "encounters": [
-          20,20,20,20,21,21,21,21,22,22,23,23,23,23,27,27,27,27,48,48,48,100,100,100,100,100,619,878
+          20,20,20,20,21,21,21,21,22,22,23,23,23,23,27,27,27,27,48,48,48,100,100,100,100,100,227,619,878
         ]
       },
       "rewards": [
@@ -327,8 +327,8 @@
           "quantity": 1
         }
       ],
-      "icon": "images/battle_background/route_battle_background.png",
-      "background": "images/battle_background/route_battle_background.png",
+      "icon": "images/battle_background/mountain_battle_background.jpg",
+      "background": "images/battle_background/mountain_battle_background.jpg",
       "music": 1,
       "exp": 2160,
       "mandatory": true
@@ -1890,8 +1890,8 @@
       "endDialogWin": "Use a flashlight to cross the Rock Tunnel",
       "endDialogLoose": "You're not strong enough to get through the Rock Tunnel",
       "music": 2,
-      "icon": "images/battle_background/route_battle_background.png",
-      "background": "images/battle_background/route_battle_background.png",
+      "icon": "images/battle_background/mountain_battle_background.jpg",
+      "background": "images/battle_background/mountain_battle_background.jpg",
       "exp": 2100,
       "mandatory": true,
       "iaLevel": 1,
@@ -4358,8 +4358,8 @@
       "boss": {
         "id": 144,
         "level": 58,
-        "hpMultiplier": 5,
-        "moveIds": [100,102,268,50,24,205],
+        "hpMultiplier": 4,
+        "moveIds": [300,95,102,268,50,24],
         "itemHeld": "WEAKNESS_POLICY",
         "boostedStats": ["DEFENSE","SPDEF"]
       },

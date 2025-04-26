@@ -23,28 +23,27 @@
             android:text="Battle"
             android:layout_width="175dp"
             android:layout_height="54dp" android:id="@+id/startBattleFrontierButton"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0.862" android:backgroundTint="#673AB7" android:alpha="0.75"/>
+            android:backgroundTint="#673AB7" android:alpha="0.75"
+            app:layout_constraintBottom_toTopOf="@+id/battleFrontierPrepBackButton" android:layout_marginBottom="16dp"/>
     <TextView
             android:text="Win Streak:"
             android:layout_width="256dp"
             android:layout_height="38dp" android:id="@+id/winStreakTextView"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/battleFrontierRecyclerView"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:textSize="24sp" android:textStyle="bold" android:textAlignment="textStart"
-            app:layout_constraintHorizontal_bias="0.9" app:layout_constraintVertical_bias="1.0"
-            android:layout_marginTop="5dp" android:layout_marginBottom="5dp" android:background="#FFFFFF"
-            android:alpha="0.75"/>
+            android:layout_marginTop="16dp" android:layout_marginBottom="8dp" android:background="#FFFFFF"
+            android:alpha="0.75" android:layout_marginEnd="16dp"/>
     <Button
             android:text="Reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/resetProgressionButton"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/winStreakTextView" android:layout_marginEnd="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/battleFrontierRecyclerView"
             android:backgroundTint="@color/purple_700" android:layout_marginStart="5dp"
-            app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="1.0" android:alpha="0.75"/>
+            android:alpha="0.75" android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/battleFrontierRecyclerView" android:layout_marginBottom="8dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

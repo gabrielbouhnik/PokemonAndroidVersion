@@ -4,7 +4,7 @@ import com.pokemon.android.version.model.Ability
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Type
-import com.pokemon.android.version.model.battle.Battle
+import com.pokemon.android.version.model.battle.BattleField
 import com.pokemon.android.version.model.battle.DamageCalculator
 import com.pokemon.android.version.model.battle.Weather
 import com.pokemon.android.version.model.item.HoldItem
@@ -108,7 +108,7 @@ class BattleUtils {
             return details
         }
 
-        fun abilitiesCheck(pokemon: Pokemon, opponent: Pokemon, battle: Battle): String {
+        fun abilitiesCheck(pokemon: Pokemon, opponent: Pokemon, battleField: BattleField): String {
             val sb = StringBuilder()
             if (pokemon.status != Status.OK)
                 checkForStatusStatsRaiseAbility(pokemon)
@@ -129,7 +129,7 @@ class BattleUtils {
             if (pokemon.hasAbility(Ability.COMPOUNDEYES))
                 pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.ACCURACY_ONE_LEVEL_RAISE)
             if (pokemon.hasAbility(Ability.ANTICIPATION) && MoveUtils.getMoveList(opponent)
-                    .any { DamageCalculator.getEffectiveness(opponent, it.move, pokemon) >= 2f }
+                    .any { DamageCalculator.getEffectiveness(opponent, it.move, pokemon, battleField) >= 2f }
             )
                 sb.append("${pokemon.data.name}'s Anticipation: ${pokemon.data.name} shuddered!\n")
             if (pokemon.hasAbility(Ability.INTIMIDATE) && !opponent.hasAbility(Ability.OBLIVIOUS)  && !opponent.hasAbility(Ability.OWN_TEMPO)) {
@@ -170,31 +170,19 @@ class BattleUtils {
             if (pokemon.hasItem(HoldItem.WIDE_LENS)) {
                 pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.ACCURACY_ONE_LEVEL_RAISE)
             }
-            if (pokemon.hasAbility(Ability.SAND_STREAM) && battle.weather != Weather.SANDSTORM) {
-                battle.weather = Weather.SANDSTORM
-                battle.weatherCounter = 5
-                if (pokemon.hasItem(HoldItem.SMOOTH_ROCK))
-                    battle.weatherCounter += 3
+            if (pokemon.hasAbility(Ability.SAND_STREAM)
+                && !opponent.hasAbility(Ability.AIR_LOCK)
+                && !opponent.hasAbility(Ability.CLOUD_NINE)
+                && battleField.weather != Weather.SANDSTORM) {
+                battleField.setWeather(pokemon, Weather.SANDSTORM, opponent)
                 sb.append("${pokemon.data.name}'s Sand Stream: A sandstorm kicked up!\n")
-                if (pokemon.hasType(Type.ROCK))
-                    pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.SPDEF_ONE_LEVEL_RAISE)
-                if (opponent.hasType(Type.ROCK))
-                    opponent.battleData!!.statsMultiplier.increaseStat(StatChange.SPDEF_ONE_LEVEL_RAISE)
-                if (opponent.hasAbility(Ability.SAND_RUSH))
-                    opponent.battleData!!.statsMultiplier.increaseStat(StatChange.SPEED_TWO_LEVEL_RAISE)
-                if (pokemon.hasAbility(Ability.SAND_RUSH))
-                    pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.SPEED_TWO_LEVEL_RAISE)
             }
-            if (pokemon.hasAbility(Ability.SNOW_WARNING) && battle.weather != Weather.SNOW) {
-                battle.weather = Weather.SNOW
-                battle.weatherCounter = 5
-                if (pokemon.hasItem(HoldItem.ICY_ROCK))
-                    battle.weatherCounter += 3
+            if (pokemon.hasAbility(Ability.SNOW_WARNING)
+                && !opponent.hasAbility(Ability.AIR_LOCK)
+                && !opponent.hasAbility(Ability.CLOUD_NINE)
+                && battleField.weather != Weather.SNOW) {
                 sb.append("${pokemon.data.name}'s Snow Warning: It started to snow!\n")
-                if (pokemon.hasType(Type.ICE))
-                    pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.DEFENSE_ONE_LEVEL_RAISE)
-                if (opponent.hasType(Type.ICE))
-                    opponent.battleData!!.statsMultiplier.increaseStat(StatChange.DEFENSE_ONE_LEVEL_RAISE)
+                battleField.setWeather(pokemon, Weather.SNOW, opponent)
             }
             if (pokemon.hasAbility(Ability.DOWNLOAD)) {
                 if (opponent.defense * opponent.battleData!!.statsMultiplier.defenseMultiplicator > opponent.spDef * opponent.battleData!!.statsMultiplier.spDefMultiplicator) {
@@ -228,8 +216,8 @@ class BattleUtils {
             return sb.toString()
         }
 
-        fun getEffectiveness(attacker: Pokemon, move: Move, opponent: Pokemon): String {
-            var effectiveness = DamageCalculator.getEffectiveness(attacker, move, opponent)
+        fun getEffectiveness(attacker: Pokemon, move: Move, opponent: Pokemon, battleField: BattleField): String {
+            var effectiveness = DamageCalculator.getEffectiveness(attacker, move, opponent, battleField)
             if (move is MoveBasedOnLevel)
                 effectiveness = 1f
             if (move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))

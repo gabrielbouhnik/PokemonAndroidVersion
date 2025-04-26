@@ -21,8 +21,7 @@ abstract class Battle {
     lateinit var pokemon: Pokemon
     lateinit var opponent: Pokemon
     lateinit var levelData: LevelData
-    var weather: Weather = Weather.NONE
-    var weatherCounter: Int = 0
+    var battleField = BattleField(Weather.NONE, 0, TrainerSide(listOf()), TrainerSide(listOf()))
     var trainerHasUsedMegaEvolution = false
 
     abstract fun getBattleState(): State
@@ -65,7 +64,7 @@ abstract class Battle {
                 return action
             }
         }
-        val opponentResponse = opponent.attack(opponentPokemonMove, pokemon, weather)
+        val opponentResponse = opponent.attack(opponentPokemonMove, pokemon, battleField)
         return action + opponentResponse.reason.replace(opponent.data.name, "The opposing ${opponent.data.name}")
     }
 
@@ -87,13 +86,13 @@ abstract class Battle {
                 return action
             }
         }
-        val response = pokemon.attack(trainerPokemonMove, opponent, weather)
+        val response = pokemon.attack(trainerPokemonMove, opponent, battleField)
         return action + response.reason
     }
 
     private fun turn(trainerPokemonMove: PokemonMove, sb: StringBuilder) {
         val opponentMove: PokemonMove =
-            if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
+            if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon, battleField)
         if (opponentMove.move is RampageMove) {
             opponent.battleData!!.rampageMove = opponentMove
         }
@@ -105,7 +104,7 @@ abstract class Battle {
                 && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
                 && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
             ) {
-                val pokemonToSend = IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam())
+                val pokemonToSend = IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam(), battleField)
                 if (pokemonToSend != null) {
                     sb.append(turnWithOpponentSwitch(opponentTrainer, pokemonToSend, trainerPokemonMove))
                     return
@@ -149,7 +148,7 @@ abstract class Battle {
             shouldMegaEvolve = !(opponentTrainer.iaLevel == 3
                     && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
                     && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
-                    && IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam()) != null)
+                    && IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam(), battleField) != null)
         }
         if (opponent.canMegaEvolve() && shouldMegaEvolve && opponent.heldItem == null) {
             if (this is LeaderBattle) {
@@ -169,7 +168,7 @@ abstract class Battle {
                 opponent.megaEvolve()
                 sb.append("The opposing ${opponent.data.name} is reacting to ${(opponent.trainer!! as OpponentTrainer).name}'s Key Stone!\n")
                 sb.append("The opposing ${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                sb.append(BattleUtils.abilitiesCheck(pokemon, opponent, this))
+                sb.append(BattleUtils.abilitiesCheck(pokemon, opponent, battleField))
             }
         }
         return sb.toString()
@@ -180,7 +179,7 @@ abstract class Battle {
         if (megaEvolution) {
             sb.append("${pokemon.data.name} has Mega Evolved into Mega ${pokemon.data.name}\n")
             pokemon.megaEvolve()
-            sb.append(BattleUtils.abilitiesCheck(pokemon, opponent, this))
+            sb.append(BattleUtils.abilitiesCheck(pokemon, opponent, battleField))
             trainerHasUsedMegaEvolution = true
         }
         sb.append(megaEvolveOpponentIfPossible())
@@ -188,7 +187,7 @@ abstract class Battle {
         endTurn(sb)
         if (pokemon.currentHP > 0 && getBattleState() == State.IN_PROGRESS) {
             val opponentMove: PokemonMove =
-                if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
+                if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon, battleField)
             if (opponentMove.move is RampageMove) {
                 opponent.battleData!!.rampageMove = opponentMove
             }
@@ -271,7 +270,7 @@ abstract class Battle {
         val sb = StringBuilder()
         sb.append("${trainer.name} withdrew ${opponent.data.name}!\n${trainer.name} sends out ${pokemonToBeSent.data.name}!\n")
         switchOpponent(pokemonToBeSent)
-        sb.append(BattleUtils.abilitiesCheck(opponent, pokemon, this))
+        sb.append(BattleUtils.abilitiesCheck(opponent, pokemon, battleField))
         if (trainerPokemonMove.move.id == 208) {
             sb.append(suckerPunchFailure(pokemon, trainerPokemonMove))
         }
@@ -284,12 +283,12 @@ abstract class Battle {
         val sb = StringBuilder()
         sb.append("${activity.trainer!!.name} withdrew ${pokemon.data.name}!\n${activity.trainer!!.name} sends ${pokemonToBeSent.data.name}\n")
         var opponentMove: PokemonMove =
-            if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
+            if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon, battleField)
         switchPokemon(pokemonToBeSent)
         sb.append(megaEvolveOpponentIfPossible())
-        sb.append(BattleUtils.abilitiesCheck(pokemon, opponent, this))
+        sb.append(BattleUtils.abilitiesCheck(pokemon, opponent, battleField))
         if (this is BossBattle)
-            opponentMove = IAUtils.ia(opponent, pokemon)
+            opponentMove = IAUtils.ia(opponent, pokemon, battleField)
         if (opponentMove.move.id == 208) {
             sb.append(suckerPunchFailure(opponent, opponentMove))
         }
@@ -324,7 +323,7 @@ abstract class Battle {
         }
         sb.append(megaEvolveOpponentIfPossible())
         val opponentMove: PokemonMove =
-            if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
+            if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon, battleField)
         sb.append(opponentTurn(opponentMove, false))
         endTurn(sb)
         return sb.toString()
@@ -374,7 +373,7 @@ abstract class Battle {
                 }
             }
         }
-        if (weather == Weather.SANDSTORM) {
+        if (battleField.weather == Weather.SANDSTORM) {
             if (opponent.currentHP > 0 && !opponent.hasType(Type.ROCK) && !opponent.hasType(Type.GROUND) && !opponent.hasType(Type.STEEL)
                 && !opponent.hasAbility(Ability.MAGIC_GUARD) && !opponent.hasAbility(Ability.OVERCOAT)) {
                 sb.append("${opponent.data.name} is buffeted by the sandstorm!\n")
@@ -386,7 +385,7 @@ abstract class Battle {
                 sb.append("${pokemon.data.name} is buffeted by the sandstorm!\n")
             }
         }
-        if (weather == Weather.SNOW) {
+        if (battleField.weather == Weather.SNOW) {
             if (opponent.currentHP > 0 && opponent.hasAbility(Ability.ICE_BODY)) {
                 sb.append("${opponent.data.name}'s Ice Body: ${opponent.data.name} regains some hp!\n")
                 opponent.takeDamage(opponent.hp / 16)
@@ -472,13 +471,13 @@ abstract class Battle {
                 this.megaPhase = true
             }
             if (getBattleState() == State.IN_PROGRESS) {
-                sb.append(BattleUtils.abilitiesCheck(opponent, pokemon, this))
+                sb.append(BattleUtils.abilitiesCheck(opponent, pokemon, battleField))
             }
         }
-        if (weatherCounter > 0) {
-            weatherCounter -= 1
-            if (weatherCounter == 0) {
-                if (weather == Weather.SANDSTORM) {
+        if (battleField.weatherCounter > 0) {
+            battleField.weatherCounter -= 1
+            if (battleField.weatherCounter == 0) {
+                if (battleField.weather == Weather.SANDSTORM) {
                     if (opponent.hasAbility(Ability.SAND_RUSH)) {
                         opponent.battleData!!.statsMultiplier.speedMultiplicator /= 2
                     }
@@ -486,7 +485,7 @@ abstract class Battle {
                         pokemon.battleData!!.statsMultiplier.speedMultiplicator /= 2
                     }
                 }
-                weather = Weather.NONE
+                battleField.setWeather(pokemon, Weather.NONE, opponent)
                 sb.append("The weather is back to normal\n")
             }
         }

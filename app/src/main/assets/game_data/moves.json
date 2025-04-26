@@ -2830,6 +2830,46 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 314,
+      "name": "Sandstorm",
+      "power": 0,
+      "pp": 10,
+      "type": 9,
+      "category": "OTHER",
+      "description": "Causes a Sandstorm for 5 turns.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 315,
+      "name": "Snowscape",
+      "power": 0,
+      "pp": 10,
+      "type": 14,
+      "category": "OTHER",
+      "description": "Causes a snowstorm for 5 turns.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 316,
+      "name": "Weather Ball",
+      "power": 50,
+      "pp": 10,
+      "type": 5,
+      "category": "SPECIAL",
+      "accuracy": 100,
+      "description": "This move's type and power change depending on the weather at the time the move is used.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "multipleHitMoves": [
@@ -4820,6 +4860,28 @@
         }
       ],
       "target": "SELF",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 313,
+      "name": "Diamond Storm",
+      "power": 100,
+      "category": "PHYSICAL",
+      "pp": 5,
+      "type": 9,
+      "accuracy": 95,
+      "description": "The user attacks with a punch. This may also lower the target's Defense stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        {
+          "stat": "DEFENSE",
+          "multiplicator": 2
+        }
+      ],
+      "target": "OPPONENT",
+      "probability": 50,
       "status": [],
       "highCritRate": false,
       "characteristics": []

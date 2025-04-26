@@ -100,8 +100,8 @@
             android:text="Pokedex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/pokedexButton"
-            app:layout_constraintEnd_toStartOf="@+id/trainerCardButton" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="4dp" android:backgroundTint="#FF5722"
-            app:layout_constraintStart_toEndOf="@+id/dailyHealButton"
-            android:alpha="20"/>
+            android:alpha="20" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

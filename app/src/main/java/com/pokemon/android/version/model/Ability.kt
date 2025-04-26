@@ -3,6 +3,7 @@ package com.pokemon.android.version.model
 enum class Ability(var description: String) {
     ADAPTABILITY("Powers up moves of the same type as the Pokémon."),
     AFTERMATH("Damages the attacker if it contacts the Pokémon with a finishing hit."),
+    AIR_LOCK("Eliminates the effects of weather."),
     ANGER_POINT("Increases Attack to maximum level upon taking a critical hit."),
     ANTICIPATION("The Pokémon can sense an opposing Pokémon's dangerous moves."),
     ARENA_TRAP("Prevents opposing Pokémon from fleeing."),
@@ -12,6 +13,7 @@ enum class Ability(var description: String) {
     BLAZE("Powers up Fire-type moves when the Pokémon's HP is low."),
     BULLETPROOF("Protects the Pokémon from some ball and bomb moves."),
     CLEAR_BODY("Prevents other Pokémon's moves or Abilities from lowering the Pokémon's stats."),
+    CLOUD_NINE("Eliminates the effects of weather."),
     COMPETITIVE("Boosts the Sp. Atk stat sharply when a stat is lowered."),
     COMPOUNDEYES("The Pokémon's compound eyes boost its accuracy."),
     CURSED_BODY("May disable a move used on the Pokémon."),
@@ -95,6 +97,7 @@ enum class Ability(var description: String) {
     STEADFAST("The Pokémon's determination boosts the Speed stat each time the Pokémon flinches."),
     STENCH("By releasing stench when attacking, this Pokémon may cause the target to flinch."),
     STICKY_HOLD("Items held by the Pokémon are stuck fast and cannot be removed by other Pokémon."),
+    STORM_DRAIN("Draws in all Water-type moves. Instead of being hit by Water-type moves, it boosts its Sp. Atk."),
     STURDY("It cannot be knocked out with one hit. One-hit KO moves cannot knock it out, either."),
     SUPER_LUCK("The Pokémon is so lucky that the critical-hit ratios of its moves are boosted."),
     SWARM("Powers up Bug-type moves when the Pokémon's HP is low."),

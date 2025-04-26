@@ -69,7 +69,7 @@ class BattleFrontierBattle() : Battle() {
 
     override fun updateOpponent() {
         val pokemon = if (pokemon.currentHP > 0)
-            IAUtils.getBestPokemonToSentAfterKo(pokemon, opponentTrainer.getTrainerTeam())
+            IAUtils.getBestPokemonToSentAfterKo(pokemon, opponentTrainer.getTrainerTeam(), battleField)
         else
             opponentTrainer.getFirstPokemonThatCanFight()
         if (pokemon != null)

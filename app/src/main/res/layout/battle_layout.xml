@@ -11,7 +11,7 @@
             android:id="@+id/battleBackgroundImageView" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="4dp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
-            android:background="#FFFFFF"/>
+            android:background="#FFFFFF" tools:srcCompat="@drawable/route_battle_background"/>
     <ImageView
             android:layout_width="110dp"
             android:layout_height="110dp" app:srcCompat="@drawable/ic_launcher_background"
@@ -34,45 +34,44 @@
             android:layout_width="150dp"
             android:layout_height="50dp" android:id="@+id/bagButton"
             app:layout_constraintBottom_toBottomOf="@+id/battleBackgroundImageView"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="16dp" app:layout_constraintVertical_bias="0.976"
-            android:backgroundTint="#009688"/>
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="#009688" android:layout_marginBottom="8dp"/>
     <Button
             android:text="Pokemon"
             android:layout_width="150dp"
             android:layout_height="50dp" android:id="@+id/switchPokemonButton"
             app:layout_constraintBottom_toBottomOf="@+id/battleBackgroundImageView"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginEnd="16dp" app:layout_constraintVertical_bias="0.974"
-            android:backgroundTint="#CDDC39"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#CDDC39" android:layout_marginBottom="8dp"/>
     <Button
             android:text="Button 1"
             android:layout_width="180dp"
             android:layout_height="44dp" android:id="@+id/attack1Button"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintTop_toBottomOf="@+id/dialogTextView" android:visibility="gone"/>
     <Button
             android:text="Button 3"
             android:layout_width="180dp"
             android:layout_height="44dp" android:id="@+id/attack3Button"
-            app:layout_constraintTop_toBottomOf="@+id/attack1Button"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp" android:visibility="gone"/>
+            app:layout_constraintTop_toBottomOf="@+id/attack1PPTextView"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp" android:visibility="gone"/>
     <Button
             android:text="Button 2"
             android:layout_width="180dp"
             android:layout_height="44dp" android:id="@+id/attack2Button"
             app:layout_constraintTop_toBottomOf="@+id/dialogTextView"
-            app:layout_constraintStart_toStartOf="@+id/attack1Button" android:layout_marginStart="196dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
-            app:layout_constraintHorizontal_bias="0.09" android:visibility="gone"/>
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:visibility="gone"/>
     <Button
             android:text="Button 4"
             android:layout_width="180dp"
             android:layout_height="44dp" android:id="@+id/attack4Button"
-            app:layout_constraintTop_toBottomOf="@+id/attack2Button"
-            app:layout_constraintStart_toStartOf="@+id/attack3Button" android:layout_marginStart="196dp"
-            android:layout_marginTop="20dp" android:visibility="gone"/>
+            app:layout_constraintTop_toBottomOf="@+id/attack2PPTextView"
+            android:layout_marginTop="2dp" android:visibility="gone" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"/>
     <ImageView
             android:layout_width="130dp"
             android:layout_height="130dp" app:srcCompat="@drawable/ic_launcher_background"
@@ -123,19 +122,18 @@
             app:layout_constraintTop_toTopOf="@+id/battleBackgroundImageView" android:layout_marginTop="48dp"
             android:textAlignment="textEnd" android:layout_marginEnd="4dp" android:textColor="#FF5722"/>
     <TextView
-            android:layout_width="354dp"
-            android:layout_height="83dp" android:id="@+id/dialogTextView"
+            android:layout_width="360dp"
+            android:layout_height="70dp" android:id="@+id/dialogTextView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.271" app:layout_constraintBottom_toBottomOf="parent"
-            android:textAlignment="center" android:textStyle="bold" android:layout_marginBottom="120dp"
+            app:layout_constraintHorizontal_bias="0.25"
+            android:textAlignment="center" android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/battleBackgroundImageView"
-            app:layout_constraintTop_toBottomOf="@+id/battleBackgroundImageView"
-            app:layout_constraintVertical_bias="0.236"/>
+            app:layout_constraintTop_toBottomOf="@+id/battleBackgroundImageView" android:layout_marginTop="2dp"/>
     <ImageView
             android:layout_width="58dp"
             android:layout_height="51dp" android:id="@+id/megaEvolutionImageView"
             app:layout_constraintEnd_toStartOf="@+id/switchPokemonButton"
-            android:layout_marginEnd="11dp" android:layout_marginStart="10dp"
+            android:layout_marginEnd="8dp" android:layout_marginStart="8dp"
             app:layout_constraintStart_toEndOf="@+id/bagButton" android:layout_marginBottom="30dp"
             app:layout_constraintBottom_toTopOf="@+id/dialogTextView"/>
     <ImageView
@@ -177,32 +175,34 @@
             tools:text="Rewards" android:backgroundTint="#F61052"
             android:textSize="30sp" android:visibility="gone"
             android:textAlignment="center" android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/battleBackgroundImageView"
-            app:layout_constraintVertical_bias="1.0" android:layout_marginTop="70dp"/>
+            android:layout_marginBottom="16dp"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/attack1PPTextView"
             app:layout_constraintTop_toBottomOf="@+id/attack1Button" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="68dp" android:visibility="gone"/>
+            android:layout_marginStart="64dp" android:visibility="gone"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/attack2PPTextView"
-            app:layout_constraintTop_toBottomOf="@+id/attack2Button" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="180dp" android:visibility="gone"/>
+            app:layout_constraintTop_toBottomOf="@+id/attack2Button"
+            app:layout_constraintEnd_toEndOf="parent" android:visibility="gone" android:layout_marginEnd="64dp"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/attack3PPTextView"
             app:layout_constraintTop_toBottomOf="@+id/attack3Button" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="68dp" android:visibility="gone"/>
+            android:layout_marginStart="64dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp" android:visibility="gone"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/attack4PPTextView"
-            app:layout_constraintTop_toBottomOf="@+id/attack4Button" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="180dp" android:visibility="gone"/>
+            app:layout_constraintTop_toBottomOf="@+id/attack4Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"
+            android:layout_marginEnd="64dp" android:visibility="gone"/>
 
     <TextView
             android:text="TextView"

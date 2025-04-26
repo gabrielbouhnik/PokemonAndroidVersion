@@ -666,6 +666,50 @@
     ]
   },
   {
+    "image": "images/banners/diancie_banner.png",
+    "description": "Get the mythical Pokémon Diancie",
+    "cost": 150,
+    "pokemons": [
+      {
+        "id": 719,
+        "rate": 5,
+        "moveIds": [
+          2,32,313
+        ]
+      },
+      {
+        "id": 703,
+        "rate": 20,
+        "moveIds": [
+          2,32
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": 2,
+        "rate": 15
+      },
+      {
+        "id": 4,
+        "rate": 15
+      },
+      {
+        "id": 8,
+        "rate": 15
+      },
+      {
+        "id": 11,
+        "rate": 15
+      },
+      {
+        "id": 158,
+        "rate": 15
+      }
+    ],
+    "days": []
+  },
+  {
     "image": "images/banners/tm_banner.png",
     "description": "Get a single-use TM that can teach a move to some Pokemon.",
     "cost": 100,

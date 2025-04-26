@@ -175,7 +175,7 @@ open class Pokemon(
         return AttackResponse(true, statusChange)
     }
 
-    fun attack(move: PokemonMove, opponent: Pokemon, weather: Weather): AttackResponse {
+    fun attack(move: PokemonMove, opponent: Pokemon, battleField: BattleField): AttackResponse {
         val hadATurn = this.battleData!!.hadATurn
         this.battleData!!.hadATurn = true
         val attackResponse = canAttack(move)
@@ -252,6 +252,13 @@ open class Pokemon(
                     details + "${opponent.data.name}'s Flash Fire: ${opponent.data.name}'s fire power is increased!\n"
                 )
             }
+            if (move.move.type == Type.WATER && opponent.hasAbility(Ability.STORM_DRAIN)) {
+                opponent.battleData!!.statsMultiplier.increaseStat(StatChange.SPATK_ONE_LEVEL_RAISE)
+                return AttackResponse(
+                    false,
+                    details + "${opponent.data.name}'s Storm Drain: ${opponent.data.name}'s Sp. Atk rose!\n"
+                )
+            }
             if (move.move.type == Type.GRASS && move.move.category != MoveCategory.OTHER && opponent.hasAbility(Ability.SAP_SIPPER)) {
                 opponent.battleData!!.statsMultiplier.increaseStat(StatChange.ATTACK_ONE_LEVEL_RAISE)
                 return AttackResponse(
@@ -264,13 +271,14 @@ open class Pokemon(
                 )))
                 || (move.move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))
             ) {
-                opponent.heal(DamageCalculator.computeDamageWithoutAbility(this, move.move, opponent))
+                opponent.heal(DamageCalculator.computeDamageWithoutAbility(this, move.move, opponent, battleField))
                 return AttackResponse(
                     false,
                     details + "" + BattleUtils.getEffectiveness(
                         this,
                         move.move,
-                        opponent
+                        opponent,
+                        battleField
                     )
                 )
             }
@@ -305,7 +313,8 @@ open class Pokemon(
         if (move.move !is MoveBasedOnLevel && move.move.category != MoveCategory.OTHER && DamageCalculator.getEffectiveness(
                 this,
                 move.move,
-                opponent
+                opponent,
+                battleField
             ) == 0f
         )
             return AttackResponse(
@@ -313,7 +322,7 @@ open class Pokemon(
                 details + "It does not affect ${opponent.data.name}!\n"
             )
         if (move.move.accuracy != null && !this.hasAbility(Ability.NO_GUARD)) {
-            val random: Int = if (weather == Weather.SNOW && move.move.id == 300) 1 else Random.nextInt(100)
+            val random: Int = if (battleField.weather == Weather.SNOW && move.move.id == 300) 1 else Random.nextInt(100)
             var accuracy = move.move.accuracy!! * battleData!!.statsMultiplier.accuracyMultiplicator
             if (opponent.hasAbility(Ability.WONDER_SKIN) && move.move.category == MoveCategory.OTHER && move.move.status.isNotEmpty())
                 accuracy *= 0.5f
@@ -363,7 +372,8 @@ open class Pokemon(
                         this,
                         move.move,
                         opponent,
-                        crit
+                        crit,
+                        battleField
                     )
                     i++
                 }
@@ -378,7 +388,8 @@ open class Pokemon(
                     this,
                     move.move,
                     opponent,
-                    crit
+                    crit,
+                    battleField
                 )
                 details += BattleUtils.contactMovesCheck(this, move.move, opponent)
                 if (damage >= opponent.currentHP) {
@@ -392,7 +403,8 @@ open class Pokemon(
                         this,
                         move.move,
                         opponent,
-                        crit
+                        crit,
+                        battleField
                     )
                     opponent.battleData!!.numberOfHitTaken += 1
                     details += "${opponent.data.name} was hit 2 times!\n"
@@ -406,12 +418,13 @@ open class Pokemon(
                     this,
                     move.move,
                     opponent,
-                    crit
+                    crit,
+                    battleField
                 )
             }
         }
         if (move.move.power > 1 && move.move !is RetaliationMove)
-            details += BattleUtils.getEffectiveness(this, move.move, opponent)
+            details += BattleUtils.getEffectiveness(this, move.move, opponent, battleField)
         val damageDone: Int
         if (damage >= opponent.currentHP) {
             if (opponent.currentHP == opponent.hp
@@ -543,11 +556,11 @@ open class Pokemon(
             else if (damage > 0 || move.move.category == MoveCategory.OTHER) {
                 if (move.move.category == MoveCategory.OTHER) {
                     details += "All stats changes were removed!\n"
-                    this.recomputeStatMultiplier(weather)
+                    this.recomputeStatMultiplier(battleField.weather)
                 } else {
                     details += "${opponent.data.name}'s stats changes were removed!\n"
                 }
-                opponent.recomputeStatMultiplier(weather)
+                opponent.recomputeStatMultiplier(battleField.weather)
             }
         }
         if (move.move.id == 247 && opponent.heldItem != null) {
@@ -591,6 +604,28 @@ open class Pokemon(
                 details += "${opponent.data.name}'s Electromorphosis: ${move.move.name} charged ${opponent.data.name}!\n"
                 this.battleData!!.battleStatus.add(Status.CHARGED)
             }
+            if (move.move.id == 310) {
+                //GIGATON HAMMER
+                move.disabledCountdown = 2
+            }
+        }
+        if (move.move.id == 314 || move.move.id == 315) {
+            when {
+                opponent.hasAbility(Ability.AIR_LOCK) -> {
+                    details += "${opponent.data.name}'s Air Lock: ${opponent.data.name} made the weather disappeared\n"
+                }
+                opponent.hasAbility(Ability.CLOUD_NINE) -> {
+                    details += "${opponent.data.name}'s Cloud Nine: ${opponent.data.name} made the weather disappeared\n"
+                }
+                move.move.id == 314 -> {
+                    details += "A sandstorm kicked up!\n"
+                    battleField.setWeather(this, Weather.SANDSTORM, opponent)
+                }
+                move.move.id == 315 -> {
+                    details += "It started to snow!\n"
+                    battleField.setWeather(this, Weather.SNOW, opponent)
+                }
+            }
         }
         if (move.move.id == 265) { //DISABLE
             if (opponent.battleData!!.lastMoveUsed != null) {
@@ -610,14 +645,10 @@ open class Pokemon(
                 }
             }
         }
-        if (move.move.id == 310) {
-            //GIGATON HAMMER
-            move.disabledCountdown = 2
-        }
         if (opponent.currentHP > 0
             && damageDone > 0
             && move.move !is MoveBasedOnLevel && move.move !is RetaliationMove
-            && BattleUtils.getEffectiveness(this, move.move, opponent).contains("super")
+            && BattleUtils.getEffectiveness(this, move.move, opponent, battleField).contains("super")
             && opponent.hasItem(HoldItem.WEAKNESS_POLICY)) {
                 opponent.battleData!!.statsMultiplier.increaseStat(StatChange.ATTACK_TWO_LEVEL_RAISE)
                 opponent.battleData!!.statsMultiplier.increaseStat(StatChange.SPATK_TWO_LEVEL_RAISE)
@@ -630,7 +661,7 @@ open class Pokemon(
                 details += "${opponent.data.name} was hit 1 time!\n"
             } else {
                 this.battleData!!.child = true
-                details += this.attack(move, opponent, weather).reason
+                details += this.attack(move, opponent, battleField).reason
                 this.battleData!!.child = false
                 details += "${opponent.data.name} was hit 2 times!\n"
             }
