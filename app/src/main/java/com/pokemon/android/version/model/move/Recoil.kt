@@ -4,5 +4,6 @@ enum class Recoil(var damage: Float) {
     QUARTER(0.25f),
     HALF(0.5f),
     THIRD(0.33f),
-    ALL(1f)
+    ALL(1f),
+    FINAL_GAMBIT(1f)
 }

@@ -1,7 +1,10 @@
 package com.pokemon.android.version.model
 
+import com.pokemon.android.version.model.battle.BattleSide
+import com.pokemon.android.version.model.battle.BattleSideEffect
 import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.move.Move
+import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.MoveCharacteristic
 import com.pokemon.android.version.utils.BattleUtils
 import kotlin.random.Random
@@ -51,7 +54,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
     }
 
     companion object {
-        fun updateStatus(attacker: Pokemon, opponent: Pokemon, move: Move): String {
+        fun updateStatus(attacker: Pokemon, opponent: Pokemon, move: Move, attackerBattleSide: BattleSide, opponentBattleSide: BattleSide): String {
             if (move.characteristics.contains(MoveCharacteristic.POWDER) && opponent.hasAbility(Ability.OVERCOAT))
                 return "${opponent.data.name}'s Overcoat: It does not affect ${opponent.data.name}!\n"
             var details = ""
@@ -61,6 +64,13 @@ enum class Status(var activeOutsideBattle: Boolean) {
                     if (attacker.hasAbility(Ability.SERENE_GRACE))
                         randomForStatus /= 2
                     if (it.probability == null || randomForStatus <= it.probability!!) {
+                        if (opponentBattleSide.battleSideEffects.contains(BattleSideEffect.SAFEGUARD)
+                            && (it.status == TIRED || it.status == CONFUSED || it.status.activeOutsideBattle)) {
+                            if (move.category == MoveCategory.OTHER && it.probability == null) {
+                                details += "But ${opponent.data.name} is protected by Safeguard!\n"
+                            }
+                            return@forEach
+                        }
                         if (it.status.activeOutsideBattle) {
                             opponent.status = it.status
                             details += "${opponent.data.name} " + it.status.toDetails() + "\n"
@@ -68,8 +78,12 @@ enum class Status(var activeOutsideBattle: Boolean) {
                             if (opponent.hasAbility(Ability.SYNCHRONIZE)
                                 && isAffectedByStatus(0, it.status, attacker)
                             ) {
-                                attacker.status = it.status
                                 details += "${opponent.data.name}'s Synchronize: ${attacker.data.name} " + it.status.toDetails() + "\n"
+                                if (attackerBattleSide.battleSideEffects.contains(BattleSideEffect.SAFEGUARD)) {
+                                    details += "But ${attacker.data.name} is protected by Safeguard!\n"
+                                } else {
+                                    attacker.status = it.status
+                                }
                             }
                             if (opponent.hasItem(HoldItem.LUM_BERRY) && !attacker.hasAbility(Ability.UNNERVE)) {
                                 details += "${opponent.data.name}'s Lum Berry cured its status\n"

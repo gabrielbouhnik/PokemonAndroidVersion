@@ -151,7 +151,7 @@ class TrainerBattle() : Battle() {
         opponent.recomputeStat()
         if (opponentTrainer.canStillBattle()) {
             opponent = if (opponentTrainer.iaLevel != 1 && pokemon.currentHP > 0)
-                IAUtils.getBestPokemonToSentAfterKo(pokemon, opponentTrainer.getTrainerTeam(), battleField)!!
+                IAUtils.getBestPokemonToSentAfterKo(pokemon, opponentTrainer.getTrainerTeam(), battleField, opponentSide, playerSide)!!
             else
                 opponentTrainer.getFirstPokemonThatCanFight()!!
         }

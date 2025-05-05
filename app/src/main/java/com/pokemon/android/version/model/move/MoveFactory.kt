@@ -21,6 +21,7 @@ class MoveFactory {
                 movesEntity.rampageMovesEntity.forEach { res.add(RampageMove.of(it)) }
                 movesEntity.movesThatRemoveStatChangesEntity.forEach { res.add(RemoveStatChangesMove.of(it)) }
                 movesEntity.retaliationMovesEntity.forEach { res.add(RetaliationMove.of(it)) }
+                movesEntity.battleFieldSideMovesEntity.forEach { res.add(BattleFieldSideMove.of(it)) }
             }
             res.sortBy { it.id }
             return res

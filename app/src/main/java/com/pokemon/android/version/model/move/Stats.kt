@@ -37,19 +37,19 @@ enum class Stats(var value: String) {
                 else {
                     details += "${pokemon.data.name}'s " + it.stat.value + " fell!\n"
                     if (target == Target.OPPONENT && pokemon.hasAbility(Ability.DEFIANT)) {
-                        pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.ATTACK_ONE_LEVEL_RAISE)
+                        pokemon.battleData!!.statsMultiplier.updateStat(StatChange.ATTACK_ONE_LEVEL_RAISE)
                         details += "${pokemon.data.name}'s Defiant: ${pokemon.data.name}'s attack rose!\n"
                         if (it.stat == ATTACK)
                             return@forEach
                     }
                     if (target == Target.OPPONENT && pokemon.hasAbility(Ability.COMPETITIVE)) {
-                        pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.SPATK_ONE_LEVEL_RAISE)
+                        pokemon.battleData!!.statsMultiplier.updateStat(StatChange.SPATK_ONE_LEVEL_RAISE)
                         details += "${pokemon.data.name}'s Competitive: ${pokemon.data.name}'s sp. Atk rose!\n"
                         if (it.stat == SPATK)
                             return@forEach
                     }
                 }
-                pokemon.battleData!!.statsMultiplier.increaseStat(it)
+                pokemon.battleData!!.statsMultiplier.updateStat(it)
             }
             return details
         }

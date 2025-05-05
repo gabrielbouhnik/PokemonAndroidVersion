@@ -4,9 +4,7 @@ import com.pokemon.android.version.model.Ability
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Type
-import com.pokemon.android.version.model.battle.BattleField
-import com.pokemon.android.version.model.battle.DamageCalculator
-import com.pokemon.android.version.model.battle.Weather
+import com.pokemon.android.version.model.battle.*
 import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.move.*
 import kotlin.random.Random
@@ -36,7 +34,7 @@ class BattleUtils {
                     if (!opponent.hasAbility(Ability.MOLD_BREAKER) && attacker.hasAbility(Ability.STICKY_HOLD)) {
                         details += "${attacker.data.name}'s Sticky Hold: ${attacker.data.name}'s item cannot be removed!\n"
                     } else {
-                        attacker.battleData!!.itemDisabled = true
+                        attacker.itemDisabled = true
                         opponent.heldItem = attacker.heldItem
                     }
                 }
@@ -108,7 +106,7 @@ class BattleUtils {
             return details
         }
 
-        fun abilitiesCheck(pokemon: Pokemon, opponent: Pokemon, battleField: BattleField): String {
+        fun abilitiesCheck(pokemon: Pokemon, opponent: Pokemon, battleField: BattleField, battleSide: BattleSide): String {
             val sb = StringBuilder()
             if (pokemon.status != Status.OK)
                 checkForStatusStatsRaiseAbility(pokemon)
@@ -127,7 +125,7 @@ class BattleUtils {
             if (pokemon.hasAbility(Ability.UNNERVE))
                 sb.append("${pokemon.data.name}'s Unnerve: ${opponent.data.name} is too nervous to eat berries!\n")
             if (pokemon.hasAbility(Ability.COMPOUNDEYES))
-                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.ACCURACY_ONE_LEVEL_RAISE)
+                pokemon.battleData!!.statsMultiplier.updateStat(StatChange.ACCURACY_ONE_LEVEL_RAISE)
             if (pokemon.hasAbility(Ability.ANTICIPATION) && MoveUtils.getMoveList(opponent)
                     .any { DamageCalculator.getEffectiveness(opponent, it.move, pokemon, battleField) >= 2f }
             )
@@ -138,18 +136,18 @@ class BattleUtils {
                     opponent.hasAbility(Ability.CLEAR_BODY) -> sb.append("${opponent.data.name}'s Clear Body: ${opponent.data.name}'s stats cannot be lowered!\n")
                     opponent.hasAbility(Ability.HYPER_CUTTER) -> sb.append("${opponent.data.name}'s Hyper Cutter: ${opponent.data.name}'s attack cannot be lowered!\n")
                     opponent.hasAbility(Ability.DEFIANT) -> {
-                        opponent.battleData!!.statsMultiplier.increaseStat(StatChange.ATTACK_ONE_LEVEL_RAISE)
+                        opponent.battleData!!.statsMultiplier.updateStat(StatChange.ATTACK_ONE_LEVEL_RAISE)
                         sb.append("${opponent.data.name}'s Defiant: ${opponent.data.name}'s attack rose!\n")
                     }
                     opponent.hasAbility(Ability.COMPETITIVE) -> {
-                        opponent.battleData!!.statsMultiplier.increaseStat(StatChange.SPATK_ONE_LEVEL_RAISE)
+                        opponent.battleData!!.statsMultiplier.updateStat(StatChange.SPATK_ONE_LEVEL_RAISE)
                         sb.append("${opponent.data.name}'s Competitive: ${opponent.data.name}'s sp. Atk rose!\n")
                     }
                     else -> {
                         if (opponent.battleData != null)
-                            opponent.battleData!!.statsMultiplier.increaseStat(StatChange.ATTACK_ONE_LEVEL_DECREASE)
+                            opponent.battleData!!.statsMultiplier.updateStat(StatChange.ATTACK_ONE_LEVEL_DECREASE)
                         if (opponent.hasAbility(Ability.RATTLED)) {
-                            opponent.battleData!!.statsMultiplier.increaseStat(StatChange.SPEED_ONE_LEVEL_RAISE)
+                            opponent.battleData!!.statsMultiplier.updateStat(StatChange.SPEED_ONE_LEVEL_RAISE)
                             sb.append("${opponent.data.name}'s Rattled: ${opponent.data.name}'s speed rose!\n")
                         }
                     }
@@ -162,13 +160,13 @@ class BattleUtils {
             }
             if (pokemon.hasItem(HoldItem.ASSAULT_VEST) && !MoveUtils.getMoveList(pokemon).map { it.move.category }
                     .contains(MoveCategory.OTHER))
-                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.SPDEF_ONE_LEVEL_RAISE)
+                pokemon.battleData!!.statsMultiplier.updateStat(StatChange.SPDEF_ONE_LEVEL_RAISE)
             if (pokemon.hasItem(HoldItem.EVIOLITE) && pokemon.data.evolutions.isNotEmpty()) {
-                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.SPDEF_ONE_LEVEL_RAISE)
-                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.DEFENSE_ONE_LEVEL_RAISE)
+                pokemon.battleData!!.statsMultiplier.updateStat(StatChange.SPDEF_ONE_LEVEL_RAISE)
+                pokemon.battleData!!.statsMultiplier.updateStat(StatChange.DEFENSE_ONE_LEVEL_RAISE)
             }
             if (pokemon.hasItem(HoldItem.WIDE_LENS)) {
-                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.ACCURACY_ONE_LEVEL_RAISE)
+                pokemon.battleData!!.statsMultiplier.updateStat(StatChange.ACCURACY_ONE_LEVEL_RAISE)
             }
             if (pokemon.hasAbility(Ability.SAND_STREAM)
                 && !opponent.hasAbility(Ability.AIR_LOCK)
@@ -187,14 +185,14 @@ class BattleUtils {
             if (pokemon.hasAbility(Ability.DOWNLOAD)) {
                 if (opponent.defense * opponent.battleData!!.statsMultiplier.defenseMultiplicator > opponent.spDef * opponent.battleData!!.statsMultiplier.spDefMultiplicator) {
                     sb.append("${pokemon.data.name}'s Download: ${pokemon.data.name}'s Sp. Atk rose!\n")
-                    pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.SPATK_ONE_LEVEL_RAISE)
+                    pokemon.battleData!!.statsMultiplier.updateStat(StatChange.SPATK_ONE_LEVEL_RAISE)
                 } else {
                     sb.append("${pokemon.data.name}'s Download: ${pokemon.data.name}'s attack rose!\n")
-                    pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.ATTACK_ONE_LEVEL_RAISE)
+                    pokemon.battleData!!.statsMultiplier.updateStat(StatChange.ATTACK_ONE_LEVEL_RAISE)
                 }
             }
             if (pokemon.hasAbility(Ability.SUPER_LUCK))
-                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange(Stats.CRITICAL_RATE, 1.5f))
+                pokemon.battleData!!.statsMultiplier.updateStat(StatChange(Stats.CRITICAL_RATE, 1.5f))
             if (pokemon.hasAbility(Ability.ARENA_TRAP) && !opponent.hasAbility(Ability.LEVITATE) && !pokemon.hasType(
                     Type.FLYING
                 ) && !pokemon.hasType(Type.GHOST)
@@ -213,6 +211,16 @@ class BattleUtils {
                 opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
             if (opponent.hasAbility(Ability.MAGNET_PULL) && pokemon.hasType(Type.STEEL))
                 pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
+            if (battleSide.battleSideEffects.contains(BattleSideEffect.STICKY_WEB)
+                && !pokemon.hasType(Type.FLYING)
+                && !pokemon.hasAbility(Ability.LEVITATE)) {
+                sb.append("${pokemon.data.name} was caught in a sticky web!\n")
+                pokemon.battleData!!.statsMultiplier.updateStat(StatChange.SPEED_ONE_LEVEL_DECREASE)
+                sb.append("${pokemon.data.name}'s speed fell!\n")
+            }
+            if (battleSide.battleSideEffects.contains(BattleSideEffect.TAILWIND)) {
+                pokemon.battleData!!.statsMultiplier.updateStat(StatChange.SPEED_ONE_LEVEL_RAISE)
+            }
             return sb.toString()
         }
 
@@ -270,11 +278,11 @@ class BattleUtils {
 
         fun checkForStatusStatsRaiseAbility(pokemon: Pokemon) {
             if (pokemon.hasAbility(Ability.GUTS))
-                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.ATTACK_ONE_LEVEL_RAISE)
+                pokemon.battleData!!.statsMultiplier.updateStat(StatChange.ATTACK_ONE_LEVEL_RAISE)
             if (pokemon.hasAbility(Ability.QUICK_FEET))
-                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.SPEED_ONE_LEVEL_RAISE)
+                pokemon.battleData!!.statsMultiplier.updateStat(StatChange.SPEED_ONE_LEVEL_RAISE)
             if (pokemon.hasAbility(Ability.MARVEL_SCALE))
-                pokemon.battleData!!.statsMultiplier.increaseStat(StatChange.DEFENSE_ONE_LEVEL_RAISE)
+                pokemon.battleData!!.statsMultiplier.updateStat(StatChange.DEFENSE_ONE_LEVEL_RAISE)
         }
 
         fun removeStatusStatsRaiseAbility(pokemon: Pokemon) {

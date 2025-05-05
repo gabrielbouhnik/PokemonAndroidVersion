@@ -22,7 +22,7 @@ class StatsMultiplier(
         }
     }
 
-    fun increaseStat(statChange: StatChange): Boolean {
+    fun updateStat(statChange: StatChange): Boolean {
         when (statChange.stat) {
             Stats.ATTACK -> {
                 return if (canBeUpdated(attackMultiplicator, statChange.multiplicator)) {

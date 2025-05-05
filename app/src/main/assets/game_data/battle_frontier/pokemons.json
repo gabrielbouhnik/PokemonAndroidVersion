@@ -812,6 +812,11 @@
     "itemHeld": "LIFE_ORB"
   },
   {
+    "id": 738,
+    "moveIds": [12,60,105,317],
+    "itemHeld": "LEFTOVERS"
+  },
+  {
     "id": 855,
     "moveIds": [46,66,302,245],
     "itemHeld": "FOCUS_SASH"

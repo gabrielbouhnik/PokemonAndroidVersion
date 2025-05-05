@@ -53,6 +53,12 @@ class DamageCalculator {
                     moveType = Type.ICE
                 }
             }
+            if (moveType == Type.NORMAL && attacker.hasAbility(Ability.AERILATE)) {
+                moveType = Type.FLYING
+            }
+            if (moveType == Type.NORMAL && attacker.hasAbility(Ability.PIXILATE)) {
+                moveType = Type.FAIRY
+            }
             if (moveType == Type.GROUND && opponent.battleData!!.battleStatus.contains(Status.ROOSTED)) {
                 if (type1 == Type.FLYING)
                     type1 = Type.NONE
@@ -109,7 +115,14 @@ class DamageCalculator {
             return ((((((attacker.level.toFloat() * 0.4f).roundToInt() + 2) * power * offensiveStat) / (defensiveStat * 50)) + 2) * type * stab * multiplicator * random).roundToInt()
         }
 
-        private fun computePower(attacker: Pokemon, move: Move, opponent: Pokemon, battleField: BattleField): Float {
+        private fun computePower(
+            attacker: Pokemon,
+            move: Move,
+            opponent: Pokemon,
+            battleField: BattleField,
+            opponentBattleSide: BattleSide,
+            crit: Boolean
+        ): Float {
             var power: Float =
                 if (move is MoveBasedOnHP) move.getPower(attacker).toFloat() else move.power.toFloat()
             if (move.id == 240 && attacker.battleData!!.lastMoveFailed) {
@@ -131,6 +144,9 @@ class DamageCalculator {
                 power *= 1.3f
             if (attacker.hasAbility(Ability.MEGA_LAUNCHER) && move.characteristics.contains(MoveCharacteristic.AURA))
                 power *= 1.5f
+            if (move.type == Type.NORMAL && (attacker.hasAbility(Ability.PIXILATE) || attacker.hasAbility(Ability.AERILATE))) {
+                    power *= 1.2f
+            }
             if (move.power <= 60 && attacker.hasAbility(Ability.TECHNICIAN))
                 power *= 1.5f
             if ((move is RecoilMove || move.id == 210 || move.id == 244 || move.id == 283) && attacker.hasAbility(
@@ -224,6 +240,18 @@ class DamageCalculator {
             if (move.characteristics.contains(MoveCharacteristic.CONTACT) && opponent.hasAbility(Ability.FLUFFY)) {
                 power *= 0.5f
             }
+            if (!crit) {
+                if (opponentBattleSide.battleSideEffects.contains(BattleSideEffect.REFLECT)
+                    && move.category == MoveCategory.PHYSICAL
+                ) {
+                    power *= 0.5f
+                }
+                if (opponentBattleSide.battleSideEffects.contains(BattleSideEffect.LIGHT_SCREEN)
+                    && move.category == MoveCategory.SPECIAL
+                ) {
+                    power *= 0.5f
+                }
+            }
             return power
         }
 
@@ -232,7 +260,8 @@ class DamageCalculator {
             move: Move,
             opponent: Pokemon,
             criticalMultiplicator: Float,
-            battleField: BattleField
+            battleField: BattleField,
+            opponentBattleSide: BattleSide
         ): Int {
             if (opponent.currentHP == 0)
                 return 0
@@ -319,7 +348,9 @@ class DamageCalculator {
                     attacker,
                     move,
                     opponent,
-                    battleField
+                    battleField,
+                    opponentBattleSide,
+                    criticalMultiplicator > 1f
                 ) * offensiveStat) / (defensiveStat * 50)) + 2) * type * criticalMultiplicator * stab * multiplicator * random).roundToInt()
             } catch (e: Exception) {
                 0

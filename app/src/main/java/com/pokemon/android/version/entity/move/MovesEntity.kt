@@ -7,5 +7,6 @@ data class MovesEntity(
     var multipleHitMoves: List<MultipleHitMoveEntity>, var movesBasedOnLevelEntity: List<MoveBasedOnLevelEntity>,
     var ultimateMoves: List<MoveEntity>, var movesBasedOnHPEntity: List<MoveBasedOnHPEntity>,
     var chargedMovesEntity: List<ChargedMoveEntity>, var rampageMovesEntity: List<MoveEntity>,
-    var movesThatRemoveStatChangesEntity: List<MoveEntity>, var retaliationMovesEntity: List<MoveEntity>
+    var movesThatRemoveStatChangesEntity: List<MoveEntity>, var retaliationMovesEntity: List<MoveEntity>,
+    var battleFieldSideMovesEntity: List<BattleFieldSideMoveEntity>
 )

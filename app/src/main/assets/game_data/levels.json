@@ -2948,7 +2948,7 @@
             {
               "id": 18,
               "level": 54,
-              "moveIds": [3,16,54,19]
+              "moveIds": [3,16,321,19]
             },
             {
               "id": 130,
@@ -3537,7 +3537,7 @@
             {
               "id": 103,
               "level": 67,
-              "moveIds": [105,45,133,37],
+              "moveIds": [105,45,133,319],
               "itemHeld": "LEFTOVERS"
             },
             {
@@ -3824,8 +3824,8 @@
             {
               "id": 154,
               "level": 70,
-              "moveIds": [105,88,133,93],
-              "itemHeld": "LEFTOVERS"
+              "moveIds": [105,319,88,133],
+              "itemHeld": "LIGHT_CLAY"
             },
             {
               "id": 157,
@@ -4999,7 +4999,7 @@
         {
           "id": 103,
           "level": 45,
-          "moveIds": [66,45,133,219],
+          "moveIds": [66,45,133,319],
           "itemHeld": "LEFTOVERS"
         },
         {
@@ -5022,7 +5022,7 @@
           "id": 189,
           "level": 80,
           "moveIds": [
-            66,113,35,133
+            66,321,35,133
           ],
           "itemHeld": "MIRACLE_SEED"
         },
@@ -5237,8 +5237,8 @@
         {
           "id": 122,
           "level": 55,
-          "moveIds": [45,44,46,12],
-          "itemHeld": "TWISTED_SPOON"
+          "moveIds": [45,44,318,55],
+          "itemHeld": "LIGHT_CLAY"
         },
         {
           "id": 64,
@@ -5274,8 +5274,8 @@
         {
           "id": 122,
           "level": 80,
-          "moveIds": [45,44,46,12],
-          "itemHeld": "TWISTED_SPOON"
+          "moveIds": [45,44,318,12],
+          "itemHeld": "LIGHT_CLAY"
         },
         {
           "id": 196,

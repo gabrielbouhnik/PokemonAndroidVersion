@@ -5128,7 +5128,7 @@
       "accuracy": 100,
       "description": "The user risks everything to attack the target. The user faints but inflicts damage equal to its own HP.",
       "priorityLevel": 0,
-      "recoil": "ALL",
+      "recoil": "FINAL_GAMBIT",
       "status": [],
       "highCritRate": false,
       "characteristics": []
@@ -5535,6 +5535,73 @@
       "priorityLevel": -5,
       "status": [],
       "highCritRate": false,
+      "characteristics": []
+    }
+  ],
+  "battleFieldSideMovesEntity": [
+    {
+      "id": 317,
+      "name": "Sticky Web",
+      "power": 0,
+      "pp": 20,
+      "type": 7,
+      "category": "OTHER",
+      "accuracy": 100,
+      "description": "The user weaves a sticky net around the opposing team, which lowers their Speed stats upon switching into battle.",
+      "priorityLevel": 0,
+      "target": "OPPONENT",
+      "characteristics": []
+    },
+    {
+      "id": 318,
+      "name": "Light Screen",
+      "power": 0,
+      "pp": 20,
+      "type": 12,
+      "category": "OTHER",
+      "accuracy": 100,
+      "description": "A wondrous wall of light is put up to reduce damage from special moves for five turns.",
+      "priorityLevel": 0,
+      "target": "SELF",
+      "characteristics": []
+    },
+    {
+      "id": 319,
+      "name": "Reflect",
+      "power": 0,
+      "pp": 20,
+      "type": 12,
+      "category": "OTHER",
+      "accuracy": 100,
+      "description": "A wondrous wall of light is put up to reduce damage from physical moves for five turns.",
+      "priorityLevel": 0,
+      "target": "SELF",
+      "characteristics": []
+    },
+    {
+      "id": 320,
+      "name": "Safeguard",
+      "power": 0,
+      "pp": 25,
+      "type": 5,
+      "category": "OTHER",
+      "accuracy": 100,
+      "description": "The user creates a protective field that prevents status conditions for five turns.",
+      "priorityLevel": 0,
+      "target": "SELF",
+      "characteristics": []
+    },
+    {
+      "id": 321,
+      "name": "Tailwind",
+      "power": 0,
+      "pp": 15,
+      "type": 6,
+      "category": "OTHER",
+      "accuracy": 100,
+      "description": "The user whips up a turbulent whirlwind that ups the Speed stats of the user and its allies for four turns.",
+      "priorityLevel": 0,
+      "target": "SELF",
       "characteristics": []
     }
   ]

@@ -20,6 +20,7 @@ enum class HoldItem(var id: Int, var description: String) {
     LEFTOVERS(166,"An item to be held by a Pokémon. The holder's HP is gradually restored during battle."),
     LOADED_DICE(177,"Makes multi-strike moves more likely to hit more times."),
     LIFE_ORB(168,"Increases the power of moves, but loses HP each turn."),
+    LIGHT_CLAY(187,"When this item is held by a Pokémon, if the holder uses the attacks Reflect or Light Screen, the effects of those attacks last eight turns as opposed to five."),
     LUM_BERRY(167,"If held by a Pokémon, it recovers from any status problem."),
     MAGNET(153,"Increases the power of Electric-type moves."),
     MIRACLE_SEED(150,"Increases the power of Grass-type moves."),

@@ -2,6 +2,7 @@ package com.pokemon.android.version.model
 
 enum class Ability(var description: String) {
     ADAPTABILITY("Powers up moves of the same type as the Pokémon."),
+    AERILATE("Normal-type moves become Flying-type moves. The power of those moves is boosted a little."),
     AFTERMATH("Damages the attacker if it contacts the Pokémon with a finishing hit."),
     AIR_LOCK("Eliminates the effects of weather."),
     ANGER_POINT("Increases Attack to maximum level upon taking a critical hit."),
@@ -65,6 +66,7 @@ enum class Ability(var description: String) {
     PARENTAL_BOND("Every move used by the Pokémon will hit twice. The damage inflicted by the second hit is reduced to 25%."),
     PICKPOCKET("Steals an item from an attacker that made direct contact."),
     PICKUP("The Pokémon will pick up an item after a battle."),
+    PIXILATE("Normal-type moves become Fairy-type moves. The power of those moves is boosted a little."),
     POISON_HEAL("Restores HP if the Pokémon is poisoned, instead of losing HP."),
     POISON_POINT("Contact with the Pokémon may poison the attacker."),
     POISON_TOUCH("May poison a target when the Pokémon makes contact."),

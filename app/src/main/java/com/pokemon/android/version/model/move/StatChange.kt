@@ -19,6 +19,7 @@ class StatChange(var stat: Stats, var multiplicator: Float) {
 
         val ATTACK_ONE_LEVEL_DECREASE = StatChange(Stats.ATTACK, NORMAL_STATS_ONE_LEVEL_DECREASE)
         val DEFENSE_ONE_LEVEL_DECREASE = StatChange(Stats.DEFENSE, NORMAL_STATS_ONE_LEVEL_DECREASE)
+        val SPEED_ONE_LEVEL_DECREASE = StatChange(Stats.SPEED, NORMAL_STATS_ONE_LEVEL_DECREASE)
 
         val ACCURACY_ONE_LEVEL_RAISE = StatChange(Stats.ACCURACY, 1.33f)
 
