@@ -18,7 +18,6 @@
             android:layout_height="wrap_content" android:id="@+id/abilityDescrTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintTop_toBottomOf="@+id/abilitiyNameTextView" android:textAlignment="center"
             android:textSize="18sp" android:lineSpacingExtra="8sp" android:maxLines="5" android:ellipsize="end"
             app:layout_constraintBottom_toBottomOf="parent"/>

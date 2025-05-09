@@ -564,7 +564,7 @@ class BattleUI {
                         || (battle.pokemon.hasType(Type.GHOST)))
             ) {
                 megaEvolve = false
-                val closeButton: Button = activity.findViewById(R.id.closeTeamButton)
+                val closeButton: Button = activity.findViewById(R.id.closeBattleMenuButton)
                 closeButton.visibility = VISIBLE
                 switchButton.visibility = GONE
                 bagButton.visibility = GONE
@@ -620,7 +620,7 @@ class BattleUI {
                     Toast.makeText(activity, "You can't use items in an official Pokémon League battle!", Toast.LENGTH_SHORT).show()
                 } else {
                     megaEvolve = false
-                    val closeButton: Button = activity.findViewById(R.id.closeBagButton)
+                    val closeButton: Button = activity.findViewById(R.id.closeBattleMenuButton)
                     closeButton.visibility = VISIBLE
                     switchButton.visibility = GONE
                     bagButton.visibility = GONE

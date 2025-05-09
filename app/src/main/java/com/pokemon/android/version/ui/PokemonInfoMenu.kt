@@ -69,7 +69,7 @@ class PokemonInfoMenu(var parentId: Int) {
                     activity.mainMenu.battleFrontierMenu.loadPokemonInfoLayout(
                         activity,
                         pokemon,
-                        BattleFrontierArea.BATTLE_FACTORY
+                        if (activity.hardMode) BattleFrontierArea.BATTLE_TOWER else BattleFrontierArea.BATTLE_FACTORY
                     )
                 } else {
                     activity.mainMenu.pokemonMenu.pokemonInfoMenu.loadPokemonInfoLayout(activity, pokemon)

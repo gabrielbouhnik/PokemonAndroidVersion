@@ -15,16 +15,16 @@
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="406dp"
             android:layout_height="541dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:id="@+id/itemRecyclerView"
-            android:layout_marginBottom="92dp" app:layout_constraintHorizontal_bias="0.0"/>
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintBottom_toTopOf="@+id/itemMenuBackButton"/>
     <Button
             android:text="Back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/itemMenuBackButton"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="13dp" app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintVertical_bias="0.0" app:layout_constraintTop_toBottomOf="@+id/itemRecyclerView"/>
+            app:layout_constraintHorizontal_bias="0.498"
+            android:layout_marginBottom="32dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -611,7 +611,9 @@ open class Pokemon(
                     this.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
                     details += "${this.data.name} is no longer trapped!\n"
                 }
-                opponentSide.battleSideEffects.remove(BattleSideEffect.STICKY_WEB)
+                if (pokemonSide.battleSideEffects.remove(BattleSideEffect.STICKY_WEB)) {
+                    details += "The sticky web around ${this.data.name} disappeared!\n"
+                }
             }
             if (opponent.currentHP > 0 && opponent.hasAbility(Ability.WEAK_ARMOR) && move.move.category == MoveCategory.PHYSICAL) {
                 opponent.battleData!!.statsMultiplier.updateStat(StatChange.DEFENSE_ONE_LEVEL_DECREASE)
@@ -631,9 +633,13 @@ open class Pokemon(
                 details += "${opponent.data.name}'s Electromorphosis: ${move.move.name} charged ${opponent.data.name}!\n"
                 this.battleData!!.battleStatus.add(Status.CHARGED)
             }
-            if (move.move.id == 69) {
-                opponentSide.battleSideEffects.remove(BattleSideEffect.LIGHT_SCREEN)
-                opponentSide.battleSideEffects.remove(BattleSideEffect.REFLECT)
+            if (move.move.id == 69) {//Brick Break
+                if (opponentSide.battleSideEffects.remove(BattleSideEffect.LIGHT_SCREEN)) {
+                    details += "${opponent.data.name}'s team Light Screen wore off!\n"
+                }
+                if (opponentSide.battleSideEffects.remove(BattleSideEffect.REFLECT)) {
+                    details += "${opponent.data.name}'s team Reflect wore off!\n"
+                }
             }
             if (move.move.id == 310) {
                 //GIGATON HAMMER

@@ -193,14 +193,14 @@ class BattleUtils {
             }
             if (pokemon.hasAbility(Ability.SUPER_LUCK))
                 pokemon.battleData!!.statsMultiplier.updateStat(StatChange(Stats.CRITICAL_RATE, 1.5f))
-            if (pokemon.hasAbility(Ability.ARENA_TRAP) && !opponent.hasAbility(Ability.LEVITATE) && !pokemon.hasType(
-                    Type.FLYING
-                ) && !pokemon.hasType(Type.GHOST)
-            )
-                opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
-            if (opponent.hasAbility(Ability.ARENA_TRAP) && !pokemon.hasAbility(Ability.LEVITATE) && !opponent.hasType(
+            if (pokemon.hasAbility(Ability.ARENA_TRAP) && !opponent.hasAbility(Ability.LEVITATE) && !opponent.hasType(
                     Type.FLYING
                 ) && !opponent.hasType(Type.GHOST)
+            )
+                opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
+            if (opponent.hasAbility(Ability.ARENA_TRAP) && !pokemon.hasAbility(Ability.LEVITATE) && !pokemon.hasType(
+                    Type.FLYING
+                ) && !pokemon.hasType(Type.GHOST)
             )
                 pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
             if (pokemon.hasAbility(Ability.SHADOW_TAG) && !pokemon.hasType(Type.GHOST))

@@ -184,6 +184,7 @@ class MainActivity : AppCompatActivity() {
         displayPokemon(randomId, false, imageView)
         val startButton: Button = findViewById(R.id.startButton)
         startButton.setOnClickListener {
+            supportActionBar?.hide()
             mediaPlayer?.stop()
             trainer = SaveManager.loadSave(this)
             if (trainer == null) {
