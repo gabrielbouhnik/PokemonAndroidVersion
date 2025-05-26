@@ -243,15 +243,13 @@
   },
   {
     "image": "images/banners/porygon_banner.JPG",
-    "description": "Get a Porygon",
+    "description": "Get a Porygon with the move Trick Room",
     "cost": 100,
     "pokemons": [
       {
         "id": 137,
         "rate": 5,
-        "moveIds": [
-          2
-        ]
+        "moveIds": [2,324]
       }
     ],
     "items": [
@@ -666,6 +664,47 @@
     ]
   },
   {
+    "image": "images/banners/vulpix_banner.JPG",
+    "description": "Get an Alolan Vulpix",
+    "cost": 100,
+    "pokemons": [
+      {
+        "id": 10037,
+        "rate": 5,
+        "moveIds": [
+          174,265
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": 3,
+        "rate": 15
+      },
+      {
+        "id": 4,
+        "rate": 15
+      },
+      {
+        "id": 8,
+        "rate": 15
+      },
+      {
+        "id": 11,
+        "rate": 15
+      },
+      {
+        "id": 163,
+        "rate": 25
+      },
+      {
+        "id": 186,
+        "rate": 10
+      }
+    ],
+    "days": []
+  },
+  {
     "image": "images/banners/diancie_banner.png",
     "description": "Get the mythical Pokémon Diancie",
     "cost": 150,
@@ -687,7 +726,7 @@
     ],
     "items": [
       {
-        "id": 2,
+        "id": 3,
         "rate": 15
       },
       {

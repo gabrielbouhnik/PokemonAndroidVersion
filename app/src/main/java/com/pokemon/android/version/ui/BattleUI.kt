@@ -250,6 +250,7 @@ class BattleUI {
         when (battle.getBattleState()) {
             State.TRAINER_LOSS -> {
                 if (battle is BattleFrontierBattle) {
+                    activity.trainer!!.battleTeam = null
                     if (battle.area == BattleFrontierArea.BATTLE_FACTORY)
                         activity.trainer!!.battleFactoryProgression = null
                     else
@@ -287,6 +288,7 @@ class BattleUI {
                         it.recomputeStat()
                         it.battleData = null
                     }
+                    activity.trainer!!.battleTeam = null
                     activity.updateMusic(R.raw.victory_theme)
                     if (battle.area == BattleFrontierArea.BATTLE_FACTORY) {
                         activity.trainer!!.battleFactoryProgression!!.progression += 1
@@ -800,6 +802,7 @@ class BattleUI {
         loadBackgroundImage(null, activity)
         val opponentTrainerSprite: ImageView = activity.findViewById(R.id.opponentTrainerSpriteView)
         opponentTrainerSprite.visibility = VISIBLE
+        activity.trainer!!.battleTeam = team
         val battleFrontierBattle = BattleFrontierBattle(activity, team, area)
         loadOpponentTrainerSprite(opponentTrainerSprite, activity, battleFrontierBattle.opponentTrainer.sprite)
         val rewardsButton: Button = activity.findViewById(R.id.getRewardsButton)

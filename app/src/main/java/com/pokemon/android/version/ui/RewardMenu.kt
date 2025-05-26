@@ -93,6 +93,13 @@ class RewardMenu {
                     activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(236, 10))
                     activity.showCustomDialog("You received a level 10 Tyrogue!")
                 }
+                LevelMenu.MANSION_LEVEL -> {
+                    activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(138, 30))
+                    activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(140, 30))
+                    activity.showCustomDialog("Your fossils have been revived to Omanyte and Kabuto!")
+                    activity.trainer!!.items.remove(148)
+                    activity.trainer!!.items.remove(149)
+                }
                 LevelMenu.BLAINE_LEVEL, LevelMenu.ARMORED_MEWTWO_LEVEL_ID -> {
                     activity.showCustomDialog(activity.getString(R.string.new_item_available_in_shop))
                 }
@@ -179,6 +186,10 @@ class RewardMenu {
             if (firstTime) levelData.rewards else ArrayList(levelData.rewards.filter { it.itemId != 0 && it.itemId !in 50..100 })
         if ((levelData is WildBattleLevelData || levelData is BossBattleLevelData) && Random.nextInt(10) == 1) {
             rewards.add(BonusReward(Random.nextInt(150, 168), 1))
+        }
+        if (levelData.id == LevelMenu.TEAM_ROCKET_LEVEL && firstTime) {
+            rewards.add(BonusReward(148, 1))
+            rewards.add(BonusReward(149, 1))
         }
         val recyclerView = activity.findViewById<RecyclerView>(R.id.rewardRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)

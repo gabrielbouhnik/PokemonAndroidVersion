@@ -153,6 +153,14 @@ class BattleUtils {
                     }
                 }
             }
+            if (pokemon.hasAbility(Ability.SUPREME_OVERLORD) && pokemon.trainer != null) {
+                val multiplier: Float = pokemon.trainer!!.getTrainerTeam().filter { it.currentHP == 0 }.size / 10f
+                if (multiplier > 0) {
+                    pokemon.battleData!!.statsMultiplier.updateStat(StatChange(Stats.ATTACK, multiplier + 1f))
+                    pokemon.battleData!!.statsMultiplier.updateStat(StatChange(Stats.SPATK, multiplier + 1f))
+                    sb.append("${pokemon.data.name}'s Supreme Overlord: ${pokemon.data.name} gained strength from the fallen!\n")
+                }
+            }
             if (pokemon.hasItem(HoldItem.AIR_BALLOON))
                 sb.append("${pokemon.data.name} floats in the air with its Air Balloon\n")
             if (opponent.heldItem != null && pokemon.hasAbility(Ability.FRISK)) {
@@ -244,7 +252,7 @@ class BattleUtils {
             }
         }
 
-        fun trainerStarts(pokemon: Pokemon, other: Pokemon, move: Move, opponentMove: Move): Boolean {
+        fun trainerStarts(pokemon: Pokemon, other: Pokemon, move: Move, opponentMove: Move, battleField: BattleField): Boolean {
             var priorityLevel = move.priorityLevel
             var opponentPriorityLevel = opponentMove.priorityLevel
             if (pokemon.hasAbility(Ability.GALE_WINGS) && move.type == Type.FLYING && pokemon.currentHP == pokemon.currentHP)
@@ -263,17 +271,17 @@ class BattleUtils {
                     false
                 }
                 else -> {
-                    return isFaster(pokemon, other)
+                    return isFaster(pokemon, other, battleField)
                 }
             }
         }
 
-        fun isFaster(pokemon: Pokemon, other: Pokemon): Boolean {
+        fun isFaster(pokemon: Pokemon, other: Pokemon, battleField: BattleField): Boolean {
             val pokemonSpeed = pokemon.speed.toFloat() * pokemon.battleData!!.statsMultiplier.speedMultiplicator
             val otherSpeed = other.speed.toFloat() * other.battleData!!.statsMultiplier.speedMultiplicator
             val paralysisMultiplicator: Float = if (pokemon.status == Status.PARALYSIS) 0.5f else 1f
             val opponentParalysisMultiplicator: Float = if (other.status == Status.PARALYSIS) 0.5f else 1f
-            return pokemonSpeed * paralysisMultiplicator >= otherSpeed * opponentParalysisMultiplicator
+            return pokemonSpeed * paralysisMultiplicator >= otherSpeed * opponentParalysisMultiplicator && battleField.trickRoomCounter == 0
         }
 
         fun checkForStatusStatsRaiseAbility(pokemon: Pokemon) {

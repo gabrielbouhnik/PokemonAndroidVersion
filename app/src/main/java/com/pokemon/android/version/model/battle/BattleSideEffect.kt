@@ -3,6 +3,7 @@ package com.pokemon.android.version.model.battle
 import java.util.*
 
 enum class BattleSideEffect {
+    AURORA_VEIL,
     LIGHT_SCREEN,
     REFLECT,
     SAFEGUARD,

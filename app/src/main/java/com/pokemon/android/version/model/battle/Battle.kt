@@ -21,7 +21,7 @@ abstract class Battle {
     lateinit var pokemon: Pokemon
     lateinit var opponent: Pokemon
     lateinit var levelData: LevelData
-    var battleField = BattleField(Weather.NONE, 0)
+    var battleField = BattleField(Weather.NONE, 0,0)
     var playerSide = BattleSide(arrayListOf())
     var opponentSide = BattleSide(arrayListOf())
     var trainerHasUsedMegaEvolution = false
@@ -59,7 +59,7 @@ abstract class Battle {
             action += "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}!\nThe opposing " + opponent.data.name + (opponentPokemonMove.move as ChargedMove).chargeText
             if (opponent.hasItem(HoldItem.POWER_HERB)) {
                 action += "${opponent.data.name} became fully charged due to its Power Herb!\n"
-                opponent.heldItem = null
+                opponent.consumeItem()
             } else {
                 opponent.battleData!!.chargedMove = opponentPokemonMove
                 return action
@@ -82,7 +82,7 @@ abstract class Battle {
             action += "${pokemon.data.name} uses ${trainerPokemonMove.move.name}!\n" + pokemon.data.name + (trainerPokemonMove.move as ChargedMove).chargeText
             if (pokemon.hasItem(HoldItem.POWER_HERB)) {
                 action += "${pokemon.data.name} became fully charged due to its Power Herb!\n"
-                pokemon.heldItem = null
+                pokemon.consumeItem()
             }
             else {
                 pokemon.battleData!!.chargedMove = trainerPokemonMove
@@ -114,7 +114,7 @@ abstract class Battle {
                 }
             }
         }
-        if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move, opponentMove.move)) {
+        if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move, opponentMove.move, battleField)) {
             if (trainerPokemonMove.move.id == 208 && opponentMove.move.category == MoveCategory.OTHER) {
                 pokemon.battleData!!.lastMoveFailed = true
                 pokemon.battleData!!.hadATurn = true
@@ -338,7 +338,9 @@ abstract class Battle {
             response.reason
         } else {
             attacker.battleData!!.lastMoveFailed = true
+            attacker.battleData!!.lastMoveUsed = move
             attacker.battleData!!.hadATurn = true
+            move.pp -= 1
             return response.reason + "${attacker.data.name} uses Sucker Punch!\nBut it failed!\n"
         }
     }
@@ -354,7 +356,7 @@ abstract class Battle {
         }
         if (pokemon.currentHP > 0 && opponent.currentHP > 0) {
             if (opponent.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
-                val damage = if (opponent.currentHP < 16) 1 else opponent.currentHP / 8
+                val damage = if (opponent.currentHP < 16) 1 else opponent.hp / 8
                 if (opponent.hasAbility(Ability.LIQUID_OOZE)) {
                     sb.append("${opponent.data.name}'s Liquid Ooze: ${pokemon.data.name} loses some hp.\n")
                     pokemon.takeDamage(damage)
@@ -365,7 +367,7 @@ abstract class Battle {
                 }
             }
             if (pokemon.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
-                val damage = pokemon.hp / 8
+                val damage = if (pokemon.currentHP < 16) 1 else pokemon.hp / 8
                 if (pokemon.hasAbility(Ability.LIQUID_OOZE)) {
                     sb.append("${pokemon.data.name}'s Liquid Ooze: ${opponent.data.name} loses some hp.\n")
                     opponent.takeDamage(damage)
@@ -378,12 +380,12 @@ abstract class Battle {
         }
         if (battleField.weather == Weather.SANDSTORM) {
             if (opponent.currentHP > 0 && !opponent.hasType(Type.ROCK) && !opponent.hasType(Type.GROUND) && !opponent.hasType(Type.STEEL)
-                && !opponent.hasAbility(Ability.MAGIC_GUARD) && !opponent.hasAbility(Ability.OVERCOAT)) {
+                && !opponent.hasAbility(Ability.MAGIC_GUARD) && !opponent.hasAbility(Ability.OVERCOAT) && !opponent.hasAbility(Ability.SAND_FORCE)) {
                 sb.append("${opponent.data.name} is buffeted by the sandstorm!\n")
                 opponent.takeDamage(opponent.hp / 8)
             }
             if (pokemon.currentHP > 0 && !pokemon.hasType(Type.ROCK) && !pokemon.hasType(Type.GROUND) && !pokemon.hasType(Type.STEEL)
-                && !pokemon.hasAbility(Ability.MAGIC_GUARD) && !pokemon.hasAbility(Ability.OVERCOAT)) {
+                && !pokemon.hasAbility(Ability.MAGIC_GUARD) && !pokemon.hasAbility(Ability.OVERCOAT) && !pokemon.hasAbility(Ability.SAND_FORCE)) {
                 pokemon.takeDamage(pokemon.hp / 8)
                 sb.append("${pokemon.data.name} is buffeted by the sandstorm!\n")
             }
@@ -490,6 +492,12 @@ abstract class Battle {
                 }
                 battleField.setWeather(pokemon, Weather.NONE, opponent)
                 sb.append("The weather is back to normal\n")
+            }
+        }
+        if (battleField.trickRoomCounter > 0) {
+            battleField.trickRoomCounter -= 1
+            if (battleField.trickRoomCounter == 0) {
+                sb.append("The twisted dimensions returned to normal!")
             }
         }
         playerSide.updateBattleSide(pokemon)

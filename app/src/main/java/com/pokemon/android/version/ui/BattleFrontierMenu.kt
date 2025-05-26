@@ -20,6 +20,7 @@ import com.pokemon.android.version.utils.MoveUtils
 class BattleFrontierMenu {
     companion object {
         const val FRONTIER_BRAIN_LEVEL_ID = 99
+        val FORBIDDEN_POKEMON = listOf(144,145,146,150,151,243,244,245,251)
     }
 
     var pokemonInfoMenu = PokemonInfoMenu(R.layout.battle_frontier_prep)
@@ -136,9 +137,9 @@ class BattleFrontierMenu {
                 val pokemonRecyclerView = activity.findViewById<RecyclerView>(R.id.pokemonsBattleTowerRecyclerView)
                 pokemonRecyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                 teamRecyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-                val pokemons = activity.trainer!!.pokemons.filter { it.level >= 50 }.map {
+                val pokemons = activity.trainer!!.pokemons.filter { it.level >= 50 && !FORBIDDEN_POKEMON.contains(it.data.id)}.map {
                     activity.gameDataService.generatePokemonWithMoves(it.data.id, 50, MoveUtils.getMoveList(it)
-                        .map { m -> m.move },null)
+                        .map { m -> m.move }, it.heldItem)
                 }.toMutableList()
                 val team = arrayListOf<Pokemon>()
                 val itemClickListener = View.OnClickListener {
@@ -168,7 +169,7 @@ class BattleFrontierMenu {
                 if (activity.trainer!!.battleFactoryProgression == null) {
                     activity.trainer!!.battleFactoryProgression = BattleFrontierProgression(
                         0,
-                        BattleFrontierBattle.generateTrainerTeam(activity.gameDataService).toMutableList()
+                        BattleFrontierBattle.generateTrainerTeam(activity.gameDataService, activity.trainer!!).toMutableList()
                     )
                 }
                 loadBattlePrepLayout(activity, BattleFrontierArea.BATTLE_FACTORY)

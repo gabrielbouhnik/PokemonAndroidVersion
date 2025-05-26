@@ -144,6 +144,8 @@ class DamageCalculator {
                 power *= 1.3f
             if (attacker.hasAbility(Ability.MEGA_LAUNCHER) && move.characteristics.contains(MoveCharacteristic.AURA))
                 power *= 1.5f
+            if (attacker.hasAbility(Ability.SAND_FORCE) && (move.type == Type.ROCK || move.type == Type.GROUND ||move.type == Type.STEEL))
+                power *= 1.3f
             if (move.type == Type.NORMAL && (attacker.hasAbility(Ability.PIXILATE) || attacker.hasAbility(Ability.AERILATE))) {
                     power *= 1.2f
             }
@@ -166,6 +168,12 @@ class DamageCalculator {
             }
             if (move.type == Type.ELECTRIC && attacker.battleData!!.battleStatus.contains(Status.CHARGED)) {
                 power *= 1.5f
+            }
+            if (move.type == Type.WATER && attacker.hasAbility(Ability.WATER_BUBBLE)) {
+                power *= 2f
+            }
+            if (move.type == Type.WATER && opponent.hasAbility(Ability.WATER_BUBBLE)) {
+                power *= 0.5f
             }
             if ((move.id == 224 || move.id == 278) && (opponent.status != Status.OK || opponent.battleData!!.battleStatus.contains(
                     Status.CONFUSED
@@ -241,6 +249,9 @@ class DamageCalculator {
                 power *= 0.5f
             }
             if (!crit) {
+                if (opponentBattleSide.battleSideEffects.contains(BattleSideEffect.AURORA_VEIL)) {
+                    power *= 0.5f
+                }
                 if (opponentBattleSide.battleSideEffects.contains(BattleSideEffect.REFLECT)
                     && move.category == MoveCategory.PHYSICAL
                 ) {

@@ -142,6 +142,11 @@
       "badgeCountNeeded": 7
     },
     {
+      "itemId": 134,
+      "cost": 400,
+      "badgeCountNeeded": 7
+    },
+    {
       "itemId": 50,
       "cost": 400,
       "badgeCountNeeded": 7

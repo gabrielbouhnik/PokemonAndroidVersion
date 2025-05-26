@@ -2870,6 +2870,50 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 322,
+      "name": "Kowtow Cleave",
+      "power": 85,
+      "pp": 10,
+      "type": 17,
+      "category": "PHYSICAL",
+      "description": "The user slashes at the target after kowtowing to make the target let down its guard. This attack never misses.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 324,
+      "name": "Trick Room",
+      "power": 0,
+      "pp": 10,
+      "type": 12,
+      "category": "OTHER",
+      "description": "The user creates a bizarre area in which slower Pokémon get to move first for five turns.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 325,
+      "name": "Torment",
+      "power": 0,
+      "pp": 15,
+      "type": 17,
+      "category": "OTHER",
+      "accuracy": 100,
+      "description": "The user torments and enrages the target, making it incapable of using the same move twice in a row.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "TORMENTED"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "multipleHitMoves": [
@@ -4885,6 +4929,31 @@
       "status": [],
       "highCritRate": false,
       "characteristics": []
+    },
+    {
+      "id": 326,
+      "name": "Shift Gear",
+      "power": 0,
+      "category": "OTHER",
+      "pp": 10,
+      "type": 16,
+      "accuracy": 100,
+      "description": "The user rotates its gears, boosting its Attack stat and sharply boosting its Speed stat.",
+      "priorityLevel": 0,
+      "statsAffected": [
+        {
+          "stat": "ATTACK",
+          "multiplicator": 1.5
+        },
+        {
+          "stat": "SPEED",
+          "multiplicator": 2
+        }
+      ],
+      "target": "SELF",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
     }
   ],
   "drainMoves": [
@@ -5600,6 +5669,19 @@
       "category": "OTHER",
       "accuracy": 100,
       "description": "The user whips up a turbulent whirlwind that ups the Speed stats of the user and its allies for four turns.",
+      "priorityLevel": 0,
+      "target": "SELF",
+      "characteristics": []
+    },
+    {
+      "id": 323,
+      "name": "Aurora Veil",
+      "power": 0,
+      "pp": 20,
+      "type": 14,
+      "category": "OTHER",
+      "accuracy": 100,
+      "description": "This move reduces damage from physical and special moves for five turns. This can be used only when it is snowing.",
       "priorityLevel": 0,
       "target": "SELF",
       "characteristics": []

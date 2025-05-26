@@ -78,6 +78,7 @@ enum class Ability(var description: String) {
     REGENERATOR("Restores a little HP when withdrawn from battle."),
     ROCK_HEAD("Protects the Pokémon from recoil damage."),
     ROUGH_SKIN("This Pokémon inflicts damage with its rough skin to the attacker on contact."),
+    SAND_FORCE("Boosts the power of Rock-, Ground-, and Steel-type moves in a sandstorm."),
     SAND_RUSH("Boosts the Pokémon's Speed stat in a sandstorm."),
     SAND_STREAM("Sandstorm blows when the Pokémon is on the battle. It raises the Special Defense of Rock-type Pokémon by 50%."),
     SAP_SIPPER("Attack is raised by one stage when the Pokémon is hit by a Grass-type move. User receives no damage from Grass-type attacks."),
@@ -102,6 +103,7 @@ enum class Ability(var description: String) {
     STORM_DRAIN("Draws in all Water-type moves. Instead of being hit by Water-type moves, it boosts its Sp. Atk."),
     STURDY("It cannot be knocked out with one hit. One-hit KO moves cannot knock it out, either."),
     SUPER_LUCK("The Pokémon is so lucky that the critical-hit ratios of its moves are boosted."),
+    SUPREME_OVERLORD(" When the Pokémon enters a battle, its Attack and Sp. Atk stats are boosted by 10% for each of the allies in its party that have already been defeated."),
     SWARM("Powers up Bug-type moves when the Pokémon's HP is low."),
     SYNCHRONIZE("The attacker will receive the same status condition if it inflicts a burn, poison, or paralysis to the Pokémon."),
     TECHNICIAN("Powers up the Pokémon's weaker moves."),
@@ -116,6 +118,7 @@ enum class Ability(var description: String) {
     VITAL_SPIRIT("The Pokémon is full of vitality, and that prevents it from falling asleep."),
     VOLT_ABSORB("Restores HP if hit by an Electric-type move instead of taking damage."),
     WATER_ABSORB("Restores HP if hit by a Water-type move instead of taking damage."),
+    WATER_BUBBLE("Lowers the power of Fire-type moves done to the Pokémon and prevents the Pokémon from getting a burn."),
     WATER_VEIL("The Pokémon is covered with a water veil, which prevents the Pokémon from getting a burn."),
     WEAK_ARMOR("Physical attacks to the Pokémon lower its Defense stat but sharply raise its Speed stat."),
     WONDER_SKIN("Makes status moves more likely to miss.");

@@ -374,6 +374,21 @@
       "id": 133,
       "name": "Chipped Pot",
       "description": "A peculiar teapot that can make a certain species of Pokémon evolve."
+    },
+    {
+      "id": 134,
+      "name": "Leader's Crest",
+      "description": "A shard of what appears to be an old blade of some sort that can make a certain species of Pokémon evolve."
+    },
+    {
+      "id": 148,
+      "name": "Helix Fossil",
+      "description": "A fossil from a prehistoric Pokémon that once lived in the sea. It might be a piece of a seashell."
+    },
+    {
+      "id": 149,
+      "name": "Dome Fossil",
+      "description": "A fossil from a prehistoric Pokémon that once lived in the sea. It could be a shell or carapace."
     }
   ]
 }

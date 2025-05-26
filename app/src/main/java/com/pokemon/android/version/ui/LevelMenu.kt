@@ -14,6 +14,7 @@ import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAI
 class LevelMenu {
     companion object {
         const val ROUTE_3_LEVEL = 10
+        const val TEAM_ROCKET_LEVEL = 13
         const val MISTY_LEVEL = 18
         const val SURGE_LEVEL = 22
         const val OTHER_BANNER_LEVEL = 19
@@ -28,6 +29,7 @@ class LevelMenu {
         const val TYROGUE_LEVEL = 53
         const val SABRINA_LEVEL = 55
         const val ARTICUNO_LEVEL = 59
+        const val MANSION_LEVEL = 60
         const val BLAINE_LEVEL = 62
         const val OAK_LEVEL_ID = 64
         const val GIOVANNI_2_LEVEL = 66

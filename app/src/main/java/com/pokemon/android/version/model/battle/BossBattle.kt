@@ -20,6 +20,10 @@ class BossBattle(var megaPhase: Boolean) : Battle() {
             if ((bossBattleLevelData.boss.id == 144 || bossBattleLevelData.boss.id == 146) && activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID) 90 else bossBattleLevelData.boss.level,
             bossBattleLevelData.boss.moves
         )
+        if (bossBattleLevelData.id == LevelMenu.DUGTRIO_LEVEL) {
+            this.battleField.weather = Weather.SANDSTORM
+            this.battleField.weatherCounter = 20
+        }
         if (bossBattleLevelData.id == LevelMenu.ARTICUNO_LEVEL) {
             this.battleField.weather = Weather.SNOW
             this.battleField.weatherCounter = 20

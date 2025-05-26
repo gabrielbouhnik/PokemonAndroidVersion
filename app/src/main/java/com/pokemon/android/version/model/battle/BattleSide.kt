@@ -4,7 +4,7 @@ import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.move.StatChange
 
-class BattleSide(var battleSideEffects: ArrayList<BattleSideEffect>, var lightScreenCounter: Int = 0,
+class BattleSide(var battleSideEffects: ArrayList<BattleSideEffect>, var lightScreenCounter: Int = 0, var auroraVeilCounter: Int = 0,
                  var reflectCounter: Int = 0, var safeguardCounter: Int = 0, var tailwindCounter: Int = 0) {
     fun addBattleSideEffect(pokemon: Pokemon, opponent: Pokemon, battleSideEffect :BattleSideEffect): String {
         if (!battleSideEffects.contains(battleSideEffect)) {
@@ -17,6 +17,10 @@ class BattleSide(var battleSideEffects: ArrayList<BattleSideEffect>, var lightSc
                 BattleSideEffect.REFLECT -> {
                     reflectCounter = if (pokemon.hasItem(HoldItem.LIGHT_CLAY)) 8 else 5
                     "${pokemon.data.name} and its allies are stronger against physical moves!\n"
+                }
+                BattleSideEffect.AURORA_VEIL -> {
+                    reflectCounter = if (pokemon.hasItem(HoldItem.LIGHT_CLAY)) 8 else 5
+                    "${pokemon.data.name} and its allies are stronger against physical and special moves!\n"
                 }
                 BattleSideEffect.SAFEGUARD -> {
                     safeguardCounter = 5
@@ -49,6 +53,12 @@ class BattleSide(var battleSideEffects: ArrayList<BattleSideEffect>, var lightSc
                     reflectCounter -= 1
                     if (reflectCounter == 0) {
                         battleSideEffects.remove(BattleSideEffect.REFLECT)
+                    }
+                }
+                BattleSideEffect.AURORA_VEIL -> {
+                    auroraVeilCounter -= 1
+                    if (auroraVeilCounter == 0) {
+                        battleSideEffects.remove(BattleSideEffect.AURORA_VEIL)
                     }
                 }
                 BattleSideEffect.SAFEGUARD -> {

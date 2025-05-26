@@ -67,12 +67,12 @@ class GameDataService {
 
     fun updateShopForHardMode() {
         this.shop.filter { it.itemId < 12 }.map{ it.cost *= 2}
-        this.shop.add(ShopItem(8, this.items.first { it.id == 8 }.name, 5, 2))
+        this.shop.add(ShopItem(8, this.items.first { it.id == 8 }.name, 10, 2))
         for (itemId in 16..28) {
             this.shop.add(ShopItem(itemId, this.items.first { it.id == itemId }.name, 1000, 3))
         }
         this.shop.add(ShopItem(12, this.items.first { it.id == 12 }.name, 200, 3))
-        this.shop.add(ShopItem(13, this.items.first { it.id == 13 }.name, 1000, 6))
+        this.shop.add(ShopItem(13, this.items.first { it.id == 13 }.name, 300, 6))
         this.shop.sortBy { it.itemId }
 
         this.banners.forEach{ banner ->
@@ -114,6 +114,8 @@ class GameDataService {
             adjustedLevel = 21
         if (id == 633)
             adjustedLevel = 40
+        if (id == 246)
+            adjustedLevel = 27
         val pokemon = generatePokemon(id, adjustedLevel)
         val random = Random.nextInt(250)
         if (random == 50 && id < 650)

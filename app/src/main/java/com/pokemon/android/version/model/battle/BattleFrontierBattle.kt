@@ -4,6 +4,7 @@ import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.PokemonData
+import com.pokemon.android.version.model.Trainer
 import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.utils.IAUtils
 import kotlin.random.Random
@@ -30,10 +31,12 @@ class BattleFrontierBattle() : Battle() {
             return types.distinct().size == types.size
         }
 
-        fun generateTrainerTeam(gameDataService: GameDataService): List<Pokemon> {
+        fun generateTrainerTeam(gameDataService: GameDataService, trainer: Trainer): List<Pokemon> {
             var team = generateTeam(gameDataService)
-            while (team.none { it.speed > 80 } || !validateTeamTypes(team[0].data,team[1].data,team[2].data))
+            while (team.none { it.speed > 80 } || !validateTeamTypes(team[0].data,team[1].data,team[2].data)) {
                 team = generateTeam(gameDataService)
+            }
+            team.forEach { it.trainer = trainer}
             return team
         }
     }

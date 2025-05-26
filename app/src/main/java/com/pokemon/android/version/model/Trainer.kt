@@ -22,6 +22,7 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
     var successfulAchievements: ArrayList<Int> = arrayListOf()
     var achievements: Achievements? = null
     var pokedex: HashMap<Int, Boolean> = HashMap()
+    var battleTeam: List<Pokemon>? = null
 
     override fun getFirstPokemonThatCanFight(): Pokemon? {
         for (pokemon in team) {
@@ -32,6 +33,9 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
     }
 
     override fun getTrainerTeam(): List<Pokemon> {
+        if (battleTeam != null) {
+            return battleTeam!!
+        }
         return team
     }
 

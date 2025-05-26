@@ -347,6 +347,9 @@ open class Pokemon(
         }
         this.battleData!!.lastMoveFailed = false
         this.battleData!!.lastMoveUsed = move
+        if (this.battleData!!.battleStatus.contains(Status.TORMENTED)) {
+            move.disabledCountdown = 2
+        }
         if (move.move is HealMove) {
             if (move.move.id == 193) {//ROOST
                 this.battleData!!.battleStatus.add(Status.ROOSTED)
@@ -365,7 +368,15 @@ open class Pokemon(
                     details += "${opponent.data.name}'s Magic Bounce: ${opponent.data.name} bounces the attack back!\n"
                     details += pokemonSide.addBattleSideEffect(opponent, this, BattleSideEffect.moveNameToTeamEffect(move.move.name))
                 } else {
-                    details += opponentSide.addBattleSideEffect(this, opponent, BattleSideEffect.moveNameToTeamEffect(move.move.name))
+                    details += if (battleField.weather != Weather.SNOW && move.move.id == 223) {
+                        "But it failed!\n"
+                    } else {
+                        opponentSide.addBattleSideEffect(
+                            this,
+                            opponent,
+                            BattleSideEffect.moveNameToTeamEffect(move.move.name)
+                        )
+                    }
                 }
             } else {
                 details += pokemonSide.addBattleSideEffect(this, opponent, BattleSideEffect.moveNameToTeamEffect(move.move.name))
@@ -565,7 +576,8 @@ open class Pokemon(
             }
         }
         if (move.move is RecoilMove) {
-            if ((move.move as RecoilMove).recoil == Recoil.ALL) {
+            if ((move.move as RecoilMove).recoil == Recoil.ALL
+                || (move.move as RecoilMove).recoil == Recoil.FINAL_GAMBIT) {
                 this.currentHP = 0
             } else {
                 details += if (!this.hasAbility(Ability.ROCK_HEAD)) {
@@ -640,6 +652,9 @@ open class Pokemon(
                 if (opponentSide.battleSideEffects.remove(BattleSideEffect.REFLECT)) {
                     details += "${opponent.data.name}'s team Reflect wore off!\n"
                 }
+                if (opponentSide.battleSideEffects.remove(BattleSideEffect.AURORA_VEIL)) {
+                    details += "${opponent.data.name}'s team Aurora Veil wore off!\n"
+                }
             }
             if (move.move.id == 310) {
                 //GIGATON HAMMER
@@ -663,6 +678,10 @@ open class Pokemon(
                     battleField.setWeather(this, Weather.SNOW, opponent)
                 }
             }
+        }
+        if (move.move.id == 324) {
+            battleField.trickRoomCounter = 5
+            details += "${this.data.name} twisted the dimensions!\n"
         }
         if (move.move.id == 265) { //DISABLE
             if (opponent.battleData!!.lastMoveUsed != null) {
@@ -826,7 +845,7 @@ open class Pokemon(
         return false
     }
 
-    private fun gainLevel() {
+    fun gainLevel() {
         this.level += 1
         (this.trainer!! as Trainer).coins += 10
         this.recomputeStat()

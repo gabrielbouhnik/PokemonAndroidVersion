@@ -90,7 +90,7 @@ class IAUtils {
                 if (damage > 0 && opponent.canBeKOdBy(attacker, battleField, opponentBattleSide)
                     && move.move.priorityLevel > 0
                     && move.move.power > 0
-                    && BattleUtils.isFaster(opponent,attacker)) {
+                    && BattleUtils.isFaster(opponent, attacker, battleField)) {
                         //IF ATTACKER IS GOING TO GET KO FROM A FASTER OPPONENT, THEN IT WILL USE AN OFFENSIVE PRIORITY MOVE
                         return move
                 }
@@ -113,13 +113,13 @@ class IAUtils {
                     val statChangeMove: StatChangeMove = move.move as StatChangeMove
                     if (statChangeMove.target == Target.SELF) {
                         if (statChangeMove.increaseStat(Stats.SPEED)) {
-                            if (BattleUtils.isFaster(opponent, attacker)
+                            if (BattleUtils.isFaster(opponent, attacker, battleField)
                                 && !opponent.canBeKOdBy(attacker, battleField, opponentBattleSide)) {
                                 //OPPONENT IS FASTER AND CAN'T KO ATTACKER
                                 return move
                             }
                         } else if (shouldUpdateStats(statChangeMove, attacker) &&
-                            ((BattleUtils.isFaster(attacker, opponent)
+                            ((BattleUtils.isFaster(attacker, opponent, battleField)
                                     && opponent.canBeKOdBy(attacker, battleField, opponentBattleSide))
                             || canTakeTwoHits(opponent, attacker, battleField, opponentBattleSide))) {
                             //ATTACKER IS FASTER AND CAN SURVIVE 1 HIT OR CAN SURVIVE 2 HITS FROM OPPONENT

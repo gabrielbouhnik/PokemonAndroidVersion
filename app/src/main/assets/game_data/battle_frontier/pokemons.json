@@ -754,7 +754,8 @@
   },
   {
     "id": 625,
-    "moveIds": [57,114,208,123]
+    "moveIds": [57,114,208,123],
+    "itemHeld": "EVIOLITE"
   },
   {
     "id": 635,
@@ -858,6 +859,11 @@
     "itemHeld": "LEFTOVERS"
   },
   {
+    "id": 966,
+    "moveIds": [57,62,326,148],
+    "itemHeld": "AIR_BALLOON"
+  },
+  {
     "id": 972,
     "moveIds": [305,27,220,73],
     "itemHeld": "SPELL_TAG"
@@ -878,8 +884,18 @@
     "itemHeld": "LEFTOVERS"
   },
   {
+    "id": 983,
+    "moveIds": [322,208,114,57]
+  },
+  {
     "id": 10038,
-    "moveIds": [300,84,92,268]
+    "moveIds": [300,84,323,268],
+    "itemHeld": "LIGHT_CLAY"
+  },
+  {
+    "id": 10038,
+    "moveIds": [300,84,323,92],
+    "itemHeld": "LIGHT_CLAY"
   },
   {
     "id": 10059,

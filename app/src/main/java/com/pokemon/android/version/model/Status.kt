@@ -24,6 +24,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
     TRAPPED_WITH_DAMAGE(false),
     TRAPPED_WITHOUT_DAMAGE(false),
     LEECH_SEEDED(false),
+    TORMENTED(false),
     FIRED_UP(false),
     CHARGED(false),
     BOUNDED(false),
@@ -129,8 +130,12 @@ enum class Status(var activeOutsideBattle: Boolean) {
                             details = "${opponent.data.name}'s Immunity: It does not affect ${opponent.data.name}!\n"
                         if (move.id == 55 && opponent.hasAbility(Ability.LIMBER))
                             details = "${opponent.data.name}'s Limber: It does not affect ${opponent.data.name}!\n"
-                        if (move.id == 138 && opponent.hasAbility(Ability.WATER_VEIL))
-                            details = "${opponent.data.name}'s Water Veil: It does not affect ${opponent.data.name}!\n"
+                        if (move.id == 138) {
+                            if (opponent.hasAbility(Ability.WATER_VEIL))
+                                details = "${opponent.data.name}'s Water Veil: It does not affect ${opponent.data.name}!\n"
+                            if (opponent.hasAbility(Ability.WATER_BUBBLE))
+                                details = "${opponent.data.name}'s Water Bubble: It does not affect ${opponent.data.name}!\n"
+                        }
                         if (it.status == ASLEEP || it.status == TIRED) {
                             if (opponent.hasAbility(Ability.INSOMNIA))
                                 details =
@@ -196,7 +201,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
             if (status == FROZEN)
                 return !opponent.hasType(Type.ICE) && !opponent.hasAbility(Ability.MAGMA_ARMOR)
             if (status == BURN)
-                return !opponent.hasType(Type.FIRE) && !opponent.hasAbility(Ability.WATER_VEIL)
+                return !opponent.hasType(Type.FIRE) && !opponent.hasAbility(Ability.WATER_VEIL) && !opponent.hasAbility(Ability.WATER_BUBBLE)
             if (status == PARALYSIS) {
                 return !opponent.hasType(Type.ELECTRIC) && !opponent.hasAbility(Ability.LIMBER)
             }
