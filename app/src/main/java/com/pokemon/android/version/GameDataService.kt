@@ -73,15 +73,8 @@ class GameDataService {
         }
         this.shop.add(ShopItem(12, this.items.first { it.id == 12 }.name, 200, 3))
         this.shop.add(ShopItem(13, this.items.first { it.id == 13 }.name, 300, 6))
+        this.shop.add(ShopItem(200, this.items.first { it.id == 200 }.name, 4000, 8))
         this.shop.sortBy { it.itemId }
-
-        this.banners.forEach{ banner ->
-            run {
-                if (banner.pokemons.isNotEmpty()) {
-                    banner.items = banner.items.filter { it.id < 10 }
-                }
-            }
-        }
     }
 
     fun getPokemonDataById(id: Int): PokemonData {

@@ -31,14 +31,6 @@ class TrainerBattle() : Battle() {
             activity.gameDataService
         )
         if (activity.hardMode) {
-            if (this.levelData.id == LevelMenu.KAREN_LEVEL) {
-                (this.levelData as TrainerBattleLevelData).megaPokemonId = 229
-                opponentTrainer.team.forEach {
-                    if (it.data.id == 229) {
-                        it.heldItem = null
-                    }
-                }
-            }
             if (this.levelData.id == LevelMenu.ARCHER_LEVEL) {
                 (this.levelData as TrainerBattleLevelData).megaPokemonId = 248
                 opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id == 229 || it.data.id == 110})
@@ -133,13 +125,9 @@ class TrainerBattle() : Battle() {
                             activity.gameDataService.getMoveById(125),//DRAGON DANCE
                             activity.gameDataService.getMoveById(93)//EARTHQUAKE
                         ),
-                        HoldItem.LEFTOVERS
+                        HoldItem.LUM_BERRY
                     ))
                 opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 31 && it.data.id != 112})
-            }
-            if (this.levelData.id == LevelMenu.ARMORED_MEWTWO_LEVEL_ID) {
-                this.opponentTrainer.team[0].move2 = PokemonMove(activity.gameDataService.getMoveById(218))//PSYSTRIKE
-                this.opponentTrainer.team[0].move4 = PokemonMove(activity.gameDataService.getMoveById(124))//AURA SPHERE
             }
             opponentTrainer.team.forEach {it.trainer = this.opponentTrainer}
         }

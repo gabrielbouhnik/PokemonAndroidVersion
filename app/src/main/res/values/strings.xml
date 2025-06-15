@@ -73,6 +73,11 @@
     <string name="new_item_available_in_shop">
         New items are available in Poké Mart!
     </string>
+    <string name="mega_evolution_unlocked">
+        You can now use Mega Evolution in battle!
+        For now, you only have the Mega Stone to mega evolve your starter.
+        You cannot mega evolve a Pokémon if it holds an item.
+    </string>
     <string name="hard_mode_title">
         In which mode you would like to play?
     </string>

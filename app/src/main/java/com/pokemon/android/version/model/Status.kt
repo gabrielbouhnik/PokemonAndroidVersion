@@ -115,7 +115,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
                                         details = "${attacker.data.name} is trying to take down his opponent with it!\n"
                                     }
                                     if (it.status == TRAPPED_WITH_DAMAGE || it.status == TRAPPED_WITHOUT_DAMAGE)
-                                        details = "${opponent.data.name} is trapped!\n"
+                                        details = "${attacker.data.name} prevents ${opponent.data.name} from fleeing!\n"
                                     if (it.status == TIRED && opponent.status == OK)
                                         details = "${opponent.data.name} gets drowsy!\n"
                                     if (it.status == LEECH_SEEDED)

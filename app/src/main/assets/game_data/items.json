@@ -389,6 +389,11 @@
       "id": 149,
       "name": "Dome Fossil",
       "description": "A fossil from a prehistoric Pokémon that once lived in the sea. It could be a shell or carapace."
+    },
+    {
+      "id": 200,
+      "name": "Diancite",
+      "description": "Enables Diancie to Mega Evolve during battle."
     }
   ]
 }

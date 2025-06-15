@@ -83,6 +83,9 @@ class RewardMenu {
                         activity.showCustomDialog(activity.getString(R.string.new_item_available_in_shop))
                     }
                 }
+                LevelMenu.OAK_LEVEL_ID -> {
+                    activity.showCustomDialog(activity.getString(R.string.mega_evolution_unlocked))
+                }
                 LevelMenu.LAPRAS_LEVEL -> {
                     val lapras = activity.gameDataService.generatePokemon(131, 45)
                     lapras.heldItem = HoldItem.NEVER_MELT_ICE
@@ -100,7 +103,7 @@ class RewardMenu {
                     activity.trainer!!.items.remove(148)
                     activity.trainer!!.items.remove(149)
                 }
-                LevelMenu.BLAINE_LEVEL, LevelMenu.ARMORED_MEWTWO_LEVEL_ID -> {
+                LevelMenu.BLAINE_LEVEL, LevelMenu.GIOVANNI_2_LEVEL -> {
                     activity.showCustomDialog(activity.getString(R.string.new_item_available_in_shop))
                 }
                 LevelMenu.OAK_LEVEL_ID -> {

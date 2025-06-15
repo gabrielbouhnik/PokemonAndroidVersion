@@ -4,6 +4,7 @@ enum class MoveCharacteristic {
     AURA,
     BULLET,
     CONTACT,
+    JUMP,
     POWDER,
     PUNCH,
     SOUND,

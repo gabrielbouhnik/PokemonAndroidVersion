@@ -279,7 +279,9 @@ class DamageCalculator {
             if (!attacker.hasAbility(Ability.MOLD_BREAKER)) {
                 if (move.characteristics.contains(MoveCharacteristic.SOUND) && opponent.hasAbility(Ability.SOUNDPROOF))
                     return 0
-                if (move.type == Type.GROUND && opponent.hasAbility(Ability.LEVITATE))
+                if (move.type == Type.GROUND
+                    && battleField.gravityCounter == 0
+                    && (opponent.hasAbility(Ability.LEVITATE) || opponent.hasItem(HoldItem.AIR_BALLOON)))
                     return 0
                 if (move.characteristics.contains(MoveCharacteristic.BULLET) && opponent.hasAbility(Ability.BULLETPROOF))
                     return 0
@@ -301,6 +303,8 @@ class DamageCalculator {
                 if (move is RecoilMove && move.recoil == Recoil.ALL && opponent.hasAbility(Ability.DAMP))
                     return 0
             }
+            if (move.characteristics.contains(MoveCharacteristic.JUMP) && battleField.gravityCounter > 0)
+                return 0
             if (move is RetaliationMove) {
                 if (attacker.battleData!!.lastHitReceived != null && move.category == attacker.battleData!!.lastHitReceived!!.category)
                     return attacker.battleData!!.lastHitReceived!!.damage * 2
@@ -317,6 +321,9 @@ class DamageCalculator {
                     multiplicator *= 0.5f
             }
             if ((move.type == Type.FIRE || move.type == Type.ICE) && opponent.hasAbility(Ability.THICK_FAT))
+                multiplicator *= 0.5f
+            if (move.type == Type.FIRE
+                && (opponent.hasAbility(Ability.WATER_BUBBLE) || opponent.hasAbility(Ability.HEATPROOF)))
                 multiplicator *= 0.5f
             return try {
                 val type = getEffectiveness(attacker, move, opponent, battleField)

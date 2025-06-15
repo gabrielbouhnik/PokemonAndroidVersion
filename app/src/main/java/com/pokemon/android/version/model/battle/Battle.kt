@@ -21,7 +21,7 @@ abstract class Battle {
     lateinit var pokemon: Pokemon
     lateinit var opponent: Pokemon
     lateinit var levelData: LevelData
-    var battleField = BattleField(Weather.NONE, 0,0)
+    var battleField = BattleField(Weather.NONE, 0,0,0)
     var playerSide = BattleSide(arrayListOf())
     var opponentSide = BattleSide(arrayListOf())
     var trainerHasUsedMegaEvolution = false
@@ -378,7 +378,7 @@ abstract class Battle {
                 }
             }
         }
-        if (battleField.weather == Weather.SANDSTORM) {
+        if (battleField.weather == Weather.SANDSTORM && battleField.weatherCounter > 1) {
             if (opponent.currentHP > 0 && !opponent.hasType(Type.ROCK) && !opponent.hasType(Type.GROUND) && !opponent.hasType(Type.STEEL)
                 && !opponent.hasAbility(Ability.MAGIC_GUARD) && !opponent.hasAbility(Ability.OVERCOAT) && !opponent.hasAbility(Ability.SAND_FORCE)) {
                 sb.append("${opponent.data.name} is buffeted by the sandstorm!\n")
@@ -500,6 +500,12 @@ abstract class Battle {
                 sb.append("The twisted dimensions returned to normal!")
             }
         }
+        if (battleField.gravityCounter > 0) {
+            battleField.gravityCounter -= 1
+            if (battleField.gravityCounter == 0) {
+                sb.append("Gravity returned to normal!")
+            }
+        }
         playerSide.updateBattleSide(pokemon)
         opponentSide.updateBattleSide(opponent)
     }
@@ -597,7 +603,7 @@ abstract class Battle {
                     }
                     Status.BURN -> {
                         if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
-                            pokemon.takeDamage(pokemon.hp / 16)
+                            pokemon.takeDamage(if (pokemon.hasAbility(Ability.HEATPROOF)) pokemon.hp / 32 else pokemon.hp / 16)
                             details += pokemon.data.name + " suffers from its burn!\n"
                         }
                     }

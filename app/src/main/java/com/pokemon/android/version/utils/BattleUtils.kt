@@ -201,15 +201,13 @@ class BattleUtils {
             }
             if (pokemon.hasAbility(Ability.SUPER_LUCK))
                 pokemon.battleData!!.statsMultiplier.updateStat(StatChange(Stats.CRITICAL_RATE, 1.5f))
-            if (pokemon.hasAbility(Ability.ARENA_TRAP) && !opponent.hasAbility(Ability.LEVITATE) && !opponent.hasType(
-                    Type.FLYING
-                ) && !opponent.hasType(Type.GHOST)
-            )
+            if (pokemon.hasAbility(Ability.ARENA_TRAP)
+                && ((!opponent.hasAbility(Ability.LEVITATE) && !opponent.hasType(Type.FLYING)) || battleField.gravityCounter > 0)
+                && !opponent.hasType(Type.GHOST))
                 opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
-            if (opponent.hasAbility(Ability.ARENA_TRAP) && !pokemon.hasAbility(Ability.LEVITATE) && !pokemon.hasType(
-                    Type.FLYING
-                ) && !pokemon.hasType(Type.GHOST)
-            )
+            if (opponent.hasAbility(Ability.ARENA_TRAP)
+                && ((!pokemon.hasAbility(Ability.LEVITATE) && !pokemon.hasType(Type.FLYING)) || battleField.gravityCounter > 0)
+                && !pokemon.hasType(Type.GHOST))
                 pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
             if (pokemon.hasAbility(Ability.SHADOW_TAG) && !pokemon.hasType(Type.GHOST))
                 opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
@@ -220,8 +218,7 @@ class BattleUtils {
             if (opponent.hasAbility(Ability.MAGNET_PULL) && pokemon.hasType(Type.STEEL))
                 pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
             if (battleSide.battleSideEffects.contains(BattleSideEffect.STICKY_WEB)
-                && !pokemon.hasType(Type.FLYING)
-                && !pokemon.hasAbility(Ability.LEVITATE)) {
+                && ((!pokemon.hasAbility(Ability.LEVITATE) && !pokemon.hasType(Type.FLYING)) || battleField.gravityCounter > 0)) {
                 sb.append("${pokemon.data.name} was caught in a sticky web!\n")
                 pokemon.battleData!!.statsMultiplier.updateStat(StatChange.SPEED_ONE_LEVEL_DECREASE)
                 sb.append("${pokemon.data.name}'s speed fell!\n")

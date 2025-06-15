@@ -1997,7 +1997,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": ["CONTACT"]
+      "characteristics": ["CONTACT","JUMP"]
     },
     {
       "id": 215,
@@ -2253,7 +2253,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": ["CONTACT"]
+      "characteristics": ["CONTACT","JUMP"]
     },
     {
       "id": 246,
@@ -2437,7 +2437,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": ["CONTACT"]
+      "characteristics": ["CONTACT","JUMP"]
     },
     {
       "id": 264,
@@ -2910,6 +2910,36 @@
       "status": [
         {
           "status": "TORMENTED"
+        }
+      ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 327,
+      "name": "Gravity",
+      "power": 0,
+      "pp": 5,
+      "type": 12,
+      "category": "OTHER",
+      "description": "Enables Flying types or Pokémon with the Levitate Ability to be hit by Ground-type moves for five turns.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 328,
+      "name": "Block",
+      "power": 0,
+      "pp": 5,
+      "type": 5,
+      "category": "OTHER",
+      "description": "The user blocks the target's way with arms spread wide to prevent the target from fleeing.",
+      "priorityLevel": 0,
+      "status": [
+        {
+          "status": "TRAPPED_WITHOUT_DAMAGE"
         }
       ],
       "highCritRate": false,

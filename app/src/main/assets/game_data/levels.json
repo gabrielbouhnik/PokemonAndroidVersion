@@ -286,7 +286,7 @@
         "minLevel": 24,
         "maxLevel": 26,
         "encounters": [
-          41,41,41,41,41,41,66,66,66,66,66,66,74,74,74,74,95,95,95,115,307,532,610,782
+          41,41,41,41,41,41,66,66,66,66,66,66,74,74,74,74,95,95,95,115,307,436,532,610,782
         ]
       },
       "rewards": [
@@ -314,7 +314,7 @@
         "minLevel": 23,
         "maxLevel": 26,
         "encounters": [
-          20,20,20,20,21,21,21,21,22,22,23,23,23,23,27,27,27,27,48,48,48,100,100,100,100,100,227,619,878
+          20,20,20,20,21,21,21,21,22,22,23,23,23,23,27,27,27,27,48,48,48,100,100,100,100,100,227,436,619,878
         ]
       },
       "rewards": [
@@ -390,7 +390,7 @@
       "mandatory": true
     },
     {
-      "id": 40,
+      "id": 41,
       "name": "\nRoute 18",
       "description": "You are almost in Fuchsia City, there are some wild Pokemon on your way",
       "encounter": 4,
@@ -418,7 +418,7 @@
       "mandatory": true
     },
     {
-      "id": 42,
+      "id": 43,
       "name": "\nSafari Zone",
       "description": "Welcome to the Safari Zone! This parks features many wild Pokemon! Try to catch as many as you can!",
       "encounter": 10,
@@ -443,7 +443,7 @@
       "mandatory": true
     },
     {
-      "id": 45,
+      "id": 46,
       "name": "\nRoute 15",
       "description": "After obtaining your fifth badge, you head to the next gym which is located in Saffron City.",
       "encounter": 4,
@@ -471,7 +471,7 @@
       "mandatory": true
     },
     {
-      "id": 48,
+      "id": 49,
       "name": "\nRoute 12",
       "description": "On Route 12, a fisherman offers you a fishing rod to find Pokemon water types. Therefore, you decide to use it.",
       "encounter": 1,
@@ -499,7 +499,7 @@
       "mandatory": true
     },
     {
-      "id": 56,
+      "id": 57,
       "name": "\nSea Route 19",
       "description": "Before leaving Safrania, one of the Silph Co scientists has given you a Lapras to cross Sea Route 19 at the south of Fuschia City.",
       "encounter": 6,
@@ -527,7 +527,7 @@
       "mandatory": true
     },
     {
-      "id": 58,
+      "id": 59,
       "name": "\nSeafoam Islands",
       "description": "To reach Cinnabar Islands, you have to cross Seafoam Islands. Once in the cave, you feel the presence of a powerful pokemon.",
       "encounter": 6,
@@ -555,7 +555,7 @@
       "mandatory": true
     },
     {
-      "id": 60,
+      "id": 61,
       "name": "\nPokemon Mansion",
       "description": "Once you arrive at Cinnabar Island, you head to Cinnabar Gym but the door is locked but there is a note on that door indicating that the key is in the Pokemon Mansion.",
       "encounter": 8,
@@ -591,7 +591,7 @@
         "minLevel": 65,
         "maxLevel": 69,
         "encounters": [
-          28,28,42,42,42,42,42,42,67,67,75,75,75,75,75,75,95,95,95,111,111,111,217,217,232,232,621,621,633
+          28,28,42,42,42,42,42,42,67,67,75,75,75,75,75,75,95,95,95,111,111,111,217,217,232,232,437,437,621,621,633
         ]
       },
       "rewards": [
@@ -2225,8 +2225,83 @@
     },
     {
       "id": 36,
+      "name": "\nVS Falkner",
+      "description": "You have arrived in Celadon City and a flying type specialist challenges you.",
+      "opponents": [
+        {
+          "sprite": "images/Sprite_Albert.png",
+          "name": "Trainer Falkner",
+          "pokemons": [
+            {
+              "id": 398,
+              "level": 41,
+              "moveIds": [113,3,40,205],
+              "itemHeld": "SHARP_BEAK"
+            },
+            {
+              "id": 468,
+              "level": 41,
+              "moveIds": [55,50,44,124],
+              "itemHeld": "LEFTOVERS"
+            },
+            {
+              "id": 178,
+              "level": 41,
+              "moveIds": [55,50,48,219],
+              "itemHeld": "TWISTED_SPOON"
+            },
+            {
+              "id": 164,
+              "level": 41,
+              "moveIds": [50,81,46,261]
+            },
+            {
+              "id": 227,
+              "level": 41,
+              "moveIds": [90,267,205,19],
+              "itemHeld": "ROCKY_HELMET"
+            },
+            {
+              "id": 18,
+              "level": 42,
+              "moveIds": [101,261,193,3]
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "id": 0,
+          "quantity": 90
+        },
+        {
+          "id": 2,
+          "quantity": 2
+        },
+        {
+          "id": 9,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        }
+      ],
+      "startDialog": "I'm Falkner, a flying type trainer from Violet City! Let me show you the real power of the magnificent bird Pokémon!",
+      "endDialogWin": "A defeat is a defeat. You are strong indeed. I'm going to train harder with my Pokémon to become the greatest Bird Keeper of all!",
+      "endDialogLoose": "Dad! I won with your cherished bird Pokémon...",
+      "music": 2,
+      "icon": "images/boss_icon/VS_Albert.png",
+      "background": "images/battle_background/city_battle_background.png",
+      "exp": 4850,
+      "mandatory": false,
+      "iaLevel": 3,
+      "megaPokemonId": 18
+    },
+    {
+      "id": 37,
       "name": "\nCeladon Gym",
-      "description": "You have arrived in Celadon City and are about to face the gym.",
+      "description": " and are about to face the gym.",
       "opponents": [
         {
           "sprite": "images/Sprite_Fillette.png",
@@ -2235,12 +2310,14 @@
             {
               "id": 69,
               "level": 39,
-              "moveIds": [18,34,35,58]
+              "moveIds": [18,34,35,58],
+              "itemHeld": "MIRACLE_SEED"
             },
             {
               "id": 70,
               "level": 39,
-              "moveIds": [18,34,35,58]
+              "moveIds": [18,34,35,58],
+              "itemHeld": "MIRACLE_SEED"
             }
           ]
         },
@@ -2251,27 +2328,32 @@
             {
               "id": 102,
               "level": 38,
-              "moveIds": [36,45,66,133]
+              "moveIds": [36,45,66,133],
+              "itemHeld": "MIRACLE_SEED"
             },
             {
               "id": 43,
               "level": 38,
-              "moveIds": [66,84,58,83]
+              "moveIds": [66,84,58,83],
+              "itemHeld": "MIRACLE_SEED"
             },
             {
               "id": 192,
               "level": 42,
-              "moveIds": [36,87,66,37]
+              "moveIds": [36,87,66,37],
+              "itemHeld": "MIRACLE_SEED"
             },
             {
               "id": 44,
               "level": 38,
-              "moveIds": [66,84,58,83]
+              "moveIds": [66,84,58,83],
+              "itemHeld": "MIRACLE_SEED"
             },
             {
               "id": 2,
               "level": 38,
-              "moveIds": [36,37,133,35]
+              "moveIds": [36,37,133,35],
+              "itemHeld": "MIRACLE_SEED"
             }
           ]
         },
@@ -2282,12 +2364,14 @@
             {
               "id": 43,
               "level": 39,
-              "moveIds": [66,84,58,83]
+              "moveIds": [66,84,58,83],
+              "itemHeld": "MIRACLE_SEED"
             },
             {
               "id": 44,
               "level": 39,
-              "moveIds": [66,84,58,83]
+              "moveIds": [66,84,58,83],
+              "itemHeld": "MIRACLE_SEED"
             }
           ]
         }
@@ -2318,7 +2402,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 39,
+      "id": 40,
       "name": "\nRoute 17",
       "description": "You are walking on Route 17 and a biker comes to challenge you.",
       "opponents": [
@@ -2381,12 +2465,14 @@
             {
               "id": 126,
               "level": 45,
-              "moveIds": [31,69,42,169]
+              "moveIds": [31,69,42,169],
+              "itemHeld": "CHARCOAL"
             },
             {
               "id": 126,
               "level": 45,
-              "moveIds": [31,69,169,172]
+              "moveIds": [31,69,169,172],
+              "itemHeld": "CHARCOAL"
             }
           ]
         }
@@ -2417,7 +2503,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 41,
+      "id": 42,
       "name": "\nVS Karen",
       "description": "After arriving to Fushia City, you are challenged by a trainer.",
       "opponents": [
@@ -2458,8 +2544,7 @@
             {
               "id": 229,
               "level": 48,
-              "moveIds": [31,92,37,120],
-              "itemHeld": "LIFE_ORB"
+              "moveIds": [31,92,37,120]
             }
           ]
         }
@@ -2487,10 +2572,10 @@
       "exp": 4900,
       "mandatory": true,
       "iaLevel": 3,
-      "megaPokemonId": 0
+      "megaPokemonId": 229
     },
     {
-      "id": 43,
+      "id": 44,
       "name": "\nFuschia Gym",
       "description": "After leaving the Safari, you go to the Fuschia gym.",
       "opponents": [
@@ -2501,17 +2586,17 @@
             {
               "id": 24,
               "level": 44,
-              "moveIds": [83,37,27]
+              "moveIds": [83,37,27,118]
             },
             {
               "id": 24,
               "level": 44,
-              "moveIds": [37,27,83]
+              "moveIds": [37,27,83,119]
             },
             {
               "id": 24,
               "level": 44,
-              "moveIds": [37,27,83]
+              "moveIds": [37,27,83,120]
             }
           ]
         }
@@ -2542,7 +2627,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 46,
+      "id": 47,
       "name": "\nRoute 14",
       "description": "You continue your way to Saffron City and several trainers stand in your way.",
       "opponents": [
@@ -2553,7 +2638,8 @@
             {
               "id": 22,
               "level": 49,
-              "moveIds": [10,90,91]
+              "moveIds": [10,90,91,205],
+              "itemHeld": "LOADED_DICE"
             },
             {
               "id": 85,
@@ -2563,7 +2649,8 @@
             {
               "id": 22,
               "level": 49,
-              "moveIds": [10,90,91]
+              "moveIds": [10,90,91,205],
+              "itemHeld": "LOADED_DICE"
             }
           ]
         },
@@ -2589,7 +2676,8 @@
             {
               "id": 89,
               "level": 47,
-              "moveIds": [153,154,62,83]
+              "moveIds": [153,154,62,83],
+              "itemHeld": "BLACK_SLUDGE"
             }
           ]
         }
@@ -2620,7 +2708,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 47,
+      "id": 48,
       "name": "\nRoute 13",
       "description": "You continue your way to Saffron City and several trainers stand in your way.",
       "opponents": [
@@ -2631,7 +2719,8 @@
             {
               "id": 22,
               "level": 49,
-              "moveIds": [10,90,91,113]
+              "moveIds": [10,90,91,113],
+              "itemHeld": "LOADED_DICE"
             },
             {
               "id": 18,
@@ -2641,7 +2730,8 @@
             {
               "id": 22,
               "level": 49,
-              "moveIds": [10,90,91]
+              "moveIds": [10,90,91,205],
+              "itemHeld": "LOADED_DICE"
             },
             {
               "id": 83,
@@ -2657,12 +2747,14 @@
             {
               "id": 34,
               "level": 49,
-              "moveIds": [62,87,161,109]
+              "moveIds": [62,87,161,109],
+              "itemHeld": "LIFE_ORB"
             },
             {
               "id": 199,
               "level": 49,
-              "moveIds": [266,45,31,100]
+              "moveIds": [266,45,31,100],
+              "itemHeld": "LEFTOVERS"
             },
             {
               "id": 119,
@@ -2678,12 +2770,14 @@
             {
               "id": 75,
               "level": 49,
-              "moveIds": [25,30,72,144]
+              "moveIds": [25,30,72,144],
+              "itemHeld": "ROCKY_HELMET"
             },
             {
               "id": 28,
               "level": 47,
-              "moveIds": [30,259,146,56]
+              "moveIds": [30,259,146,56],
+              "itemHeld": "SOFT_SAND"
             },
             {
               "id": 76,
@@ -2719,7 +2813,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 49,
+      "id": 50,
       "name": "\nSilph Co",
       "description": "You arrive in Saffron City and Team Rocket has invaded the city. You learn that the boss of the organization is on the top floor of the Silph Co. building. You go there to stop him.",
       "opponents": [
@@ -2937,7 +3031,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 50,
+      "id": 51,
       "name": "\nVS Rival 5",
       "description": "Still in the Silph Co building, you come across Jackson.",
       "opponents": [
@@ -3007,7 +3101,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 51,
+      "id": 52,
       "name": "\nVS Archer",
       "description": "You finally reach the top floor and a Team Rocket Executive is standing in front of the door of the room where the boss is.",
       "opponents": [
@@ -3078,7 +3172,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 52,
+      "id": 53,
       "name": "\nVS Giovanni",
       "description": "You enter the room where the boss is and you see him pressuring the chief of the Silph Co. to work for him.",
       "opponents": [
@@ -3155,7 +3249,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 53,
+      "id": 54,
       "name": "\nFighting Dojo",
       "description": "Before challenging the saffron gym, you decide to train to the fighting dojo",
       "opponents": [
@@ -3228,7 +3322,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 54,
+      "id": 55,
       "name": "\nSaffron Gym",
       "description": "After defeating Giovanni, you go to the gym to battle the gym leader.",
       "opponents": [
@@ -3239,17 +3333,20 @@
             {
               "id": 79,
               "level": 53,
-              "moveIds": [43,45,134,72]
+              "moveIds": [43,45,134,72],
+              "itemHeld": "TWISTED_SPOON"
             },
             {
               "id": 80,
               "level": 53,
-              "moveIds": [266,45,134,148]
+              "moveIds": [266,45,134,148],
+              "itemHeld": "TWISTED_SPOON"
             },
             {
               "id": 199,
               "level": 53,
-              "moveIds": [266,45,51,134]
+              "moveIds": [266,45,51,134],
+              "itemHeld": "TWISTED_SPOON"
             }
           ]
         },
@@ -3276,12 +3373,14 @@
             {
               "id": 64,
               "level": 53,
-              "moveIds": [45,44,46,132]
+              "moveIds": [45,44,46,132],
+              "itemHeld": "TWISTED_SPOON"
             },
             {
               "id": 122,
               "level": 53,
-              "moveIds": [45,44,46,105]
+              "moveIds": [45,44,46,105],
+              "itemHeld": "TWISTED_SPOON"
             }
           ]
         }
@@ -3312,10 +3411,26 @@
       "megaPokemonId": 0
     },
     {
-      "id": 57,
+      "id": 58,
       "name": "\nSea Route 20",
       "description": "You are now heading to Cinnabar Island but there are Pokemon trainers in the water.",
       "opponents": [
+        {
+          "sprite": "images/Sprite_Nageuse.png",
+          "name": "Swimmer Melissa",
+          "pokemons": [
+            {
+              "id": 118,
+              "level": 54,
+              "moveIds": [136,24,11,109]
+            },
+            {
+              "id": 119,
+              "level": 54,
+              "moveIds": [136,24,62,109]
+            }
+          ]
+        },
         {
           "sprite": "images/Sprite_Swimmer.png",
           "name": "Swimmer Barry",
@@ -3331,25 +3446,25 @@
               "moveIds": [43,15,100,42]
             },
             {
-              "id": 117,
+              "id": 230,
               "level": 54,
-              "moveIds": [43,15,100]
+              "moveIds": [43,15,100,111]
             }
           ]
         },
         {
           "sprite": "images/Sprite_Nageuse.png",
-          "name": "Swimmer Melissa",
+          "name": "Swimmer Lori",
           "pokemons": [
             {
-              "id": 118,
+              "id": 121,
               "level": 54,
-              "moveIds": [136,24,11,109]
+              "moveIds": [43,45,48,51]
             },
             {
-              "id": 119,
+              "id": 121,
               "level": 54,
-              "moveIds": [136,24,62,109]
+              "moveIds": [43,45,48,51]
             }
           ]
         }
@@ -3380,7 +3495,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 61,
+      "id": 62,
       "name": "\nCinnabar Gym",
       "description": "After finding the key to the gym, you leave the mansion and head straight for the gym.",
       "opponents": [
@@ -3435,7 +3550,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 63,
+      "id": 64,
       "name": "\nSea Route 21",
       "description": "After obtaining your seventh badge, you decide to go to Viridian City to get your last badge.",
       "opponents": [
@@ -3452,7 +3567,8 @@
             {
               "id": 121,
               "level": 58,
-              "moveIds": [43,45,51,132]
+              "moveIds": [43,45,51,132],
+              "itemHeld": "LIFE_ORB"
             }
           ]
         },
@@ -3479,7 +3595,8 @@
             {
               "id": 73,
               "level": 58,
-              "moveIds": [43,62,153,100]
+              "moveIds": [43,62,153,100],
+              "itemHeld": "BLACK_SLUDGE"
             },
             {
               "id": 117,
@@ -3489,7 +3606,8 @@
             {
               "id": 62,
               "level": 58,
-              "moveIds": [43,87,88,106]
+              "moveIds": [43,87,88,106],
+              "itemHeld": "LEFTOVERS"
             }
           ]
         }
@@ -3520,7 +3638,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 64,
+      "id": 65,
       "name": "\nVS Professor Oak",
       "description": "You arrive in Pallet Town and visit Professor Oak",
       "opponents": [
@@ -3542,7 +3660,7 @@
             },
             {
               "id": 130,
-              "level": 70,
+              "level": 67,
               "moveIds": [79,27,119,125],
               "itemHeld": "LUM_BERRY"
             },
@@ -3565,7 +3683,7 @@
         }
       ],
       "startDialog": "Hello, it's been a long time! I'd like to show you an item from the Kalos region that can increase the strength of your Pokemon.",
-      "endDialogWin": "Here, it's yours! Try using it on the Pokemon I gave you when you started your journey! There are many more Pokémon capable of Mega Evolution",
+      "endDialogWin": "Here, it's yours! Try using it on the Pokemon I gave you when you started your journey! There are many more Pokémon capable of Mega Evolution.",
       "endDialogLoose": "I will give this item to you if you can defeat me.",
       "music": 2,
       "icon": "images/battle_background/building_battle_background.jpg",
@@ -3576,7 +3694,7 @@
       "megaPokemonId": 6
     },
     {
-      "id": 65,
+      "id": 66,
       "name": "\nViridian Gym",
       "description": "You are back in Viridian City, it's time to get your last badge.",
       "opponents": [
@@ -3592,7 +3710,8 @@
             {
               "id": 28,
               "level": 63,
-              "moveIds": [93,38,25,56]
+              "moveIds": [93,38,25,56],
+              "itemHeld": "SOFT_SAND"
             },
             {
               "id": 76,
@@ -3608,17 +3727,20 @@
             {
               "id": 67,
               "level": 65,
-              "moveIds": [25,69,167,171]
+              "moveIds": [25,69,167,171],
+              "itemHeld": "BLACK_BELT"
             },
             {
               "id": 67,
               "level": 65,
-              "moveIds": [25,69,107,171]
+              "moveIds": [25,69,107,171],
+              "itemHeld": "BLACK_BELT"
             },
             {
               "id": 67,
               "level": 65,
-              "moveIds": [69,25,103,110]
+              "moveIds": [69,25,103,110],
+              "itemHeld": "BLACK_BELT"
             }
           ]
         },
@@ -3634,7 +3756,8 @@
             {
               "id": 28,
               "level": 63,
-              "moveIds": [93,38,25,56]
+              "moveIds": [93,38,25,56],
+              "itemHeld": "SOFT_SAND"
             },
             {
               "id": 111,
@@ -3680,7 +3803,7 @@
       "megaPokemonId": 0
     },
     {
-      "id": 66,
+      "id": 67,
       "name": "\nVS Giovanni 2",
       "description": "After defeating the guards, you go to the gym leader and you notice that it's Giovanni, the boss of Team Rocket!",
       "opponents": [
@@ -3725,42 +3848,7 @@
               "itemHeld": "ASSAULT_VEST"
             }
           ]
-        }
-      ],
-      "rewards": [
-        {
-          "id": 0,
-          "quantity": 100
         },
-        {
-          "id": 2,
-          "quantity": 1
-        },
-        {
-          "id": 9,
-          "quantity": 1
-        },
-        {
-          "id": 10,
-          "quantity": 2
-        }
-      ],
-      "startDialog": "This is my hideout! I planned to resurrect TEAM ROCKET here! But, you have caught me again! So be it! This time, I'm not holding back!",
-      "endDialogWin": "No, this is not over.  But nothing will prepare you for my secret weapon",
-      "endDialogLoose": "Fwahahaha! You got defeated by me, Giovanni, the greatest trainer!",
-      "music": 3,
-      "icon": "images/boss_icon/VS_Giovanni.png",
-      "background": "images/battle_background/building_battle_background.jpg",
-      "exp": 10000,
-      "mandatory": true,
-      "iaLevel": 3,
-      "megaPokemonId": 0
-    },
-    {
-      "id": 67,
-      "name": "\nVS ???",
-      "description": "Giovanni has called his secret weapon which looks like an armored Pokémon",
-      "opponents": [
         {
           "sprite": "images/Sprite_Giovanni.png",
           "name": "Gym Leader Giovanni",
@@ -3776,7 +3864,7 @@
       "rewards": [
         {
           "id": 0,
-          "quantity": 100
+          "quantity": 300
         },
         {
           "id": 2,
@@ -3787,19 +3875,15 @@
           "quantity": 1
         },
         {
-          "id": 38,
-          "quantity": 1
-        },
-        {
-          "id": 59,
-          "quantity": 1
+          "id": 10,
+          "quantity": 2
         }
       ],
-      "startDialog": "Go, my secret weapon!",
+      "startDialog": "This is my hideout! I planned to resurrect TEAM ROCKET here! But, you have caught me again! So be it! This time, I'm not holding back!",
       "endDialogWin": "That was a truly intense fight! You have won! As proof, here is the Earth Badge. Having lost, I cannot face my underlings! TEAM ROCKET is finished forever!",
       "endDialogLoose": "Fwahahaha! You got defeated by me, Giovanni, the greatest trainer!",
-      "music": 4,
-      "icon": "images/boss_icon/armored_mewtwo.JPG",
+      "music": 3,
+      "icon": "images/boss_icon/VS_Giovanni.png",
       "background": "images/battle_background/building_battle_background.jpg",
       "exp": 10000,
       "mandatory": true,
@@ -4324,7 +4408,7 @@
       "mandatory": true
     },
     {
-      "id": 38,
+      "id": 39,
       "name": "\nVs Snorlax",
       "description": "After getting your fourth badge, you go to Route 16 and come across the sleeping Pokemon. You wake him up with the flute that the old man gave you and it gets really angry!",
       "boss": {
@@ -4352,7 +4436,7 @@
       "mandatory": true
     },
     {
-      "id": 59,
+      "id": 60,
       "name": "\nVs Articuno",
       "description": "In the depths of Seafoam Island, you come across a powerful looking bird. Upon closer inspection, you notice that it is the legendary bird Articuno!",
       "boss": {
@@ -4966,7 +5050,7 @@
       "iaLevel": 1
     },
     {
-      "id": 37,
+      "id": 38,
       "name": "\nVS Erika",
       "description": "After beating the guard, you go to the gym leader to challenge her.",
       "sprite": "images/Sprite_Erika.png",
@@ -5106,7 +5190,7 @@
       "megaPokemonIdOnRematch": 0
     },
     {
-      "id": 44,
+      "id": 45,
       "name": "\nVS Koga",
       "description": "After beating the guard, you go to the gym leader to challenge him.",
       "sprite": "images/Sprite_Koga.png",
@@ -5228,7 +5312,7 @@
       "megaPokemonIdOnRematch": 0
     },
     {
-      "id": 55,
+      "id": 56,
       "name": "\nVS Sabrina",
       "description": "After defeating the guards, you can finally battle against the gym leader.",
       "sprite": "images/Sprite_Morgane.png",
@@ -5349,7 +5433,7 @@
       "megaPokemonIdOnRematch": 0
     },
     {
-      "id": 62,
+      "id": 63,
       "name": "\nVS Blaine",
       "description": "After defeating the guard, you go to the gym leader.",
       "sprite": "images/Sprite_Auguste.png",
@@ -5516,6 +5600,12 @@
       ],
       "battle2": [
         {
+          "id": 10038,
+          "level": 83,
+          "moveIds": [300,84,323,268],
+          "itemHeld": "LIGHT_CLAY"
+        },
+        {
           "id": 473,
           "level": 83,
           "moveIds": [25,93,98,95],
@@ -5524,7 +5614,7 @@
         {
           "id": 80,
           "level": 83,
-          "moveIds": [266,45,100,134]
+          "moveIds": [266,45,31,134]
         },
         {
           "id": 461,
@@ -5537,12 +5627,6 @@
           "level": 83,
           "moveIds": [245,98,77,136],
           "itemHeld": "FOCUS_SASH"
-        },
-        {
-          "id": 124,
-          "level": 83,
-          "moveIds": [100,45,46,105],
-          "itemHeld": "NEVER_MELT_ICE"
         },
         {
           "id": 646,
@@ -5899,16 +5983,16 @@
       ],
       "battle2": [
         {
-          "id": 855,
+          "id": 801,
           "level": 83,
-          "moveIds": [46,66,245,260],
-          "itemHeld": "FOCUS_SASH"
+          "moveIds": [12,100,326,124],
+          "itemHeld": "LEFTOVERS"
         },
         {
-          "id": 59,
+          "id": 637,
           "level": 83,
-          "moveIds": [116,75,200,138],
-          "itemHeld": "LEFTOVERS"
+          "moveIds": [286,60,66,122],
+          "itemHeld": "FOCUS_SASH"
         },
         {
           "id": 466,

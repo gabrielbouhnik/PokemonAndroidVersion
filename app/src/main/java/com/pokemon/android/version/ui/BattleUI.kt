@@ -22,7 +22,7 @@ import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAIN_LEVEL_ID
 import com.pokemon.android.version.ui.LevelMenu.Companion.ELITE_4_LAST_LEVEL_ID
-import com.pokemon.android.version.ui.LevelMenu.Companion.ARMORED_MEWTWO_LEVEL_ID
+import com.pokemon.android.version.ui.LevelMenu.Companion.GIOVANNI_2_LEVEL
 import com.pokemon.android.version.ui.LevelMenu.Companion.ROUTE_3_LEVEL
 import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.HealUtils
@@ -445,7 +445,7 @@ class BattleUI {
     private fun setupAttackButton(activity: MainActivity, battle: Battle, move: PokemonMove?, id: Int, ppId: Int) {
         val attackButton: Button = activity.findViewById(id)
         val ppTextView: TextView = activity.findViewById(ppId)
-        if (move != null && move.pp > 0) {
+        if (move != null) {
             attackButton.visibility = VISIBLE
             attackButton.text = move.move.name
             attackButton.setBackgroundColor(ColorUtils.getColorByType(move.move.type))
@@ -460,7 +460,13 @@ class BattleUI {
                     )
                         .show()
                 }*/
-                if (move.disabledCountdown > 0) {
+                if (move.pp == 0) {
+                    Toast.makeText(
+                        activity,
+                        "There are no PP left for this move",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else if (move.disabledCountdown > 0) {
                     Toast.makeText(
                         activity,
                         "${move.move.name} is disabled.",
@@ -504,53 +510,54 @@ class BattleUI {
     private fun setUpAttackButtons(activity: MainActivity, battle: Battle) {
         val attack1Button: Button = activity.findViewById(R.id.attack1Button)
         val ppTextView: TextView = activity.findViewById(R.id.attack1PPTextView)
-        if (battle.pokemon.move1.pp > 0) {
-            attack1Button.visibility = VISIBLE
-            attack1Button.text = battle.pokemon.move1.move.name
-            attack1Button.setBackgroundColor(ColorUtils.getColorByType(battle.pokemon.move1.move.type))
-            ppTextView.visibility = VISIBLE
-            ppTextView.text =
-                activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
-            attack1Button.setOnClickListener {
-                if (battle.pokemon.move1.isDisabled()) {
-                    Toast.makeText(
-                        activity,
-                        "${battle.pokemon.move1.move.name} is disabled.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else if (battle.pokemon.move1.move.category == MoveCategory.OTHER && battle.pokemon.battleData!!.battleStatus.contains(
-                        Status.TAUNTED
-                    )
-                ) {
-                    Toast.makeText(
-                        activity,
-                        "${battle.pokemon.data.name} can't use ${battle.pokemon.move1.move.name} after the taunt",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
-                } else if (battle.pokemon.currentHP > 0 && battle.opponent.currentHP > 0) {
-                    if (battle.pokemon.move1.move.id == 185) {
-                        activity.trainer!!.team.forEach { it.recomputeStat() }
-                        battle.pokemon.battleData = null
-                        activity.mainMenu.loadGameMenu(activity)
+        attack1Button.visibility = VISIBLE
+        attack1Button.text = battle.pokemon.move1.move.name
+        attack1Button.setBackgroundColor(ColorUtils.getColorByType(battle.pokemon.move1.move.type))
+        ppTextView.visibility = VISIBLE
+        ppTextView.text =
+            activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
+        attack1Button.setOnClickListener {
+            if (battle.pokemon.move1.pp == 0) {
+                Toast.makeText(
+                    activity,
+                    "There are no PP left for this move",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (battle.pokemon.move1.isDisabled()) {
+                Toast.makeText(
+                    activity,
+                    "${battle.pokemon.move1.move.name} is disabled.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (battle.pokemon.move1.move.category == MoveCategory.OTHER && battle.pokemon.battleData!!.battleStatus.contains(
+                    Status.TAUNTED
+                )
+            ) {
+                Toast.makeText(
+                    activity,
+                    "${battle.pokemon.data.name} can't use ${battle.pokemon.move1.move.name} after the taunt",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+            } else if (battle.pokemon.currentHP > 0 && battle.opponent.currentHP > 0) {
+                if (battle.pokemon.move1.move.id == 185) {
+                    activity.trainer!!.team.forEach { it.recomputeStat() }
+                    battle.pokemon.battleData = null
+                    activity.mainMenu.loadGameMenu(activity)
+                } else {
+                    if (megaEvolve && battle.pokemon.canMegaEvolve()) {
+                        val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
+                        megaEvolutionImageView.visibility = GONE
+                        dialogTextView!!.text = battle.turn(battle.pokemon.move1, true)
                     } else {
-                        if (megaEvolve && battle.pokemon.canMegaEvolve()) {
-                            val megaEvolutionImageView: ImageView = activity.findViewById(R.id.megaEvolutionImageView)
-                            megaEvolutionImageView.visibility = GONE
-                            dialogTextView!!.text = battle.turn(battle.pokemon.move1, true)
-                        } else {
-                            megaEvolve = false
-                            dialogTextView!!.text = battle.turn(battle.pokemon.move1, false)
-                        }
-                        ppTextView.text =
-                            activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
-                        updateBattleUI(activity, battle)
+                        megaEvolve = false
+                        dialogTextView!!.text = battle.turn(battle.pokemon.move1, false)
                     }
+                    ppTextView.text =
+                        activity.getString(R.string.move_pp, battle.pokemon.move1.pp, battle.pokemon.move1.move.pp)
+                    updateBattleUI(activity, battle)
                 }
             }
-        } else {
-            attack1Button.visibility = GONE
-            ppTextView.visibility = GONE
         }
         setupAttackButton(activity, battle, battle.pokemon.move2, R.id.attack2Button, R.id.attack2PPTextView)
         setupAttackButton(activity, battle, battle.pokemon.move3, R.id.attack3Button, R.id.attack3PPTextView)
@@ -618,7 +625,7 @@ class BattleUI {
         if (battle !is BattleFrontierBattle && battle.levelData.id != FRONTIER_BRAIN_LEVEL_ID) {
             bagButton.setOnClickListener {
                 if (battle is LeaderBattle
-                    || battle.levelData.id == ARMORED_MEWTWO_LEVEL_ID - 1) {
+                    || battle.levelData.id == GIOVANNI_2_LEVEL) {
                     Toast.makeText(activity, "You can't use items in an official Pokémon League battle!", Toast.LENGTH_SHORT).show()
                 } else {
                     megaEvolve = false

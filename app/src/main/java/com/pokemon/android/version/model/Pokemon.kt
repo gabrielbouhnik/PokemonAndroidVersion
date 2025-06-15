@@ -289,14 +289,20 @@ open class Pokemon(
                     )
                 )
             }
-            if (move.move.power > 0 && move.move.type == Type.GROUND && opponent.hasAbility(Ability.LEVITATE)) {
+            if (move.move.power > 0
+                && move.move.type == Type.GROUND
+                && opponent.hasAbility(Ability.LEVITATE)
+                && battleField.gravityCounter == 0) {
                 return AttackResponse(
                     false,
                     details + "${opponent.data.name}'s Levitate: It does not affect ${opponent.data.name}!\n"
                 )
             }
         }
-        if (move.move.power > 0 && move.move.type == Type.GROUND && opponent.hasItem(HoldItem.AIR_BALLOON)) {
+        if (move.move.power > 0
+            && move.move.type == Type.GROUND
+            && opponent.hasItem(HoldItem.AIR_BALLOON)
+            && battleField.gravityCounter == 0) {
             return AttackResponse(
                 false,
                 details + "${opponent.data.name}'s Air Balloon: It does not affect ${opponent.data.name}!\n"
@@ -317,6 +323,12 @@ open class Pokemon(
                 false,
                 details + "But it failed!\n"
             )
+        if (move.move.characteristics.contains(MoveCharacteristic.JUMP) && battleField.gravityCounter > 0) {
+            return AttackResponse(
+                false,
+                details + "But it failed!\n"
+            )
+        }
         if (move.move !is MoveBasedOnLevel && move.move.category != MoveCategory.OTHER && DamageCalculator.getEffectiveness(
                 this,
                 move.move,
@@ -683,6 +695,10 @@ open class Pokemon(
             battleField.trickRoomCounter = 5
             details += "${this.data.name} twisted the dimensions!\n"
         }
+        if (move.move.id == 327) {
+            battleField.gravityCounter = 5
+            details += "Gravity intensified!\n"
+        }
         if (move.move.id == 265) { //DISABLE
             if (opponent.battleData!!.lastMoveUsed != null) {
                 opponent.battleData!!.lastMoveUsed!!.disabledCountdown = 4
@@ -739,6 +755,9 @@ open class Pokemon(
             else if (opponent.currentHP == 0 && this.hasAbility(Ability.MOXIE)) {
                 this.battleData!!.statsMultiplier.updateStat(StatChange.ATTACK_ONE_LEVEL_RAISE)
                 details += "${this.data.name}'s Moxie: ${this.data.name}'s attack rose!\n"
+            } else if (opponent.currentHP == 0 && this.hasAbility(Ability.SOUL_HEART)) {
+                this.battleData!!.statsMultiplier.updateStat(StatChange.SPATK_ONE_LEVEL_RAISE)
+                details += "${this.data.name}'s Soul Heart: ${this.data.name}'s sp. Atk rose!\n"
             }
         }
 

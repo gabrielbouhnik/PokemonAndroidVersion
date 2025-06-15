@@ -2297,6 +2297,10 @@
           "level": 24
         },
         {
+          "moveId": 327,
+          "level": 28
+        },
+        {
           "moveId": 179,
           "level": 32
         },
@@ -2355,6 +2359,10 @@
         },
         {
           "moveId": 166,
+          "level": 1
+        },
+        {
+          "moveId": 327,
           "level": 1
         },
         {
@@ -9721,6 +9729,10 @@
         },
         {
           "moveId": 190,
+          "level": 1
+        },
+        {
+          "moveId": 328,
           "level": 1
         },
         {
@@ -18749,6 +18761,153 @@
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
+    "id": 436,
+    "name": "Bronzor",
+    "type1": 16,
+    "type2": 12,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 39,
+          "level": 1
+        },
+        {
+          "moveId": 48,
+          "level": 4
+        },
+        {
+          "moveId": 169,
+          "level": 8
+        },
+        {
+          "moveId": 311,
+          "level": 12
+        },
+        {
+          "moveId": 233,
+          "level": 16
+        },
+        {
+          "moveId": 94,
+          "level": 20
+        },
+        {
+          "moveId": 320,
+          "level": 24
+        },
+        {
+          "moveId": 81,
+          "level": 28
+        },
+        {
+          "moveId": 327,
+          "level": 32
+        },
+        {
+          "moveId": 157,
+          "level": 36
+        }
+      ],
+      "movesLearnWithTM": [72,25,30,45,46,57,93,111,148,184,219,221],
+      "bannerMoves": []
+    },
+    "hp": 57,
+    "attack": 24,
+    "defense": 86,
+    "spAtk": 24,
+    "spDef": 86,
+    "speed": 23,
+    "catchRate": 255,
+    "evolutions": [
+      {
+        "evolutionId": 437,
+        "evolutionCondition": {
+          "level": 33
+        }
+      }
+    ],
+    "abilities": ["LEVITATE","HEATPROOF"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 437,
+    "name": "Bronzong",
+    "type1": 16,
+    "type2": 12,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 328,
+          "level": 1
+        },
+        {
+          "moveId": 316,
+          "level": 1
+        },
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 39,
+          "level": 1
+        },
+        {
+          "moveId": 48,
+          "level": 4
+        },
+        {
+          "moveId": 169,
+          "level": 8
+        },
+        {
+          "moveId": 311,
+          "level": 12
+        },
+        {
+          "moveId": 233,
+          "level": 16
+        },
+        {
+          "moveId": 94,
+          "level": 20
+        },
+        {
+          "moveId": 320,
+          "level": 24
+        },
+        {
+          "moveId": 81,
+          "level": 28
+        },
+        {
+          "moveId": 327,
+          "level": 32
+        },
+        {
+          "moveId": 157,
+          "level": 38
+        }
+      ],
+      "movesLearnWithTM": [72,25,30,45,46,57,93,111,148,176,177,184,219,221,267],
+      "bannerMoves": []
+    },
+    "hp": 67,
+    "attack": 89,
+    "defense": 116,
+    "spAtk": 79,
+    "spDef": 116,
+    "speed": 33,
+    "catchRate": 90,
+    "evolutions": [],
+    "abilities": ["LEVITATE","HEATPROOF"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
     "id": 442,
     "name": "Spiritomb",
     "type1": 13,
@@ -18871,7 +19030,7 @@
         },
         {
           "moveId": 232,
-          "level": 20
+          "level": 200
         },
         {
           "moveId": 208,
@@ -22667,7 +22826,7 @@
       "spDef": 160,
       "speed": 110,
       "ability": "MAGIC_BOUNCE",
-      "stoneId": -1
+      "stoneId": 200
     }
   },
   {
@@ -23382,6 +23541,27 @@
     "catchRate": 45,
     "evolutions": [],
     "abilities": ["BULLETPROOF","SOUNDPROOF","OVERCOAT"],
+    "expGaugeType":  "SLOW"
+  },
+  {
+    "id": 801,
+    "name": "Magearna",
+    "type1": 16,
+    "type2": 18,
+    "possibleMoves": {
+      "movesLearnByLevel": [],
+      "movesLearnWithTM": [],
+      "bannerMoves": []
+    },
+    "hp": 80,
+    "attack": 95,
+    "defense": 115,
+    "spAtk": 130,
+    "spDef": 115,
+    "speed": 65,
+    "catchRate": 3,
+    "evolutions": [],
+    "abilities": ["SOUL_HEART"],
     "expGaugeType":  "SLOW"
   },
   {

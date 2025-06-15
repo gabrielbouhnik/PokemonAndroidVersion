@@ -6,7 +6,7 @@ import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.move.StatChange
 
-class BattleField(var weather: Weather, var weatherCounter: Int, var trickRoomCounter: Int) {
+class BattleField(var weather: Weather, var weatherCounter: Int, var trickRoomCounter: Int, var gravityCounter: Int) {
     fun setWeather(weatherSetter: Pokemon, weather: Weather, other: Pokemon) {
         this.weather = weather
         if (weather != Weather.NONE) {
