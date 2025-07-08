@@ -24,5 +24,7 @@ class PokemonBattleData(
     var hadATurn: Boolean = false,
     var child: Boolean = false,
     var numberOfHitTaken: Int = 0,
-    var abilities: ArrayList<Ability> = arrayListOf()
-)
+    var abilities: ArrayList<Ability> = arrayListOf(),
+    var magnetRiseCounter: Int = 0
+) {
+}

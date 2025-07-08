@@ -8,5 +8,6 @@ enum class MoveCharacteristic {
     POWDER,
     PUNCH,
     SOUND,
-    SLICE
+    SLICE,
+    WIND
 }

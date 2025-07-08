@@ -123,5 +123,6 @@ enum class Ability(var description: String) {
     WATER_BUBBLE("Lowers the power of Fire-type moves done to the Pokémon and prevents the Pokémon from getting a burn."),
     WATER_VEIL("The Pokémon is covered with a water veil, which prevents the Pokémon from getting a burn."),
     WEAK_ARMOR("Physical attacks to the Pokémon lower its Defense stat but sharply raise its Speed stat."),
+    WIND_POWER("The Pokémon becomes charged when it is hit by a wind move, boosting the power of the next Electric-type move the Pokémon uses."),
     WONDER_SKIN("Makes status moves more likely to miss.");
 }

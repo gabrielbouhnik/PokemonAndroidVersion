@@ -10,8 +10,7 @@ import com.pokemon.android.version.ui.BattleFrontierMenu
 import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.MoveUtils
 
-class
-LeaderBattle() : Battle() {
+class LeaderBattle() : Battle() {
     private lateinit var opponentTrainer: OpponentTrainer
     private lateinit var opponentTrainerSprite: ImageView
 
@@ -25,14 +24,14 @@ LeaderBattle() : Battle() {
         this.pokemon.battleData = PokemonBattleData()
         val team = if (leaderLevelData.id == 99) {
             if (activity.trainer!!.battleTowerProgression!!.progression == 7)
-                leaderLevelData.battle1
+                ArrayList(leaderLevelData.battle1)
             else
-                leaderLevelData.battle2
+                ArrayList(leaderLevelData.battle2)
         } else {
             if (activity.trainer!!.progression < LevelMenu.ELITE_4_LAST_LEVEL_ID)
-                leaderLevelData.battle1
+                ArrayList(leaderLevelData.battle1)
             else
-                leaderLevelData.battle2
+                ArrayList(leaderLevelData.battle2)
         }
         this.opponentTrainer = OpponentTrainer(
             leaderLevelData.title,
@@ -46,6 +45,34 @@ LeaderBattle() : Battle() {
         )
         if (activity.hardMode && activity.trainer!!.progression < LevelMenu.ELITE_4_LAST_LEVEL_ID) {
             when (levelData.id) {
+                LevelMenu.BROCK_LEVEL -> {
+                    if (!activity.trainer!!.pokedex.containsKey(4)) {
+                        (opponentTrainer.team as ArrayList<Pokemon>).add(
+                            1,
+                            activity.gameDataService.generatePokemonWithMoves(
+                                138, 12,//Omanyte
+                                listOf(
+                                    activity.gameDataService.getMoveById(221),//ROCK TOMB
+                                    activity.gameDataService.getMoveById(6),//WATER GUN
+                                    activity.gameDataService.getMoveById(20)//WITHDRAW
+                                ),
+                                HoldItem.HARD_STONE
+                            )
+                        )
+                        (opponentTrainer.team as ArrayList<Pokemon>).add(
+                            1,
+                            activity.gameDataService.generatePokemonWithMoves(
+                                140, 12,//Kabuto
+                                listOf(
+                                    activity.gameDataService.getMoveById(221),//ROCK TOMB
+                                    activity.gameDataService.getMoveById(67),//ABSORB
+                                    activity.gameDataService.getMoveById(19)//SAND ATTACK
+                                ),
+                                HoldItem.HARD_STONE
+                            )
+                        )
+                    }
+                }
                 LevelMenu.MISTY_LEVEL -> {
                     opponentTrainer.team = ArrayList(opponentTrainer.team)
                     (opponentTrainer.team as ArrayList<Pokemon>).add(
@@ -129,9 +156,9 @@ LeaderBattle() : Battle() {
                 }
                 LevelMenu.ERIKA_LEVEL -> {
                     opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 470
-                            && it.data.id != 103})
+                            && it.data.id != 103 && it.data.id != 71})
                     (opponentTrainer.team as ArrayList<Pokemon>).add(
-                        4,
+                        2,
                         activity.gameDataService.generatePokemonWithMoves(
                             36, 45,//CLEFABLE
                             listOf(
@@ -143,7 +170,7 @@ LeaderBattle() : Battle() {
                             HoldItem.LEFTOVERS
                         ))
                     (opponentTrainer.team as ArrayList<Pokemon>).add(
-                        4,
+                        2,
                         activity.gameDataService.generatePokemonWithMoves(
                             134, 45,//VAPOREON
                             listOf(
@@ -154,47 +181,21 @@ LeaderBattle() : Battle() {
                             ),
                             HoldItem.LEFTOVERS
                         ))
-                }
-                LevelMenu.KOGA_LEVEL -> {
-                    opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 168
-                            && it.data.id != 89})
                     (opponentTrainer.team as ArrayList<Pokemon>).add(
-                        1,
                         activity.gameDataService.generatePokemonWithMoves(
-                            472, 50,//GLISCOR
+                            3, 45,//VENUSAUR
                             listOf(
-                                activity.gameDataService.getMoveById(120),//THUNDER FANG
-                                activity.gameDataService.getMoveById(62),//POISON JAB
-                                activity.gameDataService.getMoveById(16),//WING ATTACK
-                                activity.gameDataService.getMoveById(93)//EARTHQUAKE
+                                activity.gameDataService.getMoveById(66),//GIGA DRAIN
+                                activity.gameDataService.getMoveById(37),//SLUDGE BOMB
+                                activity.gameDataService.getMoveById(35),//SLEEP POWDER
+                                activity.gameDataService.getMoveById(87)//EARTH POWER
                             ),
-                            HoldItem.TOXIC_ORB
+                            null
                         ))
-                    (opponentTrainer.team as ArrayList<Pokemon>).add(
-                        1,
-                        activity.gameDataService.generatePokemonWithMoves(
-                            10089, 50,//ALOLAN MUK
-                            listOf(
-                                activity.gameDataService.getMoveById(62),//POISON JAB
-                                activity.gameDataService.getMoveById(107),//ICE PUNCH
-                                activity.gameDataService.getMoveById(27),//CRUNCH
-                                activity.gameDataService.getMoveById(25)//ROCK SLIDE
-                            ),
-                            HoldItem.BLACK_SLUDGE
-                        ))
-                }
-                LevelMenu.SABRINA_LEVEL -> {
-                    (this.levelData as LeaderLevelData).megaPokemonId = 65
-                    (this.levelData as LeaderLevelData).megaPokemonIdOnRematch = 65
-                    opponentTrainer.team.forEach{
-                        if (it.data.id == 65) {
-                            it.heldItem = null
-                        }
-                    }
+                    (this.levelData as LeaderLevelData).megaPokemonId = 3
                 }
                 LevelMenu.BLAINE_LEVEL -> {
                     (this.levelData as LeaderLevelData).megaPokemonId = 6
-                    (this.levelData as LeaderLevelData).megaPokemonIdOnRematch = 6
                     opponentTrainer.team.forEach{
                         if (it.data.id == 6) {
                             it.heldItem = null
@@ -213,15 +214,6 @@ LeaderBattle() : Battle() {
                             ),
                             HoldItem.LIFE_ORB
                         ))
-                }
-                LevelMenu.ELITE_4_FIRST_LEVEL_ID -> {
-                    (this.levelData as LeaderLevelData).megaPokemonId = 80
-                }
-                LevelMenu.ELITE_4_FIRST_LEVEL_ID + 2 -> {
-                    (this.levelData as LeaderLevelData).megaPokemonId = 94
-                }
-                LevelMenu.ELITE_4_FIRST_LEVEL_ID + 3 -> {
-                    (this.levelData as LeaderLevelData).megaPokemonId = 6
                 }
             }
         }

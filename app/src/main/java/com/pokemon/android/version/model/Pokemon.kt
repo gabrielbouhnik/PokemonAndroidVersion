@@ -301,12 +301,19 @@ open class Pokemon(
         }
         if (move.move.power > 0
             && move.move.type == Type.GROUND
-            && opponent.hasItem(HoldItem.AIR_BALLOON)
             && battleField.gravityCounter == 0) {
-            return AttackResponse(
-                false,
-                details + "${opponent.data.name}'s Air Balloon: It does not affect ${opponent.data.name}!\n"
-            )
+            if (opponent.hasItem(HoldItem.AIR_BALLOON)) {
+                return AttackResponse(
+                    false,
+                    details + "${opponent.data.name}'s Air Balloon: It does not affect ${opponent.data.name}!\n"
+                )
+            }
+            if (opponent.battleData!!.magnetRiseCounter > 0) {
+                return AttackResponse(
+                    false,
+                    details + "It does not affect ${opponent.data.name}!\n"
+                )
+            }
         }
         if ((move.move.id == 210 || move.move.id == 244 || move.move.id == 283) && !this.hasAbility(Ability.SCRAPPY) && opponent.hasType(Type.GHOST) ) {
             this.takeDamage(this.hp / 2)
@@ -345,6 +352,8 @@ open class Pokemon(
             var accuracy = move.move.accuracy!! * battleData!!.statsMultiplier.accuracyMultiplicator
             if (opponent.hasAbility(Ability.WONDER_SKIN) && move.move.category == MoveCategory.OTHER && move.move.status.isNotEmpty())
                 accuracy *= 0.5f
+            if (battleField.gravityCounter > 0)
+                accuracy *= 1.5f
             if (random > accuracy) {
                 var reason = details + "${this.data.name}'s attack missed!\n"
                 if (move.move.id == 210 || move.move.id == 244 || move.move.id == 283) {
@@ -380,22 +389,31 @@ open class Pokemon(
                     details += "${opponent.data.name}'s Magic Bounce: ${opponent.data.name} bounces the attack back!\n"
                     details += pokemonSide.addBattleSideEffect(opponent, this, BattleSideEffect.moveNameToTeamEffect(move.move.name))
                 } else {
-                    details += if (battleField.weather != Weather.SNOW && move.move.id == 223) {
-                        "But it failed!\n"
-                    } else {
-                        opponentSide.addBattleSideEffect(
-                            this,
-                            opponent,
-                            BattleSideEffect.moveNameToTeamEffect(move.move.name)
-                        )
-                    }
+                    details += opponentSide.addBattleSideEffect(
+                        this,
+                        opponent,
+                        BattleSideEffect.moveNameToTeamEffect(move.move.name)
+                    )
                 }
             } else {
-                details += pokemonSide.addBattleSideEffect(this, opponent, BattleSideEffect.moveNameToTeamEffect(move.move.name))
+                details += if (battleField.weather != Weather.SNOW && move.move.id == 323) {
+                    "But it failed!\n"
+                } else {
+                    pokemonSide.addBattleSideEffect(this, opponent, BattleSideEffect.moveNameToTeamEffect(move.move.name))
+                }
             }
         }
         if (move.move.id == 295)
             this.battleData!!.battleStatus.add(Status.CHARGED)
+        if (move.move.id == 329)
+            this.battleData!!.magnetRiseCounter = 5
+        if (move.move.id == 330) {
+            details += "A bell chimed!\n"
+            this.status = Status.OK
+            if (this.trainer != null) {
+                this.trainer!!.getTrainerTeam().forEach { it.status = Status.OK }
+            }
+        }
         if (move.move is UltimateMove)
             this.battleData!!.battleStatus.add(Status.UNABLE_TO_MOVE)
         var damage = 0
@@ -469,6 +487,10 @@ open class Pokemon(
                     opponentSide
                 )
             }
+        }
+        if (move.move.characteristics.contains(MoveCharacteristic.WIND) && opponent.hasAbility(Ability.WIND_POWER)) {
+            details += "${opponent.data.name}'s Wind Power: ${opponent.data.name} is charged with power!\n"
+            opponent.battleData!!.battleStatus.add(Status.CHARGED)
         }
         if (move.move.power > 1 && move.move !is RetaliationMove)
             details += BattleUtils.getEffectiveness(this, move.move, opponent, battleField)

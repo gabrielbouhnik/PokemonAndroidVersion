@@ -226,7 +226,7 @@
         "minLevel": 18,
         "maxLevel": 21,
         "encounters": [
-          16,16,16,16,16,16,17,17,19,19,19,39,39,43,43,43,43,52,52,54,54,63,69,69,69,69,81,81,96,96,96,96,209,209,418,938
+          16,16,16,16,16,16,17,17,19,19,19,39,39,43,43,43,43,52,52,54,54,63,69,69,69,69,81,81,96,96,96,96,209,209,418,938,940
         ]
       },
       "rewards": [
@@ -451,7 +451,7 @@
         "minLevel": 30,
         "maxLevel": 33,
         "encounters": [
-          17,17,43,43,43,43,44,48,48,48,69,69,69,69,70,187,187,188,195
+          17,17,43,43,43,43,44,48,48,48,69,69,69,69,70,187,187,188,195,940,951
         ]
       },
       "rewards": [
@@ -501,13 +501,13 @@
     {
       "id": 57,
       "name": "\nSea Route 19",
-      "description": "Before leaving Safrania, one of the Silph Co scientists has given you a Lapras to cross Sea Route 19 at the south of Fuschia City.",
+      "description": "Thanks to the Lapras you receive at Silph Co, you can cross Sea Route 19 at the south of Fuschia City.",
       "encounter": 6,
       "possibleEncounters": {
         "minLevel": 35,
         "maxLevel": 37,
         "encounters": [
-          72,72,72,72,120,120,129,129,129,170,170,222,222,602
+          72,72,72,72,120,120,129,129,129,170,170,222,222,602,941
         ]
       },
       "rewards": [
@@ -2294,14 +2294,14 @@
       "icon": "images/boss_icon/VS_Albert.png",
       "background": "images/battle_background/city_battle_background.png",
       "exp": 4850,
-      "mandatory": false,
+      "mandatory": true,
       "iaLevel": 3,
       "megaPokemonId": 18
     },
     {
       "id": 37,
       "name": "\nCeladon Gym",
-      "description": " and are about to face the gym.",
+      "description": "You enter the Celadon Gym and you have to face the guards before battling against the gym leader.",
       "opponents": [
         {
           "sprite": "images/Sprite_Fillette.png",
@@ -3110,9 +3110,9 @@
           "name": "Team Rocket Executive Archer",
           "pokemons": [
             {
-              "id": 42,
-              "level": 56,
-              "moveIds": [50,37,23,48],
+              "id": 169,
+              "level": 57,
+              "moveIds": [48,129,128,16],
               "itemHeld": "BLACK_SLUDGE"
             },
             {
@@ -3138,6 +3138,11 @@
               "level": 57,
               "moveIds": [37,31,92,120],
               "itemHeld": "CHARCOAL"
+            },
+            {
+              "id": 248,
+              "level": 57,
+              "moveIds": [27,25,93,31]
             }
           ]
         }
@@ -3169,7 +3174,7 @@
       "exp": 6800,
       "mandatory": true,
       "iaLevel": 3,
-      "megaPokemonId": 0
+      "megaPokemonId": 248
     },
     {
       "id": 53,
@@ -4557,7 +4562,7 @@
       "boss": {
         "id": 249,
         "level": 80,
-        "hpMultiplier": 5,
+        "hpMultiplier": 4,
         "moveIds": [287,45,100,43,132],
         "itemHeld": "WEAKNESS_POLICY",
         "boostedStats": ["SPATK"]
@@ -4593,7 +4598,7 @@
       "boss": {
         "id": 250,
         "level": 80,
-        "hpMultiplier": 5,
+        "hpMultiplier": 4,
         "moveIds": [264,132,93,132,12,45],
         "itemHeld": "LUM_BERRY",
         "boostedStats": ["DEFENSE","SPEED"]
@@ -4706,7 +4711,8 @@
           "level": 12,
           "moveIds": [
             72,221
-          ]
+          ],
+          "itemHeld": "HARD_STONE"
         },
         {
           "id": 95,
@@ -5052,7 +5058,7 @@
     {
       "id": 38,
       "name": "\nVS Erika",
-      "description": "After beating the guard, you go to the gym leader to challenge her.",
+      "description": "After beating the guards, you go to the gym leader to challenge her.",
       "sprite": "images/Sprite_Erika.png",
       "title": "Gym Leader Erika",
       "battle1": [
@@ -5203,22 +5209,22 @@
           "itemHeld": "BLACK_SLUDGE"
         },
         {
-          "id": 168,
+          "id": 10089,
           "level": 50,
-          "moveIds": [61,62,220,208],
-          "itemHeld": "LOADED_DICE"
+          "moveIds": [62,107,25,27],
+          "itemHeld": "BLACK_SLUDGE"
+        },
+        {
+          "id": 472,
+          "level": 50,
+          "moveIds": [93,113,120,56],
+          "itemHeld": "TOXIC_ORB"
         },
         {
           "id": 205,
           "level": 50,
           "moveIds": [233,93,22,267],
           "itemHeld": "LEFTOVERS"
-        },
-        {
-          "id": 89,
-          "level": 50,
-          "moveIds": [62,69,25,103],
-          "itemHeld": "BLACK_SLUDGE"
         },
         {
           "id": 49,
@@ -5321,20 +5327,20 @@
         {
           "id": 122,
           "level": 55,
-          "moveIds": [45,44,318,55],
+          "moveIds": [44,319,318,55],
           "itemHeld": "LIGHT_CLAY"
-        },
-        {
-          "id": 64,
-          "level": 55,
-          "moveIds": [45,44,46,184],
-          "itemHeld": "EVIOLITE"
         },
         {
           "id": 124,
           "level": 55,
           "moveIds": [100,45,46,246],
           "itemHeld": "TWISTED_SPOON"
+        },
+        {
+          "id": 956,
+          "level": 55,
+          "moveIds": [284,44,135,193],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 49,
@@ -5358,7 +5364,7 @@
         {
           "id": 122,
           "level": 80,
-          "moveIds": [45,44,318,12],
+          "moveIds": [44,319,318,55],
           "itemHeld": "LIGHT_CLAY"
         },
         {
@@ -5388,8 +5394,7 @@
         {
           "id": 65,
           "level": 80,
-          "moveIds": [45,44,46,105],
-          "itemHeld": "FOCUS_SASH"
+          "moveIds": [45,44,46,105]
         }
       ],
       "rewards": [
@@ -5429,8 +5434,8 @@
       "exp": 7000,
       "mandatory": true,
       "iaLevel": 1,
-      "megaPokemonId": 0,
-      "megaPokemonIdOnRematch": 0
+      "megaPokemonId": 65,
+      "megaPokemonIdOnRematch": 65
     },
     {
       "id": 63,
@@ -5658,16 +5663,22 @@
       "title": "Elite 4 Bruno",
       "battle1": [
         {
-          "id": 107,
+          "id": 534,
           "level": 73,
-          "moveIds": [103,76,14,107],
-          "itemHeld": "EXPERT_BELT"
+          "moveIds": [76,107,103,14],
+          "itemHeld": "ASSAULT_VEST"
         },
         {
-          "id": 62,
+          "id": 701,
           "level": 73,
-          "moveIds": [100,43,25,87],
-          "itemHeld": "LEFTOVERS"
+          "moveIds": [210,113,25,56],
+          "itemHeld": "LIFE_ORB"
+        },
+        {
+          "id": 979,
+          "level": 73,
+          "moveIds": [40,307,62,107],
+          "itemHeld": "BLACK_BELT"
         },
         {
           "id": 901,
@@ -5676,16 +5687,9 @@
           "itemHeld": "FLAME_ORB"
         },
         {
-          "id": 534,
+          "id": 214,
           "level": 73,
-          "moveIds": [76,107,103,14],
-          "itemHeld": "ASSAULT_VEST"
-        },
-        {
-          "id": 979,
-          "level": 73,
-          "moveIds": [40,307,62,107],
-          "itemHeld": "BLACK_BELT"
+          "moveIds": [239,61,137,93]
         },
         {
           "id": 68,
@@ -5702,27 +5706,27 @@
           "itemHeld": "LIFE_ORB"
         },
         {
-          "id": 448,
+          "id": 701,
           "level": 83,
-          "moveIds": [124,111,92,45],
+          "moveIds": [210,113,25,56],
           "itemHeld": "LIFE_ORB"
         },
         {
-          "id": 214,
+          "id": 979,
           "level": 83,
-          "moveIds": [239,61,137,93]
-        },
-        {
-          "id": 534,
-          "level": 83,
-          "moveIds": [76,107,103,14],
-          "itemHeld": "ASSAULT_VEST"
+          "moveIds": [40,307,62,107],
+          "itemHeld": "BLACK_BELT"
         },
         {
           "id": 901,
           "level": 83,
           "moveIds": [93,206,76,110],
           "itemHeld": "FLAME_ORB"
+        },
+        {
+          "id": 214,
+          "level": 83,
+          "moveIds": [239,61,137,93]
         },
         {
           "id": 68,
@@ -5743,7 +5747,7 @@
       "exp": 10000,
       "mandatory": true,
       "iaLevel": 1,
-      "megaPokemonId": 0,
+      "megaPokemonId": 214,
       "megaPokemonIdOnRematch": 214
     },
     {
@@ -5786,8 +5790,7 @@
         {
           "id": 94,
           "level": 75,
-          "moveIds": [46,44,37,12],
-          "itemHeld": "LIFE_ORB"
+          "moveIds": [46,44,37,12]
         }
       ],
       "battle2": [
@@ -5839,7 +5842,7 @@
       "exp": 10000,
       "mandatory": true,
       "iaLevel": 1,
-      "megaPokemonId": 0,
+      "megaPokemonId": 94,
       "megaPokemonIdOnRematch": 94
     },
     {
@@ -5862,10 +5865,10 @@
           "itemHeld": "LIFE_ORB"
         },
         {
-          "id": 6,
+          "id": 248,
           "level": 73,
-          "moveIds": [50,31,104,103],
-          "itemHeld": "CHARCOAL"
+          "moveIds": [27,25,93,31],
+          "itemHeld": "LEFTOVERS"
         },
         {
           "id": 130,
@@ -5958,16 +5961,16 @@
           "itemHeld": "FOCUS_SASH"
         },
         {
-          "id": 920,
+          "id": 637,
           "level": 73,
-          "moveIds": [214,113,282,208],
-          "itemHeld": "LIFE_ORB"
+          "moveIds": [122,286,60,66],
+          "itemHeld": "LUM_BERRY"
         },
         {
-          "id": 59,
+          "id": 461,
           "level": 73,
-          "moveIds": [116,75,200,138],
-          "itemHeld": "LEFTOVERS"
+          "moveIds": [123,98,270,69],
+          "itemHeld": "FOCUS_SASH"
         },
         {
           "id": 466,

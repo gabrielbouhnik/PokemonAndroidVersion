@@ -741,7 +741,7 @@
         }
       ],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["WIND"]
     },
     {
       "id": 55,
@@ -1118,7 +1118,7 @@
         }
       ],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["WIND"]
     },
     {
       "id": 103,
@@ -1277,7 +1277,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": true,
-      "characteristics": ["SLICE"]
+      "characteristics": ["SLICE","WIND"]
     },
     {
       "id": 68,
@@ -1928,7 +1928,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["WIND"]
     },
     {
       "id": 192,
@@ -2423,7 +2423,7 @@
         }
       ],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["WIND"]
     },
     {
       "id": 263,
@@ -2614,7 +2614,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": true,
-      "characteristics": []
+      "characteristics": ["WIND"]
     },
     {
       "id": 288,
@@ -2719,7 +2719,7 @@
         }
       ],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["WIND"]
     },
     {
       "id": 301,
@@ -2942,6 +2942,32 @@
           "status": "TRAPPED_WITHOUT_DAMAGE"
         }
       ],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 329,
+      "name": "Magnet Rise",
+      "power": 0,
+      "pp": 10,
+      "type": 4,
+      "category": "OTHER",
+      "description": "The user levitates using electrically generated magnetism for five turns.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 330,
+      "name": "Heal Bell",
+      "power": 0,
+      "pp": 10,
+      "type": 5,
+      "category": "OTHER",
+      "description": "The user makes a soothing bell chime to heal the status conditions of all the party Pokémon.",
+      "priorityLevel": 0,
+      "status": [],
       "highCritRate": false,
       "characteristics": []
     }
@@ -3634,7 +3660,7 @@
       "target": "OPPONENT",
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["WIND"]
     },
     {
       "id": 102,
@@ -5701,7 +5727,7 @@
       "description": "The user whips up a turbulent whirlwind that ups the Speed stats of the user and its allies for four turns.",
       "priorityLevel": 0,
       "target": "SELF",
-      "characteristics": []
+      "characteristics": ["WIND"]
     },
     {
       "id": 323,

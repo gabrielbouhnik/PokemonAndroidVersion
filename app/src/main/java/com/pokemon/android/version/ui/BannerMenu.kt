@@ -43,7 +43,7 @@ class BannerMenu {
                         ( activity.gameDataService.banners.filter { it.description.contains("a move")
                                 || it.description.contains("Porygon")
                                 || it.description.contains("Marill")
-                                || it.description.contains("Vulpix") }).toMutableList()
+                                || it.description.contains("Alolan") }).toMutableList()
                     )
             else
                 recyclerView.adapter =
@@ -52,7 +52,7 @@ class BannerMenu {
                         ( activity.gameDataService.banners.filter { it.description.contains(" TM")
                                 || it.description.contains("Porygon")
                                 || it.description.contains("Marill")
-                                || it.description.contains("Vulpix")
+                                || it.description.contains("Alolan")
                                 || it.description.contains("mythical")}).toMutableList()
                     )
         } else {

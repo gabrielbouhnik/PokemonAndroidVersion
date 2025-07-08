@@ -83,9 +83,6 @@ class RewardMenu {
                         activity.showCustomDialog(activity.getString(R.string.new_item_available_in_shop))
                     }
                 }
-                LevelMenu.OAK_LEVEL_ID -> {
-                    activity.showCustomDialog(activity.getString(R.string.mega_evolution_unlocked))
-                }
                 LevelMenu.LAPRAS_LEVEL -> {
                     val lapras = activity.gameDataService.generatePokemon(131, 45)
                     lapras.heldItem = HoldItem.NEVER_MELT_ICE
@@ -107,6 +104,7 @@ class RewardMenu {
                     activity.showCustomDialog(activity.getString(R.string.new_item_available_in_shop))
                 }
                 LevelMenu.OAK_LEVEL_ID -> {
+                    activity.showCustomDialog(activity.getString(R.string.mega_evolution_unlocked))
                     when {
                         activity.trainer!!.pokedex[1] == true -> {
                             activity.trainer!!.addItem(activity.gameDataService.pokemons[2].megaEvolutionData!!.stoneId, 1)
@@ -207,10 +205,11 @@ class RewardMenu {
         )
             activity.trainer!!.coins += 200
         else if (!firstTime
+            && !activity.hardMode
             && !activity.eliteMode
             && levelData.id != BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID) {
             val coinsReward = levelData.rewards.find { it.itemId == 0 }
-            if (coinsReward != null && !activity.hardMode)
+            if (coinsReward != null)
                 activity.trainer!!.coins += coinsReward.quantity / 10
         }
         rewards.forEach {

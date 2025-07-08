@@ -20,7 +20,7 @@ import com.pokemon.android.version.utils.MoveUtils
 class BattleFrontierMenu {
     companion object {
         const val FRONTIER_BRAIN_LEVEL_ID = 99
-        val FORBIDDEN_POKEMON = listOf(144,145,146,150,151,243,244,245,251)
+        val FORBIDDEN_POKEMON = listOf(144,145,146,150,151,243,244,245,251,719)
     }
 
     var pokemonInfoMenu = PokemonInfoMenu(R.layout.battle_frontier_prep)

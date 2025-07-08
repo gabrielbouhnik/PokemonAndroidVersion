@@ -153,7 +153,8 @@
   },
   {
     "id": 122,
-    "moveIds": [45,44,55,139]
+    "moveIds": [45,44,55,319],
+    "itemHeld": "LIGHT_CLAY"
   },
   {
     "id": 123,
@@ -300,16 +301,6 @@
   {
     "id": 205,
     "moveIds": [233,93,25,267]
-  },
-  {
-    "id": 208,
-    "moveIds": [93,27,25,144],
-    "itemHeld": "LEFTOVERS"
-  },
-  {
-    "id": 208,
-    "moveIds": [93,120,13,144],
-    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 212,
@@ -661,12 +652,12 @@
   },
   {
     "id": 472,
-    "moveIds": [93,272,114,118],
-    "itemHeld": "LEFTOVERS"
+    "moveIds": [93,113,114,118],
+    "itemHeld": "TOXIC_ORB"
   },
   {
     "id": 472,
-    "moveIds": [93,272,62,56],
+    "moveIds": [93,113,62,56],
     "itemHeld": "TOXIC_ORB"
   },
   {
@@ -857,6 +848,11 @@
     "id": 939,
     "moveIds": [53,178,208,134],
     "itemHeld": "LEFTOVERS"
+  },
+  {
+    "id": 941,
+    "moveIds": [12,50,55,321],
+    "itemHeld": "MAGNET"
   },
   {
     "id": 966,

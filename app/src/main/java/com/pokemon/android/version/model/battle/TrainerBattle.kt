@@ -32,8 +32,7 @@ class TrainerBattle() : Battle() {
         )
         if (activity.hardMode) {
             if (this.levelData.id == LevelMenu.ARCHER_LEVEL) {
-                (this.levelData as TrainerBattleLevelData).megaPokemonId = 248
-                opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id == 229 || it.data.id == 110})
+                opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id == 101 || it.data.id == 126})
                 (opponentTrainer.team as ArrayList<Pokemon>).add(
                     1,
                     activity.gameDataService.generatePokemonWithMoves(
@@ -57,30 +56,6 @@ class TrainerBattle() : Battle() {
                             activity.gameDataService.getMoveById(66)//GIGA DRAIN
                         ),
                         HoldItem.LIFE_ORB
-                    ))
-                (opponentTrainer.team as ArrayList<Pokemon>).add(
-                    1,
-                    activity.gameDataService.generatePokemonWithMoves(
-                        169, 57,//CROBAT
-                        listOf(
-                            activity.gameDataService.getMoveById(48),//CONFUSE RAY
-                            activity.gameDataService.getMoveById(129),//CROSS POISON
-                            activity.gameDataService.getMoveById(128),//LEECH LIFE
-                            activity.gameDataService.getMoveById(16)//WING ATTACK
-                        ),
-                        HoldItem.BLACK_SLUDGE
-                    ))
-                (opponentTrainer.team as ArrayList<Pokemon>).add(
-                    1,
-                    activity.gameDataService.generatePokemonWithMoves(
-                        248, 58,//TYRANITAR
-                        listOf(
-                            activity.gameDataService.getMoveById(27),//CRUNCH
-                            activity.gameDataService.getMoveById(25),//ROCK SLIDE
-                            activity.gameDataService.getMoveById(93),//EARTHQUAKE
-                            activity.gameDataService.getMoveById(31)//FLAMETHROWER
-                        ),
-                        null
                     ))
             }
             if (this.levelData.id == LevelMenu.GIOVANNI_LEVEL) {

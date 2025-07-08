@@ -49,7 +49,7 @@ class Banner(
                 activity.trainer!!.addItem(s.id, 1)
         } else {
             val pokemonBanner = s as PokemonBanner
-            activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemonFromBanner(pokemonBanner))
+            activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemonFromBanner(pokemonBanner, activity.trainer!!.getMaxLevel() - 10))
         }
         SaveManager.save(activity)
         return s

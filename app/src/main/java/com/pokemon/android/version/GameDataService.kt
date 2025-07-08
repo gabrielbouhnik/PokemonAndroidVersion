@@ -66,13 +66,16 @@ class GameDataService {
     }
 
     fun updateShopForHardMode() {
-        this.shop.filter { it.itemId < 12 }.map{ it.cost *= 2}
         this.shop.add(ShopItem(8, this.items.first { it.id == 8 }.name, 10, 2))
-        for (itemId in 16..28) {
-            this.shop.add(ShopItem(itemId, this.items.first { it.id == itemId }.name, 1000, 3))
+        for (itemId in 16..19) {
+            this.shop.add(ShopItem(itemId, this.items.first { it.id == itemId }.name, 750, 3))
         }
-        this.shop.add(ShopItem(12, this.items.first { it.id == 12 }.name, 200, 3))
-        this.shop.add(ShopItem(13, this.items.first { it.id == 13 }.name, 300, 6))
+        this.shop.add(ShopItem(28, this.items.first { it.id == 28 }.name, 750, 3))
+        for (itemId in 20..24) {
+            this.shop.add(ShopItem(itemId, this.items.first { it.id == itemId }.name, 200, 3))
+        }
+        this.shop.add(ShopItem(12, this.items.first { it.id == 12 }.name, 150, 3))
+        this.shop.add(ShopItem(13, this.items.first { it.id == 13 }.name, 200, 6))
         this.shop.add(ShopItem(200, this.items.first { it.id == 200 }.name, 4000, 8))
         this.shop.sortBy { it.itemId }
     }
@@ -132,8 +135,8 @@ class GameDataService {
         return pokemon
     }
 
-    fun generatePokemonFromBanner(pokemonBanner: PokemonBanner): Pokemon {
-        val pokemon = generatePokemonWithMoves(pokemonBanner.pokemonId, 5, pokemonBanner.moves,null)
+    fun generatePokemonFromBanner(pokemonBanner: PokemonBanner, level: Int): Pokemon {
+        val pokemon = generatePokemonWithMoves(pokemonBanner.pokemonId, level, pokemonBanner.moves,null)
         pokemon.isFromBanner = true
         if (pokemon.data.id == 133) {
             val random = Random.nextInt(1,5)

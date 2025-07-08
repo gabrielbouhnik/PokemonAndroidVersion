@@ -59,11 +59,23 @@ class DamageCalculator {
             if (moveType == Type.NORMAL && attacker.hasAbility(Ability.PIXILATE)) {
                 moveType = Type.FAIRY
             }
-            if (moveType == Type.GROUND && opponent.battleData!!.battleStatus.contains(Status.ROOSTED)) {
-                if (type1 == Type.FLYING)
-                    type1 = Type.NONE
-                else
-                    type2 = Type.NONE
+            if (moveType == Type.GROUND) {
+                if (opponent.battleData!!.battleStatus.contains(Status.ROOSTED)) {
+                    if (type1 == Type.FLYING)
+                        type1 = Type.NONE
+                    else
+                        type2 = Type.NONE
+                }
+                if (opponent.hasType(Type.FLYING) && battleField.gravityCounter > 0) {
+                    if (type1 == Type.FLYING)
+                        type1 = Type.NONE
+                    else
+                        type2 = Type.NONE
+                }
+                if (opponent.battleData!!.magnetRiseCounter > 0
+                    && battleField.gravityCounter == 0) {
+                    return 0f
+                }
             }
             if ((moveType == Type.NORMAL || moveType == Type.FIGHTING) && attacker.hasAbility(Ability.SCRAPPY) && opponent.hasType(
                     Type.GHOST
@@ -199,7 +211,7 @@ class DamageCalculator {
             val typeBoostItem = TYPE_ITEM_BOOST[move.type]
             if (typeBoostItem != null && attacker.hasItem(typeBoostItem))
                 power *= 1.2f
-            if (move.id == 272 && attacker.heldItem == null)
+            if (move.id == 272 && (attacker.heldItem == null || attacker.itemDisabled))
                 power *= 2f
             if (move.id == 273) {
                 //ELECTRO BALL

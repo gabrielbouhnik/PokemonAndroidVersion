@@ -53,11 +53,7 @@
       {
         "id": 183,
         "rate": 5,
-        "moveIds": [
-          2,
-          6,
-          96
-        ]
+        "moveIds": [2,6, 96]
       }
     ],
     "items": [
@@ -671,9 +667,7 @@
       {
         "id": 10037,
         "rate": 5,
-        "moveIds": [
-          174,265
-        ]
+        "moveIds": [174,265]
       }
     ],
     "items": [
@@ -700,6 +694,86 @@
       {
         "id": 186,
         "rate": 10
+      }
+    ],
+    "days": []
+  },
+  {
+    "image": "images/banners/grimer_banner.png",
+    "description": "Get an Alolan Grimer with the move Shadow Sneak",
+    "cost": 100,
+    "pokemons": [
+      {
+        "id": 10088,
+        "rate": 5,
+        "moveIds": [64,83,220]
+      }
+    ],
+    "items": [
+      {
+        "id": 3,
+        "rate": 15
+      },
+      {
+        "id": 4,
+        "rate": 15
+      },
+      {
+        "id": 8,
+        "rate": 15
+      },
+      {
+        "id": 11,
+        "rate": 15
+      },
+      {
+        "id": 157,
+        "rate": 25
+      },
+      {
+        "id": 171,
+        "rate": 10
+      }
+    ],
+    "days": []
+  },
+  {
+    "image": "images/banners/celebi_banner.png",
+    "description": "Get the mythical Pokémon Celebi",
+    "cost": 150,
+    "pokemons": [
+      {
+        "id": 251,
+        "rate": 10,
+        "moveIds": [
+          39,330
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": 3,
+        "rate": 15
+      },
+      {
+        "id": 4,
+        "rate": 15
+      },
+      {
+        "id": 11,
+        "rate": 20
+      },
+      {
+        "id": 12,
+        "rate": 15
+      },
+      {
+        "id": 150,
+        "rate": 15
+      },
+      {
+        "id": 161,
+        "rate": 15
       }
     ],
     "days": []
@@ -734,12 +808,12 @@
         "rate": 15
       },
       {
-        "id": 8,
-        "rate": 15
+        "id": 11,
+        "rate": 20
       },
       {
-        "id": 11,
-        "rate": 15
+        "id": 12,
+        "rate": 10
       },
       {
         "id": 158,
@@ -757,7 +831,7 @@
     "items": [
       {
         "id": 51,
-        "rate": 15
+        "rate": 5
       },
       {
         "id": 52,

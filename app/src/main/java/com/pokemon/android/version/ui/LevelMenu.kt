@@ -13,15 +13,15 @@ import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAI
 
 class LevelMenu {
     companion object {
+        const val BROCK_LEVEL = 9
         const val ROUTE_3_LEVEL = 10
         const val TEAM_ROCKET_LEVEL = 13
         const val MISTY_LEVEL = 18
         const val SURGE_LEVEL = 22
         const val OTHER_BANNER_LEVEL = 19
-        const val DUGTRIO_LEVEL = 25
+        const val DUGTRIO_LEVEL = 24
         const val MAROWAK_LEVEL = 32
         const val ERIKA_LEVEL = 38
-        const val KOGA_LEVEL = 45
         const val LAPRAS_LEVEL = 50
         const val ARCHER_LEVEL = 52
         const val GIOVANNI_LEVEL = 53

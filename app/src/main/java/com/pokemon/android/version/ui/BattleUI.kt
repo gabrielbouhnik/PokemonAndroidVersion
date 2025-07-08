@@ -21,6 +21,7 @@ import com.pokemon.android.version.model.level.*
 import com.pokemon.android.version.model.move.MoveCategory
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAIN_LEVEL_ID
+import com.pokemon.android.version.ui.LevelMenu.Companion.BROCK_LEVEL
 import com.pokemon.android.version.ui.LevelMenu.Companion.ELITE_4_LAST_LEVEL_ID
 import com.pokemon.android.version.ui.LevelMenu.Companion.GIOVANNI_2_LEVEL
 import com.pokemon.android.version.ui.LevelMenu.Companion.ROUTE_3_LEVEL
@@ -740,7 +741,7 @@ class BattleUI {
     }
 
     fun startGymLeaderBattle(activity: MainActivity, level: LeaderLevelData) {
-        if (activity.trainer!!.progression == 9)
+        if (activity.trainer!!.progression == BROCK_LEVEL)
             activity.showCustomDialog(activity.getString(R.string.tutorial_gym_leader))
         this.team = if (level.id == FRONTIER_BRAIN_LEVEL_ID)
             activity.trainer!!.battleTowerProgression!!.team.toMutableList()

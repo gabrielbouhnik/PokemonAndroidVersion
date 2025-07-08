@@ -212,7 +212,7 @@ abstract class Battle {
                     ) {
                         pokemon.battleData!!.battleStatus.add(Status.CONFUSED)
                         sb.append("${pokemon.data.name} became confused due to fatigue!\n")
-                        if (pokemon.heldItem == HoldItem.LUM_BERRY  && !opponent.hasAbility(Ability.UNNERVE)) {
+                        if (pokemon.hasItem(HoldItem.LUM_BERRY)  && !opponent.hasAbility(Ability.UNNERVE)) {
                             sb.append("${pokemon.data.name}'s Lum Berry cured its status\n")
                             pokemon.status = Status.OK
                             pokemon.consumeItem()
@@ -412,7 +412,7 @@ abstract class Battle {
                 ) {
                     opponent.battleData!!.battleStatus.add(Status.CONFUSED)
                     sb.append("The opposing ${opponent.data.name} became confused due to fatigue!\n")
-                    if (opponent.heldItem == HoldItem.LUM_BERRY && !pokemon.hasAbility(Ability.UNNERVE)) {
+                    if (opponent.hasItem(HoldItem.LUM_BERRY) && !pokemon.hasAbility(Ability.UNNERVE)) {
                         sb.append("${opponent.data.name}'s Lum Berry cured its status\n")
                         opponent.status = Status.OK
                         opponent.consumeItem()
@@ -544,6 +544,9 @@ abstract class Battle {
             }
             if (pokemon.battleData!!.battleStatus.contains(Status.ROOSTED)) {
                 pokemon.battleData!!.battleStatus.remove(Status.ROOSTED)
+            }
+            if (pokemon.battleData!!.magnetRiseCounter > 0) {
+                pokemon.battleData!!.magnetRiseCounter--
             }
             if (pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)) {
                 pokemon.battleData!!.trapCounter++
