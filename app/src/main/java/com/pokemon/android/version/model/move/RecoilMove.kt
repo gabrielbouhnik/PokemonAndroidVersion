@@ -10,7 +10,7 @@ class RecoilMove(
     category: MoveCategory,
     power: Int,
     pp: Int,
-    accuracy: Int,
+    accuracy: Int?,
     priorityLevel: Int = 0,
     status: ArrayList<StatusMove>,
     highCritRate: Boolean = false,
@@ -58,7 +58,7 @@ class RecoilMove(
         var pp: Int = 0,
         var type: Type = Type.NONE,
         var category: MoveCategory = MoveCategory.PHYSICAL,
-        var accuracy: Int = 100,
+        var accuracy: Int? = 100,
         var priorityLevel: Int = 0,
         var status: ArrayList<StatusMove> = arrayListOf(),
         var highCritRate: Boolean = false,
@@ -72,7 +72,7 @@ class RecoilMove(
         fun category(category: MoveCategory) = apply { this.category = category }
         fun power(power: Int) = apply { this.power = power }
         fun pp(pp: Int) = apply { this.pp = pp }
-        fun accuracy(accuracy: Int) = apply { this.accuracy = accuracy }
+        fun accuracy(accuracy: Int?) = apply { this.accuracy = accuracy }
         fun priorityLevel(priorityLevel: Int) = apply { this.priorityLevel = priorityLevel }
         fun highCritRate(highCritRate: Boolean) = apply { this.highCritRate = highCritRate }
         fun description(description: String) = apply { this.description = description }

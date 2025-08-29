@@ -29,6 +29,7 @@ class GameDataService {
     var achievements: List<Achievement> = ArrayList()
     var shop: MutableList<ShopItem> = ArrayList()
     var battleFrontierPokemons: HashMap<Int, ArrayList<BattleFrontierPokemonData>> = HashMap()
+    var battleFrontierTrainers: List<OpponentTrainerData> = ArrayList()
 
     companion object {
         const val MOVES_DATA_PATH = "game_data/moves.json"
@@ -37,6 +38,7 @@ class GameDataService {
         const val BANNER_DATA_PATH = "game_data/banners.json"
         const val LEVELS_DATA_PATH = "game_data/levels.json"
         const val POKEMON_BATTLE_FRONTIER_PATH = "game_data/battle_frontier/pokemons.json"
+        const val TRAINER_BATTLE_FRONTIER_PATH = "game_data/battle_frontier/trainers.json"
         const val ACHIEVEMENTS_DATA_PATH = "game_data/achievements.json"
         const val SHOP_DATA_PATH = "game_data/shop.json"
     }
@@ -50,6 +52,7 @@ class GameDataService {
         val levelsRepository = LevelsRepository()
         val shopRepository = ShopRepository()
         val battleFrontierPokemonRepository = BattleFrontierPokemonRepository()
+        val battleFrontierTrainersRepository = BattleFrontierTrainerRepository()
         this.moves = MoveFactory.createMove(movesRepository.loadData(activity))
         this.items = ItemFactory.createItems(itemRepository.loadData(activity), this.moves)
         this.pokemons = pokemonRepository.loadData(activity).map { PokemonData.of(it, moves) }
@@ -62,6 +65,7 @@ class GameDataService {
             else
                 this.battleFrontierPokemons[it.id] = arrayListOf(BattleFrontierPokemonData(it.moveIds.map { moveId -> getMoveById(moveId)}, if (it.itemHeld != null) HoldItem.valueOf(it.itemHeld!!) else null))
         }
+        this.battleFrontierTrainers = battleFrontierTrainersRepository.loadData(activity).map { OpponentTrainerData.of(it, this, 3) }
         this.shop = shopRepository.loadData(activity).map { ShopItem.of(it, this)}.toMutableList()
     }
 
@@ -78,6 +82,7 @@ class GameDataService {
         this.shop.add(ShopItem(13, this.items.first { it.id == 13 }.name, 200, 6))
         this.shop.add(ShopItem(200, this.items.first { it.id == 200 }.name, 4000, 8))
         this.shop.sortBy { it.itemId }
+        this.shop = this.shop.filter { it.itemId != 115  && it.itemId != 117 && it.itemId != 120 }.toMutableList()
     }
 
     fun getPokemonDataById(id: Int): PokemonData {

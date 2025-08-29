@@ -43,7 +43,7 @@ class WildBattle() : Battle() {
         if (encountersLeft == 0 && (opponent.trainer != null || opponent.currentHP == 0)) {
             return State.TRAINER_VICTORY
         }
-        if (!activity.trainer!!.canStillBattle() || MoveUtils.getMoveList(opponent).none { it.pp > 0 }) {
+        if (!activity.trainer!!.canStillBattle()) {
             return State.TRAINER_LOSS
         }
         return State.IN_PROGRESS

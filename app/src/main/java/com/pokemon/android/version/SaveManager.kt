@@ -46,6 +46,9 @@ class SaveManager {
             if (trainerSave.lastTimeDailyHealUsed != null)
                 trainer.lastTimeDailyHealUsed =
                     SimpleDateFormat("yyyy-MM-dd").parse(trainerSave.lastTimeDailyHealUsed!!)
+            if (trainerSave.lastFreeSummon != null)
+                trainer.lastFreeSummon =
+                    SimpleDateFormat("yyyy-MM-dd").parse(trainerSave.lastTimeDailyHealUsed!!)
             if (trainerSave.eliteMode != null)
                 activity.eliteMode = trainerSave.eliteMode!!
             if (trainerSave.hardMode != null)

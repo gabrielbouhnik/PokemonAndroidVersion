@@ -6,6 +6,8 @@ import com.pokemon.android.version.model.Status
 import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.move.*
+import kotlin.math.min
+import kotlin.math.pow
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
@@ -43,8 +45,8 @@ class DamageCalculator {
         }
 
         fun getEffectiveness(attacker: Pokemon, move: Move, opponent: Pokemon, battleField: BattleField): Float {
-            var type1 = if (opponent.isMegaEvolved) opponent.data.megaEvolutionData!!.type1 else opponent.data.type1
-            var type2 = if (opponent.isMegaEvolved) opponent.data.megaEvolutionData!!.type2 else opponent.data.type2
+            var type1 = opponent.getBattleType1()
+            var type2 = opponent.getBattleType2()
             var moveType = move.type
             if (move.id == 316) {
                 if (battleField.weather == Weather.SANDSTORM) {
@@ -87,9 +89,10 @@ class DamageCalculator {
                     type2 = Type.NONE
             }
             var type: Float = moveType.isEffectiveAgainst(type2) * moveType.isEffectiveAgainst(type1)
-            if (opponent.hasType(Type.WATER) && move.id == 268)
+            if (opponent.hasType(Type.WATER) && move.id == 268) { // FREEZE-DRY
                 type *= 4f
-            if (move.id == 263) {
+            }
+            if (move.id == 263) { //FLYING PRESS
                 type *= Type.FLYING.isEffectiveAgainst(type2) * Type.FLYING.isEffectiveAgainst(type1)
             }
             if (type >= 2f && (opponent.hasAbility(Ability.FILTER) || opponent.hasAbility(Ability.SOLID_ROCK) || opponent.hasAbility(
@@ -106,12 +109,11 @@ class DamageCalculator {
 
         fun computeDamageWithoutAbility(attacker: Pokemon, move: Move, opponent: Pokemon, battleField: BattleField): Int {
             var multiplicator = 1f
-            var stab = if (attacker.data.type1 == move.type || attacker.data.type2 == move.type) 1.5f else 1f
-            if (attacker.isMegaEvolved && (attacker.data.megaEvolutionData!!.type1 == move.type || attacker.data.megaEvolutionData!!.type2 == move.type))
-                stab = 1.5f
-            if (move.category == MoveCategory.PHYSICAL && !attacker.hasAbility(Ability.GUTS)) {
-                if (attacker.status == Status.BURN)
-                    multiplicator *= 0.5f
+            val stab = if (attacker.hasType(move.type)) 1.5f else 1f
+            if (move.category == MoveCategory.PHYSICAL
+                && !attacker.hasAbility(Ability.GUTS)
+                && attacker.status == Status.BURN) {
+                multiplicator *= 0.5f
             }
             val power = if (move is MoveBasedOnHP) move.getPower(attacker) else move.power
             val type = getEffectiveness(attacker, move, opponent, battleField)
@@ -145,6 +147,10 @@ class DamageCalculator {
             }
             if (move.id == 241 && opponent.hp / opponent.currentHP >= 2) {
                 power *= 2
+            }
+            if (move.id == 335) {
+                //FURY CUTTER
+                power = min(160f, move.power.toDouble().pow(attacker.battleData!!.sameMoveCounter + 1).toFloat())
             }
             if (move.id == 233) {
                 //GYRO BALL
@@ -200,7 +206,7 @@ class DamageCalculator {
                 //FACADE
                 power *= 2f
             }
-            if (move.id == 307 && attacker.status != Status.OK) {
+            if (move.id == 307) {
                 //RAGE FIST
                 power += 50 * attacker.battleData!!.numberOfHitTaken
             }
@@ -221,7 +227,7 @@ class DamageCalculator {
                     speedRatio > 4f -> power *= 150f
                     speedRatio > 3f -> power *= 120f
                     speedRatio > 2f -> power *= 80f
-                    speedRatio > 1f -> power *= 60f
+                    speedRatio >= 1f -> power *= 60f
                 }
             }
             if (attacker.hasItem(HoldItem.LIFE_ORB))
@@ -236,7 +242,9 @@ class DamageCalculator {
                 if (move.type == Type.BUG && attacker.hasAbility(Ability.SWARM))
                     power *= 1.5f
             }
-            if (move.id == 247 && opponent.heldItem != null)
+            if (move.id == 247 && opponent.heldItem != null && !opponent.itemDisabled)
+                power *= 1.5f
+            if (move.type == Type.STEEL && attacker.hasAbility(Ability.STEELWORKER))
                 power *= 1.5f
             if (attacker.battleData!!.lastHitReceived != null && (move.id == 251 || move.id == 299))
                 power *= 2f
@@ -261,16 +269,19 @@ class DamageCalculator {
                 power *= 0.5f
             }
             if (!crit) {
-                if (opponentBattleSide.battleSideEffects.contains(BattleSideEffect.AURORA_VEIL)) {
+                if (opponentBattleSide.battleSideEffects.contains(BattleSideEffect.AURORA_VEIL)
+                    && !attacker.hasAbility(Ability.INFILTRATOR)) {
                     power *= 0.5f
                 }
                 if (opponentBattleSide.battleSideEffects.contains(BattleSideEffect.REFLECT)
                     && move.category == MoveCategory.PHYSICAL
+                    && !attacker.hasAbility(Ability.INFILTRATOR)
                 ) {
                     power *= 0.5f
                 }
                 if (opponentBattleSide.battleSideEffects.contains(BattleSideEffect.LIGHT_SCREEN)
-                    && move.category == MoveCategory.SPECIAL
+                    && (move.category == MoveCategory.SPECIAL || move.category == MoveCategory.SPECIAL_AND_PHYSICAL)
+                    && !attacker.hasAbility(Ability.INFILTRATOR)
                 ) {
                     power *= 0.5f
                 }
@@ -293,7 +304,7 @@ class DamageCalculator {
                     return 0
                 if (move.type == Type.GROUND
                     && battleField.gravityCounter == 0
-                    && (opponent.hasAbility(Ability.LEVITATE) || opponent.hasItem(HoldItem.AIR_BALLOON)))
+                    && opponent.hasAbility(Ability.LEVITATE))
                     return 0
                 if (move.characteristics.contains(MoveCharacteristic.BULLET) && opponent.hasAbility(Ability.BULLETPROOF))
                     return 0
@@ -317,26 +328,35 @@ class DamageCalculator {
             }
             if (move.characteristics.contains(MoveCharacteristic.JUMP) && battleField.gravityCounter > 0)
                 return 0
+            if (move.type == Type.GROUND
+                && battleField.gravityCounter == 0
+                && opponent.hasItem(HoldItem.AIR_BALLOON))
+                return 0
+            if (move.id == 331 && (opponent.heldItem == null || opponent.itemDisabled)) //Poltergeist
+                return 0
             if (move is RetaliationMove) {
                 if (attacker.battleData!!.lastHitReceived != null && move.category == attacker.battleData!!.lastHitReceived!!.category)
                     return attacker.battleData!!.lastHitReceived!!.damage * 2
                 return 0
             }
             var multiplicator = 1f
-            var stab = if (attacker.data.type1 == move.type || attacker.data.type2 == move.type) 1.5f else 1f
-            if (attacker.isMegaEvolved && (attacker.data.megaEvolutionData!!.type1 == move.type || attacker.data.megaEvolutionData!!.type2 == move.type))
-                stab = 1.5f
+            var stab = if (attacker.hasType(move.type)) 1.5f else 1f
             if (stab == 1.5f && attacker.hasAbility(Ability.ADAPTABILITY))
                 stab = 2f
-            if (move.category == MoveCategory.PHYSICAL && criticalMultiplicator == 1f && !attacker.hasAbility(Ability.GUTS)) {
-                if (attacker.status == Status.BURN)
+            if (move.category == MoveCategory.PHYSICAL
+                && !attacker.hasAbility(Ability.GUTS)
+                && criticalMultiplicator == 1f
+                && attacker.status == Status.BURN) {
+                multiplicator *= 0.5f
+            }
+            if (!attacker.hasAbility(Ability.MOLD_BREAKER)) {
+                if ((move.type == Type.FIRE || move.type == Type.ICE) && opponent.hasAbility(Ability.THICK_FAT))
+                    multiplicator *= 0.5f
+                if (move.type == Type.FIRE
+                    && (opponent.hasAbility(Ability.WATER_BUBBLE) || opponent.hasAbility(Ability.HEATPROOF))
+                )
                     multiplicator *= 0.5f
             }
-            if ((move.type == Type.FIRE || move.type == Type.ICE) && opponent.hasAbility(Ability.THICK_FAT))
-                multiplicator *= 0.5f
-            if (move.type == Type.FIRE
-                && (opponent.hasAbility(Ability.WATER_BUBBLE) || opponent.hasAbility(Ability.HEATPROOF)))
-                multiplicator *= 0.5f
             return try {
                 val type = getEffectiveness(attacker, move, opponent, battleField)
                 if (type > 0) {
@@ -379,7 +399,7 @@ class DamageCalculator {
 
         fun computeConfusionDamage(attacker: Pokemon): Int {
             var multiplicator = 1f
-            if (attacker.status == Status.BURN)
+            if (attacker.status == Status.BURN && !attacker.hasAbility(Ability.GUTS))
                 multiplicator *= 0.5f
             val random: Float = Random.nextInt(85, 100).toFloat() / 100f
             val offensiveStat: Int =

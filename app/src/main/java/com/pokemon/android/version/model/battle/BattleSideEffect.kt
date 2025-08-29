@@ -4,11 +4,13 @@ import java.util.*
 
 enum class BattleSideEffect {
     AURORA_VEIL,
+    HEALING_WISH,
     LIGHT_SCREEN,
     REFLECT,
     SAFEGUARD,
     STICKY_WEB,
-    TAILWIND;
+    TAILWIND,
+    WISH;
 
     companion object {
         fun moveNameToTeamEffect(moveName: String): BattleSideEffect {

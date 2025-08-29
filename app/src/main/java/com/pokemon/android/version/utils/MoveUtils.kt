@@ -1,12 +1,25 @@
 package com.pokemon.android.version.utils
 
 import com.pokemon.android.version.model.Pokemon
+import com.pokemon.android.version.model.Status
+import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.level.PokemonBoss
-import com.pokemon.android.version.model.move.Move
+import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 
 class MoveUtils {
     companion object {
+        val STRUGGLE = RecoilMove.RecoilMoveBuilder()
+            .id(-1)
+            .name("Struggle")
+            .power(50)
+            .type(Type.NORMAL)
+            .highCritRate(false)
+            .pp(20)
+            .recoil(Recoil.QUARTER)
+            .characteristics(listOf(MoveCharacteristic.CONTACT))
+            .build()
+
         fun getMoveList(pokemon: Pokemon): ArrayList<PokemonMove> {
             val res = arrayListOf(pokemon.move1)
             if (pokemon.move2 != null)
@@ -22,6 +35,17 @@ class MoveUtils {
                     res.add(pokemon.move6!!)
             }
             return res
+        }
+
+        fun getUsableMoves(pokemon: Pokemon): List<PokemonMove> {
+            var usableMoves = getMoveList(pokemon).filter { it.pp > 0  && !it.isDisabled()}
+            if (pokemon.battleData!!.battleStatus.contains(Status.TAUNTED)) {
+                usableMoves = usableMoves.filter { it.move.category != MoveCategory.OTHER}
+            }
+            if (usableMoves.isEmpty()) {
+                return arrayListOf(PokemonMove(STRUGGLE, 1, 0))
+            }
+            return usableMoves
         }
 
         fun getPossibleMoves(pokemon: Pokemon): List<Move> {

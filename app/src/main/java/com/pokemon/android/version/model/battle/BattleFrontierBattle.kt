@@ -6,6 +6,7 @@ import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.Trainer
 import com.pokemon.android.version.model.Type
+import com.pokemon.android.version.model.level.OpponentTrainerData
 import com.pokemon.android.version.utils.IAUtils
 import kotlin.random.Random
 
@@ -45,19 +46,24 @@ class BattleFrontierBattle() : Battle() {
     var team: List<Pokemon> = listOf()
     var area: BattleFrontierArea = BattleFrontierArea.BATTLE_FACTORY
 
-    constructor(activity: MainActivity, team: List<Pokemon>, area: BattleFrontierArea) : this() {
+    constructor(activity: MainActivity, team: List<Pokemon>, area: BattleFrontierArea, opponentTrainerData: OpponentTrainerData?) : this() {
         this.activity = activity
         this.team = team
         this.area = area
         this.pokemon = team[0]
         this.pokemon.battleData = PokemonBattleData()
-        val opponentTeam = generateTeam(activity.gameDataService)
-        for (pokemon in opponentTeam){
-            if (Random.nextInt(50) == 10)
-                pokemon.shiny = true
+        if (opponentTrainerData == null) {
+            val opponentTeam = generateTeam(activity.gameDataService)
+            for (pokemon in opponentTeam){
+                if (Random.nextInt(50) == 10)
+                    pokemon.shiny = true
+            }
+            this.opponentTrainer = OpponentTrainer("Elite Trainer", opponentTeam, "images/Sprite_Topdresseuse.png",3)
+        } else {
+            val opponentTeam = opponentTrainerData.pokemons.map{activity.gameDataService.generatePokemonWithMoves(it.id, 50, it.moves, it.holdItem)}
+            this.opponentTrainer = OpponentTrainer(opponentTrainerData.name, opponentTeam, opponentTrainerData.sprite, 3)
         }
-        this.opponentTrainer = OpponentTrainer("Elite Trainer", opponentTeam, "images/Sprite_Topdresseuse.png",3)
-        opponentTeam.forEach {it.trainer = this.opponentTrainer}
+        this.opponentTrainer.team.forEach {it.trainer = this.opponentTrainer}
         this.opponent = this.opponentTrainer.getFirstPokemonThatCanFight()!!
     }
 

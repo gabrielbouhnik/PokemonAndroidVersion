@@ -32,19 +32,7 @@ class TrainerBattle() : Battle() {
         )
         if (activity.hardMode) {
             if (this.levelData.id == LevelMenu.ARCHER_LEVEL) {
-                opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id == 101 || it.data.id == 126})
-                (opponentTrainer.team as ArrayList<Pokemon>).add(
-                    1,
-                    activity.gameDataService.generatePokemonWithMoves(
-                        10101, 57,//HISUAN ELECTRODE
-                        listOf(
-                            activity.gameDataService.getMoveById(12),//THUNDERBOLT
-                            activity.gameDataService.getMoveById(105),//ENERGY BALL
-                            activity.gameDataService.getMoveById(280),//CHLOROBLAST
-                            activity.gameDataService.getMoveById(273)//ELECTRO BALL
-                        ),
-                        HoldItem.MIRACLE_SEED
-                    ))
+                opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id == 126})
                 (opponentTrainer.team as ArrayList<Pokemon>).add(
                     1,
                     activity.gameDataService.generatePokemonWithMoves(
@@ -100,7 +88,7 @@ class TrainerBattle() : Battle() {
                             activity.gameDataService.getMoveById(125),//DRAGON DANCE
                             activity.gameDataService.getMoveById(93)//EARTHQUAKE
                         ),
-                        HoldItem.LUM_BERRY
+                        null
                     ))
                 opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 31 && it.data.id != 112})
             }

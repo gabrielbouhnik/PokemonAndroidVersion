@@ -25,17 +25,14 @@ class IAUtils {
                     damage *= if (opponent.hasAbility(Ability.SKILL_LINK) || opponent.hasItem(HoldItem.LOADED_DICE)) 5 else 3
                 } else if (move.move is MultipleHitMove)
                     damage *= 2
-                if (damage >= damageReceiver.currentHP)
-                    return true
+                if (damage * 2 >= damageReceiver.currentHP)
+                    return false
             }
-            return false
+            return true
         }
 
         fun iaWildPokemon(attacker: Pokemon): PokemonMove {
-            var usableMoves = MoveUtils.getMoveList(attacker).filter { it.pp > 0  && !it.isDisabled()}
-            if (attacker.battleData!!.battleStatus.contains(Status.TAUNTED)) {
-                usableMoves = usableMoves.filter { it.move.category != MoveCategory.OTHER}
-            }
+            val usableMoves = MoveUtils.getUsableMoves(attacker)
             if (attacker.battleData!!.rampageMove != null)
                 return attacker.battleData!!.rampageMove!!
             if (attacker.battleData!!.chargedMove != null) {
@@ -52,10 +49,7 @@ class IAUtils {
         }
 
         fun ia(attacker: Pokemon, opponent: Pokemon, battleField: BattleField, attackerBattleSide: BattleSide, opponentBattleSide: BattleSide): PokemonMove {
-            var usableMoves = MoveUtils.getMoveList(attacker).filter {!it.isDisabled() && it.pp > 0}
-            if (attacker.battleData!!.battleStatus.contains(Status.TAUNTED)) {
-                usableMoves = usableMoves.filter { it.move.category != MoveCategory.OTHER}
-            }
+            val usableMoves = MoveUtils.getUsableMoves(attacker)
             if (opponent.currentHP == 0)
                 return usableMoves[0]
             if (attacker.battleData!!.chargedMove != null) {
@@ -79,18 +73,21 @@ class IAUtils {
                     damage *= if (opponent.hasAbility(Ability.SKILL_LINK) || opponent.hasItem(HoldItem.LOADED_DICE)) 5 else 3
                 if (attacker.canBeKOdBy(opponent, battleField, attackerBattleSide) && move.move is ChargedMove)
                     continue
-                if ((move.move.id == 246 || move.move.id == 282) && attacker.battleData!!.hadATurn)
+                if ((move.move.id == 246 || move.move.id == 282) && attacker.battleData!!.hadATurn) {
+                    //Don't use FAKE OUT and FIRST IMPRESSION
                     continue
+                }
                 if (move.move is RecoilMove && attacker.currentHP == attacker.hp && (move.move as RecoilMove).recoil == Recoil.ALL)
                     continue
                 if (damage >= opponent.currentHP) {
-                    if (move.move !is ChargedMove || attacker.hp / attacker.currentHP > 2)
+                    if (move.move !is ChargedMove || attacker.hasItem(HoldItem.POWER_HERB))
                         return move
                 }
-                if (damage > 0 && opponent.canBeKOdBy(attacker, battleField, opponentBattleSide)
+                if (damage > 0
+                    && attacker.canBeKOdBy(opponent, battleField, opponentBattleSide)
                     && move.move.priorityLevel > 0
                     && move.move.power > 0
-                    && BattleUtils.isFaster(opponent, attacker, battleField)) {
+                    && BattleUtils.isFaster(opponent, attacker, battleField, false)) {
                         //IF ATTACKER IS GOING TO GET KO FROM A FASTER OPPONENT, THEN IT WILL USE AN OFFENSIVE PRIORITY MOVE
                         return move
                 }
@@ -113,15 +110,15 @@ class IAUtils {
                     val statChangeMove: StatChangeMove = move.move as StatChangeMove
                     if (statChangeMove.target == Target.SELF) {
                         if (statChangeMove.increaseStat(Stats.SPEED)) {
-                            if (BattleUtils.isFaster(opponent, attacker, battleField)
+                            if (BattleUtils.isFaster(opponent, attacker, battleField, false)
                                 && !opponent.canBeKOdBy(attacker, battleField, opponentBattleSide)) {
                                 //OPPONENT IS FASTER AND CAN'T KO ATTACKER
                                 return move
                             }
                         } else if (shouldUpdateStats(statChangeMove, attacker) &&
-                            ((BattleUtils.isFaster(attacker, opponent, battleField)
-                                    && opponent.canBeKOdBy(attacker, battleField, opponentBattleSide))
-                            || canTakeTwoHits(opponent, attacker, battleField, opponentBattleSide))) {
+                            ((BattleUtils.isFaster(attacker, opponent, battleField, false)
+                                    && !attacker.canBeKOdBy(opponent, battleField, opponentBattleSide))
+                            || canTakeTwoHits(attacker, opponent, battleField, opponentBattleSide))) {
                             //ATTACKER IS FASTER AND CAN SURVIVE 1 HIT OR CAN SURVIVE 2 HITS FROM OPPONENT
                             return move
                         }

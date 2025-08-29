@@ -15,7 +15,9 @@ import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.battle.BattleFrontierArea
 import com.pokemon.android.version.model.battle.BattleFrontierBattle
 import com.pokemon.android.version.model.level.LeaderLevelData
+import com.pokemon.android.version.model.level.OpponentTrainerData
 import com.pokemon.android.version.utils.MoveUtils
+import kotlin.random.Random
 
 class BattleFrontierMenu {
     companion object {
@@ -23,7 +25,7 @@ class BattleFrontierMenu {
         val FORBIDDEN_POKEMON = listOf(144,145,146,150,151,243,244,245,251,719)
     }
 
-    var pokemonInfoMenu = PokemonInfoMenu(R.layout.battle_frontier_prep)
+    private var pokemonInfoMenu = PokemonInfoMenu(R.layout.battle_frontier_prep)
 
     fun loadPokemonInfoLayout(activity: MainActivity, pokemon: Pokemon, area: BattleFrontierArea) {
         activity.setContentView(R.layout.pokemon_info)
@@ -112,8 +114,13 @@ class BattleFrontierMenu {
             ) {
                 activity.mainMenu.levelMenu.loadLevelDescriptionMenu(activity,
                     activity.gameDataService.levels.find { it.id == 99 } as LeaderLevelData)
-            } else
-                activity.mainMenu.levelMenu.battleUI.startBattleFrontierBattle(activity, area)
+            } else {
+                var opponentTrainerData: OpponentTrainerData? = null
+                if (Random.nextInt(10) == 5) {
+                    opponentTrainerData = activity.gameDataService.battleFrontierTrainers.asSequence().shuffled().first()
+                }
+                activity.mainMenu.levelMenu.battleUI.startBattleFrontierBattle(activity, area, opponentTrainerData)
+            }
         }
     }
 

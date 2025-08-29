@@ -132,12 +132,12 @@ abstract class Battle {
                 }
             } else
                 sb.append(trainerTurn(trainerPokemonMove))
-            if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
+            if (opponent.currentHP > 0) {
                 sb.append(opponentTurn(opponentMove, trainerPokemonMove.move.category != MoveCategory.OTHER))
             }
         } else {
             sb.append(opponentTurn(opponentMove, trainerPokemonMove.move.category != MoveCategory.OTHER))
-            if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
+            if (pokemon.currentHP > 0) {
                 sb.append(trainerTurn(trainerPokemonMove))
             }
         }
@@ -165,6 +165,8 @@ abstract class Battle {
                 if ((this.levelData as TrainerBattleLevelData).megaPokemonId != opponent.data.id) {
                     shouldMegaEvolve = false
                 }
+            } else if (this is BattleFrontierBattle) {
+                shouldMegaEvolve = !opponentTrainer.name.contains("Elite") && opponent.heldItem == null
             } else
                 shouldMegaEvolve = false
             if (shouldMegaEvolve) {
@@ -243,25 +245,21 @@ abstract class Battle {
             this.pokemon.status = Status.OK
         if (this.pokemon.hasAbility(Ability.REGENERATOR) && this.pokemon.currentHP > 0)
             this.pokemon.heal(this.pokemon.hp / 3)
-        if (opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE))
-            opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
-        if (opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE))
-            opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE)
+        opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
+        opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE)
         this.pokemon = pokemonToBeSent
     }
 
     private fun switchOpponent(pokemonToBeSent: Pokemon) {
         pokemonToBeSent.battleData = PokemonBattleData()
         this.opponent.battleData = PokemonBattleData()
-        this.pokemon.removeDisableCountdown()
+        this.opponent.removeDisableCountdown()
         if (this.opponent.hasAbility(Ability.REGENERATOR) && this.opponent.currentHP > 0)
             this.opponent.heal(this.pokemon.hp / 3)
         if (this.opponent.hasAbility(Ability.NATURAL_CURE))
             this.opponent.status = Status.OK
-        if (pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE))
-            pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
-        if (pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE))
-            pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE)
+        pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
+        pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE)
         this.opponent = pokemonToBeSent
     }
 
@@ -346,38 +344,6 @@ abstract class Battle {
     }
 
     private fun endTurn(sb: StringBuilder) {
-        if (pokemon.status != Status.OK && pokemon.hasAbility(Ability.SHED_SKIN) && Random.nextInt(2) == 0) {
-            sb.append("${pokemon.data.name}'s Shed Skin: ${pokemon.data.name} cured its status!\n")
-            pokemon.status = Status.OK
-        }
-        if (opponent.status != Status.OK && opponent.hasAbility(Ability.SHED_SKIN) && Random.nextInt(2) == 0) {
-            sb.append("${opponent.data.name}'s Shed Skin: ${opponent.data.name} cured its status!\n")
-            opponent.status = Status.OK
-        }
-        if (pokemon.currentHP > 0 && opponent.currentHP > 0) {
-            if (opponent.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
-                val damage = if (opponent.currentHP < 16) 1 else opponent.hp / 8
-                if (opponent.hasAbility(Ability.LIQUID_OOZE)) {
-                    sb.append("${opponent.data.name}'s Liquid Ooze: ${pokemon.data.name} loses some hp.\n")
-                    pokemon.takeDamage(damage)
-                } else {
-                    sb.append("The opposing ${opponent.data.name}'s health is sapped by Leech Seed\n")
-                    opponent.takeDamage(damage)
-                    pokemon.heal(damage)
-                }
-            }
-            if (pokemon.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
-                val damage = if (pokemon.currentHP < 16) 1 else pokemon.hp / 8
-                if (pokemon.hasAbility(Ability.LIQUID_OOZE)) {
-                    sb.append("${pokemon.data.name}'s Liquid Ooze: ${opponent.data.name} loses some hp.\n")
-                    opponent.takeDamage(damage)
-                } else {
-                    sb.append("${pokemon.data.name}'s health is sapped by Leech Seed\n")
-                    pokemon.takeDamage(damage)
-                    opponent.heal(damage)
-                }
-            }
-        }
         if (battleField.weather == Weather.SANDSTORM && battleField.weatherCounter > 1) {
             if (opponent.currentHP > 0 && !opponent.hasType(Type.ROCK) && !opponent.hasType(Type.GROUND) && !opponent.hasType(Type.STEEL)
                 && !opponent.hasAbility(Ability.MAGIC_GUARD) && !opponent.hasAbility(Ability.OVERCOAT) && !opponent.hasAbility(Ability.SAND_FORCE)) {
@@ -398,6 +364,67 @@ abstract class Battle {
             if (pokemon.currentHP > 0 && pokemon.hasAbility(Ability.ICE_BODY)) {
                 pokemon.heal(pokemon.hp / 16)
                 sb.append("${pokemon.data.name}'s Ice Body: ${pokemon.data.name} regains some hp!\n")
+            }
+        }
+        if (battleField.weatherCounter > 0) {
+            battleField.weatherCounter -= 1
+            if (battleField.weatherCounter == 0) {
+                if (battleField.weather == Weather.SANDSTORM) {
+                    if (opponent.hasAbility(Ability.SAND_RUSH)) {
+                        opponent.battleData!!.statsMultiplier.speedMultiplicator /= 2
+                    }
+                    if (pokemon.hasAbility(Ability.SAND_RUSH)) {
+                        pokemon.battleData!!.statsMultiplier.speedMultiplicator /= 2
+                    }
+                }
+                battleField.setWeather(pokemon, Weather.NONE, opponent)
+                sb.append("The weather is back to normal\n")
+            }
+        }
+        if (battleField.trickRoomCounter > 0) {
+            battleField.trickRoomCounter -= 1
+            if (battleField.trickRoomCounter == 0) {
+                sb.append("The twisted dimensions returned to normal!")
+            }
+        }
+        if (battleField.gravityCounter > 0) {
+            battleField.gravityCounter -= 1
+            if (battleField.gravityCounter == 0) {
+                sb.append("Gravity returned to normal!")
+            }
+        }
+        sb.append(playerSide.updateBattleSide(pokemon))
+        sb.append(opponentSide.updateBattleSide(opponent))
+        if (pokemon.status != Status.OK && pokemon.hasAbility(Ability.SHED_SKIN) && Random.nextInt(2) == 0) {
+            sb.append("${pokemon.data.name}'s Shed Skin: ${pokemon.data.name} cured its status!\n")
+            pokemon.status = Status.OK
+        }
+        if (opponent.status != Status.OK && opponent.hasAbility(Ability.SHED_SKIN) && Random.nextInt(2) == 0) {
+            sb.append("${opponent.data.name}'s Shed Skin: ${opponent.data.name} cured its status!\n")
+            opponent.status = Status.OK
+        }
+        if (pokemon.currentHP > 0 && opponent.currentHP > 0) {
+            if (opponent.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
+                val damage = if (opponent.currentHP < 16) 1 else if (pokemon.hasItem(HoldItem.BIG_ROOT)) opponent.hp / 6 else opponent.hp / 8
+                if (opponent.hasAbility(Ability.LIQUID_OOZE)) {
+                    sb.append("${opponent.data.name}'s Liquid Ooze: ${pokemon.data.name} loses some hp.\n")
+                    pokemon.takeDamage(damage)
+                } else {
+                    sb.append("The opposing ${opponent.data.name}'s health is sapped by Leech Seed\n")
+                    opponent.takeDamage(damage)
+                    pokemon.heal(damage)
+                }
+            }
+            if (pokemon.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
+                val damage = if (pokemon.currentHP < 16) 1  else if (opponent.hasItem(HoldItem.BIG_ROOT)) pokemon.hp / 6 else pokemon.hp / 8
+                if (pokemon.hasAbility(Ability.LIQUID_OOZE)) {
+                    sb.append("${pokemon.data.name}'s Liquid Ooze: ${opponent.data.name} loses some hp.\n")
+                    opponent.takeDamage(damage)
+                } else {
+                    sb.append("${pokemon.data.name}'s health is sapped by Leech Seed\n")
+                    pokemon.takeDamage(damage)
+                    opponent.heal(damage)
+                }
             }
         }
         if (opponent.currentHP > 0) {
@@ -461,9 +488,7 @@ abstract class Battle {
             sb.append(pokemon.data.name + " fainted!\n")
             pokemon.status = Status.OK
             pokemon.battleData = null
-            if (pokemon.isMegaEvolved) {
-                pokemon.recomputeStat()
-            }
+            pokemon.recomputeStat()
         }
         if (opponent.currentHP == 0) {
             sb.append("The opposing " + opponent.data.name + " fainted!\n")
@@ -471,6 +496,12 @@ abstract class Battle {
                 opponent.recomputeStat()
             }
             updateOpponent()
+            if (opponent.currentHP > 0 && opponentSide.battleSideEffects.contains(BattleSideEffect.HEALING_WISH)) {
+                sb.append("The healing wish came true for ${opponent.data.name}!\n")
+                opponent.currentHP = opponent.hp
+                opponent.status = Status.OK
+                opponentSide.battleSideEffects.remove(BattleSideEffect.HEALING_WISH)
+            }
             if (this is BossBattle && opponent.isMegaEvolved && !this.megaPhase) {
                 activity.showCustomDialog("${this.opponent.data.name} has absorbed energy from your Mega Ring and has Mega Evolved! All its HP has been restored")
                 this.megaPhase = true
@@ -479,35 +510,6 @@ abstract class Battle {
                 sb.append(BattleUtils.abilitiesCheck(opponent, pokemon, battleField, opponentSide))
             }
         }
-        if (battleField.weatherCounter > 0) {
-            battleField.weatherCounter -= 1
-            if (battleField.weatherCounter == 0) {
-                if (battleField.weather == Weather.SANDSTORM) {
-                    if (opponent.hasAbility(Ability.SAND_RUSH)) {
-                        opponent.battleData!!.statsMultiplier.speedMultiplicator /= 2
-                    }
-                    if (pokemon.hasAbility(Ability.SAND_RUSH)) {
-                        pokemon.battleData!!.statsMultiplier.speedMultiplicator /= 2
-                    }
-                }
-                battleField.setWeather(pokemon, Weather.NONE, opponent)
-                sb.append("The weather is back to normal\n")
-            }
-        }
-        if (battleField.trickRoomCounter > 0) {
-            battleField.trickRoomCounter -= 1
-            if (battleField.trickRoomCounter == 0) {
-                sb.append("The twisted dimensions returned to normal!")
-            }
-        }
-        if (battleField.gravityCounter > 0) {
-            battleField.gravityCounter -= 1
-            if (battleField.gravityCounter == 0) {
-                sb.append("Gravity returned to normal!")
-            }
-        }
-        playerSide.updateBattleSide(pokemon)
-        opponentSide.updateBattleSide(opponent)
     }
 
     companion object {
@@ -515,10 +517,12 @@ abstract class Battle {
             var details = ""
             if (pokemon.hasItem(HoldItem.TOXIC_ORB) && Status.isAffectedByStatus(83, Status.BADLY_POISON, pokemon)) {
                 pokemon.status = Status.BADLY_POISON
+                BattleUtils.checkForStatusStatsRaiseAbility(pokemon)
                 details += pokemon.data.name + " is badly poisoned by its Toxic Orb\n"
             }
             if (pokemon.hasItem(HoldItem.FLAME_ORB) && Status.isAffectedByStatus(138, Status.BURN, pokemon)) {
                 pokemon.status = Status.BURN
+                BattleUtils.checkForStatusStatsRaiseAbility(pokemon)
                 details += pokemon.data.name + " is burned by its Flame Orb\n"
             }
             if (pokemon.battleData!!.battleStatus.contains(Status.CONFUSED)) {
@@ -553,8 +557,10 @@ abstract class Battle {
                 if (pokemon.battleData!!.trapCounter == 5) {
                     pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
                     pokemon.battleData!!.trapCounter = 0
-                } else if (!pokemon.hasAbility(Ability.MAGIC_GUARD))
+                } else if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
                     pokemon.takeDamage(pokemon.hp / 8)
+                    details += pokemon.data.name + " is hurt by the vortex!\n"
+                }
             }
             if (pokemon.battleData!!.battleStatus.contains(Status.FLINCHED))
                 pokemon.battleData!!.battleStatus.remove(Status.FLINCHED)

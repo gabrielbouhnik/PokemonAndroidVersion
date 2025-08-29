@@ -15,7 +15,8 @@ class BattleUtils {
             var details = ""
             var statusByContact = false
             if (move.characteristics.contains(MoveCharacteristic.CONTACT)
-                && !attacker.hasItem(HoldItem.PROTECTIVE_PADS)) {
+                && !attacker.hasItem(HoldItem.PROTECTIVE_PADS)
+            ) {
                 if (opponent.hasAbility(Ability.ROUGH_SKIN)) {
                     attacker.takeDamage(attacker.hp / 8)
                     details += "${opponent.data.name}'s Rough Skin: ${attacker.data.name} was hurt!\n"
@@ -29,7 +30,8 @@ class BattleUtils {
                     details += "${opponent.data.name}'s Rocky Helmet: ${attacker.data.name} was hurt!\n"
                 }
                 if (opponent.hasAbility(Ability.PICKPOCKET) && attacker.heldItem != null
-                    && opponent.heldItem == null) {
+                    && opponent.heldItem == null
+                ) {
                     details += "${opponent.data.name}'s Pickpocket: ${attacker.data.name} had its ${attacker.heldItem!!.heldItemToString()} stolen!\n"
                     if (!opponent.hasAbility(Ability.MOLD_BREAKER) && attacker.hasAbility(Ability.STICKY_HOLD)) {
                         details += "${attacker.data.name}'s Sticky Hold: ${attacker.data.name}'s item cannot be removed!\n"
@@ -106,7 +108,12 @@ class BattleUtils {
             return details
         }
 
-        fun abilitiesCheck(pokemon: Pokemon, opponent: Pokemon, battleField: BattleField, battleSide: BattleSide): String {
+        fun abilitiesCheck(
+            pokemon: Pokemon,
+            opponent: Pokemon,
+            battleField: BattleField,
+            battleSide: BattleSide
+        ): String {
             val sb = StringBuilder()
             if (pokemon.status != Status.OK)
                 checkForStatusStatsRaiseAbility(pokemon)
@@ -130,7 +137,10 @@ class BattleUtils {
                     .any { DamageCalculator.getEffectiveness(opponent, it.move, pokemon, battleField) >= 2f }
             )
                 sb.append("${pokemon.data.name}'s Anticipation: ${pokemon.data.name} shuddered!\n")
-            if (pokemon.hasAbility(Ability.INTIMIDATE) && !opponent.hasAbility(Ability.OBLIVIOUS)  && !opponent.hasAbility(Ability.OWN_TEMPO)) {
+            if (pokemon.hasAbility(Ability.INTIMIDATE) && !opponent.hasAbility(Ability.OBLIVIOUS) && !opponent.hasAbility(
+                    Ability.OWN_TEMPO
+                )
+            ) {
                 sb.append("${pokemon.data.name}'s Intimidate: ${opponent.data.name}'s attack fell!\n")
                 when {
                     opponent.hasAbility(Ability.CLEAR_BODY) -> sb.append("${opponent.data.name}'s Clear Body: ${opponent.data.name}'s stats cannot be lowered!\n")
@@ -179,14 +189,16 @@ class BattleUtils {
             if (pokemon.hasAbility(Ability.SAND_STREAM)
                 && !opponent.hasAbility(Ability.AIR_LOCK)
                 && !opponent.hasAbility(Ability.CLOUD_NINE)
-                && battleField.weather != Weather.SANDSTORM) {
+                && battleField.weather != Weather.SANDSTORM
+            ) {
                 battleField.setWeather(pokemon, Weather.SANDSTORM, opponent)
                 sb.append("${pokemon.data.name}'s Sand Stream: A sandstorm kicked up!\n")
             }
             if (pokemon.hasAbility(Ability.SNOW_WARNING)
                 && !opponent.hasAbility(Ability.AIR_LOCK)
                 && !opponent.hasAbility(Ability.CLOUD_NINE)
-                && battleField.weather != Weather.SNOW) {
+                && battleField.weather != Weather.SNOW
+            ) {
                 sb.append("${pokemon.data.name}'s Snow Warning: It started to snow!\n")
                 battleField.setWeather(pokemon, Weather.SNOW, opponent)
             }
@@ -203,11 +215,13 @@ class BattleUtils {
                 pokemon.battleData!!.statsMultiplier.updateStat(StatChange(Stats.CRITICAL_RATE, 1.5f))
             if (pokemon.hasAbility(Ability.ARENA_TRAP)
                 && ((!opponent.hasAbility(Ability.LEVITATE) && !opponent.hasType(Type.FLYING)) || battleField.gravityCounter > 0)
-                && !opponent.hasType(Type.GHOST))
+                && !opponent.hasType(Type.GHOST)
+            )
                 opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
             if (opponent.hasAbility(Ability.ARENA_TRAP)
                 && ((!pokemon.hasAbility(Ability.LEVITATE) && !pokemon.hasType(Type.FLYING)) || battleField.gravityCounter > 0)
-                && !pokemon.hasType(Type.GHOST))
+                && !pokemon.hasType(Type.GHOST)
+            )
                 pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
             if (pokemon.hasAbility(Ability.SHADOW_TAG) && !pokemon.hasType(Type.GHOST))
                 opponent.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
@@ -218,7 +232,8 @@ class BattleUtils {
             if (opponent.hasAbility(Ability.MAGNET_PULL) && pokemon.hasType(Type.STEEL))
                 pokemon.battleData!!.battleStatus.add(Status.TRAPPED_WITHOUT_DAMAGE)
             if (battleSide.battleSideEffects.contains(BattleSideEffect.STICKY_WEB)
-                && ((!pokemon.hasAbility(Ability.LEVITATE) && !pokemon.hasType(Type.FLYING)) || battleField.gravityCounter > 0)) {
+                && ((!pokemon.hasAbility(Ability.LEVITATE) && !pokemon.hasType(Type.FLYING)) || battleField.gravityCounter > 0)
+            ) {
                 sb.append("${pokemon.data.name} was caught in a sticky web!\n")
                 pokemon.battleData!!.statsMultiplier.updateStat(StatChange.SPEED_ONE_LEVEL_DECREASE)
                 sb.append("${pokemon.data.name}'s speed fell!\n")
@@ -233,9 +248,9 @@ class BattleUtils {
             var effectiveness = DamageCalculator.getEffectiveness(attacker, move, opponent, battleField)
             if (move is MoveBasedOnLevel)
                 effectiveness = 1f
-            if (move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB))
+            if (move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB) && !opponent.hasAbility(Ability.MOLD_BREAKER))
                 return "${opponent.data.name}'s Volt Absorb: ${opponent.data.name}'s HP was restored\n"
-            if (move.type == Type.WATER) {
+            if (move.type == Type.WATER && !opponent.hasAbility(Ability.MOLD_BREAKER)) {
                 if (opponent.hasAbility(Ability.WATER_ABSORB))
                     return "${opponent.data.name}'s Water Absorb: ${opponent.data.name}'s HP was restored\n"
                 if (opponent.hasAbility(Ability.DRY_SKIN))
@@ -249,7 +264,13 @@ class BattleUtils {
             }
         }
 
-        fun trainerStarts(pokemon: Pokemon, other: Pokemon, move: Move, opponentMove: Move, battleField: BattleField): Boolean {
+        fun trainerStarts(
+            pokemon: Pokemon,
+            other: Pokemon,
+            move: Move,
+            opponentMove: Move,
+            battleField: BattleField
+        ): Boolean {
             var priorityLevel = move.priorityLevel
             var opponentPriorityLevel = opponentMove.priorityLevel
             if (pokemon.hasAbility(Ability.GALE_WINGS) && move.type == Type.FLYING && pokemon.currentHP == pokemon.currentHP)
@@ -268,17 +289,24 @@ class BattleUtils {
                     false
                 }
                 else -> {
-                    return isFaster(pokemon, other, battleField)
+                    return isFaster(pokemon, other, battleField, true)
                 }
             }
         }
 
-        fun isFaster(pokemon: Pokemon, other: Pokemon, battleField: BattleField): Boolean {
+        fun isFaster(pokemon: Pokemon, other: Pokemon, battleField: BattleField, winSpeedTie: Boolean): Boolean {
             val pokemonSpeed = pokemon.speed.toFloat() * pokemon.battleData!!.statsMultiplier.speedMultiplicator
             val otherSpeed = other.speed.toFloat() * other.battleData!!.statsMultiplier.speedMultiplicator
             val paralysisMultiplicator: Float = if (pokemon.status == Status.PARALYSIS) 0.5f else 1f
             val opponentParalysisMultiplicator: Float = if (other.status == Status.PARALYSIS) 0.5f else 1f
-            return pokemonSpeed * paralysisMultiplicator >= otherSpeed * opponentParalysisMultiplicator && battleField.trickRoomCounter == 0
+            var isFaster: Boolean = if (winSpeedTie)
+                pokemonSpeed * paralysisMultiplicator >= otherSpeed * opponentParalysisMultiplicator
+            else
+                pokemonSpeed * paralysisMultiplicator > otherSpeed * opponentParalysisMultiplicator
+            if (battleField.trickRoomCounter > 0) {
+                isFaster = !isFaster
+            }
+            return isFaster
         }
 
         fun checkForStatusStatsRaiseAbility(pokemon: Pokemon) {

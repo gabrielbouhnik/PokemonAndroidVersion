@@ -1,0 +1,211 @@
+[
+  {
+    "sprite": "images/Sprite_Ondine.png",
+    "name": "Misty",
+    "pokemons": [
+      {
+        "id": 195,
+        "level": 80,
+        "moveIds": [93,79,159,132],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 130,
+        "level": 80,
+        "moveIds": [79,27,93,125]
+      },
+      {
+        "id": 121,
+        "level": 80,
+        "moveIds": [43,12,45,100],
+        "itemHeld": "EXPERT_BELT"
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Morgane.png",
+    "name": "Sabrina",
+    "pokemons": [
+      {
+        "id": 122,
+        "level": 50,
+        "moveIds": [44,319,318,55],
+        "itemHeld": "LIGHT_CLAY"
+      },
+      {
+        "id": 475,
+        "level": 50,
+        "moveIds": [40,217,121,123],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 65,
+        "level": 50,
+        "moveIds": [45,44,46,105]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Tanguy.png",
+    "name": "Volkner",
+    "pokemons": [
+      {
+        "id": 171,
+        "level": 50,
+        "moveIds": [43,12,100,48],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 405,
+        "level": 50,
+        "moveIds": [200,27,12,55],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 466,
+        "level": 50,
+        "moveIds": [107,110,93,200],
+        "itemHeld": "EXPERT_BELT"
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Cynthia.png",
+    "name": "Cynthia",
+    "pokemons": [
+      {
+        "id": 350,
+        "level": 50,
+        "moveIds": [266,100,228,132],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 468,
+        "level": 50,
+        "moveIds": [50,44,31,124],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 445,
+        "level": 50,
+        "moveIds": [108,93,82,25]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Steven.png",
+    "name": "Steven Stone",
+    "pokemons": [
+      {
+        "id": 703,
+        "level": 50,
+        "moveIds": [318,319,267,51],
+        "itemHeld": "LIGHT_CLAY"
+      },
+      {
+        "id": 142,
+        "level": 50,
+        "moveIds": [25,27,93,113],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 376,
+        "level": 50,
+        "moveIds": [179,148,107,21]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Peter.png",
+    "name": "Lance",
+    "pokemons": [
+      {
+        "id": 130,
+        "level": 50,
+        "moveIds": [79,27,93,125],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 373,
+        "level": 50,
+        "moveIds": [108,222,93,69],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 149,
+        "level": 50,
+        "moveIds": [108,125,110,93],
+        "itemHeld": "LUM_BERRY"
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Albert.png",
+    "name": "Falkner",
+    "pokemons": [
+      {
+        "id": 277,
+        "level": 50,
+        "moveIds": [306,203,191,3],
+        "itemHeld": "FLAME_ORB"
+      },
+      {
+        "id": 178,
+        "level": 50,
+        "moveIds": [50,48,219,55],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 18,
+        "level": 50,
+        "moveIds": [101,261,193,3]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Jasmine.png",
+    "name": "Jasmine",
+    "pokemons": [
+      {
+        "id": 437,
+        "level": 50,
+        "moveIds": [233,148,267,48],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 462,
+        "level": 50,
+        "moveIds": [12,111,117,267],
+        "itemHeld": "AIR_BALLOON"
+      },
+      {
+        "id": 208,
+        "level": 50,
+        "moveIds": [93,267,25,57]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Karen.png",
+    "name": "Karen",
+    "pokemons": [
+      {
+        "id": 197,
+        "level": 45,
+        "moveIds": [48,188,204,223],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 430,
+        "level": 45,
+        "moveIds": [203,208,45,261],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 229,
+        "level": 48,
+        "moveIds": [31,92,37,120]
+      }
+    ]
+  }
+]

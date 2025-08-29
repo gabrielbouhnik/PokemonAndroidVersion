@@ -125,10 +125,17 @@ enum class Status(var activeOutsideBattle: Boolean) {
                         }
                     }
                 } else if (it.probability == null) {
-                    if (opponent.status == OK) {
+                    if (it.status == TAUNTED && opponent.hasAbility(Ability.OBLIVIOUS)) {
+                        details += "${opponent.data.name}'s Oblivious: ${opponent.data.name} cannot fell for the taunt!\n"
+                    } else if (it.status == CONFUSED) {
+                        if (opponent.battleData!!.battleStatus.contains(CONFUSED))
+                            details += "But ${opponent.data.name} is already confused\n"
+                        else if (opponent.hasAbility(Ability.OWN_TEMPO))
+                            details += "${opponent.data.name}'s Own Tempo: ${opponent.data.name} cannot be confused!\n"
+                    } else if (opponent.status == OK && it.status.activeOutsideBattle) {
                         if ((move.id == 34 || move.id == 83) && opponent.hasAbility(Ability.IMMUNITY))
                             details = "${opponent.data.name}'s Immunity: It does not affect ${opponent.data.name}!\n"
-                        if (move.id == 55 && opponent.hasAbility(Ability.LIMBER))
+                        if ((move.id == 55 || move.id == 253) && opponent.hasAbility(Ability.LIMBER))
                             details = "${opponent.data.name}'s Limber: It does not affect ${opponent.data.name}!\n"
                         if (move.id == 138) {
                             if (opponent.hasAbility(Ability.WATER_VEIL))
@@ -147,19 +154,11 @@ enum class Status(var activeOutsideBattle: Boolean) {
                         if (((it.status == POISON || it.status == BADLY_POISON) && opponent.hasType(Type.POISON) && opponent.hasType(Type.STEEL))
                             || (it.status == PARALYSIS && opponent.hasType(Type.ELECTRIC))
                             || (it.status == BURN && opponent.hasType(Type.FIRE))
-                            || (it.status == FROZEN && opponent.hasType(Type.ICE)))
+                            || (it.status == FROZEN && opponent.hasType(Type.ICE))
+                            || ((move.id == 35 || move.id == 253) && opponent.hasType(Type.GRASS)))
                                 details = "It does not affect ${opponent.data.name}!\n"
-                        if (it.status == TAUNTED && opponent.hasAbility(Ability.OBLIVIOUS)) {
-                            details = "${opponent.data.name}'s Oblivious: ${opponent.data.name} cannot fell for the taunt!\n"
-                        }
-                        if (it.status == CONFUSED) {
-                            if (opponent.battleData!!.battleStatus.contains(CONFUSED))
-                                details = "But ${opponent.data.name} is already confused\n"
-                            else if (opponent.hasAbility(Ability.OWN_TEMPO))
-                                details += "${opponent.data.name}'s Own Tempo: ${opponent.data.name} cannot be confused!\n"
-                        }
                     } else {
-                        details = "But it failed\n"
+                        details += "But it failed\n"
                     }
                 }
             }
@@ -171,8 +170,11 @@ enum class Status(var activeOutsideBattle: Boolean) {
                 return false
             if (!status.activeOutsideBattle && opponent.battleData!!.battleStatus.contains(status))
                 return false
-            if ((id == 35 || id == 253 || id == 255 || id == 34)
-                &&  (opponent.hasType(Type.GRASS) || opponent.hasAbility(Ability.MAGIC_BOUNCE) || opponent.hasAbility(Ability.OVERCOAT))) {
+            if ((id == 35 || id == 253) && opponent.hasType(Type.GRASS)) {
+                //SLEEP POWDER, STUN SPORE
+                return false
+            }
+            if ((id == 35 || id == 253 || id == 255 || id == 34) && opponent.hasAbility(Ability.OVERCOAT)) {
                 //STUN SPORE, SLEEP POWDER, SPORE, POISON POWDER
                 return false
             }

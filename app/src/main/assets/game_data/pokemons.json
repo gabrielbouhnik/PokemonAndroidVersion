@@ -1764,6 +1764,10 @@
           "level": 5
         },
         {
+          "moveId": 335,
+          "level": 12
+        },
+        {
           "moveId": 249,
           "level": 15
         },
@@ -1847,6 +1851,10 @@
         {
           "moveId": 17,
           "level": 5
+        },
+        {
+          "moveId": 335,
+          "level": 12
         },
         {
           "moveId": 249,
@@ -2303,12 +2311,20 @@
           "level": 32
         },
         {
+          "moveId": 336,
+          "level": 36
+        },
+        {
           "moveId": 250,
           "level": 40
         },
         {
           "moveId": 84,
           "level": 44
+        },
+        {
+          "moveId": 337,
+          "level": 48
         }
       ],
       "movesLearnWithTM": [72,12,24,31,44,45,46,69,73,76,82,97,100,103,107,110,135,148,219],
@@ -2368,11 +2384,19 @@
           "level": 1
         },
         {
+          "moveId": 336,
+          "level": 1
+        },
+        {
           "moveId": 250,
           "level": 1
         },
         {
           "moveId": 84,
+          "level": 1
+        },
+        {
+          "moveId": 337,
           "level": 1
         }
       ],
@@ -2722,7 +2746,7 @@
         }
       }
     ],
-    "abilities": ["INNER_FOCUS"],
+    "abilities": ["INNER_FOCUS","INFILTRATOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -2799,7 +2823,7 @@
         }
       }
     ],
-    "abilities": ["INNER_FOCUS"],
+    "abilities": ["INNER_FOCUS","INFILTRATOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -3032,6 +3056,10 @@
           "level": 11
         },
         {
+          "moveId": 335,
+          "level": 17
+        },
+        {
           "moveId": 255,
           "level": 22
         },
@@ -3097,6 +3125,10 @@
         {
           "moveId": 67,
           "level": 11
+        },
+        {
+          "moveId": 335,
+          "level": 17
         },
         {
           "moveId": 255,
@@ -3604,6 +3636,10 @@
           "level": 24
         },
         {
+          "moveId": 339,
+          "level": 27
+        },
+        {
           "moveId": 150,
           "level": 34
         },
@@ -3671,6 +3707,10 @@
         {
           "moveId": 79,
           "level": 24
+        },
+        {
+          "moveId": 339,
+          "level": 27
         },
         {
           "moveId": 150,
@@ -4908,6 +4948,10 @@
     "possibleMoves": {
       "movesLearnByLevel": [
         {
+          "moveId": 338,
+          "level": 1
+        },
+        {
           "moveId": 17,
           "level": 1
         },
@@ -5653,6 +5697,10 @@
         {
           "moveId": 19,
           "level": 1
+        },
+        {
+          "moveId": 335,
+          "level": 10
         },
         {
           "moveId": 113,
@@ -6406,6 +6454,10 @@
     "type2": 8,
     "possibleMoves": {
       "movesLearnByLevel": [
+        {
+          "moveId": 338,
+          "level": 1
+        },
         {
           "moveId": 65,
           "level": 1
@@ -7784,6 +7836,10 @@
         {
           "moveId": 187,
           "level": 44
+        },
+        {
+          "moveId": 337,
+          "level": 52
         }
       ],
       "movesLearnWithTM": [72,24,31,44,45,55,82,97,100,103,107,110,135,148,221],
@@ -8124,6 +8180,10 @@
           "level": 35
         },
         {
+          "moveId": 339,
+          "level": 40
+        },
+        {
           "moveId": 109,
           "level": 45
         }
@@ -8183,6 +8243,10 @@
         {
           "moveId": 136,
           "level": 37
+        },
+        {
+          "moveId": 339,
+          "level": 44
         },
         {
           "moveId": 109,
@@ -8432,6 +8496,10 @@
           "level": 1
         },
         {
+          "moveId": 335,
+          "level": 4
+        },
+        {
           "moveId": 16,
           "level": 12
         },
@@ -8561,6 +8629,10 @@
         {
           "moveId": 112,
           "level": 12
+        },
+        {
+          "moveId": 334,
+          "level": 16
         },
         {
           "moveId": 55,
@@ -10385,11 +10457,19 @@
           "level": 1
         },
         {
+          "moveId": 338,
+          "level": 1
+        },
+        {
           "moveId": 150,
           "level": 10
         },
         {
-          "moveId": 45,
+          "moveId": 286,
+          "level": 10
+        },
+        {
+          "moveId": 102,
           "level": 30
         },
         {
@@ -10397,8 +10477,12 @@
           "level": 40
         },
         {
-          "moveId": 102,
+          "moveId": 311,
           "level": 50
+        },
+        {
+          "moveId": 45,
+          "level": 60
         },
         {
           "moveId": 124,
@@ -11798,7 +11882,7 @@
     "speed": 130,
     "catchRate": 90,
     "evolutions": [],
-    "abilities": ["INNER_FOCUS"],
+    "abilities": ["INNER_FOCUS","INFILTRATOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -12032,6 +12116,10 @@
         {
           "moveId": 320,
           "level": 36
+        },
+        {
+          "moveId": 336,
+          "level": 52
         }
       ],
       "movesLearnWithTM": [24,31,44,45,46,55,73,82,173,219],
@@ -12081,6 +12169,10 @@
         {
           "moveId": 320,
           "level": 40
+        },
+        {
+          "moveId": 336,
+          "level": 52
         }
       ],
       "movesLearnWithTM": [24,31,44,45,46,55,73,82,113,173,193,205,219,261],
@@ -12138,6 +12230,10 @@
         {
           "moveId": 45,
           "level": 35
+        },
+        {
+          "moveId": 336,
+          "level": 40
         }
       ],
       "movesLearnWithTM": [44,45,46,50,55,113,148,193,205,219,261],
@@ -12203,6 +12299,10 @@
         {
           "moveId": 45,
           "level": 41
+        },
+        {
+          "moveId": 336,
+          "level": 48
         }
       ],
       "movesLearnWithTM": [44,45,46,50,55,113,148,176,177,193,205,219,261],
@@ -12730,6 +12830,10 @@
           "level": 24
         },
         {
+          "moveId": 302,
+          "level": 29
+        },
+        {
           "moveId": 321,
           "level": 35
         },
@@ -12758,7 +12862,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["INFILTRATOR"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -12813,6 +12917,10 @@
           "level": 28
         },
         {
+          "moveId": 302,
+          "level": 34
+        },
+        {
           "moveId": 321,
           "level": 41
         },
@@ -12841,7 +12949,7 @@
         }
       }
     ],
-    "abilities": [],
+    "abilities": ["INFILTRATOR"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -12896,6 +13004,10 @@
           "level": 30
         },
         {
+          "moveId": 302,
+          "level": 39
+        },
+        {
           "moveId": 321,
           "level": 49
         },
@@ -12917,7 +13029,7 @@
     "speed": 110,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": [],
+    "abilities": ["INFILTRATOR"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -14357,6 +14469,10 @@
           "level": 1
         },
         {
+          "moveId": 335,
+          "level": 1
+        },
+        {
           "moveId": 158,
           "level": 12
         },
@@ -15144,6 +15260,145 @@
     "expGaugeType":  "FAST"
   },
   {
+    "id": 223,
+    "name": "Remoraid",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 6,
+          "level": 1
+        },
+        {
+          "moveId": 24,
+          "level": 4
+        },
+        {
+          "moveId": 22,
+          "level": 8
+        },
+        {
+          "moveId": 59,
+          "level": 12
+        },
+        {
+          "moveId": 175,
+          "level": 16
+        },
+        {
+          "moveId": 126,
+          "level": 20
+        },
+        {
+          "moveId": 137,
+          "level": 28
+        },
+        {
+          "moveId": 100,
+          "level": 32
+        },
+        {
+          "moveId": 80,
+          "level": 36
+        },
+        {
+          "moveId": 339,
+          "level": 40
+        }
+      ],
+      "movesLearnWithTM": [24,31,36,43,45,82,97,100,136,137,184],
+      "bannerMoves": []
+    },
+    "hp": 35,
+    "attack": 65,
+    "defense": 35,
+    "spAtk": 65,
+    "spDef": 35,
+    "speed": 65,
+    "catchRate": 190,
+    "evolutions": [
+      {
+        "evolutionId": 224,
+        "evolutionCondition": {
+          "level": 25
+        }
+      }
+    ],
+    "abilities": ["SNIPER"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 224,
+    "name": "Octillery",
+    "type1": 3,
+    "type2": 0,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 6,
+          "level": 1
+        },
+        {
+          "moveId": 24,
+          "level": 4
+        },
+        {
+          "moveId": 22,
+          "level": 8
+        },
+        {
+          "moveId": 59,
+          "level": 12
+        },
+        {
+          "moveId": 175,
+          "level": 16
+        },
+        {
+          "moveId": 126,
+          "level": 20
+        },
+        {
+          "moveId": 333,
+          "level": 25
+        },
+        {
+          "moveId": 137,
+          "level": 30
+        },
+        {
+          "moveId": 100,
+          "level": 36
+        },
+        {
+          "moveId": 80,
+          "level": 42
+        },
+        {
+          "moveId": 339,
+          "level": 48
+        },
+        {
+          "moveId": 176,
+          "level": 54
+        }
+      ],
+      "movesLearnWithTM": [24,31,36,43,45,82,97,100,136,137,176,177,184],
+      "bannerMoves": []
+    },
+    "hp": 75,
+    "attack": 105,
+    "defense": 75,
+    "spAtk": 105,
+    "spDef": 75,
+    "speed": 45,
+    "catchRate": 75,
+    "evolutions": [],
+    "abilities": ["SNIPER"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
     "id": 227,
     "name": "Skarmory",
     "type1": 16,
@@ -15861,6 +16116,10 @@
           "level": 12
         },
         {
+          "moveId": 334,
+          "level": 16
+        },
+        {
           "moveId": 55,
           "level": 20
         },
@@ -16023,6 +16282,10 @@
         {
           "moveId": 187,
           "level": 44
+        },
+        {
+          "moveId": 337,
+          "level": 52
         }
       ],
       "movesLearnWithTM": [72,12,30,31,44,45,55,82,97,100,103,107,110,135,148,176,177,221],
@@ -16569,12 +16832,20 @@
           "level": 1
         },
         {
+          "moveId": 320,
+          "level": 10
+        },
+        {
           "moveId": 141,
           "level": 30
         },
         {
           "moveId": 102,
           "level": 30
+        },
+        {
+          "moveId": 105,
+          "level": 40
         },
         {
           "moveId": 234,
@@ -16585,11 +16856,15 @@
           "level": 60
         },
         {
+          "moveId": 337,
+          "level": 70
+        },
+        {
           "moveId": 142,
           "level": 80
         }
       ],
-      "movesLearnWithTM": [36,44,45,46,55,66,105,137,148,173,184],
+      "movesLearnWithTM": [24,36,44,45,46,55,66,105,135,137,148,173,176,177,184,219],
       "bannerMoves": []
     },
     "hp": 100,
@@ -17711,6 +17986,10 @@
         {
           "moveId": 247,
           "level": 42
+        },
+        {
+          "moveId": 331,
+          "level": 48
         }
       ],
       "movesLearnWithTM": [12,44,45,46,92,97,135,138,184],
@@ -17784,6 +18063,10 @@
         {
           "moveId": 247,
           "level": 46
+        },
+        {
+          "moveId": 331,
+          "level": 53
         }
       ],
       "movesLearnWithTM": [12,44,45,46,92,97,135,138,176,177,184],
@@ -18246,12 +18529,16 @@
           "level": 12
         },
         {
+          "moveId": 52,
+          "level": 16
+        },
+        {
           "moveId": 285,
           "level": 20
         },
         {
-          "moveId": 52,
-          "level": 16
+          "moveId": 334,
+          "level": 24
         },
         {
           "moveId": 55,
@@ -18321,6 +18608,10 @@
         {
           "moveId": 285,
           "level": 24
+        },
+        {
+          "moveId": 334,
+          "level": 31
         },
         {
           "moveId": 171,
@@ -18404,6 +18695,10 @@
           "level": 24
         },
         {
+          "moveId": 334,
+          "level": 33
+        },
+        {
           "moveId": 171,
           "level": 40
         },
@@ -18469,6 +18764,10 @@
         {
           "moveId": 2,
           "level": 1
+        },
+        {
+          "moveId": 339,
+          "level": 7
         },
         {
           "moveId": 3,
@@ -18554,6 +18853,14 @@
         {
           "moveId": 119,
           "level": 1
+        },
+        {
+          "moveId": 2,
+          "level": 1
+        },
+        {
+          "moveId": 339,
+          "level": 7
         },
         {
           "moveId": 3,
@@ -19039,7 +19346,7 @@
     "speed": 35,
     "catchRate": 100,
     "evolutions": [],
-    "abilities": ["PRESSURE"],
+    "abilities": ["PRESSURE","INFILTRATOR"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -19558,6 +19865,10 @@
           "level": 12
         },
         {
+          "moveId": 334,
+          "level": 16
+        },
+        {
           "moveId": 55,
           "level": 20
         },
@@ -19713,6 +20024,10 @@
         },
         {
           "moveId": 320,
+          "level": 1
+        },
+        {
+          "moveId": 336,
           "level": 1
         }
       ],
@@ -20780,7 +21095,7 @@
         }
       }
     ],
-    "abilities": ["FLASH_FIRE","FLAME_BODY"],
+    "abilities": ["FLASH_FIRE","FLAME_BODY","INFILTRATOR"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -20853,7 +21168,7 @@
         }
       }
     ],
-    "abilities": ["FLASH_FIRE","FLAME_BODY"],
+    "abilities": ["FLASH_FIRE","FLAME_BODY","INFILTRATOR"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -20919,7 +21234,7 @@
     "speed": 80,
     "catchRate": 190,
     "evolutions": [],
-    "abilities": ["FLASH_FIRE","FLAME_BODY"],
+    "abilities": ["FLASH_FIRE","FLAME_BODY","INFILTRATOR"],
     "expGaugeType":  "MEDIUM_SLOW"
   },
   {
@@ -21427,6 +21742,10 @@
           "level": 1
         },
         {
+          "moveId": 335,
+          "level": 5
+        },
+        {
           "moveId": 158,
           "level": 10
         },
@@ -21498,6 +21817,10 @@
         {
           "moveId": 1,
           "level": 1
+        },
+        {
+          "moveId": 335,
+          "level": 5
         },
         {
           "moveId": 158,
@@ -22789,7 +23112,7 @@
         }
       }
     ],
-    "abilities": ["FRISK"],
+    "abilities": ["FRISK","INFILTRATOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -22867,7 +23190,7 @@
     "speed": 123,
     "catchRate": 190,
     "evolutions": [],
-    "abilities": ["FRISK"],
+    "abilities": ["FRISK","INFILTRATOR"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -23338,6 +23661,10 @@
           "level": 24
         },
         {
+          "moveId": 339,
+          "level": 28
+        },
+        {
           "moveId": 317,
           "level": 32
         },
@@ -23411,6 +23738,10 @@
           "level": 26
         },
         {
+          "moveId": 339,
+          "level": 32
+        },
+        {
           "moveId": 317,
           "level": 38
         },
@@ -23443,6 +23774,76 @@
     "catchRate": 200,
     "evolutions": [],
     "abilities": ["WATER_BUBBLE","WATER_ABSORB"],
+    "expGaugeType":  "MEDIUM_FAST"
+  },
+  {
+    "id": 781,
+    "name": "Dhelmise",
+    "type1": 13,
+    "type2": 1,
+    "possibleMoves": {
+      "movesLearnByLevel": [
+        {
+          "moveId": 67,
+          "level": 1
+        },
+        {
+          "moveId": 249,
+          "level": 1
+        },
+        {
+          "moveId": 47,
+          "level": 4
+        },
+        {
+          "moveId": 160,
+          "level": 8
+        },
+        {
+          "moveId": 254,
+          "level": 12
+        },
+        {
+          "moveId": 66,
+          "level": 28
+        },
+        {
+          "moveId": 131,
+          "level": 32
+        },
+        {
+          "moveId": 46,
+          "level": 44
+        },
+        {
+          "moveId": 332,
+          "level": 52
+        },
+        {
+          "moveId": 105,
+          "level": 56
+        },
+        {
+          "moveId": 331,
+          "level": 60
+        },
+        {
+          "moveId": 143,
+          "level": 64
+        }
+      ],
+      "movesLearnWithTM": [25,30,43,57,67,69,93,105,111,176,177,267],
+      "bannerMoves": []
+    },
+    "hp": 70,
+    "attack": 131,
+    "defense": 100,
+    "spAtk": 86,
+    "spDef": 90,
+    "speed": 40,
+    "catchRate": 25,
+    "evolutions": [],
+    "abilities": ["STEELWORKER"],
     "expGaugeType":  "MEDIUM_FAST"
   },
   {
@@ -23839,6 +24240,10 @@
         {
           "moveId": 45,
           "level": 40
+        },
+        {
+          "moveId": 337,
+          "level": 45
         }
       ],
       "movesLearnWithTM": [44,45,55,66,219],
@@ -23900,6 +24305,10 @@
         {
           "moveId": 45,
           "level": 44
+        },
+        {
+          "moveId": 337,
+          "level": 51
         }
       ],
       "movesLearnWithTM": [44,45,55,66,73,92,219],
@@ -23969,6 +24378,10 @@
         {
           "moveId": 45,
           "level": 46
+        },
+        {
+          "moveId": 337,
+          "level": 55
         }
       ],
       "movesLearnWithTM": [44,45,46,55,66,73,92,176,177,206,219],
@@ -24366,7 +24779,7 @@
         }
       }
     ],
-    "abilities": ["CURSED_BODY","CLEAR_BODY"],
+    "abilities": ["CLEAR_BODY","INFILTRATOR","CURSED_BODY"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -24451,7 +24864,7 @@
         }
       }
     ],
-    "abilities": ["CURSED_BODY","CLEAR_BODY"],
+    "abilities": ["CLEAR_BODY","INFILTRATOR","CURSED_BODY"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -24537,7 +24950,7 @@
     "speed": 142,
     "catchRate": 45,
     "evolutions": [],
-    "abilities": ["CURSED_BODY","CLEAR_BODY"],
+    "abilities": ["CLEAR_BODY","INFILTRATOR","CURSED_BODY"],
     "expGaugeType":  "SLOW"
   },
   {
@@ -24999,7 +25412,7 @@
     "id": 940,
     "name": "Wattrel",
     "type1": 4,
-    "type2": 5,
+    "type2": 6,
     "possibleMoves": {
       "movesLearnByLevel": [
         {
@@ -25064,7 +25477,7 @@
     "id": 941,
     "name": "Kilowattrel",
     "type1": 4,
-    "type2": 5,
+    "type2": 6,
     "possibleMoves": {
       "movesLearnByLevel": [
         {
@@ -26130,6 +26543,10 @@
         {
           "moveId": 1,
           "level": 1
+        },
+        {
+          "moveId": 335,
+          "level": 5
         },
         {
           "moveId": 158,

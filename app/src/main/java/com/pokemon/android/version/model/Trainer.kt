@@ -16,6 +16,7 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
     var progression: Int = 1
     var coins: Int = 50
     var lastTimeDailyHealUsed: Date? = null
+    var lastFreeSummon: Date? = null
     var eliteProgression: Int = 0
     var battleTowerProgression: BattleFrontierProgression? = null
     var battleFactoryProgression: BattleFrontierProgression? = null

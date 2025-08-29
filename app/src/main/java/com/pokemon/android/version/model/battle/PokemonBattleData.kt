@@ -2,6 +2,7 @@ package com.pokemon.android.version.model.battle
 
 import com.pokemon.android.version.model.Ability
 import com.pokemon.android.version.model.Status
+import com.pokemon.android.version.model.Type
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 
 class PokemonBattleData(
@@ -21,10 +22,14 @@ class PokemonBattleData(
     var lastHitReceived: LastHitReceived? = null,
     var lastMoveFailed: Boolean = false,
     var lastMoveUsed: PokemonMove? = null,
+    var sameMoveCounter: Int = 0,
     var hadATurn: Boolean = false,
     var child: Boolean = false,
     var numberOfHitTaken: Int = 0,
     var abilities: ArrayList<Ability> = arrayListOf(),
-    var magnetRiseCounter: Int = 0
+    var magnetRiseCounter: Int = 0,
+    var battleType1: Type? = null,
+    var battleType2: Type? = null,
+    var transformData: TransformData? = null,
 ) {
 }

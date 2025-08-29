@@ -162,7 +162,7 @@
         "minLevel": 10,
         "maxLevel": 12,
         "encounters": [
-          19,19,19,21,21,21,23,23,23,39,39,163,163,191
+          19,19,19,19,21,21,21,21,23,23,23,23,39,39,163,163,163,191,194
         ]
       },
       "rewards": [
@@ -451,7 +451,7 @@
         "minLevel": 30,
         "maxLevel": 33,
         "encounters": [
-          17,17,43,43,43,43,44,48,48,48,69,69,69,69,70,187,187,188,195,940,951
+          17,17,43,43,43,43,44,48,48,48,69,69,69,69,70,132,187,187,188,195,940,951
         ]
       },
       "rewards": [
@@ -479,7 +479,7 @@
         "minLevel": 15,
         "maxLevel": 17,
         "encounters": [
-          60,72,118,118,118,118,118,129,129,129,129,129,129,211
+          60,72,118,118,118,118,118,129,129,129,129,129,129,211,223
         ]
       },
       "rewards": [
@@ -507,7 +507,7 @@
         "minLevel": 35,
         "maxLevel": 37,
         "encounters": [
-          72,72,72,72,120,120,129,129,129,170,170,222,222,602,941
+          72,72,72,72,120,120,129,129,129,170,170,222,222,223,223,602,781,941
         ]
       },
       "rewards": [
@@ -563,7 +563,7 @@
         "minLevel": 37,
         "maxLevel": 39,
         "encounters": [
-          20,20,20,20,20,37,37,37,58,58,58,77,77,77,88,88,88,89,109,109,109,110,126
+          20,20,20,20,20,37,37,37,58,58,58,77,77,77,88,88,88,89,109,109,109,110,132,126,219
         ]
       },
       "rewards": [
@@ -2241,13 +2241,13 @@
             {
               "id": 468,
               "level": 41,
-              "moveIds": [55,50,44,124],
+              "moveIds": [50,44,124,55],
               "itemHeld": "LEFTOVERS"
             },
             {
               "id": 178,
               "level": 41,
-              "moveIds": [55,50,48,219],
+              "moveIds": [50,48,219,55],
               "itemHeld": "TWISTED_SPOON"
             },
             {
@@ -3116,10 +3116,10 @@
               "itemHeld": "BLACK_SLUDGE"
             },
             {
-              "id": 101,
+              "id": 10101,
               "level": 56,
-              "moveIds": [53,2,112],
-              "itemHeld": "MAGNET"
+              "moveIds": [12,105,280],
+              "itemHeld": "MIRACLE_SEED"
             },
             {
               "id": 126,
@@ -3882,6 +3882,14 @@
         {
           "id": 10,
           "quantity": 2
+        },
+        {
+          "id": 38,
+          "quantity": 1
+        },
+        {
+          "id": 59,
+          "quantity": 1
         }
       ],
       "startDialog": "This is my hideout! I planned to resurrect TEAM ROCKET here! But, you have caught me again! So be it! This time, I'm not holding back!",
@@ -3996,9 +4004,9 @@
               "itemHeld": "SILVER_POWDER"
             },
             {
-              "id": 125,
+              "id": 466,
               "level": 70,
-              "moveIds": [12,110,107,45],
+              "moveIds": [107,110,93,200],
               "itemHeld": "AIR_BALLOON"
             },
             {
@@ -4142,7 +4150,7 @@
     {
       "id": 81,
       "name": "\nVS Steven Stone",
-      "description": "After hearing about your victory in the league, a trainer invites you to Pewter City for a ",
+      "description": "After hearing about your victory in the league, a trainer from the Hoenn region invites you to Pewter City for a battle",
       "opponents": [
         {
           "sprite": "images/Sprite_Steven.png",
@@ -4866,7 +4874,7 @@
           "id": 195,
           "level": 80,
           "moveIds": [
-            93,79,82,132
+            93,79,159,132
           ],
           "itemHeld": "LEFTOVERS"
         },
@@ -5766,8 +5774,7 @@
         {
           "id": 10105,
           "level": 73,
-          "moveIds": [116,279,93,103],
-          "itemHeld": ""
+          "moveIds": [116,279,93,103]
         },
         {
           "id": 169,
@@ -5950,33 +5957,33 @@
       "battle1": [
         {
           "id": 130,
-          "level": 73,
+          "level": 75,
           "moveIds": [136,119,93,125],
           "itemHeld": "LEFTOVERS"
         },
         {
           "id": 855,
-          "level": 73,
+          "level": 75,
           "moveIds": [46,66,245,260],
           "itemHeld": "FOCUS_SASH"
         },
         {
           "id": 637,
-          "level": 73,
+          "level": 75,
           "moveIds": [122,286,60,66],
           "itemHeld": "LUM_BERRY"
         },
         {
           "id": 461,
-          "level": 73,
+          "level": 75,
           "moveIds": [123,98,270,69],
           "itemHeld": "FOCUS_SASH"
         },
         {
-          "id": 466,
+          "id": 887,
           "level": 75,
-          "moveIds": [107,110,93,200],
-          "itemHeld": "EXPERT_BELT"
+          "moveIds": [258,12,31,46],
+          "itemHeld": "LIFE_ORB"
         },
         {
           "id": 308,
@@ -5998,10 +6005,10 @@
           "itemHeld": "FOCUS_SASH"
         },
         {
-          "id": 466,
+          "id": 887,
           "level": 83,
-          "moveIds": [107,110,93,200],
-          "itemHeld": "EXPERT_BELT"
+          "moveIds": [258,12,31,46],
+          "itemHeld": "LIFE_ORB"
         },
         {
           "id": 645,

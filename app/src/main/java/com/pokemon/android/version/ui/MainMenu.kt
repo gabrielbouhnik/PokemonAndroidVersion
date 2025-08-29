@@ -14,6 +14,7 @@ import com.pokemon.android.version.R
 import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.item.ItemQuantity
+import com.pokemon.android.version.utils.DateUtils
 import com.pokemon.android.version.utils.HealUtils
 import com.pokemon.android.version.utils.ItemUtils
 import java.io.InputStream
@@ -78,7 +79,7 @@ class MainMenu {
         itemsButton.setOnClickListener {
             itemMenu.loadItemMenu(activity, null)
         }
-        if (!activity.eliteMode && HealUtils.canUseDailyHeal(activity.trainer!!)) {
+        if (!activity.eliteMode && DateUtils.canUseDailyHeal(activity.trainer!!)) {
             val dailyHealButton: Button = activity.findViewById(R.id.dailyHealButton)
             dailyHealButton.visibility = VISIBLE
             dailyHealButton.setOnClickListener {

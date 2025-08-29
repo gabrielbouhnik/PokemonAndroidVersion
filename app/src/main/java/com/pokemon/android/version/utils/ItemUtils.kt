@@ -93,7 +93,7 @@ class ItemUtils {
                 14 -> return Ball.NETBALL
                 15 -> return Ball.HEALBALL
                 in 16..30, in 38..39, in 131..132 -> return EvolutionItem(itemId)
-                in 51..107 -> return TMItem(TM_MOVES_IDS[itemId - 51])
+                in 51..108 -> return TMItem(TM_MOVES_IDS[itemId - 51])
                 in 150..187 -> return ItemToHold(HoldItem.values().first { it.id == itemId })
             }
             return Revive.MAX_REVIVE

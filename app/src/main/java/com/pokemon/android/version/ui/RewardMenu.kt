@@ -184,7 +184,7 @@ class RewardMenu {
             }
         }
         val rewards =
-            if (firstTime) levelData.rewards else ArrayList(levelData.rewards.filter { it.itemId != 0 && it.itemId !in 50..100 })
+            if (firstTime) ArrayList(levelData.rewards) else ArrayList(levelData.rewards.filter { it.itemId != 0 && it.itemId !in 50..100 })
         if ((levelData is WildBattleLevelData || levelData is BossBattleLevelData) && Random.nextInt(10) == 1) {
             rewards.add(BonusReward(Random.nextInt(150, 168), 1))
         }
