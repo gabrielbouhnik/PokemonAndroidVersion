@@ -83,6 +83,12 @@ class RewardMenu {
                         activity.showCustomDialog(activity.getString(R.string.new_item_available_in_shop))
                     }
                 }
+                LevelMenu.SNORLAX_LEVEL -> {
+                    if (activity.hardMode) {
+                        activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(143, 50))
+                        activity.showCustomDialog("Snorlax joined your team!")
+                    }
+                }
                 LevelMenu.LAPRAS_LEVEL -> {
                     val lapras = activity.gameDataService.generatePokemon(131, 45)
                     lapras.heldItem = HoldItem.NEVER_MELT_ICE
@@ -92,6 +98,12 @@ class RewardMenu {
                 LevelMenu.TYROGUE_LEVEL -> {
                     activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(236, 10))
                     activity.showCustomDialog("You received a level 10 Tyrogue!")
+                }
+                LevelMenu.ARTICUNO_LEVEL -> {
+                    if (activity.hardMode) {
+                        activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(144, 58))
+                        activity.showCustomDialog("Articuno joined your team!")
+                    }
                 }
                 LevelMenu.MANSION_LEVEL -> {
                     activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(138, 30))
@@ -115,6 +127,18 @@ class RewardMenu {
                         activity.trainer!!.pokedex[7] == true -> {
                             activity.trainer!!.addItem(activity.gameDataService.pokemons[8].megaEvolutionData!!.stoneId, 1)
                         }
+                    }
+                }
+                LevelMenu.MOLTRES_LEVEL -> {
+                    if (activity.hardMode) {
+                        activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(146, 70))
+                        activity.showCustomDialog("Moltres joined your team!")
+                    }
+                }
+                LevelMenu.ZAPDOS_LEVEL -> {
+                    if (activity.hardMode) {
+                        activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(145, 80))
+                        activity.showCustomDialog("Zapdos joined your team!")
                     }
                 }
             }
@@ -191,6 +215,9 @@ class RewardMenu {
         if (levelData.id == LevelMenu.TEAM_ROCKET_LEVEL && firstTime) {
             rewards.add(BonusReward(148, 1))
             rewards.add(BonusReward(149, 1))
+        }
+        if (levelData is LeaderLevelData && firstTime && levelData.id != LevelMenu.BROCK_LEVEL) {
+            rewards.add(BonusReward(8, activity.trainer!!.getMaxLevel()))
         }
         val recyclerView = activity.findViewById<RecyclerView>(R.id.rewardRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)

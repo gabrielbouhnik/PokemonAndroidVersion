@@ -1,5 +1,7 @@
 package com.pokemon.android.version.model
 
+import java.util.*
+
 enum class Type(val value: Int) {
     NONE(0),
     GRASS(1),
@@ -124,6 +126,11 @@ enum class Type(val value: Int) {
             }
             else -> return 1f
         }
+    }
+
+    fun typeToString(): String {
+        return this.toString().lowercase()
+            .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
     }
 
     companion object {

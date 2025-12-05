@@ -94,17 +94,29 @@ class LeaderBattle() : Battle() {
                             170, 22,//CHINCHOU
                             listOf(
                                 activity.gameDataService.getMoveById(52),//SPARK
-                                activity.gameDataService.getMoveById(24),//WATER PULSE
-                                activity.gameDataService.getMoveById(273),//ELECTRO BALL
+                                activity.gameDataService.getMoveById(126),//WATER PULSE
+                                activity.gameDataService.getMoveById(97),//ICY WIND
                                 activity.gameDataService.getMoveById(48)//CONFUSE RAY
                             ),
                             HoldItem.MYSTIC_WATER
                         )
                     )
+                    (opponentTrainer.team as ArrayList<Pokemon>).add(
+                        4,
+                        activity.gameDataService.generatePokemonWithMoves(
+                            226, 22,//MANTINE
+                            listOf(
+                                activity.gameDataService.getMoveById(16),//WING ATTACK
+                                activity.gameDataService.getMoveById(24),//WATER PULSE
+                                activity.gameDataService.getMoveById(59),//PSYBEAM
+                                activity.gameDataService.getMoveById(137)//BULLET SEED
+                            ),
+                            HoldItem.LEFTOVERS
+                        )
+                    )
                 }
                 LevelMenu.SURGE_LEVEL -> {
-                    opponentTrainer.team = ArrayList(opponentTrainer.team.filter {
-                        it.data.id != 25 && it.data.id != 81 && it.data.id != 100 })
+                    opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 100 })
                     (opponentTrainer.team as ArrayList<Pokemon>).add(
                         1,
                         activity.gameDataService.generatePokemonWithMoves(
@@ -120,36 +132,24 @@ class LeaderBattle() : Battle() {
                     (opponentTrainer.team as ArrayList<Pokemon>).add(
                         1,
                         activity.gameDataService.generatePokemonWithMoves(
-                            135, 30,//JOLTEON
+                            941, 30,//Kilowattrel
                             listOf(
                                 activity.gameDataService.getMoveById(12),//THUNDERBOLT
-                                activity.gameDataService.getMoveById(46),//SHADOW BALL
+                                activity.gameDataService.getMoveById(50),//AIR SLASH
                                 activity.gameDataService.getMoveById(55),//THUNDER WAVE
-                                activity.gameDataService.getMoveById(161)//DOUBLE KICK
-                            ),
-                            HoldItem.AIR_BALLOON
-                        ))
-                    (opponentTrainer.team as ArrayList<Pokemon>).add(
-                        1,
-                        activity.gameDataService.generatePokemonWithMoves(
-                            82, 30,//MAGNETON
-                            listOf(
-                                activity.gameDataService.getMoveById(12),//THUNDERBOLT
-                                activity.gameDataService.getMoveById(117),//TRI ATTACK
-                                activity.gameDataService.getMoveById(111),//FLASH CANNON
                                 activity.gameDataService.getMoveById(52)//SPARK
                             ),
-                            HoldItem.AIR_BALLOON
+                            HoldItem.LIFE_ORB
                         ))
                     (opponentTrainer.team as ArrayList<Pokemon>).add(
                         1,
                         activity.gameDataService.generatePokemonWithMoves(
                             10101, 30,//HISUAN ELECTRODE
                             listOf(
+                                activity.gameDataService.getMoveById(273),//ELECTRO BALL
                                 activity.gameDataService.getMoveById(12),//THUNDERBOLT
                                 activity.gameDataService.getMoveById(280),//CHLOROBLAST
-                                activity.gameDataService.getMoveById(105),//ENERGY BALL
-                                activity.gameDataService.getMoveById(273)//ELECTRO BALL
+                                activity.gameDataService.getMoveById(105)//ENERGY BALL
                             ),
                             HoldItem.MIRACLE_SEED
                         ))
@@ -195,22 +195,16 @@ class LeaderBattle() : Battle() {
                     (this.levelData as LeaderLevelData).megaPokemonId = 3
                 }
                 LevelMenu.BLAINE_LEVEL -> {
-                    (this.levelData as LeaderLevelData).megaPokemonId = 6
-                    opponentTrainer.team.forEach{
-                        if (it.data.id == 6) {
-                            it.heldItem = null
-                        }
-                    }
-                    opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 219 })
+                    opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 59 })
                     (opponentTrainer.team as ArrayList<Pokemon>).add(
                         1,
                         activity.gameDataService.generatePokemonWithMoves(
-                            952, 60,//SCOVILLAIN
+                            10059, 65,//HISUIAN ARCANINE
                             listOf(
-                                activity.gameDataService.getMoveById(66),//GIGA DRAIN
-                                activity.gameDataService.getMoveById(31),//FLAMETHROWER
-                                activity.gameDataService.getMoveById(27),//CRUNCH
-                                activity.gameDataService.getMoveById(36)//SEED BOMB
+                                activity.gameDataService.getMoveById(281),//HEAD SMASH
+                                activity.gameDataService.getMoveById(75),//EXTREME SPEED
+                                activity.gameDataService.getMoveById(116),//FLARE BLITZ
+                                activity.gameDataService.getMoveById(200)//WILD CHARGE
                             ),
                             HoldItem.LIFE_ORB
                         ))

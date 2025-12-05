@@ -128,7 +128,7 @@ enum class Status(var activeOutsideBattle: Boolean) {
                     if (it.status == TAUNTED && opponent.hasAbility(Ability.OBLIVIOUS)) {
                         details += "${opponent.data.name}'s Oblivious: ${opponent.data.name} cannot fell for the taunt!\n"
                     } else if (it.status == CONFUSED) {
-                        if (opponent.battleData!!.battleStatus.contains(CONFUSED))
+                        if (opponent.battleData!!.battleStatus.contains(CONFUSED) && move.category == MoveCategory.OTHER)
                             details += "But ${opponent.data.name} is already confused\n"
                         else if (opponent.hasAbility(Ability.OWN_TEMPO))
                             details += "${opponent.data.name}'s Own Tempo: ${opponent.data.name} cannot be confused!\n"
@@ -155,7 +155,8 @@ enum class Status(var activeOutsideBattle: Boolean) {
                             || (it.status == PARALYSIS && opponent.hasType(Type.ELECTRIC))
                             || (it.status == BURN && opponent.hasType(Type.FIRE))
                             || (it.status == FROZEN && opponent.hasType(Type.ICE))
-                            || ((move.id == 35 || move.id == 253) && opponent.hasType(Type.GRASS)))
+                            || ((move.id == 35 || move.id == 253) && opponent.hasType(Type.GRASS))
+                            || (move.id == 55 && opponent.hasType(Type.GROUND)))
                                 details = "It does not affect ${opponent.data.name}!\n"
                     } else {
                         details += "But it failed\n"

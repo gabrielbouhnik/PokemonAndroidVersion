@@ -381,6 +381,11 @@
       "description": "A shard of what appears to be an old blade of some sort that can make a certain species of Pokémon evolve."
     },
     {
+      "id": 135,
+      "name": "Reaper Cloth",
+      "description": "A cloth imbued with horrifyingly strong spiritual energy. It's loved by a certain Pokémon."
+    },
+    {
       "id": 148,
       "name": "Helix Fossil",
       "description": "A fossil from a prehistoric Pokémon that once lived in the sea. It might be a piece of a seashell."
@@ -392,6 +397,11 @@
     },
     {
       "id": 200,
+      "name": "Victreebelite",
+      "description": "Enables Victreebel to Mega Evolve during battle."
+    },
+    {
+      "id": 201,
       "name": "Diancite",
       "description": "Enables Diancie to Mega Evolve during battle."
     }

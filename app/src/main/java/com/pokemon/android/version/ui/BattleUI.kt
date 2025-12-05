@@ -529,7 +529,7 @@ class BattleUI {
             if (battle.pokemon.getBattleMove1().pp == 0) {
                 Toast.makeText(
                     activity,
-                    "There are no PP left for this move",
+                    "There are no PP left for this move.",
                     Toast.LENGTH_SHORT
                 ).show()
             } else if (battle.pokemon.getBattleMove1().isDisabled()) {

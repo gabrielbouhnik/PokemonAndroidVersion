@@ -122,7 +122,7 @@ class MainMenu {
             loadGameMenu(activity)
         }
         val achievementsButton: TextView = activity.findViewById(R.id.achievementsButton)
-        if (activity.trainer!!.progression < LevelMenu.ELITE_4_LAST_LEVEL_ID || activity.eliteMode)
+        if (activity.trainer!!.progression < LevelMenu.ELITE_4_LAST_LEVEL_ID || activity.eliteMode || activity.hardMode)
             achievementsButton.visibility = GONE
         else {
             achievementsButton.setOnClickListener {

@@ -61,6 +61,9 @@ class DamageCalculator {
             if (moveType == Type.NORMAL && attacker.hasAbility(Ability.PIXILATE)) {
                 moveType = Type.FAIRY
             }
+            if (moveType == Type.NORMAL && attacker.hasAbility(Ability.GALVANIZE)) {
+                moveType = Type.ELECTRIC
+            }
             if (moveType == Type.GROUND) {
                 if (opponent.battleData!!.battleStatus.contains(Status.ROOSTED)) {
                     if (type1 == Type.FLYING)
@@ -164,7 +167,7 @@ class DamageCalculator {
                 power *= 1.5f
             if (attacker.hasAbility(Ability.SAND_FORCE) && (move.type == Type.ROCK || move.type == Type.GROUND ||move.type == Type.STEEL))
                 power *= 1.3f
-            if (move.type == Type.NORMAL && (attacker.hasAbility(Ability.PIXILATE) || attacker.hasAbility(Ability.AERILATE))) {
+            if (move.type == Type.NORMAL && (attacker.hasAbility(Ability.GALVANIZE) || attacker.hasAbility(Ability.PIXILATE) || attacker.hasAbility(Ability.AERILATE))) {
                     power *= 1.2f
             }
             if (move.power <= 60 && attacker.hasAbility(Ability.TECHNICIAN))
@@ -184,7 +187,7 @@ class DamageCalculator {
                 if (opponent.hasAbility(Ability.DRY_SKIN) || opponent.hasAbility(Ability.FLUFFY))
                     power *= 2f
             }
-            if (move.type == Type.ELECTRIC && attacker.battleData!!.battleStatus.contains(Status.CHARGED)) {
+            if ((move.type == Type.ELECTRIC || (move.type == Type.NORMAL && attacker.hasAbility(Ability.GALVANIZE))) && attacker.battleData!!.battleStatus.contains(Status.CHARGED)) {
                 power *= 1.5f
             }
             if (move.type == Type.WATER && attacker.hasAbility(Ability.WATER_BUBBLE)) {
@@ -208,7 +211,7 @@ class DamageCalculator {
             }
             if (move.id == 307) {
                 //RAGE FIST
-                power += 50 * attacker.battleData!!.numberOfHitTaken
+                power += 50 * min(attacker.battleData!!.numberOfHitTaken, 4)
             }
             if (move.id == 316 && battleField.weather != Weather.NONE) {
                 //WEATHER BALL
@@ -242,7 +245,7 @@ class DamageCalculator {
                 if (move.type == Type.BUG && attacker.hasAbility(Ability.SWARM))
                     power *= 1.5f
             }
-            if (move.id == 247 && opponent.heldItem != null && !opponent.itemDisabled)
+            if (move.id == 247 && opponent.heldItem != null && !opponent.itemDisabled) //KNOCK OFF
                 power *= 1.5f
             if (move.type == Type.STEEL && attacker.hasAbility(Ability.STEELWORKER))
                 power *= 1.5f
@@ -306,13 +309,15 @@ class DamageCalculator {
                     && battleField.gravityCounter == 0
                     && opponent.hasAbility(Ability.LEVITATE))
                     return 0
+                if (move.priorityLevel > 0 && opponent.hasAbility(Ability.ARMOR_TAIL))
+                    return 0
                 if (move.characteristics.contains(MoveCharacteristic.BULLET) && opponent.hasAbility(Ability.BULLETPROOF))
                     return 0
                 if (move.type == Type.WATER && (opponent.hasAbility(Ability.WATER_ABSORB)
                                                 || opponent.hasAbility(Ability.STORM_DRAIN)
                                                 || opponent.hasAbility(Ability.DRY_SKIN)))
                     return 0
-                if (move.type == Type.ELECTRIC && (opponent.hasAbility(Ability.LIGHTNING_ROD) || opponent.hasAbility(
+                if ((move.type == Type.ELECTRIC || (move.type == Type.NORMAL && attacker.hasAbility(Ability.GALVANIZE))) && (opponent.hasAbility(Ability.LIGHTNING_ROD) || opponent.hasAbility(
                         Ability.VOLT_ABSORB
                     ) || opponent.hasAbility(
                         Ability.MOTOR_DRIVE

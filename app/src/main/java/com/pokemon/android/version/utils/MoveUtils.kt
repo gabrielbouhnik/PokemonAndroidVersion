@@ -21,13 +21,13 @@ class MoveUtils {
             .build()
 
         fun getMoveList(pokemon: Pokemon): ArrayList<PokemonMove> {
-            val res = arrayListOf(pokemon.move1)
-            if (pokemon.move2 != null)
-                res.add(pokemon.move2!!)
-            if (pokemon.move3 != null)
-                res.add(pokemon.move3!!)
-            if (pokemon.move4 != null)
-                res.add(pokemon.move4!!)
+            val res = arrayListOf(pokemon.getBattleMove1())
+            if (pokemon.getBattleMove2() != null)
+                res.add(pokemon.getBattleMove2()!!)
+            if (pokemon.getBattleMove3() != null)
+                res.add(pokemon.getBattleMove3()!!)
+            if (pokemon.getBattleMove4() != null)
+                res.add(pokemon.getBattleMove4()!!)
             if (pokemon is PokemonBoss) {
                 if (pokemon.move5 != null)
                     res.add(pokemon.move5!!)

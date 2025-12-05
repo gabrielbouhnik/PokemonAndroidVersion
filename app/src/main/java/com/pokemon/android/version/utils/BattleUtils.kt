@@ -248,13 +248,18 @@ class BattleUtils {
             var effectiveness = DamageCalculator.getEffectiveness(attacker, move, opponent, battleField)
             if (move is MoveBasedOnLevel)
                 effectiveness = 1f
-            if (move.type == Type.ELECTRIC && opponent.hasAbility(Ability.VOLT_ABSORB) && !opponent.hasAbility(Ability.MOLD_BREAKER))
-                return "${opponent.data.name}'s Volt Absorb: ${opponent.data.name}'s HP was restored\n"
-            if (move.type == Type.WATER && !opponent.hasAbility(Ability.MOLD_BREAKER)) {
-                if (opponent.hasAbility(Ability.WATER_ABSORB))
-                    return "${opponent.data.name}'s Water Absorb: ${opponent.data.name}'s HP was restored\n"
-                if (opponent.hasAbility(Ability.DRY_SKIN))
-                    return "${opponent.data.name}'s Dry Skin: ${opponent.data.name}'s HP was restored\n"
+            if (!attacker.hasAbility(Ability.MOLD_BREAKER)) {
+                if ((move.type == Type.ELECTRIC || (move.type == Type.NORMAL && attacker.hasAbility(Ability.GALVANIZE))) && opponent.hasAbility(Ability.VOLT_ABSORB) && !opponent.hasAbility(
+                        Ability.MOLD_BREAKER
+                    )
+                )
+                    return "${opponent.data.name}'s Volt Absorb: ${opponent.data.name}'s HP was restored\n"
+                if (move.type == Type.WATER && !opponent.hasAbility(Ability.MOLD_BREAKER)) {
+                    if (opponent.hasAbility(Ability.WATER_ABSORB))
+                        return "${opponent.data.name}'s Water Absorb: ${opponent.data.name}'s HP was restored\n"
+                    if (opponent.hasAbility(Ability.DRY_SKIN))
+                        return "${opponent.data.name}'s Dry Skin: ${opponent.data.name}'s HP was restored\n"
+                }
             }
             return when {
                 effectiveness == 0f -> "It does not affect ${opponent.data.name}\n"
@@ -279,13 +284,11 @@ class BattleUtils {
                 opponentPriorityLevel += 1
             return when {
                 (priorityLevel > opponentPriorityLevel
-                        || (pokemon.hasAbility(Ability.PRANKSTER) && move.category == MoveCategory.OTHER))
-                        && !other.hasAbility(Ability.ARMOR_TAIL) -> {
+                        || (pokemon.hasAbility(Ability.PRANKSTER) && move.category == MoveCategory.OTHER)) -> {
                     true
                 }
                 (priorityLevel < opponentPriorityLevel
-                        || (other.hasAbility(Ability.PRANKSTER) && opponentMove.category == MoveCategory.OTHER))
-                        && !pokemon.hasAbility(Ability.ARMOR_TAIL) -> {
+                        || (other.hasAbility(Ability.PRANKSTER) && opponentMove.category == MoveCategory.OTHER)) -> {
                     false
                 }
                 else -> {
@@ -297,8 +300,8 @@ class BattleUtils {
         fun isFaster(pokemon: Pokemon, other: Pokemon, battleField: BattleField, winSpeedTie: Boolean): Boolean {
             val pokemonSpeed = pokemon.speed.toFloat() * pokemon.battleData!!.statsMultiplier.speedMultiplicator
             val otherSpeed = other.speed.toFloat() * other.battleData!!.statsMultiplier.speedMultiplicator
-            val paralysisMultiplicator: Float = if (pokemon.status == Status.PARALYSIS) 0.5f else 1f
-            val opponentParalysisMultiplicator: Float = if (other.status == Status.PARALYSIS) 0.5f else 1f
+            val paralysisMultiplicator: Float = if (pokemon.status == Status.PARALYSIS && !pokemon.hasAbility(Ability.QUICK_FEET)) 0.5f else 1f
+            val opponentParalysisMultiplicator: Float = if (other.status == Status.PARALYSIS && !other.hasAbility(Ability.QUICK_FEET)) 0.5f else 1f
             var isFaster: Boolean = if (winSpeedTie)
                 pokemonSpeed * paralysisMultiplicator >= otherSpeed * opponentParalysisMultiplicator
             else

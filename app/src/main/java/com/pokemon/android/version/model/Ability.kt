@@ -32,6 +32,7 @@ enum class Ability(var description: String) {
     FLUFFY("Halves the damage taken from moves that make direct contact, but doubles that of Fire-type moves."),
     FRISK("When it enters a battle, the Pokémon can check an opposing Pokémon's held item."),
     GALE_WINGS("All Flying-type moves have their Speed Priority increased by 1 if the Pokémon's Hit Points are at maximum"),
+    GALVANIZE("Normal-type moves become Electric-type moves. The power of those moves is boosted a little."),
     GUTS("It's so gutsy that having a status condition boosts the Pokémon's Attack stat."),
     HEATPROOF("The heatproof body of the Pokémon halves the damage from Fire-type moves that hit it."),
     HYPER_CUTTER("The Pokémon's proud of its powerful pincers. They prevent other Pokémon from lowering its Attack stat."),

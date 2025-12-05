@@ -101,9 +101,8 @@ class IAUtils {
                 move.move.status.forEach {
                     if (Status.isAffectedByStatus(move.move.id, it.status, opponent)
                         && it.probability == null
-                        && (!opponentBattleSide.battleSideEffects.contains(BattleSideEffect.SAFEGUARD)
-                                || (!it.status.activeOutsideBattle && it.status != Status.TIRED && it.status != Status.CONFUSED)
-                        && !opponent.hasAbility(Ability.MAGIC_BOUNCE)))
+                        && (!opponentBattleSide.battleSideEffects.contains(BattleSideEffect.SAFEGUARD) || (!it.status.activeOutsideBattle && it.status != Status.TIRED && it.status != Status.CONFUSED))
+                        && !opponent.hasAbility(Ability.MAGIC_BOUNCE))
                         return move
                 }
                 if (move.move is StatChangeMove) {
@@ -150,9 +149,9 @@ class IAUtils {
 
         fun shouldSwitch(attacker: Pokemon, opponent: Pokemon, trainerTeam: List<Pokemon>, battleField: BattleField, battleSide: BattleSide, opponentBattleSide: BattleSide): Pokemon? {
             val team = trainerTeam.filter { it.currentHP > 0 && it != attacker }
-            if (opponent.battleData!!.battleStatus.contains(Status.TIRED)
+            if (attacker.battleData!!.battleStatus.contains(Status.TIRED)
                 || (attacker.canBeKOdBy(opponent, battleField, battleSide)
-                        && opponent.currentHP >= opponent.hp * 0.6f)
+                        && opponent.currentHP >= opponent.hp * 0.4f)
             ) {
                 for (pokemon in team) {
                     if ((pokemon.speed > opponent.speed * opponent.battleData!!.statsMultiplier.speedMultiplicator

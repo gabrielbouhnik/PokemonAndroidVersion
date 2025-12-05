@@ -21,7 +21,8 @@ class LevelMenu {
         const val OTHER_BANNER_LEVEL = 19
         const val DUGTRIO_LEVEL = 24
         const val MAROWAK_LEVEL = 32
-        const val ERIKA_LEVEL = 38
+        const val ERIKA_LEVEL = 39
+        const val SNORLAX_LEVEL = 40
         const val LAPRAS_LEVEL = 50
         const val ARCHER_LEVEL = 52
         const val GIOVANNI_LEVEL = 53
@@ -93,10 +94,10 @@ class LevelMenu {
             val position = it.tag as Int
             val levelData: LevelData = levels[position]
             if (activity.trainer!!.canStillBattle()) {
-                if (levelData is LeaderLevelData
+                if (levelData !is WildBattleLevelData
                     && !activity.eliteMode
                     && activity.trainer!!.team.map { pokemon ->  pokemon.data.id }.distinct().size != activity.trainer!!.team.size) {
-                    Toast.makeText(activity, "You cannot have the same species of Pokémon in your team in an official Pokémon League battle!", Toast.LENGTH_SHORT)
+                    Toast.makeText(activity, "You cannot have the same species of Pokémon in your team for trainer battles!", Toast.LENGTH_SHORT)
                         .show()
                 }
                 else if (activity.trainer!!.progression == levelData.id) {

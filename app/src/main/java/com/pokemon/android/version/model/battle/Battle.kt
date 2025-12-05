@@ -286,8 +286,8 @@ abstract class Battle {
         var opponentMove: PokemonMove =
             if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon, battleField, opponentSide, playerSide)
         switchPokemon(pokemonToBeSent)
-        sb.append(megaEvolveOpponentIfPossible())
         sb.append(BattleUtils.abilitiesCheck(pokemon, opponent, battleField, playerSide))
+        sb.append(megaEvolveOpponentIfPossible())
         if (this is BossBattle)
             opponentMove = IAUtils.ia(opponent, pokemon, battleField, opponentSide, playerSide)
         if (opponentMove.move.id == 208) {
@@ -384,13 +384,13 @@ abstract class Battle {
         if (battleField.trickRoomCounter > 0) {
             battleField.trickRoomCounter -= 1
             if (battleField.trickRoomCounter == 0) {
-                sb.append("The twisted dimensions returned to normal!")
+                sb.append("The twisted dimensions returned to normal!\n")
             }
         }
         if (battleField.gravityCounter > 0) {
             battleField.gravityCounter -= 1
             if (battleField.gravityCounter == 0) {
-                sb.append("Gravity returned to normal!")
+                sb.append("Gravity returned to normal!\n")
             }
         }
         sb.append(playerSide.updateBattleSide(pokemon))
@@ -433,17 +433,17 @@ abstract class Battle {
                 if (opponent.battleData!!.rampageCounter == 2) {
                     opponent.battleData!!.rampageCounter = 0
                     opponent.battleData!!.rampageMove = null
-                }
-                if (!opponent.hasAbility(Ability.OWN_TEMPO)
-                    && !opponent.battleData!!.battleStatus.contains(Status.CONFUSED)
-                ) {
-                    opponent.battleData!!.battleStatus.add(Status.CONFUSED)
-                    sb.append("The opposing ${opponent.data.name} became confused due to fatigue!\n")
-                    if (opponent.hasItem(HoldItem.LUM_BERRY) && !pokemon.hasAbility(Ability.UNNERVE)) {
-                        sb.append("${opponent.data.name}'s Lum Berry cured its status\n")
-                        opponent.status = Status.OK
-                        opponent.consumeItem()
-                        Status.cureAllStatus(opponent)
+                    if (!opponent.hasAbility(Ability.OWN_TEMPO)
+                        && !opponent.battleData!!.battleStatus.contains(Status.CONFUSED)
+                    ) {
+                        opponent.battleData!!.battleStatus.add(Status.CONFUSED)
+                        sb.append("The opposing ${opponent.data.name} became confused due to fatigue!\n")
+                        if (opponent.hasItem(HoldItem.LUM_BERRY) && !pokemon.hasAbility(Ability.UNNERVE)) {
+                            sb.append("${opponent.data.name}'s Lum Berry cured its status\n")
+                            opponent.status = Status.OK
+                            opponent.consumeItem()
+                            Status.cureAllStatus(opponent)
+                        }
                     }
                 }
             }

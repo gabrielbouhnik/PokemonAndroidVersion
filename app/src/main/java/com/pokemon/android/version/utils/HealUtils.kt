@@ -26,12 +26,16 @@ class HealUtils {
             }
         }
 
-        fun dailyHeal(trainer: Trainer) {
+        fun healPokemon(trainer: Trainer) {
             trainer.pokemons.forEach {
                 it.currentHP = it.hp
                 it.status = Status.OK
                 healPP(it)
             }
+        }
+
+        fun dailyHeal(trainer: Trainer) {
+            healPokemon(trainer)
             trainer.lastTimeDailyHealUsed = Calendar.getInstance().time
         }
     }

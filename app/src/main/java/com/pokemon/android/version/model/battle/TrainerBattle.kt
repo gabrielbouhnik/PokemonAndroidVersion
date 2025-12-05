@@ -32,7 +32,7 @@ class TrainerBattle() : Battle() {
         )
         if (activity.hardMode) {
             if (this.levelData.id == LevelMenu.ARCHER_LEVEL) {
-                opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id == 126})
+                opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 126})
                 (opponentTrainer.team as ArrayList<Pokemon>).add(
                     1,
                     activity.gameDataService.generatePokemonWithMoves(

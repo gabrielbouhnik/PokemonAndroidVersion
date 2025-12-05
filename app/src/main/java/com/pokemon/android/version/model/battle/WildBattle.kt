@@ -22,6 +22,7 @@ class WildBattle() : Battle() {
                 && it.id != 120
                 && it.id != 701
                 && it.id != 782
+                && it.id != 854
                 && it.id != 885
                 && it.id != 955 }
         else

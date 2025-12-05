@@ -70,7 +70,7 @@ class GameDataService {
     }
 
     fun updateShopForHardMode() {
-        this.shop.add(ShopItem(8, this.items.first { it.id == 8 }.name, 10, 2))
+        this.shop.add(ShopItem(8, this.items.first { it.id == 8 }.name, 10, 8))
         for (itemId in 16..19) {
             this.shop.add(ShopItem(itemId, this.items.first { it.id == itemId }.name, 750, 3))
         }
@@ -80,7 +80,7 @@ class GameDataService {
         }
         this.shop.add(ShopItem(12, this.items.first { it.id == 12 }.name, 150, 3))
         this.shop.add(ShopItem(13, this.items.first { it.id == 13 }.name, 200, 6))
-        this.shop.add(ShopItem(200, this.items.first { it.id == 200 }.name, 4000, 8))
+        this.shop.add(ShopItem(201, this.items.first { it.id == 201 }.name, 4000, 8))
         this.shop.sortBy { it.itemId }
         this.shop = this.shop.filter { it.itemId != 115  && it.itemId != 117 && it.itemId != 120 }.toMutableList()
     }
@@ -128,14 +128,18 @@ class GameDataService {
                 pokemon.heldItem = HoldItem.TOXIC_ORB
             if (id == 193)
                 pokemon.heldItem = HoldItem.WIDE_LENS
-            if (id == 353 || id == 200)
+            if (id == 200 || id == 353 || id == 354 || id == 355 || id == 356)
                 pokemon.heldItem = HoldItem.SPELL_TAG
             if (id == 50)
                 pokemon.heldItem = HoldItem.SOFT_SAND
+            if (id == 751)
+                pokemon.heldItem = HoldItem.MYSTIC_WATER
             if (id == 621)
                 pokemon.heldItem = HoldItem.DRAGON_FANG
             if (id == 88 || id == 89 || id == 453)
                 pokemon.heldItem = HoldItem.BLACK_SLUDGE
+            if (id == 622 || id == 623)
+                pokemon.heldItem = HoldItem.LIGHT_CLAY
         }
         return pokemon
     }
@@ -147,6 +151,9 @@ class GameDataService {
             val random = Random.nextInt(1,5)
             if (random == 1)
                 pokemon.shiny = true
+        }
+        if (pokemon.data.id in 172..175) {
+            pokemon.level = 5
         }
         return pokemon
     }

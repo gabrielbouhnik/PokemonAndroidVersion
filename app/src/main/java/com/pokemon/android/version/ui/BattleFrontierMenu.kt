@@ -116,7 +116,7 @@ class BattleFrontierMenu {
                     activity.gameDataService.levels.find { it.id == 99 } as LeaderLevelData)
             } else {
                 var opponentTrainerData: OpponentTrainerData? = null
-                if (Random.nextInt(10) == 5) {
+                if (Random.nextInt(5) == 4) {
                     opponentTrainerData = activity.gameDataService.battleFrontierTrainers.asSequence().shuffled().first()
                 }
                 activity.mainMenu.levelMenu.battleUI.startBattleFrontierBattle(activity, area, opponentTrainerData)

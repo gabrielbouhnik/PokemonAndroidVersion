@@ -81,12 +81,8 @@
   },
   {
     "id": 65,
-    "moveIds": [219,132,46,44],
+    "moveIds": [219,105,46,44],
     "itemHeld": "FOCUS_SASH"
-  },
-  {
-    "id": 65,
-    "moveIds": [45,132,135,105]
   },
   {
     "id": 68,
@@ -142,27 +138,19 @@
     "itemHeld": "PROTECTIVE_PADS"
   },
   {
-    "id": 115,
-    "moveIds": [246,27,103,93],
-    "itemHeld": "LEFTOVERS"
-  },
-  {
-    "id": 115,
-    "moveIds": [246,191,110,25],
-    "itemHeld": "LEFTOVERS"
-  },
-  {
     "id": 122,
     "moveIds": [45,44,55,319],
     "itemHeld": "LIGHT_CLAY"
   },
   {
     "id": 123,
-    "moveIds": [3,56,113,114]
+    "moveIds": [3,56,113,114],
+    "itemHeld": "EVIOLITE"
   },
   {
     "id": 123,
-    "moveIds": [3,56,16,69]
+    "moveIds": [3,56,16,69],
+    "itemHeld": "EVIOLITE"
   },
   {
     "id": 124,
@@ -178,19 +166,23 @@
   },
   {
     "id": 128,
-    "moveIds": [147,93,148,25]
+    "moveIds": [147,93,148,25],
+    "itemHeld": "LIFE_ORB"
   },
   {
     "id": 128,
-    "moveIds": [147,93,57,25]
+    "moveIds": [147,93,57,25],
+    "itemHeld": "LIFE_ORB"
   },
   {
     "id": 130,
-    "moveIds": [136,27,125,119]
+    "moveIds": [136,27,125,119],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 130,
-    "moveIds": [136,27,93,119]
+    "moveIds": [136,27,93,119],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 134,
@@ -227,19 +219,18 @@
   },
   {
     "id": 149,
-    "moveIds": [108,110,103,125]
+    "moveIds": [108,110,103,125],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 149,
-    "moveIds": [108,16,93,125]
-  },
-  {
-    "id": 149,
-    "moveIds": [108,75,110,193]
+    "moveIds": [108,16,93,125],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 157,
-    "moveIds": [212,31,139,200]
+    "moveIds": [212,31,139,200],
+    "itemHeld": "CHARCOAL"
   },
   {
     "id": 160,
@@ -256,15 +247,18 @@
   },
   {
     "id": 178,
-    "moveIds": [50,45,46,55]
+    "moveIds": [50,45,46,55],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 178,
-    "moveIds": [50,45,44,135]
+    "moveIds": [50,45,44,135],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 181,
-    "moveIds": [12,51,139,44]
+    "moveIds": [12,51,139,44],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 184,
@@ -292,15 +286,18 @@
   },
   {
     "id": 205,
-    "moveIds": [233,61,93,230]
+    "moveIds": [233,61,93,230],
+    "itemHeld": "ASSAULT_VEST"
   },
   {
     "id": 205,
-    "moveIds": [233,61,25,267]
+    "moveIds": [233,61,25,267],
+    "itemHeld": "ASSAULT_VEST"
   },
   {
     "id": 205,
-    "moveIds": [233,93,25,267]
+    "moveIds": [233,93,25,267],
+    "itemHeld": "ASSAULT_VEST"
   },
   {
     "id": 212,
@@ -327,15 +324,18 @@
   },
   {
     "id": 229,
-    "moveIds": [31,92,37,120]
+    "moveIds": [31,92,37,120],
+    "itemHeld": "CHARCOAL"
   },
   {
     "id": 230,
-    "moveIds": [43,104,100,111]
+    "moveIds": [43,104,100,111],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 230,
-    "moveIds": [274,125,57,262]
+    "moveIds": [274,125,57,262],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 232,
@@ -381,15 +381,8 @@
   },
   {
     "id": 254,
-    "moveIds": [66,76,104,3]
-  },
-  {
-    "id": 254,
-    "moveIds": [114,76,93,121]
-  },
-  {
-    "id": 254,
-    "moveIds": [114,121,103,25]
+    "moveIds": [66,76,104,93],
+    "itemHeld": "BIG_ROOT"
   },
   {
     "id": 257,
@@ -422,7 +415,7 @@
   },
   {
     "id": 286,
-    "moveIds": [14,36,25,252],
+    "moveIds": [14,137,25,76],
     "itemHeld": "TOXIC_ORB"
   },
   {
@@ -540,6 +533,16 @@
     "itemHeld": "BLACK_SLUDGE"
   },
   {
+    "id": 424,
+    "moveIds": [246,162,107,113],
+    "itemHeld": "PROTECTIVE_PADS"
+  },
+  {
+    "id": 424,
+    "moveIds": [246,162,103,113],
+    "itemHeld": "PROTECTIVE_PADS"
+  },
+  {
     "id": 426,
     "moveIds": [46,12,302,138]
   },
@@ -566,10 +569,6 @@
     "moveIds": [203,123,46,208]
   },
   {
-    "id": 435,
-    "moveIds": [123,208,83,31]
-  },
-  {
     "id": 442,
     "moveIds": [46,92,173,168]
   },
@@ -593,12 +592,12 @@
   },
   {
     "id": 454,
-    "moveIds": [69,62,110,25],
+    "moveIds": [69,62,208,25],
     "itemHeld": "BLACK_SLUDGE"
   },
   {
     "id": 454,
-    "moveIds": [69,62,103,107],
+    "moveIds": [69,62,208,107],
     "itemHeld": "BLACK_SLUDGE"
   },
   {
@@ -608,7 +607,8 @@
   },
   {
     "id": 462,
-    "moveIds": [12,111,117,267]
+    "moveIds": [12,111,117,267],
+    "itemHeld": "AIR_BALLOON"
   },
   {
     "id": 464,
@@ -637,23 +637,28 @@
   },
   {
     "id": 467,
-    "moveIds": [82,45,12,69]
+    "moveIds": [82,45,12,69],
+    "itemHeld": "EXPERT_BELT"
   },
   {
     "id": 468,
-    "moveIds": [50,44,31,55]
+    "moveIds": [50,44,31,55],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 468,
-    "moveIds": [50,44,102,81]
+    "moveIds": [50,44,102,81],
+    "itemHeld": "LEFTOVERS"
   },
   {
     "id": 469,
-    "moveIds": [50,60,102,46]
+    "moveIds": [50,60,102,46],
+    "itemHeld": "LIFE_ORB"
   },
   {
     "id": 469,
-    "moveIds": [50,60,66,102]
+    "moveIds": [50,60,66,102],
+    "itemHeld": "LIFE_ORB"
   },
   {
     "id": 472,
@@ -672,7 +677,8 @@
   },
   {
     "id": 473,
-    "moveIds": [93,25,98,95]
+    "moveIds": [93,25,98,95],
+    "itemHeld": "ASSAULT_VEST"
   },
   {
     "id": 474,
@@ -708,7 +714,6 @@
     "id": 534,
     "moveIds": [14,76,93,107],
     "itemHeld": "ASSAULT_VEST"
-
   },
   {
     "id": 534,
@@ -782,11 +787,13 @@
   },
   {
     "id": 701,
-    "moveIds": [210,113,25,56]
+    "moveIds": [210,113,25,56],
+    "itemHeld": "PROTECTIVE_PADS"
   },
   {
     "id": 701,
-    "moveIds": [210,263,113,114]
+    "moveIds": [210,263,113,114],
+    "itemHeld": "PROTECTIVE_PADS"
   },
   {
     "id": 706,
@@ -918,10 +925,17 @@
   },
   {
     "id": 10157,
-    "moveIds": [212,31,278,139]
+    "moveIds": [212,31,278,139],
+    "itemHeld": "CHARCOAL"
   },
   {
     "id": 10157,
-    "moveIds": [212,231,278,31]
+    "moveIds": [212,231,278,31],
+    "itemHeld": "CHARCOAL"
+  },
+  {
+    "id": 10076,
+    "moveIds": [25,147,93,267],
+    "itemHeld": "AIR_BALLOON"
   }
 ]
