@@ -6,10 +6,7 @@ import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.banner.Banner
 import com.pokemon.android.version.model.banner.PokemonBanner
-import com.pokemon.android.version.model.item.HoldItem
-import com.pokemon.android.version.model.item.ItemData
-import com.pokemon.android.version.model.item.ItemFactory
-import com.pokemon.android.version.model.item.ShopItem
+import com.pokemon.android.version.model.item.*
 import com.pokemon.android.version.model.level.*
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveFactory
@@ -80,9 +77,9 @@ class GameDataService {
         }
         this.shop.add(ShopItem(12, this.items.first { it.id == 12 }.name, 150, 3))
         this.shop.add(ShopItem(13, this.items.first { it.id == 13 }.name, 200, 6))
-        this.shop.add(ShopItem(201, this.items.first { it.id == 201 }.name, 4000, 8))
+        this.shop.add(ShopItem(205, this.items.first { it.id == 205 }.name, 4000, 8))
         this.shop.sortBy { it.itemId }
-        this.shop = this.shop.filter { it.itemId != 115  && it.itemId != 117 && it.itemId != 120 }.toMutableList()
+        this.shop = this.shop.filter { it.itemId != 44 && it.itemId != 115  && it.itemId != 117 && it.itemId != 120 && it.itemId != 201 && it.itemId != 202 }.toMutableList()
     }
 
     fun getPokemonDataById(id: Int): PokemonData {
@@ -91,6 +88,10 @@ class GameDataService {
 
     fun getMoveById(id: Int): Move {
         return moves.first { it.id == id }
+    }
+
+    fun getItemById(id: Int): ItemData? {
+        return items.firstOrNull { it.id == id }
     }
 
     fun generatePokemon(id: Int, level: Int): Pokemon {

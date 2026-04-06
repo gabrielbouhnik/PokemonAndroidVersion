@@ -248,6 +248,8 @@ class BattleUtils {
             var effectiveness = DamageCalculator.getEffectiveness(attacker, move, opponent, battleField)
             if (move is MoveBasedOnLevel)
                 effectiveness = 1f
+            if (move.id == 329 || move.id == 339 || move.id == 346)
+                return ""
             if (!attacker.hasAbility(Ability.MOLD_BREAKER)) {
                 if ((move.type == Type.ELECTRIC || (move.type == Type.NORMAL && attacker.hasAbility(Ability.GALVANIZE))) && opponent.hasAbility(Ability.VOLT_ABSORB) && !opponent.hasAbility(
                         Ability.MOLD_BREAKER

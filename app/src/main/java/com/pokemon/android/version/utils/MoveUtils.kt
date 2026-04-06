@@ -42,6 +42,9 @@ class MoveUtils {
             if (pokemon.battleData!!.battleStatus.contains(Status.TAUNTED)) {
                 usableMoves = usableMoves.filter { it.move.category != MoveCategory.OTHER}
             }
+            if (pokemon.battleData!!.throatChoppedCounter > 0) {
+                usableMoves = usableMoves.filter { !it.move.characteristics.contains(MoveCharacteristic.SOUND)}
+            }
             if (usableMoves.isEmpty()) {
                 return arrayListOf(PokemonMove(STRUGGLE, 1, 0))
             }

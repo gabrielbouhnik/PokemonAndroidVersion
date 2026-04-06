@@ -28,7 +28,11 @@ class SaveManager {
             trainer.coins = trainerSave.coins
             trainer.progression = trainerSave.progression
             trainer.eliteProgression = trainerSave.eliteProgression
-            trainerSave.items.forEach { trainer.items[it.itemId] = it.quantity }
+            trainerSave.items.forEach {
+                if (activity.gameDataService.getItemById(it.itemId) != null) {
+                    trainer.items[it.itemId] = it.quantity
+                }
+            }
             trainerSave.team.forEach {
                 val pokemon: Pokemon = Pokemon.of(it, activity.gameDataService, trainer)
                 trainer.pokemons.add(pokemon)

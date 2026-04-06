@@ -381,6 +381,10 @@ class BattleUI {
                 if (battle.levelData.id == FRONTIER_BRAIN_LEVEL_ID) {
                     activity.trainer!!.coins += 5000
                     activity.trainer!!.battleTowerProgression!!.progression += 1
+                    team.forEach {
+                        it.recomputeStat()
+                        it.battleData = null
+                    }
                 }
                 if (activity.eliteMode)
                     endEliteBattle(activity, battle)

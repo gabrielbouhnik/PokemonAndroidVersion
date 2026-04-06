@@ -21,8 +21,8 @@
   },
   {
     "id": 9,
-    "moveIds": [43,100,111,92],
-    "itemHeld": "ASSAULT_VEST"
+    "moveIds": [43,124,100,245],
+    "itemHeld": "LIFE_ORB"
   },
   {
     "id": 26,
@@ -121,6 +121,11 @@
     "id": 94,
     "moveIds": [46,44,37,48],
     "itemHeld": "LIFE_ORB"
+  },
+  {
+    "id": 106,
+    "moveIds": [210,68,25,191],
+    "itemHeld": "FOCUS_SASH"
   },
   {
     "id": 107,
@@ -865,6 +870,11 @@
     "id": 941,
     "moveIds": [12,50,55,321],
     "itemHeld": "MAGNET"
+  },
+  {
+    "id": 952,
+    "moveIds": [66,36,27,31],
+    "itemHeld": "MIRACLE_SEED"
   },
   {
     "id": 966,

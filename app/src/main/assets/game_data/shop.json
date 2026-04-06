@@ -32,7 +32,12 @@
       "badgeCountNeeded": 8
     },
     {
-      "itemId": 133,
+      "itemId": 49,
+      "cost": 200,
+      "badgeCountNeeded": 4
+    },
+    {
+      "itemId": 44,
       "cost": 200,
       "badgeCountNeeded": 4
     },
@@ -102,7 +107,7 @@
       "badgeCountNeeded": 8
     },
     {
-      "itemId": 132,
+      "itemId": 43,
       "cost": 200,
       "badgeCountNeeded": 7
     },
@@ -137,27 +142,22 @@
       "badgeCountNeeded": 7
     },
     {
-      "itemId": 49,
+      "itemId": 42,
+      "cost": 400,
+      "badgeCountNeeded": 7
+    },
+    {
+      "itemId": 46,
+      "cost": 400,
+      "badgeCountNeeded": 7
+    },
+    {
+      "itemId": 45,
       "cost": 400,
       "badgeCountNeeded": 7
     },
     {
       "itemId": 50,
-      "cost": 400,
-      "badgeCountNeeded": 7
-    },
-    {
-      "itemId": 134,
-      "cost": 400,
-      "badgeCountNeeded": 7
-    },
-    {
-      "itemId": 135,
-      "cost": 400,
-      "badgeCountNeeded": 7
-    },
-    {
-      "itemId": 131,
       "cost": 400,
       "badgeCountNeeded": 7
     },
@@ -179,6 +179,21 @@
     {
       "itemId": 200,
       "cost": 2000,
+      "badgeCountNeeded": 8
+    },
+    {
+      "itemId": 201,
+      "cost": 4000,
+      "badgeCountNeeded": 8
+    },
+    {
+      "itemId": 202,
+      "cost": 4000,
+      "badgeCountNeeded": 8
+    },
+    {
+      "itemId": 203,
+      "cost": 4000,
       "badgeCountNeeded": 8
     },
     {

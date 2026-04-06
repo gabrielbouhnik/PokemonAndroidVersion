@@ -206,44 +206,39 @@
       "description": "Evolves certain species of Pokémon."
     },
     {
-      "id": 41,
-      "name": "Zephyr Badge",
-      "description": ""
-    },
-    {
       "id": 42,
-      "name": "Hive Badge",
-      "description": ""
+      "name": "Peat Block",
+      "description": "A block of mud loved by a certain Pokémon."
     },
     {
       "id": 43,
-      "name": "Plain Badge",
-      "description": ""
+      "name": "Linking Cord",
+      "description": "A string exuding a mysterious energy that makes you feel a strange sense of connection. It’s loved by certain Pokémon."
     },
     {
       "id": 44,
-      "name": "Fog Badge",
-      "description": ""
+      "name": "Chipped Pot",
+      "description": "A peculiar teapot that can make a certain species of Pokémon evolve."
     },
     {
       "id": 45,
-      "name": "Storm Badge",
-      "description": ""
+      "name": "Leader's Crest",
+      "description": "A shard of what appears to be an old blade of some sort that can make a certain species of Pokémon evolve."
     },
     {
       "id": 46,
-      "name": "Mineral Badge",
-      "description": ""
+      "name": "Reaper Cloth",
+      "description": "A cloth imbued with horrifyingly strong spiritual energy. It's loved by a certain Pokémon."
     },
     {
       "id": 47,
-      "name": "Glacier Badge",
-      "description": ""
+      "name": "Helix Fossil",
+      "description": "A fossil from a prehistoric Pokémon that once lived in the sea. It might be a piece of a seashell."
     },
     {
       "id": 48,
-      "name": "Rising Badge",
-      "description": ""
+      "name": "Dome Fossil",
+      "description": "A fossil from a prehistoric Pokémon that once lived in the sea. It could be a shell or carapace."
     },
     {
       "id": 49,
@@ -361,47 +356,27 @@
       "description": "Accessory which enables Mega Evolution"
     },
     {
-      "id": 131,
-      "name": "Peat Block",
-      "description": "A block of mud loved by a certain Pokémon."
-    },
-    {
-      "id": 132,
-      "name": "Linking Cord",
-      "description": "A string exuding a mysterious energy that makes you feel a strange sense of connection. It’s loved by certain Pokémon."
-    },
-    {
-      "id": 133,
-      "name": "Chipped Pot",
-      "description": "A peculiar teapot that can make a certain species of Pokémon evolve."
-    },
-    {
-      "id": 134,
-      "name": "Leader's Crest",
-      "description": "A shard of what appears to be an old blade of some sort that can make a certain species of Pokémon evolve."
-    },
-    {
-      "id": 135,
-      "name": "Reaper Cloth",
-      "description": "A cloth imbued with horrifyingly strong spiritual energy. It's loved by a certain Pokémon."
-    },
-    {
-      "id": 148,
-      "name": "Helix Fossil",
-      "description": "A fossil from a prehistoric Pokémon that once lived in the sea. It might be a piece of a seashell."
-    },
-    {
-      "id": 149,
-      "name": "Dome Fossil",
-      "description": "A fossil from a prehistoric Pokémon that once lived in the sea. It could be a shell or carapace."
-    },
-    {
       "id": 200,
       "name": "Victreebelite",
       "description": "Enables Victreebel to Mega Evolve during battle."
     },
     {
       "id": 201,
+      "name": "Starminite",
+      "description": "Enables Starmie to Mega Evolve during battle."
+    },
+    {
+      "id": 202,
+      "name": "Dragoninite",
+      "description": "Enables Dragonite to Mega Evolve during battle."
+    },
+    {
+      "id": 203,
+      "name": "Mawilite",
+      "description": "Enables Mawile to Mega Evolve during battle."
+    },
+    {
+      "id": 205,
       "name": "Diancite",
       "description": "Enables Diancie to Mega Evolve during battle."
     }

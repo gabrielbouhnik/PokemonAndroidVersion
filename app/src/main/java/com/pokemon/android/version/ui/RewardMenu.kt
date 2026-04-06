@@ -85,12 +85,14 @@ class RewardMenu {
                 }
                 LevelMenu.SNORLAX_LEVEL -> {
                     if (activity.hardMode) {
-                        activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(143, 50))
+                        val snorlax = activity.gameDataService.generatePokemon(143, 45)
+                        activity.trainer!!.receivePokemon(snorlax)
+                        snorlax.heldItem = HoldItem.LEFTOVERS
                         activity.showCustomDialog("Snorlax joined your team!")
                     }
                 }
                 LevelMenu.LAPRAS_LEVEL -> {
-                    val lapras = activity.gameDataService.generatePokemon(131, 45)
+                    val lapras = activity.gameDataService.generatePokemon(131, 50)
                     lapras.heldItem = HoldItem.NEVER_MELT_ICE
                     activity.trainer!!.receivePokemon(lapras)
                     activity.showCustomDialog("To thank you, one of the Silph Co scientist gave you a Lapras!")
@@ -101,7 +103,7 @@ class RewardMenu {
                 }
                 LevelMenu.ARTICUNO_LEVEL -> {
                     if (activity.hardMode) {
-                        activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(144, 58))
+                        activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(144, 55))
                         activity.showCustomDialog("Articuno joined your team!")
                     }
                 }
@@ -213,11 +215,11 @@ class RewardMenu {
             rewards.add(BonusReward(Random.nextInt(150, 168), 1))
         }
         if (levelData.id == LevelMenu.TEAM_ROCKET_LEVEL && firstTime) {
-            rewards.add(BonusReward(148, 1))
-            rewards.add(BonusReward(149, 1))
+            rewards.add(BonusReward(47, 1))
+            rewards.add(BonusReward(48, 1))
         }
         if (levelData is LeaderLevelData && firstTime && levelData.id != LevelMenu.BROCK_LEVEL) {
-            rewards.add(BonusReward(8, activity.trainer!!.getMaxLevel()))
+            rewards.add(BonusReward(8, activity.trainer!!.getMaxLevel() + 20))
         }
         val recyclerView = activity.findViewById<RecyclerView>(R.id.rewardRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)

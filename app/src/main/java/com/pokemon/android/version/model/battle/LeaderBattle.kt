@@ -45,34 +45,6 @@ class LeaderBattle() : Battle() {
         )
         if (activity.hardMode && activity.trainer!!.progression < LevelMenu.ELITE_4_LAST_LEVEL_ID) {
             when (levelData.id) {
-                LevelMenu.BROCK_LEVEL -> {
-                    if (!activity.trainer!!.pokedex.containsKey(4)) {
-                        (opponentTrainer.team as ArrayList<Pokemon>).add(
-                            1,
-                            activity.gameDataService.generatePokemonWithMoves(
-                                138, 12,//Omanyte
-                                listOf(
-                                    activity.gameDataService.getMoveById(221),//ROCK TOMB
-                                    activity.gameDataService.getMoveById(6),//WATER GUN
-                                    activity.gameDataService.getMoveById(20)//WITHDRAW
-                                ),
-                                HoldItem.HARD_STONE
-                            )
-                        )
-                        (opponentTrainer.team as ArrayList<Pokemon>).add(
-                            1,
-                            activity.gameDataService.generatePokemonWithMoves(
-                                140, 12,//Kabuto
-                                listOf(
-                                    activity.gameDataService.getMoveById(221),//ROCK TOMB
-                                    activity.gameDataService.getMoveById(67),//ABSORB
-                                    activity.gameDataService.getMoveById(19)//SAND ATTACK
-                                ),
-                                HoldItem.HARD_STONE
-                            )
-                        )
-                    }
-                }
                 LevelMenu.MISTY_LEVEL -> {
                     opponentTrainer.team = ArrayList(opponentTrainer.team)
                     (opponentTrainer.team as ArrayList<Pokemon>).add(
@@ -206,7 +178,7 @@ class LeaderBattle() : Battle() {
                                 activity.gameDataService.getMoveById(116),//FLARE BLITZ
                                 activity.gameDataService.getMoveById(200)//WILD CHARGE
                             ),
-                            HoldItem.LIFE_ORB
+                            HoldItem.ASSAULT_VEST
                         ))
                 }
             }

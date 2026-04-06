@@ -133,7 +133,7 @@
       "pp": 15,
       "type": 9,
       "category": "PHYSICAL",
-      "accuracy": 90,
+      "accuracy": 100,
       "description": "The user picks up and throws a small rock at the target to attack.",
       "priorityLevel": 0,
       "status": [],
@@ -1230,7 +1230,7 @@
       "pp": 25,
       "type": 1,
       "category": "PHYSICAL",
-      "accuracy": 95,
+      "accuracy": 100,
       "description": "Sharp-edged leaves are launched to slash at opposing Pokémon. Critical hits land more easily.",
       "priorityLevel": 0,
       "status": [],
@@ -2969,7 +2969,7 @@
       "priorityLevel": 0,
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["SOUND"]
     },
     {
       "id": 331,
@@ -3089,6 +3089,32 @@
       "type": 5,
       "category": "OTHER",
       "description": "The user changes its type to become the same type as the move at the top of the list of moves it knows.",
+      "status": [],
+      "highCritRate": false,
+      "characteristics": []
+    },
+    {
+      "id": 345,
+      "name": "Throat Chop",
+      "power": 80,
+      "pp": 15,
+      "type": 17,
+      "category": "PHYSICAL",
+      "accuracy": 100,
+      "description": "The user attacks the target's throat, and the resultant suffering prevents the target from using sound-based moves for two turns.",
+      "priorityLevel": 0,
+      "status": [],
+      "highCritRate": false,
+      "characteristics": ["CONTACT"]
+    },
+    {
+      "id": 346,
+      "name": "Aqua Ring",
+      "power": 0,
+      "pp": 20,
+      "type": 3,
+      "category": "OTHER",
+      "description": "The user envelops itself in a veil made of water. It regains some HP every turn.",
       "status": [],
       "highCritRate": false,
       "characteristics": []
@@ -4429,7 +4455,7 @@
       "target": "OPPONENT",
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["SOUND"]
     },
     {
       "id": 205,
@@ -4842,7 +4868,7 @@
       "target": "SELF",
       "status": [],
       "highCritRate": false,
-      "characteristics": []
+      "characteristics": ["SOUND"]
     },
     {
       "id": 286,

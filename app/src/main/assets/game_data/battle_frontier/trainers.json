@@ -256,6 +256,53 @@
     ]
   },
   {
+    "sprite": "images/Sprite_Mashynn.png",
+    "name": "Iono",
+    "pokemons": [
+      {
+        "id": 941,
+        "level": 50,
+        "moveIds": [50,12,316,55],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 429,
+        "level": 50,
+        "moveIds": [46,44,12,51],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 939,
+        "level": 50,
+        "moveIds": [53,178,208,134],
+        "itemHeld": "LEFTOVERS"
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Brock.png",
+    "name": "Brock",
+    "pokemons": [
+      {
+        "id": 139,
+        "level": 50,
+        "moveIds": [245,43,100,87],
+        "itemHeld": "FOCUS_SASH"
+      },
+      {
+        "id": 10076,
+        "level": 50,
+        "moveIds": [25,147,93,230],
+        "itemHeld": "AIR_BALLOON"
+      },
+      {
+        "id": 248,
+        "level": 50,
+        "moveIds": [25,27,93,31]
+      }
+    ]
+  },
+  {
     "sprite": "images/Sprite_Iris.png",
     "name": "Iris",
     "pokemons": [
@@ -276,6 +323,76 @@
         "level": 50,
         "moveIds": [197,125,93,62],
         "itemHeld": "LUM_BERRY"
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Phoebe.png",
+    "name": "Phoebe",
+    "pokemons": [
+      {
+        "id": 609,
+        "level": 50,
+        "moveIds": [31,46,105,45],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 477,
+        "level": 50,
+        "moveIds": [209,103,107,110],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 354,
+        "level": 50,
+        "moveIds": [331,12,220,208]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Sidney.png",
+    "name": "Sidney",
+    "pokemons": [
+      {
+        "id": 342,
+        "level": 50,
+        "moveIds": [96,136,27,125],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 861,
+        "level": 50,
+        "moveIds": [303,304,55,246],
+        "itemHeld": "BLACK_GLASSES"
+      },
+      {
+        "id": 359,
+        "level": 50,
+        "moveIds": [208,217,40,73]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Leon.png",
+    "name": "Leon",
+    "pokemons": [
+      {
+        "id": 887,
+        "level": 50,
+        "moveIds": [12,31,46,258],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 464,
+        "level": 50,
+        "moveIds": [25,93,109,267],
+        "itemHeld": "ASSAULT_VEST"
+      },
+      {
+        "id": 6,
+        "level": 50,
+        "moveIds": [50,93,82,139],
+        "itemHeld": "WIDE_LENS"
       }
     ]
   }

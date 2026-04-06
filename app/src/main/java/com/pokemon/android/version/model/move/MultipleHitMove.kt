@@ -44,6 +44,7 @@ open class MultipleHitMove(
                 .highCritRate(multipleHitMoveEntity.highCritRate)
                 .status(multipleHitMoveEntity.status.map(StatusMove::of))
                 .description(multipleHitMoveEntity.description)
+                .characteristics(multipleHitMoveEntity.characteristics.map { MoveCharacteristic.valueOf(it) })
                 .build()
         }
     }

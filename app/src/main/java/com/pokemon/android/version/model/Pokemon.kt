@@ -203,6 +203,12 @@ open class Pokemon(
                 "${this.data.name} can't use ${move.move.name} after the taunt!\n"
             )
         }
+        if (move.move.characteristics.contains(MoveCharacteristic.SOUND) && battleData!!.throatChoppedCounter > 0) {
+            return AttackResponse(
+                false,
+                "${this.data.name} can't use ${move.move.name} the throat chop!\n"
+            )
+        }
         details += "${this.data.name} uses ${move.move.name}!\n"
         if (opponent.currentHP == 0) {
             details += if (move.move is StatChangeMove
@@ -464,7 +470,7 @@ open class Pokemon(
             } else if (move.move is VariableHitMove) {
                 val timesItHits = if (this.hasAbility(Ability.SKILL_LINK) || this.hasItem(HoldItem.LOADED_DICE)) 5 else Random.nextInt(2..5)
                 var i = 0
-                while (i < timesItHits && opponent.currentHP > damage) {
+                while (i < timesItHits && opponent.currentHP > damage && this.currentHP > 0) {
                     crit = DamageCalculator.getCriticalMultiplicator(this, move.move, opponent)
                     if (crit == 1.5f)
                         details += "A critical hit!\n"
@@ -734,9 +740,13 @@ open class Pokemon(
                     opponent.itemDisabled = true
                 }
             }
+            if (move.move.id == 345) {
+                opponent.battleData!!.throatChoppedCounter = 2
+            }
             if (currentHP > 0 && move.move.characteristics.contains(MoveCharacteristic.SOUND) && this.hasItem(HoldItem.THROAT_SPRAY)) {
                 this.battleData!!.statsMultiplier.updateStat(StatChange.SPATK_ONE_LEVEL_RAISE)
                 details += "The Throat Spray raised ${this.data.name}'s Sp. Atk!\n"
+                this.consumeItem()
             }
             if (move.move.id == 249) {
                 if (this.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
@@ -820,6 +830,10 @@ open class Pokemon(
                 this.battleData!!.battleType2 = Type.NONE
                 details += "${this.data.name} transformed into a ${move1.move.type.typeToString()} type!\n"
             }
+        }
+        if (move.move.id == 346) {
+            details += "${data.name} surrounded itself with a veil of water!\n"
+            battleData!!.aquaRing = true
         }
         if (move.move.id == 314 || move.move.id == 315) {
             when {

@@ -127,7 +127,7 @@ abstract class Battle {
                     }
                     else -> {
                         pokemon.battleData!!.lastMoveUsed = trainerPokemonMove
-                        sb.append("${pokemon.data.name} uses Sucker Punch!\nBut it failed!\n")
+                        sb.append(suckerPunchFailure(pokemon, trainerPokemonMove))
                     }
                 }
             } else
@@ -564,6 +564,8 @@ abstract class Battle {
             }
             if (pokemon.battleData!!.battleStatus.contains(Status.FLINCHED))
                 pokemon.battleData!!.battleStatus.remove(Status.FLINCHED)
+            if (pokemon.battleData!!.throatChoppedCounter > 0)
+                pokemon.battleData!!.throatChoppedCounter -= 1
             if (pokemon.battleData!!.battleStatus.contains(Status.TIRED)) {
                 if (pokemon.status != Status.OK) {
                     pokemon.battleData!!.battleStatus.remove(Status.TIRED)
@@ -622,17 +624,23 @@ abstract class Battle {
                     else -> {}
                 }
             }
-            if (pokemon.hp > pokemon.currentHP && pokemon.hasItem(HoldItem.LEFTOVERS)) {
-                pokemon.heal(pokemon.hp / 16)
-                details += pokemon.data.name + " restored a little of its hp using its Leftovers!\n"
-            }
-            if (pokemon.hasItem(HoldItem.BLACK_SLUDGE) && pokemon.hp > pokemon.currentHP) {
-                details += if (pokemon.hasType(Type.POISON)) {
+            if (pokemon.currentHP > 0) {
+                if (pokemon.hp > pokemon.currentHP && pokemon.hasItem(HoldItem.LEFTOVERS)) {
                     pokemon.heal(pokemon.hp / 16)
-                    pokemon.data.name + " restored a little of its hp using its Black Sludge!\n"
-                } else {
-                    pokemon.takeDamage(pokemon.hp / 8)
-                    pokemon.data.name + " lost some of its hp because of its Black Sludge!\n"
+                    details += pokemon.data.name + " restored a little of its hp using its Leftovers!\n"
+                }
+                if (pokemon.hp > pokemon.currentHP && pokemon.battleData!!.aquaRing) {
+                    pokemon.heal(pokemon.hp / 16)
+                    details += "Aqua Ring restored ${pokemon.data.name}'s HP!\n"
+                }
+                if (pokemon.hasItem(HoldItem.BLACK_SLUDGE) && pokemon.hp > pokemon.currentHP) {
+                    details += if (pokemon.hasType(Type.POISON)) {
+                        pokemon.heal(pokemon.hp / 16)
+                        pokemon.data.name + " restored a little of its hp using its Black Sludge!\n"
+                    } else {
+                        pokemon.takeDamage(pokemon.hp / 8)
+                        pokemon.data.name + " lost some of its hp because of its Black Sludge!\n"
+                    }
                 }
             }
             return details
