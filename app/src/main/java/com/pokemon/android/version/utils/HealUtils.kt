@@ -7,17 +7,6 @@ import java.util.*
 
 class HealUtils {
     companion object {
-        fun canUseDailyHeal(trainer: Trainer): Boolean {
-            if (trainer.lastTimeDailyHealUsed == null)
-                return true
-            return trainer.lastTimeDailyHealUsed == null || compareDates(trainer.lastTimeDailyHealUsed!!)
-        }
-
-        private fun compareDates(last: Date): Boolean {
-            val lastUsed = last.toString().split(" ")
-            val currentDate = Calendar.getInstance().time.toString().split(" ")
-            return lastUsed[0] != currentDate[0] || lastUsed[2] != currentDate[2] || lastUsed[5] != currentDate[5]
-        }
 
         fun healPP(pokemon: Pokemon) {
             pokemon.move1.pp = pokemon.move1.move.pp
@@ -37,12 +26,16 @@ class HealUtils {
             }
         }
 
-        fun dailyHeal(trainer: Trainer) {
+        fun healPokemon(trainer: Trainer) {
             trainer.pokemons.forEach {
                 it.currentHP = it.hp
                 it.status = Status.OK
                 healPP(it)
             }
+        }
+
+        fun dailyHeal(trainer: Trainer) {
+            healPokemon(trainer)
             trainer.lastTimeDailyHealUsed = Calendar.getInstance().time
         }
     }

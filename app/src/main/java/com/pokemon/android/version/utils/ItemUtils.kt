@@ -4,12 +4,12 @@ import com.pokemon.android.version.model.item.*
 
 class ItemUtils {
     companion object {
-        val MEGA_RING_ID = 130
+        const val MEGA_RING_ID = 130
         val TM_MOVES_IDS = listOf(
             72,//Headbutt
             221,//ROCK TOMB
             24,//WATER PULSE
-            184,//CHARGED BEAM
+            184,//CHARGE BEAM
             66,//GIGA DRAIN
             37,//SLUDGE BOMB
             45,//PSYCHIC
@@ -20,6 +20,7 @@ class ItemUtils {
             138,//WILL-O-WISP
             55,//Thunder Wave
             113,//Aerial Ace
+            193,//Roost
             207,//Struggle Bug
             30,//Bulldoze
             69,//Brick Break
@@ -46,6 +47,7 @@ class ItemUtils {
             62,//Poison Jab
             25,//Rock Slide
             87,//Earth Power
+            40,//Close Combat
             267,//Body Press
             139,//Focus Blast
             219,//Psyshock
@@ -62,7 +64,8 @@ class ItemUtils {
             173,//Nasty Plot
             92,//Dark Pulse
             73,//Play Rough
-            44)//Dazzling Gleam
+            44//Dazzling Gleam
+        )
         const val POKEBALL_ID = 11
 
         fun isBall(itemId: Int): Boolean {
@@ -90,9 +93,9 @@ class ItemUtils {
                 13 -> return Ball.HYPERBALL
                 14 -> return Ball.NETBALL
                 15 -> return Ball.HEALBALL
-                in 16..30,in 38..39 -> return EvolutionItem(itemId)
-                in 51..106 -> return TMItem(TM_MOVES_IDS[itemId - 51])
-                in 150..180 -> return ItemToHold(HoldItem.values().first { it.id == itemId })
+                in 16..30, in 38..50 -> return EvolutionItem(itemId)
+                in 51..109 -> return TMItem(TM_MOVES_IDS[itemId - 51])
+                in 150..187 -> return ItemToHold(HoldItem.values().first { it.id == itemId })
             }
             return Revive.MAX_REVIVE
         }

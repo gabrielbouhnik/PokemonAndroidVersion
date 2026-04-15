@@ -10,7 +10,7 @@
             android:layout_height="50dp" android:id="@+id/levelLearnedTextView"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/moveLearnedNameTextView" android:layout_marginTop="16dp"
-            app:layout_constraintHorizontal_bias="0.318" android:textSize="18sp"/>
+            android:textSize="18sp"/>
     <TextView
             android:text="TextView"
             android:layout_width="180dp"

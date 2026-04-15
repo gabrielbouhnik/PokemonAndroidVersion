@@ -47,17 +47,13 @@
   },
   {
     "image": "images/banners/marill_banner.JPG",
-    "description": "Get a special Marill with move Aqua Jet",
+    "description": "Get a special Marill with the move Aqua Jet",
     "cost": 100,
     "pokemons": [
       {
         "id": 183,
         "rate": 5,
-        "moveIds": [
-          2,
-          6,
-          96
-        ]
+        "moveIds": [2,6, 96]
       }
     ],
     "items": [
@@ -243,15 +239,13 @@
   },
   {
     "image": "images/banners/porygon_banner.JPG",
-    "description": "Get a Porygon",
+    "description": "Get a Porygon with the move Trick Room",
     "cost": 100,
     "pokemons": [
       {
         "id": 137,
         "rate": 5,
-        "moveIds": [
-          2
-        ]
+        "moveIds": [2,324,343]
       }
     ],
     "items": [
@@ -268,7 +262,7 @@
         "rate": 10
       },
       {
-        "id": 9,
+        "id": 11,
         "rate": 15
       },
       {
@@ -381,6 +375,97 @@
     ]
   },
   {
+    "image": "images/banners/larvesta_banner.jpg",
+    "description": "Get a Larvesta with the move Morning Sun",
+    "cost": 150,
+    "pokemons": [
+      {
+        "id": 636,
+        "rate": 3,
+        "moveIds": [
+          7,26,271
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": 2,
+        "rate": 15
+      },
+      {
+        "id": 4,
+        "rate": 15
+      },
+      {
+        "id": 8,
+        "rate": 10
+      },
+      {
+        "id": 9,
+        "rate": 15
+      },
+      {
+        "id": 11,
+        "rate": 30
+      },
+      {
+        "id": 12,
+        "rate": 12
+      }
+    ],
+    "days": [
+      "TUESDAY",
+      "SUNDAY"
+    ]
+  },
+  {
+    "image": "images/banners/birds_banner.png",
+    "description": "Get a Fletchling or a Starly",
+    "cost": 100,
+    "pokemons": [
+      {
+        "id": 396,
+        "rate": 10,
+        "moveIds": [
+          2,3
+        ]
+      },
+      {
+        "id": 661,
+        "rate": 10,
+        "moveIds": [
+          11,3
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": 2,
+        "rate": 15
+      },
+      {
+        "id": 4,
+        "rate": 15
+      },
+      {
+        "id": 8,
+        "rate": 10
+      },
+      {
+        "id": 9,
+        "rate": 15
+      },
+      {
+        "id": 11,
+        "rate": 15
+      }
+    ],
+    "days": [
+      "MONDAY",
+      "THURSDAY"
+    ]
+  },
+  {
     "image": "images/banners/dratini_banner.JPG",
     "description": "Get a Dratini with the move Dragon Breath",
     "cost": 120,
@@ -427,7 +512,7 @@
   },
   {
     "image": "images/banners/HyperBall.png",
-    "description": "Get a Hyper Ball which is an improved version of the Great Ball",
+    "description": "Get an Ultra Ball which has a higher catch rate than a Great Ball.",
     "cost": 50,
     "pokemons": [
     ],
@@ -575,6 +660,214 @@
     ]
   },
   {
+    "image": "images/banners/baby_banner.png",
+    "description": "Summon and you will get a guaranteed baby Pokemon.",
+    "cost": 100,
+    "pokemons": [
+      {
+        "id": 172,
+        "rate": 10,
+        "moveIds": [8]
+      },
+      {
+        "id": 173,
+        "rate": 20,
+        "moveIds": [64,164]
+      },
+      {
+        "id": 174,
+        "rate": 20,
+        "moveIds": [165,64]
+      },
+      {
+        "id": 175,
+        "rate": 10,
+        "moveIds": [64,81]
+      },
+      {
+        "id": 240,
+        "rate": 10,
+        "moveIds": [7,85,14,33]
+      },
+      {
+        "id": 238,
+        "rate": 10,
+        "moveIds": [65,64,174,246]
+      },
+      {
+        "id": 239,
+        "rate": 10,
+        "moveIds": [3,8,33]
+      },
+      {
+        "id": 439,
+        "rate": 10,
+        "moveIds": [64,246]
+      }
+    ],
+    "items": [],
+    "days": []
+  },
+  {
+    "image": "images/banners/alolan_banner.png",
+    "description": "Get an Alolan form",
+    "cost": 100,
+    "pokemons": [
+      {
+        "id": 10037,
+        "rate": 5,
+        "moveIds": [174,265]
+      },
+      {
+        "id": 10074,
+        "rate": 5,
+        "moveIds": [2,341,295]
+      },
+      {
+        "id": 10088,
+        "rate": 5,
+        "moveIds": [64,83,220]
+      },
+      {
+        "id": 10105,
+        "rate": 5,
+        "moveIds": [279,154,130]
+      }
+    ],
+    "items": [
+      {
+        "id": 3,
+        "rate": 10
+      },
+      {
+        "id": 4,
+        "rate": 10
+      },
+      {
+        "id": 11,
+        "rate": 10
+      },
+      {
+        "id": 12,
+        "rate": 10
+      },
+      {
+        "id": 153,
+        "rate": 6
+      },
+      {
+        "id": 157,
+        "rate": 6
+      },
+      {
+        "id": 158,
+        "rate": 6
+      },
+      {
+        "id": 163,
+        "rate": 6
+      },
+      {
+        "id": 165,
+        "rate": 6
+      },
+      {
+        "id": 171,
+        "rate": 5
+      },
+      {
+        "id": 186,
+        "rate": 5
+      }
+    ],
+    "days": []
+  },
+  {
+    "image": "images/banners/celebi_banner.png",
+    "description": "Get the mythical Pokémon Celebi",
+    "cost": 150,
+    "pokemons": [
+      {
+        "id": 251,
+        "rate": 10,
+        "moveIds": [
+          39,330
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": 3,
+        "rate": 15
+      },
+      {
+        "id": 4,
+        "rate": 15
+      },
+      {
+        "id": 11,
+        "rate": 20
+      },
+      {
+        "id": 12,
+        "rate": 15
+      },
+      {
+        "id": 150,
+        "rate": 15
+      },
+      {
+        "id": 161,
+        "rate": 15
+      }
+    ],
+    "days": []
+  },
+  {
+    "image": "images/banners/diancie_banner.png",
+    "description": "Get the mythical Pokémon Diancie",
+    "cost": 150,
+    "pokemons": [
+      {
+        "id": 719,
+        "rate": 5,
+        "moveIds": [
+          2,32,313
+        ]
+      },
+      {
+        "id": 703,
+        "rate": 20,
+        "moveIds": [
+          2,32
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": 3,
+        "rate": 15
+      },
+      {
+        "id": 4,
+        "rate": 15
+      },
+      {
+        "id": 11,
+        "rate": 20
+      },
+      {
+        "id": 12,
+        "rate": 10
+      },
+      {
+        "id": 158,
+        "rate": 15
+      }
+    ],
+    "days": []
+  },
+  {
     "image": "images/banners/tm_banner.png",
     "description": "Get a single-use TM that can teach a move to some Pokemon.",
     "cost": 100,
@@ -583,7 +876,7 @@
     "items": [
       {
         "id": 51,
-        "rate": 20
+        "rate": 5
       },
       {
         "id": 52,
@@ -648,6 +941,10 @@
       {
         "id": 72,
         "rate": 5
+      },
+      {
+        "id": 73,
+        "rate": 5
       }
     ],
     "days": [
@@ -681,10 +978,6 @@
       },
       {
         "id": 58,
-        "rate": 3
-      },
-      {
-        "id": 73,
         "rate": 3
       },
       {
@@ -821,6 +1114,14 @@
       },
       {
         "id": 107,
+        "rate": 3
+      },
+      {
+        "id": 108,
+        "rate": 3
+      },
+      {
+        "id": 109,
         "rate": 3
       }
     ],

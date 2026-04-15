@@ -1,21 +1,19 @@
 package com.pokemon.android.version.model.battle
 
 import com.pokemon.android.version.MainActivity
-import com.pokemon.android.version.model.Ability
-import com.pokemon.android.version.model.Pokemon
-import com.pokemon.android.version.model.Status
-import com.pokemon.android.version.model.Type
+import com.pokemon.android.version.model.*
 import com.pokemon.android.version.model.item.Ball
 import com.pokemon.android.version.model.item.HoldItem
+import com.pokemon.android.version.model.level.LeaderLevelData
 import com.pokemon.android.version.model.level.LevelData
-import com.pokemon.android.version.model.move.ChargedMove
-import com.pokemon.android.version.model.move.MoveCategory
-import com.pokemon.android.version.model.move.RampageMove
+import com.pokemon.android.version.model.level.TrainerBattleLevelData
+import com.pokemon.android.version.model.move.*
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.BattleUtils
 import com.pokemon.android.version.utils.IAUtils
 import com.pokemon.android.version.utils.ItemUtils
+import com.pokemon.android.version.utils.MoveUtils
 import kotlin.random.Random
 
 abstract class Battle {
@@ -23,6 +21,9 @@ abstract class Battle {
     lateinit var pokemon: Pokemon
     lateinit var opponent: Pokemon
     lateinit var levelData: LevelData
+    var battleField = BattleField(Weather.NONE, 0,0,0)
+    var playerSide = BattleSide(arrayListOf())
+    var opponentSide = BattleSide(arrayListOf())
     var trainerHasUsedMegaEvolution = false
 
     abstract fun getBattleState(): State
@@ -30,8 +31,9 @@ abstract class Battle {
     abstract fun updateOpponent()
 
     private fun opponentTurn(opponentPokemonMove: PokemonMove, opponentMoveIsOffensive: Boolean): String {
-        if (opponentPokemonMove.move.id == 208 && !opponentMoveIsOffensive)
-            return "${opponent.data.name} uses Sucker Punch!\nBut it failed!\n"
+        if (opponentPokemonMove.move.id == 208 && !opponentMoveIsOffensive) {
+            return suckerPunchFailure(opponent, opponentPokemonMove)
+        }
         var action = ""
         if (opponentPokemonMove.move.id == 185) {
             action += "${opponent.data.name} uses Teleport!\n"
@@ -53,16 +55,20 @@ abstract class Battle {
             action += "The opposing ${opponent.data.name} is no longer confused!\n"
         }
         if (opponentPokemonMove.move is ChargedMove && opponent.battleData!!.chargedMove == null) {
-            opponent.battleData!!.chargedMove = opponentPokemonMove
-            return "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}!\nThe opposing " + opponent.data.name + (opponentPokemonMove.move as ChargedMove).chargeText
+
+            action += "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}!\nThe opposing " + opponent.data.name + (opponentPokemonMove.move as ChargedMove).chargeText
+            if (opponent.hasItem(HoldItem.POWER_HERB)) {
+                action += "${opponent.data.name} became fully charged due to its Power Herb!\n"
+                opponent.consumeItem()
+            } else {
+                opponent.battleData!!.chargedMove = opponentPokemonMove
+                return action
+            }
         }
-        val opponentResponse = opponent.attack(opponentPokemonMove, pokemon)
-        return if (!opponentResponse.success) {
-            action + opponentResponse.reason
-        } else {
-            action +
-                    "The opposing ${opponent.data.name} uses ${opponentPokemonMove.move.name}!\n" + opponentResponse.reason
-        }
+        val opponentResponse = opponent.attack(opponentPokemonMove, pokemon, battleField, opponentSide, playerSide)
+        val reason = if (pokemon.data.name == opponent.data.name) opponentResponse.reason else
+            opponentResponse.reason.replace(opponent.data.name + " ", "The opposing ${opponent.data.name} ").replace(" The opposing", " the opposing")
+        return action + reason
     }
 
     private fun trainerTurn(trainerPokemonMove: PokemonMove): String {
@@ -73,20 +79,23 @@ abstract class Battle {
             action += pokemon.data.name + " is no longer confused!\n"
         }
         if (trainerPokemonMove.move is ChargedMove && pokemon.battleData!!.chargedMove == null) {
-            pokemon.battleData!!.chargedMove = trainerPokemonMove
-            return "${pokemon.data.name} uses ${trainerPokemonMove.move.name}!\n" + pokemon.data.name + (trainerPokemonMove.move as ChargedMove).chargeText
+            action += "${pokemon.data.name} uses ${trainerPokemonMove.move.name}!\n" + pokemon.data.name + (trainerPokemonMove.move as ChargedMove).chargeText
+            if (pokemon.hasItem(HoldItem.POWER_HERB)) {
+                action += "${pokemon.data.name} became fully charged due to its Power Herb!\n"
+                pokemon.consumeItem()
+            }
+            else {
+                pokemon.battleData!!.chargedMove = trainerPokemonMove
+                return action
+            }
         }
-        val response = pokemon.attack(trainerPokemonMove, opponent)
-        return if (!response.success)
-            action + response.reason
-        else {
-            action + "${pokemon.data.name} uses ${trainerPokemonMove.move.name}!\n" + response.reason
-        }
+        val response = pokemon.attack(trainerPokemonMove, opponent, battleField, playerSide, opponentSide)
+        return action + response.reason
     }
 
     private fun turn(trainerPokemonMove: PokemonMove, sb: StringBuilder) {
         val opponentMove: PokemonMove =
-            if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
+            if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon, battleField, opponentSide, playerSide)
         if (opponentMove.move is RampageMove) {
             opponent.battleData!!.rampageMove = opponentMove
         }
@@ -98,27 +107,76 @@ abstract class Battle {
                 && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
                 && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
             ) {
-                val pokemonToSend = IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam())
+                val pokemonToSend = IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam(), battleField, opponentSide, playerSide)
                 if (pokemonToSend != null) {
                     sb.append(turnWithOpponentSwitch(opponentTrainer, pokemonToSend, trainerPokemonMove))
                     return
                 }
             }
         }
-        if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move, opponentMove.move)) {
-            if (trainerPokemonMove.move.id == 208 && opponentMove.move.category == MoveCategory.OTHER)
-                sb.append("${pokemon.data.name} uses Sucker Punch!\nBut it failed!\n")
-            else
+        if (BattleUtils.trainerStarts(pokemon, opponent, trainerPokemonMove.move, opponentMove.move, battleField)) {
+            if (trainerPokemonMove.move.id == 208 && opponentMove.move.category == MoveCategory.OTHER) {
+                pokemon.battleData!!.lastMoveFailed = true
+                pokemon.battleData!!.hadATurn = true
+                when (pokemon.status) {
+                    Status.FROZEN -> {
+                        sb.append(pokemon.data.name + " is frozen solid!\n")
+                    }
+                    Status.ASLEEP -> {
+                        sb.append(pokemon.data.name + " is fast asleep!\n")
+                    }
+                    else -> {
+                        pokemon.battleData!!.lastMoveUsed = trainerPokemonMove
+                        sb.append(suckerPunchFailure(pokemon, trainerPokemonMove))
+                    }
+                }
+            } else
                 sb.append(trainerTurn(trainerPokemonMove))
-            if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
+            if (opponent.currentHP > 0) {
                 sb.append(opponentTurn(opponentMove, trainerPokemonMove.move.category != MoveCategory.OTHER))
             }
         } else {
             sb.append(opponentTurn(opponentMove, trainerPokemonMove.move.category != MoveCategory.OTHER))
-            if (opponent.currentHP > 0 && pokemon.currentHP > 0) {
+            if (pokemon.currentHP > 0) {
                 sb.append(trainerTurn(trainerPokemonMove))
             }
         }
+    }
+
+    private fun megaEvolveOpponentIfPossible(): String {
+        val sb = StringBuilder()
+        var shouldMegaEvolve = true
+        if (this is TrainerBattle) {
+            val opponentTrainer = opponent.trainer!! as OpponentTrainer
+            shouldMegaEvolve = !(opponentTrainer.iaLevel == 3
+                    && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
+                    && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
+                    && IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam(), battleField, opponentSide, playerSide) != null)
+        }
+        if (opponent.canMegaEvolve() && shouldMegaEvolve && opponent.heldItem == null) {
+            if (this is LeaderBattle) {
+                val leaderLevelData: LeaderLevelData = levelData as LeaderLevelData
+                val megaPokemonId : Int = if ((pokemon.trainer!! as Trainer).progression < LevelMenu.ELITE_4_LAST_LEVEL_ID) leaderLevelData.megaPokemonId else leaderLevelData.megaPokemonIdOnRematch
+                if (opponent.data.id != megaPokemonId) {
+                    shouldMegaEvolve = false
+                }
+            }
+            else if (this is TrainerBattle) {
+                if ((this.levelData as TrainerBattleLevelData).megaPokemonId != opponent.data.id) {
+                    shouldMegaEvolve = false
+                }
+            } else if (this is BattleFrontierBattle) {
+                shouldMegaEvolve = !opponentTrainer.name.contains("Elite") && opponent.heldItem == null
+            } else
+                shouldMegaEvolve = false
+            if (shouldMegaEvolve) {
+                opponent.megaEvolve()
+                sb.append("The opposing ${opponent.data.name} is reacting to ${(opponent.trainer!! as OpponentTrainer).name}'s Key Stone!\n")
+                sb.append("The opposing ${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
+                sb.append(BattleUtils.abilitiesCheck(opponent, pokemon, battleField, BattleSide(arrayListOf())))
+            }
+        }
+        return sb.toString()
     }
 
     fun turn(trainerPokemonMove: PokemonMove, megaEvolution: Boolean): String {
@@ -126,83 +184,15 @@ abstract class Battle {
         if (megaEvolution) {
             sb.append("${pokemon.data.name} has Mega Evolved into Mega ${pokemon.data.name}\n")
             pokemon.megaEvolve()
+            sb.append(BattleUtils.abilitiesCheck(pokemon, opponent, battleField, BattleSide(arrayListOf())))
             trainerHasUsedMegaEvolution = true
         }
-        var shouldMegaEvolve = true
-        if (this is TrainerBattle) {
-            val opponentTrainer = opponent.trainer!! as OpponentTrainer
-            shouldMegaEvolve = !(opponentTrainer.iaLevel == 3
-                    && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)
-                    && !opponent.battleData!!.battleStatus.contains(Status.TRAPPED_WITHOUT_DAMAGE)
-                    && IAUtils.shouldSwitch(opponent, pokemon, opponentTrainer.getTrainerTeam()) != null)
-        }
-        if ((this is TrainerBattle || this is BossBattle || this is LeaderBattle) && opponent.canMegaEvolve() && shouldMegaEvolve) {
-            when (levelData.id) {
-                LevelMenu.MEGA_CHARIZARD_LEVEL_ID, LevelMenu.LAST_LEVEL -> {
-                    if (opponent.data.id == 6) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
-                LevelMenu.MEGA_VENUSAUR_LEVEL_ID -> {
-                    if (opponent.data.id == 3) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
-                LevelMenu.ELITE_4_FIRST_LEVEL_ID -> {
-                    if (opponent.data.id == 80 && opponent.level == 83) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
-                LevelMenu.ELITE_4_FIRST_LEVEL_ID + 1 -> {
-                    if (opponent.data.id == 208 && opponent.level == 83) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
-                LevelMenu.ELITE_4_FIRST_LEVEL_ID + 2 -> {
-                    if (opponent.data.id == 94 && opponent.level == 83) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
-                LevelMenu.ELITE_4_FIRST_LEVEL_ID + 3 -> {
-                    if (opponent.data.id == 6 && opponent.level == 83) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
-                LevelMenu.ELITE_4_LAST_LEVEL_ID -> {
-                    if (opponent.data.id == 18) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                    if (opponent.data.id == 65 && opponent.level == 83) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
-                LevelMenu.STEVEN_LEVEL_ID -> {
-                    if (opponent.data.id == 376) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
-                LevelMenu.CYNTHIA_LEVEL_ID -> {
-                    if (opponent.data.id == 445) {
-                        opponent.megaEvolve()
-                        sb.append("${opponent.data.name} has Mega Evolved into Mega ${opponent.data.name}\n")
-                    }
-                }
-            }
-        }
+        sb.append(megaEvolveOpponentIfPossible())
         turn(trainerPokemonMove, sb)
         endTurn(sb)
         if (pokemon.currentHP > 0 && getBattleState() == State.IN_PROGRESS) {
             val opponentMove: PokemonMove =
-                if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
+                if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon, battleField, opponentSide, playerSide)
             if (opponentMove.move is RampageMove) {
                 opponent.battleData!!.rampageMove = opponentMove
             }
@@ -224,6 +214,12 @@ abstract class Battle {
                     ) {
                         pokemon.battleData!!.battleStatus.add(Status.CONFUSED)
                         sb.append("${pokemon.data.name} became confused due to fatigue!\n")
+                        if (pokemon.hasItem(HoldItem.LUM_BERRY)  && !opponent.hasAbility(Ability.UNNERVE)) {
+                            sb.append("${pokemon.data.name}'s Lum Berry cured its status\n")
+                            pokemon.status = Status.OK
+                            pokemon.consumeItem()
+                            Status.cureAllStatus(pokemon)
+                        }
                     }
                     endTurn(sb)
                 }
@@ -244,28 +240,26 @@ abstract class Battle {
     fun switchPokemon(pokemonToBeSent: Pokemon) {
         pokemonToBeSent.battleData = PokemonBattleData()
         this.pokemon.battleData = PokemonBattleData()
+        this.pokemon.removeDisableCountdown()
         if (this.pokemon.hasAbility(Ability.NATURAL_CURE))
             this.pokemon.status = Status.OK
         if (this.pokemon.hasAbility(Ability.REGENERATOR) && this.pokemon.currentHP > 0)
             this.pokemon.heal(this.pokemon.hp / 3)
-        if (opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE))
-            opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
-        if (opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE))
-            opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE)
+        opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
+        opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE)
         this.pokemon = pokemonToBeSent
     }
 
     private fun switchOpponent(pokemonToBeSent: Pokemon) {
         pokemonToBeSent.battleData = PokemonBattleData()
         this.opponent.battleData = PokemonBattleData()
+        this.opponent.removeDisableCountdown()
         if (this.opponent.hasAbility(Ability.REGENERATOR) && this.opponent.currentHP > 0)
             this.opponent.heal(this.pokemon.hp / 3)
         if (this.opponent.hasAbility(Ability.NATURAL_CURE))
             this.opponent.status = Status.OK
-        if (pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE))
-            pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
-        if (pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE))
-            pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE)
+        pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
+        pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE)
         this.opponent = pokemonToBeSent
     }
 
@@ -277,9 +271,10 @@ abstract class Battle {
         val sb = StringBuilder()
         sb.append("${trainer.name} withdrew ${opponent.data.name}!\n${trainer.name} sends out ${pokemonToBeSent.data.name}!\n")
         switchOpponent(pokemonToBeSent)
-        sb.append(BattleUtils.abilitiesCheck(opponent, pokemon))
-        if (trainerPokemonMove.move.id == 208)
-            sb.append("${pokemon.data.name} uses Sucker Punch!\nBut it failed!\n")
+        sb.append(BattleUtils.abilitiesCheck(opponent, pokemon, battleField, opponentSide))
+        if (trainerPokemonMove.move.id == 208) {
+            sb.append(suckerPunchFailure(pokemon, trainerPokemonMove))
+        }
         else
             sb.append(trainerTurn(trainerPokemonMove))
         return sb.toString()
@@ -289,13 +284,15 @@ abstract class Battle {
         val sb = StringBuilder()
         sb.append("${activity.trainer!!.name} withdrew ${pokemon.data.name}!\n${activity.trainer!!.name} sends ${pokemonToBeSent.data.name}\n")
         var opponentMove: PokemonMove =
-            if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
+            if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon, battleField, opponentSide, playerSide)
         switchPokemon(pokemonToBeSent)
-        sb.append(BattleUtils.abilitiesCheck(pokemon, opponent))
+        sb.append(BattleUtils.abilitiesCheck(pokemon, opponent, battleField, playerSide))
+        sb.append(megaEvolveOpponentIfPossible())
         if (this is BossBattle)
-            opponentMove = IAUtils.ia(opponent, pokemon)
-        if (opponentMove.move.id == 208)
-            sb.append("${opponent.data.name} uses Sucker Punch!\nBut it failed!\n")
+            opponentMove = IAUtils.ia(opponent, pokemon, battleField, opponentSide, playerSide)
+        if (opponentMove.move.id == 208) {
+            sb.append(suckerPunchFailure(opponent, opponentMove))
+        }
         else
             sb.append(opponentTurn(opponentMove, false))
         endTurn(sb)
@@ -325,14 +322,79 @@ abstract class Battle {
             sb.append(activity.trainer!!.name + " uses " + activity.gameDataService.items.first { it.id == itemId }.name + "!\n")
             activity.trainer!!.useItem(itemId, pokemon)
         }
+        sb.append(megaEvolveOpponentIfPossible())
         val opponentMove: PokemonMove =
-            if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon)
+            if (this is WildBattle) IAUtils.iaWildPokemon(opponent) else IAUtils.ia(opponent, pokemon, battleField, opponentSide, playerSide)
         sb.append(opponentTurn(opponentMove, false))
         endTurn(sb)
         return sb.toString()
     }
 
+    private fun suckerPunchFailure(attacker: Pokemon, move: PokemonMove): String {
+        val response = opponent.canAttack(move)
+        return if (!response.success) {
+            response.reason
+        } else {
+            attacker.battleData!!.lastMoveFailed = true
+            attacker.battleData!!.lastMoveUsed = move
+            attacker.battleData!!.hadATurn = true
+            move.pp -= 1
+            return response.reason + "${attacker.data.name} uses Sucker Punch!\nBut it failed!\n"
+        }
+    }
+
     private fun endTurn(sb: StringBuilder) {
+        if (battleField.weather == Weather.SANDSTORM && battleField.weatherCounter > 1) {
+            if (opponent.currentHP > 0 && !opponent.hasType(Type.ROCK) && !opponent.hasType(Type.GROUND) && !opponent.hasType(Type.STEEL)
+                && !opponent.hasAbility(Ability.MAGIC_GUARD) && !opponent.hasAbility(Ability.OVERCOAT) && !opponent.hasAbility(Ability.SAND_FORCE)) {
+                sb.append("${opponent.data.name} is buffeted by the sandstorm!\n")
+                opponent.takeDamage(opponent.hp / 8)
+            }
+            if (pokemon.currentHP > 0 && !pokemon.hasType(Type.ROCK) && !pokemon.hasType(Type.GROUND) && !pokemon.hasType(Type.STEEL)
+                && !pokemon.hasAbility(Ability.MAGIC_GUARD) && !pokemon.hasAbility(Ability.OVERCOAT) && !pokemon.hasAbility(Ability.SAND_FORCE)) {
+                pokemon.takeDamage(pokemon.hp / 8)
+                sb.append("${pokemon.data.name} is buffeted by the sandstorm!\n")
+            }
+        }
+        if (battleField.weather == Weather.SNOW) {
+            if (opponent.currentHP > 0 && opponent.hasAbility(Ability.ICE_BODY)) {
+                sb.append("${opponent.data.name}'s Ice Body: ${opponent.data.name} regains some hp!\n")
+                opponent.takeDamage(opponent.hp / 16)
+            }
+            if (pokemon.currentHP > 0 && pokemon.hasAbility(Ability.ICE_BODY)) {
+                pokemon.heal(pokemon.hp / 16)
+                sb.append("${pokemon.data.name}'s Ice Body: ${pokemon.data.name} regains some hp!\n")
+            }
+        }
+        if (battleField.weatherCounter > 0) {
+            battleField.weatherCounter -= 1
+            if (battleField.weatherCounter == 0) {
+                if (battleField.weather == Weather.SANDSTORM) {
+                    if (opponent.hasAbility(Ability.SAND_RUSH)) {
+                        opponent.battleData!!.statsMultiplier.speedMultiplicator /= 2
+                    }
+                    if (pokemon.hasAbility(Ability.SAND_RUSH)) {
+                        pokemon.battleData!!.statsMultiplier.speedMultiplicator /= 2
+                    }
+                }
+                battleField.setWeather(pokemon, Weather.NONE, opponent)
+                sb.append("The weather is back to normal\n")
+            }
+        }
+        if (battleField.trickRoomCounter > 0) {
+            battleField.trickRoomCounter -= 1
+            if (battleField.trickRoomCounter == 0) {
+                sb.append("The twisted dimensions returned to normal!\n")
+            }
+        }
+        if (battleField.gravityCounter > 0) {
+            battleField.gravityCounter -= 1
+            if (battleField.gravityCounter == 0) {
+                sb.append("Gravity returned to normal!\n")
+            }
+        }
+        sb.append(playerSide.updateBattleSide(pokemon))
+        sb.append(opponentSide.updateBattleSide(opponent))
         if (pokemon.status != Status.OK && pokemon.hasAbility(Ability.SHED_SKIN) && Random.nextInt(2) == 0) {
             sb.append("${pokemon.data.name}'s Shed Skin: ${pokemon.data.name} cured its status!\n")
             pokemon.status = Status.OK
@@ -343,7 +405,7 @@ abstract class Battle {
         }
         if (pokemon.currentHP > 0 && opponent.currentHP > 0) {
             if (opponent.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
-                val damage = if (opponent.currentHP < 16) 1 else opponent.currentHP / 8
+                val damage = if (opponent.currentHP < 16) 1 else if (pokemon.hasItem(HoldItem.BIG_ROOT)) opponent.hp / 6 else opponent.hp / 8
                 if (opponent.hasAbility(Ability.LIQUID_OOZE)) {
                     sb.append("${opponent.data.name}'s Liquid Ooze: ${pokemon.data.name} loses some hp.\n")
                     pokemon.takeDamage(damage)
@@ -354,7 +416,7 @@ abstract class Battle {
                 }
             }
             if (pokemon.battleData!!.battleStatus.contains(Status.LEECH_SEEDED)) {
-                val damage = if (pokemon.currentHP < 16) 1 else pokemon.currentHP / 8
+                val damage = if (pokemon.currentHP < 16) 1  else if (opponent.hasItem(HoldItem.BIG_ROOT)) pokemon.hp / 6 else pokemon.hp / 8
                 if (pokemon.hasAbility(Ability.LIQUID_OOZE)) {
                     sb.append("${pokemon.data.name}'s Liquid Ooze: ${opponent.data.name} loses some hp.\n")
                     opponent.takeDamage(damage)
@@ -365,34 +427,24 @@ abstract class Battle {
                 }
             }
         }
-        if (pokemon.currentHP > 0 && opponent.currentHP > 0) {
-            if (pokemon.hasAbility(Ability.SAND_STREAM) && !opponent.hasType(Type.ROCK) && !opponent.hasType(Type.GROUND) && !opponent.hasType(
-                    Type.STEEL
-                )
-            ) {
-                sb.append("${opponent.data.name} is buffeted by the sandstorm!\n")
-                opponent.takeDamage(opponent.hp / 8)
-            }
-            if (opponent.hasAbility(Ability.SAND_STREAM) && !pokemon.hasType(Type.ROCK) && !pokemon.hasType(Type.GROUND) && !pokemon.hasType(
-                    Type.STEEL
-                )
-            ) {
-                pokemon.takeDamage(pokemon.hp / 8)
-                sb.append("${pokemon.data.name} is buffeted by the sandstorm!\n")
-            }
-        }
         if (opponent.currentHP > 0) {
             if (opponent.battleData!!.rampageMove != null) {
                 opponent.battleData!!.rampageCounter += 1
                 if (opponent.battleData!!.rampageCounter == 2) {
                     opponent.battleData!!.rampageCounter = 0
                     opponent.battleData!!.rampageMove = null
-                }
-                if (!opponent.hasAbility(Ability.OWN_TEMPO)
-                    && !opponent.battleData!!.battleStatus.contains(Status.CONFUSED)
-                ) {
-                    opponent.battleData!!.battleStatus.add(Status.CONFUSED)
-                    sb.append("The opposing ${opponent.data.name} became confused due to fatigue!\n")
+                    if (!opponent.hasAbility(Ability.OWN_TEMPO)
+                        && !opponent.battleData!!.battleStatus.contains(Status.CONFUSED)
+                    ) {
+                        opponent.battleData!!.battleStatus.add(Status.CONFUSED)
+                        sb.append("The opposing ${opponent.data.name} became confused due to fatigue!\n")
+                        if (opponent.hasItem(HoldItem.LUM_BERRY) && !pokemon.hasAbility(Ability.UNNERVE)) {
+                            sb.append("${opponent.data.name}'s Lum Berry cured its status\n")
+                            opponent.status = Status.OK
+                            opponent.consumeItem()
+                            Status.cureAllStatus(opponent)
+                        }
+                    }
                 }
             }
             sb.append(checkStatus(opponent))
@@ -403,9 +455,14 @@ abstract class Battle {
                     opponent.battleData!!.battleStatus.remove(Status.TRAPPED_WITHOUT_DAMAGE)
             }
             if (opponent.hasAbility(Ability.SPEED_BOOST) && opponent.battleData != null) {
-                opponent.battleData!!.speedMultiplicator *= 1.5f
                 sb.append("${opponent.data.name}'s Speed Boost: the opposing ${opponent.data.name}'s speed rose!\n")
+                if (opponent.battleData!!.statsMultiplier.speedMultiplicator < 4f) {
+                    opponent.battleData!!.statsMultiplier.updateStat(StatChange.SPEED_ONE_LEVEL_RAISE)
+                } else {
+                    sb.append("${opponent.data.name}'s speed cannot go higher!\n")
+                }
             }
+            MoveUtils.getMoveList(pokemon).forEach { it.reduceDisableCountdown() }
         }
         if (pokemon.currentHP > 0) {
             if (opponent.currentHP == 0) {
@@ -416,36 +473,41 @@ abstract class Battle {
             }
             sb.append(checkStatus(pokemon))
             if (pokemon.hasAbility(Ability.SPEED_BOOST) && pokemon.battleData != null) {
-                pokemon.battleData!!.speedMultiplicator *= 1.5f
                 sb.append("${pokemon.data.name}'s Speed Boost: ${pokemon.data.name}'s speed rose!\n")
+                if (pokemon.battleData!!.statsMultiplier.speedMultiplicator < 4f) {
+                    pokemon.battleData!!.statsMultiplier.updateStat(StatChange.SPEED_ONE_LEVEL_RAISE)
+                } else {
+                    sb.append("${pokemon.data.name}'s speed cannot go higher!\n")
+                }
             }
+            MoveUtils.getMoveList(pokemon).forEach { it.reduceDisableCountdown() }
         }
         pokemon.battleData!!.lastHitReceived = null
         opponent.battleData!!.lastHitReceived = null
         if (pokemon.currentHP == 0) {
-            sb.append(pokemon.data.name + " fainted\n")
+            sb.append(pokemon.data.name + " fainted!\n")
             pokemon.status = Status.OK
             pokemon.battleData = null
-            if (pokemon.isMegaEvolved) {
-                pokemon.recomputeStat()
-            }
-            if (opponent.currentHP > 0 && opponent.hasAbility(Ability.MOXIE)) {
-                opponent.battleData!!.attackMultiplicator *= 1.5f
-                sb.append("${opponent.data.name}'s Moxie: the opposing ${opponent.data.name}'s attack rose!\n")
-            }
+            pokemon.recomputeStat()
         }
         if (opponent.currentHP == 0) {
-            sb.append("The opposing " + opponent.data.name + " fainted\n")
+            sb.append("The opposing " + opponent.data.name + " fainted!\n")
             if (opponent.isMegaEvolved) {
                 opponent.recomputeStat()
             }
-            if (pokemon.currentHP > 0 && pokemon.hasAbility(Ability.MOXIE)) {
-                pokemon.battleData!!.attackMultiplicator *= 1.5f
-                sb.append("${pokemon.data.name}'s Moxie: ${pokemon.data.name}'s attack rose!\n")
-            }
             updateOpponent()
+            if (opponent.currentHP > 0 && opponentSide.battleSideEffects.contains(BattleSideEffect.HEALING_WISH)) {
+                sb.append("The healing wish came true for ${opponent.data.name}!\n")
+                opponent.currentHP = opponent.hp
+                opponent.status = Status.OK
+                opponentSide.battleSideEffects.remove(BattleSideEffect.HEALING_WISH)
+            }
+            if (this is BossBattle && opponent.isMegaEvolved && !this.megaPhase) {
+                activity.showCustomDialog("${this.opponent.data.name} has absorbed energy from your Mega Ring and has Mega Evolved! All its HP has been restored")
+                this.megaPhase = true
+            }
             if (getBattleState() == State.IN_PROGRESS) {
-                sb.append(BattleUtils.abilitiesCheck(opponent, pokemon))
+                sb.append(BattleUtils.abilitiesCheck(opponent, pokemon, battleField, opponentSide))
             }
         }
     }
@@ -455,28 +517,55 @@ abstract class Battle {
             var details = ""
             if (pokemon.hasItem(HoldItem.TOXIC_ORB) && Status.isAffectedByStatus(83, Status.BADLY_POISON, pokemon)) {
                 pokemon.status = Status.BADLY_POISON
+                BattleUtils.checkForStatusStatsRaiseAbility(pokemon)
                 details += pokemon.data.name + " is badly poisoned by its Toxic Orb\n"
             }
             if (pokemon.hasItem(HoldItem.FLAME_ORB) && Status.isAffectedByStatus(138, Status.BURN, pokemon)) {
                 pokemon.status = Status.BURN
+                BattleUtils.checkForStatusStatsRaiseAbility(pokemon)
                 details += pokemon.data.name + " is burned by its Flame Orb\n"
             }
             if (pokemon.battleData!!.battleStatus.contains(Status.CONFUSED)) {
                 pokemon.battleData!!.confusionCounter++
             }
+            if (pokemon.battleData!!.battleStatus.contains(Status.BOUNDED)) {
+                pokemon.battleData!!.battleStatus.remove(Status.BOUNDED)
+            }
+            if (pokemon.battleData!!.battleStatus.contains(Status.TAUNTED)) {
+                pokemon.battleData!!.tauntCounter++
+                if (pokemon.battleData!!.tauntCounter == 4) {
+                    pokemon.battleData!!.tauntCounter = 0
+                    pokemon.battleData!!.battleStatus.remove(Status.TAUNTED)
+                    details += pokemon.data.name + " is no longer affected by the taunt!\n"
+                }
+            }
+            if (pokemon.battleData!!.battleStatus.contains(Status.CHARGED)) {
+                pokemon.battleData!!.chargedCounter++
+                if (pokemon.battleData!!.chargedCounter == 2) {
+                    pokemon.battleData!!.chargedCounter = 0
+                    pokemon.battleData!!.battleStatus.remove(Status.CHARGED)
+                }
+            }
             if (pokemon.battleData!!.battleStatus.contains(Status.ROOSTED)) {
                 pokemon.battleData!!.battleStatus.remove(Status.ROOSTED)
+            }
+            if (pokemon.battleData!!.magnetRiseCounter > 0) {
+                pokemon.battleData!!.magnetRiseCounter--
             }
             if (pokemon.battleData!!.battleStatus.contains(Status.TRAPPED_WITH_DAMAGE)) {
                 pokemon.battleData!!.trapCounter++
                 if (pokemon.battleData!!.trapCounter == 5) {
                     pokemon.battleData!!.battleStatus.remove(Status.TRAPPED_WITH_DAMAGE)
                     pokemon.battleData!!.trapCounter = 0
-                } else if (!pokemon.hasAbility(Ability.MAGIC_GUARD))
+                } else if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
                     pokemon.takeDamage(pokemon.hp / 8)
+                    details += pokemon.data.name + " is hurt by the vortex!\n"
+                }
             }
             if (pokemon.battleData!!.battleStatus.contains(Status.FLINCHED))
                 pokemon.battleData!!.battleStatus.remove(Status.FLINCHED)
+            if (pokemon.battleData!!.throatChoppedCounter > 0)
+                pokemon.battleData!!.throatChoppedCounter -= 1
             if (pokemon.battleData!!.battleStatus.contains(Status.TIRED)) {
                 if (pokemon.status != Status.OK) {
                     pokemon.battleData!!.battleStatus.remove(Status.TIRED)
@@ -491,6 +580,7 @@ abstract class Battle {
                         details += "${pokemon.data.name}'s Lum Berry cured its status\n"
                         pokemon.status = Status.OK
                         pokemon.consumeItem()
+                        Status.cureAllStatus(pokemon)
                     }
                 }
             }
@@ -524,7 +614,7 @@ abstract class Battle {
                     }
                     Status.BURN -> {
                         if (!pokemon.hasAbility(Ability.MAGIC_GUARD)) {
-                            pokemon.takeDamage(pokemon.hp / 16)
+                            pokemon.takeDamage(if (pokemon.hasAbility(Ability.HEATPROOF)) pokemon.hp / 32 else pokemon.hp / 16)
                             details += pokemon.data.name + " suffers from its burn!\n"
                         }
                     }
@@ -534,17 +624,23 @@ abstract class Battle {
                     else -> {}
                 }
             }
-            if (pokemon.hp > pokemon.currentHP && pokemon.hasItem(HoldItem.LEFTOVERS)) {
-                pokemon.heal(pokemon.hp / 16)
-                details += pokemon.data.name + " restored a little of its hp using its Leftovers!\n"
-            }
-            if (pokemon.hasItem(HoldItem.BLACK_SLUDGE) && pokemon.hp > pokemon.currentHP) {
-                details += if (pokemon.hasType(Type.POISON)) {
+            if (pokemon.currentHP > 0) {
+                if (pokemon.hp > pokemon.currentHP && pokemon.hasItem(HoldItem.LEFTOVERS)) {
                     pokemon.heal(pokemon.hp / 16)
-                    pokemon.data.name + " restored a little of its hp using its Black Sludge!\n"
-                } else {
-                    pokemon.takeDamage(pokemon.hp / 8)
-                    pokemon.data.name + " lost some of its hp because of its Black Sludge!\n"
+                    details += pokemon.data.name + " restored a little of its hp using its Leftovers!\n"
+                }
+                if (pokemon.hp > pokemon.currentHP && pokemon.battleData!!.aquaRing) {
+                    pokemon.heal(pokemon.hp / 16)
+                    details += "Aqua Ring restored ${pokemon.data.name}'s HP!\n"
+                }
+                if (pokemon.hasItem(HoldItem.BLACK_SLUDGE) && pokemon.hp > pokemon.currentHP) {
+                    details += if (pokemon.hasType(Type.POISON)) {
+                        pokemon.heal(pokemon.hp / 16)
+                        pokemon.data.name + " restored a little of its hp using its Black Sludge!\n"
+                    } else {
+                        pokemon.takeDamage(pokemon.hp / 8)
+                        pokemon.data.name + " lost some of its hp because of its Black Sludge!\n"
+                    }
                 }
             }
             return details

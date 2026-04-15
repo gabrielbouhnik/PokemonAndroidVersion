@@ -13,6 +13,6 @@ class RareCandy : Item {
     }
 
     override fun apply(pokemon: Pokemon) {
-        pokemon.level += 1
+        pokemon.gainLevel()
     }
 }

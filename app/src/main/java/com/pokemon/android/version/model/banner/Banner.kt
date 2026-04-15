@@ -4,7 +4,10 @@ import com.pokemon.android.version.GameDataService
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.entity.banner.BannerEntity
+import com.pokemon.android.version.utils.DateUtils
+import com.pokemon.android.version.utils.HealUtils
 import java.time.DayOfWeek
+import java.util.*
 import kotlin.random.Random
 
 
@@ -36,10 +39,16 @@ class Banner(
     }
 
     fun summon(activity: MainActivity): Summonable? {
-        if (activity.trainer!!.coins >= cost) {
-            activity.trainer!!.coins -= cost
-        } else {
-            return null
+        when {
+            activity.trainer!!.coins >= cost && !DateUtils.canUseFreeSummon(activity.trainer!!) -> {
+                activity.trainer!!.coins -= cost
+            }
+            DateUtils.canUseFreeSummon(activity.trainer!!) -> {
+                activity.trainer!!.lastFreeSummon = Calendar.getInstance().time
+            }
+            else -> {
+                return null
+            }
         }
         val s: Summonable = summon()
         if (s is ItemBanner) {
@@ -49,7 +58,7 @@ class Banner(
                 activity.trainer!!.addItem(s.id, 1)
         } else {
             val pokemonBanner = s as PokemonBanner
-            activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemonFromBanner(pokemonBanner))
+            activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemonFromBanner(pokemonBanner, activity.trainer!!.getMaxLevel() - 10))
         }
         SaveManager.save(activity)
         return s

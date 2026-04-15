@@ -1,0 +1,399 @@
+[
+  {
+    "sprite": "images/Sprite_Ondine.png",
+    "name": "Misty",
+    "pokemons": [
+      {
+        "id": 195,
+        "level": 80,
+        "moveIds": [93,79,159,132],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 130,
+        "level": 80,
+        "moveIds": [79,27,93,125],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 121,
+        "level": 80,
+        "moveIds": [43,12,45,100]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Morgane.png",
+    "name": "Sabrina",
+    "pokemons": [
+      {
+        "id": 122,
+        "level": 50,
+        "moveIds": [44,319,318,55],
+        "itemHeld": "LIGHT_CLAY"
+      },
+      {
+        "id": 475,
+        "level": 50,
+        "moveIds": [40,217,121,123],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 65,
+        "level": 50,
+        "moveIds": [45,44,46,105]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Tanguy.png",
+    "name": "Volkner",
+    "pokemons": [
+      {
+        "id": 171,
+        "level": 50,
+        "moveIds": [43,12,100,48],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 405,
+        "level": 50,
+        "moveIds": [200,27,12,55],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 466,
+        "level": 50,
+        "moveIds": [107,110,93,200],
+        "itemHeld": "EXPERT_BELT"
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Cynthia.png",
+    "name": "Cynthia",
+    "pokemons": [
+      {
+        "id": 350,
+        "level": 50,
+        "moveIds": [266,100,228,132],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 468,
+        "level": 50,
+        "moveIds": [50,44,31,124],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 445,
+        "level": 50,
+        "moveIds": [108,93,82,25]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Steven.png",
+    "name": "Steven Stone",
+    "pokemons": [
+      {
+        "id": 703,
+        "level": 50,
+        "moveIds": [318,319,267,51],
+        "itemHeld": "LIGHT_CLAY"
+      },
+      {
+        "id": 142,
+        "level": 50,
+        "moveIds": [25,27,93,113],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 376,
+        "level": 50,
+        "moveIds": [179,148,107,21]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Peter.png",
+    "name": "Lance",
+    "pokemons": [
+      {
+        "id": 130,
+        "level": 50,
+        "moveIds": [79,27,93,125],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 373,
+        "level": 50,
+        "moveIds": [108,222,93,69],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 149,
+        "level": 50,
+        "moveIds": [108,125,110,93],
+        "itemHeld": "LUM_BERRY"
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Albert.png",
+    "name": "Falkner",
+    "pokemons": [
+      {
+        "id": 277,
+        "level": 50,
+        "moveIds": [306,203,191,3],
+        "itemHeld": "FLAME_ORB"
+      },
+      {
+        "id": 178,
+        "level": 50,
+        "moveIds": [50,48,219,55],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 18,
+        "level": 50,
+        "moveIds": [101,261,193,3]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Jasmine.png",
+    "name": "Jasmine",
+    "pokemons": [
+      {
+        "id": 437,
+        "level": 50,
+        "moveIds": [233,148,267,48],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 462,
+        "level": 50,
+        "moveIds": [12,111,117,267],
+        "itemHeld": "AIR_BALLOON"
+      },
+      {
+        "id": 208,
+        "level": 50,
+        "moveIds": [93,267,25,57]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Mortimer.png",
+    "name": "Morty",
+    "pokemons": [
+      {
+        "id": 94,
+        "level": 50,
+        "moveIds": [46,37,12,139],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 429,
+        "level": 50,
+        "moveIds": [46,202,48,51],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 477,
+        "level": 50,
+        "moveIds": [209,103,107,110],
+        "itemHeld": "LEFTOVERS"
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Timmy.png",
+    "name": "Wally",
+    "pokemons": [
+      {
+        "id": 407,
+        "level": 50,
+        "moveIds": [105,37,44,46],
+        "itemHeld": "BLACK_SLUDGE"
+      },
+      {
+        "id": 462,
+        "level": 50,
+        "moveIds": [12,111,117,267],
+        "itemHeld": "AIR_BALLOON"
+      },
+      {
+        "id": 475,
+        "level": 50,
+        "moveIds": [40,217,121,123]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Karen.png",
+    "name": "Karen",
+    "pokemons": [
+      {
+        "id": 197,
+        "level": 50,
+        "moveIds": [48,188,204,223],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 430,
+        "level": 50,
+        "moveIds": [203,208,45,261],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 229,
+        "level": 50,
+        "moveIds": [31,92,37,120]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Mashynn.png",
+    "name": "Iono",
+    "pokemons": [
+      {
+        "id": 941,
+        "level": 50,
+        "moveIds": [50,12,316,55],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 429,
+        "level": 50,
+        "moveIds": [46,44,12,51],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 939,
+        "level": 50,
+        "moveIds": [53,178,208,134],
+        "itemHeld": "LEFTOVERS"
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Brock.png",
+    "name": "Brock",
+    "pokemons": [
+      {
+        "id": 139,
+        "level": 50,
+        "moveIds": [245,43,100,87],
+        "itemHeld": "FOCUS_SASH"
+      },
+      {
+        "id": 10076,
+        "level": 50,
+        "moveIds": [25,147,93,230],
+        "itemHeld": "AIR_BALLOON"
+      },
+      {
+        "id": 248,
+        "level": 50,
+        "moveIds": [25,27,93,31]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Iris.png",
+    "name": "Iris",
+    "pokemons": [
+      {
+        "id": 635,
+        "level": 50,
+        "moveIds": [104,92,31,111],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 621,
+        "level": 50,
+        "moveIds": [108,27,93,57],
+        "itemHeld": "ROCKY_HELMET"
+      },
+      {
+        "id": 612,
+        "level": 50,
+        "moveIds": [197,125,93,62],
+        "itemHeld": "LUM_BERRY"
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Phoebe.png",
+    "name": "Phoebe",
+    "pokemons": [
+      {
+        "id": 609,
+        "level": 50,
+        "moveIds": [31,46,105,45],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 477,
+        "level": 50,
+        "moveIds": [209,103,107,110],
+        "itemHeld": "LEFTOVERS"
+      },
+      {
+        "id": 354,
+        "level": 50,
+        "moveIds": [331,12,220,208]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Sidney.png",
+    "name": "Sidney",
+    "pokemons": [
+      {
+        "id": 342,
+        "level": 50,
+        "moveIds": [96,136,27,125],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 861,
+        "level": 50,
+        "moveIds": [303,304,55,246],
+        "itemHeld": "BLACK_GLASSES"
+      },
+      {
+        "id": 359,
+        "level": 50,
+        "moveIds": [208,217,40,73]
+      }
+    ]
+  },
+  {
+    "sprite": "images/Sprite_Leon.png",
+    "name": "Leon",
+    "pokemons": [
+      {
+        "id": 887,
+        "level": 50,
+        "moveIds": [12,31,46,258],
+        "itemHeld": "LIFE_ORB"
+      },
+      {
+        "id": 464,
+        "level": 50,
+        "moveIds": [25,93,109,267],
+        "itemHeld": "ASSAULT_VEST"
+      },
+      {
+        "id": 6,
+        "level": 50,
+        "moveIds": [50,93,82,139],
+        "itemHeld": "WIDE_LENS"
+      }
+    ]
+  }
+]

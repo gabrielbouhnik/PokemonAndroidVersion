@@ -1,14 +1,12 @@
 package com.pokemon.android.version
 
 import com.pokemon.android.version.model.Achievement
+import com.pokemon.android.version.model.BattleFrontierPokemonData
 import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.PokemonData
 import com.pokemon.android.version.model.banner.Banner
 import com.pokemon.android.version.model.banner.PokemonBanner
-import com.pokemon.android.version.model.item.HoldItem
-import com.pokemon.android.version.model.item.ItemData
-import com.pokemon.android.version.model.item.ItemFactory
-import com.pokemon.android.version.model.item.ShopItem
+import com.pokemon.android.version.model.item.*
 import com.pokemon.android.version.model.level.*
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.model.move.MoveFactory
@@ -16,7 +14,6 @@ import com.pokemon.android.version.model.move.Stats
 import com.pokemon.android.version.model.move.pokemon.PokemonMove
 import com.pokemon.android.version.repository.*
 import com.pokemon.android.version.ui.BattleFrontierMenu
-import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.StatUtils
 import kotlin.random.Random
 
@@ -28,7 +25,8 @@ class GameDataService {
     var levels: List<LevelData> = ArrayList()
     var achievements: List<Achievement> = ArrayList()
     var shop: MutableList<ShopItem> = ArrayList()
-    var battleFrontierPokemons: HashMap<Int, ArrayList<List<Move>>> = HashMap()
+    var battleFrontierPokemons: HashMap<Int, ArrayList<BattleFrontierPokemonData>> = HashMap()
+    var battleFrontierTrainers: List<OpponentTrainerData> = ArrayList()
 
     companion object {
         const val MOVES_DATA_PATH = "game_data/moves.json"
@@ -37,6 +35,7 @@ class GameDataService {
         const val BANNER_DATA_PATH = "game_data/banners.json"
         const val LEVELS_DATA_PATH = "game_data/levels.json"
         const val POKEMON_BATTLE_FRONTIER_PATH = "game_data/battle_frontier/pokemons.json"
+        const val TRAINER_BATTLE_FRONTIER_PATH = "game_data/battle_frontier/trainers.json"
         const val ACHIEVEMENTS_DATA_PATH = "game_data/achievements.json"
         const val SHOP_DATA_PATH = "game_data/shop.json"
     }
@@ -50,6 +49,7 @@ class GameDataService {
         val levelsRepository = LevelsRepository()
         val shopRepository = ShopRepository()
         val battleFrontierPokemonRepository = BattleFrontierPokemonRepository()
+        val battleFrontierTrainersRepository = BattleFrontierTrainerRepository()
         this.moves = MoveFactory.createMove(movesRepository.loadData(activity))
         this.items = ItemFactory.createItems(itemRepository.loadData(activity), this.moves)
         this.pokemons = pokemonRepository.loadData(activity).map { PokemonData.of(it, moves) }
@@ -58,22 +58,28 @@ class GameDataService {
         this.achievements = achievementsRepository.loadData(activity).map { Achievement.of(it, this) }
         battleFrontierPokemonRepository.loadData(activity).forEach {
             if (this.battleFrontierPokemons.containsKey(it.id))
-                this.battleFrontierPokemons[it.id]!!.add(it.moveIds.map { moveId -> getMoveById(moveId) })
+                this.battleFrontierPokemons[it.id]!!.add(BattleFrontierPokemonData(it.moveIds.map { moveId -> getMoveById(moveId)}, if (it.itemHeld != null) HoldItem.valueOf(it.itemHeld!!) else null))
             else
-                this.battleFrontierPokemons[it.id] = arrayListOf(it.moveIds.map { moveId -> getMoveById(moveId) })
+                this.battleFrontierPokemons[it.id] = arrayListOf(BattleFrontierPokemonData(it.moveIds.map { moveId -> getMoveById(moveId)}, if (it.itemHeld != null) HoldItem.valueOf(it.itemHeld!!) else null))
         }
+        this.battleFrontierTrainers = battleFrontierTrainersRepository.loadData(activity).map { OpponentTrainerData.of(it, this, 3) }
         this.shop = shopRepository.loadData(activity).map { ShopItem.of(it, this)}.toMutableList()
     }
 
     fun updateShopForHardMode() {
-        this.shop.filter { it.itemId < 12 }.map{ it.cost *= 3}
-        for (itemId in 16..23) {
-            this.shop.add(ShopItem(itemId, this.items.first { it.id == itemId }.name, 1000, 3))
+        this.shop.add(ShopItem(8, this.items.first { it.id == 8 }.name, 10, 8))
+        for (itemId in 16..19) {
+            this.shop.add(ShopItem(itemId, this.items.first { it.id == itemId }.name, 750, 3))
         }
-        this.shop.add(ShopItem(12, this.items.first { it.id == 12 }.name, 500, 3))
-        this.shop.add(ShopItem(13, this.items.first { it.id == 13 }.name, 1000, 6))
-        this.shop.add(ShopItem(28, this.items.first { it.id == 28 }.name, 1000, 3))
+        this.shop.add(ShopItem(28, this.items.first { it.id == 28 }.name, 750, 3))
+        for (itemId in 20..24) {
+            this.shop.add(ShopItem(itemId, this.items.first { it.id == itemId }.name, 200, 3))
+        }
+        this.shop.add(ShopItem(12, this.items.first { it.id == 12 }.name, 150, 3))
+        this.shop.add(ShopItem(13, this.items.first { it.id == 13 }.name, 200, 6))
+        this.shop.add(ShopItem(205, this.items.first { it.id == 205 }.name, 4000, 8))
         this.shop.sortBy { it.itemId }
+        this.shop = this.shop.filter { it.itemId != 44 && it.itemId != 115  && it.itemId != 117 && it.itemId != 120 && it.itemId != 201 && it.itemId != 202 }.toMutableList()
     }
 
     fun getPokemonDataById(id: Int): PokemonData {
@@ -82,6 +88,10 @@ class GameDataService {
 
     fun getMoveById(id: Int): Move {
         return moves.first { it.id == id }
+    }
+
+    fun getItemById(id: Int): ItemData? {
+        return items.firstOrNull { it.id == id }
     }
 
     fun generatePokemon(id: Int, level: Int): Pokemon {
@@ -106,26 +116,45 @@ class GameDataService {
             adjustedLevel = 21
         if (id == 633)
             adjustedLevel = 40
+        if (id == 246)
+            adjustedLevel = 27
         val pokemon = generatePokemon(id, adjustedLevel)
         val random = Random.nextInt(250)
         if (random == 50 && id < 650)
             pokemon.shiny = true
-        if ((id == 21 || id == 22 || id == 84) && random % 4 == 0)
-            pokemon.heldItem = HoldItem.SHARP_BEAK
-        if (id == 50 && random % 4 == 0)
-            pokemon.heldItem = HoldItem.SOFT_SAND
-        if ((id == 88 || id == 89) && random % 4 == 0)
-            pokemon.heldItem = HoldItem.BLACK_SLUDGE
+        if (random % 4 == 0) {
+            if (id == 21 || id == 22 || id == 84 || id == 227)
+                pokemon.heldItem = HoldItem.SHARP_BEAK
+            if (id == 109 || id == 110)
+                pokemon.heldItem = HoldItem.TOXIC_ORB
+            if (id == 193)
+                pokemon.heldItem = HoldItem.WIDE_LENS
+            if (id == 200 || id == 353 || id == 354 || id == 355 || id == 356)
+                pokemon.heldItem = HoldItem.SPELL_TAG
+            if (id == 50)
+                pokemon.heldItem = HoldItem.SOFT_SAND
+            if (id == 751)
+                pokemon.heldItem = HoldItem.MYSTIC_WATER
+            if (id == 621)
+                pokemon.heldItem = HoldItem.DRAGON_FANG
+            if (id == 88 || id == 89 || id == 453)
+                pokemon.heldItem = HoldItem.BLACK_SLUDGE
+            if (id == 622 || id == 623)
+                pokemon.heldItem = HoldItem.LIGHT_CLAY
+        }
         return pokemon
     }
 
-    fun generatePokemonFromBanner(pokemonBanner: PokemonBanner): Pokemon {
-        val pokemon = generatePokemonWithMoves(pokemonBanner.pokemonId, 5, pokemonBanner.moves,null)
+    fun generatePokemonFromBanner(pokemonBanner: PokemonBanner, level: Int): Pokemon {
+        val pokemon = generatePokemonWithMoves(pokemonBanner.pokemonId, level, pokemonBanner.moves,null)
         pokemon.isFromBanner = true
-        if (pokemon.data.id == 133){
+        if (pokemon.data.id == 133) {
             val random = Random.nextInt(1,5)
             if (random == 1)
                 pokemon.shiny = true
+        }
+        if (pokemon.data.id in 172..175) {
+            pokemon.level = 5
         }
         return pokemon
     }
@@ -165,7 +194,7 @@ class GameDataService {
         val pokemon = generatePokemonWithMoves(id, level, moves,null)
         val move5: PokemonMove? = if (moves.size < 5) null else PokemonMove(moves[4])
         val move6: PokemonMove? = if (moves.size < 6) null else PokemonMove(moves[5])
-        val boss = PokemonBoss.PokemonBossBuilder()
+        return PokemonBoss.PokemonBossBuilder()
             .data(pokemon.data)
             .level(level)
             .hp(pokemon.hp)
@@ -182,9 +211,6 @@ class GameDataService {
             .move5(move5)
             .move6(move6)
             .build()
-        if (boss.data.id == 143)
-            boss.heldItem = HoldItem.LEFTOVERS
-        return boss
     }
 
     fun getPokemonLocation(id: Int, progression: Int): String {

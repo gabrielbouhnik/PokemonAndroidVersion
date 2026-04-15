@@ -34,10 +34,7 @@ class HealMove(
 
         fun heal(pokemon: Pokemon) {
             val hpToBeRestored = pokemon.hp / 2
-            if (hpToBeRestored + pokemon.currentHP > pokemon.hp)
-                pokemon.currentHP = pokemon.hp
-            else
-                pokemon.currentHP += hpToBeRestored
+            pokemon.heal(hpToBeRestored)
         }
     }
 }

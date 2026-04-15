@@ -69,7 +69,7 @@ class PokemonInfoMenu(var parentId: Int) {
                     activity.mainMenu.battleFrontierMenu.loadPokemonInfoLayout(
                         activity,
                         pokemon,
-                        BattleFrontierArea.BATTLE_FACTORY
+                        if (activity.hardMode) BattleFrontierArea.BATTLE_TOWER else BattleFrontierArea.BATTLE_FACTORY
                     )
                 } else {
                     activity.mainMenu.pokemonMenu.pokemonInfoMenu.loadPokemonInfoLayout(activity, pokemon)
@@ -136,22 +136,26 @@ class PokemonInfoMenu(var parentId: Int) {
 
         val movesItemClickListener = View.OnClickListener {
             val position = it.tag as Int
-            if (currentMoves.size < 4) {
-                pokemon.autoLearnMove(possibleMoves[position])
-                activity.playSoundEffect(R.raw.evolve_sound_effect)
-                loadPokemonInfoLayout(activity, pokemon)
-            } else if (selectedMoveNumber != null) {
-                val pokemonMove = PokemonMove(possibleMoves[position], possibleMoves[position].pp, false)
-                when (selectedMoveNumber) {
-                    0 -> pokemon.move1 = pokemonMove
-                    1 -> pokemon.move2 = pokemonMove
-                    2 -> pokemon.move3 = pokemonMove
-                    3 -> pokemon.move4 = pokemonMove
+            when {
+                currentMoves.size < 4 -> {
+                    pokemon.autoLearnMove(possibleMoves[position])
+                    activity.playSoundEffect(R.raw.level_up_sound_effect)
+                    loadPokemonInfoLayout(activity, pokemon)
                 }
-                activity.playSoundEffect(R.raw.evolve_sound_effect)
-                loadPokemonInfoLayout(activity, pokemon)
-            } else {
-                MoveDetailsMenu(R.layout.move_layout).loadMoveMenu(activity, pokemon, possibleMoves[position], null)
+                selectedMoveNumber != null -> {
+                    val pokemonMove = PokemonMove(possibleMoves[position], possibleMoves[position].pp, 0)
+                    when (selectedMoveNumber) {
+                        0 -> pokemon.move1 = pokemonMove
+                        1 -> pokemon.move2 = pokemonMove
+                        2 -> pokemon.move3 = pokemonMove
+                        3 -> pokemon.move4 = pokemonMove
+                    }
+                    activity.playSoundEffect(R.raw.level_up_sound_effect)
+                    loadPokemonInfoLayout(activity, pokemon)
+                }
+                else -> {
+                    MoveDetailsMenu(R.layout.move_layout).loadMoveMenu(activity, pokemon, possibleMoves[position], null)
+                }
             }
         }
         movesRecyclerView.adapter = MoveRecyclerAdapter(activity, possibleMoves, movesItemClickListener)
@@ -201,7 +205,7 @@ class PokemonInfoMenu(var parentId: Int) {
             takeItemButton.visibility = View.VISIBLE
             takeItemButton.setOnClickListener {
                 (pokemon.trainer!! as Trainer).addItem(pokemon.heldItem!!.id, 1)
-                pokemon.consumeItem()
+                pokemon.heldItem = null
                 takeItemButton.visibility = GONE
                 itemTextView.visibility = GONE
             }
@@ -217,7 +221,7 @@ class PokemonInfoMenu(var parentId: Int) {
                     displayPokemonInfo(activity, pokemon)
                     displayMoveButtons(activity, pokemon, null)
                     activity.playSoundEffect(R.raw.evolve_sound_effect)
-                    evolveButton.visibility = View.GONE
+                    evolveButton.visibility = GONE
                 } else {
                     chooseEvolution(activity, pokemon)
                 }

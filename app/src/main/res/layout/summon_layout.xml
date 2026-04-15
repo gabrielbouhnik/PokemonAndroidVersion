@@ -28,7 +28,7 @@
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="32dp"/>
     <TextView
             android:text="0 AndroCoins"
-            android:layout_width="157dp"
+            android:layout_width="185dp"
             android:layout_height="31dp" android:id="@+id/coinSummonResultTextView"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="36dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="4dp"

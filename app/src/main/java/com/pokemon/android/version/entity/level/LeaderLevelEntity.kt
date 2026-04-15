@@ -19,6 +19,8 @@ data class LeaderLevelEntity(
     var background: String,
     var exp: Int,
     var iaLevel: Int,
-    var mandatory: Boolean
+    var mandatory: Boolean,
+    var megaPokemonId: Int,
+    var megaPokemonIdOnRematch: Int
 ) {
 }

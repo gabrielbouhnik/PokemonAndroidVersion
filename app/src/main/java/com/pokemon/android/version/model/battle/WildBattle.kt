@@ -14,6 +14,19 @@ class WildBattle() : Battle() {
     constructor(activity: MainActivity, wildBattleLevelData: WildBattleLevelData) : this() {
         this.activity = activity
         this.levelData = wildBattleLevelData
+        if (activity.hardMode)
+            wildBattleLevelData.possibleEncounters.encounters = wildBattleLevelData.possibleEncounters.encounters.filter {
+                it.id != 129
+                && it.id != 58
+                && it.id != 63
+                && it.id != 120
+                && it.id != 701
+                && it.id != 782
+                && it.id != 854
+                && it.id != 885
+                && it.id != 955 }
+        else
+            wildBattleLevelData.possibleEncounters.encounters = wildBattleLevelData.possibleEncounters.encounters.filter { it.id != 126 && it.id != 214 && it.id != 246}
         this.encountersLeft = wildBattleLevelData.encounter
         this.pokemon = activity.trainer!!.getFirstPokemonThatCanFight()!!
         this.pokemon.battleData = PokemonBattleData()
@@ -31,7 +44,7 @@ class WildBattle() : Battle() {
         if (encountersLeft == 0 && (opponent.trainer != null || opponent.currentHP == 0)) {
             return State.TRAINER_VICTORY
         }
-        if (!activity.trainer!!.canStillBattle() || MoveUtils.getMoveList(opponent).none { it.pp > 0 }) {
+        if (!activity.trainer!!.canStillBattle()) {
             return State.TRAINER_LOSS
         }
         return State.IN_PROGRESS
@@ -41,6 +54,7 @@ class WildBattle() : Battle() {
         encountersLeft--
         if (activity.trainer!!.progression > LevelMenu.ELITE_4_LAST_LEVEL_ID
             && levelData.name.startsWith("\nRoute")
+            && !activity.hardMode
         ) {
             when (Random.nextInt(100)) {
                 1 -> {

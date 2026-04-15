@@ -40,13 +40,22 @@ class BannerMenu {
                 recyclerView.adapter =
                     BannerRecyclerAdapter(
                         activity,
-                        (banners.filter { it.description.contains("a move") }).toMutableList()
+                        ( activity.gameDataService.banners.filter { it.description.contains("a move")
+                                || it.description.contains("Porygon")
+                                || it.description.contains("Marill")
+                                || it.description.contains("baby")
+                                || it.description.contains("Alolan") }).toMutableList()
                     )
             else
                 recyclerView.adapter =
                     BannerRecyclerAdapter(
                         activity,
-                        (banners.filter { it.description.contains(" TM") }).toMutableList()
+                        ( activity.gameDataService.banners.filter { it.description.contains(" TM")
+                                || it.description.contains("Porygon")
+                                || it.description.contains("Marill")
+                                || it.description.contains("baby")
+                                || it.description.contains("Alolan")
+                                || it.description.contains("mythical")}).toMutableList()
                     )
         } else {
             if (activity.trainer!!.progression < LevelMenu.ELITE_4_FIRST_LEVEL_ID)
@@ -78,15 +87,20 @@ class BannerMenu {
                 if (newSummonResult != null) {
                     activity.mainMenu.bannerMenu.coinsTextView.text = "${activity.trainer!!.coins} AndroCoins"
                     activity.mainMenu.bannerMenu.loadSummonResultScreen(activity, banner, newSummonResult)
-                    activity.playSoundEffect(R.raw.item_sound_effect)
                 } else
                     Toast.makeText(activity, "You don't have enough AndroCoins.", Toast.LENGTH_SHORT).show()
             }
         }
         val resultTextView: TextView = activity.findViewById(R.id.summonResultTextView)
         if (s is PokemonBanner) {
+            activity.playSoundEffect(R.raw.evolve_sound_effect)
             resultTextView.text = activity.getString(R.string.summon_pokemon, s.name)
         } else {
+            val itemBanner: ItemBanner = (s as ItemBanner)
+            if (itemBanner.id in 51..106)
+                activity.playSoundEffect(R.raw.tm_obtained)
+            else
+                activity.playSoundEffect(R.raw.item_sound_effect)
             resultTextView.text =
                 activity.getString(R.string.summon_item, activity.gameDataService.items.first {it.id == (s as ItemBanner).id}.name)
         }

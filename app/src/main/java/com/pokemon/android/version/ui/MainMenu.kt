@@ -5,6 +5,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +14,7 @@ import com.pokemon.android.version.R
 import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.item.ItemQuantity
+import com.pokemon.android.version.utils.DateUtils
 import com.pokemon.android.version.utils.HealUtils
 import com.pokemon.android.version.utils.ItemUtils
 import java.io.InputStream
@@ -77,7 +79,7 @@ class MainMenu {
         itemsButton.setOnClickListener {
             itemMenu.loadItemMenu(activity, null)
         }
-        if (!activity.eliteMode && HealUtils.canUseDailyHeal(activity.trainer!!)) {
+        if (!activity.eliteMode && DateUtils.canUseDailyHeal(activity.trainer!!)) {
             val dailyHealButton: Button = activity.findViewById(R.id.dailyHealButton)
             dailyHealButton.visibility = VISIBLE
             dailyHealButton.setOnClickListener {
@@ -100,7 +102,7 @@ class MainMenu {
             }
         }
         val battleFrontierButton: Button = activity.findViewById(R.id.battleFrontierButton)
-        if (!activity.eliteMode && activity.trainer!!.progression > 51) {
+        if (!activity.eliteMode && activity.trainer!!.progression > LevelMenu.SABRINA_LEVEL) {
             battleFrontierButton.setOnClickListener {
                 battleFrontierMenu.loadMenu(activity)
             }
@@ -120,7 +122,7 @@ class MainMenu {
             loadGameMenu(activity)
         }
         val achievementsButton: TextView = activity.findViewById(R.id.achievementsButton)
-        if (activity.trainer!!.progression < LevelMenu.ELITE_4_LAST_LEVEL_ID)
+        if (activity.trainer!!.progression < LevelMenu.ELITE_4_LAST_LEVEL_ID || activity.eliteMode || activity.hardMode)
             achievementsButton.visibility = GONE
         else {
             achievementsButton.setOnClickListener {
@@ -146,6 +148,11 @@ class MainMenu {
                     .filter { ItemUtils.isBadge(it.itemId) })
         ) {}
         recyclerView.adapter = adapter
+        val musicSwitch: Switch = activity.findViewById(R.id.musicSwitch)
+        musicSwitch.isChecked = activity.mediaPlayer != null
+        musicSwitch.setOnCheckedChangeListener { _, _ ->
+            activity.enableOrDisableMusic()
+        }
     }
 
     private fun loadAchievementsMenu(activity: MainActivity) {

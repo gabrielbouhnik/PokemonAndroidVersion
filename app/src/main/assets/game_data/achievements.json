@@ -70,7 +70,7 @@
     "description": "Catch Raikou",
     "pokemonReward": [],
     "itemRewards": [
-      81
+      82
     ]
   },
   {
@@ -78,7 +78,7 @@
     "description": "Catch Entei",
     "pokemonReward": [],
     "itemRewards": [
-      76
+      77
     ]
   },
   {
@@ -86,7 +86,7 @@
     "description": "Catch Suicune",
     "pokemonReward": [],
     "itemRewards": [
-      79
+      80
     ]
   },
   {
@@ -133,7 +133,7 @@
   },
   {
     "id": 15,
-    "description": "Beat the last level of the game with only 3 Pokemons in your team",
+    "description": "Beat the legendary Pokemon of Cerulean Cave with only 3 Pokemons in your team",
     "pokemonReward": [
     ],
     "itemRewards": [57]
@@ -173,7 +173,7 @@
   },
   {
     "id": 19,
-    "description": "Catch 30 different Pokémon",
+    "description": "Catch 25 different Pokémon",
     "pokemonReward": [
       {
         "id": 10088,
@@ -195,6 +195,17 @@
   },
   {
     "id": 21,
+    "description": "Catch 75 different Pokémon",
+    "pokemonReward": [
+      {
+        "id": 10037,
+        "level": 10
+      }
+    ],
+    "itemRewards": []
+  },
+  {
+    "id": 22,
     "description": "Catch 100 different Pokémon",
     "pokemonReward": [
       {
@@ -205,15 +216,18 @@
     "itemRewards": []
   },
   {
-    "id": 22,
+    "id": 23,
     "description": "Catch 150 different Pokémon",
     "pokemonReward": [
-
+      {
+        "id": 10215,
+        "level": 20
+      }
     ],
-    "itemRewards": [131]
+    "itemRewards": []
   },
   {
-    "id": 23,
+    "id": 24,
     "description": "Catch 200 different Pokémon",
     "pokemonReward": [
       {
@@ -224,7 +238,7 @@
     "itemRewards": []
   },
   {
-    "id": 24,
+    "id": 25,
     "description": "Catch 250 different Pokémon",
     "pokemonReward": [
       {

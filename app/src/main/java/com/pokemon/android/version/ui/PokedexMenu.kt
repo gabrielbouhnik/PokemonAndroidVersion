@@ -65,6 +65,16 @@ class PokedexMenu {
 
     fun loadPokedexMenu(activity: MainActivity) {
         activity.setContentView(R.layout.pokedex_layout)
+        val dexProgressionTextView: TextView = activity.findViewById(R.id.dexProgressionTextView)
+        var seenCount = 0
+        var caughtCount = 0
+        for (caught in activity.trainer!!.pokedex.values) {
+            if (caught) {
+                caughtCount += 1
+            }
+            seenCount += 1
+        }
+        dexProgressionTextView.text = "Progression: \n${seenCount} seen\n${caughtCount} caught"
         val recyclerView = activity.findViewById<RecyclerView>(R.id.pokedexRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         val data =

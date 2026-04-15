@@ -16,12 +16,14 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
     var progression: Int = 1
     var coins: Int = 50
     var lastTimeDailyHealUsed: Date? = null
+    var lastFreeSummon: Date? = null
     var eliteProgression: Int = 0
     var battleTowerProgression: BattleFrontierProgression? = null
     var battleFactoryProgression: BattleFrontierProgression? = null
     var successfulAchievements: ArrayList<Int> = arrayListOf()
     var achievements: Achievements? = null
     var pokedex: HashMap<Int, Boolean> = HashMap()
+    var battleTeam: List<Pokemon>? = null
 
     override fun getFirstPokemonThatCanFight(): Pokemon? {
         for (pokemon in team) {
@@ -32,6 +34,9 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
     }
 
     override fun getTrainerTeam(): List<Pokemon> {
+        if (battleTeam != null) {
+            return battleTeam!!
+        }
         return team
     }
 
@@ -41,10 +46,6 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         items[ballId] = items[ballId]!! - 1
         if (items[ballId] == 0) {
             items.remove(ballId)
-        }
-        if (pokemon.shiny) {
-            receivePokemon(pokemon)
-            return true
         }
         var status = 1f
         if (pokemon.status == Status.BURN || pokemon.status == Status.POISON || pokemon.status == Status.BADLY_POISON || pokemon.status == Status.PARALYSIS || pokemon.status == Status.FROZEN)
@@ -58,6 +59,7 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
         val catch: Int =
             (((1f - ((2f / 3f) * (pokemon.currentHP / pokemon.hp).toFloat())) * status) * pokemon.data.catchRate.toFloat() * successRate).toInt()
         if (catch >= 255 || pokemon.shiny) {
+            pokemon.recomputeStat()
             receivePokemon(pokemon)
             if (ball is Ball.HealBall) {
                 pokemon.currentHP = pokemon.hp
@@ -177,7 +179,7 @@ class Trainer(var name: String, gender: Gender) : ITrainer {
             return 30
         if (items.contains(31))
             return 25
-        return 20
+        return 15
     }
 
     fun updatePokedex(pokemon: Pokemon) {

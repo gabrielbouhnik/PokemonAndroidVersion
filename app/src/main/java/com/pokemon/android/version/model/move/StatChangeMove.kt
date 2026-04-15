@@ -12,8 +12,9 @@ class StatChangeMove(
     pp: Int,
     accuracy: Int?,
     priorityLevel: Int,
-    var statsAffected: List<Stats>, var target: Target,
-    var multiplicator: Float, var probability: Int?,
+    var statsAffected: List<StatChange>,
+    var target: Target,
+    var probability: Int?,
     status: List<StatusMove>,
     highCritRate: Boolean = false,
     description: String,
@@ -43,9 +44,8 @@ class StatChangeMove(
                 statChangeMoveEntity.pp,
                 statChangeMoveEntity.accuracy,
                 statChangeMoveEntity.priorityLevel,
-                statChangeMoveEntity.statsAffected.map { Stats.valueOf(it) },
+                statChangeMoveEntity.statsAffected.map { StatChange.of(it) },
                 Target.valueOf(statChangeMoveEntity.target),
-                statChangeMoveEntity.multiplicator,
                 statChangeMoveEntity.probability,
                 statChangeMoveEntity.status.map(StatusMove::of),
                 statChangeMoveEntity.highCritRate,
@@ -53,5 +53,13 @@ class StatChangeMove(
                 statChangeMoveEntity.characteristics.map { MoveCharacteristic.valueOf(it) }
             )
         }
+    }
+
+    fun increaseStat(stat: Stats): Boolean {
+        return probability == null && target == Target.SELF && statsAffected.any { it.stat == stat && it.multiplicator > 1 }
+    }
+
+    fun decreaseOpponentStat(stat: Stats): Boolean {
+        return probability == null && target == Target.OPPONENT && statsAffected.any { it.stat == stat && it.multiplicator < 1 }
     }
 }

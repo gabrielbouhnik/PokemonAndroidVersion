@@ -13,7 +13,7 @@ data class PokemonSave(
     var shiny: Boolean = false,
     var isFromBanner: Boolean,
     var movesLearnedByTM: List<Int>,
-    var holdItem: String
+    var holdItem: String?
 ) {
     companion object {
         fun of(pokemon: Pokemon): PokemonSave {

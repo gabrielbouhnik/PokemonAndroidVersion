@@ -13,27 +13,33 @@ import com.pokemon.android.version.ui.BattleFrontierMenu.Companion.FRONTIER_BRAI
 
 class LevelMenu {
     companion object {
+        const val BROCK_LEVEL = 9
         const val ROUTE_3_LEVEL = 10
+        const val TEAM_ROCKET_LEVEL = 13
         const val MISTY_LEVEL = 18
+        const val SURGE_LEVEL = 22
         const val OTHER_BANNER_LEVEL = 19
         const val DUGTRIO_LEVEL = 24
-        const val MAROWAK_LEVEL = 31
-        const val ERIKA_LEVEL = 36
-        const val LAPRAS_LEVEL = 47
-        const val TYROGUE_LEVEL = 51
-        const val ARTICUNO_LEVEL = 57
-        const val BLAINE_LEVEL = 60
-        const val MEGA_CHARIZARD_LEVEL_ID = 62
-        const val GIOVANNI_LEVEL_ID = 65
-        const val MEGA_VENUSAUR_LEVEL_ID = 69
-        const val MOLTRES_LEVEL = 70
-        const val ELITE_4_FIRST_LEVEL_ID = 71
-        const val ELITE_4_LAST_LEVEL_ID = 75
-        const val ZAPDOS_LEVEL = 78
-        const val STEVEN_LEVEL_ID = 79
-        const val CYNTHIA_LEVEL_ID = 83
-        const val MEWTWO_LEVEL = 88
-        const val LAST_LEVEL = 89
+        const val MAROWAK_LEVEL = 32
+        const val ERIKA_LEVEL = 39
+        const val SNORLAX_LEVEL = 40
+        const val LAPRAS_LEVEL = 50
+        const val ARCHER_LEVEL = 52
+        const val GIOVANNI_LEVEL = 53
+        const val TYROGUE_LEVEL = 54
+        const val SABRINA_LEVEL = 56
+        const val ARTICUNO_LEVEL = 60
+        const val MANSION_LEVEL = 61
+        const val BLAINE_LEVEL = 63
+        const val OAK_LEVEL_ID = 65
+        const val GIOVANNI_2_LEVEL = 67
+        const val MOLTRES_LEVEL = 72
+        const val ELITE_4_FIRST_LEVEL_ID = 73
+        const val ELITE_4_LAST_LEVEL_ID = 77
+        const val ZAPDOS_LEVEL = 80
+        const val STEVEN_LEVEL_ID = 81
+        const val CYNTHIA_LEVEL_ID = 85
+        const val MEWTWO_LEVEL = 93
     }
 
     var battleUI: BattleUI = BattleUI()
@@ -44,9 +50,7 @@ class LevelMenu {
                 activity,
                 level
             )
-            is BossBattleLevelData -> {
-                battleUI.startBossBattle(activity, level)
-            }
+            is BossBattleLevelData -> battleUI.startBossBattle(activity, level)
             is LeaderLevelData -> battleUI.startGymLeaderBattle(activity, level)
             else -> battleUI.startTrainerBattle(
                 activity,
@@ -90,7 +94,13 @@ class LevelMenu {
             val position = it.tag as Int
             val levelData: LevelData = levels[position]
             if (activity.trainer!!.canStillBattle()) {
-                if (activity.trainer!!.progression == levelData.id) {
+                if (levelData !is WildBattleLevelData
+                    && !activity.eliteMode
+                    && activity.trainer!!.team.map { pokemon ->  pokemon.data.id }.distinct().size != activity.trainer!!.team.size) {
+                    Toast.makeText(activity, "You cannot have the same species of Pokémon in your team for trainer battles!", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                else if (activity.trainer!!.progression == levelData.id) {
                     loadLevelDescriptionMenu(activity, levelData)
                 } else if (activity.trainer!!.progression > levelData.id) {
                     startBattle(activity, levels[position])

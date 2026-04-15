@@ -4,7 +4,6 @@ import android.graphics.drawable.Drawable
 import android.view.View.GONE
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.android.version.MainActivity
@@ -12,10 +11,11 @@ import com.pokemon.android.version.R
 import com.pokemon.android.version.SaveManager
 import com.pokemon.android.version.model.Gender
 import com.pokemon.android.version.model.Type
+import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.level.*
-import com.pokemon.android.version.ui.LevelMenu.Companion.ROUTE_3_LEVEL
 import com.pokemon.android.version.utils.ItemUtils
 import com.pokemon.android.version.utils.ItemUtils.Companion.MEGA_RING_ID
+import com.pokemon.android.version.utils.MoveUtils
 import java.io.InputStream
 import kotlin.random.Random
 
@@ -55,10 +55,10 @@ class RewardMenu {
                     activity.trainer!!.achievements!!.mewtwoAchievement = true
             }
             BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID -> {
-                if (activity.trainer!!.battleTowerProgression!!.progression < 10)
-                    activity.trainer!!.achievements!!.winstreak8Achievement = true
-                else
+                if (activity.trainer!!.battleTowerProgression!!.progression >= 15)
                     activity.trainer!!.achievements!!.winstreak15Achievement = true
+                else if (activity.trainer!!.battleTowerProgression!!.progression >= 8)
+                    activity.trainer!!.achievements!!.winstreak8Achievement = true
             }
         }
     }
@@ -78,36 +78,69 @@ class RewardMenu {
                 1 -> {
                     activity.showCustomDialog(activity.getString(R.string.tutorial_after_first_fight))
                 }
+                LevelMenu.SURGE_LEVEL -> {
+                    if (activity.hardMode) {
+                        activity.showCustomDialog(activity.getString(R.string.new_item_available_in_shop))
+                    }
+                }
+                LevelMenu.SNORLAX_LEVEL -> {
+                    if (activity.hardMode) {
+                        val snorlax = activity.gameDataService.generatePokemon(143, 45)
+                        activity.trainer!!.receivePokemon(snorlax)
+                        snorlax.heldItem = HoldItem.LEFTOVERS
+                        activity.showCustomDialog("Snorlax joined your team!")
+                    }
+                }
                 LevelMenu.LAPRAS_LEVEL -> {
-                    activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(131, 45))
-                    Toast.makeText(
-                        activity,
-                        "To thank you, one of the Silph Co scientist gave you a Lapras!",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    val lapras = activity.gameDataService.generatePokemon(131, 50)
+                    lapras.heldItem = HoldItem.NEVER_MELT_ICE
+                    activity.trainer!!.receivePokemon(lapras)
+                    activity.showCustomDialog("To thank you, one of the Silph Co scientist gave you a Lapras!")
                 }
                 LevelMenu.TYROGUE_LEVEL -> {
                     activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(236, 10))
-                    Toast.makeText(
-                        activity,
-                        "You received a level 10 Tyrogue!",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    activity.showCustomDialog("You received a level 10 Tyrogue!")
                 }
-                LevelMenu.BLAINE_LEVEL, LevelMenu.GIOVANNI_LEVEL_ID -> {
+                LevelMenu.ARTICUNO_LEVEL -> {
+                    if (activity.hardMode) {
+                        activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(144, 55))
+                        activity.showCustomDialog("Articuno joined your team!")
+                    }
+                }
+                LevelMenu.MANSION_LEVEL -> {
+                    activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(138, 30))
+                    activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(140, 30))
+                    activity.showCustomDialog("Your fossils have been revived to Omanyte and Kabuto!")
+                    activity.trainer!!.items.remove(148)
+                    activity.trainer!!.items.remove(149)
+                }
+                LevelMenu.BLAINE_LEVEL, LevelMenu.GIOVANNI_2_LEVEL -> {
                     activity.showCustomDialog(activity.getString(R.string.new_item_available_in_shop))
                 }
-                LevelMenu.MEGA_CHARIZARD_LEVEL_ID -> {
+                LevelMenu.OAK_LEVEL_ID -> {
+                    activity.showCustomDialog(activity.getString(R.string.mega_evolution_unlocked))
                     when {
                         activity.trainer!!.pokedex[1] == true -> {
-                            activity.trainer!!.addItem(110, 1)
+                            activity.trainer!!.addItem(activity.gameDataService.pokemons[2].megaEvolutionData!!.stoneId, 1)
                         }
                         activity.trainer!!.pokedex[4] == true -> {
-                            activity.trainer!!.addItem(111, 1)
+                            activity.trainer!!.addItem(activity.gameDataService.pokemons[5].megaEvolutionData!!.stoneId, 1)
                         }
                         activity.trainer!!.pokedex[7] == true -> {
-                            activity.trainer!!.addItem(112, 1)
+                            activity.trainer!!.addItem(activity.gameDataService.pokemons[8].megaEvolutionData!!.stoneId, 1)
                         }
+                    }
+                }
+                LevelMenu.MOLTRES_LEVEL -> {
+                    if (activity.hardMode) {
+                        activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(146, 70))
+                        activity.showCustomDialog("Moltres joined your team!")
+                    }
+                }
+                LevelMenu.ZAPDOS_LEVEL -> {
+                    if (activity.hardMode) {
+                        activity.trainer!!.receivePokemon(activity.gameDataService.generatePokemon(145, 80))
+                        activity.showCustomDialog("Zapdos joined your team!")
                     }
                 }
             }
@@ -127,15 +160,15 @@ class RewardMenu {
             }
         }
         val healTeamButton: Button = activity.findViewById(R.id.healTeamButton)
-        if (activity.trainer!!.progression < ROUTE_3_LEVEL || levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID)
+        if (activity.trainer!!.progression < LevelMenu.ROUTE_3_LEVEL || levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID)
             healTeamButton.visibility = GONE
         healTeamButton.setOnClickListener {
-            activity.trainer!!.team.forEach { activity.trainer!!.heal(it, false) }
+            activity.trainer!!.team.forEach { activity.trainer!!.heal(it, MoveUtils.getMoveList(it).any{ move -> move.pp == 0}) }
             SaveManager.save(activity)
             healTeamButton.visibility = GONE
         }
         val nextLevelButton: Button = activity.findViewById(R.id.nextLevelButton)
-        if (activity.trainer!!.progression < ROUTE_3_LEVEL || levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID
+        if (activity.trainer!!.progression < LevelMenu.ROUTE_3_LEVEL || levelData.id == BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID
             || levelData.id == LevelMenu.ELITE_4_FIRST_LEVEL_ID - 1 || levelData.id == LevelMenu.ELITE_4_LAST_LEVEL_ID
             || levelData.id >= LevelMenu.MEWTWO_LEVEL
         )
@@ -177,9 +210,16 @@ class RewardMenu {
             }
         }
         val rewards =
-            if (firstTime) levelData.rewards else ArrayList(levelData.rewards.filter { it.itemId != 0 && it.itemId !in 50..100 })
+            if (firstTime) ArrayList(levelData.rewards) else ArrayList(levelData.rewards.filter { it.itemId != 0 && it.itemId !in 50..100 })
         if ((levelData is WildBattleLevelData || levelData is BossBattleLevelData) && Random.nextInt(10) == 1) {
             rewards.add(BonusReward(Random.nextInt(150, 168), 1))
+        }
+        if (levelData.id == LevelMenu.TEAM_ROCKET_LEVEL && firstTime) {
+            rewards.add(BonusReward(47, 1))
+            rewards.add(BonusReward(48, 1))
+        }
+        if (levelData is LeaderLevelData && firstTime && levelData.id != LevelMenu.BROCK_LEVEL) {
+            rewards.add(BonusReward(8, activity.trainer!!.getMaxLevel() + 20))
         }
         val recyclerView = activity.findViewById<RecyclerView>(R.id.rewardRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
@@ -194,10 +234,11 @@ class RewardMenu {
         )
             activity.trainer!!.coins += 200
         else if (!firstTime
+            && !activity.hardMode
             && !activity.eliteMode
             && levelData.id != BattleFrontierMenu.FRONTIER_BRAIN_LEVEL_ID) {
             val coinsReward = levelData.rewards.find { it.itemId == 0 }
-            if (coinsReward != null && !activity.hardMode)
+            if (coinsReward != null)
                 activity.trainer!!.coins += coinsReward.quantity / 10
         }
         rewards.forEach {
@@ -258,7 +299,9 @@ class RewardMenu {
             )
         val backButton: Button = activity.findViewById(R.id.HOFBackButton)
         backButton.setOnClickListener {
-            activity.showCustomDialog(activity.getString(R.string.tutorial_post_game))
+            if (activity.trainer!!.progression < LevelMenu.ZAPDOS_LEVEL) {
+                activity.showCustomDialog(activity.getString(R.string.tutorial_post_game))
+            }
             activity.mainMenu.loadGameMenu(activity)
         }
     }

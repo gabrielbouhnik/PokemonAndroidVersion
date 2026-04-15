@@ -4,7 +4,11 @@ import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import com.pokemon.android.version.MainActivity
 import com.pokemon.android.version.R
+import com.pokemon.android.version.model.Pokemon
+import com.pokemon.android.version.model.item.HoldItem
 import com.pokemon.android.version.model.level.TrainerBattleLevelData
+import com.pokemon.android.version.model.move.pokemon.PokemonMove
+import com.pokemon.android.version.ui.LevelMenu
 import com.pokemon.android.version.utils.IAUtils
 import com.pokemon.android.version.utils.MoveUtils
 import java.io.InputStream
@@ -26,6 +30,70 @@ class TrainerBattle() : Battle() {
             trainerBattleLevelData.opponentTrainerData.first(),
             activity.gameDataService
         )
+        if (activity.hardMode) {
+            if (this.levelData.id == LevelMenu.ARCHER_LEVEL) {
+                opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 126})
+                (opponentTrainer.team as ArrayList<Pokemon>).add(
+                    1,
+                    activity.gameDataService.generatePokemonWithMoves(
+                        604, 57,//Eelektross
+                        listOf(
+                            activity.gameDataService.getMoveById(12),//THUNDERBOLT
+                            activity.gameDataService.getMoveById(31),//FLAMETHROWER
+                            activity.gameDataService.getMoveById(25),//ROCK SLIDE
+                            activity.gameDataService.getMoveById(66)//GIGA DRAIN
+                        ),
+                        HoldItem.LIFE_ORB
+                    ))
+            }
+            if (this.levelData.id == LevelMenu.GIOVANNI_LEVEL) {
+                (this.levelData as TrainerBattleLevelData).megaPokemonId = 115
+                opponentTrainer.team.forEach {
+                    if (it.data.id == 115) {
+                        it.heldItem = null
+                    }
+                }
+                (opponentTrainer.team as ArrayList<Pokemon>).add(
+                    activity.gameDataService.generatePokemonWithMoves(
+                        130, 57,//GYARADOS
+                        listOf(
+                            activity.gameDataService.getMoveById(136),//WATERFALL
+                            activity.gameDataService.getMoveById(27),//CRUNCH
+                            activity.gameDataService.getMoveById(125),//DRAGON DANCE
+                            activity.gameDataService.getMoveById(93)//EARTHQUAKE
+                        ),
+                        HoldItem.LEFTOVERS
+                    ))
+                opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 34})
+            }
+            if (this.levelData.id == LevelMenu.GIOVANNI_2_LEVEL) {
+                (this.levelData as TrainerBattleLevelData).megaPokemonId = 130
+                (opponentTrainer.team as ArrayList<Pokemon>).add(
+                    activity.gameDataService.generatePokemonWithMoves(
+                        472, 67,//GLISCOR
+                        listOf(
+                            activity.gameDataService.getMoveById(120),//THUNDER FANG
+                            activity.gameDataService.getMoveById(62),//POISON JAB
+                            activity.gameDataService.getMoveById(16),//WING ATTACK
+                            activity.gameDataService.getMoveById(93)//EARTHQUAKE
+                        ),
+                        HoldItem.TOXIC_ORB
+                    ))
+                (opponentTrainer.team as ArrayList<Pokemon>).add(
+                    activity.gameDataService.generatePokemonWithMoves(
+                        130, 67,//GYARADOS
+                        listOf(
+                            activity.gameDataService.getMoveById(136),//WATERFALL
+                            activity.gameDataService.getMoveById(27),//CRUNCH
+                            activity.gameDataService.getMoveById(125),//DRAGON DANCE
+                            activity.gameDataService.getMoveById(93)//EARTHQUAKE
+                        ),
+                        null
+                    ))
+                opponentTrainer.team = ArrayList(opponentTrainer.team.filter { it.data.id != 31 && it.data.id != 112})
+            }
+            opponentTrainer.team.forEach {it.trainer = this.opponentTrainer}
+        }
         this.opponent = this.opponentTrainer.getFirstPokemonThatCanFight()!!
         activity.trainer!!.updatePokedex(opponent)
     }
@@ -34,7 +102,7 @@ class TrainerBattle() : Battle() {
         opponent.recomputeStat()
         if (opponentTrainer.canStillBattle()) {
             opponent = if (opponentTrainer.iaLevel != 1 && pokemon.currentHP > 0)
-                IAUtils.getBestPokemonToSentAfterKo(pokemon, opponentTrainer.getTrainerTeam())!!
+                IAUtils.getBestPokemonToSentAfterKo(pokemon, opponentTrainer.getTrainerTeam(), battleField, opponentSide, playerSide)!!
             else
                 opponentTrainer.getFirstPokemonThatCanFight()!!
         }

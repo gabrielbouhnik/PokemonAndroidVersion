@@ -15,14 +15,17 @@ import com.pokemon.android.version.model.Pokemon
 import com.pokemon.android.version.model.battle.BattleFrontierArea
 import com.pokemon.android.version.model.battle.BattleFrontierBattle
 import com.pokemon.android.version.model.level.LeaderLevelData
+import com.pokemon.android.version.model.level.OpponentTrainerData
 import com.pokemon.android.version.utils.MoveUtils
+import kotlin.random.Random
 
 class BattleFrontierMenu {
     companion object {
         const val FRONTIER_BRAIN_LEVEL_ID = 99
+        val FORBIDDEN_POKEMON = listOf(144,145,146,150,151,243,244,245,251,719)
     }
 
-    var pokemonInfoMenu = PokemonInfoMenu(R.layout.battle_frontier_prep)
+    private var pokemonInfoMenu = PokemonInfoMenu(R.layout.battle_frontier_prep)
 
     fun loadPokemonInfoLayout(activity: MainActivity, pokemon: Pokemon, area: BattleFrontierArea) {
         activity.setContentView(R.layout.pokemon_info)
@@ -32,7 +35,11 @@ class BattleFrontierMenu {
             loadBattlePrepLayout(activity, area)
         }
         val itemTextView: TextView = activity.findViewById(R.id.heldItemTextView)
-        itemTextView.visibility = GONE
+        if (pokemon.heldItem != null) {
+            val itemName: String = pokemon.heldItem!!.heldItemToString()
+            itemTextView.text = "Item:\n${itemName}"
+        } else
+            itemTextView.visibility = GONE
         val useItemButton: Button = activity.findViewById(R.id.useItemButton)
         useItemButton.visibility = GONE
         val movesButton: Button = activity.findViewById(R.id.movesButton)
@@ -107,8 +114,13 @@ class BattleFrontierMenu {
             ) {
                 activity.mainMenu.levelMenu.loadLevelDescriptionMenu(activity,
                     activity.gameDataService.levels.find { it.id == 99 } as LeaderLevelData)
-            } else
-                activity.mainMenu.levelMenu.battleUI.startBattleFrontierBattle(activity, area)
+            } else {
+                var opponentTrainerData: OpponentTrainerData? = null
+                if (Random.nextInt(5) == 4) {
+                    opponentTrainerData = activity.gameDataService.battleFrontierTrainers.asSequence().shuffled().first()
+                }
+                activity.mainMenu.levelMenu.battleUI.startBattleFrontierBattle(activity, area, opponentTrainerData)
+            }
         }
     }
 
@@ -132,9 +144,9 @@ class BattleFrontierMenu {
                 val pokemonRecyclerView = activity.findViewById<RecyclerView>(R.id.pokemonsBattleTowerRecyclerView)
                 pokemonRecyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                 teamRecyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-                val pokemons = activity.trainer!!.pokemons.filter { it.level >= 50 }.map {
+                val pokemons = activity.trainer!!.pokemons.filter { it.level >= 50 && !FORBIDDEN_POKEMON.contains(it.data.id)}.map {
                     activity.gameDataService.generatePokemonWithMoves(it.data.id, 50, MoveUtils.getMoveList(it)
-                        .map { m -> m.move },null)
+                        .map { m -> m.move }, it.heldItem)
                 }.toMutableList()
                 val team = arrayListOf<Pokemon>()
                 val itemClickListener = View.OnClickListener {
@@ -159,14 +171,20 @@ class BattleFrontierMenu {
             }
         }
         val battleFactoryButton: Button = activity.findViewById(R.id.battleFactoryButton)
-        battleFactoryButton.setOnClickListener {
-            if (activity.trainer!!.battleFactoryProgression == null) {
-                activity.trainer!!.battleFactoryProgression = BattleFrontierProgression(
-                    0,
-                    BattleFrontierBattle.generateTrainerTeam(activity.gameDataService).toMutableList()
-                )
+        if (!activity.hardMode) {
+            battleFactoryButton.setOnClickListener {
+                if (activity.trainer!!.battleFactoryProgression == null) {
+                    activity.trainer!!.battleFactoryProgression = BattleFrontierProgression(
+                        0,
+                        BattleFrontierBattle.generateTrainerTeam(activity.gameDataService, activity.trainer!!).toMutableList()
+                    )
+                }
+                loadBattlePrepLayout(activity, BattleFrontierArea.BATTLE_FACTORY)
             }
-            loadBattlePrepLayout(activity, BattleFrontierArea.BATTLE_FACTORY)
+        } else {
+            battleFactoryButton.visibility = GONE
+            val battleFactoryTextView : TextView = activity.findViewById(R.id.battleFactoryTextView)
+            battleFactoryTextView.visibility = GONE
         }
     }
 }

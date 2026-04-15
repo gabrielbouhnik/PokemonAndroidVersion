@@ -1,6 +1,6 @@
 package com.pokemon.android.version.entity.level
 
-data class TrainerBattleLevelEntity(
+data class TrainerBattleLevelEntity (
     var id: Int,
     var name: String,
     var description: String,
@@ -15,4 +15,5 @@ data class TrainerBattleLevelEntity(
     var exp: Int,
     var mandatory: Boolean,
     var iaLevel: Int,
+    var megaPokemonId: Int
 )

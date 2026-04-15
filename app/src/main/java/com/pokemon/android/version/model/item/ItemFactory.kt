@@ -3,7 +3,6 @@ package com.pokemon.android.version.model.item
 import com.pokemon.android.version.entity.item.ItemsEntity
 import com.pokemon.android.version.model.move.Move
 import com.pokemon.android.version.utils.ItemUtils
-import kotlin.collections.ArrayList
 
 class ItemFactory {
     companion object {
@@ -13,9 +12,9 @@ class ItemFactory {
             var idx = 50
             ItemUtils.TM_MOVES_IDS.forEach {
                 idx++
-                res.add(ItemData.of(idx,moves[it - 1]))
+                res.add(ItemData.of(idx, moves[it - 1]))
             }
-            HoldItem.values().forEach{ res.add(ItemData(it.id, it.heldItemToString()))}
+            HoldItem.values().forEach { res.add(ItemData(it.id, it.heldItemToString(), it.description)) }
             res.sortBy { it.id }
             return res
         }

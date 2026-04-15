@@ -26,16 +26,22 @@ class SaveManager {
             if (trainerSave.pokedex != null)
                 trainerSave.pokedex!!.forEach { trainer.pokedex[it.id] = it.caught }
             trainer.coins = trainerSave.coins
-            if (trainer.name == PokedexMenu.ADMIN)
-                trainer.coins += 5000
             trainer.progression = trainerSave.progression
             trainer.eliteProgression = trainerSave.eliteProgression
-            trainerSave.items.forEach { trainer.items[it.itemId] = it.quantity }
+            trainerSave.items.forEach {
+                if (activity.gameDataService.getItemById(it.itemId) != null) {
+                    trainer.items[it.itemId] = it.quantity
+                }
+            }
             trainerSave.team.forEach {
                 val pokemon: Pokemon = Pokemon.of(it, activity.gameDataService, trainer)
                 trainer.pokemons.add(pokemon)
                 trainer.team.add(pokemon)
                 trainer.pokedex[it.id] = true
+            }
+            if (trainer.name == PokedexMenu.ADMIN) {
+                trainer.coins += 5000
+                trainer.addItem(8,90)
             }
             trainerSave.pokemons.forEach {
                 trainer.pokemons.add(Pokemon.of(it, activity.gameDataService, trainer))
@@ -43,6 +49,9 @@ class SaveManager {
             }
             if (trainerSave.lastTimeDailyHealUsed != null)
                 trainer.lastTimeDailyHealUsed =
+                    SimpleDateFormat("yyyy-MM-dd").parse(trainerSave.lastTimeDailyHealUsed!!)
+            if (trainerSave.lastFreeSummon != null)
+                trainer.lastFreeSummon =
                     SimpleDateFormat("yyyy-MM-dd").parse(trainerSave.lastTimeDailyHealUsed!!)
             if (trainerSave.eliteMode != null)
                 activity.eliteMode = trainerSave.eliteMode!!
